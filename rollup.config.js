@@ -19,21 +19,26 @@ const matchboxScope = function(localName, filePath) {
   const componentName = basename(filePath, '.css');
 
   const baseClass = prefix(componentName);
-  let className = localName;
+  let className = file[localName];
 
   console.log(localName, 'localName');
 
   if (className == null) {
     if (isComponent(localName)) {
 
+      // if the filename === name of the class
+      // use base class
+      // else, use child selector
       className = componentName === localName
         ? baseClass
         : child(baseClass, localName);
 
     } else if (isChild(localName)) {
+
       const [subcomponent, variation] = localName.split('-');
       const subcomponentName = child(baseClass, subcomponent);
       className = variation(subcomponentName, camelCase(variation));
+      
     } else {
       className = variation(baseClass, camelCase(localName));
     }
