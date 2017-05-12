@@ -3,6 +3,8 @@
 
 ## Usage
 ### 1. Installation
+This project isn't published publicly on NPM yet. To use it in its current state, `npm link` this repository into your react project.
+
 In your react project, run:
 ```bash
 npm install @sparkpost/matchbox --save
