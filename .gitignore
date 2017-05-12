@@ -7,8 +7,8 @@
 /coverage
 
 # production
-./index.js
-./styles.css
+/index.js
+/styles.css
 
 # misc
 .DS_Store
