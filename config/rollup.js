@@ -2,6 +2,8 @@
 
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
+import uglify from 'rollup-plugin-uglify';
+
 import cssPlugins from './css';
 
 export default {
@@ -16,6 +18,7 @@ export default {
       presets: [ [ 'es2015', { modules: false } ], 'react' ],
       plugins: [ 'external-helpers' ]
     }),
+    uglify()
   ],
   external: ['react'],
 };
