@@ -8,7 +8,7 @@
 
 # production
 ./index.js
-./styes.css
+./styles.css
 
 # misc
 .DS_Store
