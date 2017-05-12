@@ -15,7 +15,7 @@ const cache = {
 
 const matchboxScope = function(localName, filePath) {
   const file = cache.files[filePath] || {};
-  const componentName = basename(filePath, '.css');
+  const componentName = basename(filePath, '.scss');
 
   const baseClass = prefix(componentName);
   let className = file[localName];
