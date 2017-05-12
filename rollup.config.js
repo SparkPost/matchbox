@@ -1,11 +1,10 @@
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import postcssModules from 'postcss-modules';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer'
-
-const cssExportMap = {};
+import sass from 'node-sass';
 
 // Generate names
 import { basename } from 'path';
@@ -21,14 +20,11 @@ const matchboxScope = function(localName, filePath) {
   const baseClass = prefix(componentName);
   let className = file[localName];
 
-  console.log(localName, 'localName');
-
   if (className == null) {
     if (isComponent(localName)) {
 
       // if the filename === name of the class
-      // use base class
-      // else, use child selector
+      // use base class else, use child selector
       className = componentName === localName
         ? baseClass
         : child(baseClass, localName);
@@ -38,7 +34,7 @@ const matchboxScope = function(localName, filePath) {
       const [subcomponent, variation] = localName.split('-');
       const subcomponentName = child(baseClass, subcomponent);
       className = variation(subcomponentName, camelCase(variation));
-      
+
     } else {
       className = variation(baseClass, camelCase(localName));
     }
@@ -48,7 +44,7 @@ const matchboxScope = function(localName, filePath) {
   cache.files[filePath] = file;
 
   console.log('-------');
-  console.log(cache.files);
+  console.log(cache.files[filePath]);
 
   return className;
 }
@@ -63,7 +59,14 @@ const prefix = (className) => `Matcbox-${className}`;
 const child = (component, child) => `${component}__${child}`
 const variation = (component, variation) => `${component}--${variation}`
 
+// Sass
+const sassProcess = (content, id) => new Promise((resolve, reject) => {
+  const result = sass.renderSync({ file: id });
+  resolve({ code: result.css.toString() });
+});
+
 // Actual rollup config
+const cssExportMap = {};
 export default {
   entry: 'src/index.js',
   format: 'cjs',
@@ -71,6 +74,7 @@ export default {
   plugins: [
 
     postcss({
+      sassProcess,
       plugins: [
         postcssModules({
           getJSON (id, exportTokens) {
@@ -86,12 +90,13 @@ export default {
       },
       //sourceMap: false, // default value
       //extract: false, // default value
-      extensions: ['.css'],  // default value
-      extract: true
+      extensions: ['.scss'],  // default value
+      extract: './styles.css'
       // parser: sugarss
     }),
 
-    commonjs(),
+    // commonjs(),
+    resolve(),
 
     // ES6
     babel({
@@ -100,5 +105,6 @@ export default {
       presets: [ [ 'es2015', { modules: false } ], 'react' ],
       plugins: [ 'external-helpers' ]
     }),
-  ]
+  ],
+  external: ['react'],
 };
