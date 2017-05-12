@@ -37,3 +37,13 @@ const YourComponent = () => (
 );
 
 ```
+
+## Local Development
+[React Storybook](https://github.com/storybooks/storybook) is included for local development.
+```
+npm run storybook
+```
+Or
+```
+yarn storybook
+```
