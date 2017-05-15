@@ -1,11 +1,14 @@
 .Foo {
+  display: inline-block;
+  padding: 30px 90px;
   background: whitesmoke;
 }
 
 .Hello {
-  color: red;
+  color: #5a5a5a;
+  margin: 0;
 }
 
-.small {
-  font-size: 10px;
+.Hello-small {
+  font-size: 18px;
 }
