@@ -9,13 +9,13 @@ import scopeClasses from './scopeClasses';
 
 const cssExportMap = {};
 
-const sassProcess = (content, id) => new Promise((resolve, reject) => {
+const preprocessor = (content, id) => new Promise((resolve, reject) => {
   const result = sass.renderSync({ file: id });
   resolve({ code: result.css.toString() });
 });
 
 export default postcss({
-  sassProcess,
+  preprocessor,
   plugins: [
     postcssModules({
       getJSON (id, exportTokens) {

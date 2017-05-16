@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './Panel.scss';
 
-const Header = ({ title }) => <div className={styles.Header}><h4>{ title }</h4></div>;
+const Header = ({ title }) => <div className={styles.Header}><h4 className={styles.HeaderText}>{ title }</h4></div>;
 
 class Panel extends Component {
   render() {

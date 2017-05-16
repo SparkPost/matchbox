@@ -49,6 +49,5 @@ export default function(localName, filePath) {
 
   file[localName] = className;
   cache.files[filePath] = file;
-
   return className;
 }
