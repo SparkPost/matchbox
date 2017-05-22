@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Panel.scss';
+import styles from './Panel.module.scss';
 
 const Header = ({ title }) => <div className={styles.Header}><h4 className={styles.HeaderText}>{ title }</h4></div>;
 
@@ -9,7 +9,7 @@ class Panel extends Component {
 
     const headerMarkup = title ? <Header title={title}/> : null;
     const panelStyles = highlighted
-      ? `${styles.Panel} ${styles['Panel-accent']}`
+      ? `${styles.Panel} ${styles.accent}`
       : styles.Panel;
 
     return (

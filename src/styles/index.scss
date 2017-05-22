@@ -1,3 +1,7 @@
+// Global styles entry point, these are NOT BEM'ed
+
+@import 'vendor/normalize';
+
 body {
   margin: 0;
   padding: 0;
