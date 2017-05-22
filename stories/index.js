@@ -18,16 +18,20 @@ storiesOf('Welcome', module)
 storiesOf('Panel', module)
   .add('with a title', () => (
     <PaddingContainer>
-      <Panel title="Title">This is a panel with a title</Panel>
+      <Panel title="Title" sectioned>This is a panel with a title</Panel>
     </PaddingContainer>
   ))
   .add('highlighted with a title', () => (
     <PaddingContainer>
-      <Panel title="Title" highlighted={true}>This is a highlighted panel with a title</Panel>
+      <Panel title="Title" accent sectioned>This is a highlighted panel with a title</Panel>
     </PaddingContainer>
   ))
-  .add('without no props', () => (
+  .add('with multiple sections', () => (
     <PaddingContainer>
-      <Panel>This is a panel without title</Panel>
+      <Panel>
+        <Panel.Section>This is a panel with sections</Panel.Section>
+        <Panel.Section>This is a panel with sections</Panel.Section>
+        <Panel.Section>This is a panel with sections</Panel.Section>
+      </Panel>
     </PaddingContainer>
   ));

@@ -33,4 +33,9 @@
 
 .Body {
   padding: rem(18);
+  border-bottom: 1px solid color(gray, 9);
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
