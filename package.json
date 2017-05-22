@@ -23,6 +23,7 @@
     "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.24.1",
     "change-case": "^3.0.1",
+    "classnames": "^2.2.5",
     "css-loader": "^0.28.1",
     "cssnano": "^3.10.0",
     "fs-extra": "^3.0.1",

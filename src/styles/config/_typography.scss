@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+$font-family-map: (
+  base: #{'Gotham Narrow SSm A', 'Gotham Narrow SSm B', sans-serif},
+  monospace: #{'Source Code Pro', monospace}
+);
+
+// Returns a font family stack
+// @param {String} $font - The font family to use
+// @return {} The full font family stack
+
+@function font-family($font: base) {
+  $stack: map-get($font-family-map, $font);
+
+  @if type-of($stack) != null {
+    @return $stack;
+  } @else {
+    @error 'Font family `#{$font}` not found.';
+  }
+}
+
+$font-size-map: (
+  body: (
+    base: rem(15),
+  ),
+
+  heading: (
+    base: rem(21),
+  ),
+
+  subheading: (
+    base: rem(18),
+  ),
+);
+
+@function font-size($style, $variant: base) {
+  $style-map: map-get($font-size-map, $style);
+  $size: map-get($style-map, $variant);
+
+  @if type-of($size) != null {
+    @return $size;
+  } @else {
+    @error 'Font size `#{$font}` not found.';
+  }
+}
+
+@mixin text-style-body {
+  font-size: font-size(body);
+  font-weight: 300;
+  line-height: 1.4em;
+}
+
+@mixin text-style-heading {
+  font-size: font-size(heading);
+  font-weight: 600;
+  line-height: 1.3em;
+}
+
+@mixin text-style-subheading {
+  font-size: font-size(subheading);
+  font-weight: 600;
+  line-height: 1.3em;
+}

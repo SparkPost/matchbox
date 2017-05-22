@@ -1,9 +1,6 @@
-// Global styles entry point, these are NOT BEM'ed
-
+// Vendor CSS
 @import 'vendor/normalize';
+@import url("//cloud.typography.com/6240112/781206/css/fonts.css");
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+@import 'config'; // Includes utility functions, mixins, and variables - Does not output any CSS
+@import 'global'; // Includes baseline CSS

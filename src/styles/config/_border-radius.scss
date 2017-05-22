@@ -1,0 +1,12 @@
+$border-radius-map: (
+  base: 1px,
+  large: 3px
+);
+
+// Returns border radius in pixels
+// @param {String} $size - The border radius's size
+// @return {Number} The border radius pixel value
+
+@function border-radius($size: base) {
+  @return map-get($border-radius-map, $size);
+}
