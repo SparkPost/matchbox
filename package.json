@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/SparkPost/matchbox"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "babel-node scripts/build.js --presets=node6",
     "test": "node scripts/test.js --env=jsdom",
