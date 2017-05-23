@@ -1,10 +1,14 @@
 {
-  "name": "matchbox",
+  "name": "@sparkpost/matchbox",
   "version": "0.0.0",
   "description": "A design system",
   "main": "index.js",
   "author": "SparkPost",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SparkPost/matchbox"
+  },
   "scripts": {
     "build": "babel-node scripts/build.js --presets=node6",
     "test": "node scripts/test.js --env=jsdom",
