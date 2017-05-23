@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot tests Panel will render correctly with all options 1`] = `
+<div
+  className=""
+>
+  <div
+    className={undefined}
+  >
+    <h4
+      className={undefined}
+    >
+      title
+    </h4>
+  </div>
+  <div
+    className={undefined}
+  >
+    Foo
+  </div>
+</div>
+`;
+
+exports[`snapshot tests Panel will render correctly with sections 1`] = `
+<div
+  className=""
+>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      Foo
+    </div>
+    <div
+      className={undefined}
+    >
+      Bar
+    </div>
+  </div>
+</div>
+`;

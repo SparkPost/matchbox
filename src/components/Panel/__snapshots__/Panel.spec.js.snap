@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`snapshot tests Panel will render correctly with all options 1`] = `
-<div
-  className=""
->
-  Foo
-</div>
-`;
