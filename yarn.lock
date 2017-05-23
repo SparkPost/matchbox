@@ -4212,6 +4212,12 @@ react-simple-di@^1.2.0:
     babel-runtime "6.x.x"
     hoist-non-react-statics "1.x.x"
 
+react-storybook-addon-backgrounds@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/react-storybook-addon-backgrounds/-/react-storybook-addon-backgrounds-0.0.7.tgz#588348ef8d730c2d3da784aab2e3cdf8cc9103d0"
+  dependencies:
+    object-assign "^4.1.0"
+
 react-stubber@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-stubber/-/react-stubber-1.0.0.tgz#41ee2cac72d4d4fd70a63896da98e13739b84628"

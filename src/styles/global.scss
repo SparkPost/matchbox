@@ -1,3 +1,5 @@
+@import 'vendor/normalize';
+
 html {
   position: relative;
   box-sizing: border-box;
@@ -20,7 +22,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
-  margin-bottom: rem(18);
+  margin-bottom: spacing(base);
   font-size: 1em;
 
   text-rendering: optimizeLegibility;
@@ -44,11 +46,12 @@ p {
 }
 
 code, pre {
+  font-family: font-family(monospace);
 }
 
 ul,ol,dd,
 figure,
 pre,table,fieldset,hr {
   margin-top: 0;
-  margin-bottom: rem(18);
+  margin-bottom: spacing();
 }

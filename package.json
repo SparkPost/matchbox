@@ -33,6 +33,7 @@
     "node-sass": "^4.5.2",
     "postcss-modules": "^0.7.0",
     "postcss-modules-scope": "^1.0.2",
+    "react-storybook-addon-backgrounds": "^0.0.7",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",

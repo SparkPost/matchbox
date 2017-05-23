@@ -1,0 +1,24 @@
+$spacing-base: 3;
+
+$spacing-map: (
+  none    : 0,
+  smaller : rem($spacing-base),
+  small   : rem($spacing-base * 2),
+  base    : rem($spacing-base * 6),
+  large   : rem($spacing-base * 8),
+  larger  : rem($spacing-base * 9)
+);
+
+// Returns the spacing value for a given variant.
+// @param {String} $variant - The key for the given variant.
+// @return {Number} The spacing for the variant in rems.
+
+@function spacing($variant: base) {
+  $space: map-get($spacing-map, $variant);
+
+  @if type-of($space) == number {
+    @return $space;
+  } @else {
+    @error 'Spacing variant `#{$variant}` not found.';
+  }
+}
