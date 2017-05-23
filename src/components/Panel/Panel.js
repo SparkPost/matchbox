@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 
 import styles from './Panel.module.scss';
 
