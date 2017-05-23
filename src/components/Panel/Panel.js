@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
+
 import styles from './Panel.module.scss';
 
-const Header = ({ title }) => <div className={styles.Header}><h4 className={styles.HeaderText}>{ title }</h4></div>;
+const Header = ({ title }) => (
+    <div className={styles.Header}><h4 className={styles.HeaderText}>{ title }</h4></div>
+);
+
+const Section = ({ children }) => (
+    <div className={styles.Body}>{ children }</div>
+);
 
 class Panel extends Component {
-  render() {
-    const { children, title, highlighted } = this.props;
+  static Section = Section;
 
-    const headerMarkup = title ? <Header title={title}/> : null;
-    const panelStyles = highlighted
-      ? `${styles.Panel} ${styles.accent}`
-      : styles.Panel;
+  render() {
+    const {
+      children,
+      title,
+      accent,
+      depth,
+      sectioned
+    } = this.props;
+
+    const headerMarkup = title
+      ? <Header title={title}/>
+      : null;
+
+    const contentMarkup = sectioned
+      ? <Section>{children}</Section>
+      : children;
+
+    const panelStyles = classnames(styles.Panel, accent && styles.accent);
 
     return (
       <div className={panelStyles}>
         { headerMarkup }
-        <div className={styles.Body}>
-          { children }
-        </div>
+        { contentMarkup }
       </div>
     );
   }

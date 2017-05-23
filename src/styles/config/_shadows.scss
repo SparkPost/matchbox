@@ -1,0 +1,19 @@
+$shadow-map: (
+  base   : 0px 1px 2px rgba(#414146, 0.1),
+  deep   : 0px 5px 9px rgba(#414146, 0.14),
+  deeper : 0px 10px 30px rgba(#414146, 0.16)
+);
+
+// Returns a box shadow property value
+// @param {String} $depth - The shadow's depth variant
+// @return {List} The shadow value
+
+@function shadow($depth: base) {
+  $shadow: map-get($shadow-map, $depth);
+
+  @if type-of($shadow) == list {
+    @return $shadow;
+  } @else {
+    @error 'Shadow variant `#{$depth}` not found.';
+  }
+}
