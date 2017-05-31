@@ -1,0 +1,88 @@
+@import '../../styles/config';
+
+.Button {
+  padding: spacing(small) spacing();
+  border: none;
+  margin-bottom: spacing();
+
+  border-radius: border-radius();
+
+  font-size: rem(15);
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition: 0.15s;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Default button styling
+
+  background: linear-gradient(180deg, color(gray, 9), darken(color(gray, 9), 4));
+  border: 1px solid color(gray, 7);
+  color: color(gray, 2);
+  box-shadow: shadow();
+
+  &:hover, &:active {
+    outline: 0;
+    background: linear-gradient(180deg, darken(color(gray, 9), 4), darken(color(gray, 9), 4));
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: shadow(), inset 0px 3px 4px 0px rgba(color(gray, 2), 0.1);
+  }
+}
+
+// Primary Styles
+.primary {
+  background: linear-gradient(180deg, color(orange), color(orange, dark));
+  color: color(gray, 10);
+  border: 1px solid darken(color(orange), 12);
+
+  &:hover, &:active {
+    background: linear-gradient(180deg, darken(color(orange, dark), 3), darken(color(orange, dark), 3));
+  }
+
+  &:focus {
+    outline: auto;
+  }
+}
+
+// Destructive Styles
+.destructive {
+  color: color(red, darker);
+}
+
+// Plain Styles
+.plain {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  color: color(orange);
+
+  &:hover, &:active {
+    background: color(gray, 9);
+    box-shadow: none;
+  }
+  &:focus {
+    color: darken(color(orange, dark), 6);
+    box-shadow: none;
+  }
+}
+
+// Sizing
+.small {
+  padding: spacing(small) spacing();
+  font-size: rem(14);
+  line-height: rem(15);
+}
+
+.large {
+  padding: spacing(small) spacing(large);
+  line-height: rem(27);
+  // font-size: rem(18);
+}
