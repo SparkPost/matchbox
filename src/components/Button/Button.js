@@ -10,7 +10,6 @@ const Button = ({
   primary,      // Main button style
   disabled,
   destructive,  // Red
-  // outline,      // "Ghost button"
   plain,        // Button that looks like an inline link
 
   // Options

@@ -19,11 +19,14 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@storybook/react": "^3.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
+    "@storybook/addon-knobs": "^3.0.0",
+    "@storybook/addon-options": "^3.0.0",
+    "@storybook/react": "3.0.0",
     "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -40,7 +43,6 @@
     "node-sass": "^4.5.2",
     "postcss-modules": "^0.7.0",
     "postcss-modules-scope": "^1.0.2",
-    "react-storybook-addon-backgrounds": "^0.0.7",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",

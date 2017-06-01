@@ -1,18 +1,17 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
-import backgrounds from 'react-storybook-addon-backgrounds';
-import { bgColors, StoryContainer } from './helpers';
+import { storiesOf, action, linkTo } from '@storybook/react';
+import { grayBg, StoryContainer } from './helpers';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import Welcome from './Welcome';
 import { Panel } from '../src';
-import ButtonStories from './Button';
 
-storiesOf('Welcome', module)
+storiesOf('Welcome', module).addDecorator(withKnobs)
   .add('to Storybook', () => (
-    <StoryContainer><Welcome showApp={linkTo('Panel')}/></StoryContainer>
+    <Welcome showApp={linkTo('Panel')}/>
   ));
 
-storiesOf('Panel', module).addDecorator(backgrounds(bgColors))
+storiesOf('Panel', module)
   .add('with a title', () => (
     <StoryContainer>
       <Panel title="Title" sectioned>This is a panel with a title</Panel>

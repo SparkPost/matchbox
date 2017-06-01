@@ -1,2 +1,3 @@
-import '@kadira/storybook/addons';
-import 'react-storybook-addon-backgrounds/register';
+import '@storybook/react/addons';
+import '@storybook/addon-knobs/register'
+import '@storybook/addon-options/register';
