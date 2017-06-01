@@ -4,6 +4,7 @@ import { setOptions } from '@storybook/addon-options';
 function loadStories() {
   require('../stories');
   require('../stories/Button');
+  require('../stories/TextField');
 }
 
 setOptions({

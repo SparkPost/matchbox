@@ -7,9 +7,9 @@ const Button = ({
   children,
 
   // Styles
-  primary,      // Main button style
+  primary,
   disabled,
-  destructive,  // Red
+  destructive,
   plain,        // Button that looks like an inline link
 
   // Options
@@ -21,7 +21,7 @@ const Button = ({
   LinkComponent,  // override component used, eg. react-routers <Link/>
   externalTo,     // changes to <a>, outputs target=_blank
 
-  // Callbacks
+  // Events
   onClick,
   onFocus,
   onBlur
