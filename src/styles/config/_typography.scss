@@ -45,7 +45,7 @@ $font-size-map: (
 @mixin text-style-body {
   font-size: font-size(body);
   font-weight: 400;
-  line-height: 1.4em;
+  line-height: 1.8em;
 }
 
 @mixin text-style-heading {

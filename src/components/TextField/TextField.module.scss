@@ -1,9 +1,60 @@
 @import '../../styles/config';
 
 .Fieldset {
+  position: relative;
   border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
 }
 
-.Input {
-  
+.error {
+  .TextField {
+    border: 1px solid color(red);
+    background: rgba(color(red, dark), 0.06);
+  }
+}
+
+.TextField {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+
+  padding: rem(9) spacing();
+
+  outline: none;
+  border: 1px solid color(gray, 7);
+  border-radius: border-radius();
+
+  color: color(gray, 1);
+  font-weight: 400;
+  font-size: rem(15);
+  line-height: 1.5em;
+
+  transition: border 0.15s;
+
+  &:hover {
+    // border: 1px solid color(gray, 5);
+  }
+
+  &:focus {
+    border: 1px solid color(blue);
+    box-shadow: 0 0 0 1px color(blue);
+  }
+}
+
+.Label {
+  display: block;
+  margin-bottom: spacing(small);
+  font-weight: 400;
+  font-size: rem(13);
+  color: color(gray, 2);
+};
+
+
+.Error {
+  padding-top: spacing(small);
+  font-size: rem(13);
+  font-weight: 500;
+  color: color(red, dark);
 }

@@ -5,6 +5,8 @@ function loadStories() {
   require('../stories');
   require('../stories/Button');
   require('../stories/TextField');
+  require('../stories/Panel');
+  require('../stories/Table');
 }
 
 setOptions({

@@ -18,7 +18,7 @@ const Button = ({
   submit,     // boolean, chages type to submit
 
   internalTo,     // internal url
-  LinkComponent,  // override component used, eg. react-routers <Link/>
+  linkComponent,  // override component used, eg. react-routers <Link/>
   externalTo,     // changes to <a>, outputs target=_blank
 
   // Events
@@ -57,7 +57,7 @@ const Button = ({
   // Considering not supporting this at all and just forcing an onClick
   if (internalTo && LinkComponent) {
     return (
-      <LinkComponent
+      <linkComponent
         to={to}
         onClick={onClick}
         onFocus={onFocus}
@@ -67,7 +67,7 @@ const Button = ({
         onMouseUp={handleMouseUp}
         >
         { children }
-      </LinkComponent>
+      </linkComponent>
     );
   }
 
