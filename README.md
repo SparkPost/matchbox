@@ -3,7 +3,6 @@
 
 ## Usage
 ### 1. Installation
-This project isn't published publicly on NPM yet. To use it in its current state, `npm link` this repository into your react project.
 
 In your react project, run:
 ```bash
@@ -15,35 +14,36 @@ yarn add @sparkpost/matchbox
 ```
 
 ### 2. Include Styles
-Import the CSS directly if your project's tooling supports it:
+There are multiple ways to use Matchbox's styles. If you want to import everything as css use:
 ```css
 @import '@sparkpost/matchbox/styles.css'
 ```
-Or, include the CSS in your HTML
-```html
-<link rel="stylesheet" href="TODO CDN link?">
+
+If you want to pull in the Sass and global reset separately, you can use:
+```css
+@import '~@sparkpost/matchbox/src/config.scss';
+@import '~@sparkpost/matchbox/src/global.scss';
 ```
+`config` does not output any CSS, and only holds functions and mixins, while `global` includes a baseline styles reset. 
 
 
 ### 3. Use the React components
+Usage docs coming soon!
 ```js
 import React from ‘react’;
-import { Foo } from '@sparkpost/matchbox';
+import { Panel } from '@sparkpost/matchbox';
 
 const YourComponent = () => (
- <div>
-  <Foo></Foo>
- </div>
+ <Panel accent title='Hey!'>
+  <Panel.Section>
+    Section Content
+  </Panel.Section>
+ </Panel>
 );
-
 ```
 
 ## Local Development
 [React Storybook](https://github.com/storybooks/storybook) is included for local development.
-```
-npm run storybook
-```
-Or
 ```
 yarn storybook
 ```
