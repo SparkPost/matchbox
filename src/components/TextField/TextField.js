@@ -28,7 +28,7 @@ class TextField extends Component {
     } = this.props;
 
     const setClasses = classnames(
-      styles.Fieldset,
+      styles.TextField,
       error && styles.error,
       prefix && styles.prefix,
       suffix && styles.suffix
@@ -55,8 +55,8 @@ class TextField extends Component {
       placeholder,
       onFocus,
       onBlur,
-      className: styles.TextField,
-      // onChange: this.handleChange,
+      onChange: onChange,
+      className: styles.Input,
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':

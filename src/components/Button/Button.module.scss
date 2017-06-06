@@ -15,6 +15,9 @@
 
   transition: 0.15s;
 
+  text-decoration: none;
+  line-height: rem(19);
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -117,4 +120,9 @@
 .large {
   padding: spacing(small) spacing(large);
   line-height: rem(27);
+}
+
+.fullWidth {
+  display: block;
+  width: 100%;
 }

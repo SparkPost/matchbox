@@ -1,0 +1,13 @@
+@import '../../styles/config';
+
+.Table {
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid color(gray, 9);
+  }
+
+  td {
+    padding: spacing();
+  }
+}

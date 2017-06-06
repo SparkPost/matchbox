@@ -17,9 +17,9 @@ const Button = ({
   fullWidth,  // boolean
   submit,     // boolean, chages type to submit
 
-  internalTo,     // internal url
-  linkComponent,  // override component used, eg. react-routers <Link/>
-  externalTo,     // changes to <a>, outputs target=_blank
+  to,         // internal url
+  Component,  // override component used, eg. react-routers <Link/>
+  external,   // changes to <a>, outputs target=_blank
 
   // Events
   onClick,
@@ -37,10 +37,10 @@ const Button = ({
     size && styles[`${size}`]
   );
 
-  if (externalTo) {
+  if (to && external) {
     return (
       <a
-        href={externalTo}
+        href={to}
         target='_blank'
         onClick={onClick}
         onFocus={onFocus}
@@ -54,10 +54,9 @@ const Button = ({
     );
   }
 
-  // Considering not supporting this at all and just forcing an onClick
-  if (internalTo && LinkComponent) {
+  if (to && Component) {
     return (
-      <linkComponent
+      <Component
         to={to}
         onClick={onClick}
         onFocus={onFocus}
@@ -67,7 +66,7 @@ const Button = ({
         onMouseUp={handleMouseUp}
         >
         { children }
-      </linkComponent>
+      </Component>
     );
   }
 

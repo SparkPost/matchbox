@@ -1,6 +1,6 @@
 @import '../../styles/config';
 
-.Fieldset {
+.TextField {
   position: relative;
   border: none;
   padding: 0;
@@ -8,13 +8,13 @@
 }
 
 .error {
-  .TextField {
+  .Input {
     border: 1px solid color(red);
     background: rgba(color(red, dark), 0.06);
   }
 }
 
-.TextField {
+.Input {
   position: relative;
   display: block;
   box-sizing: border-box;
