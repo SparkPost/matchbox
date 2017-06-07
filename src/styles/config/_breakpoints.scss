@@ -1,0 +1,21 @@
+$breakpoints-map: (
+  smaller: 450px,   // 30em,
+  small:   720px,   // 48em,
+  medium:  960px,   // 64em,
+  large:   1200px,  // 80em,
+  larger:  1470px   // 98em,
+);
+
+// Returns a breakpoint pixel value
+// @param {String} $size - The breakpoint size
+// @return {Number} The breakpoint pixel value
+
+@function breakpoint($size) {
+  $value: map-get($breakpoints-map, $size);
+
+  @if type-of($value) != null {
+    @return $value;
+  } @else {
+    @error 'Breakpoint size `#{$size}` not found.';
+  }
+}
