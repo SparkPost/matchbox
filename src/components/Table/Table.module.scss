@@ -1,13 +1,22 @@
 @import '../../styles/config';
 
 .Table {
+  position: relative;
+  text-align: left;
   width: 100%;
 
-  tr {
-    border-bottom: 1px solid color(gray, 9);
-  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  td {
-    padding: spacing();
+.Cell, .HeaderCell {
+  padding: rem(15) spacing();
+}
+
+.Row {
+  border-bottom: 1px solid color(gray, 8);
+
+  &:last-of-type {
+    border-bottom: none;
   }
 }

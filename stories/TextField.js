@@ -25,4 +25,14 @@ export default storiesOf('TextField', module).addDecorator(withKnobs)
         error='You forgot your name!'
       />
     </StoryContainer>
-  ));;
+  ))
+
+  .add('multiline', () => (
+    <StoryContainer bg='white'>
+      <TextField
+        id='id'
+        label='Your Message'
+        multiline
+      />
+    </StoryContainer>
+  ));
