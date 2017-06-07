@@ -10,7 +10,7 @@ export default [
     babelrc: false,
     exclude: 'node_modules/**',
     presets: [ [ 'es2015', { modules: false } ], 'react' ],
-    plugins: [ 'external-helpers', 'transform-class-properties' ]
+    plugins: [ 'external-helpers', 'transform-object-rest-spread', 'transform-class-properties' ]
   }),
   uglify()
 ];

@@ -32,6 +32,9 @@ class TextField extends Component {
       onChange,
       onFocus,
       onBlur,
+
+      value = '',
+      ...rest,
     } = this.props;
 
     const setClasses = classnames(
@@ -53,6 +56,7 @@ class TextField extends Component {
       : null;
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {
+      ...rest,
       name,
       id,
       type,
@@ -62,6 +66,8 @@ class TextField extends Component {
       placeholder,
       onFocus,
       onBlur,
+      value,
+
       onChange: onChange,
       className: styles.Input,
       // 'aria-describedby':
