@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './Panel.module.scss';
 
 const Header = ({ title }) => (
-    <div className={styles.Header}><h4 className={styles.HeaderText}>{ title }</h4></div>
+    <div className={styles.Header}><h2 className={styles.HeaderText}>{ title }</h2></div>
 );
 
 const Section = ({ children }) => (

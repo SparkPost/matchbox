@@ -14,9 +14,9 @@
 }
 
 .Row {
-  border-bottom: 1px solid color(gray, 8);
+  border-bottom: 1px solid color(gray, 9);
 
-  &:last-of-type {
+  &:last-of-type:not(:first-of-type) {
     border-bottom: none;
   }
 }

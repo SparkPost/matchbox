@@ -1,7 +1,7 @@
 @import '../../styles/config';
 
 .Button {
-  padding: spacing(small) spacing();
+  padding: rem(5) rem(12);
   border: none;
   margin-bottom: 0;
 
@@ -16,7 +16,7 @@
   transition: 0.15s;
 
   text-decoration: none;
-  line-height: rem(19);
+  line-height: rem(24);
 
   &:last-child {
     margin-bottom: 0;
@@ -112,14 +112,12 @@
 
 // Sizing
 .small {
-  padding: spacing(small) spacing();
+  padding: rem(3) rem(9);
   font-size: rem(14);
-  line-height: rem(15);
 }
 
 .large {
-  padding: spacing(small) spacing(large);
-  line-height: rem(27);
+  padding: rem(9) rem(15);
 }
 
 .fullWidth {

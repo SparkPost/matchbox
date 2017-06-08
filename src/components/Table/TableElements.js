@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './Table.module.scss';
 
-export const Cell = ({ value, children }) => (
-  <td className={styles.Cell}>{ value || children }</td>
+export const Cell = ({ value, children, ...rest }) => (
+  <td className={styles.Cell} {...rest}>{ value || children }</td>
 );
 
-export const HeaderCell = ({ value, children }) => (
-  <th className={styles.HeaderCell}>{ value || children }</th>
+export const HeaderCell = ({ value, children, ...rest }) => (
+  <th className={styles.HeaderCell} {...rest}>{ value || children }</th>
 );
 
 export const Row = ({ rowData, children }) => (
