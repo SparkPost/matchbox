@@ -33,7 +33,6 @@ class TextField extends Component {
       onFocus,
       onBlur,
 
-      value = '',
       ...rest,
     } = this.props;
 
@@ -66,9 +65,7 @@ class TextField extends Component {
       placeholder,
       onFocus,
       onBlur,
-      value,
-
-      onChange: onChange,
+      onChange,
       className: styles.Input,
       // 'aria-describedby':
       // 'aria-labelledby':
