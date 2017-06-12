@@ -1,19 +1,5 @@
 @import '../../styles/config';
 
-.TextField {
-  position: relative;
-  border: none;
-  padding: 0;
-  margin: 0 0 spacing() 0;
-}
-
-.error {
-  .Input {
-    border: 1px solid color(red);
-    background: rgba(color(red, dark), 0.06);
-  }
-}
-
 .Input {
   position: relative;
   display: block;
@@ -43,19 +29,7 @@
   }
 }
 
-.Label {
-  display: block;
-  margin-bottom: spacing(small);
-  font-weight: 400;
-  font-size: rem(13);
-  line-height: rem(15);
-  color: color(gray, 2);
-};
-
-
-.Error {
-  padding-top: spacing(small);
-  font-size: rem(13);
-  font-weight: 500;
-  color: color(red, dark);
+.error {
+  border: 1px solid color(red);
+  background: rgba(color(red, dark), 0.06);
 }

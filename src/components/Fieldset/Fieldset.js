@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import styles from './TextField.module.scss';
+import styles from './Fieldset.module.scss';
 
-const Label = ({
+export const Fieldset = ({ children }) => (
+  <div className={styles.Fieldset}>
+    { children }
+  </div>
+);
+
+export const Error = ({ error }) => (
+  <div className={styles.Error}>
+    { error }
+  </div>
+);
+
+export const Label = ({
   label,
   id,
   labelHidden
@@ -17,5 +29,3 @@ const Label = ({
     </label>
   );
 };
-
-export default Label;

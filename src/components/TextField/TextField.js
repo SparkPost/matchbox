@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Label from './Label';
-import Error from './Error';
+import { Fieldset, Label, Error } from '../Fieldset';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
@@ -38,7 +37,6 @@ class TextField extends Component {
 
     const setClasses = classnames(
       styles.TextField,
-      error && styles.error,
       prefix && styles.prefix,
       suffix && styles.suffix
     );
@@ -66,18 +64,18 @@ class TextField extends Component {
       onFocus,
       onBlur,
       onChange,
-      className: styles.Input,
+      className: classnames(styles.Input, error && styles.error)
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
     });
 
     return (
-      <fieldset className={setClasses}>
+      <Fieldset className={setClasses}>
         { labelMarkup }
         { input }
         { errorMarkup }
-      </fieldset>
+      </Fieldset>
     );
   }
 };
