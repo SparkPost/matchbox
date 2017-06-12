@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import styles from './Button.module.scss';
@@ -105,5 +106,22 @@ export function buttonFrom({ content, ...action }, overrides, key) {
     />
   );
 }
+
+Button.propTypes = {
+  primary: PropTypes.bool,
+  disabled: PropTypes.bool,
+  destructive: PropTypes.bool,
+  plain: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'large', 'default']),
+  fullWidth: PropTypes.bool,
+  submit: PropTypes.bool,
+  to: PropTypes.string,
+  Component: PropTypes.element,
+  external: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+};
 
 export default Button;
