@@ -12,10 +12,8 @@
   &:before {
     display: block;
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+
+
     background: color(orange);
     height: 3px;
     border-radius: border-radius() border-radius() 0 0;
@@ -30,6 +28,7 @@
 
 .HeaderText {
   font-size: rem(18);
+  line-height: rem(30);
   margin: 0;
 }
 
@@ -40,4 +39,8 @@
   &:last-child {
     border-bottom: none;
   }
+}
+
+.Actions {
+  float: right;
 }
