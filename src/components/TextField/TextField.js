@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Fieldset, Label, Error } from '../Fieldset';
+import { Label } from '../Label';
+import { Error } from '../Error';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
@@ -38,14 +39,14 @@ class TextField extends Component {
     const setClasses = classnames(
       styles.TextField,
       prefix && styles.prefix,
-      suffix && styles.suffix
+      suffix && styles.suffix,
+      error && styles.error
     );
 
-    const labelMarkup = label
+    const labelMarkup = label && !labelHidden
       ? <Label
           id={id}
-          label={label}
-          labelHidden={labelHidden} />
+          label={label} />
       : null;
 
     const errorMarkup = error
@@ -64,18 +65,18 @@ class TextField extends Component {
       onFocus,
       onBlur,
       onChange,
-      className: classnames(styles.Input, error && styles.error)
+      className: styles.Input
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
     });
 
     return (
-      <Fieldset className={setClasses}>
+      <fieldset className={setClasses}>
         { labelMarkup }
         { input }
         { errorMarkup }
-      </Fieldset>
+      </fieldset>
     );
   }
 };

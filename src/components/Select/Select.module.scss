@@ -1,19 +1,7 @@
 @import '../../styles/config';
 
-
-.TextField {
-  position: relative;
-  border: none;
-  padding: 0;
-  margin: 0 0 spacing() 0;
-}
-
-.error .Input {
-  border: 1px solid color(red);
-  background: rgba(color(red, dark), 0.06);
-}
-
-.Input {
+.Select {
+  -webkit-appearance: none;
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -24,6 +12,7 @@
   outline: none;
   border: 1px solid color(gray, 7);
   border-radius: border-radius();
+  background: color(gray, 10);
 
   color: color(gray, 1);
   font-weight: 400;
@@ -40,4 +29,9 @@
     border: 1px solid color(blue);
     box-shadow: 0 0 0 1px color(blue);
   }
+}
+
+.error {
+  border: 1px solid color(red);
+  background: rgba(color(red, dark), 0.06);
 }
