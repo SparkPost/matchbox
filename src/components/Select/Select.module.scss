@@ -1,6 +1,13 @@
 @import '../../styles/config';
 
 .Select {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
+}
+
+.Input {
   -webkit-appearance: none;
   position: relative;
   display: block;

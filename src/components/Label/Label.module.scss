@@ -1,1 +1,10 @@
 @import '../../styles/config';
+
+.Label {
+  display: block;
+  margin-bottom: spacing(small);
+  font-weight: 400;
+  font-size: rem(13);
+  line-height: rem(15);
+  color: color(gray, 2);
+};

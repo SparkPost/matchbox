@@ -6,6 +6,16 @@ import { StoryContainer } from './helpers';
 import { Select } from '../src';
 
 const options = ['Foo', 'Bar', 'Baz'];
+const options2 = [
+  {
+    value: '1',
+    label: 'One',
+  },
+  {
+    value: '2',
+    label: 'Two',
+  }
+];
 
 export default storiesOf('Select', module).addDecorator(withKnobs)
 

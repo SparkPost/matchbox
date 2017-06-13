@@ -4,6 +4,12 @@ import { Error } from '../Error';
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
+const Option = ({ option }) => {
+  if (typeof option === 'string') {
+    return <option value={option}>{ option }</option>
+  }
+  return <option value={option.value}>{ option.label }</option>
+};
 
 class Select extends Component {
   render() {
@@ -12,19 +18,24 @@ class Select extends Component {
       options,
       label,
       labelHidden,
+      placeholder,
       error,
       ...rest,
     } = this.props;
 
+    const setClasses = classnames(
+      styles.Select,
+      error && styles.error
+    );
+
     const optionMarkup = options && options.length
-          ? options.map((option, key) => <option>{option}</option>)
+          ? options.map((option, key) => <Option option={option} key={key} />)
           : null;
 
-    const labelMarkup = label
+    const labelMarkup = label && !labelHidden
       ? <Label
           id={id}
-          label={label}
-          labelHidden={labelHidden} />
+          label={label} />
       : null;
 
     const errorMarkup = error
@@ -32,11 +43,15 @@ class Select extends Component {
       : null;
 
     return (
-      <select
-        className={styles.Select}
-        {...rest} >
-        { optionMarkup }
-      </select>
+      <fieldset className={setClasses}>
+        { labelMarkup }
+        <select
+          className={styles.Input}
+          {...rest} >
+          { optionMarkup }
+        </select>
+        { errorMarkup }
+      </fieldset>
     );
   }
 };
