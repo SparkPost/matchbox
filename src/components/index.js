@@ -3,5 +3,6 @@ export * from './Button';
 export * from './TextField';
 export * from './Select';
 export * from './Table';
+export * from './ProgressBar';
 // export * from './Label';
 // export * from './Error';

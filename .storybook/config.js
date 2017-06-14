@@ -8,6 +8,7 @@ function loadStories() {
   require('../stories/Select');
   require('../stories/Panel');
   require('../stories/Table');
+  require('../stories/ProgressBar');
 }
 
 setOptions({
