@@ -7,6 +7,11 @@
   margin: 0 0 spacing() 0;
 }
 
+.error .Input {
+  border: 1px solid color(red);
+  background: rgba(color(red, dark), 0.06);
+}
+
 .Input {
   -webkit-appearance: none;
   position: relative;
@@ -38,7 +43,6 @@
   }
 }
 
-.error {
-  border: 1px solid color(red);
-  background: rgba(color(red, dark), 0.06);
-}
+// .placeholder {
+//   color: color(gray, 5);
+// }

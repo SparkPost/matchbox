@@ -7,8 +7,9 @@ import styles from './Select.module.scss';
 const Option = ({ option }) => {
   if (typeof option === 'string') {
     return <option value={option}>{ option }</option>
+  } else {
+    return <option value={option.value}>{ option.label }</option>
   }
-  return <option value={option.value}>{ option.label }</option>
 };
 
 class Select extends Component {
@@ -19,6 +20,7 @@ class Select extends Component {
       label,
       labelHidden,
       placeholder,
+      disabled,
       error,
       ...rest,
     } = this.props;
@@ -28,9 +30,14 @@ class Select extends Component {
       error && styles.error
     );
 
+    const inputClasses = classnames(
+      styles.Input,
+      disabled && styles.disabled
+    );
+
     const optionMarkup = options && options.length
-          ? options.map((option, key) => <Option option={option} key={key} />)
-          : null;
+      ? options.map((option, key) => <Option option={option} key={key} />)
+      : null;
 
     const labelMarkup = label && !labelHidden
       ? <Label
@@ -42,12 +49,18 @@ class Select extends Component {
       ? <Error error={error} />
       : null;
 
+    const placeholderOption = placeholder
+      ? <option label={placeholder} value='placeholder' disabled />
+      : null;
+
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
         <select
-          className={styles.Input}
+          className={inputClasses}
+          defaultValue='placeholder'
           {...rest} >
+          { placeholderOption }
           { optionMarkup }
         </select>
         { errorMarkup }

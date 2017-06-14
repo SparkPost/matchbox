@@ -25,7 +25,19 @@ export default storiesOf('Select', module).addDecorator(withKnobs)
         id='id'
         label='Name'
         placeholder='Leslie Knope'
-        options={options}
+        disabled
+        options={options2}
+      />
+    </StoryContainer>
+  ))
+
+  .add('with an error', () => (
+    <StoryContainer bg='white'>
+      <Select
+        id='id'
+        label='Name'
+        options={options2}
+        error='Your forgot to select'
       />
     </StoryContainer>
   ));
