@@ -9,5 +9,5 @@ export default {
     cssPlugins,
     ...jsPlugins
   ],
-  external: ['react', 'classnames'],
+  external: ['react', 'classnames', 'prop-types'],
 };
