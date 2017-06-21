@@ -9,8 +9,9 @@ export default storiesOf('ProgressBar', module).addDecorator(withKnobs)
 
   .add('Default', () => (
     <StoryContainer bg='white'>
-      <ProgressBar completed='80%' />
-      <ProgressBar completed='50%' />
-      <ProgressBar completed='20%' />
+      <ProgressBar completed='100' />
+      <ProgressBar completed='66' />
+      <ProgressBar completed='33' />
+      <ProgressBar />
     </StoryContainer>
   ));

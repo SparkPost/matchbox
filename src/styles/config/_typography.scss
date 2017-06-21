@@ -23,11 +23,9 @@ $font-size-map: (
   ),
 
   heading: (
+    display: rem(27),
     base: rem(21),
-  ),
-
-  subheading: (
-    base: rem(18),
+    small: rem(18),
   ),
 );
 
@@ -54,8 +52,8 @@ $font-size-map: (
   line-height: 1.3em;
 }
 
-@mixin text-style-subheading {
-  font-size: font-size(subheading);
-  font-weight: 500;
+@mixin text-style-small-heading {
+  font-size: font-size(heading, small);
+  font-weight: 700;
   line-height: 1.3em;
 }

@@ -12,8 +12,6 @@
   &:before {
     display: block;
     content: "";
-
-
     background: color(orange);
     height: 3px;
     border-radius: border-radius() border-radius() 0 0;
@@ -38,6 +36,10 @@
 
   &:last-child {
     border-bottom: none;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
   }
 }
 

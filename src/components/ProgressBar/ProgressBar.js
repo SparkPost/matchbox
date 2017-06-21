@@ -3,15 +3,19 @@ import styles from './ProgressBar.module.scss';
 
 class ProgressBar extends Component {
   render() {
-    const { completed } = this.props;
+    const { completed = 0 } = this.props;
 
-    const percentage = completed > 0
-      ? completed
-      : 0;
+    let percentage = completed;
+
+    if (percentage > 100) {
+      percentage = 100;
+    } else if (percentage < 1) {
+      percentage = 0;
+    }
 
     return (
       <div className={styles.ProgressBar}>
-        <div className={styles.Progress} style={{ width: completed }}/>
+        <div className={styles.Progress} style={{ width: `${percentage}%` }}/>
       </div>
     );
   }
