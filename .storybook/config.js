@@ -9,6 +9,7 @@ function loadStories() {
   require('../stories/Panel');
   require('../stories/Table');
   require('../stories/ProgressBar');
+  require('../stories/Icon');
 }
 
 setOptions({
