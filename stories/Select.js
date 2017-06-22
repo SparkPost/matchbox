@@ -28,6 +28,15 @@ export default storiesOf('Select', module).addDecorator(withKnobs)
         defaultValue='_placeholder'
         options={options2}
       />
+
+      <Select
+        id='id'
+        label='Name'
+        labelHidden
+        placeholder='Leslie Knope'
+        defaultValue='_placeholder'
+        options={options2}
+      />
     </StoryContainer>
   ))
 

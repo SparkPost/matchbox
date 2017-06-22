@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Label } from '../Label';
 import { Error } from '../Error';
+import { Icon } from '../Icon';
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
@@ -29,7 +30,8 @@ class Select extends Component {
 
     const setClasses = classnames(
       styles.Select,
-      error && styles.error
+      error && styles.error,
+      labelHidden && styles.labelHidden
     );
 
     const inputClasses = classnames(
@@ -64,6 +66,7 @@ class Select extends Component {
           { placeholderOption }
           { optionMarkup }
         </select>
+        <Icon name='ArrowDropDown' className={styles.Dropdown} />
         { errorMarkup }
       </fieldset>
     );

@@ -12,6 +12,10 @@
   background: rgba(color(red, dark), 0.06);
 }
 
+.labelHidden .Dropdown {
+  top: rem(10);
+}
+
 .Input {
   -webkit-appearance: none;
   position: relative;
@@ -43,6 +47,10 @@
   }
 }
 
-// .placeholder {
-//   color: color(gray, 5);
-// }
+.Dropdown {
+  position: absolute;
+  top: rem(30);
+  right: rem(15);
+  pointer-events: none;
+  fill: color(gray, 4);
+}
