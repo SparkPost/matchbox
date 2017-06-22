@@ -5,8 +5,6 @@ import { StoryContainer } from './helpers';
 import { Icon } from '../src';
 import * as Icons from 'react-icons/lib/md';
 
-// <Icon name='AccessTime' size={24} />
-
 const styles = {
   link: {
     color: '#1474f3',
