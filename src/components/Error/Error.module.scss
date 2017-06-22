@@ -2,6 +2,16 @@
 
 .Error {
   padding-top: spacing(small);
+}
+
+.Icon {
+  fill: color(red, dark);
+}
+
+.Message {
+  display: inline-block;
+  padding-left: spacing(small);
+  vertical-align: middle;
   font-size: rem(13);
   font-weight: 500;
   color: color(red, dark);

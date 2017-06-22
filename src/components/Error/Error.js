@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Icon } from '../Icon';
 import styles from './Error.module.scss';
 
 const Error = ({ error }) => (
   <div className={styles.Error}>
-    { error }
+    <Icon name='Error' className={styles.Icon} size={13} />
+    <span className={styles.Message}>{ error }</span>
   </div>
 );
 
