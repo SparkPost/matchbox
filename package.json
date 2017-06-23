@@ -44,7 +44,7 @@
     "postcss-modules": "^0.7.0",
     "postcss-modules-scope": "^1.0.2",
     "prop-types": "^15.5.10",
-    "react-icons": "^2.2.5",
+    "react-icon-base": "^2.0.8",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",

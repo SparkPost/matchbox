@@ -1,0 +1,55 @@
+@import '../../styles/config';
+
+.Banner {
+  position: relative;
+  display: flex;
+  padding: spacing();
+
+  border-radius: border-radius();
+  box-shadow: shadow();
+
+  background: color(gray, 9);
+  border: 1px solid color(gray, 7);
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    height: 3px;
+    background: color(gray, 7);
+    border-radius: border-radius() border-radius() 0 0;
+  }
+}
+
+.success {
+  background: rgba(color(green), 0.1);
+  border: 1px solid rgba(color(green), 0.5);
+
+  &:before {
+    background: rgba(color(green), 0.5);
+  }
+}
+
+.info {
+  background: blue;
+}
+
+.IconWrapper {
+  flex: rem(50) 0;
+  height: rem(50);
+}
+
+.Content {
+  flex: 1 0;
+}
+
+.Title {
+  margin-bottom: spacing(small);
+}
+
+.Actions {
+  margin-top: spacing();
+}
