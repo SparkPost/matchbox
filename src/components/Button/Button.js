@@ -12,6 +12,7 @@ const Button = ({
   disabled,
   destructive,
   plain,
+  outline,
 
   // Options
   size,
@@ -34,6 +35,7 @@ const Button = ({
     disabled && styles.disabled,
     destructive && styles.destructive,
     plain && styles.plain,
+    outline && styles.outline,
     fullWidth && styles.fullWidth,
     size && styles[`${size}`]
   );
@@ -112,6 +114,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   destructive: PropTypes.bool,
   plain: PropTypes.bool,
+  outline: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large', 'default']),
   fullWidth: PropTypes.bool,
   submit: PropTypes.bool,

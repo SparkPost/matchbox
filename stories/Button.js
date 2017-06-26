@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@storybook/react';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import { whiteBg, StoryContainer } from './helpers';
 
 import { Button } from '../src';
@@ -13,7 +12,7 @@ const sizes = {
 };
 const sizeDefault = 'default';
 
-export default storiesOf('Button', module).addDecorator(withKnobs)
+export default storiesOf('Button', module)
 
   .add('Default', () => (
     <StoryContainer bg='white'>
@@ -63,17 +62,14 @@ export default storiesOf('Button', module).addDecorator(withKnobs)
     </StoryContainer>
   ))
 
-  .add('Knobs', () => (
+  .add('Outline', () => (
     <StoryContainer bg='white'>
-      <Button
-        size={select(sizeLabel, sizes, sizeDefault)}
-        primary={boolean('Primary', false)}
-        plain={boolean('Plain', false)}
-        destructive={boolean('Destructive', false)}
-        disabled={boolean('Disabled', false)}
-        >
-        Button
-      </Button>
-      <p>Play with props in the Knobs tab on the right</p>
+      <p>Sizing</p>
+      <Button outline size='small'>Manage IPs</Button> &nbsp;
+      <Button outline>Manage IPs</Button> &nbsp;
+      <Button outline size='large'>Manage IPs</Button>
+
+      <p>Disabled</p>
+      <Button outline disabled>Manage IPs</Button> &nbsp;
     </StoryContainer>
   ));

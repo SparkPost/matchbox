@@ -110,6 +110,31 @@
   }
 }
 
+// Outline Styles
+.outline {
+  background: transparent;
+  color: color(gray, 2);
+  border: 1px solid color(gray, 5);
+
+  &:hover {
+    background: rgba(color(gray, 2), 0.1);
+    color: color(gray, 1);
+  }
+
+  &:focus {
+    border: 1px solid color(gray, 3);
+    background: rgba(color(gray, 3), 0.1);
+    box-shadow: shadow(),
+                0 0 0 2px color(gray, 4);
+  }
+
+  &.disabled:disabled {
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
 // Sizing
 .small {
   padding: rem(3) rem(9);
