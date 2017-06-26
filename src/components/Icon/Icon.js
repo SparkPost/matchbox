@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-// import * as Icons from 'react-icons/lib/md';
 import * as Icons from '../../icons';
 
 class Icon extends Component {
@@ -15,7 +14,7 @@ class Icon extends Component {
     const SvgIcon = Icons[`Md${name}`];
 
     if (!SvgIcon) {
-      throw new Error('Icon does not exist. Visit material.io for a list of icons.');
+      throw new Error('Icon does not exist. Visit material.io & src/icons/index.js for a list of icons.');
     }
 
     return <SvgIcon size={size} {...rest} />

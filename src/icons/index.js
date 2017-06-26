@@ -41,4 +41,3 @@ export { default as MdSortByAlpha } from './sort-by-alpha';
 export { default as MdSort } from './sort';
 export { default as MdVpnKey } from './vpn-key';
 export { default as MdWarning } from './warning';
-export { default as MdZoomOut } from './zoom-out';

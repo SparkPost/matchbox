@@ -11,16 +11,16 @@ const Button = ({
   primary,
   disabled,
   destructive,
-  plain,        // Button that looks like an inline link
+  plain,
 
   // Options
-  size,       // small || large
-  fullWidth,  // boolean
-  submit,     // boolean, chages type to submit
+  size,
+  fullWidth,
+  submit,
 
-  to,         // internal url
-  Component,  // override component used, eg. react-routers <Link/>
-  external,   // changes to <a>, outputs target=_blank
+  to,
+  Component,
+  external,
 
   // Events
   onClick,

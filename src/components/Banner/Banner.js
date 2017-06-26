@@ -15,7 +15,7 @@ const IconSection = ({ status }) => {
 
   const icons = {
     success: 'Check',
-    info: 'Info',
+    info: 'InfoOutline',
     warning: 'Warning',
     danger: 'Error'
   };
