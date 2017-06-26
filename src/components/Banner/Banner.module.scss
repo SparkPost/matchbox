@@ -81,17 +81,17 @@
 }
 
 .successIcon {
-  fill: darken(color(green), 12);
+  fill: darken(color(green), 14);
 }
 
 .infoIcon {
-  fill: rgba(color(blue), 0.8);
+  fill: darken(color(blue), 8);
 }
 
 .warningIcon {
-  fill: rgba(color(mustard), 0.8);
+  fill: darken(color(mustard), 1);
 }
 
 .dangerIcon {
-  fill: rgba(color(red, dark), 0.8);
+  fill: rgba(color(red, dark), 0.9);
 }

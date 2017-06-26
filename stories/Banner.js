@@ -5,8 +5,8 @@ import { whiteBg, StoryContainer } from './helpers';
 import { Banner, Icon } from '../src';
 
 const primaryAction = {
-  content: 'Action',
-  onClick: action('Edit Clicked')
+  content: 'Learn More',
+  onClick: action('Learn More Clicked')
 };
 
 export default storiesOf('Banner', module)
@@ -41,7 +41,7 @@ export default storiesOf('Banner', module)
       <br />
 
       <Banner title='This is a title' >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae iure in corrupti quidem quis sint libero quo debitis quibusdam. Illo soluta sequi consequatur accusamus praesentium repudiandae rerum commodi, necessitatibus obcaecati.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae iure in corrupti quidem quis sint libero quo debitis quibusdam. Illo soluta sequi <a href=''>consequatur accusamus praesentium</a> repudiandae rerum commodi, necessitatibus obcaecati.
       </Banner>
     </StoryContainer>
   ));

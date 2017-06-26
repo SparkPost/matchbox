@@ -33,7 +33,6 @@ const IconSection = ({ status }) => {
 };
 
 class Banner extends Component {
-
   render() {
     const {
       children,
@@ -43,13 +42,16 @@ class Banner extends Component {
       // TODO props below
       onDismiss,
       action,
-      secondaryAction,
       fixed,
       autoDismiss,
     } = this.props;
 
     const titleMarkup = title
       ? <h5 className={styles.Title}>{ title }</h5>
+      : null;
+
+    const actionMarkup = action
+      ? <div className={styles.Actions}>{ buttonFrom(action, actionOverrides) }</div>
       : null;
 
     const bannerStyles = classnames(
@@ -64,6 +66,7 @@ class Banner extends Component {
         <div className={styles.Content}>
           { titleMarkup }
           { children }
+          { actionMarkup }
         </div>
       </div>
     );
@@ -78,9 +81,6 @@ Banner.propTypes = {
   onDismiss: PropTypes.func,
   autoDismiss: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   action: PropTypes.shape({
-    content: PropTypes.string.isRequired
-  }),
-  secondaryAction: PropTypes.shape({
     content: PropTypes.string.isRequired
   }),
   children: PropTypes.oneOfType([
