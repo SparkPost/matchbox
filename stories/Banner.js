@@ -34,8 +34,12 @@ export default storiesOf('Banner', module)
 
       <br />
 
-      <Banner title='This is a title' status='info' >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae iure in corrupti quidem quis sint libero quo debitis quibusdam. Illo soluta sequi consequatur accusamus praesentium repudiandae rerum commodi, necessitatibus obcaecati.
+      <Banner
+        status='info'
+        action={{
+          content: 'Resend Email'
+        }}>
+        Please click the link in the email we sent you to verify your email adderss and unlock the full features of our service.
       </Banner>
 
       <br />
@@ -46,14 +50,13 @@ export default storiesOf('Banner', module)
     </StoryContainer>
   ))
 
-  .add('More Exmaples', () => (
+  .add('Fixed', () => (
     <StoryContainer>
       <Banner
-        status='info'
-        action={{
-          content: 'Resend Email'
-        }}>
-        Please click the link in the email we sent you to verify your email adderss and unlock the full features of our service.
+        title='Profile Updated'
+        status='success'
+        onDismiss={action('Dismiss Clicked')}
+        fixed >
       </Banner>
     </StoryContainer>
   ));

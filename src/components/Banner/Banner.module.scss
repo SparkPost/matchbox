@@ -9,7 +9,7 @@
   box-shadow: shadow();
 
   background: color(gray, 9);
-  border: 1px solid color(gray, 7);
+  border: 1px solid color(gray, 8);
 
   &:before {
     display: block;
@@ -25,7 +25,7 @@
 }
 
 .success {
-  background: rgba(color(green), 0.1);
+  background: lighten(color(green), 38) ;
 
   &:before {
     background: rgba(color(green), 0.8);
@@ -33,7 +33,7 @@
 }
 
 .info {
-  background: rgba(color(blue), 0.1);
+  background: lighten(color(blue), 42) ;
 
   &:before {
     background: rgba(color(blue), 0.7);
@@ -41,7 +41,7 @@
 }
 
 .warning {
-  background: rgba(color(mustard), 0.1);
+  background: lighten(color(mustard), 51) ;
 
   &:before {
     background: rgba(color(mustard), 0.7);
@@ -49,16 +49,25 @@
 }
 
 .danger {
-  background: rgba(color(red, dark), 0.1);
+  background: lighten(color(red, dark), 41) ;
 
   &:before {
     background: rgba(color(red, dark), 0.6);
   }
 }
 
+.fixed {
+  position: absolute;
+  top: rem(15);
+  left: rem(15);
+  right: rem(15);
+  box-shadow: shadow(deeper);
+  border: 1px solid rgba(color(gray, 7), 0.5);
+}
+
 .IconWrapper {
   flex: rem(48) 0;
-  height: rem(48);
+  height: rem(27);
 }
 
 .Content {
@@ -67,7 +76,8 @@
 }
 
 .Title {
-  margin-bottom: spacing(small);
+  padding-top: rem(3);
+  margin-bottom: 0;
 }
 
 .Actions {
@@ -91,4 +101,22 @@
 
 .dangerIcon {
   fill: rgba(color(red, dark), 0.9);
+}
+
+.Dismiss {
+  position: absolute;
+  right: rem(18);
+  top: rem(18);
+  border-bottom: none;
+  user-select: none;
+
+  &:hover {
+    .DismissIcon {
+      fill: color(gray, 1);
+    }
+  }
+}
+
+.DismissIcon {
+  fill: color(gray, 4);
 }

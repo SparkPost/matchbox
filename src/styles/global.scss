@@ -72,5 +72,6 @@ a, a:visited {
 
   &:hover, &:active, &:focus {
     color: color(blue, dark);
+    cursor: pointer;
   }
 }

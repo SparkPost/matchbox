@@ -16,6 +16,7 @@ export { default as MdCheckCircle } from './check-circle';
 export { default as MdCheck } from './check';
 export { default as MdChevronLeft } from './chevron-left';
 export { default as MdChevronRight } from './chevron-right';
+export { default as MdClose } from './close';
 export { default as MdCode } from './code';
 export { default as MdCreate } from './create';
 export { default as MdDelete } from './delete';

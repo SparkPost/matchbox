@@ -19,7 +19,7 @@ const IconSection = ({ status }) => {
   if (status === 'default' || !icons[status]) {
     return null;
   }
-  
+
   const iconClasses = classnames(
     styles.Icon,
     status && styles[`${status}Icon`]
@@ -38,12 +38,9 @@ class Banner extends Component {
       children,
       title,
       status = 'default',
-
-      // TODO props below
-      onDismiss,
       action,
       fixed,
-      autoDismiss,
+      onDismiss
     } = this.props;
 
     const titleMarkup = title
@@ -52,6 +49,10 @@ class Banner extends Component {
 
     const actionMarkup = action
       ? <div className={styles.Actions}>{ buttonFrom(action, actionOverrides) }</div>
+      : null;
+
+    const dismissMarkup = onDismiss
+      ? <a className={styles.Dismiss} onClick={onDismiss}><Icon name='Close' size={24} className={styles.DismissIcon} /></a>
       : null;
 
     const bannerStyles = classnames(
@@ -64,6 +65,7 @@ class Banner extends Component {
       <div className={bannerStyles}>
         <IconSection status={status} />
         <div className={styles.Content}>
+          { dismissMarkup }
           { titleMarkup }
           { children }
           { actionMarkup }
@@ -76,10 +78,8 @@ class Banner extends Component {
 Banner.propTypes = {
   title: PropTypes.string,
   status: PropTypes.oneOf(['info', 'warning', 'success', 'danger', 'default']),
-
   fixed: PropTypes.bool,
   onDismiss: PropTypes.func,
-  autoDismiss: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   action: PropTypes.shape({
     content: PropTypes.string.isRequired
   }),
