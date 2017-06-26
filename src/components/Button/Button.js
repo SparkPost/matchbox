@@ -26,7 +26,9 @@ const Button = ({
   // Events
   onClick,
   onFocus,
-  onBlur
+  onBlur,
+
+  className
 }) => {
 
   const classname = classnames(
@@ -37,7 +39,8 @@ const Button = ({
     plain && styles.plain,
     outline && styles.outline,
     fullWidth && styles.fullWidth,
-    size && styles[`${size}`]
+    size && styles[`${size}`],
+    className && className
   );
 
   if (to && external) {

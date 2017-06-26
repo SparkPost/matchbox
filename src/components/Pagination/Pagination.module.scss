@@ -1,0 +1,29 @@
+@import '../../styles/config';
+
+.Pagination {
+  margin-bottom: spacing();
+
+  & > *:first-child {
+    margin-right: -1px;
+    border-radius: border-radius() 0 0 border-radius();
+  }
+
+  & > *:last-child {
+    margin-right: -1px;
+    border-radius: 0 border-radius() border-radius() 0;
+  }
+}
+
+.Pages {
+  display: inline-block;
+
+  & > * {
+    margin-right: -1px;
+    border-radius: 0;
+  }
+}
+
+.Selected {
+  font-weight: 600;
+  color: color(orange);
+}
