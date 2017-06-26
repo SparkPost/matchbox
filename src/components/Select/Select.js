@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Label } from '../Label';
 import { Error } from '../Error';
-// import { MdArrowDropDown } from 'react-icons/lib/md';
+import { Icon } from '../Icon';
+
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
@@ -23,7 +24,7 @@ class Select extends Component {
       label,
       labelHidden,
       placeholder,
-      disabled,
+      disabled, // TODO finish styling this
       error,
       ...rest,
     } = this.props;
@@ -66,7 +67,7 @@ class Select extends Component {
           { placeholderOption }
           { optionMarkup }
         </select>
-        {/* <MdArrowDropDown className={styles.Dropdown} /> */}
+        <Icon name='ArrowDropDown' className={styles.Dropdown} />
         { errorMarkup }
       </fieldset>
     );

@@ -19,8 +19,8 @@
     right: 0;
     content: '';
     height: 3px;
-    background: color(gray, 7);
-    border-radius: border-radius() border-radius() 0 0;
+    background: color(gray, 6);
+    // border-radius: border-radius() border-radius() 0 0;
   }
 }
 
@@ -29,17 +29,40 @@
   border: 1px solid rgba(color(green), 0.5);
 
   &:before {
-    background: rgba(color(green), 0.5);
+    background: rgba(color(green), 0.6);
   }
 }
 
 .info {
-  background: blue;
+  background: rgba(color(blue), 0.1);
+  border: 1px solid rgba(color(blue), 0.5);
+
+  &:before {
+    background: rgba(color(blue), 0.6);
+  }
+}
+
+.warning {
+  background: rgba(color(mustard), 0.1);
+  border: 1px solid rgba(color(mustard), 0.5);
+
+  &:before {
+    background: rgba(color(mustard), 0.6);
+  }
+}
+
+.danger {
+  background: rgba(color(red, dark), 0.1);
+  border: 1px solid rgba(color(red, dark), 0.6);
+
+  &:before {
+    background: rgba(color(red, dark), 0.5);
+  }
 }
 
 .IconWrapper {
-  flex: rem(50) 0;
-  height: rem(50);
+  flex: rem(48) 0;
+  height: rem(48);
 }
 
 .Content {
@@ -52,4 +75,23 @@
 
 .Actions {
   margin-top: spacing();
+}
+
+.Icon {
+}
+
+.successIcon {
+  fill: darken(color(green), 12);
+}
+
+.infoIcon {
+  fill: rgba(color(blue), 0.8);
+}
+
+.warningIcon {
+  fill: rgba(color(mustard), 0.8);
+}
+
+.dangerIcon {
+  fill: rgba(color(red, dark), 0.8);
 }

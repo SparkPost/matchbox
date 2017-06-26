@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@storybook/react';
-import { grayBg, StoryContainer } from './helpers';
+import { StoryContainer } from './helpers';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { Panel, Action } from '../src';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-// import { MdCheck, MdInfo, MdDanger } from 'react-icons/lib/md';
+import classnames from 'classnames';
+import { Icon } from '../Icon';
 
 import styles from './Banner.module.scss';
 import { buttonFrom } from '../Button';
@@ -14,16 +14,20 @@ const IconSection = ({ status }) => {
   }
 
   const icons = {
-    success: MdCheck,
-    info: MdInfo,
-    danger: MdDanger
-  }
+    success: 'Check',
+    info: 'Info',
+    warning: 'Warning',
+    danger: 'Error'
+  };
 
-  const Icon = icons[status];
+  const iconClasses = classnames(
+    styles.Icon,
+    status && styles[`${status}Icon`]
+  );
 
   return (
     <div className={styles.IconWrapper}>
-      <Icon size={24} className={styles.Icon} />
+      <Icon name={icons[status]} size={27} className={iconClasses} />
     </div>
   );
 };
@@ -35,6 +39,8 @@ class Banner extends Component {
       children,
       title,
       status = 'default',
+
+      // TODO props below
       onDismiss,
       action,
       secondaryAction,
@@ -42,15 +48,11 @@ class Banner extends Component {
       autoDismiss,
     } = this.props;
 
-    // const headerMarkup = title
-    //   ? <Header title={title} actions={actions} />
-    //   : null;
-    //
     const titleMarkup = title
       ? <h5 className={styles.Title}>{ title }</h5>
       : null;
 
-    const bannerStyles = classNames(
+    const bannerStyles = classnames(
       styles.Banner,
       styles[`${status}`],
       fixed && styles.fixed
@@ -58,7 +60,7 @@ class Banner extends Component {
 
     return (
       <div className={bannerStyles}>
-        {/* <IconSection status={status} /> */}
+        <IconSection status={status} />
         <div className={styles.Content}>
           { titleMarkup }
           { children }
@@ -68,17 +70,23 @@ class Banner extends Component {
   }
 };
 
-// Panel.propTypes = {
-//   title: PropTypes.string,
-//   accent: PropTypes.bool,
-//   sectioned: PropTypes.bool,
-//   actions: PropTypes.arrayOf(PropTypes.shape({
-//     content: PropTypes.string.isRequired
-//   })),
-//   children: PropTypes.oneOfType([
-//     PropTypes.arrayOf(PropTypes.node),
-//     PropTypes.node
-//   ]),
-// };
+Banner.propTypes = {
+  title: PropTypes.string,
+  status: PropTypes.oneOf(['info', 'warning', 'success', 'danger', 'default']),
+
+  fixed: PropTypes.bool,
+  onDismiss: PropTypes.func,
+  autoDismiss: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  action: PropTypes.shape({
+    content: PropTypes.string.isRequired
+  }),
+  secondaryAction: PropTypes.shape({
+    content: PropTypes.string.isRequired
+  }),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+};
 
 export default Banner;
