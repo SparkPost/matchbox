@@ -14,49 +14,45 @@
   &:before {
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: -1px;
+    left: -1px;
+    right: -1px;
     content: '';
     height: 3px;
     background: color(gray, 6);
-    // border-radius: border-radius() border-radius() 0 0;
+    border-radius: border-radius() border-radius() 0 0;
   }
 }
 
 .success {
   background: rgba(color(green), 0.1);
-  border: 1px solid rgba(color(green), 0.5);
 
   &:before {
-    background: rgba(color(green), 0.6);
+    background: rgba(color(green), 0.8);
   }
 }
 
 .info {
   background: rgba(color(blue), 0.1);
-  border: 1px solid rgba(color(blue), 0.5);
 
   &:before {
-    background: rgba(color(blue), 0.6);
+    background: rgba(color(blue), 0.7);
   }
 }
 
 .warning {
   background: rgba(color(mustard), 0.1);
-  border: 1px solid rgba(color(mustard), 0.5);
 
   &:before {
-    background: rgba(color(mustard), 0.6);
+    background: rgba(color(mustard), 0.7);
   }
 }
 
 .danger {
   background: rgba(color(red, dark), 0.1);
-  border: 1px solid rgba(color(red, dark), 0.6);
 
   &:before {
-    background: rgba(color(red, dark), 0.5);
+    background: rgba(color(red, dark), 0.6);
   }
 }
 
@@ -67,6 +63,7 @@
 
 .Content {
   flex: 1 0;
+  padding-right: rem(39);
 }
 
 .Title {

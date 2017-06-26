@@ -9,10 +9,6 @@ import { buttonFrom } from '../Button';
 const actionOverrides = { outline: true };
 
 const IconSection = ({ status }) => {
-  if (status === 'default') {
-    return null;
-  }
-
   const icons = {
     success: 'Check',
     info: 'InfoOutline',
@@ -20,6 +16,10 @@ const IconSection = ({ status }) => {
     danger: 'Error'
   };
 
+  if (status === 'default' || !icons[status]) {
+    return null;
+  }
+  
   const iconClasses = classnames(
     styles.Icon,
     status && styles[`${status}Icon`]

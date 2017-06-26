@@ -44,4 +44,16 @@ export default storiesOf('Banner', module)
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae iure in corrupti quidem quis sint libero quo debitis quibusdam. Illo soluta sequi <a href=''>consequatur accusamus praesentium</a> repudiandae rerum commodi, necessitatibus obcaecati.
       </Banner>
     </StoryContainer>
+  ))
+
+  .add('More Exmaples', () => (
+    <StoryContainer>
+      <Banner
+        status='info'
+        action={{
+          content: 'Resend Email'
+        }}>
+        Please click the link in the email we sent you to verify your email adderss and unlock the full features of our service.
+      </Banner>
+    </StoryContainer>
   ));
