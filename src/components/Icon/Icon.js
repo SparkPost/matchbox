@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import * as Icons from '../../icons';
 
 class Icon extends Component {
@@ -10,7 +9,7 @@ class Icon extends Component {
       size = 18,
       ...rest
     } = this.props;
-    console.log(Icons);
+
     const SvgIcon = Icons[`Md${name}`];
 
     if (!SvgIcon) {
@@ -19,6 +18,11 @@ class Icon extends Component {
 
     return <SvgIcon size={size} {...rest} />
   }
+};
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number,
 };
 
 export default Icon;
