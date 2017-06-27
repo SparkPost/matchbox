@@ -47,9 +47,10 @@
   }
 
   &.disabled:disabled {
-    opacity: 0.7;
+    opacity: 0.6;
+    background: color(gray, 9);
     &:hover {
-      background: linear-gradient(180deg, color(gray, 9), darken(color(gray, 9), 4));
+      background: color(gray, 9);
       cursor: not-allowed;
     }
   }
@@ -73,6 +74,7 @@
   }
 
   &.disabled:disabled {
+    background: linear-gradient(180deg, color(orange), color(orange, dark));
     &:hover {
       background: linear-gradient(180deg, color(orange), color(orange, dark));
     }
@@ -104,8 +106,9 @@
 
   &.disabled:disabled {
     opacity: 0.6;
+    background: transparent;
     &:hover {
-      background: none;
+      background: transparent;
     }
   }
 }
@@ -129,6 +132,7 @@
   }
 
   &.disabled:disabled {
+    background: transparent;
     &:hover {
       background: transparent;
     }
