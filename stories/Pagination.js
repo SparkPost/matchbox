@@ -1,31 +1,23 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@storybook/react';
+import { storiesOf, action } from '@storybook/react';
 import { StoryContainer } from './helpers';
 
 import { Pagination } from '../src';
 
 export default storiesOf('Pagination', module)
-  .add('with a title', () => (
+  .add('Default', () => (
     <StoryContainer>
-
       <Pagination
         pages={4}
-        pageRange={5}
-        initialIndex={2}
-        onChange={(selected) => {
-          console.log(selected, ' in story')
-          action('sdf')
-        }}
+        pageRange={4}
+        onChange={action('Page Changed')}
       />
 
       <Pagination
-        pages={11}
+        pages={22}
         pageRange={5}
-        initialIndex={3}
-        onChange={(selected) => {
-          console.log(selected, ' in story')
-          action('sdf')
-        }}
+        initialIndex={4}
+        onChange={action('Page Changed')}
       />
     </StoryContainer>
   ));

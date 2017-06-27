@@ -1,11 +1,10 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@storybook/react';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import { StoryContainer } from './helpers';
 
 import { TextField } from '../src';
 
-export default storiesOf('TextField', module).addDecorator(withKnobs)
+export default storiesOf('TextField', module)
 
   .add('Default', () => (
     <StoryContainer bg='white'>
