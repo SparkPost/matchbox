@@ -2,26 +2,22 @@
 
 .Pagination {
   margin-bottom: spacing();
+}
 
-  & > *:first-child {
-    margin-right: -1px;
-    border-radius: border-radius() 0 0 border-radius();
-  }
+.Back {
+  margin-right: spacing(small);
+}
 
-  & > *:last-child {
-    margin-right: -1px;
-    border-radius: 0 border-radius() border-radius() 0;
-  }
+.Next {
+  margin-left: spacing(small);
 }
 
 .Pages {
   display: inline-block;
+}
 
-  & > * {
-    margin-right: -1px;
-    border-radius: 0;
-    width: rem(39);
-  }
+.Page {
+  width: rem(39);
 }
 
 .Selected {

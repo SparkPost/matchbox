@@ -14,8 +14,8 @@ export default storiesOf('Pagination', module)
       />
 
       <Pagination
-        pages={22}
-        pageRange={5}
+        pages={13}
+        pageRange={7}
         initialIndex={4}
         onChange={action('Page Changed')}
       />

@@ -56,7 +56,7 @@ class Pagination extends Component {
       buttons.push({
         content: `${index + 1}`,
         onClick: this.handlePageChange.bind(this, index),
-        className: index === this.state.index && styles.Selected
+        className: classnames(styles.Page, index === this.state.index && styles.Selected)
       });
     }
 
@@ -79,7 +79,7 @@ class Pagination extends Component {
         return this._createButtons(0, pages);
       } else {
         const half = Math.floor(pageRange / 2);
-        let start = 0
+        let start = 0;
 
         if (this.state.index > half) {
           start = this.state.index - half;
@@ -96,14 +96,14 @@ class Pagination extends Component {
     return (
       <div className={styles.Pagination}>
         <Button
-          className={styles.Button}
+          className={styles.Back}
           onClick={() => this.handlePrevious()}
           disabled={!hasPrevious} >
           <Icon name='ArrowBack' size={16} />
         </Button>
         <span className={styles.Pages}>{ buttonMarkup() }</span>
         <Button
-          className={styles.Button}
+          className={styles.Next}
           onClick={() => this.handleNext()}
           disabled={!hasNext} >
           <Icon name='ArrowForward' size={16} />
