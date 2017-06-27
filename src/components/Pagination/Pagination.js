@@ -34,8 +34,8 @@ class Pagination extends Component {
   handlePageChange(index) {
     this.setState({
       index,
-      hasPrevious: index !== 0,
-      hasNext: index !== this.props.pages - 1
+      hasPrevious: index > 0,
+      hasNext: index < this.props.pages - 1
     });
 
     this.props.onChange && this.props.onChange(index);
@@ -67,8 +67,7 @@ class Pagination extends Component {
     const {
       pages,
       pageRange,
-      onChange,
-      initialIndex
+      onChange
     } = this.props;
 
     const {
@@ -86,9 +85,11 @@ class Pagination extends Component {
         if (this.state.index > half) {
           start = this.state.index - half;
         }
-         if (this.state.index + half + 1 > pages) {
+
+        if (this.state.index + half + 1 > pages) {
           start = pages - pageRange;
         }
+
         return this._createButtons(start, start + pageRange);
       }
     };
