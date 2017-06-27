@@ -9,9 +9,9 @@ function loadStories() {
 setDefaults({
   inline: true,
   maxPropsIntoLine: 1,
-  header: false
+  header: false,
   // maxPropObjectKeys: 10,
-  // maxPropArrayLength: 10,
+  // maxPropArrayLength: 20,
   // maxPropStringLength: 100,
 });
 

@@ -17,7 +17,9 @@ storiesOf('Panel', module)
       <Panel title="Title" accent sectioned>This is a highlighted panel with a title</Panel>
   ))
 
-  .addWithInfo('with multiple sections', () => (
+  .addWithInfo('with multiple sections',
+  'Source below incorrect. Use <Panel>, <Panel.Section>',
+  () => (
       <Panel>
         <Panel.Section>This is a panel with sections</Panel.Section>
         <Panel.Section>This is a panel with sections</Panel.Section>

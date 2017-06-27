@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Icon } from '../Icon';
@@ -17,6 +18,31 @@ const Option = ({ option }) => {
 };
 
 class Select extends Component {
+  static propTypes = {
+    id: PropTypes.string,
+    /**
+     * Select options -
+     * Array of Objects with { value, label } or Strings
+     */
+    options: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.shape({
+          value: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired
+        }),
+        PropTypes.string.isRequired
+      ])
+    ).isRequired,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    labelHidden: PropTypes.bool,
+    error: PropTypes.string,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func
+  };
+
   render() {
     const {
       id,
@@ -24,7 +50,7 @@ class Select extends Component {
       label,
       labelHidden,
       placeholder,
-      disabled, // TODO finish styling this
+      disabled,
       error,
       ...rest,
     } = this.props;

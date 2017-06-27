@@ -15,7 +15,9 @@ storiesOf('Table', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default', () => (
+  .addWithInfo('Default',
+  'Source below incorrect. Use <Table>, <Table.Row>, <Table.Cell>, <Table.HeaderCell>',
+  () => (
     <Panel>
       <Table>
         <Table.Row>

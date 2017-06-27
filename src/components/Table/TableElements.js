@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Table.module.scss';
 
-export const Cell = ({ value, children, ...rest }) => (
+const Cell = ({ value, children, ...rest }) => (
   <td className={styles.Cell} {...rest}>{ value || children }</td>
 );
 
-export const HeaderCell = ({ value, children, ...rest }) => (
+Cell.propTypes = {
+  value: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+};
+
+const HeaderCell = ({ value, children, ...rest }) => (
   <th className={styles.HeaderCell} {...rest}>{ value || children }</th>
 );
 
-export const Row = ({ rowData, children }) => (
+HeaderCell.propTypes = {
+  value: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+};
+
+const Row = ({ rowData, children }) => (
   <tr className={styles.Row}>
     {
       rowData
@@ -18,3 +35,13 @@ export const Row = ({ rowData, children }) => (
     }
   </tr>
 );
+
+Row.propTypes = {
+  rowData: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+};
+
+export { Cell, HeaderCell, Row };

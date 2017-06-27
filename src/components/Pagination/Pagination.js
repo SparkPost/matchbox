@@ -12,14 +12,17 @@ class Pagination extends Component {
      * The total number of pages
      */
     pages: PropTypes.number.isRequired,
+
     /**
      * The number of page buttons to display. Odd numbers look better.
      */
     pageRange: PropTypes.number.isRequired,
+
     /**
      * Callback when page is changed. Index passed as argument.
      */
     onChange: PropTypes.func,
+    
     /**
      * Sets page index on component mount.
      */
