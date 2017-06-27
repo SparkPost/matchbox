@@ -66,8 +66,7 @@ class Pagination extends Component {
   render() {
     const {
       pages,
-      pageRange,
-      onChange
+      pageRange
     } = this.props;
 
     const {
