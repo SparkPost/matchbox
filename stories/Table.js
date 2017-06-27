@@ -12,27 +12,26 @@ const data = [
 ];
 
 storiesOf('Table', module)
-  .add('Default', () => (
-    <StoryContainer>
-      <Panel>
-        <Table>
-          <Table.Row>
-            <Table.HeaderCell>Foo</Table.HeaderCell>
-            <Table.HeaderCell>Bar</Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Foo</Table.Cell>
-            <Table.Cell>Bar</Table.Cell>
-          </Table.Row>
-        </Table>
-      </Panel>
-    </StoryContainer>
+  .addDecorator((getStory) => (
+    <StoryContainer>{ getStory() }</StoryContainer>
+  ))
+  .addWithInfo('Default', () => (
+    <Panel>
+      <Table>
+        <Table.Row>
+          <Table.HeaderCell>Foo</Table.HeaderCell>
+          <Table.HeaderCell>Bar</Table.HeaderCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Foo</Table.Cell>
+          <Table.Cell>Bar</Table.Cell>
+        </Table.Row>
+      </Table>
+    </Panel>
   ))
 
-  .add('with supplied data', () => (
-    <StoryContainer>
-      <Panel>
-        <Table data={data} />
-      </Panel>
-    </StoryContainer>
+  .addWithInfo('with supplied data', () => (
+    <Panel>
+      <Table data={data} />
+    </Panel>
   ));

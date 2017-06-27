@@ -6,33 +6,29 @@ import { StoryContainer } from './helpers';
 import { TextField } from '../src';
 
 export default storiesOf('TextField', module)
-
-  .add('Default', () => (
-    <StoryContainer bg='white'>
-      <TextField
-        id='id'
-        label='Name'
-        placeholder='Leslie Knope'
-      />
-    </StoryContainer>
+  .addDecorator((getStory) => (
+    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
+  ))
+  .addWithInfo('Default', () => (
+    <TextField
+      id='id'
+      label='Name'
+      placeholder='Leslie Knope'
+    />
   ))
 
-  .add('with an error', () => (
-    <StoryContainer bg='white'>
-      <TextField
-        id='id'
-        label='Name'
-        error='You forgot your name!'
-      />
-    </StoryContainer>
+  .addWithInfo('with an error', () => (
+    <TextField
+      id='id'
+      label='Name'
+      error='You forgot your name!'
+    />
   ))
 
-  .add('multiline', () => (
-    <StoryContainer bg='white'>
-      <TextField
-        id='id'
-        label='Your Message'
-        multiline
-      />
-    </StoryContainer>
+  .addWithInfo('multiline', () => (
+    <TextField
+      id='id'
+      label='Your Message'
+      multiline
+    />
   ));

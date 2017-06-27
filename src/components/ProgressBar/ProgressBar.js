@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ProgressBar.module.scss';
 
 class ProgressBar extends Component {
+  static propTypes = {
+    /**
+     * Completion in percentage
+     */
+    completed: PropTypes.number.isRequired
+  };
+
+  static defaultProps = {
+    completed: 0  
+  }
+
   render() {
     const { completed = 0 } = this.props;
 

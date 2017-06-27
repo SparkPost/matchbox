@@ -27,6 +27,35 @@ const Section = ({ children }) => (
 class Panel extends Component {
   static Section = Section;
 
+  static propTypes = {
+    /**
+     * The panel heading title
+     */
+     title: PropTypes.string,
+     /**
+      * Shows an orange accent bar
+      */
+     accent: PropTypes.bool,
+     /**
+      * Adds a padded section automatically
+      */
+     sectioned: PropTypes.bool,
+     /**
+      * Actions that build buttons. Most button props will work in here.
+      * e.g. { content: 'button label', onClick: callback() }
+      */
+     actions: PropTypes.arrayOf(PropTypes.shape({
+       content: PropTypes.string.isRequired
+     })),
+     /**
+      * Panel Content
+      */
+     children: PropTypes.oneOfType([
+       PropTypes.arrayOf(PropTypes.node),
+       PropTypes.node
+     ]),
+  };
+
   render() {
     const {
       children,
@@ -53,19 +82,6 @@ class Panel extends Component {
       </div>
     );
   }
-};
-
-Panel.propTypes = {
-  title: PropTypes.string,
-  accent: PropTypes.bool,
-  sectioned: PropTypes.bool,
-  actions: PropTypes.arrayOf(PropTypes.shape({
-    content: PropTypes.string.isRequired
-  })),
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
 };
 
 export default Panel;

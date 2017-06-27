@@ -6,19 +6,23 @@ import { StoryContainer } from './helpers';
 import { Pagination } from '../src';
 
 export default storiesOf('Pagination', module)
-  .add('Default', () => (
-    <StoryContainer>
-      <Pagination
-        pages={4}
-        pageRange={4}
-        onChange={action('Page Changed')}
-      />
+  .addDecorator((getStory) => (
+    <StoryContainer>{ getStory() }</StoryContainer>
+  ))
 
-      <Pagination
-        pages={13}
-        pageRange={7}
-        initialIndex={4}
-        onChange={action('Page Changed')}
-      />
-    </StoryContainer>
+  .addWithInfo('with initial index', () => (
+    <Pagination
+      pages={4}
+      pageRange={4}
+      initialIndex={3}
+      onChange={action('Page Changed')}
+    />
+  ))
+
+  .addWithInfo('with lots of pages', () => (
+    <Pagination
+      pages={13}
+      pageRange={7}
+      onChange={action('Page Changed')}
+    />
   ));

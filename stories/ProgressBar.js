@@ -10,5 +10,5 @@ export default storiesOf('ProgressBar', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .addWithInfo('Default', () => (
-    <ProgressBar completed='66' />
+    <ProgressBar completed={54} />
   ));
