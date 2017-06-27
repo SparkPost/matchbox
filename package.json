@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-icon-base": "^2.0.8"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.1.6",
@@ -45,7 +46,6 @@
     "postcss-modules": "^0.7.0",
     "postcss-modules-scope": "^1.0.2",
     "prop-types": "^15.5.10",
-    "react-icon-base": "^2.0.8",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
