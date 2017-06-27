@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@storybook/react';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import { StoryContainer } from './helpers';
 
 import { Select } from '../src';
@@ -17,7 +16,7 @@ const options2 = [
   }
 ];
 
-export default storiesOf('Select', module).addDecorator(withKnobs)
+export default storiesOf('Select', module)
 
   .add('Default', () => (
     <StoryContainer bg='white'>

@@ -3,13 +3,6 @@ import { setOptions } from '@storybook/addon-options';
 
 function loadStories() {
   require('../stories');
-  require('../stories/Banner');
-  require('../stories/Button');
-  require('../stories/TextField');
-  require('../stories/Select');
-  require('../stories/Panel');
-  require('../stories/Table');
-  require('../stories/ProgressBar');
 }
 
 setOptions({

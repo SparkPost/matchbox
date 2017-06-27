@@ -1,0 +1,26 @@
+@import '../../styles/config';
+
+.Pagination {
+  margin-bottom: spacing();
+}
+
+.Back {
+  margin-right: spacing(small);
+}
+
+.Next {
+  margin-left: spacing(small);
+}
+
+.Pages {
+  display: inline-block;
+}
+
+.Page {
+  width: rem(39);
+}
+
+.Selected {
+  font-weight: 700;
+  color: color(orange);
+}

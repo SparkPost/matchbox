@@ -2,99 +2,130 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import Group from './Group';
 import styles from './Button.module.scss';
 
-const Button = ({
-  children,
+class Button extends Component {
+  static Group = Group;
 
-  // Styles
-  primary,
-  disabled,
-  destructive,
-  plain,
-  outline,
+  static propTypes = {
+    primary: PropTypes.bool,
+    disabled: PropTypes.bool,
+    destructive: PropTypes.bool,
+    plain: PropTypes.bool,
+    outline: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'large', 'default']),
+    fullWidth: PropTypes.bool,
+    submit: PropTypes.bool,
+    to: PropTypes.string,
+    Component: PropTypes.element,
+    external: PropTypes.bool,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
+  }
 
-  // Options
-  size,
-  fullWidth,
-  submit,
+  static defaultProps = {
+    size: 'default'
+  }
 
-  to,
-  Component,
-  external,
+  handleMouseUp({ currentTarget }) {
+    currentTarget.blur();
+  }
 
-  // Events
-  onClick,
-  onFocus,
-  onBlur
-}) => {
+  render() {
+    const {
+      children,
 
-  const classname = classnames(
-    styles.Button,
-    primary && styles.primary,
-    disabled && styles.disabled,
-    destructive && styles.destructive,
-    plain && styles.plain,
-    outline && styles.outline,
-    fullWidth && styles.fullWidth,
-    size && styles[`${size}`]
-  );
+      // Styles
+      primary,
+      disabled,
+      destructive,
+      plain,
+      outline,
 
-  if (to && external) {
+      // Options
+      size,
+      fullWidth,
+      submit,
+
+      to,
+      Component,
+      external,
+
+      // Events
+      onClick,
+      onFocus,
+      onBlur,
+
+      className
+    } = this.props;
+
+    const classname = classnames(
+      styles.Button,
+      primary && styles.primary,
+      disabled && styles.disabled,
+      destructive && styles.destructive,
+      plain && styles.plain,
+      outline && styles.outline,
+      fullWidth && styles.fullWidth,
+      size && styles[`${size}`],
+      className && className
+    );
+
+    if (to && external) {
+      return (
+        <a
+          href={to}
+          target='_blank'
+          onClick={onClick}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          className={classname}
+          disabled={disabled}
+          onMouseUp={(e) => this.handleMouseUp(e)}
+          >
+          { children }
+        </a>
+      );
+    }
+
+    if (to && Component) {
+      return (
+        <Component
+          to={to}
+          onClick={onClick}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          className={classname}
+          disabled={disabled}
+          onMouseUp={(e) => this.handleMouseUp(e)}
+          >
+          { children }
+        </Component>
+      );
+    }
+
     return (
-      <a
-        href={to}
-        target='_blank'
+      <button
+        type={submit ? 'submit' : 'button'}
         onClick={onClick}
         onFocus={onFocus}
         onBlur={onBlur}
         className={classname}
         disabled={disabled}
-        onMouseUp={handleMouseUp}
+        onMouseUp={(e) => this.handleMouseUp(e)}
         >
         { children }
-      </a>
+      </button>
     );
   }
-
-  if (to && Component) {
-    return (
-      <Component
-        to={to}
-        onClick={onClick}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        className={classname}
-        disabled={disabled}
-        onMouseUp={handleMouseUp}
-        >
-        { children }
-      </Component>
-    );
-  }
-
-  return (
-    <button
-      type={submit ? 'submit' : 'button'}
-      onClick={onClick}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      className={classname}
-      disabled={disabled}
-      onMouseUp={handleMouseUp}
-      >
-      { children }
-    </button>
-  );
-}
-
-const handleMouseUp = ({ currentTarget }) => {
-  currentTarget.blur();
-}
+};
 
 export function buttonsFrom(actions, overrides) {
   if (actions.length) {
-    return actions.map((action, key) => buttonFrom(action, overrides, key));
+    return <Button.Group>{ actions.map((action, key) => buttonFrom(action, overrides, key)) }</Button.Group>;
   }
 }
 
@@ -108,23 +139,5 @@ export function buttonFrom({ content, ...action }, overrides, key) {
     />
   );
 }
-
-Button.propTypes = {
-  primary: PropTypes.bool,
-  disabled: PropTypes.bool,
-  destructive: PropTypes.bool,
-  plain: PropTypes.bool,
-  outline: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'large', 'default']),
-  fullWidth: PropTypes.bool,
-  submit: PropTypes.bool,
-  to: PropTypes.string,
-  Component: PropTypes.element,
-  external: PropTypes.bool,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-};
 
 export default Button;
