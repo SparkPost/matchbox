@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
 import { Select } from '../src';
@@ -23,15 +24,6 @@ export default storiesOf('Select', module)
       <Select
         id='id'
         label='Name'
-        placeholder='Leslie Knope'
-        defaultValue='_placeholder'
-        options={options2}
-      />
-
-      <Select
-        id='id'
-        label='Name'
-        labelHidden
         placeholder='Leslie Knope'
         defaultValue='_placeholder'
         options={options2}

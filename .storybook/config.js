@@ -6,14 +6,14 @@ function loadStories() {
 }
 
 setOptions({
-  // name: 'My Storybook',
+  name: 'Matchbox',
   // url: 'https://example.com',
   // goFullScreen: false,
   // showLeftPanel: false,
   // showDownPanel: false,
-  // showSearchBox: false,
-  downPanelInRight: true,
-  //sortStoriesByKind: false,
+  showSearchBox: false,
+  // downPanelInRight: true,
+  sortStoriesByKind: false,
 });
 
 configure(loadStories, module);

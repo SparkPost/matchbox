@@ -12,6 +12,17 @@
     prop-types "^15.5.8"
     react-inspector "^2.0.0"
 
+"@storybook/addon-actions@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.1.6.tgz#0cbf00ede57ff00d1dfe02e554043d6963940064"
+  dependencies:
+    "@storybook/addons" "^3.1.6"
+    deep-equal "^1.0.1"
+    json-stringify-safe "^5.0.1"
+    prop-types "^15.5.8"
+    react-inspector "^2.0.0"
+    uuid "^3.1.0"
+
 "@storybook/addon-links@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-3.0.0.tgz#497ae071b9f36f150a47a5c61d0688d615faec0c"
@@ -27,6 +38,10 @@
 "@storybook/addons@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.0.0.tgz#0a59b73bbea15f927ec439d7bd9e67ef3719a819"
+
+"@storybook/addons@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.1.6.tgz#29ef2348550f5a74d5e83dd75d04714cac751c39"
 
 "@storybook/channel-postmessage@^3.0.0":
   version "3.0.0"
@@ -5612,6 +5627,10 @@ utils-merge@1.0.0:
 uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
+
+uuid@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"

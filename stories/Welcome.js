@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 import { Panel, TextField, Button } from '../src';
 
@@ -46,9 +47,6 @@ class Welcome extends React.Component {
         <p>
           This is a component dev environment for the SparkPost React WebUI.
         </p>
-        <p>
-          See these sample <a style={styles.link} href='#' onClick={this.showApp.bind(this)}>stories</a> for a component called <code style={styles.code}>Panel</code>.
-        </p>
       </div>
     );
   }
@@ -56,20 +54,5 @@ class Welcome extends React.Component {
 
 export default storiesOf('Welcome', module)
   .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Panel')}/>
-  ))
-
-  .add('demo', () => (
-    <StoryContainer>
-      <Panel accent title='Yo'>
-        <Panel.Section>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat saepe voluptate earum vitae tenetur minima optio veritatis modi ullam enim. Fugiat atque, commodi natus deserunt vel obcaecati cum maxime dolores.
-        </Panel.Section>
-        <Panel.Section>
-          <Button primary size='large' onClick={action('hey')}>
-            Submit
-          </Button>
-        </Panel.Section>
-      </Panel>
-    </StoryContainer>
+    <Welcome/>
   ));

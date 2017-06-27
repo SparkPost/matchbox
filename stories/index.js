@@ -1,9 +1,9 @@
 import './Welcome';
 import './Banner';
 import './Button';
-import './TextField';
-import './Select';
 import './Panel';
+import './Select';
 import './Table';
-import './ProgressBar';
+import './TextField';
 import './Pagination';
+import './ProgressBar';
