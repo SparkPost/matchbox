@@ -16,7 +16,7 @@
     "build": "babel-node scripts/build.js --presets=node6",
     "test": "node scripts/test.js --env=jsdom",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "react": "^15.5.4",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@storybook/addon-options": "^3.0.0",
     "@storybook/react": "^3.0.1",
+    "@storybook/storybook-deployer": "^2.0.0",
     "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
