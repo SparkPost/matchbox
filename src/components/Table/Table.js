@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Cell, HeaderCell, Row } from './TableElements';
 import styles from './Table.module.scss';
 
@@ -7,9 +8,19 @@ class Table extends Component {
   static HeaderCell = HeaderCell;
   static Row = Row;
 
+  static propTypes = {
+    data: PropTypes.array,
+    /**
+     * React node(s)
+     */
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
+  };
+
   render() {
     const {
-      items,
       children,
       data
     } = this.props;

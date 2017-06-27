@@ -18,26 +18,24 @@ const options2 = [
 ];
 
 export default storiesOf('Select', module)
-
-  .add('Default', () => (
-    <StoryContainer bg='white'>
-      <Select
-        id='id'
-        label='Name'
-        placeholder='Leslie Knope'
-        defaultValue='_placeholder'
-        options={options2}
-      />
-    </StoryContainer>
+  .addDecorator((getStory) => (
+    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
+  ))
+  .addWithInfo('Default', () => (
+    <Select
+      id='id'
+      label='Name'
+      placeholder='Leslie Knope'
+      defaultValue='_placeholder'
+      options={options2}
+    />
   ))
 
-  .add('with an error', () => (
-    <StoryContainer bg='white'>
-      <Select
-        id='id'
-        label='Name'
-        options={options2}
-        error='Your forgot to select'
-      />
-    </StoryContainer>
+  .addWithInfo('with an error', () => (
+    <Select
+      id='id'
+      label='Name'
+      options={options2}
+      error='Your forgot to select'
+    />
   ));

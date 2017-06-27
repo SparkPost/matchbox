@@ -1,45 +1,54 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
-// TODO
-// prefix & suffix
-// error icon
-// do we need to set refs
-// do we need to accept height along with multiline
-// a11y attributes
-
 class TextField extends Component {
+  static propTypes = {
+    id: PropTypes.string,
+    multiline: PropTypes.bool,
+    /**
+     * 'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url' | 'date'
+     */
+    type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'search', 'tel', 'url', 'date']),
+    placeholder: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    disabled: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    label: PropTypes.string,
+    labelHidden: PropTypes.bool,
+    error: PropTypes.string,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func
+  };
+
+  static defaultProps = {
+    type: 'text'
+  };
+
   render() {
     const {
       id,
-      multiline,    // textarea || input
-      type,         // string
-      placeholder,  // string
-      autoFocus,    // boolean
-      disabled,     // boolean
-      readOnly,     // boolean
-
-      prefix,
-      suffix,
-      label,        // string
-      labelHidden,  // boolean
-      error,        // string
-
-      // Events
+      multiline,
+      type,
+      placeholder,
+      autoFocus,
+      disabled,
+      readOnly,
+      label,
+      labelHidden,
+      error,
       onChange,
       onFocus,
       onBlur,
-
       ...rest,
     } = this.props;
 
     const setClasses = classnames(
       styles.TextField,
-      prefix && styles.prefix,
-      suffix && styles.suffix,
       error && styles.error
     );
 

@@ -14,63 +14,65 @@ const sizes = {
 const sizeDefault = 'default';
 
 export default storiesOf('Button', module)
-
-  .add('Default', () => (
-    <StoryContainer bg='white'>
-      <p>Sizing</p>
+  .addDecorator((getStory) => (
+    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
+  ))
+  .addWithInfo('Default', () => (
+    <div>
       <Button size='small'>Cancel</Button> &nbsp;
+
       <Button>Cancel</Button> &nbsp;
-      <Button size='large'>Cancel</Button>
 
-      <p>Disabled</p>
+      <Button size='large'>Cancel</Button> &nbsp;
+
       <Button disabled>Cancel</Button> &nbsp;
-    </StoryContainer>
+    </div>
   ))
 
-  .add('Primary', () => (
-    <StoryContainer bg='white'>
-      <p>Sizing</p>
+  .addWithInfo('Primary', () => (
+    <div>
       <Button primary size='small'>Add a domain</Button> &nbsp;
+
       <Button primary>Add a domain</Button> &nbsp;
-      <Button primary size='large'>Add a domain</Button>
 
-      <p>Disabled</p>
+      <Button primary size='large'>Add a domain</Button> &nbsp;
+
       <Button primary disabled>Add a domain</Button> &nbsp;
-    </StoryContainer>
+    </div>
   ))
 
-  .add('Plain', () => (
-    <StoryContainer bg='white'>
-      <p>Sizing</p>
+  .addWithInfo('Plain', () => (
+    <div>
       <Button plain size='small'>Verify</Button> &nbsp;
+
       <Button plain>Verify</Button> &nbsp;
-      <Button plain size='large'>Verify</Button>
 
-      <p>Disabled</p>
+      <Button plain size='large'>Verify</Button> &nbsp;
+
       <Button plain disabled>Verify</Button> &nbsp;
-    </StoryContainer>
+    </div>
   ))
 
-  .add('Destructive', () => (
-    <StoryContainer bg='white'>
-      <p>Sizing</p>
+  .addWithInfo('Destructive', () => (
+    <div>
       <Button destructive size='small'>Delete domain</Button> &nbsp;
-      <Button destructive>Delete domain</Button> &nbsp;
-      <Button destructive size='large'>Delete domain</Button>
 
-      <p>Disabled</p>
+      <Button destructive>Delete domain</Button> &nbsp;
+
+      <Button destructive size='large'>Delete domain</Button> &nbsp;
+
       <Button destructive disabled>Delete domain</Button> &nbsp;
-    </StoryContainer>
+    </div>
   ))
 
-  .add('Outline', () => (
-    <StoryContainer bg='white'>
-      <p>Sizing</p>
+  .addWithInfo('Outline', () => (
+    <div>
       <Button outline size='small'>Manage IPs</Button> &nbsp;
-      <Button outline>Manage IPs</Button> &nbsp;
-      <Button outline size='large'>Manage IPs</Button>
 
-      <p>Disabled</p>
+      <Button outline>Manage IPs</Button> &nbsp;
+
+      <Button outline size='large'>Manage IPs</Button> &nbsp;
+
       <Button outline disabled>Manage IPs</Button> &nbsp;
-    </StoryContainer>
+    </div>
   ));
