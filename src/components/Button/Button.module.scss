@@ -129,7 +129,7 @@
 // Outline Styles
 .outline {
   background: transparent;
-  color: color(gray, 2);
+  color: color(gray, 2) !important;
   border: 1px solid color(gray, 5);
 
   &:hover {
