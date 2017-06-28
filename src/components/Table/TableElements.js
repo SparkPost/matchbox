@@ -13,6 +13,7 @@ Cell.propTypes = {
     PropTypes.node
   ]),
 };
+Cell.displayName = 'Table.Cell';
 
 const HeaderCell = ({ value, children, ...rest }) => (
   <th className={styles.HeaderCell} {...rest}>{ value || children }</th>
@@ -25,6 +26,7 @@ HeaderCell.propTypes = {
     PropTypes.node
   ]),
 };
+HeaderCell.displayName = 'Table.HeaderCell';
 
 const Row = ({ rowData, children }) => (
   <tr className={styles.Row}>
@@ -43,5 +45,6 @@ Row.propTypes = {
     PropTypes.node
   ]),
 };
+Row.displayName = 'Table.Row';
 
 export { Cell, HeaderCell, Row };

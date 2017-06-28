@@ -18,7 +18,6 @@ storiesOf('Panel', module)
   ))
 
   .addWithInfo('with multiple sections',
-  'Source below incorrect. Use <Panel>, <Panel.Section>',
   () => (
       <Panel>
         <Panel.Section>This is a panel with sections</Panel.Section>

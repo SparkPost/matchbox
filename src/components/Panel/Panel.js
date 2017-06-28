@@ -2,27 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import styles from './Panel.module.scss';
 import { buttonsFrom } from '../Button';
+import Section from './Section';
+import Header from './Header';
+import styles from './Panel.module.scss';
 
 const actionOverrides = { plain: true, size: 'small' };
-
-const Header = ({ title, actions }) => {
-  const actionMarkup = actions && actions.length
-        ? <div className={styles.Actions}>{ buttonsFrom(actions, actionOverrides) }</div>
-        : null;
-
-  return (
-    <div className={styles.Header}>
-      { actionMarkup }
-      <h2 className={styles.HeaderText}>{ title }</h2>
-    </div>
-  );
-};
-
-const Section = ({ children }) => (
-  <div className={styles.Body}>{ children }</div>
-);
 
 class Panel extends Component {
   static Section = Section;

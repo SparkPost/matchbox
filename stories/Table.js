@@ -16,7 +16,6 @@ storiesOf('Table', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .addWithInfo('Default',
-  'Source below incorrect. Use <Table>, <Table.Row>, <Table.Cell>, <Table.HeaderCell>',
   () => (
     <Panel>
       <Table>
