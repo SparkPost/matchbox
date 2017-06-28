@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { buttonsFrom } from '../Button';
 import Section from './Section';
 import Header from './Header';
 import styles from './Panel.module.scss';
-
-const actionOverrides = { plain: true, size: 'small' };
 
 class Panel extends Component {
   static Section = Section;

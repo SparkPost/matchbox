@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { buttonsFrom } from '../Button';
 import styles from './Panel.module.scss';
+
+const actionOverrides = { plain: true, size: 'small' };
 
 const Header = ({ title, actions }) => {
   const actionMarkup = actions && actions.length
