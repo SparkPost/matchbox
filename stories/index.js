@@ -7,3 +7,4 @@ import './Table';
 import './TextField';
 import './Pagination';
 import './ProgressBar';
+import './Icons';
