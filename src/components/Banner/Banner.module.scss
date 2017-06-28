@@ -18,65 +18,70 @@
     left: -1px;
     right: -1px;
     content: '';
-    height: 3px;
+    height: 4px;
     background: color(gray, 6);
     border-radius: border-radius() border-radius() 0 0;
   }
 }
 
 .success {
-  background: lighten(color(green), 38) ;
+  background: lighten(color(green), 39) ;
 
   &:before {
-    background: rgba(color(green), 0.8);
+    background: color(green);
   }
 }
 
 .info {
-  background: lighten(color(blue), 42) ;
+  background: lighten(color(blue), 43) ;
 
   &:before {
-    background: rgba(color(blue), 0.7);
+    background: color(blue);
   }
 }
 
 .warning {
-  background: lighten(color(mustard), 51) ;
+  background: lighten(color(mustard), 52) ;
 
   &:before {
-    background: rgba(color(mustard), 0.7);
+    background: color(mustard);
   }
 }
 
 .danger {
-  background: lighten(color(red, dark), 41) ;
+  background: lighten(color(red, dark), 43) ;
 
   &:before {
-    background: rgba(color(red, dark), 0.6);
+    background: color(red, dark);
   }
 }
 
 .fixed {
   position: absolute;
   top: rem(15);
-  left: rem(15);
-  right: rem(15);
-  box-shadow: shadow(deeper);
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: shadow(deep);
   border: 1px solid rgba(color(gray, 7), 0.5);
 }
 
 .IconWrapper {
-  flex: rem(48) 0;
-  height: rem(27);
+  position: relative;
+  flex: rem(57) 0;
+  height: rem(40);
 }
 
 .Content {
   flex: 1 0;
+  padding-top: rem(9);
   padding-right: rem(39);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .Title {
-  padding-top: rem(3);
   margin-bottom: 0;
 }
 
@@ -85,28 +90,58 @@
 }
 
 .Icon {
+  position: relative;
+  top: rem(5);
+  left: rem(5);
+  z-index: 1;
 }
 
 .successIcon {
-  fill: darken(color(green), 14);
+  fill: darken(color(green), 8);
+
+  & + .IconBackdrop {
+    box-shadow: 0 0 0 7px rgba(color(green), 0.25);
+  }
 }
 
 .infoIcon {
   fill: darken(color(blue), 8);
+
+  & + .IconBackdrop {
+    box-shadow: 0 0 0 7px rgba(color(blue), 0.15);
+  }
 }
 
 .warningIcon {
-  fill: darken(color(mustard), 1);
+  fill: lighten(color(mustard), 2);
+
+  & + .IconBackdrop {
+    box-shadow: 0 0 0 7px rgba(color(mustard), 0.15);
+  }
 }
 
 .dangerIcon {
-  fill: rgba(color(red, dark), 0.9);
+  fill: saturate(color(red, dark), 12);
+
+  & + .IconBackdrop {
+    box-shadow: 0 0 0 7px rgba(color(red), 0.15);
+  }
+}
+
+.IconBackdrop {
+  position: absolute;
+  top: rem(8);
+  left: rem(8);
+  width: rem(24);
+  height: rem(24);
+  border-radius: 50%;
+  background: color(gray, 10);
 }
 
 .Dismiss {
   position: absolute;
   right: rem(18);
-  top: rem(18);
+  top: rem(24);
   border-bottom: none;
   user-select: none;
 

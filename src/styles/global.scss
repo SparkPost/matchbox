@@ -66,9 +66,6 @@ pre,table,fieldset,hr {
 a, a:visited {
   padding-bottom: rem(2);
   color: color(blue);
-  text-decoration: none;
-  border-bottom: 1px solid color(blue);
-
 
   &:hover, &:active, &:focus {
     color: color(blue, dark);

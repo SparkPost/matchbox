@@ -10,9 +10,9 @@ const actionOverrides = { outline: true };
 
 const IconSection = ({ status }) => {
   const icons = {
-    success: 'Check',
+    success: 'CheckCircle',
     info: 'InfoOutline',
-    warning: 'Warning',
+    warning: 'Error',
     danger: 'Error'
   };
 
@@ -27,20 +27,64 @@ const IconSection = ({ status }) => {
 
   return (
     <div className={styles.IconWrapper}>
-      <Icon name={icons[status]} size={27} className={iconClasses} />
+      <Icon name={icons[status]} size={30} className={iconClasses} />
+      <div className={styles.IconBackdrop} />
     </div>
   );
 };
 
 class Banner extends Component {
+  static propTypes = {
+    /**
+     * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
+     */
+    status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info']),
+
+    /**
+     * The banner's title
+     */
+    title: PropTypes.string,
+
+    /**
+     * Callback when dismiss button is clicked. Button hidden without callback.
+     */
+    onDismiss: PropTypes.func,
+
+    /**
+     * Absolute positions the banner
+     */
+    fixed: PropTypes.boolean,
+
+    /**
+     * Action that build a button. Most button props will work in here.
+     * e.g. { content: 'button label', onClick: callback() }
+     */
+    action: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })),
+
+    /**
+     * Banner Content
+     */
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
+  };
+
+  static defaultProps = {
+    status: 'default'
+  };
+
   render() {
     const {
       children,
       title,
-      status = 'default',
+      status,
       action,
       fixed,
-      onDismiss
+      onDismiss,
+      ...rest
     } = this.props;
 
     const titleMarkup = title
@@ -62,7 +106,7 @@ class Banner extends Component {
     );
 
     return (
-      <div className={bannerStyles}>
+      <div className={bannerStyles} {...rest}>
         <IconSection status={status} />
         <div className={styles.Content}>
           { dismissMarkup }
