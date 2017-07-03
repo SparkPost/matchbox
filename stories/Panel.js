@@ -50,7 +50,7 @@ storiesOf('Panel', module)
           title='Panel with Actions'>
           <Panel.Section
             actions={sectionActions} >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!
+            <h5>More Actions</h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!
           </Panel.Section>
         </Panel>
     );

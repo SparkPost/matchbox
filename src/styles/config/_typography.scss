@@ -48,12 +48,12 @@ $font-size-map: (
 
 @mixin text-style-heading {
   font-size: font-size(heading);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.3em;
 }
 
 @mixin text-style-small-heading {
   font-size: font-size(heading, small);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.3em;
 }

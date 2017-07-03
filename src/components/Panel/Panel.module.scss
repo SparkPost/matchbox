@@ -29,7 +29,8 @@
 }
 
 .HeaderText {
-  font-size: rem(18);
+  @include text-style-small-heading;
+  color: color(gray, 1);
   line-height: rem(30);
   margin: 0;
 }
