@@ -37,13 +37,21 @@ storiesOf('Panel', module)
         onClick: action('Delete Clicked')
       },
     ];
+    const sectionActions = [
+      {
+        content: 'View Details',
+        onClick: action('Details Clicked')
+      }
+    ];
     return (
         <Panel
           actions={actions}
-          sectioned
           accent
           title='Panel with Actions'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!
+          <Panel.Section
+            actions={sectionActions} >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!
+          </Panel.Section>
         </Panel>
     );
   });

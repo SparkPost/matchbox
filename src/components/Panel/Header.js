@@ -11,8 +11,10 @@ const Header = ({ title, actions }) => {
 
   return (
     <div className={styles.Header}>
+      <div className={styles.HeaderText}>
+        { title }
+      </div>
       { actionMarkup }
-      <h2 className={styles.HeaderText}>{ title }</h2>
     </div>
   );
 };

@@ -18,9 +18,13 @@
   }
 }
 
-.Header {
+.Header, .Body {
+  display: flex;
   padding: rem(18);
   border-bottom: 1px solid color(gray, 9);
+}
+
+.Header {
   font-weight: 600;
 }
 
@@ -31,9 +35,6 @@
 }
 
 .Body {
-  padding: rem(18);
-  border-bottom: 1px solid color(gray, 9);
-
   &:last-child {
     border-bottom: none;
   }
@@ -44,5 +45,11 @@
 }
 
 .Actions {
-  float: right;
+  flex: 0;
+  white-space: nowrap;
+}
+
+.SectionContent, .HeaderText {
+  flex: 1 0 0;
+  padding-right: spacing(small);
 }
