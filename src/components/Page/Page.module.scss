@@ -1,0 +1,42 @@
+@import '../../styles/config';
+
+.Page {
+
+}
+
+.MainContent {
+  display: flex;
+  align-items: center;
+}
+
+.Title {
+  flex: 1 0 0;
+  margin-bottom: 0;
+  padding: spacing(small) 0;
+  @include text-style-display-heading;
+}
+
+.PrimaryAction {
+  flex: 0 0 0;
+}
+
+.SecondaryActions {
+  margin-left: rem(-9);
+}
+
+.SecondaryAction {
+  display: inline-block;
+  padding: 0 rem(9);
+  color: color(gray, 5);
+}
+
+.Breadcrumb {
+  margin-left: rem(-3);
+  margin-bottom: spacing();
+  text-decoration: none;
+  outline: none;
+
+  *:first-child {
+    margin-top: -2px;
+  }
+}

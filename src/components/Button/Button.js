@@ -59,7 +59,8 @@ class Button extends Component {
       onFocus,
       onBlur,
 
-      className
+      className,
+      ...rest
     } = this.props;
 
     const classname = classnames(
@@ -85,6 +86,7 @@ class Button extends Component {
           className={classname}
           disabled={disabled}
           onMouseUp={(e) => this.handleMouseUp(e)}
+          {...rest}
           >
           { children }
         </a>
@@ -101,6 +103,7 @@ class Button extends Component {
           className={classname}
           disabled={disabled}
           onMouseUp={(e) => this.handleMouseUp(e)}
+          {...rest}
           >
           { children }
         </Component>
@@ -116,6 +119,7 @@ class Button extends Component {
         className={classname}
         disabled={disabled}
         onMouseUp={(e) => this.handleMouseUp(e)}
+        {...rest}
         >
         { children }
       </button>
