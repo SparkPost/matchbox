@@ -19,7 +19,7 @@ class UnstyledLink extends Component {
       return <Component to={to} {...rest} >{ children }</Component>;
     }
 
-    return <a>{ children }</a>;
+    return <a {...rest}>{ children }</a>;
   }
 }
 
