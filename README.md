@@ -1,5 +1,6 @@
 # Matchbox
 
+[Component Demo](https://sparkpost.github.io/matchbox/)
 
 ## Usage
 ### 1. Installation
