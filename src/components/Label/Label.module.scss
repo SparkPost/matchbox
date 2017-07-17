@@ -7,4 +7,9 @@
   font-size: rem(13);
   line-height: rem(15);
   color: color(gray, 2);
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 };
