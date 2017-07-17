@@ -1,0 +1,82 @@
+@import '../../styles/config';
+
+.Checkbox {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
+}
+
+.Input {
+  @include visually-hidden;
+
+  &:hover{
+    & ~ .Control .Box {
+      border: 1px solid color(gray, 5);
+    }
+  }
+
+  &:focus ~ .Control .Box {
+    box-shadow: 0 0 0 1px color(blue);
+    border: 1px solid color(blue);
+  }
+
+  &:checked {
+    & ~ .Control .Box {
+      border: 1px solid color(blue);
+    }
+
+    & ~ .Control .Check {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &:focus ~ .Control .Box,
+    &:active ~ .Control .Box {
+      box-shadow: 0 0 0 1px color(blue);
+      border: 1px solid color(blue);
+    }
+  }
+}
+
+.Control:hover {
+  cursor: pointer;
+}
+
+.Box, .Check {
+  transition: 0.15s;
+}
+
+.Box {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  width: rem(18);
+  height: rem(18);
+  border: 1px solid color(gray, 6);
+  border-radius: border-radius();
+}
+
+.Check {
+  position: absolute;
+  top: rem(3);
+  left: rem(3);
+  stroke-width: 3px;
+  stroke: color(blue);
+  fill: color(blue);
+
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.Label {
+  position: absolute;
+  padding-left: rem(27);
+  padding-top: rem(4);
+}
+
+.Group {
+  & > * {
+    margin-bottom: spacing(small);
+  }
+}

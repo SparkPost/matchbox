@@ -12,6 +12,8 @@ export { default as MdAutorenew } from './autorenew';
 export { default as MdBlock } from './block';
 export { default as MdBuild } from './build';
 export { default as MdCancel } from './cancel';
+export { default as MdCheckBoxOutlineBlank } from './check-box-outline-blank';
+export { default as MdCheckBox } from './check-box';
 export { default as MdCheckCircle } from './check-circle';
 export { default as MdCheck } from './check';
 export { default as MdChevronLeft } from './chevron-left';

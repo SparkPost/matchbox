@@ -1,6 +1,7 @@
 import './Welcome';
 import './Banner';
 import './Button';
+import './Checkbox';
 import './Panel';
 import './Select';
 import './Table';

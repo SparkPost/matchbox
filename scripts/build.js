@@ -17,4 +17,5 @@ rollup(config).then(( bundle ) => {
     fs.copy('styles.css', 'styles.scss', (err) => {
       if (err) return console.error(err)
     });
-  });
+  })
+  .then(() => console.log('Build Done.'));
