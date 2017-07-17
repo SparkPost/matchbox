@@ -11,42 +11,44 @@
   @include visually-hidden;
 
   &:hover{
-    & ~ .Box {
+    & ~ .Control .Box {
       border: 1px solid color(gray, 5);
     }
   }
 
-  &:focus ~ .Box {
+  &:focus ~ .Control .Box {
     box-shadow: 0 0 0 1px color(blue);
     border: 1px solid color(blue);
   }
 
   &:checked {
-    & ~ .Box {
+    & ~ .Control .Box {
       border: 1px solid color(blue);
     }
 
-    & ~ .Check {
+    & ~ .Control .Check {
       opacity: 1;
       transform: scale(1);
     }
 
-    &:focus ~ .Box,
-    &:active ~ .Box {
+    &:focus ~ .Control .Box,
+    &:active ~ .Control .Box {
       box-shadow: 0 0 0 1px color(blue);
       border: 1px solid color(blue);
     }
   }
 }
 
+.Control:hover {
+  cursor: pointer;
+}
 
 .Box, .Check {
-  position: absolute;
-  pointer-events: none;
   transition: 0.15s;
 }
 
 .Box {
+  position: relative;
   top: 1px;
   left: 1px;
   width: rem(18);
@@ -56,6 +58,7 @@
 }
 
 .Check {
+  position: absolute;
   top: rem(3);
   left: rem(3);
   stroke-width: 3px;
@@ -68,8 +71,12 @@
 
 .Label {
   position: absolute;
-  top: 0;
-  left: 0;
   padding-left: rem(27);
-  padding-top: rem(3);
+  padding-top: rem(4);
+}
+
+.Group {
+  & > * {
+    margin-bottom: spacing(small);
+  }
 }

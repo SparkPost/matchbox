@@ -4,9 +4,24 @@ import classnames from 'classnames';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Icon } from '../Icon';
+import Group from './Group';
 import styles from './Checkbox.module.scss';
 
 class Checkbox extends Component {
+  static Group = Group;
+
+  static propTypes = {
+    id: PropTypes.string,
+    checked: PropTypes.bool,
+    label: PropTypes.string,
+    labelHidden: PropTypes.bool,
+    value: PropTypes.string,
+    error: PropTypes.string,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func
+  };
+
   handleChange(event) {
     const { onChange, id } = this.props;
     if (onChange) {
@@ -17,14 +32,14 @@ class Checkbox extends Component {
   render() {
     const {
       id,
-      disabled,
-      readOnly,
       checked,
       label,
       labelHidden,
       error,
       value,
       onChange,
+      onFocus,
+      onBlur,
       ...rest,
     } = this.props;
 
@@ -33,16 +48,11 @@ class Checkbox extends Component {
       error && styles.error
     );
 
-    const inputClasses = classnames(
-      styles.Input
-    );
-
     const labelMarkup = label && !labelHidden
       ? <Label
           id={id}
           label={label}
-          className={styles.Label}
-        />
+          className={styles.Label} />
       : null;
 
     const errorMarkup = error
@@ -58,14 +68,17 @@ class Checkbox extends Component {
         { labelMarkup }
         <input
           id={id}
-          disabled={disabled}
           value={value}
           checked={checked}
           className={styles.Input}
           onChange={(event) => this.handleChange(event)}
+          onFocus={onFocus}
+          onBlur={onBlur}
           type='checkbox' />
-        <div className={styles.Box} />
-        <Icon name='Check' className={styles.Check} size={14}/>
+          <label htmlFor={id} className={styles.Control}>
+            <div className={styles.Box} />
+            <Icon name='Check' className={styles.Check} size={14}/>
+          </label>
         { errorMarkup }
       </fieldset>
     );
