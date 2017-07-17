@@ -21,14 +21,15 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-icon-base": "^2.0.8"
+    "react-icon-base": "^2.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.1.6",
-    "@storybook/addon-info": "^3.1.6",
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/addon-info": "^3.1.9",
     "@storybook/addon-options": "^3.0.0",
-    "@storybook/react": "^3.1.7",
+    "@storybook/react": "^3.1.9",
     "@storybook/storybook-deployer": "^2.0.0",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -55,7 +56,7 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-postcss": "^0.4.3",
     "rollup-plugin-uglify": "^1.0.2",
-    "sass-loader": "^6.0.5",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.17.0"
   },
   "jest": {
