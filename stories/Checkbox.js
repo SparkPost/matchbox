@@ -30,23 +30,26 @@ class CheckboxWrapper extends React.Component {
       />
     )
   }
-}
+};
 
 export default storiesOf('Checkbox', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('On change handler',
-  'This component is built to work with redux-form. A custom wrapper is shown here to handle the checked prop without redux-form. Check the story in /stories/Checkbox.js for details.',
-  () => (
-    <CheckboxWrapper label='Checkme'/>
-  ))
 
-  .addWithInfo('Props list', () => (
+  .addWithInfo('Default', () => (
     <Checkbox
       id='id'
       label='Check Me'
-      error='error' />
+     />
+  ))
+
+  .addWithInfo('Without Label', () => (
+    <Checkbox
+      id='id'
+      label='Check Me'
+      labelHidden
+     />
   ))
 
   .addWithInfo('Group',
