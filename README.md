@@ -29,7 +29,7 @@ If you want to pull in the Sass and global reset separately, you can use:
 
 
 ### 3. Use the React components
-Usage docs coming soon!
+In-depth usage docs coming in the future. For now, reference [storybook](https://sparkpost.github.io/matchbox/).
 ```js
 import React from ‘react’;
 import { Panel } from '@sparkpost/matchbox';
@@ -43,8 +43,18 @@ const YourComponent = () => (
 );
 ```
 
+## Build
+```bash
+# Runs the rollup build
+npm run build
+```
+
 ## Local Development
 [React Storybook](https://github.com/storybooks/storybook) is included for local development.
-```
-yarn storybook
+```bash
+# Runs storybook locally
+npm run storybook
+
+# Deploys to gh-pages
+npm run deploy-storybook
 ```
