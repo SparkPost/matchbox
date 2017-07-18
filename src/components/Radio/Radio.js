@@ -5,13 +5,15 @@ import { Label } from '../Label';
 import { Error } from '../Error';
 import { Icon } from '../Icon';
 import Group from './Group';
-import styles from './Checkbox.module.scss';
 
-class Checkbox extends Component {
+import styles from './Radio.module.scss';
+
+class Radio extends Component {
   static Group = Group;
 
   static propTypes = {
     id: PropTypes.string,
+    name: PropTypes.string,
     checked: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
@@ -32,6 +34,7 @@ class Checkbox extends Component {
   render() {
     const {
       id,
+      name,
       checked,
       label,
       labelHidden,
@@ -44,7 +47,7 @@ class Checkbox extends Component {
     } = this.props;
 
     const setClasses = classnames(
-      styles.Checkbox,
+      styles.Radio,
       error && styles.error
     );
 
@@ -64,16 +67,17 @@ class Checkbox extends Component {
         { labelMarkup }
         <input
           id={id}
+          name={name}
           value={value}
           checked={checked}
           className={styles.Input}
           onChange={(event) => this.handleChange(event)}
           onFocus={onFocus}
           onBlur={onBlur}
-          type='checkbox' />
+          type='radio' />
           <label htmlFor={id} className={styles.Control}>
-            <div className={styles.Box} />
-            <Icon name='Check' className={styles.Check} size={14}/>
+            <div className={styles.Outline} />
+            <div className={styles.Fill} />
           </label>
         { errorMarkup }
       </fieldset>
@@ -81,4 +85,4 @@ class Checkbox extends Component {
   }
 };
 
-export default Checkbox;
+export default Radio;

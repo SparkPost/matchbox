@@ -1,11 +1,12 @@
 import './Welcome';
 import './Banner';
 import './Button';
-import './Checkbox';
 import './Panel';
 import './Select';
 import './Table';
 import './TextField';
+import './Checkbox';
+import './Radio';
 import './Page';
 import './Pagination';
 import './ProgressBar';

@@ -1,0 +1,83 @@
+@import '../../styles/config';
+
+.Radio {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
+}
+
+.Input {
+  @include visually-hidden;
+
+  &:hover{
+    & ~ .Control .Outline {
+      border: 1px solid color(gray, 5);
+    }
+  }
+
+  &:focus ~ .Control .Outline {
+    box-shadow: 0 0 0 1px color(blue);
+    border: 1px solid color(blue);
+  }
+
+  &:checked {
+    & ~ .Control .Outline {
+      border: 1px solid color(blue);
+    }
+
+    & ~ .Control .Fill {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &:focus ~ .Control .Outline,
+    &:active ~ .Control .Outline {
+      box-shadow: 0 0 0 1px color(blue);
+      border: 1px solid color(blue);
+    }
+  }
+}
+
+.Control:hover {
+  cursor: pointer;
+}
+
+.Outline, .Fill {
+  transition: 0.15s;
+}
+
+.Outline {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  width: rem(18);
+  height: rem(18);
+  border: 1px solid color(gray, 6);
+  border-radius: 50%;
+}
+
+.Fill {
+  position: absolute;
+  top: rem(5);
+  left: rem(5);
+  width: rem(10);
+  height: rem(10);
+  background: color(blue);
+  border-radius: 50%;
+
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.Label {
+  position: absolute;
+  padding-left: rem(27);
+  padding-top: rem(4);
+}
+
+.Group {
+  & > * {
+    margin-bottom: spacing(small);
+  }
+}
