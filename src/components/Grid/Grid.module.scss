@@ -1,0 +1,155 @@
+@import '../../styles/config';
+
+// TODO Create responsive helpers for these
+$breakpoints: (
+  sm: 450px,     // 30em,
+  md: 720px,     // 48em,
+  lg: 960px,     // 64em,
+  xl: 1200px,    // 80em,
+  // xxl: 1470px    // 98em,
+);
+
+// Gutter Width
+$gutter-width: rem(18);
+
+// Number of Columns
+$grid-columns: 12;
+
+// Time to get flexy 💪
+.Grid {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -$gutter-width;
+}
+
+.start-xs {
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.center-xs {
+  justify-content: center;
+  text-align: center;
+}
+
+.end-xs {
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.top-xs {
+  align-items: flex-start;
+}
+
+.middle-xs {
+  align-items: center;
+}
+
+.bottom-xs {
+  align-items: flex-end;
+}
+
+.around-xs {
+  justify-content: space-around;
+}
+
+.between-xs {
+  justify-content: space-between;
+}
+
+@each $bp, $bp-size in $breakpoints {
+  @media only screen and (min-width: $bp-size) {
+    .start-#{$bp} {
+      justify-content: flex-start;
+      text-align: start;
+    }
+
+    .center-#{$bp} {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .end-#{$bp} {
+      justify-content: flex-end;
+      text-align: end;
+    }
+
+    .top-#{$bp} {
+      align-items: flex-start;
+    }
+
+    .middle-#{$bp} {
+      align-items: center;
+    }
+
+    .bottom-#{$bp} {
+      align-items: flex-end;
+    }
+
+    .around-#{$bp} {
+      justify-content: space-around;
+    }
+
+    .between-#{$bp} {
+      justify-content: space-between;
+    }
+  }
+}
+
+@mixin flex-col {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-left: $gutter-width;
+}
+
+// Column
+.Column {
+  @include flex-col;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+@for $i from 1 through $grid-columns {
+  $width: 100% / $grid-columns * $i;
+
+  .xs-#{$i} {
+    @include flex-col;
+    flex-basis: $width;
+    max-width: $width;
+  }
+
+  .xs-offset-#{$i} {
+    margin-left: $width;
+  }
+}
+
+@each $bp, $bp-size in $breakpoints {
+  @media only screen and (min-width: $bp-size) {
+    @for $i from 1 through $grid-columns {
+      $width: 100% / $grid-columns * $i;
+
+      .#{$bp}-#{$i} {
+        @include flex-col;
+        flex-basis: $width;
+        max-width: $width;
+      }
+
+      .#{$bp}-offset-#{$i} {
+        margin-left: $width;
+      }
+    }
+  }
+}
+
+// TODO order
+// .first-xs {
+//   order: -1;
+// }
+//
+// .last-xs {
+//   order: 1;
+// }

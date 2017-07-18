@@ -11,3 +11,4 @@ import './Page';
 import './Pagination';
 import './ProgressBar';
 import './Icons';
+import './Grid';
