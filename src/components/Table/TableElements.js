@@ -7,7 +7,11 @@ const Cell = ({ value, children, ...rest }) => (
 );
 
 Cell.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -20,7 +24,11 @@ const HeaderCell = ({ value, children, ...rest }) => (
 );
 
 HeaderCell.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
