@@ -24,13 +24,6 @@ class Radio extends Component {
     onBlur: PropTypes.func
   };
 
-  handleChange(event) {
-    const { onChange, id } = this.props;
-    if (onChange) {
-      onChange(event.currentTarget.checked, id);
-    }
-  }
-
   render() {
     const {
       id,
@@ -71,7 +64,7 @@ class Radio extends Component {
           value={value}
           checked={checked}
           className={styles.Input}
-          onChange={(event) => this.handleChange(event)}
+          onChange={(event) => onChange(event)}
           onFocus={onFocus}
           onBlur={onBlur}
           type='radio' />
