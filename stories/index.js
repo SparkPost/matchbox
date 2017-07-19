@@ -5,6 +5,7 @@ import './Panel';
 import './Select';
 import './Table';
 import './TextField';
+import './Tooltip';
 import './Checkbox';
 import './Radio';
 import './Page';

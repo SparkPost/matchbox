@@ -1,0 +1,93 @@
+@import '../../styles/config';
+$arrow-margin: rem(21);
+
+.Wrapper {
+  position: relative;
+
+  &:hover {
+    .Tooltip {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+
+    .Tip {
+      opacity: 1;
+      transform: translate(-50%, 0) rotate(45deg) scale(1);
+      transition: 0.06s ease-out;
+    }
+  }
+}
+
+.dark {
+  .Tip, .Tooltip {
+    background: color(gray, 1);
+  }
+
+  .Content {
+    color: color(gray, 10);
+  }
+}
+
+.top {
+  .Tip {
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 $arrow-margin + rem(-7);
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid color(gray, 8);
+    border-right: 1px solid color(gray, 8);
+    border-bottom-right-radius: border-radius(large);
+  }
+
+  .Tooltip {
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 $arrow-margin;
+  }
+}
+
+.Tip {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: rem(14);
+  height: rem(14);
+
+  margin: $arrow-margin + rem(-7) 0 0;
+
+  background: color(gray, 10);
+  border-top-left-radius: border-radius(large);
+  border-top: 1px solid color(gray, 8);
+  border-left: 1px solid color(gray, 8);
+  transform: translate(-50%, 0) rotate(45deg) scale(0.5);
+
+  opacity: 0;
+  transition: 0.06s ease-out;
+}
+
+.Tooltip {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: rem(200);
+
+  background: color(gray, 10);
+  margin: $arrow-margin 0 0;
+  padding: spacing(small) spacing();
+  box-shadow: shadow(deep);
+  border-radius: border-radius(large);
+  border: 1px solid color(gray, 8);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0, 0) scale(0.96);
+  transition: 0.06s ease-out;
+}
+
+.Content {
+  font-size: rem(13);
+  line-height: rem(18);
+}
