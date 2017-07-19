@@ -20,14 +20,16 @@ storiesOf('Table', module)
   () => (
     <Panel>
       <Table>
-        <Table.Row>
-          <Table.HeaderCell>Foo</Table.HeaderCell>
-          <Table.HeaderCell>Bar</Table.HeaderCell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Foo</Table.Cell>
-          <Table.Cell>Bar</Table.Cell>
-        </Table.Row>
+        <tbody>
+          <Table.Row>
+            <Table.HeaderCell>Foo</Table.HeaderCell>
+            <Table.HeaderCell>Bar</Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Foo</Table.Cell>
+            <Table.Cell>Bar</Table.Cell>
+          </Table.Row>
+        </tbody>
       </Table>
     </Panel>
   ))

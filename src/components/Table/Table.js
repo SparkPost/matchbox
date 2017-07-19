@@ -26,9 +26,7 @@ class Table extends Component {
     } = this.props;
 
     const dataMarkup = data
-      ? data.map((rowData, i) => (
-          <Row rowData={rowData} key={`Row-${i}`} />
-        ))
+      ? <tbody>{ data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />) }</tbody>
       : children;
 
     return (
