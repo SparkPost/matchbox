@@ -11,4 +11,5 @@ export * from './Radio';
 export * from './Select';
 export * from './Table';
 export * from './TextField';
+export * from './Tooltip';
 export * from './UnstyledLink';
