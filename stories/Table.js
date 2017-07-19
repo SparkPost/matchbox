@@ -5,7 +5,7 @@ import { StoryContainer } from './helpers';
 
 import { Table, Panel } from '../src';
 
-const Node = () => <div>0</div>;
+const Node = () => <div>React Node</div>;
 const data = [
   ['A', 'B', 'C'],
   [<Node/>, <Node/>, <Node/>],
