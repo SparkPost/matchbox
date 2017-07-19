@@ -5,9 +5,10 @@ import { StoryContainer } from './helpers';
 
 import { Table, Panel } from '../src';
 
+const Node = () => <div>0</div>;
 const data = [
   ['A', 'B', 'C'],
-  [1, 2, 3],
+  [<Node/>, <Node/>, <Node/>],
   ['la', 'dee', 'da']
 ];
 
