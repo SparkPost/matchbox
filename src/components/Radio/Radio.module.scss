@@ -77,6 +77,8 @@
 }
 
 .Group {
+  display: block;
+  margin-bottom: spacing();
   & > * {
     margin-bottom: spacing(small);
   }
