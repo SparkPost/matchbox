@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "react": "^15.5.4",
+    "react-day-picker": "^6.1.0",
     "react-dom": "^15.5.4",
     "react-icon-base": "^2.1.0"
   },
