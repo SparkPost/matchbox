@@ -1,0 +1,143 @@
+@import '../../styles/config';
+
+/* DayPicker styles */
+.container {
+  display: block;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  position: relative;
+  user-select: none;
+  outline: none;
+  flex-direction: row;
+  padding: spacing() 0;
+}
+
+.interactionDisabled {}
+
+.month {
+  margin: 0 rem(18);
+  flex: 0 0 auto;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.caption {
+  height: rem(33);
+  padding-top: rem(12);
+  font-weight: 600;
+  font-size: rem(14);
+  text-align: center;
+}
+
+.weekdays {}
+
+.weekdaysRow {
+  display: flex;
+}
+
+.weekday {
+  flex: 0 0 auto;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  padding: rem(4) rem(11);
+  font-size: rem(12);
+  text-align: center;
+  color: color(gray, 5);
+
+  abbr {
+    border: none;
+    text-decoration: none;
+  }
+}
+
+.body {}
+
+.week {
+  display: flex;
+}
+
+.day {
+  flex: 0 0 auto;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: rem(42);
+
+  padding: rem(6) rem(14);
+  margin-bottom: -1px;
+  margin-right: -1px;
+
+  border: 1px solid color(gray, 8);
+  font-size: rem(12);
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: 0.15s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover:not(.disabled):not(.selected) {
+    background: color(gray, 9);
+  }
+}
+
+.footer {}
+
+.today {
+  color: color(gray, 1);
+  font-weight: 600;
+}
+
+.selected {
+  background: rgba(color(blue), 0.3);
+  border: 1px solid rgba(color(blue), 0.4);
+  z-index: 100;
+  color: color(gray, 1);
+  font-weight: 600;
+}
+
+.outside {
+  color: color(gray, 8);
+  pointer-events: none;
+  &.selected {
+    background: transparent;
+    border: 1px solid color(gray, 8);
+  }
+}
+
+.disabled {
+  color: color(gray, 8);
+  pointer-events: none;
+}
+
+// Custom Components
+.Navbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.Prev, .Next {
+  position: absolute;
+  top: rem(12);
+  display: inline-block;
+  cursor: pointer;
+
+  fill: color(gray, 5);
+  transition: 0.15s;
+
+  &:hover {
+    fill: color(blue, dark);
+  }
+}
+
+.Prev { left: rem(24); }
+.Next { right: rem(24); }
