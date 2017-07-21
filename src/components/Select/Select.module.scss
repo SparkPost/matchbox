@@ -45,6 +45,12 @@
     border: 1px solid color(blue);
     box-shadow: 0 0 0 1px color(blue);
   }
+
+  &:disabled {
+    background: color(gray, 9);
+    color: color(gray, 3);
+    cursor: not-allowed;
+  }
 }
 
 .Dropdown {
@@ -53,4 +59,9 @@
   right: rem(15);
   pointer-events: none;
   fill: color(gray, 4);
+}
+
+.HelpText {
+  font-size: rem(13);
+  color: color(gray, 3);
 }
