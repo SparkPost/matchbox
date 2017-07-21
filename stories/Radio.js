@@ -28,4 +28,20 @@ export default storiesOf('Radio', module)
         name='group'
        />
     </Radio.Group>
+  ))
+
+  .addWithInfo('Disabled', () => (
+    <Radio
+      id='id'
+      label='Check Me'
+      disabled
+     />
+  ))
+
+  .addWithInfo('With help text', () => (
+    <Radio
+      id='id'
+      label='Check Me'
+      helpText='Check this box'
+     />
   ));

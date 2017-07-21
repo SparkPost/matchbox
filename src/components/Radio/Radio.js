@@ -17,11 +17,17 @@ class Radio extends Component {
     checked: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
+    disabled: PropTypes.bool,
     value: PropTypes.string,
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    helpText: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
   };
 
   render() {
@@ -31,11 +37,13 @@ class Radio extends Component {
       checked,
       label,
       labelHidden,
+      disabled,
       error,
       value,
       onChange,
       onFocus,
       onBlur,
+      helpText,
       ...rest,
     } = this.props;
 
@@ -55,6 +63,10 @@ class Radio extends Component {
       ? <Error error={error} />
       : null;
 
+    const helpMarkup = helpText
+      ? <div className={styles.HelpText}>{ helpText }</div>
+      : null;
+
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
@@ -64,6 +76,7 @@ class Radio extends Component {
           value={value}
           checked={checked}
           className={styles.Input}
+          disabled={disabled}
           onChange={(event) => onChange(event)}
           onFocus={onFocus}
           onBlur={onBlur}
@@ -73,6 +86,7 @@ class Radio extends Component {
             <div className={styles.Fill} />
           </label>
         { errorMarkup }
+        { helpMarkup }
       </fieldset>
     );
   }
