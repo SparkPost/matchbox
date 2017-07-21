@@ -6,6 +6,7 @@ import './TextField';
 import './Select';
 import './Checkbox';
 import './Radio';
+import './Toggle';
 import './Page';
 import './Pagination';
 import './ProgressBar';
