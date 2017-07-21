@@ -15,11 +15,17 @@ class Checkbox extends Component {
     checked: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
+    disabled: PropTypes.bool,
     value: PropTypes.string,
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    helpText: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
   };
 
   render() {
@@ -28,11 +34,13 @@ class Checkbox extends Component {
       checked,
       label,
       labelHidden,
+      disabled,
       error,
       value,
       onChange,
       onFocus,
       onBlur,
+      helpText,
       ...rest,
     } = this.props;
 
@@ -52,6 +60,10 @@ class Checkbox extends Component {
       ? <Error error={error} />
       : null;
 
+    const helpMarkup = helpText
+      ? <div className={styles.HelpText}>{ helpText }</div>
+      : null;
+
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
@@ -59,6 +71,7 @@ class Checkbox extends Component {
           id={id}
           value={value}
           checked={checked}
+          disabled={disabled}
           className={styles.Input}
           onChange={(event) => onChange(event)}
           onFocus={onFocus}
@@ -69,6 +82,7 @@ class Checkbox extends Component {
             <Icon name='Check' className={styles.Check} size={14}/>
           </label>
         { errorMarkup }
+        { helpMarkup }
       </fieldset>
     );
   }
