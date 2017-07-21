@@ -19,6 +19,7 @@ class TextField extends Component {
     readOnly: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
+    helpText: PropTypes.string,
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -40,6 +41,7 @@ class TextField extends Component {
       readOnly,
       label,
       labelHidden,
+      helpText,
       error,
       onChange,
       onFocus,
@@ -60,6 +62,10 @@ class TextField extends Component {
 
     const errorMarkup = error
       ? <Error error={error} />
+      : null;
+
+    const helpMarkup = helpText
+      ? <div className={styles.HelpText}>{ helpText }</div>
       : null;
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {
@@ -85,6 +91,7 @@ class TextField extends Component {
         { labelMarkup }
         { input }
         { errorMarkup }
+        { helpMarkup }
       </fieldset>
     );
   }

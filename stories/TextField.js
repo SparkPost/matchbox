@@ -31,4 +31,31 @@ export default storiesOf('TextField', module)
       label='Your Message'
       multiline
     />
+  ))
+
+  .addWithInfo('disabled', () => (
+    <TextField
+      id='id'
+      label='Template ID'
+      value='template-12'
+      disabled
+    />
+  ))
+
+  .addWithInfo('with help text', () => (
+    <div>
+      <TextField
+        id='id'
+        label='Template ID'
+        helpText='A unique ID for your template.'
+
+        error
+      />
+      <TextField
+        id='id'
+        label='Template ID'
+        helpText='A unique ID for your template.'
+      />
+    </div>
+
   ));
