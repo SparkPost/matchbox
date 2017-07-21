@@ -19,7 +19,11 @@ class TextField extends Component {
     readOnly: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
-    helpText: PropTypes.string,
+    helpText: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
