@@ -8,8 +8,14 @@ class Toggle extends Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-    checked: PropTypes.bool,
-    value: PropTypes.string,
+    checked: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string
+    ]),
+    value: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string
+    ]),
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
