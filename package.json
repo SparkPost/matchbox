@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A design system",
   "main": "index.js",
   "author": "SparkPost",
