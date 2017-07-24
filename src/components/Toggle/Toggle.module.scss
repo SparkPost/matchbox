@@ -3,8 +3,8 @@
 .Toggle {
   display: inline-block;
   position: relative;
-  height: rem(40);
-  width: rem(80);
+  height: rem(30);
+  width: rem(60);
 
   *:hover {
     cursor: pointer;
@@ -22,7 +22,7 @@
 
   &:checked {
     & ~ .Indicator {
-      transform: translate(rem(38), 0);
+      transform: translate(rem(29), 0);
     }
 
     & ~ .Outline {
@@ -54,18 +54,18 @@
   height: 100%;
 
   background: color(gray, 8);
-  border-radius: rem(20);
-  border: 1px solid color(gray, 8);
+  border-radius: rem(15);
+  border: 1px solid color(gray, 9);
   transition: 0.15s;
 }
 
 .Indicator {
   pointer-events: none;
   position: absolute;
-  top: rem(4);
-  left: rem(4);
-  bottom: rem(4);
-  width: rem(34);
+  top: rem(3);
+  left: rem(3);
+  bottom: rem(3);
+  width: rem(25);
 
   background: color(gray, 10);
   transition: 0.15s;
@@ -84,17 +84,17 @@
 
   span {
     position: absolute;
-    top: rem(8);
-    font-size: rem(14);
+    top: rem(3);
+    font-size: rem(12);
     font-weight: 500;
 
     &:first-child {
-      left: rem(13);
+      left: rem(9);
       color: color(gray, 10);
     }
 
     &:last-child {
-      right: rem(15);
+      right: rem(10);
     }
   }
 }

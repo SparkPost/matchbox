@@ -18,8 +18,11 @@ class Button extends Component {
     fullWidth: PropTypes.bool,
     submit: PropTypes.bool,
     to: PropTypes.string,
-    Component: PropTypes.element,
     external: PropTypes.bool,
+    Component: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
