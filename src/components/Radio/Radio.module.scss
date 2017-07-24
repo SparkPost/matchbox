@@ -37,6 +37,14 @@
       border: 1px solid color(blue);
     }
   }
+
+  &:disabled  ~ .Control .Outline {
+    background: color(gray, 9);
+  }
+  &:disabled  ~ .Control .Outline,
+  &:disabled  ~ .Control .Fill {
+    cursor: not-allowed;
+  }
 }
 
 .Control:hover {
@@ -82,4 +90,10 @@
   & > * {
     margin-bottom: spacing(small);
   }
+}
+
+.HelpText {
+  font-size: rem(13);
+  color: color(gray, 3);
+  padding-left: rem(27);
 }

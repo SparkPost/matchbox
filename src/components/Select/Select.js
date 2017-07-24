@@ -37,6 +37,11 @@ class Select extends Component {
     disabled: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
+    helpText: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -49,6 +54,7 @@ class Select extends Component {
       options,
       label,
       labelHidden,
+      helpText,
       placeholder,
       disabled,
       error,
@@ -84,17 +90,23 @@ class Select extends Component {
       ? <option label={placeholder} value={PLACEHOLDER_VALUE} disabled />
       : null;
 
+    const helpMarkup = helpText
+      ? <div className={styles.HelpText}>{ helpText }</div>
+      : null;
+
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
         <select
           className={inputClasses}
+          disabled={disabled}
           {...rest} >
           { placeholderOption }
           { optionMarkup }
         </select>
         <Icon name='ArrowDropDown' className={styles.Dropdown} />
         { errorMarkup }
+        { helpMarkup }
       </fieldset>
     );
   }

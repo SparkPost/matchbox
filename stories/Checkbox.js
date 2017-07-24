@@ -52,6 +52,22 @@ export default storiesOf('Checkbox', module)
      />
   ))
 
+  .addWithInfo('Disabled', () => (
+    <Checkbox
+      id='id'
+      label='Check Me'
+      disabled
+     />
+  ))
+
+  .addWithInfo('With help text', () => (
+    <Checkbox
+      id='id'
+      label='Check Me'
+      helpText='Check this box'
+     />
+  ))
+
   .addWithInfo('Group',
   'This component only styles its children with correct spacing.',
   () => (
@@ -59,6 +75,7 @@ export default storiesOf('Checkbox', module)
       <Checkbox
         id='id'
         label='Parent'
+        helpText='Toggle all'
       />
       <Checkbox.Group>
         <Checkbox

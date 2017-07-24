@@ -24,7 +24,7 @@ export default storiesOf('Select', module)
   .addWithInfo('Default', () => (
     <Select
       id='id'
-      label='Name'
+      label='Select an option'
       placeholder='Leslie Knope'
       defaultValue='_placeholder'
       options={options2}
@@ -34,8 +34,26 @@ export default storiesOf('Select', module)
   .addWithInfo('with an error', () => (
     <Select
       id='id'
-      label='Name'
+      label='Select an option'
       options={options2}
       error='Your forgot to select'
+    />
+  ))
+
+  .addWithInfo('disabled', () => (
+    <Select
+      id='id'
+      label='Select an option'
+      options={options2}
+      disabled
+    />
+  ))
+
+  .addWithInfo('with help text', () => (
+    <Select
+      id='id'
+      label='Select an option'
+      options={options2}
+      helpText="Remember to select something"
     />
   ));

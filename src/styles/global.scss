@@ -71,3 +71,8 @@ a, a:visited {
     cursor: pointer;
   }
 }
+
+small {
+  font-size: rem(13);
+  color: color(gray, 3);
+}
