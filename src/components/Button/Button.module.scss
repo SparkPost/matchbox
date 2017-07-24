@@ -46,6 +46,7 @@
 
   &:hover {
     background: linear-gradient(180deg, color(gray, 9), color(gray, 9));
+    color: color(gray, 2);
   }
 
   &:hover:focus {
@@ -79,6 +80,7 @@
   border: 1px solid darken(color(orange), 12);
 
   &:hover {
+    color: color(gray, 10);
     background: linear-gradient(180deg, darken(color(orange, dark), 3), darken(color(orange, dark), 3));
   }
 
@@ -101,6 +103,10 @@
 .destructive,
 .destructive:visited {
   color: color(red, darker);
+
+  &:hover {
+    color: color(red, darker);
+  }
 }
 
 // Plain Styles
@@ -112,6 +118,7 @@
   color: color(orange);
 
   &:hover, &:active {
+    color: color(orange);
     background: color(gray, 9);
     box-shadow: none;
   }
