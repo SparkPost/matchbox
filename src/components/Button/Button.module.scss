@@ -1,6 +1,7 @@
 @import '../../styles/config';
 
-.Button {
+.Button,
+.Button:visited {
   padding: rem(5) rem(12);
   border: none;
   margin-bottom: 0;
@@ -71,7 +72,8 @@
 }
 
 // Primary Styles
-.primary {
+.primary,
+.primary:visited {
   background: linear-gradient(180deg, color(orange), color(orange, dark));
   color: color(gray, 10);
   border: 1px solid darken(color(orange), 12);
@@ -96,12 +98,14 @@
 }
 
 // Destructive Styles
-.destructive {
+.destructive,
+.destructive:visited {
   color: color(red, darker);
 }
 
 // Plain Styles
-.plain {
+.plain,
+.plain:visited {
   background: transparent;
   box-shadow: none;
   border: none;
@@ -128,7 +132,8 @@
 }
 
 // Outline Styles
-.outline {
+.outline,
+.outline:visited {
   background: transparent;
   color: color(gray, 2) !important;
   border: 1px solid color(gray, 5);
