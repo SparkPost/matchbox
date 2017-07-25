@@ -20,8 +20,8 @@ class Button extends Component {
     to: PropTypes.string,
     external: PropTypes.bool,
     Component: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
+      PropTypes.func,
+      PropTypes.element
     ]),
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
