@@ -44,7 +44,8 @@ class Panel extends Component {
       title,
       accent,
       sectioned,
-      actions
+      actions,
+      ...rest
     } = this.props;
 
     const headerMarkup = title
@@ -58,7 +59,7 @@ class Panel extends Component {
     const panelStyles = classnames(styles.Panel, accent && styles.accent);
 
     return (
-      <div className={panelStyles}>
+      <div className={panelStyles} {...rest}>
         { headerMarkup }
         { contentMarkup }
       </div>

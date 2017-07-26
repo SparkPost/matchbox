@@ -26,7 +26,8 @@ class Section extends Component {
   render() {
     const {
       children,
-      actions
+      actions,
+      ...rest
     } = this.props;
 
     const actionMarkup = actions && actions.length
@@ -34,7 +35,7 @@ class Section extends Component {
           : null;
 
     return (
-      <div className={styles.Body}>
+      <div className={styles.Body} {...rest}>
         <div className={styles.SectionContent}>
           { children }
         </div>
