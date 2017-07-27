@@ -33,6 +33,7 @@ class Column extends Component {
     const colClasses = classnames(
       styles.Column,
       xs && styles[`xs-${xs}`],
+      sm && styles[`sm-${sm}`],
       md && styles[`md-${md}`],
       lg && styles[`lg-${lg}`],
       xl && styles[`xl-${xl}`],

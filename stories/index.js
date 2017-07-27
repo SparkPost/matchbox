@@ -13,5 +13,6 @@ import './ProgressBar';
 import './Datepicker';
 import './Tooltip';
 import './Table';
+import './Modal';
 import './Icons';
 import './Grid';
