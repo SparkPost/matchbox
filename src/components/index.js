@@ -4,6 +4,7 @@ export * from './Checkbox';
 export * from './Datepicker';
 export * from './Grid';
 export * from './Icon';
+export * from './Modal';
 export * from './Page';
 export * from './Pagination';
 export * from './Panel';

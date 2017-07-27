@@ -28,7 +28,8 @@ class Grid extends Component {
       children,
       start, center, end,
       top, middle, bottom,
-      around, between
+      around, between,
+      className
     } = this.props;
 
     const gridClasses = classnames(
@@ -41,6 +42,7 @@ class Grid extends Component {
       bottom && styles[`bottom-${bottom}`],
       around && styles[`around-${around}`],
       between && styles[`between-${between}`],
+      className
     );
 
     return <div className={gridClasses}>{ children }</div>;
