@@ -19,7 +19,7 @@ class Modal extends Component {
       open,
       children,
       className,
-      ..rest
+      ...rest
     } = this.props;
 
     const modalClasses = classnames(
@@ -29,7 +29,7 @@ class Modal extends Component {
     );
 
     return (
-      <div className={modalClasses} {..rest}>
+      <div className={modalClasses} {...rest}>
         <Grid center='xs' middle='xs' className={styles.Grid}>
           <Grid.Column xs={11} md={7} xl={5}>
             <div className={styles.Content}>
