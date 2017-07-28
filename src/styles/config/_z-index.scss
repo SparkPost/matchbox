@@ -1,0 +1,17 @@
+$z-index-map: (
+  content: 100,
+  overlay: 400
+);
+
+// Returns z-index number
+// @param {String} $context - the context of the element
+// @return {Number} The z-index value
+@function z-index($context: content) {
+  $index: map-get($z-index-map, $context);
+
+  @if $index {
+    @return $index;
+  } @else {
+    @error 'Z-index context `#{$context}` not found.';
+  }
+}
