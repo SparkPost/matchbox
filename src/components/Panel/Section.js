@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { buttonsFrom } from '../Button';
+import classnames from 'classnames';
 import styles from './Panel.module.scss';
 
 const actionOverrides = { plain: true, size: 'small' };
@@ -27,6 +28,7 @@ class Section extends Component {
     const {
       children,
       actions,
+      className,
       ...rest
     } = this.props;
 
@@ -35,7 +37,7 @@ class Section extends Component {
           : null;
 
     return (
-      <div className={styles.Body} {...rest}>
+      <div className={classnames(styles.Body, className)} {...rest}>
         <div className={styles.SectionContent}>
           { children }
         </div>

@@ -45,6 +45,7 @@ class Panel extends Component {
       accent,
       sectioned,
       actions,
+      className,
       ...rest
     } = this.props;
 
@@ -56,7 +57,7 @@ class Panel extends Component {
       ? <Section>{children}</Section>
       : children;
 
-    const panelStyles = classnames(styles.Panel, accent && styles.accent);
+    const panelStyles = classnames(styles.Panel, accent && styles.accent, className);
 
     return (
       <div className={panelStyles} {...rest}>
