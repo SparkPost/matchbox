@@ -18,13 +18,12 @@ storiesOf('Datepicker', module)
         enableOutsideDays
         fixedWeeks
         initialMonth={new Date(2017, 5)}
-        selectedDays={[
-          new Date(2017, 5, 23),
+        selectedDays={
           {
-            after: new Date(2017, 5, 5),
-            before: new Date(2017, 5, 10),
-          },
-        ]}
+            from: new Date(2017, 5, 5),
+            to: new Date(2017, 5, 10),
+          }
+        }
         disabledDays={{ after: new Date() }}
         onDayClick={action('Day Clicked')}
       />
