@@ -151,7 +151,7 @@ class Pagination extends Component {
           className={styles.Back}
           onClick={() => this.handlePrevious()}
           disabled={!hasPrevious} >
-          <Icon name='ArrowBack' size={16} />
+          <Icon name='ArrowLeft' size={16} />
         </Button>
         { firstButton }
         <span className={styles.Pages}>{ buttonMarkup() }</span>
@@ -160,7 +160,7 @@ class Pagination extends Component {
           className={styles.Next}
           onClick={() => this.handleNext()}
           disabled={!hasNext} >
-          <Icon name='ArrowForward' size={16} />
+          <Icon name='ArrowRight' size={16} />
         </Button>
       </div>
     );

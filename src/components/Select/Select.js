@@ -104,7 +104,7 @@ class Select extends Component {
           { placeholderOption }
           { optionMarkup }
         </select>
-        <Icon name='ArrowDropDown' className={styles.Dropdown} />
+        <Icon name='CaretDown' className={styles.Dropdown} />
         { errorMarkup }
         { helpMarkup }
       </fieldset>

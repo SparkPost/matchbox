@@ -13,7 +13,7 @@ storiesOf('Icons', module)
 
   .addWithInfo('single icon', () => (
     <div>
-      <Icon name='InsertChart' size={90} />
+      <Icon name='ReportBox' size={90} />
     </div>
   ))
 

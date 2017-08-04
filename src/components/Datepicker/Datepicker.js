@@ -18,12 +18,12 @@ class Navbar extends Component {
     return (
       <div className={styles.Navbar}>
         <Icon
-          name='ArrowBack'
+          name='ArrowLeft'
           size={21}
           onClick={() => onPreviousClick()}
           className={styles.Prev} />
         <Icon
-          name='ArrowForward'
+          name='ArrowRight'
           size={21}
           onClick={() => onNextClick()}
           className={styles.Next} />

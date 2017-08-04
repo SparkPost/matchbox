@@ -10,7 +10,7 @@ class Icon extends Component {
       ...rest
     } = this.props;
 
-    const SvgIcon = Icons[`Md${name}`];
+    const SvgIcon = Icons[name];
 
     if (!SvgIcon) {
       throw new Error('Icon does not exist. Visit material.io & src/icons/index.js for a list of icons.');
