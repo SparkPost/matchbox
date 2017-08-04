@@ -16,11 +16,17 @@
   display: inline-block;
 }
 
-.Page {
+.Page, .Start, .End {
   width: rem(39);
 }
 
 .Selected {
   font-weight: 700;
   color: color(orange);
+}
+
+.Ellipse {
+  margin-left: spacing(small);
+  margin-right: spacing(small);
+  fill: color(gray, 6);
 }

@@ -22,11 +22,16 @@ class Pagination extends Component {
      * Callback when page is changed. Index passed as argument.
      */
     onChange: PropTypes.func,
-    
+
     /**
      * Sets page index on component mount.
      */
-    initialIndex: PropTypes.number.isRequired
+    initialIndex: PropTypes.number.isRequired,
+
+    /**
+     * Hides first and last buttons
+     */
+    marginsHidden: PropTypes.bool
   };
 
   static defaultProps = {
@@ -78,10 +83,29 @@ class Pagination extends Component {
     return buttonsFrom(buttons);
   }
 
+  _getStart() {
+    const { pages, pageRange } = this.props;
+    const { index } = this.state;
+
+    let start = 0;
+    const half = Math.floor(pageRange / 2);
+
+    if (index > half) {
+      start = index - half;
+    }
+
+    if (index + half + 1 > pages) {
+      start = pages - pageRange;
+    }
+
+    return start;
+  }
+
   render() {
     const {
       pages,
-      pageRange
+      pageRange,
+      marginsHidden
     } = this.props;
 
     const {
@@ -89,24 +113,37 @@ class Pagination extends Component {
       hasNext
     } = this.state;
 
+    const start = this._getStart();
+
     const buttonMarkup = () => {
       if (pages <= pageRange) {
         return this._createButtons(0, pages);
       } else {
-        const half = Math.floor(pageRange / 2);
-        let start = 0;
-
-        if (this.state.index > half) {
-          start = this.state.index - half;
-        }
-
-        if (this.state.index + half + 1 > pages) {
-          start = pages - pageRange;
-        }
-
         return this._createButtons(start, start + pageRange);
       }
     };
+
+    const firstButton = !marginsHidden && start > 1
+      ? <span>
+          <Button
+            className={styles.Start}
+            onClick={() => this.handlePageChange(0)} >
+            1
+          </Button>
+          <Icon name='MoreHoriz' className={styles.Ellipse}/>
+        </span>
+      : null;
+
+      const lastButton = !marginsHidden && start + pageRange < pages
+        ? <span>
+            <Icon name='MoreHoriz' className={styles.Ellipse}/>
+            <Button
+              className={styles.End}
+              onClick={() => this.handlePageChange(pages - 1)} >
+              { pages }
+            </Button>
+          </span>
+        : null;
 
     return (
       <div className={styles.Pagination}>
@@ -116,7 +153,9 @@ class Pagination extends Component {
           disabled={!hasPrevious} >
           <Icon name='ArrowBack' size={16} />
         </Button>
+        { firstButton }
         <span className={styles.Pages}>{ buttonMarkup() }</span>
+        { lastButton }
         <Button
           className={styles.Next}
           onClick={() => this.handleNext()}

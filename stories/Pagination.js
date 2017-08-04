@@ -24,5 +24,6 @@ export default storiesOf('Pagination', module)
       pages={13}
       pageRange={7}
       onChange={action('Page Changed')}
+      marginsHidden
     />
   ));
