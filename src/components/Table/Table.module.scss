@@ -11,6 +11,7 @@
 
 .Cell, .HeaderCell {
   padding: rem(15) spacing();
+  word-break: break-all;
 }
 
 .Row {

@@ -9,5 +9,11 @@ export default {
     cssPlugins,
     ...jsPlugins
   ],
-  external: ['react', 'classnames', 'prop-types', 'react-icon-base', 'react-day-picker'],
+  external: [
+    'react',
+    'classnames',
+    'prop-types',
+    'react-icon-base',
+    'react-day-picker'
+  ],
 };

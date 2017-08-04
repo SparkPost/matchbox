@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import DayPicker from 'react-day-picker';
+import DayPicker, { DateUtils } from 'react-day-picker';
 
 import { Icon } from '../Icon';
 import styles from './Datepicker.module.scss';
@@ -18,12 +18,12 @@ class Navbar extends Component {
     return (
       <div className={styles.Navbar}>
         <Icon
-          name='ArrowBack'
+          name='ArrowLeft'
           size={21}
           onClick={() => onPreviousClick()}
           className={styles.Prev} />
         <Icon
-          name='ArrowForward'
+          name='ArrowRight'
           size={21}
           onClick={() => onNextClick()}
           className={styles.Next} />
@@ -34,11 +34,31 @@ class Navbar extends Component {
 
 class Datepicker extends Component {
   render() {
+    const modifiers = {
+      firstSelected: (day) => DateUtils.isSameDay(day, this.props.selectedDays.from),
+      lastSelected: (day) => DateUtils.isSameDay(day, this.props.selectedDays.to),
+    };
+    const modifiersStyles = {
+      firstSelected: {
+        color: 'white',
+        backgroundColor: '#2693c3',
+        borderTopLeftRadius: '4px',
+        borderBottomLeftRadius: '4px'
+      },
+      lastSelected: {
+        color: 'white',
+        backgroundColor: '#2693c3',
+        borderTopRightRadius: '4px',
+        borderBottomRightRadius: '4px'
+      },
+    };
     return (
       <DayPicker
-        {...this.props}
+        modifiers={modifiers}
         classNames={styles}
-        navbarElement={Navbar} />
+        modifiersStyles={modifiersStyles}
+        navbarElement={Navbar}
+        {...this.props} />
     )
   }
 };
