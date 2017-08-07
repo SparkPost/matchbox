@@ -23,12 +23,12 @@
   box-sizing: border-box;
   width: 100%;
 
-  padding: rem(5) rem(12);
+  padding: rem(5) rem(39) rem(5) rem(12);
 
   outline: none;
   border: 1px solid color(gray, 7);
   border-radius: border-radius();
-  background: color(gray, 10);
+  background: linear-gradient(180deg, color(gray, 10), color(gray, 9));
 
   color: color(gray, 1);
   font-weight: 400;
@@ -38,7 +38,7 @@
   transition: border 0.15s;
 
   &:hover {
-    // border: 1px solid color(gray, 5);
+    cursor: pointer;
   }
 
   &:focus {
@@ -48,17 +48,22 @@
 
   &:disabled {
     background: color(gray, 9);
-    color: color(gray, 3);
+    color: color(gray, 5);
     cursor: not-allowed;
   }
 }
 
 .Dropdown {
   position: absolute;
+  z-index: 1;
   top: rem(30);
   right: rem(15);
   pointer-events: none;
   fill: color(gray, 4);
+
+  .labelHidden & {
+    top: rem(9);
+  }
 }
 
 .HelpText {
