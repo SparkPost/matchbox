@@ -21,11 +21,31 @@ const breadcrumbAction = {
   onClick: action('Webhooks Clicked')
 }
 
+const tabs = [
+  {
+    content: 'Edit',
+    onClick: action('Edit Clicked')
+  },
+  {
+    content: 'Test',
+    onClick: action('Test Clicked')
+  },
+  {
+    content: 'Batch Status History',
+    onClick: action('History Clicked')
+  },
+];
+
 storiesOf('Tabs', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .addWithInfo('Default',
+  () => (
+      <Tabs selected={0} connectBelow={false} tabs={tabs}/>
+  ))
+
+  .addWithInfo('with other components',
   () => (
     <div>
       <Page
@@ -33,21 +53,7 @@ storiesOf('Tabs', module)
         breadcrumbAction={breadcrumbAction}
         title='Webhook #2'
       />
-      <Tabs selected={0} tabs={[
-        {
-          content: 'Edit',
-          onClick: action('Edit Clicked')
-        },
-        {
-          content: 'Test',
-          onClick: action('Test Clicked')
-        },
-        {
-          content: 'Batch Status History',
-          onClick: action('History Clicked')
-        },
-      ]}>
-      </Tabs>
+      <Tabs selected={0} tabs={tabs} />
       <Panel sectioned>A panel</Panel>
     </div>
   ));
