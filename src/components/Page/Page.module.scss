@@ -1,7 +1,7 @@
 @import '../../styles/config';
 
 .Page {
-  margin-bottom: spacing();
+  margin-bottom: spacing(large);
 }
 
 .MainContent {
@@ -21,13 +21,21 @@
 }
 
 .SecondaryActions {
-  margin-left: rem(-9);
+  margin-top: rem(-6);
 }
 
 .SecondaryAction {
   display: inline-block;
-  padding: 0 rem(9);
-  color: color(gray, 5);
+  padding: 0;
+  margin-right: rem(21);
+
+  color: color(gray, 4);
+  font-size: rem(14);
+  transition: 0.15s;
+
+  &:hover {
+    color: color(gray, 2);
+  }
 }
 
 .Breadcrumb {

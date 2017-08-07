@@ -23,4 +23,14 @@ class UnstyledLink extends Component {
   }
 }
 
+export function linkFrom({ content, ...action }, key) {
+  return (
+    <UnstyledLink
+      key={key}
+      children={content}
+      {...action}
+    />
+  );
+}
+
 export default UnstyledLink;

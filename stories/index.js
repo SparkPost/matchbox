@@ -2,6 +2,7 @@ import './Welcome';
 import './Banner';
 import './Button';
 import './Panel';
+import './Tabs';
 import './TextField';
 import './Select';
 import './Checkbox';
