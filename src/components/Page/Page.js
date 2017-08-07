@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { buttonFrom, buttonsFrom } from '../Button';
+import { buttonFrom } from '../Button';
 import { Icon } from '../Icon';
-import { UnstyledLink } from '../UnstyledLink';
+import { UnstyledLink, linkFrom } from '../UnstyledLink';
 
 import styles from './Page.module.scss';
 
@@ -14,8 +14,7 @@ const primaryOverrides = {
 };
 
 const secondaryOverrides = {
-  plain: true,
-  size: 'small'
+  className: styles.SecondaryAction
 };
 
 const backOverrides = {
@@ -71,7 +70,9 @@ class Page extends Component {
       : null;
 
     const secondaryActionsMarkup = secondaryActions
-      ? buttonsFrom(secondaryActions, secondaryOverrides)
+      ? secondaryActions.map((action, i) => linkFrom(
+          { ...action, ...secondaryOverrides }, i
+        ))
       : null;
 
     const breadcrumbMarkup = breadcrumbAction

@@ -12,6 +12,7 @@ export * from './ProgressBar';
 export * from './Radio';
 export * from './Select';
 export * from './Table';
+export * from './Tabs';
 export * from './TextField';
 export * from './Toggle';
 export * from './Tooltip';
