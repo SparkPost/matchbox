@@ -1,14 +1,15 @@
 @import '../../styles/config';
 
 .Connect {
-  position: relative;
-  z-index: z-index(content);
   display: flex;
-  flex-direction: row;
 }
 
 .Primary {
   flex: 1 0 auto;
+  *:focus {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .hasLeft > * {
@@ -25,23 +26,22 @@
   flex: 0 0 auto;
   *:focus {
     position: relative;
-    z-index: z-index(content) + 1;
+    z-index: 1;
   }
 }
 
 .Left {
   margin-right: -1px;
-
-  & > * {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  * {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 }
 
 .Right {
   margin-left: -1px;
-  & > * {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  * {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
   }
 }

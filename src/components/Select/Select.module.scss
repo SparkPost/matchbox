@@ -23,7 +23,7 @@
   box-sizing: border-box;
   width: 100%;
 
-  padding: rem(5) rem(12);
+  padding: rem(5) rem(39) rem(5) rem(12);
 
   outline: none;
   border: 1px solid color(gray, 7);
@@ -38,7 +38,7 @@
   transition: border 0.15s;
 
   &:hover {
-    // border: 1px solid color(gray, 5);
+    cursor: pointer;
   }
 
   &:focus {
@@ -55,10 +55,15 @@
 
 .Dropdown {
   position: absolute;
+  z-index: 1;
   top: rem(30);
   right: rem(15);
   pointer-events: none;
   fill: color(gray, 4);
+
+  .labelHidden & {
+    top: rem(9);
+  }
 }
 
 .HelpText {

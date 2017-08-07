@@ -54,8 +54,10 @@ export default storiesOf('TextField', module)
       <TextField
         id='id'
         label='Date Range'
-        value={new Date}
+        value='July 21, 2017 - July 28, 2017'
         connectLeft={<Button>Injection Time</Button>}
-        connectRight={<Button>Last 24 Hours <Icon name='CaretDown'/></Button>}
+        connectRight={<Select labelHidden options={
+          ['Last 24 Hours', 'Last Week']
+        }/>}
       />
   ));
