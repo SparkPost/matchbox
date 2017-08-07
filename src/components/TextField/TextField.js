@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
+import { Connect } from '../Connect';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
@@ -21,6 +22,14 @@ class TextField extends Component {
     labelHidden: PropTypes.bool,
     helpText: PropTypes.oneOfType([
       PropTypes.string,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
+    connectLeft: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
+    connectRight: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]),
@@ -50,6 +59,8 @@ class TextField extends Component {
       onChange,
       onFocus,
       onBlur,
+      connectLeft,
+      connectRight,
       ...rest,
     } = this.props;
 
@@ -93,7 +104,9 @@ class TextField extends Component {
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
-        { input }
+        <Connect left={connectLeft} right={connectRight}>
+          { input }
+        </Connect>
         { errorMarkup }
         { helpMarkup }
       </fieldset>

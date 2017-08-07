@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { TextField } from '../src';
+import { TextField, Button, Select, Icon } from '../src';
 
 export default storiesOf('TextField', module)
   .addDecorator((getStory) => (
@@ -43,19 +43,19 @@ export default storiesOf('TextField', module)
   ))
 
   .addWithInfo('with help text', () => (
-    <div>
-      <TextField
-        id='id'
-        label='Template ID'
-        helpText='A unique ID for your template.'
-
-        error
-      />
       <TextField
         id='id'
         label='Template ID'
         helpText='A unique ID for your template.'
       />
-    </div>
+  ))
 
+  .addWithInfo('with connected components', () => (
+      <TextField
+        id='id'
+        label='Date Range'
+        value={new Date}
+        connectLeft={<Button>Injection Time</Button>}
+        connectRight={<Button>Last 24 Hours <Icon name='CaretDown'/></Button>}
+      />
   ));
