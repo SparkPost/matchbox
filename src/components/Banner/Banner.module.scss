@@ -57,11 +57,7 @@
   }
 }
 
-.fixed {
-  position: absolute;
-  top: rem(15);
-  left: 50%;
-  transform: translate(-50%, 0);
+.overlay {
   box-shadow: shadow(deep);
   border: 1px solid rgba(color(gray, 7), 0.5);
 }

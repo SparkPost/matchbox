@@ -53,7 +53,7 @@ class Banner extends Component {
     /**
      * Absolute positions the banner
      */
-    fixed: PropTypes.boolean,
+    overlay: PropTypes.boolean,
 
     /**
      * Action that build a button. Most button props will work in here.
@@ -82,7 +82,7 @@ class Banner extends Component {
       title,
       status,
       action,
-      fixed,
+      overlay,
       onDismiss,
       ...rest
     } = this.props;
@@ -102,7 +102,7 @@ class Banner extends Component {
     const bannerStyles = classnames(
       styles.Banner,
       styles[`${status}`],
-      fixed && styles.fixed
+      overlay && styles.overlay
     );
 
     return (
@@ -122,7 +122,7 @@ class Banner extends Component {
 Banner.propTypes = {
   title: PropTypes.string,
   status: PropTypes.oneOf(['info', 'warning', 'success', 'danger', 'default']),
-  fixed: PropTypes.bool,
+  overlay: PropTypes.bool,
   onDismiss: PropTypes.func,
   action: PropTypes.shape({
     content: PropTypes.string.isRequired

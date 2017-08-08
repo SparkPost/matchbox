@@ -59,14 +59,4 @@ export default storiesOf('Banner', module)
         <p>To reactivate your account and pay your outstanding balance due, please update your payment information.</p>
         <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
       </Banner>
-  ))
-
-  .addWithInfo('Fixed', () => (
-      <Banner
-        title='Profile Updated'
-        status='success'
-        onDismiss={action('Dismiss Clicked')}
-        fixed
-        style={{ width: '400px' }}>
-      </Banner>
   ));
