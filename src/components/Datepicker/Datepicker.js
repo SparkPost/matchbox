@@ -34,10 +34,15 @@ class Navbar extends Component {
 
 class Datepicker extends Component {
   render() {
-    const modifiers = {
-      firstSelected: (day) => DateUtils.isSameDay(day, this.props.selectedDays.from),
-      lastSelected: (day) => DateUtils.isSameDay(day, this.props.selectedDays.to),
-    };
+    const { selectedDays } = this.props;
+
+    const modifiers = selectedDays
+    ? {
+        firstSelected: (day) => DateUtils.isSameDay(day, selectedDays.from),
+        lastSelected: (day) => DateUtils.isSameDay(day, selectedDays.to),
+      }
+    : {};
+    
     const modifiersStyles = {
       firstSelected: {
         color: 'white',

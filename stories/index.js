@@ -13,6 +13,7 @@ import './Pagination';
 import './ProgressBar';
 import './Datepicker';
 import './Tooltip';
+import './Popover';
 import './Table';
 import './Modal';
 import './Icons';

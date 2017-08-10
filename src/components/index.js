@@ -8,6 +8,7 @@ export * from './Modal';
 export * from './Page';
 export * from './Pagination';
 export * from './Panel';
+export * from './Popover';
 export * from './ProgressBar';
 export * from './Radio';
 export * from './Select';
