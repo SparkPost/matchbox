@@ -59,11 +59,13 @@
 }
 
 .selected, a.selected {
-  color: color(orange);
-  pointer-events: none;
+  &, &:focus {
+    color: color(orange);
+    pointer-events: none;
 
-  &:after {
-    background: color(orange);
-    opacity: 1;
+    &:after {
+      background: color(orange);
+      opacity: 1;
+    }
   }
 }
