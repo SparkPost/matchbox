@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 
 import styles from './Popover.module.scss';
 
 class Popover extends Component {
+
+  static propTypes = {
+    /**
+     * A React component to will trigger the popover
+     */
+     trigger: PropTypes.element,
+     /**
+      * Adds a padding to the Popover
+      */
+     sectioned: PropTypes.bool,
+     /**
+      * Popover Content
+      */
+     children: PropTypes.oneOfType([
+       PropTypes.arrayOf(PropTypes.node),
+       PropTypes.node
+     ]),
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +67,7 @@ class Popover extends Component {
       children,
       sectioned,
       trigger,
-      className = '',
+      className,
       ...rest
     } = this.props;
 
