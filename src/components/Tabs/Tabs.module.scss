@@ -23,7 +23,7 @@
   }
 }
 
-.Tab {
+.Tab, a.Tab {
   position: relative;
   display: inline-block;
   padding: rem(15) 0;
@@ -31,6 +31,7 @@
 
   color: color(gray, 4);
   font-size: rem(14);
+  text-decoration: none;
 
   &:after {
     display: block;
@@ -57,7 +58,7 @@
   }
 }
 
-.selected {
+.selected, a.selected {
   color: color(orange);
   pointer-events: none;
 
