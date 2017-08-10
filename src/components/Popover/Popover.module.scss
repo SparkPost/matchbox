@@ -1,0 +1,66 @@
+@import '../../styles/config';
+
+.Popover {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: rem(200);
+
+  background: color(gray, 10);
+  margin: rem(14) 0 0;
+
+  box-shadow: shadow(deep);
+  border-radius: border-radius(large);
+  border: 1px solid color(gray, 8);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0, 0) scale(0.96);
+  transition: 0.06s ease-out;
+
+  z-index: 1;
+}
+
+
+.sectioned {
+  padding: spacing();
+}
+
+.Tip {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: rem(21);
+  width: rem(14);
+  height: rem(14);
+
+  margin: rem(7) 0 0;
+
+  background: color(gray, 10);
+  border-top-left-radius: border-radius(large);
+  border-top: 1px solid color(gray, 8);
+  border-left: 1px solid color(gray, 8);
+  transform: rotate(45deg) scale(0.5);
+
+  opacity: 0;
+  transition: 0.06s ease-out;
+
+  z-index: 1;
+}
+
+.Wrapper {
+  position: relative;
+}
+
+.open {
+  .Popover {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  .Tip {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
