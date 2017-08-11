@@ -17,6 +17,10 @@ class Popover extends Component {
       */
      sectioned: PropTypes.bool,
      /**
+      * Optional, opens the popover
+      */
+     open: PropTypes.bool,
+     /**
       * Popover Content
       */
      children: PropTypes.oneOfType([
@@ -28,7 +32,7 @@ class Popover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: props.open
     }
 
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -88,9 +92,11 @@ class Popover extends Component {
       <div className={wrapperClasses}>
         { triggerMarkup }
         <div className={popoverClasses} {...rest}>
-          { children }
+          <span className={styles.Tip} />
+          <div className={styles.Content} >
+            { children }
+          </div>
         </div>
-        <span className={styles.Tip} />
       </div>
     );
   }
