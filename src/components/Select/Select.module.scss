@@ -12,10 +12,6 @@
   background: rgba(color(red, dark), 0.06);
 }
 
-.labelHidden .Dropdown {
-  top: rem(10);
-}
-
 .Input {
   -webkit-appearance: none;
   position: relative;
@@ -60,11 +56,12 @@
   right: rem(15);
   pointer-events: none;
   fill: color(gray, 4);
-
-  .labelHidden & {
-    top: rem(9);
-  }
 }
+
+.labelHidden {
+  top: rem(9);
+}
+
 
 .HelpText {
   padding-top: rem(3);

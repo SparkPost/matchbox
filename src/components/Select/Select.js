@@ -36,7 +36,6 @@ class Select extends Component {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.string,
-    labelHidden: PropTypes.bool,
     helpText: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.node),
@@ -53,7 +52,6 @@ class Select extends Component {
       id,
       options,
       label,
-      labelHidden,
       helpText,
       placeholder,
       disabled,
@@ -63,8 +61,7 @@ class Select extends Component {
 
     const setClasses = classnames(
       styles.Select,
-      error && styles.error,
-      labelHidden && styles.labelHidden
+      error && styles.error
     );
 
     const inputClasses = classnames(
@@ -72,11 +69,16 @@ class Select extends Component {
       disabled && styles.disabled
     );
 
+    const dropdownClasses = classnames(
+      styles.Dropdown,
+      !label && styles.labelHidden
+    );
+
     const optionMarkup = options && options.length
       ? options.map((option, key) => <Option option={option} key={key} />)
       : null;
 
-    const labelMarkup = label && !labelHidden
+    const labelMarkup = label
       ? <Label
           id={id}
           label={label} />
@@ -104,7 +106,7 @@ class Select extends Component {
           { placeholderOption }
           { optionMarkup }
         </select>
-        <Icon name='CaretDown' className={styles.Dropdown} />
+        <Icon name='CaretDown' className={dropdownClasses} />
         { errorMarkup }
         { helpMarkup }
       </fieldset>
