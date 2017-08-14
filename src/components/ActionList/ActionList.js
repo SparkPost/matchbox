@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 
-import UnstyledLink, { linkFrom } from '../UnstyledLink';
+import { linkFrom } from '../UnstyledLink';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {

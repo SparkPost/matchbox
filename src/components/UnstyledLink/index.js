@@ -1,2 +1,2 @@
-export { default as UnstyledLink } from './UnstyledLink';
 export * from './UnstyledLink';
+export { default as UnstyledLink } from './UnstyledLink';

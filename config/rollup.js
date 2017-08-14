@@ -11,6 +11,7 @@ export default {
   ],
   external: [
     'react',
+    'react-dom',
     'classnames',
     'prop-types',
     'react-icon-base',
