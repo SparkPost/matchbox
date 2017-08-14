@@ -22,7 +22,6 @@
   z-index: 1;
 }
 
-
 .sectioned {
   padding: spacing();
 }
@@ -30,7 +29,7 @@
 .Tip {
   display: block;
   position: absolute;
-  top: 100%;
+  top: rem(-14);
   left: rem(21);
   width: rem(14);
   height: rem(14);
@@ -47,6 +46,13 @@
   transition: 0.06s ease-out;
 
   z-index: 1;
+}
+
+.Content {
+  position: relative;
+  z-index: 1;
+  border-radius: border-radius(large);
+  overflow: hidden;
 }
 
 .Wrapper {

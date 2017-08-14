@@ -1,0 +1,31 @@
+@import '../../styles/config';
+
+.ActionList {
+  padding-top: spacing(small);
+  overflow: scroll;
+  z-index: 1;
+  max-height: rem(160);
+}
+
+.Section {
+  border-bottom: 1px solid color(gray, 8);
+
+  &:last-child {
+    border: none;
+  }
+
+  &:first-child {
+    margin-top: 3px;
+  }
+}
+
+.Action, a.Action {
+  display: block;
+  padding: rem(9) spacing();
+  color: color(gray, 3);
+
+  &:hover {
+    background: color(blue);
+    color: color(gray, 10);
+  }
+}

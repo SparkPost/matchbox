@@ -14,6 +14,7 @@ import './ProgressBar';
 import './Datepicker';
 import './Tooltip';
 import './Popover';
+import './ActionList';
 import './Table';
 import './Modal';
 import './Icons';
