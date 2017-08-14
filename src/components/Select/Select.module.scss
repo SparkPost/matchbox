@@ -5,6 +5,10 @@
   border: none;
   padding: 0;
   margin: 0 0 spacing() 0;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 .error .Input {
@@ -19,7 +23,7 @@
   box-sizing: border-box;
   width: 100%;
 
-  padding: rem(5) rem(39) rem(5) rem(12);
+  padding: rem(5) rem(27) rem(5) rem(12);
 
   outline: none;
   border: 1px solid color(gray, 7);
@@ -53,7 +57,7 @@
   position: absolute;
   z-index: 1;
   top: rem(30);
-  right: rem(15);
+  right: rem(9);
   pointer-events: none;
   fill: color(gray, 4);
 }
@@ -61,7 +65,6 @@
 .labelHidden {
   top: rem(9);
 }
-
 
 .HelpText {
   padding-top: rem(3);

@@ -40,10 +40,7 @@
   border-top-left-radius: border-radius(large);
   border-top: 1px solid color(gray, 8);
   border-left: 1px solid color(gray, 8);
-  transform: rotate(45deg) scale(0.5);
-
-  opacity: 0;
-  transition: 0.06s ease-out;
+  transform: rotate(45deg);
 
   z-index: 1;
 }
@@ -51,6 +48,7 @@
 .Content {
   position: relative;
   z-index: 1;
+  padding: 1px;
   border-radius: border-radius(large);
   overflow: hidden;
 }
@@ -64,9 +62,5 @@
     pointer-events: auto;
     opacity: 1;
     transform: translate(0, 0) scale(1);
-  }
-  .Tip {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
   }
 }

@@ -10,14 +10,19 @@ class Popover extends Component {
   static propTypes = {
     /**
      * A React component to will trigger the popover
+     * Click events are handled for you
      */
      trigger: PropTypes.element,
+     /**
+      * If you want to control open state yourself, set this to true
+      */
+     manualTrigger: PropTypes.bool,
      /**
       * Adds a padding to the Popover
       */
      sectioned: PropTypes.bool,
      /**
-      * Optional, opens the popover
+      * Opens the popover
       */
      open: PropTypes.bool,
      /**
@@ -63,7 +68,9 @@ class Popover extends Component {
   }
 
   handleTrigger() {
-    this.setState({ open: true });
+    if (!this.props.manualTrigger) {
+      this.setState({ open: true });
+    }
   }
 
   render() {
@@ -71,9 +78,13 @@ class Popover extends Component {
       children,
       sectioned,
       trigger,
-      className,
+      className = '',
+      open,
+      manualTrigger,
       ...rest
     } = this.props;
+
+    const shouldBeOpen = manualTrigger ? open : this.state.open;
 
     const popoverClasses = classnames(
       styles.Popover,
@@ -83,7 +94,7 @@ class Popover extends Component {
 
     const wrapperClasses = classnames(
       styles.Wrapper,
-      this.state.open && styles.open
+      shouldBeOpen && styles.open
     );
 
     const triggerMarkup = <span onClick={() => this.handleTrigger()}>{ trigger }</span>;

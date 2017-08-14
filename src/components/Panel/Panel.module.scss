@@ -55,6 +55,6 @@
   padding-right: spacing(small);
 }
 
-.SectionContent *:last-child {
+.SectionContent > *:last-child {
   margin-bottom: 0;
 }

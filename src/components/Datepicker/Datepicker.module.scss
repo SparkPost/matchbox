@@ -14,21 +14,25 @@
   user-select: none;
   outline: none;
   flex-direction: row;
-  padding: spacing() 0;
+  padding: 0;
 }
 
 .interactionDisabled {}
 
 .month {
-  margin: 0 rem(18);
+  margin: 0;
   flex: 0 0 auto;
   flex-grow: 1;
   flex-basis: 0;
+
+  & + .month {
+    margin-left: rem(18)
+  }
 }
 
 .caption {
   height: rem(33);
-  padding-top: rem(12);
+  padding-top: 0;
   font-weight: 600;
   font-size: rem(14);
   text-align: center;
@@ -135,7 +139,7 @@
 
 .Prev, .Next {
   position: absolute;
-  top: rem(12);
+  top: 0;
   display: inline-block;
   cursor: pointer;
 

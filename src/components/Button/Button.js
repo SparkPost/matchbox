@@ -62,7 +62,7 @@ class Button extends Component {
       onFocus,
       onBlur,
 
-      className,
+      className = '',
       ...rest
     } = this.props;
 
@@ -75,7 +75,7 @@ class Button extends Component {
       outline && styles.outline,
       fullWidth && styles.fullWidth,
       size && styles[`${size}`],
-      className && className
+      className
     );
 
     if (to && external) {

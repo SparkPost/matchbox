@@ -12,7 +12,7 @@ storiesOf('Datepicker', module)
   .addWithInfo('Default',
   'Refer to http://react-day-picker.js.org/ for usage. The only props overridden by Matchbox are classNames and navbarElement.',
   () => (
-    <Panel>
+    <Panel sectioned>
       <Datepicker
         numberOfMonths={2}
         enableOutsideDays

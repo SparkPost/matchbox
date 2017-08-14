@@ -11,6 +11,7 @@ const DemoBlock = ({size = '18px'}) => {
       backgroundColor: '#fa6423',
       height: size,
       borderRadius: '2px',
+      marginBottom: '18px'
     }} />
   );
 }

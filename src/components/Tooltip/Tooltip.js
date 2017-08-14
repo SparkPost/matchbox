@@ -43,9 +43,9 @@ class Tooltip extends Component {
       <span className={wrapperClasses}>
         { children }
         <span className={styles.Tooltip}>
+          <span className={styles.Tip} />
           <span className={styles.Content}>{ content }</span>
         </span>
-        <span className={styles.Tip} />
       </span>
     )
   }
