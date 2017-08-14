@@ -18,22 +18,38 @@ const Section = ({ section }) => {
 }
 
 class ActionList extends Component {
+  static propTypes = {
+     /**
+      * Actions
+      * e.g. [{ content: 'action label', onClick: callback() }]
+      */
+     actions: PropTypes.arrayOf(PropTypes.shape({
+       content: PropTypes.string.isRequired
+     })),
+     /**
+      * Creates sections
+      * e.g. [{ actions:[{ content: 'action label', onClick: callback() }]}]
+      */
+     sections: PropTypes.arrayOf(PropTypes.shape({
+       actions: PropTypes.array
+     })),
+  };
   render() {
     const {
       actions,
-      sections
+      sections,
+      ...rest
     } = this.props;
 
-    let list = [{ actions }];
-
+    let list = actions ? [{ actions }] : [];
     if (sections) {
-      list = [{ actions }].concat(sections);
+      list = list.concat(sections);
     }
 
     const listMarkup = list.map((section, index) => <Section section={section} key={index} />)
 
     return (
-      <div className={styles.ActionList}>
+      <div className={styles.ActionList} {...rest}>
         { listMarkup }
       </div>
     );
