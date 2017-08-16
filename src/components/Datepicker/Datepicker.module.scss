@@ -74,13 +74,13 @@
   flex: 0 0 auto;
   flex-grow: 1;
   flex-basis: 0;
-  min-width: rem(42);
+  min-width: rem(24);
 
-  padding: rem(6) rem(14);
+  padding: rem(3) rem(7);
   margin-bottom: -1px;
   margin-right: -1px;
 
-  border: 1px solid color(gray, 8);
+  border: 1px solid color(gray, 9);
   font-size: rem(12);
   font-weight: 400;
   text-align: center;
@@ -119,9 +119,11 @@
 .outside {
   color: color(gray, 8);
   pointer-events: none;
+
   &.selected {
-    background: transparent;
-    border: 1px solid color(gray, 8);
+    background: rgba(color(blue), 0.12) !important;
+    color: color(gray, 7) !important;
+    border: 1px solid rgba(color(blue), 0.15);
   }
 }
 
