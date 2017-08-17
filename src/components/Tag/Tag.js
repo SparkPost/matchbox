@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Icon } from '../Icon';
 import { UnstyledLink } from '../UnstyledLink';
 
@@ -15,10 +16,10 @@ class Tag extends Component {
   };
 
   render() {
-    const { children, onRemove } = this.props;
+    const { children, onRemove, className } = this.props;
 
     return (
-      <div className={styles.Tag}>
+      <div className={classnames(styles.Tag, className)}>
         <div className={styles.Content}>{ children }</div>
         <UnstyledLink
           className={styles.Close}
