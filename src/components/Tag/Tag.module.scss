@@ -1,0 +1,27 @@
+@import '../../styles/config';
+
+.Tag {
+  display: inline-block;
+}
+
+.Content {
+  display: inline-block;
+  padding: 0 spacing(small);
+  border-radius: border-radius(large) 0 0 border-radius(large);
+  background: color(gray, 8);
+}
+
+.Close, a.Close {
+  display: inline-block;
+  padding: 0 spacing(small);
+  border-radius: 0 border-radius(large) border-radius(large) 0;
+  background: color(gray, 8);
+
+  color: color(gray, 4);
+  transition: 0.15s;
+
+  &:hover, &:active {
+    color: color(gray, 1);
+    background: color(gray, 7);
+  }
+}
