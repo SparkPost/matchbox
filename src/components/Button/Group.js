@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './Button.module.scss';
 
-const Group = ({ children }) => (
-  <div className={styles.Group}>
+const Group = ({ children, className = '' }) => (
+  <div className={classnames(styles.Group, className)}>
     { children }
   </div>
 );
