@@ -16,6 +16,7 @@ import './Tooltip';
 import './Popover';
 import './ActionList';
 import './Table';
+import './Tag';
 import './Modal';
 import './Icons';
 import './Grid';
