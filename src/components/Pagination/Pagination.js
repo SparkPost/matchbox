@@ -51,6 +51,13 @@ class Pagination extends Component {
     this.handlePageChange(this.props.initialIndex);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { pages, pageRange, initialIndex } = this.props;
+    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange) {
+      this.handlePageChange(initialIndex)
+    }
+  }
+
   handlePageChange(index) {
     this.setState({
       index,
