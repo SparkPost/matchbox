@@ -5,6 +5,11 @@
   border: none;
   padding: 0;
   margin: 0 0 spacing() 0;
+  white-space: nowrap;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 .Input {
@@ -45,11 +50,14 @@
   &:disabled  ~ .Control .Check {
     cursor: not-allowed;
   }
-
 }
 
-.Control:hover {
-  cursor: pointer;
+.Control {
+  display: inline-block;
+  vertical-align: top;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .Box, .Check {
@@ -79,9 +87,12 @@
 }
 
 .Label {
-  position: absolute;
-  padding-left: 27px;
-  padding-top: 4px;
+  // position: absolute;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 9px;
+  margin-top: 3px;
+  line-height: 18px;
   white-space: nowrap;
 }
 
@@ -89,12 +100,11 @@
   display: block;
   margin-bottom: spacing();
   & > * {
-    margin-bottom: spacing(small);
+    margin-bottom: 0;
   }
 }
 
 .HelpText {
-  padding-top: 3px;
   font-size: rem(13);
   line-height: rem(15);
   color: color(gray, 4);

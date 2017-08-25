@@ -66,7 +66,6 @@ class Checkbox extends Component {
 
     return (
       <fieldset className={setClasses}>
-        { labelMarkup }
         <input
           id={id}
           value={value}
@@ -81,6 +80,7 @@ class Checkbox extends Component {
             <div className={styles.Box} />
             <Icon name='Check' className={styles.Check} size={14}/>
           </label>
+        { labelMarkup }
         { errorMarkup }
         { helpMarkup }
       </fieldset>
