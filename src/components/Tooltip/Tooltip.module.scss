@@ -1,8 +1,13 @@
 @import '../../styles/config';
-$arrow-margin: rem(21);
+$arrow-margin: 10px;
 
 .Wrapper {
   position: relative;
+  display: inline-block;
+
+  & > * {
+    margin-bottom: 0;
+  }
 
   &:hover {
     .Tooltip {
@@ -25,8 +30,8 @@ $arrow-margin: rem(21);
 .top {
   .Tip {
     top: auto;
-    bottom: 100%;
-    margin: 0 0 $arrow-margin + rem(-7);
+    bottom: rem(-14);
+    margin: 0 0 rem(7);
     border-top: none;
     border-left: none;
     border-bottom: 1px solid color(gray, 8);
