@@ -7,11 +7,14 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(color(gray, 2), 0.6);
+  background: rgba(color(gray, 2), 0.7);
 
   opacity: 0;
   pointer-events: none;
-  transition: 0.1s
+  transition: 0.1s;
+  will-change: opacity, transform;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .open {
@@ -20,15 +23,17 @@
 
   .Content {
     transform: translate(0, 0);
+
+    margin: rem(80) 0;
   }
 }
 
 .Content {
-  max-width: breakpoint(small);
+  max-width: breakpoint(medium);
   transform: translate(0, 9px);
   transition: 0.1s ease-out;
 }
 
 .Grid {
-  height: 100%;
+  min-height: 100%;
 }
