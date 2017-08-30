@@ -1,6 +1,10 @@
 # Matchbox
 
-[Component Demo](https://sparkpost.github.io/matchbox/)
+#### Links:
+- [Component Demo](https://sparkpost.github.io/matchbox/)
+- [Sass Documentation](src/styles/README.md)
+
+---
 
 ## Usage
 ### 1. Installation
