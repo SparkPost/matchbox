@@ -9,24 +9,30 @@ In your react project, run:
 ```bash
 npm install @sparkpost/matchbox --save
 ```
-Or, if you prefer yarn:
-```bash
-yarn add @sparkpost/matchbox
-```
 
 ### 2. Include Styles
-There are multiple ways to use Matchbox's styles. If you want to import everything as css use:
-```css
-@import '@sparkpost/matchbox/styles.css'
-```
+There are multiple ways to use Matchbox's styles. If you aren't running a build tool like webpack and just need to import all the css, use `styles.css`
 
-If you want to pull in the Sass and global reset separately, you can use:
+Source files are written in Sass (`.scss`). You can add `node_modules` to your webpack config's `includePaths` and import the files like:
 ```css
-@import '~@sparkpost/matchbox/src/config.scss';
+/*
+  Global includes a general styles reset
+  Include this only once globally
+*/
 @import '~@sparkpost/matchbox/src/global.scss';
-```
-`config` does not output any CSS, and only holds functions and mixins, while `global` includes a baseline styles reset. 
 
+/*
+  Transpiled css in scss format - .css also available
+  Include this only once to include React component styles
+*/
+@import '~@sparkpost/matchbox/styles.scss';
+
+/*
+  Config does not output and css, only holds functions and mixins.
+  Use this for your own component styles
+*/
+@import '~@sparkpost/matchbox/src/config.scss';
+```
 
 ### 3. Use the React components
 In-depth usage docs coming in the future. For now, reference [storybook](https://sparkpost.github.io/matchbox/).
