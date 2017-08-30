@@ -17,3 +17,14 @@ $base-font-size: 18;
   $result: 0em + $n / $base-font-size;
   @return $result;
 }
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

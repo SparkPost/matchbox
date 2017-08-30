@@ -6,6 +6,11 @@ Hides the element that is accessible by screen readers.
 
 ---
 
+### `@include clearfix`
+A standard clearfix.
+
+---
+
 ### `border-radius($size: base)`
 Returns border radius in pixels.
 
