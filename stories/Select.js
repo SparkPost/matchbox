@@ -5,7 +5,7 @@ import { StoryContainer } from './helpers';
 
 import { Select } from '../src';
 
-const options = ['Foo', 'Bar', 'Baz'];
+const options = ['Foo', 2, 'Bar'];
 const options2 = [
   {
     value: '1',
@@ -28,6 +28,16 @@ export default storiesOf('Select', module)
       placeholder='Leslie Knope'
       defaultValue='_placeholder'
       options={options2}
+    />
+  ))
+
+  .addWithInfo('with strings or numbers', () => (
+    <Select
+      id='id'
+      label='Select an option'
+      placeholder='Leslie Knope'
+      defaultValue='_placeholder'
+      options={options}
     />
   ))
 
