@@ -24,13 +24,14 @@
   margin-top: rem(-6);
 }
 
-.SecondaryAction {
+.SecondaryAction, .SecondaryAction:visited {
   display: inline-block;
   padding: 0;
   margin-right: rem(21);
 
   color: color(gray, 4);
   font-size: rem(14);
+  text-decoration: none;
   transition: 0.15s;
 
   &:hover {
@@ -38,13 +39,18 @@
   }
 }
 
-.Breadcrumb {
+.Breadcrumb, .Breadcrumb:visited {
   margin-left: rem(-3);
   margin-bottom: spacing();
   text-decoration: none;
+  color: color(blue);
   outline: none;
 
   *:first-child {
     margin-top: -2px;
+  }
+
+  &:hover, &:active, &:focus {
+    color: color(blue, dark);
   }
 }
