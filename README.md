@@ -19,7 +19,7 @@ Source files are written in Sass (`.scss`). You can add `node_modules` to your w
   Global includes a general styles reset
   Include this only once globally
 */
-@import '~@sparkpost/matchbox/src/global.scss';
+@import '~@sparkpost/matchbox/src/styles/config.scss';
 
 /*
   Transpiled css in scss format - .css also available
@@ -31,7 +31,7 @@ Source files are written in Sass (`.scss`). You can add `node_modules` to your w
   Config does not output and css, only holds functions and mixins.
   Use this for your own component styles
 */
-@import '~@sparkpost/matchbox/src/config.scss';
+@import '~@sparkpost/matchbox/src/styles/config.scss';
 ```
 
 ### 3. Use the React components
