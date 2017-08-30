@@ -10,10 +10,10 @@ import styles from './Select.module.scss';
 const PLACEHOLDER_VALUE = '_placeholder';
 
 const Option = ({ option }) => {
-  if (typeof option === 'string') {
-    return <option value={option}>{ option }</option>
-  } else {
+  if (typeof option === 'object') {
     return <option value={option.value}>{ option.label }</option>
+  } else if (typeof option === 'string' || typeof option === 'number'){
+    return <option value={option}>{ option }</option>
   }
 };
 
@@ -30,7 +30,8 @@ class Select extends Component {
           value: PropTypes.string.isRequired,
           label: PropTypes.string.isRequired
         }),
-        PropTypes.string.isRequired
+        PropTypes.string.isRequired,
+        PropTypes.number.isRequired
       ])
     ).isRequired,
     placeholder: PropTypes.string,
