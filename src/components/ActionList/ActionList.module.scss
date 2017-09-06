@@ -29,3 +29,8 @@
     color: color(gray, 10);
   }
 }
+
+.highlighted, a.highlighted {
+  background: color(blue);
+  color: color(gray, 10);
+}

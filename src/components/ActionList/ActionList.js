@@ -7,8 +7,13 @@ import { linkFrom } from '../UnstyledLink';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {
-  const actions = section.actions.map((action, index) => {
-    return linkFrom({ ...action, className: styles.Action }, index);
+  const actions = section.actions.map(({ className, highlighted, ...action }, index) => {
+    const classes = classnames(
+      styles.Action,
+      highlighted && styles.highlighted,
+      className
+    );
+    return linkFrom({ ...action, className: classes }, index);
   });
   return (
     <div className={styles.Section}>
