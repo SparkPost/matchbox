@@ -24,7 +24,7 @@ export default postcss({
       generateScopedName: scopeClasses
     }),
     autoprefixer(),
-    cssnano()
+    cssnano({ zindex: false })
   ],
   getExport (id) {
     return cssExportMap[id];
