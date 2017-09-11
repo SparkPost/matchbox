@@ -49,6 +49,7 @@ export { default as Warning } from './warning';
 export { default as CreditCard } from './credit-card';
 export { default as Image } from './image';
 export { default as Link } from './insert-link';
+export { default as Lock } from './lock';
 export { default as Mail } from './mail';
 export { default as ClockOutline } from './schedule';
 export { default as Clock } from './watch-later';
