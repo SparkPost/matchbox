@@ -4,8 +4,7 @@ import styles from './Error.module.scss';
 
 const Error = ({ error }) => (
   <div className={styles.Error}>
-    <Icon name='Error' className={styles.Icon} size={13} />
-    <span className={styles.Message}>{ error }</span>
+    <span className={styles.Message}><Icon name='Error' className={styles.Icon} size={13} />{ error }</span>
   </div>
 );
 

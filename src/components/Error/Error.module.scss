@@ -5,14 +5,17 @@
 }
 
 .Icon {
+  float: left;
+  margin-right: rem(5);
   fill: color(red, dark);
+  line-height: rem(15);
 }
 
 .Message {
   display: inline-block;
-  padding-left: spacing(small);
-  vertical-align: middle;
+  vertical-align: top;
   font-size: rem(13);
+  line-height: rem(15);
   font-weight: 500;
   color: color(red, dark);
 }
