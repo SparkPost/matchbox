@@ -23,13 +23,12 @@
 
   .Content {
     transform: translate(0, 0);
-
-    margin: rem(80) 0;
   }
 }
 
 .Content {
   max-width: breakpoint(medium);
+  margin: rem(80) 0;
   transform: translate(0, 9px);
   transition: 0.1s ease-out;
 }
