@@ -33,6 +33,14 @@ class TextField extends Component {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]),
+    prefix: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
+    suffix: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -42,6 +50,17 @@ class TextField extends Component {
   static defaultProps = {
     type: 'text'
   };
+
+  state = { inputPadding: {} }
+
+  componentDidMount() {
+    const { prefix, suffix } = this.props;
+    const prefixPadding = prefix && this.prefixNode ? { paddingLeft: this.prefixNode.getBoundingClientRect().width + 20 } : { };
+    const suffixPadding = suffix && this.suffixNode ? { paddingRight: this.suffixNode.getBoundingClientRect().width + 20 } : { };
+    this.setState({
+      inputPadding: { ...prefixPadding, ...suffixPadding }
+    });
+  }
 
   render() {
     const {
@@ -61,6 +80,8 @@ class TextField extends Component {
       onBlur,
       connectLeft,
       connectRight,
+      prefix,
+      suffix,
       ...rest,
     } = this.props;
 
@@ -83,6 +104,14 @@ class TextField extends Component {
       ? <div className={styles.HelpText}>{ helpText }</div>
       : null;
 
+    const prefixMarkup = prefix
+      ? <span className={styles.Prefix} ref={node => this.prefixNode = node}>{ prefix }</span>
+      : null;
+
+    const suffixMarkup = suffix
+      ? <span className={styles.Suffix} ref={node => this.suffixNode = node}>{ suffix }</span>
+      : null;
+
     const input = React.createElement(multiline ? 'textarea' : 'input', {
       ...rest,
       name,
@@ -95,17 +124,26 @@ class TextField extends Component {
       onFocus,
       onBlur,
       onChange,
-      className: styles.Input
+      className: styles.Input,
+      style: { ...this.state.inputPadding }
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
     });
 
+    const inputMarkup = prefix || suffix
+      ? <div className={styles.InputWrapper}>
+          { prefixMarkup }
+          { input }
+          { suffixMarkup }
+        </div>
+      : input;
+
     return (
       <fieldset className={setClasses}>
         { labelMarkup }
         <Connect left={connectLeft} right={connectRight}>
-          { input }
+          { inputMarkup }
         </Connect>
         { errorMarkup }
         { helpMarkup }

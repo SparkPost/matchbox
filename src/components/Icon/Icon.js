@@ -13,7 +13,7 @@ class Icon extends Component {
     const SvgIcon = Icons[name];
 
     if (!SvgIcon) {
-      throw new Error('Icon does not exist. Visit material.io & src/icons/index.js for a list of icons.');
+      throw new Error('Icon does not exist. Check out src/icons/index.js for a list of icons.');
     }
 
     return <SvgIcon size={size} {...rest} />

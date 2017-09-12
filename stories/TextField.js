@@ -60,4 +60,15 @@ export default storiesOf('TextField', module)
           ['Last 24 Hours', 'Last Week']
         }/>}
       />
+  ))
+
+  .addWithInfo('with prefix and suffix', () => (
+      <TextField
+        id='id'
+        label='Date Range'
+        value='July 21, 2017 - July 28, 2017'
+        connectLeft={<Button>test</Button>}
+        prefix={<Icon name='Language' />}
+        suffix='MasterCard'
+      />
   ));
