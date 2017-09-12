@@ -24,8 +24,19 @@ storiesOf('Tooltip', module)
     <div>
       <Tooltip
         content='Messages an ISP or other remote domain accepted'
-        dark position='top'>
+        dark top>
         <Button>Accepted</Button>
+      </Tooltip>
+    </div>
+  ))
+
+  .addWithInfo('Right with horizontal offset',
+  () => (
+    <div style={{ textAlign: 'center' }}>
+      <Tooltip
+        content='Messages an ISP or other remote domain accepted'
+        right horizontalOffset='-10px'>
+        Hover
       </Tooltip>
     </div>
   ));
