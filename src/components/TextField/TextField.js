@@ -51,17 +51,6 @@ class TextField extends Component {
     type: 'text'
   };
 
-  state = { inputPadding: {} }
-
-  componentDidMount() {
-    const { prefix, suffix } = this.props;
-    const prefixPadding = prefix && this.prefixNode ? { paddingLeft: this.prefixNode.getBoundingClientRect().width + 20 } : { };
-    const suffixPadding = suffix && this.suffixNode ? { paddingRight: this.suffixNode.getBoundingClientRect().width + 20 } : { };
-    this.setState({
-      inputPadding: { ...prefixPadding, ...suffixPadding }
-    });
-  }
-
   render() {
     const {
       id,
@@ -112,6 +101,9 @@ class TextField extends Component {
       ? <span className={styles.Suffix} ref={node => this.suffixNode = node}>{ suffix }</span>
       : null;
 
+    const prefixPadding = prefix && this.prefixNode ? { paddingLeft: this.prefixNode.getBoundingClientRect().width } : { };
+    const suffixPadding = suffix && this.suffixNode ? { paddingRight: this.suffixNode.getBoundingClientRect().width } : { };
+
     const input = React.createElement(multiline ? 'textarea' : 'input', {
       ...rest,
       name,
@@ -125,7 +117,7 @@ class TextField extends Component {
       onBlur,
       onChange,
       className: styles.Input,
-      style: { ...this.state.inputPadding }
+      style: { ...prefixPadding, ...suffixPadding }
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
