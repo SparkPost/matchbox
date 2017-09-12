@@ -57,3 +57,27 @@
   line-height: rem(15);
   color: color(gray, 4);
 }
+
+.Prefix, .Suffix {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.Prefix {
+  left: 0;
+  padding: rem(4) rem(8) rem(4) rem(12);
+}
+
+.Suffix {
+  right: 0;
+  padding: rem(4) rem(12) rem(4) rem(8);
+}
+
+.InputWrapper {
+  position: relative;
+  z-index: 1;
+}
