@@ -56,7 +56,7 @@ export default storiesOf('TextField', module)
         label='Date Range'
         value='July 21, 2017 - July 28, 2017'
         connectLeft={<Button>Injection Time</Button>}
-        connectRight={<Select labelHidden options={
+        connectRight={<Select options={
           ['Last 24 Hours', 'Last Week']
         }/>}
       />
@@ -65,10 +65,7 @@ export default storiesOf('TextField', module)
   .addWithInfo('with prefix and suffix', () => (
       <TextField
         id='id'
-        label='Date Range'
-        value='July 21, 2017 - July 28, 2017'
-        connectLeft={<Button>test</Button>}
-        prefix={<Icon name='Language' />}
-        suffix='MasterCard'
+        prefix='$'
+        suffix={<Icon name='Renew' />}
       />
   ));
