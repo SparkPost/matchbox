@@ -13,7 +13,11 @@ class Tooltip extends Component {
     ]),
     dark: PropTypes.bool,
     active: PropTypes.bool,
-    position: PropTypes.oneOf(['top', 'bottom']),
+    left: PropTypes.bool,
+    right: PropTypes.bool,
+    top: PropTypes.bool,
+    bottom: PropTypes.bool,
+    horizontalOffset: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -21,7 +25,9 @@ class Tooltip extends Component {
   };
 
   static defaultProps = {
-    position: 'bottom'
+    left: true,
+    bottom: true,
+    horizontalOffset: '0px'
   }
 
   render() {
@@ -30,19 +36,24 @@ class Tooltip extends Component {
       content,
       dark,
       active,
-      position
+      top,
+      right,
+      horizontalOffset
     } = this.props;
 
     const wrapperClasses = classnames(
       styles.Wrapper,
       dark && styles.dark,
-      position === 'top' && styles.top
+      top && styles.top,
+      right && styles.right
     );
+
+    const offset = right ? { right: horizontalOffset } : { left: horizontalOffset };
 
     return (
       <span className={wrapperClasses}>
         { children }
-        <span className={styles.Tooltip}>
+        <span className={styles.Tooltip} style={offset}>
           <span className={styles.Tip} />
           <span className={styles.Content}>{ content }</span>
         </span>

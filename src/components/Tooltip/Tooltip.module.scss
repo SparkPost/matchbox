@@ -46,6 +46,18 @@ $arrow-margin: 10px;
   }
 }
 
+.right {
+  .Tooltip {
+    left: auto;
+    right: 0;
+  }
+
+  .Tip {
+    left: auto;
+    right: rem(21);
+  }
+}
+
 .Tip {
   display: block;
   position: absolute;
