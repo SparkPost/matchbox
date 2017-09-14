@@ -11,8 +11,8 @@ class UnstyledLink extends Component {
       ...rest
     } = this.props;
 
-    if (to && external) {
-      return <a href={to} target='_blank' {...rest}>{ children }</a>;
+    if (to && !Component) {
+      return <a href={to} target={external ? '_blank' : ''} {...rest}>{ children }</a>;
     }
 
     if (to && Component) {
