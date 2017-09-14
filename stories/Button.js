@@ -75,4 +75,8 @@ export default storiesOf('Button', module)
 
       <Button outline disabled>Manage IPs</Button> &nbsp;
     </div>
+  ))
+
+  .addWithInfo('External', () => (
+      <Button to='http://google.com'>Google</Button>
   ));

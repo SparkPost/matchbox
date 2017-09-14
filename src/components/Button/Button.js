@@ -78,11 +78,11 @@ class Button extends Component {
       className
     );
 
-    if (to && external) {
+    if (to && !Component) {
       return (
         <a
           href={to}
-          target='_blank'
+          target={external ? '_blank' : ''}
           onClick={onClick}
           onFocus={onFocus}
           onBlur={onBlur}
