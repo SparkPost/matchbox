@@ -6,8 +6,9 @@ $color-map: (
   ),
 
   blue: (
-    base: #37aadc,
-    dark: #2693c3
+    light: #04AEF9,
+    base : #37aadc,
+    dark : #2693c3
   ),
 
   gray: (
@@ -26,7 +27,9 @@ $color-map: (
   ),
 
   green: (
-    base: #9bcd5a
+    light: #93E12E,
+    base: #8CCA3A,
+    dark : #87B847
   ),
 
   magenta: (
@@ -34,7 +37,8 @@ $color-map: (
   ),
 
   mustard: (
-    base: #e3af00
+    light: #FFD300,
+    base : #e3af00
   ),
 
   teal: (
@@ -42,9 +46,9 @@ $color-map: (
   ),
 
   red: (
-    base: #f00a0a,
-    dark: #D93845,
-    darker: #CD202B
+    light: #f00a0a,
+    base: #DB2F3D,
+    dark: #CB3640
   ),
 );
 

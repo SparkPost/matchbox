@@ -1,5 +1,6 @@
 import './Welcome';
 import './Banner';
+import './Snackbar';
 import './Button';
 import './Panel';
 import './Tabs';
