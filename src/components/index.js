@@ -13,6 +13,7 @@ export * from './Popover';
 export * from './ProgressBar';
 export * from './Radio';
 export * from './Select';
+export * from './Snackbar';
 export * from './Table';
 export * from './Tabs';
 export * from './Tag';

@@ -99,10 +99,10 @@
 // Destructive Styles
 .destructive,
 .destructive:visited {
-  color: color(red, darker);
+  color: color(red, dark);
 
   &:hover {
-    color: color(red, darker);
+    color: color(red, dark);
   }
 }
 

@@ -51,11 +51,6 @@ class Banner extends Component {
     onDismiss: PropTypes.func,
 
     /**
-     * Absolute positions the banner
-     */
-    overlay: PropTypes.boolean,
-
-    /**
      * Action that build a button. Most button props will work in here.
      * e.g. { content: 'button label', onClick: callback() }
      */
@@ -82,7 +77,6 @@ class Banner extends Component {
       title,
       status,
       action,
-      overlay,
       onDismiss,
       ...rest
     } = this.props;
@@ -101,8 +95,7 @@ class Banner extends Component {
 
     const bannerStyles = classnames(
       styles.Banner,
-      styles[`${status}`],
-      overlay && styles.overlay
+      styles[`${status}`]
     );
 
     return (
@@ -117,20 +110,6 @@ class Banner extends Component {
       </div>
     );
   }
-};
-
-Banner.propTypes = {
-  title: PropTypes.string,
-  status: PropTypes.oneOf(['info', 'warning', 'success', 'danger', 'default']),
-  overlay: PropTypes.bool,
-  onDismiss: PropTypes.func,
-  action: PropTypes.shape({
-    content: PropTypes.string.isRequired
-  }),
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
 };
 
 export default Banner;

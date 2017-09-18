@@ -50,16 +50,11 @@
 }
 
 .danger {
-  background: lighten(color(red, dark), 43) ;
+  background: lighten(color(red), 43) ;
 
   &:before {
-    background: color(red, dark);
+    background: color(red);
   }
-}
-
-.overlay {
-  box-shadow: shadow(deep);
-  border: 1px solid rgba(color(gray, 7), 0.5);
 }
 
 .IconWrapper {
@@ -97,7 +92,7 @@
 }
 
 .successIcon {
-  fill: darken(color(green), 8);
+  fill: color(green);
 
   & + .IconBackdrop {
     box-shadow: 0 0 0 7px rgba(color(green), 0.25);
@@ -121,7 +116,7 @@
 }
 
 .dangerIcon {
-  fill: saturate(color(red, dark), 12);
+  fill: color(red);
 
   & + .IconBackdrop {
     box-shadow: 0 0 0 7px rgba(color(red), 0.15);
