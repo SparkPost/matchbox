@@ -21,8 +21,11 @@
 
 .Content {
   display: inline-block;
+  vertical-align: top;
+  margin-right: -4px;
   padding: rem(12) spacing();
   min-width: rem(200);
+  max-width: rem(280);
   font-size: rem(16);
   font-weight: 500;
 
@@ -38,6 +41,8 @@
 
 .Dismiss {
   display: inline-block;
+  margin-right: -4px;
+  vertical-align: top;
   padding: rem(12) spacing();
   border-bottom: none;
   user-select: none;
