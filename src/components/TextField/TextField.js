@@ -66,6 +66,7 @@ class TextField extends Component {
   render() {
     const {
       id,
+      name,
       multiline,
       type,
       placeholder,
