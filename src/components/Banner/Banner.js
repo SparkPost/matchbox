@@ -54,9 +54,9 @@ class Banner extends Component {
      * Action that build a button. Most button props will work in here.
      * e.g. { content: 'button label', onClick: callback() }
      */
-    action: PropTypes.arrayOf(PropTypes.shape({
+    action: PropTypes.shape({
       content: PropTypes.string.isRequired
-    })),
+    }),
 
     /**
      * Banner Content
