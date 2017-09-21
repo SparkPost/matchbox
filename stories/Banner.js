@@ -52,13 +52,10 @@ export default storiesOf('Banner', module)
       <Banner
         title='Your account has been suspended due to a billing problem'
         status='danger'
-        actions={[{
+        action={{
           content: 'Update Payment Information',
           onClick: action('Update Payment Info Clicked')
-        }, {
-          content: 'Close',
-          onClick: action('Close Clicked')
-        }]}>
+        }} >
         <p>To reactivate your account and pay your outstanding balance due, please update your payment information.</p>
         <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
       </Banner>
