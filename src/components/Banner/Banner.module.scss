@@ -81,6 +81,15 @@
 
 .Actions {
   margin-top: spacing();
+
+  & > * {
+    display: inline-block;
+    margin-right: spacing();
+  }
+
+  & > *:last-child {
+    margin-right: 0;
+  }
 }
 
 .Icon {
