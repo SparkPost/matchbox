@@ -54,7 +54,13 @@ class Banner extends Component {
      * Action that build a button. Most button props will work in here.
      * e.g. { content: 'button label', onClick: callback() }
      */
-    action: PropTypes.arrayOf(PropTypes.shape({
+    action: PropTypes.shape({ content: PropTypes.string.isRequired }),
+
+    /**
+     * List of actions that build buttons. Most button props will work in here.
+     * Overrides `action`
+     */
+    actions: PropTypes.arrayOf(PropTypes.shape({
       content: PropTypes.string.isRequired
     })),
 
@@ -77,6 +83,7 @@ class Banner extends Component {
       title,
       status,
       action,
+      actions,
       onDismiss,
       ...rest
     } = this.props;
@@ -85,9 +92,18 @@ class Banner extends Component {
       ? <h5 className={styles.Title}>{ title }</h5>
       : null;
 
-    const actionMarkup = action
+    let actionMarkup = action
       ? <div className={styles.Actions}>{ buttonFrom(action, actionOverrides) }</div>
       : null;
+      
+    if (actions) {
+      actionMarkup = actions.map((action, i) => (
+        <div key={`${action.content}-${i}`} className={styles.Actions}>
+          { buttonFrom(action, actionOverrides) }
+        </div>
+      ));
+    }
+      
 
     const dismissMarkup = onDismiss
       ? <a className={styles.Dismiss} onClick={onDismiss}><Icon name='Close' size={24} className={styles.DismissIcon} /></a>
