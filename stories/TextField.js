@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { TextField, Button, Select, Icon } from '../src';
+import { TextField, Button, Select, Icon, Tooltip } from '../src';
 
 export default storiesOf('TextField', module)
   .addDecorator((getStory) => (
@@ -55,7 +55,7 @@ export default storiesOf('TextField', module)
         id='id'
         label='Date Range'
         value='July 21, 2017 - July 28, 2017'
-        connectLeft={<Button>Injection Time</Button>}
+        connectLeft={<Tooltip content='Hey'><Button>Injection Time</Button></Tooltip>}
         connectRight={<Select options={
           ['Last 24 Hours', 'Last Week']
         }/>}

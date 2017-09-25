@@ -35,6 +35,8 @@
   font-size: rem(15);
   line-height: rem(24);
 
+  box-shadow: shadow();
+  
   transition: border 0.15s;
 
   &:hover {
