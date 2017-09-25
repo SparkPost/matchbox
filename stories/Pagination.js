@@ -21,7 +21,7 @@ export default storiesOf('Pagination', module)
 
   .addWithInfo('with lots of pages', () => (
     <Pagination
-      pages={13}
+      pages={30}
       pageRange={7}
       onChange={action('Page Changed')}
     />
