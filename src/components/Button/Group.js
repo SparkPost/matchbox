@@ -16,4 +16,6 @@ Group.propTypes = {
   ]).isRequired
 };
 
+Group.displayName = 'Button.Group';
+
 export default Group;

@@ -79,4 +79,12 @@ export default storiesOf('Button', module)
 
   .addWithInfo('External', () => (
       <Button to='http://google.com'>Google</Button>
+  ))
+
+  .addWithInfo('Group', () => (
+      <Button.Group>
+        <Button>Linear</Button>
+        <Button>Log</Button>
+        <Button disabled>Sq Rt</Button>
+      </Button.Group>
   ));

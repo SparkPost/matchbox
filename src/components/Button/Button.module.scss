@@ -2,6 +2,7 @@
 
 .Button,
 .Button:visited {
+  display: inline-block;
   padding: rem(5) rem(12);
   border: none;
   margin-bottom: 0;
@@ -29,11 +30,13 @@
     border-radius: 0;
 
     &:first-child {
-      border-radius: border-radius() 0 0 border-radius();
+      border-top-left-radius: border-radius();
+      border-bottom-left-radius: border-radius();
     }
 
     &:last-child {
-      border-radius: 0 border-radius() border-radius() 0;
+      border-top-right-radius: border-radius();
+      border-bottom-right-radius: border-radius();
     }
   }
 
@@ -54,6 +57,8 @@
   }
 
   &:focus {
+    position: relative;
+    z-index: 1;
     outline: 0;
     border: 1px solid color(blue);
     box-shadow: 0 0 0 1px color(blue);
