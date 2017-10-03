@@ -3,7 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Tooltip, Button } from '../src';
+import { Button, withPositioning } from '../src';
+import { Tooltip } from '../src/components/Tooltip/Tooltip';
+import ConnectedTooltip from '../src/components/Tooltip/Tooltip';
+
 
 storiesOf('Tooltip', module)
   .addDecorator((getStory) => (
@@ -38,5 +41,18 @@ storiesOf('Tooltip', module)
         right horizontalOffset='-10px'>
         Hover
       </Tooltip>
+    </div>
+  ))
+
+  .addWithInfo('Positioned Automatically',
+  'Tooltips are positioned automatically based on the components position. use forcePosition to disable this behavior.',
+  () => (
+    <div>
+      <small>scroll down</small>
+      <div style={{height:'600px'}}/>
+      <ConnectedTooltip
+        content='Messages an ISP or other remote domain accepted'>
+        <Button>Accepted</Button>
+      </ConnectedTooltip>
     </div>
   ));
