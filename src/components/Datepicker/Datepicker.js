@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import DayPicker, { DateUtils } from 'react-day-picker';
 
 import { Icon } from '../Icon';
@@ -9,8 +7,8 @@ import styles from './Datepicker.module.scss';
 class Navbar extends Component {
   render() {
     const {
-      showPreviousButton,
-      showNextButton,
+      // showPreviousButton,
+      // showNextButton,
       onPreviousClick,
       onNextClick
     } = this.props;
@@ -28,7 +26,7 @@ class Navbar extends Component {
           onClick={() => onNextClick()}
           className={styles.Next} />
       </div>
-    )
+    );
   }
 }
 
@@ -37,12 +35,12 @@ class Datepicker extends Component {
     const { selectedDays } = this.props;
 
     const modifiers = selectedDays
-    ? {
+      ? {
         firstSelected: (day) => DateUtils.isSameDay(day, selectedDays.from),
-        lastSelected: (day) => DateUtils.isSameDay(day, selectedDays.to),
+        lastSelected: (day) => DateUtils.isSameDay(day, selectedDays.to)
       }
-    : {};
-    
+      : {};
+
     const modifiersStyles = {
       firstSelected: {
         color: 'white',
@@ -55,7 +53,7 @@ class Datepicker extends Component {
         backgroundColor: '#2693c3',
         borderTopRightRadius: '4px',
         borderBottomRightRadius: '4px'
-      },
+      }
     };
     return (
       <DayPicker
@@ -64,8 +62,8 @@ class Datepicker extends Component {
         modifiersStyles={modifiersStyles}
         navbarElement={Navbar}
         {...this.props} />
-    )
+    );
   }
-};
+}
 
 export default Datepicker;

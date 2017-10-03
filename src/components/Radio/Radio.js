@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Label } from '../Label';
 import { Error } from '../Error';
-import { Icon } from '../Icon';
 import Group from './Group';
 
 import styles from './Radio.module.scss';
@@ -27,7 +26,7 @@ class Radio extends Component {
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   render() {
@@ -44,7 +43,7 @@ class Radio extends Component {
       onFocus,
       onBlur,
       helpText,
-      ...rest,
+      ...rest
     } = this.props;
 
     const setClasses = classnames(
@@ -80,7 +79,8 @@ class Radio extends Component {
           onChange={(event) => onChange(event)}
           onFocus={onFocus}
           onBlur={onBlur}
-          type='radio' />
+          type='radio'
+          {...rest}/>
           <label htmlFor={id} className={styles.Control}>
             <div className={styles.Outline} />
             <div className={styles.Fill} />
@@ -90,6 +90,6 @@ class Radio extends Component {
       </fieldset>
     );
   }
-};
+}
 
 export default Radio;

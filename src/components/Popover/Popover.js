@@ -12,33 +12,33 @@ class Popover extends Component {
      * A React component to will trigger the popover
      * Click events are handled for you
      */
-     trigger: PropTypes.element,
-     /**
+    trigger: PropTypes.element,
+    /**
       * If you want to control open state yourself, set this to true
       */
-     manualTrigger: PropTypes.bool,
-     /**
+    manualTrigger: PropTypes.bool,
+    /**
       * Adds a padding to the Popover
       */
-     sectioned: PropTypes.bool,
-     /**
+    sectioned: PropTypes.bool,
+    /**
       * Opens the popover
       */
-     open: PropTypes.bool,
-     /**
+    open: PropTypes.bool,
+    /**
       * Popover Content
       */
-     children: PropTypes.oneOfType([
-       PropTypes.arrayOf(PropTypes.node),
-       PropTypes.node
-     ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
   };
 
   constructor(props) {
     super(props);
     this.state = {
       open: props.open
-    }
+    };
 
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleEsc = this.handleEsc.bind(this);

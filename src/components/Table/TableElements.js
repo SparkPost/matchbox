@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Table.module.scss';
 
@@ -15,7 +15,7 @@ Cell.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]),
+  ])
 };
 Cell.displayName = 'Table.Cell';
 
@@ -32,7 +32,7 @@ HeaderCell.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]),
+  ])
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
@@ -40,8 +40,8 @@ const Row = ({ rowData, children }) => (
   <tr className={styles.Row}>
     {
       rowData
-       ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`}/>)
-       : children
+        ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`}/>)
+        : children
     }
   </tr>
 );
@@ -51,7 +51,7 @@ Row.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]),
+  ])
 };
 Row.displayName = 'Table.Row';
 

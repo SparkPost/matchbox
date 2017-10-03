@@ -21,7 +21,7 @@ class Tooltip extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   static defaultProps = {
@@ -35,7 +35,6 @@ class Tooltip extends Component {
       children,
       content,
       dark,
-      active,
       top,
       right,
       horizontalOffset
@@ -58,8 +57,8 @@ class Tooltip extends Component {
           <span className={styles.Content}>{ content }</span>
         </span>
       </span>
-    )
+    );
   }
-};
+}
 
 export default Tooltip;

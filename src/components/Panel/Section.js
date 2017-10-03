@@ -8,20 +8,20 @@ const actionOverrides = { plain: true, size: 'small' };
 
 class Section extends Component {
   static propTypes = {
-     /**
+    /**
       * Actions that build buttons. Most button props will work in here.
       * e.g. { content: 'button label', onClick: callback() }
       */
-     actions: PropTypes.arrayOf(PropTypes.shape({
-       content: PropTypes.string.isRequired
-     })),
-     /**
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })),
+    /**
       * Panel Content
       */
-     children: PropTypes.oneOfType([
-       PropTypes.arrayOf(PropTypes.node),
-       PropTypes.node
-     ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
   };
 
   render() {
@@ -33,8 +33,8 @@ class Section extends Component {
     } = this.props;
 
     const actionMarkup = actions && actions.length
-          ? <div className={styles.Actions}>{ buttonsFrom(actions, actionOverrides) }</div>
-          : null;
+      ? <div className={styles.Actions}>{ buttonsFrom(actions, actionOverrides) }</div>
+      : null;
 
     return (
       <div className={classnames(styles.Body, className)} {...rest}>

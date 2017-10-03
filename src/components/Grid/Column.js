@@ -38,6 +38,7 @@ class Column extends Component {
       lg && styles[`lg-${lg}`],
       xl && styles[`xl-${xl}`],
       xsOffset && styles[`xs-offset-${xsOffset}`],
+      smOffset && styles[`sm-offset-${smOffset}`],
       mdOffset && styles[`md-offset-${mdOffset}`],
       lgOffset && styles[`lg-offset-${lgOffset}`],
       xlOffset && styles[`xl-offset-${xlOffset}`]

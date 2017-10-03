@@ -4,34 +4,6 @@ import classnames from 'classnames';
 import { Icon } from '../Icon';
 
 import styles from './Snackbar.module.scss';
-import { buttonFrom } from '../Button';
-
-const actionOverrides = { outline: true };
-
-const IconSection = ({ status }) => {
-  const icons = {
-    success: 'CheckCircle',
-    info: 'InfoOutline',
-    warning: 'Error',
-    danger: 'Error'
-  };
-
-  if (status === 'default' || !icons[status]) {
-    return null;
-  }
-
-  const iconClasses = classnames(
-    styles.Icon,
-    status && styles[`${status}Icon`]
-  );
-
-  return (
-    <div className={styles.IconWrapper}>
-      <Icon name={icons[status]} size={30} className={iconClasses} />
-      <div className={styles.IconBackdrop} />
-    </div>
-  );
-};
 
 class Snackbar extends Component {
   static propTypes = {
@@ -51,7 +23,7 @@ class Snackbar extends Component {
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node
-    ]),
+    ])
   };
 
   defaultProps = {
@@ -80,6 +52,6 @@ class Snackbar extends Component {
       </div>
     );
   }
-};
+}
 
 export default Snackbar;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 import { buttonFrom } from '../Button';
 import { Icon } from '../Icon';
@@ -17,11 +16,6 @@ const secondaryOverrides = {
   className: styles.SecondaryAction
 };
 
-const backOverrides = {
-  plain: true,
-  size: 'small'
-};
-
 const Breadcrumb = ({ content, ...rest }) => (
   <UnstyledLink {...rest}>
     <Icon name='ChevronLeft' size={27} />
@@ -34,27 +28,27 @@ class Page extends Component {
     /**
      * The Page display title
      */
-     title: PropTypes.string,
-     /**
+    title: PropTypes.string,
+    /**
       * Main cta. Most button props will work in here.
       * e.g. { content: 'button label', onClick: callback() }
       */
-     primaryAction: PropTypes.shape({
-       content: PropTypes.string.isRequired
-     }),
-     /**
+    primaryAction: PropTypes.shape({
+      content: PropTypes.string.isRequired
+    }),
+    /**
       * Actions that appear below title
       * e.g. { content: 'button label', onClick: callback() }
       */
-     secondaryActions: PropTypes.arrayOf(PropTypes.shape({
-       content: PropTypes.string.isRequired
-     })),
-     /**
+    secondaryActions: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })),
+    /**
       * The back link action
       */
-     breadcrumbAction: PropTypes.shape({
-       content: PropTypes.string.isRequired
-     }),
+    breadcrumbAction: PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })
   };
 
   render() {
@@ -71,8 +65,8 @@ class Page extends Component {
 
     const secondaryActionsMarkup = secondaryActions
       ? secondaryActions.map((action, i) => linkFrom(
-          { ...action, ...secondaryOverrides }, i
-        ))
+        { ...action, ...secondaryOverrides }, i
+      ))
       : null;
 
     const breadcrumbMarkup = breadcrumbAction

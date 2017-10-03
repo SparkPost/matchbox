@@ -25,7 +25,7 @@ class Checkbox extends Component {
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   render() {
@@ -41,7 +41,7 @@ class Checkbox extends Component {
       onFocus,
       onBlur,
       helpText,
-      ...rest,
+      ...rest
     } = this.props;
 
     const setClasses = classnames(
@@ -75,7 +75,8 @@ class Checkbox extends Component {
           onChange={(event) => onChange(event)}
           onFocus={onFocus}
           onBlur={onBlur}
-          type='checkbox' />
+          type='checkbox'
+          {...rest} />
           <label htmlFor={id} className={styles.Control}>
             <div className={styles.Box} />
             <Icon name='Check' className={styles.Check} size={14}/>
@@ -86,6 +87,6 @@ class Checkbox extends Component {
       </fieldset>
     );
   }
-};
+}
 
 export default Checkbox;

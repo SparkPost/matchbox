@@ -48,6 +48,6 @@ class Connect extends Component {
       </div>
     );
   }
-};
+}
 
 export default Connect;

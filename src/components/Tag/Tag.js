@@ -12,7 +12,7 @@ class Tag extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   render() {
@@ -27,7 +27,7 @@ class Tag extends Component {
           <Icon name='Close'/>
         </UnstyledLink>
       </div>
-    )
+    );
   }
 }
 

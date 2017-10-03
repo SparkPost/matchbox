@@ -9,13 +9,13 @@ class Grid extends Component {
   static Column = Column;
 
   static propTypes = {
-    center:  PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    start:   PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    end:     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    top:     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    middle:  PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    bottom:  PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    around:  PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    center: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    start: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    end: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    top: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    middle: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    bottom: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    around: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     between: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

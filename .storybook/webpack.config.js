@@ -23,7 +23,20 @@ module.exports = {
           }
         ],
         include: path.resolve(__dirname, '../src')
-      }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              fix: true
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+        ],
+        include: path.resolve(__dirname, '../src')
+      },
     ]
   }
 }
