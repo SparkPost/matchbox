@@ -11,7 +11,7 @@ class ProgressBar extends Component {
   };
 
   static defaultProps = {
-    completed: 0  
+    completed: 0
   }
 
   render() {
@@ -31,6 +31,6 @@ class ProgressBar extends Component {
       </div>
     );
   }
-};
+}
 
 export default ProgressBar;

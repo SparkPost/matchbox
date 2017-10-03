@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 
 import { linkFrom } from '../UnstyledLink';
@@ -19,29 +18,29 @@ const Section = ({ section }) => {
     <div className={styles.Section}>
       { actions }
     </div>
-  )
-}
+  );
+};
 
 class ActionList extends Component {
   static propTypes = {
-     /**
+    /**
       * Actions
       * e.g. [{ content: 'action label', onClick: callback() }]
       */
-     actions: PropTypes.arrayOf(PropTypes.shape({
-       content: PropTypes.oneOfType([
-         PropTypes.arrayOf(PropTypes.node),
-         PropTypes.node,
-         PropTypes.string
-       ]).isRequired
-     })),
-     /**
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+        PropTypes.string
+      ]).isRequired
+    })),
+    /**
       * Creates sections
       * e.g. [{ actions:[{ content: 'action label', onClick: callback() }]}]
       */
-     sections: PropTypes.arrayOf(PropTypes.shape({
-       actions: PropTypes.array
-     })),
+    sections: PropTypes.arrayOf(PropTypes.shape({
+      actions: PropTypes.array
+    }))
   };
   render() {
     const {
@@ -55,7 +54,7 @@ class ActionList extends Component {
       list = list.concat(sections);
     }
 
-    const listMarkup = list.map((section, index) => <Section section={section} key={index} />)
+    const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
     return (
       <div className={styles.ActionList} {...rest}>

@@ -11,9 +11,9 @@ const PLACEHOLDER_VALUE = '_placeholder';
 
 const Option = ({ option }) => {
   if (typeof option === 'object') {
-    return <option value={option.value}>{ option.label }</option>
-  } else if (typeof option === 'string' || typeof option === 'number'){
-    return <option value={option}>{ option }</option>
+    return <option value={option.value}>{ option.label }</option>;
+  } else if (typeof option === 'string' || typeof option === 'number') {
+    return <option value={option}>{ option }</option>;
   }
 };
 
@@ -57,7 +57,7 @@ class Select extends Component {
       placeholder,
       disabled,
       error,
-      ...rest,
+      ...rest
     } = this.props;
 
     const setClasses = classnames(
@@ -113,6 +113,6 @@ class Select extends Component {
       </fieldset>
     );
   }
-};
+}
 
 export default Select;

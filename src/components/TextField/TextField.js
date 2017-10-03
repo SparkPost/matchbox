@@ -53,7 +53,7 @@ class TextField extends Component {
 
   state = {
     paddingLeft: null,
-    paddingRight: null,
+    paddingRight: null
   };
 
   componentDidMount() {
@@ -84,7 +84,7 @@ class TextField extends Component {
       connectRight,
       prefix,
       suffix,
-      ...rest,
+      ...rest
     } = this.props;
 
     const { paddingLeft, paddingRight } = this.state;
@@ -109,11 +109,11 @@ class TextField extends Component {
       : null;
 
     const prefixMarkup = prefix
-      ? <span className={styles.Prefix} ref={node => this.prefixNode = node}>{ prefix }</span>
+      ? <span className={styles.Prefix} ref={(node) => this.prefixNode = node}>{ prefix }</span>
       : null;
 
     const suffixMarkup = suffix
-      ? <span className={styles.Suffix} ref={node => this.suffixNode = node}>{ suffix }</span>
+      ? <span className={styles.Suffix} ref={(node) => this.suffixNode = node}>{ suffix }</span>
       : null;
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {
@@ -154,6 +154,6 @@ class TextField extends Component {
       </fieldset>
     );
   }
-};
+}
 
 export default TextField;

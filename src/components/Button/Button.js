@@ -90,7 +90,7 @@ class Button extends Component {
           disabled={disabled}
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
-          >
+        >
           { children }
         </a>
       );
@@ -107,7 +107,7 @@ class Button extends Component {
           disabled={disabled}
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
-          >
+        >
           { children }
         </Component>
       );
@@ -123,12 +123,12 @@ class Button extends Component {
         disabled={disabled}
         onMouseUp={(e) => this.handleMouseUp(e)}
         {...rest}
-        >
+      >
         { children }
       </button>
     );
   }
-};
+}
 
 export function buttonsFrom(actions, overrides) {
   if (actions.length) {

@@ -13,29 +13,29 @@ class Panel extends Component {
     /**
      * The panel heading title
      */
-     title: PropTypes.string,
-     /**
+    title: PropTypes.string,
+    /**
       * Shows an orange accent bar
       */
-     accent: PropTypes.bool,
-     /**
+    accent: PropTypes.bool,
+    /**
       * Adds a padded section automatically
       */
-     sectioned: PropTypes.bool,
-     /**
+    sectioned: PropTypes.bool,
+    /**
       * Actions that build buttons. Most button props will work in here.
       * e.g. { content: 'button label', onClick: callback() }
       */
-     actions: PropTypes.arrayOf(PropTypes.shape({
-       content: PropTypes.string.isRequired
-     })),
-     /**
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })),
+    /**
       * Panel Content
       */
-     children: PropTypes.oneOfType([
-       PropTypes.arrayOf(PropTypes.node),
-       PropTypes.node
-     ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
   };
 
   render() {
@@ -66,6 +66,6 @@ class Panel extends Component {
       </div>
     );
   }
-};
+}
 
 export default Panel;

@@ -19,7 +19,7 @@ class Tab extends Component {
       </UnstyledLink>
     );
   }
-};
+}
 
 class Tabs extends Component {
   static propTypes = {
@@ -28,17 +28,17 @@ class Tabs extends Component {
      * Actions that build the tabs. Most button and unstyled link props will work in here.
      * e.g. { content: 'Label', onClick: callback() }
      */
-     tabs: PropTypes.arrayOf(PropTypes.shape({
-       content: PropTypes.string.isRequired
-     })),
-     /**
+    tabs: PropTypes.arrayOf(PropTypes.shape({
+      content: PropTypes.string.isRequired
+    })),
+    /**
       * Index of selected tab
       */
-     selected: PropTypes.number.isRequired,
-     /**
+    selected: PropTypes.number.isRequired,
+    /**
       * Connects this component with component underneath it. Works well with Panels.
       */
-     connectBelow: PropTypes.bool
+    connectBelow: PropTypes.bool
   };
 
   static defaultProps = {
@@ -48,7 +48,7 @@ class Tabs extends Component {
   render() {
     const { tabs, selected, connectBelow } = this.props;
 
-    const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} selected={selected} {...tab} />)
+    const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} selected={selected} {...tab} />);
 
     const tabsClasses = classnames(
       styles.Tabs,
@@ -59,7 +59,7 @@ class Tabs extends Component {
       <div className={tabsClasses}>
         { tabMarkup }
       </div>
-    )
+    );
   }
 }
 

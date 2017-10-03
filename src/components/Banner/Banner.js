@@ -70,7 +70,7 @@ class Banner extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   static defaultProps = {
@@ -125,6 +125,6 @@ class Banner extends Component {
       </div>
     );
   }
-};
+}
 
 export default Banner;

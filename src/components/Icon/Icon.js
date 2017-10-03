@@ -16,13 +16,13 @@ class Icon extends Component {
       throw new Error('Icon does not exist. Check out src/icons/index.js for a list of icons.');
     }
 
-    return <SvgIcon size={size} {...rest} />
+    return <SvgIcon size={size} {...rest} />;
   }
-};
+}
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.number,
+  size: PropTypes.number
 };
 
 export default Icon;

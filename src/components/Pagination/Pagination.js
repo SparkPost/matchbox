@@ -54,7 +54,7 @@ class Pagination extends Component {
   componentWillReceiveProps(nextProps) {
     const { pages, pageRange, initialIndex } = this.props;
     if (pages !== nextProps.pages || pageRange !== nextProps.pageRange) {
-      this.handlePageChange(initialIndex)
+      this.handlePageChange(initialIndex);
     }
   }
 
@@ -77,7 +77,7 @@ class Pagination extends Component {
   }
 
   _createButtons(start, end) {
-    let buttons = [];
+    const buttons = [];
 
     for (let index = start; index < end; index++) {
       buttons.push({
@@ -132,25 +132,25 @@ class Pagination extends Component {
 
     const firstButton = !marginsHidden && start > 1
       ? <span>
-          <Button
-            className={styles.Start}
-            onClick={() => this.handlePageChange(0)} >
+        <Button
+          className={styles.Start}
+          onClick={() => this.handlePageChange(0)} >
             1
-          </Button>
-          <Icon name='MoreHoriz' className={styles.Ellipse}/>
-        </span>
+        </Button>
+        <Icon name='MoreHoriz' className={styles.Ellipse}/>
+      </span>
       : null;
 
-      const lastButton = !marginsHidden && start + pageRange < pages
-        ? <span>
-            <Icon name='MoreHoriz' className={styles.Ellipse}/>
-            <Button
-              className={styles.End}
-              onClick={() => this.handlePageChange(pages - 1)} >
-              { pages }
-            </Button>
-          </span>
-        : null;
+    const lastButton = !marginsHidden && start + pageRange < pages
+      ? <span>
+        <Icon name='MoreHoriz' className={styles.Ellipse}/>
+        <Button
+          className={styles.End}
+          onClick={() => this.handlePageChange(pages - 1)} >
+          { pages }
+        </Button>
+      </span>
+      : null;
 
     return (
       <div className={styles.Pagination}>
@@ -172,6 +172,6 @@ class Pagination extends Component {
       </div>
     );
   }
-};
+}
 
 export default Pagination;

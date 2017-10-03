@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 import styles from './Toggle.module.scss';
 
@@ -19,7 +18,7 @@ class Toggle extends Component {
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    onBlur: PropTypes.func
   };
 
   render() {
@@ -31,7 +30,7 @@ class Toggle extends Component {
       onChange,
       onFocus,
       onBlur,
-      ...rest,
+      ...rest
     } = this.props;
 
     return (
@@ -56,6 +55,6 @@ class Toggle extends Component {
       </label>
     );
   }
-};
+}
 
 export default Toggle;

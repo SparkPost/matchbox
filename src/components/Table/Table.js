@@ -16,7 +16,7 @@ class Table extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]),
+    ])
   };
 
   render() {
@@ -35,6 +35,6 @@ class Table extends Component {
       </table>
     );
   }
-};
+}
 
 export default Table;
