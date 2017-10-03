@@ -81,7 +81,8 @@ $arrow-margin: 10px;
   z-index: 1;
   top: 100%;
   left: 0;
-  width: rem(200);
+  width: rem(210);
+  max-height: rem(198);
 
   background: color(gray, 10);
   margin: $arrow-margin 0 0;
@@ -100,8 +101,11 @@ $arrow-margin: 10px;
   position: relative;
   z-index: 1;
   border-radius: border-radius(large);
+  max-height: rem(189);
   overflow: hidden;
 
+  word-break: normal;
+  text-align: left;
   font-size: rem(13);
-  line-height: rem(18);
+  line-height: rem(21);
 }
