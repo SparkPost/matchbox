@@ -29,10 +29,14 @@
 }
 
 .HeaderText {
-  @include text-style-small-heading;
+  @include text-style-smaller-heading;
   color: color(gray, 1);
   line-height: rem(30);
   margin: 0;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .Body {

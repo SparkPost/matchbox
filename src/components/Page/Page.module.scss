@@ -12,6 +12,7 @@
 .Title {
   flex: 1 0 0;
   margin-bottom: 0;
+  margin-top: spacing();
   padding: spacing(small) 0;
   @include text-style-display-heading;
 }
@@ -41,7 +42,8 @@
 
 .Breadcrumb, .Breadcrumb:visited {
   margin-left: rem(-3);
-  margin-bottom: spacing();
+  margin-bottom: 0;
+  margin-top: spacing();
   text-decoration: none;
   color: color(blue);
   outline: none;

@@ -37,9 +37,14 @@ h1, h2, {
   @include text-style-heading;
 }
 
-h3, h4, h5, h6 {
+h3, h4, h5 {
   color: color(gray, 1);
   @include text-style-small-heading;
+}
+
+h6 {
+  color: color(gray, 1);
+  @include text-style-smaller-heading;
 }
 
 p {

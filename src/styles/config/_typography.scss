@@ -26,6 +26,7 @@ $font-size-map: (
     display: rem(27),
     base: rem(21),
     small: rem(18),
+    smaller: rem(16)
   ),
 );
 
@@ -60,6 +61,12 @@ $font-size-map: (
 
 @mixin text-style-small-heading {
   font-size: font-size(heading, small);
+  font-weight: 600;
+  line-height: 1.3em;
+}
+
+@mixin text-style-smaller-heading {
+  font-size: font-size(heading, smaller);
   font-weight: 600;
   line-height: 1.3em;
 }
