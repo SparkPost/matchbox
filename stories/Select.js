@@ -26,7 +26,6 @@ export default storiesOf('Select', module)
       id='id'
       label='Select an option'
       placeholder='Leslie Knope'
-      defaultValue='_placeholder'
       options={options2}
     />
   ))
@@ -36,7 +35,6 @@ export default storiesOf('Select', module)
       id='id'
       label='Select an option'
       placeholder='Leslie Knope'
-      defaultValue='_placeholder'
       options={options}
     />
   ))
@@ -65,5 +63,12 @@ export default storiesOf('Select', module)
       label='Select an option'
       options={options2}
       helpText="Remember to select something"
+    />
+  ))
+
+  .addWithInfo('with default value', () => (
+    <Select
+      defaultValue="2"
+      options={options2}
     />
   ));
