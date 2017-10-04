@@ -31,7 +31,12 @@ export class Tooltip extends Component {
     /**
      * These props are provided automatically through the withPositioning HOC
      */
-    preferredPosition: PropTypes.shape
+    preferredPosition: PropTypes.shape({
+      top: PropTypes.bool,
+      bottom: PropTypes.bool,
+      left: PropTypes.bool,
+      right: PropTypes.bool,
+    })
   };
 
   static defaultProps = {
