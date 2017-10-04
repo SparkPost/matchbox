@@ -1,0 +1,24 @@
+@import '../../styles/config';
+
+.EmptyState {
+  padding: rem(36) spacing();
+}
+
+.Title {
+  @include text-style-display-heading;
+  margin-bottom: spacing(smaller);
+}
+
+.Content {
+  p {
+    font-size: font-size(heading, small);
+    color: color(gray, 3);
+    margin-bottom: spacing();
+  }
+}
+
+.Actions {
+  & > * {
+    margin-right: spacing();
+  }
+}

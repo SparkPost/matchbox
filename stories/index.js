@@ -4,6 +4,7 @@ import './Banner';
 import './Button';
 import './Checkbox';
 import './Datepicker';
+import './EmptyState';
 import './Grid';
 import './Icons';
 import './Modal';
