@@ -35,7 +35,7 @@ export class Tooltip extends Component {
       top: PropTypes.bool,
       bottom: PropTypes.bool,
       left: PropTypes.bool,
-      right: PropTypes.bool,
+      right: PropTypes.bool
     })
   };
 

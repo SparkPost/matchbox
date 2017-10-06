@@ -22,3 +22,4 @@ import './Tag';
 import './TextField';
 import './Toggle';
 import './Tooltip';
+import './WindowEvent';

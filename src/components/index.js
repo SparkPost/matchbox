@@ -23,3 +23,4 @@ export * from './Toggle';
 export * from './Tooltip';
 export * from './UnstyledLink';
 export * from './WithPositioning';
+export * from './WindowEvent';
