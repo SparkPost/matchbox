@@ -16,7 +16,10 @@ class Checkbox extends Component {
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
-    value: PropTypes.bool,
+    value: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string
+    ]),
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
