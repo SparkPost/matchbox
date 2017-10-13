@@ -1,7 +1,6 @@
 @import '../../styles/config';
 
 .ActionList {
-  padding-top: spacing(small);
   overflow: scroll;
   z-index: 1;
   max-height: rem(160);
@@ -22,15 +21,16 @@
 .Action, a.Action {
   display: block;
   padding: rem(9) spacing();
-  color: color(gray, 3);
+  color: color(gray, 4);
+  transition: 0.15s;
 
   &:hover {
-    background: color(blue);
-    color: color(gray, 10);
+    background: color(gray, 9);
+    color: color(gray, 1);
   }
 }
 
-.highlighted, a.highlighted {
-  background: color(blue);
-  color: color(gray, 10);
+.Check {
+  float: right;
+  color: color(orange);
 }

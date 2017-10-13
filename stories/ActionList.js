@@ -61,7 +61,8 @@ storiesOf('ActionList', module)
             content: 'Edit'
           },
           {
-            content: 'Delete'
+            content: 'Delete',
+            selected: true
           },
           {
             content: 'Test'
