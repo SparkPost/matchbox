@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import classnames from 'classnames';
+import { WindowEvent } from '../WindowEvent';
 
 import styles from './Popover.module.scss';
 
@@ -34,40 +34,27 @@ class Popover extends Component {
     ])
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: props.open
-    };
-
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.handleEsc = this.handleEsc.bind(this);
+  state = {
+    open: false
   }
 
-  componentDidMount() {
-    window.addEventListener('click', this.handleClickOutside);
-    window.addEventListener('keydown', this.handleEsc);
+  componentWilMount() {
+    this.setState({ open: this.props.open });
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('click', this.handleClickOutside);
-    window.removeEventListener('keydown', this.handleEsc);
-  }
-
-  handleClickOutside(e) {
-    const domNode = ReactDOM.findDOMNode(this);
-    if ((!domNode || !domNode.contains(e.target))) {
+  handleClickOutside = (e) => {
+    if (this.wrapper && !this.wrapper.contains(e.target)) {
       this.setState({ open: false });
     }
   }
 
-  handleEsc(e) {
-    if (this.state.open && e.code === 'Escape') {
+  handleEsc = (e) => {
+    if (this.state.open && e.key === 'Escape') {
       this.setState({ open: false });
     }
   }
 
-  handleTrigger() {
+  handleTrigger = () => {
     if (!this.props.manualTrigger) {
       this.setState({ open: true });
     }
@@ -97,10 +84,12 @@ class Popover extends Component {
       shouldBeOpen && styles.open
     );
 
-    const triggerMarkup = <span onClick={() => this.handleTrigger()}>{ trigger }</span>;
+    const triggerMarkup = <span onClick={this.handleTrigger}>{ trigger }</span>;
 
     return (
-      <div className={wrapperClasses}>
+      <div className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
+        <WindowEvent event='click' handler={this.handleClickOutside} />
+        <WindowEvent event='keydown' handler={this.handleEsc} />
         { triggerMarkup }
         <div className={popoverClasses} {...rest}>
           <span className={styles.Tip} />
