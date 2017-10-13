@@ -57,6 +57,16 @@ class TextField extends Component {
   };
 
   componentDidMount() {
+    this.calculatePadding();
+  }
+
+  componentDidUpdate({ prefix, suffix }) {
+    if (prefix !== this.props.prefix || suffix !== this.props.suffix) {
+      this.calculatePadding();
+    }
+  }
+
+  calculatePadding() {
     this.setState({
       paddingLeft: this.prefixNode && this.prefixNode.getBoundingClientRect().width + 20,
       paddingRight: this.suffixNode && this.suffixNode.getBoundingClientRect().width + 20
