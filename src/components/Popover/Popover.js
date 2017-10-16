@@ -43,7 +43,7 @@ class Popover extends Component {
   }
 
   handleClickOutside = (e) => {
-    if (this.wrapper && !this.wrapper.contains(e.target)) {
+    if (this.state.open && this.wrapper && !this.wrapper.contains(e.target)) {
       this.setState({ open: false });
     }
   }
