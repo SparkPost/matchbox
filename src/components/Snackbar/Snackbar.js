@@ -26,7 +26,7 @@ class Snackbar extends Component {
     ])
   };
 
-  defaultProps = {
+  static defaultProps = {
     status: 'default'
   }
 
