@@ -61,7 +61,8 @@ export class Tooltip extends Component {
       right,
       horizontalOffset,
       preferredPosition,
-      forcePosition
+      forcePosition,
+      positionRef
     } = this.props;
 
     const positionTop = preferredPosition.top || (top && !forcePosition);
@@ -77,7 +78,7 @@ export class Tooltip extends Component {
     const offset = positionRight ? { right: horizontalOffset } : { left: horizontalOffset };
 
     return (
-      <span className={wrapperClasses}>
+      <span className={wrapperClasses} ref={positionRef}>
         { children }
         <span className={styles.Tooltip} style={offset}>
           <span className={styles.Tip} />

@@ -44,10 +44,9 @@ function withPositioning(WrappedComponent) {
     render() {
       return (
         <WrappedComponent
-          ref={(node) => this.component = node}
+          positionRef={(node) => this.component = node}
           preferredPosition={this.state.preferredPosition}
-          {...this.props}
-        />
+          {...this.props} />
       );
     }
   }
