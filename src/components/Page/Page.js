@@ -56,8 +56,18 @@ class Page extends Component {
       title,
       primaryAction,
       secondaryActions,
-      breadcrumbAction
+      breadcrumbAction,
+      empty = {}
     } = this.props;
+
+    if (empty.test) {
+      const emptyOptions = {
+        title,
+        primaryAction,
+        ...empty
+      };
+      return <EmptyState {...emptyOptions} />
+    }
 
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, primaryOverrides)
