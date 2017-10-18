@@ -30,6 +30,11 @@
   }
 }
 
+.highlighted, a.highlighted {
+  background: color(gray, 9);
+  color: color(gray, 1);
+}
+
 .Check {
   float: right;
   margin-left: spacing();

@@ -7,10 +7,11 @@ import { Icon } from '../Icon';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {
-  const actions = section.actions.map(({ className, selected, content, ...action }, index) => {
+  const actions = section.actions.map(({ className, highlighted, selected, content, ...action }, index) => {
 
     const classes = classnames(
       styles.Action,
+      highlighted && styles.highlighted,
       className
     );
 

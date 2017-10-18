@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './Radio.module.scss';
 
 const Group = ({ children }) => (
-  <radiogroup className={styles.Group}>
+  <div className={styles.Group}>
     { children }
-  </radiogroup>
+  </div>
 );
 
 Group.propTypes = {
