@@ -4,6 +4,8 @@ import styles from './Connect.module.scss';
 import classnames from 'classnames';
 
 class Connect extends Component {
+  static displayName = 'Connect';
+
   static propTypes = {
     left: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

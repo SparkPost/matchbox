@@ -18,6 +18,8 @@ const Option = ({ option }) => {
 };
 
 class Select extends Component {
+  static displayName = 'Select';
+
   static propTypes = {
     id: PropTypes.string,
     /**

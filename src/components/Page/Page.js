@@ -25,6 +25,8 @@ const Breadcrumb = ({ content, ...rest }) => (
 );
 
 class Page extends Component {
+  static displayName = 'Page';
+
   static defaultProps = {
     empty: {}
   }
@@ -60,7 +62,7 @@ class Page extends Component {
       * Optional empty state object that will share primaryAction
       */
     empty: PropTypes.shape({
-      test: PropTypes.bool.isRequired
+      test: PropTypes.bool
     })
   };
 

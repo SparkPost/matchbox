@@ -6,6 +6,7 @@ import { withPositioning } from '../WithPositioning';
 import styles from './Tooltip.module.scss';
 
 export class Tooltip extends Component {
+  static displayName = 'Tooltip';
 
   static propTypes = {
     content: PropTypes.oneOfType([

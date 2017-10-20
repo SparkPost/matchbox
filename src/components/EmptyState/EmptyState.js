@@ -11,6 +11,8 @@ const primaryActionOverrides = {
 };
 
 class EmptyState extends Component {
+  static displayName = 'EmptyState';
+
   static propTypes = {
     /**
      * The display title

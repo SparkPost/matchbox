@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './ProgressBar.module.scss';
 
 class ProgressBar extends Component {
+  static displayName = 'ProgressBar';
+
   static propTypes = {
     /**
      * Completion in percentage

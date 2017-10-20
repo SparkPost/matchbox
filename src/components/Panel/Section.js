@@ -7,6 +7,9 @@ import styles from './Panel.module.scss';
 const actionOverrides = { plain: true, size: 'small' };
 
 class Section extends Component {
+
+  static displayName = 'Panel.Section';
+
   static propTypes = {
     /**
       * Actions that build buttons. Most button props will work in here.
@@ -47,5 +50,4 @@ class Section extends Component {
   }
 }
 
-Section.displayName = 'Panel.Section';
 export default Section;

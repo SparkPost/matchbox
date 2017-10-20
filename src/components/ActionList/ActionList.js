@@ -30,6 +30,8 @@ const Section = ({ section }) => {
 };
 
 class ActionList extends Component {
+  static displayName = 'ActionList';
+
   static propTypes = {
     /**
       * Actions

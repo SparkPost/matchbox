@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import * as Icons from '../../icons';
 
 class Icon extends Component {
+  static displayName = 'Icon';
+
   render() {
     const {
       name,

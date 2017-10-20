@@ -6,6 +6,8 @@ import { Icon } from '../Icon';
 import styles from './Snackbar.module.scss';
 
 class Snackbar extends Component {
+  static displayName = 'Snackbar';
+
   static propTypes = {
     /**
      * The type of snackbar. 'default' | 'success' | 'danger'

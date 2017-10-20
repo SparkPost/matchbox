@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 class UnstyledLink extends Component {
+  static displayName = 'UnstyledLink';
+
   render() {
     const {
       children,

@@ -4,6 +4,8 @@ import { Cell, HeaderCell, Row } from './TableElements';
 import styles from './Table.module.scss';
 
 class Table extends Component {
+  static displayName = 'Table';
+
   static Cell = Cell;
   static HeaderCell = HeaderCell;
   static Row = Row;

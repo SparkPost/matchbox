@@ -22,18 +22,18 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-day-picker": "^6.1.0",
-    "react-dom": "^15.5.4",
+    "react-dom": "^16.0.0",
     "react-icon-base": "^2.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-actions": "^3.2.12",
     "@storybook/addon-info": "^3.2.6",
-    "@storybook/addon-links": "^3.2.6",
+    "@storybook/addon-links": "^3.2.12",
     "@storybook/addon-options": "^3.2.6",
     "@storybook/addons": "^3.2.6",
-    "@storybook/react": "^3.2.8",
+    "@storybook/react": "^3.2.12",
     "@storybook/storybook-deployer": "^2.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

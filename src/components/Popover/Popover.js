@@ -6,6 +6,7 @@ import { WindowEvent } from '../WindowEvent';
 import styles from './Popover.module.scss';
 
 class Popover extends Component {
+  static displayName = 'Popover';
 
   static propTypes = {
     /**

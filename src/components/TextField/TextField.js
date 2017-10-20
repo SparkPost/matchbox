@@ -7,6 +7,8 @@ import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
 class TextField extends Component {
+  static displayName = 'TextField';
+
   static propTypes = {
     id: PropTypes.string,
     multiline: PropTypes.bool,

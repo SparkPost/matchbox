@@ -8,4 +8,5 @@ const Error = ({ error }) => (
   </div>
 );
 
+Error.displayName = 'Error';
 export default Error;
