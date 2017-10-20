@@ -9,6 +9,8 @@ import styles from './Panel.module.scss';
 class Panel extends Component {
   static Section = Section;
 
+  static displayName = 'Panel';
+
   static propTypes = {
     /**
      * The panel heading title

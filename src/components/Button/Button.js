@@ -6,6 +6,8 @@ import Group from './Group';
 import styles from './Button.module.scss';
 
 class Button extends Component {
+  static displayName = 'Button';
+
   static Group = Group;
 
   static propTypes = {

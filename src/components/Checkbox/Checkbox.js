@@ -8,6 +8,8 @@ import Group from './Group';
 import styles from './Checkbox.module.scss';
 
 class Checkbox extends Component {
+  static displayName = 'Checkbox';
+
   static Group = Group;
 
   static propTypes = {

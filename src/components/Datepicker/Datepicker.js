@@ -31,6 +31,8 @@ class Navbar extends Component {
 }
 
 class Datepicker extends Component {
+  static displayName = 'Datepicker';
+
   render() {
     const { selectedDays } = this.props;
 

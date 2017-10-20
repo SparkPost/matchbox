@@ -11,6 +11,7 @@ export * from './Page';
 export * from './Pagination';
 export * from './Panel';
 export * from './Popover';
+export * from './Portal';
 export * from './ProgressBar';
 export * from './Radio';
 export * from './Select';

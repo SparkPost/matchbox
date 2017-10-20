@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
  * <WindowEvent event='keydown' handler={this.handleKeyDown} />
  */
 class WindowEvent extends Component {
+  static displayName = 'WindowEvent';
+
   static propTypes = {
     /**
      * Type of event

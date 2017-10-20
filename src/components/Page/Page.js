@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { buttonFrom } from '../Button';
 import { Icon } from '../Icon';
+import { EmptyState } from '../EmptyState';
 import { UnstyledLink, linkFrom } from '../UnstyledLink';
 
 import styles from './Page.module.scss';
@@ -24,6 +25,12 @@ const Breadcrumb = ({ content, ...rest }) => (
 );
 
 class Page extends Component {
+  static displayName = 'Page';
+
+  static defaultProps = {
+    empty: {}
+  }
+
   static propTypes = {
     /**
      * The Page display title
@@ -43,11 +50,19 @@ class Page extends Component {
     secondaryActions: PropTypes.arrayOf(PropTypes.shape({
       content: PropTypes.string.isRequired
     })),
+
     /**
       * The back link action
       */
     breadcrumbAction: PropTypes.shape({
       content: PropTypes.string.isRequired
+    }),
+
+    /**
+      * Optional empty state object that will share primaryAction
+      */
+    empty: PropTypes.shape({
+      test: PropTypes.bool
     })
   };
 
@@ -56,8 +71,15 @@ class Page extends Component {
       title,
       primaryAction,
       secondaryActions,
-      breadcrumbAction
+      breadcrumbAction,
+      empty
     } = this.props;
+
+    const { test, content, ...emptyOptions } = empty;
+
+    if (test) {
+      return <EmptyState primaryAction={primaryAction} {...emptyOptions}>{ content }</EmptyState>;
+    }
 
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, primaryOverrides)

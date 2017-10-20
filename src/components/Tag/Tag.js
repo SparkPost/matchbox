@@ -7,6 +7,8 @@ import { UnstyledLink } from '../UnstyledLink';
 import styles from './Tag.module.scss';
 
 class Tag extends Component {
+  static displayName = 'Tag';
+
   static propTypes = {
     onRemove: PropTypes.func,
     children: PropTypes.oneOfType([

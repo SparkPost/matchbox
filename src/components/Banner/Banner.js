@@ -34,6 +34,8 @@ const IconSection = ({ status }) => {
 };
 
 class Banner extends Component {
+  static displayName = 'Banner';
+
   static propTypes = {
     /**
      * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'

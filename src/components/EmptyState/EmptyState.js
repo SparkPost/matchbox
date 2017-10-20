@@ -5,12 +5,14 @@ import { linkFrom } from '../UnstyledLink';
 
 import styles from './EmptyState.module.scss';
 
-const actionOverrides = {
+const primaryActionOverrides = {
   primary: true,
   size: 'large'
 };
 
 class EmptyState extends Component {
+  static displayName = 'EmptyState';
+
   static propTypes = {
     /**
      * The display title
@@ -20,11 +22,11 @@ class EmptyState extends Component {
       * Main cta. Most button props will work in here.
       * e.g. { content: 'button label', onClick: callback() }
       */
-    action: PropTypes.shape({
+    primaryAction: PropTypes.shape({
       content: PropTypes.string.isRequired
     }),
     /**
-      * Secondary Action - appears as a link
+      * Secondary Action - appear as a link next to the primary action
       */
     secondaryAction: PropTypes.shape({
       content: PropTypes.string.isRequired
@@ -41,13 +43,13 @@ class EmptyState extends Component {
   render() {
     const {
       title,
-      action,
+      primaryAction,
       secondaryAction,
       children
     } = this.props;
 
-    const actionMarkup = action
-      ? buttonFrom(action, actionOverrides)
+    const primaryActionMarkup = primaryAction
+      ? buttonFrom(primaryAction, primaryActionOverrides)
       : null;
 
     const secondaryActionMarkup = secondaryAction
@@ -59,7 +61,7 @@ class EmptyState extends Component {
         <h1 className={styles.Title}>{ title }</h1>
         <div className={styles.Content}>{ children }</div>
         <div className={styles.Actions}>
-          { actionMarkup } { secondaryActionMarkup }
+          { primaryActionMarkup } { secondaryActionMarkup }
         </div>
       </div>
     );

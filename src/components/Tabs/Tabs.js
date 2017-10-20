@@ -7,6 +7,8 @@ import { UnstyledLink } from '../UnstyledLink';
 import styles from './Tabs.module.scss';
 
 class Tab extends Component {
+  static displayName = 'Tab';
+
   render() {
     const { index, content, selected, ...rest } = this.props;
     const classes = classnames(
@@ -22,6 +24,8 @@ class Tab extends Component {
 }
 
 class Tabs extends Component {
+  static displayName = 'Tabs';
+
   static propTypes = {
     /**
      * Tab Content

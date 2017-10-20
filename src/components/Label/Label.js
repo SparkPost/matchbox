@@ -15,4 +15,5 @@ const Label = ({
   </label>
 );
 
+Label.displayName = 'Label';
 export default Label;

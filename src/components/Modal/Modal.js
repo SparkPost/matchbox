@@ -6,6 +6,8 @@ import { Grid } from '../Grid';
 import styles from './Modal.module.scss';
 
 class Modal extends Component {
+  static displayName = 'Modal';
+
   static propTypes = {
     open: PropTypes.bool,
     children: PropTypes.oneOfType([

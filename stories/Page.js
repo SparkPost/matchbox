@@ -41,4 +41,22 @@ export default storiesOf('Page', module)
         title='Template #3'
       />
     )
+  })
+
+  .addWithInfo('with an empty state', () => {
+    const primaryAction = {
+        content: 'Create',
+        onClick: action('Create Clicked')
+      };
+    return (
+      <Page
+        empty={{
+          test: 1 == true,
+          title: 'Empty State Title',
+          content: <p>Empty State Content</p>
+        }}
+        primaryAction={primaryAction}
+        title='Template #3'
+      />
+    )
   });

@@ -6,6 +6,8 @@ import Column from './Column';
 import styles from './Grid.module.scss';
 
 class Grid extends Component {
+  static displayName = 'Grid';
+
   static Column = Column;
 
   static propTypes = {

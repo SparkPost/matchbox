@@ -7,6 +7,8 @@ import { Icon } from '../Icon';
 import styles from './Pagination.module.scss';
 
 class Pagination extends Component {
+  static displayName = 'Pagination';
+
   static propTypes = {
     /**
      * The total number of pages

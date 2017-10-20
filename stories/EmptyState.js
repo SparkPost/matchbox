@@ -13,7 +13,7 @@ storiesOf('Empty State', module)
   () => (
     <EmptyState
       title='Manage your email templates'
-      action={{ content: 'Create Template', onClick: action('Create Template') }}
+      primaryAction={{ content: 'Create Template', onClick: action('Create Template') }}
       secondaryAction={{ content: 'Learn More', onClick: action('Learn More') }}>
       <p>Build, test, preview and send your transmissions.</p>
     </EmptyState>

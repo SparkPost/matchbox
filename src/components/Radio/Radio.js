@@ -8,6 +8,8 @@ import Group from './Group';
 import styles from './Radio.module.scss';
 
 class Radio extends Component {
+  static displayName = 'Radio';
+
   static Group = Group;
 
   static propTypes = {

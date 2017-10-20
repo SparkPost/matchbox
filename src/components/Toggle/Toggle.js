@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Toggle.module.scss';
 
 class Toggle extends Component {
+  static displayName = 'Toggle';
 
   static propTypes = {
     id: PropTypes.string.isRequired,
