@@ -24,11 +24,11 @@ class EmptyState extends Component {
       content: PropTypes.string.isRequired
     }),
     /**
-      * Secondary Actions - appear as links
+      * Secondary Action - appear as a link next to the primary action
       */
-    secondaryActions: PropTypes.arrayOf(PropTypes.shape({
+    secondaryAction: PropTypes.shape({
       content: PropTypes.string.isRequired
-    })),
+    }),
     /**
       * Content below the CTA
       */
@@ -41,7 +41,7 @@ class EmptyState extends Component {
   render() {
     const {
       title,
-      action,
+      primaryAction,
       secondaryAction,
       children
     } = this.props;
@@ -49,9 +49,9 @@ class EmptyState extends Component {
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, primaryActionOverrides)
       : null;
-    
-    const secondaryActionsMarkup = secondaryActions
-      ? secondaryActions.map(linkFrom)
+
+    const secondaryActionMarkup = secondaryAction
+      ? linkFrom(secondaryAction)
       : null;
 
     return (
@@ -59,7 +59,7 @@ class EmptyState extends Component {
         <h1 className={styles.Title}>{ title }</h1>
         <div className={styles.Content}>{ children }</div>
         <div className={styles.Actions}>
-          { primaryActionMarkup } { secondaryActionsMarkup }
+          { primaryActionMarkup } { secondaryActionMarkup }
         </div>
       </div>
     );
