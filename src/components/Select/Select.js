@@ -11,7 +11,8 @@ const PLACEHOLDER_VALUE = '_placeholder';
 
 const Option = ({ option }) => {
   if (typeof option === 'object') {
-    return <option value={option.value}>{ option.label }</option>;
+    const { value, label = value, ...rest } = option;
+    return <option value={value} {...rest}>{label}</option>;
   } else if (typeof option === 'string' || typeof option === 'number') {
     return <option value={option}>{ option }</option>;
   }
