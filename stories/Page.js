@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Page } from '../src';
+import { Page, Panel } from '../src';
 
 export default storiesOf('Page', module)
   .addDecorator((getStory) => (
@@ -38,8 +38,9 @@ export default storiesOf('Page', module)
         primaryAction={primaryAction}
         secondaryActions={secondaryActions}
         breadcrumbAction={breadcrumbAction}
-        title='Template #3'
-      />
+        title='Template #3' >
+        <Panel sectioned>Content</Panel>
+      </Page>
     )
   })
 

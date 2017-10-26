@@ -59,11 +59,23 @@ class Page extends Component {
     }),
 
     /**
-      * Optional empty state object that will share primaryAction
+      * Optional empty state object
       */
     empty: PropTypes.shape({
-      test: PropTypes.bool
-    })
+      test: PropTypes.bool,
+      content: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+      ])
+    }),
+
+    /**
+      * Page Children
+      */
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
   };
 
   render() {
@@ -72,13 +84,21 @@ class Page extends Component {
       primaryAction,
       secondaryActions,
       breadcrumbAction,
-      empty
+      empty,
+      children
     } = this.props;
 
     const { test, content, ...emptyOptions } = empty;
 
     if (test) {
-      return <EmptyState primaryAction={primaryAction} {...emptyOptions}>{ content }</EmptyState>;
+      return (
+        <EmptyState
+          title={title}
+          primaryAction={primaryAction}
+          {...emptyOptions}>
+            { content }
+          </EmptyState>
+      );
     }
 
     const primaryActionMarkup = primaryAction
@@ -98,19 +118,22 @@ class Page extends Component {
     const titleMarkup = title ? <h1 className={styles.Title}>{ title }</h1> : null;
 
     return (
-      <div className={styles.Page}>
-        <div className={styles.Breadcrumb}>
-          { breadcrumbMarkup }
-        </div>
-        <div className={styles.MainContent}>
-          { titleMarkup }
-          <div className={styles.PrimaryAction}>
-            { primaryActionMarkup }
+      <div>
+        <div className={styles.Page}>
+          <div className={styles.Breadcrumb}>
+            { breadcrumbMarkup }
+          </div>
+          <div className={styles.MainContent}>
+            { titleMarkup }
+            <div className={styles.PrimaryAction}>
+              { primaryActionMarkup }
+            </div>
+          </div>
+          <div className={styles.SecondaryActions}>
+            { secondaryActionsMarkup }
           </div>
         </div>
-        <div className={styles.SecondaryActions}>
-          { secondaryActionsMarkup }
-        </div>
+        { children }
       </div>
     );
   }

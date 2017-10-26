@@ -1,15 +1,28 @@
 @import '../../styles/config';
 
 .EmptyState {
-  padding: rem(36) spacing();
+  position: relative;
+  height: 100vh;
+  padding: 33vh spacing();
 }
 
 .Title {
   @include text-style-display-heading;
   margin-bottom: spacing(smaller);
+  width: auto;
+
+  @media screen and (min-width: breakpoint(small)) {
+    width: 45%;
+  }
 }
 
 .Content {
+  width: auto;
+
+  @media screen and (min-width: breakpoint(small)) {
+    width: 45%;
+  }
+
   p {
     font-size: font-size(heading, small);
     color: color(gray, 3);
@@ -20,5 +33,26 @@
 .Actions {
   & > * {
     margin-right: spacing();
+  }
+}
+
+.Image {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 50%;
+  max-width: rem(600);
+  height: auto;
+
+  transform: translate(0, -50%);
+
+  & > svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  @media screen and (min-width: breakpoint(small)) {
+    display: block;
   }
 }

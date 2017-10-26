@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { buttonFrom } from '../Button';
 import { linkFrom } from '../UnstyledLink';
 
+import * as Images from '../../images';
 import styles from './EmptyState.module.scss';
 
 const primaryActionOverrides = {
@@ -45,8 +46,18 @@ class EmptyState extends Component {
       title,
       primaryAction,
       secondaryAction,
-      children
+      children,
+      image
     } = this.props;
+
+    let ImageMarkup;
+
+    if (image) {
+      ImageMarkup = Images[image];
+      if (!ImageMarkup) {
+        throw new Error('Empty State image does not exist. Available images: "Generic", "Setup", "Templates", "Users"');
+      }
+    }
 
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, primaryActionOverrides)
@@ -63,6 +74,7 @@ class EmptyState extends Component {
         <div className={styles.Actions}>
           { primaryActionMarkup } { secondaryActionMarkup }
         </div>
+        <div className={styles.Image}><ImageMarkup /></div>
       </div>
     );
   }
