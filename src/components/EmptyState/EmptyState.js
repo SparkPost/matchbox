@@ -50,13 +50,16 @@ class EmptyState extends Component {
       image
     } = this.props;
 
-    let ImageMarkup;
+    let imageMarkup = null;
 
     if (image) {
-      ImageMarkup = Images[image];
-      if (!ImageMarkup) {
+      const Image = Images[image];
+
+      if (!Image) {
         throw new Error('Empty State image does not exist. Available images: "Generic", "Setup", "Templates", "Users"');
       }
+
+      imageMarkup = <div className={styles.Image}><Image /></div>
     }
 
     const primaryActionMarkup = primaryAction
@@ -74,7 +77,7 @@ class EmptyState extends Component {
         <div className={styles.Actions}>
           { primaryActionMarkup } { secondaryActionMarkup }
         </div>
-        <div className={styles.Image}><ImageMarkup /></div>
+        { imageMarkup }
       </div>
     );
   }
