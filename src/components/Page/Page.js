@@ -62,7 +62,7 @@ class Page extends Component {
       * Optional empty state object
       */
     empty: PropTypes.shape({
-      test: PropTypes.bool,
+      show: PropTypes.bool,
       content: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -88,9 +88,9 @@ class Page extends Component {
       children
     } = this.props;
 
-    const { test, content, ...emptyOptions } = empty;
+    const { show, content, ...emptyOptions } = empty;
 
-    if (test) {
+    if (show) {
       return (
         <EmptyState
           title={title}

@@ -59,7 +59,7 @@ class EmptyState extends Component {
         throw new Error('Empty State image does not exist. Available images: "Generic", "Setup", "Templates", "Users"');
       }
 
-      imageMarkup = <div className={styles.Image}><Image /></div>
+      imageMarkup = <div className={styles.Image}><Image /></div>;
     }
 
     const primaryActionMarkup = primaryAction

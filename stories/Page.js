@@ -52,7 +52,7 @@ export default storiesOf('Page', module)
     return (
       <Page
         empty={{
-          test: 1 == true,
+          show: true,
           title: 'Empty State Title',
           content: <p>Empty State Content</p>
         }}
