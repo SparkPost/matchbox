@@ -14,12 +14,13 @@ storiesOf('Tooltip', module)
   ))
   .addWithInfo('Default',
   () => (
-    <div>
+    <Button.Group>
       <Tooltip
         content='Messages an ISP or other remote domain accepted' >
         <Button>Accepted</Button>
       </Tooltip>
-    </div>
+      <Button>Targeted</Button>
+    </Button.Group>
   ))
 
   .addWithInfo('Dark & top',
