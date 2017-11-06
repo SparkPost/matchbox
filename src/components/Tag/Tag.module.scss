@@ -10,7 +10,7 @@
   }
 }
 
-.primary {
+.orange {
   .Content {
     background: color(orange, dark);
     color: color(gray, 10);
@@ -27,7 +27,7 @@
   }
 }
 
-.secondary {
+.blue {
   .Content {
     background: color(blue, dark);
     color: color(gray, 10);
@@ -44,22 +44,36 @@
   }
 }
 
-.outline {
+.yellow {
   .Content {
-    background: transparent;
-    border: 1px solid color(gray, 7);
-    padding: 0 rem(12);
+    background: color(mustard, light);
+    color: color(gray, 1);
   }
 
   .Close, a.Close {
-    background: transparent;
-    border: 1px solid color(gray, 7);
-    border-left: none;
-    padding: 0 rem(6);
+    background: color(mustard, light);
+    color: color(gray, 1);
 
     &:hover, &:active {
-      color: color(gray, 3);
-      background: color(gray, 9);
+      color: color(gray, 0);
+      background: darken(color(mustard, light), 5);
+    }
+  }
+}
+
+.green {
+  .Content {
+    background: color(green, light);
+    color: color(gray, 1);
+  }
+
+  .Close, a.Close {
+    background: color(green, light);
+    color: color(gray, 1);
+
+    &:hover, &:active {
+      color: color(gray, 0);
+      background: color(green, dark);
     }
   }
 }

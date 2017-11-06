@@ -11,9 +11,10 @@ class Tag extends Component {
 
   static propTypes = {
     onRemove: PropTypes.func,
-    primary: PropTypes.bool,
-    secondary: PropTypes.bool,
-    outline: PropTypes.bool,
+    orange: PropTypes.bool,
+    blue: PropTypes.bool,
+    yellow: PropTypes.bool,
+    green: PropTypes.bool,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -22,9 +23,10 @@ class Tag extends Component {
 
   render() {
     const {
-      primary,
-      secondary,
-      outline,
+      orange,
+      blue,
+      yellow,
+      green,
       children,
       onRemove,
       className,
@@ -33,9 +35,10 @@ class Tag extends Component {
 
     const tagClasses = classnames(
       styles.Tag,
-      primary && styles.primary,
-      secondary && styles.secondary,
-      outline && styles.outline,
+      orange && styles.orange,
+      blue && styles.blue,
+      yellow && styles.yellow,
+      green && styles.green,
       onRemove && styles.hasRemove,
       className
     );
