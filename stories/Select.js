@@ -10,6 +10,7 @@ const options2 = [
   {
     value: '1',
     label: 'One',
+    pass: 'through'
   },
   {
     value: '2',
