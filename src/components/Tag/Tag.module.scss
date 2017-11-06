@@ -4,16 +4,82 @@
   display: inline-block;
 }
 
+.hasRemove {
+  .Content {
+    border-radius: border-radius(large) 0 0 border-radius(large);
+  }
+}
+
+.primary {
+  .Content {
+    background: color(orange, dark);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(orange, dark);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: darken(color(orange, dark), 5);
+    }
+  }
+}
+
+.secondary {
+  .Content {
+    background: color(blue, dark);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(blue, dark);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: darken(color(blue, dark), 5);
+    }
+  }
+}
+
+.outline {
+  .Content {
+    background: transparent;
+    border: 1px solid color(gray, 7);
+    padding: 0 rem(12);
+  }
+
+  .Close, a.Close {
+    background: transparent;
+    border: 1px solid color(gray, 7);
+    border-left: none;
+    padding: 0 rem(6);
+
+    &:hover, &:active {
+      color: color(gray, 3);
+      background: color(gray, 9);
+    }
+  }
+}
+
 .Content {
   display: inline-block;
-  padding: 0 spacing(small);
-  border-radius: border-radius(large) 0 0 border-radius(large);
+  padding: rem(1) rem(12);
+  border-radius: border-radius(large);
   background: color(gray, 8);
+
+  font-size: rem(14);
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .Close, a.Close {
   display: inline-block;
-  padding: 0 spacing(small);
+  padding: rem(1) rem(6);
   border-radius: 0 border-radius(large) border-radius(large) 0;
   background: color(gray, 8);
 

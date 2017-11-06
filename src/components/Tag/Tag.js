@@ -11,6 +11,9 @@ class Tag extends Component {
 
   static propTypes = {
     onRemove: PropTypes.func,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
+    outline: PropTypes.bool,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -18,16 +21,37 @@ class Tag extends Component {
   };
 
   render() {
-    const { children, onRemove, className } = this.props;
+    const {
+      primary,
+      secondary,
+      outline,
+      children,
+      onRemove,
+      className,
+      ...rest
+    } = this.props;
 
-    return (
-      <div className={classnames(styles.Tag, className)}>
-        <div className={styles.Content}>{ children }</div>
-        <UnstyledLink
+    const tagClasses = classnames(
+      styles.Tag,
+      primary && styles.primary,
+      secondary && styles.secondary,
+      outline && styles.outline,
+      onRemove && styles.hasRemove,
+      className
+    );
+
+    const closeMarkup = onRemove
+      ? <UnstyledLink
           className={styles.Close}
           onClick={onRemove}>
-          <Icon name='Close'/>
+          <Icon name='Close' size={16}/>
         </UnstyledLink>
+      : null;
+
+    return (
+      <div className={tagClasses} {...rest}>
+        <div className={styles.Content}>{ children }</div>
+        { closeMarkup }
       </div>
     );
   }
