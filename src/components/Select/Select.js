@@ -7,8 +7,6 @@ import { Icon } from '../Icon';
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
-const PLACEHOLDER_VALUE = '_placeholder';
-
 const Option = ({ option }) => {
   if (typeof option === 'object') {
     const { value, label = value, ...rest } = option;
@@ -20,6 +18,10 @@ const Option = ({ option }) => {
 
 class Select extends Component {
   static displayName = 'Select';
+
+  static defaultProps = {
+    placeholderValue: ''
+  }
 
   static propTypes = {
     id: PropTypes.string,
@@ -38,6 +40,7 @@ class Select extends Component {
       ])
     ).isRequired,
     placeholder: PropTypes.string,
+    placeholderValue: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     helpText: PropTypes.oneOfType([
@@ -58,6 +61,7 @@ class Select extends Component {
       label,
       helpText,
       placeholder,
+      placeholderValue,
       disabled,
       error,
       ...rest
@@ -78,8 +82,14 @@ class Select extends Component {
       !label && styles.labelHidden
     );
 
-    const optionMarkup = options && options.length
-      ? options.map((option, key) => <Option option={option} key={key} />)
+    let combined = options;
+
+    if (placeholder) {
+      combined = [ { label: placeholder, value: placeholderValue, disabled: true }, ...combined ];
+    }
+
+    const optionMarkup = combined && combined.length
+      ? combined.map((option, key) => <Option option={option} key={key} />)
       : null;
 
     const labelMarkup = label
@@ -90,10 +100,6 @@ class Select extends Component {
 
     const errorMarkup = error
       ? <Error error={error} />
-      : null;
-
-    const placeholderOption = placeholder
-      ? <option label={placeholder} value={PLACEHOLDER_VALUE} disabled />
       : null;
 
     const helpMarkup = helpText
@@ -107,7 +113,6 @@ class Select extends Component {
           className={inputClasses}
           disabled={disabled}
           {...rest} >
-          { placeholderOption }
           { optionMarkup }
         </select>
         <Icon name='CaretDown' className={dropdownClasses} />
