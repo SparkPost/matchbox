@@ -72,4 +72,13 @@ export default storiesOf('Select', module)
       defaultValue="2"
       options={options2}
     />
-  ));
+  ))
+
+  .addWithInfo('with custom value for placeholder', () => (
+      <Select
+        placeholderValue="NONE"
+        placeholder='Select one'
+        options={options2}
+      />
+    ));
+  
