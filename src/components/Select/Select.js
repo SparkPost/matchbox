@@ -19,6 +19,10 @@ const Option = ({ option }) => {
 class Select extends Component {
   static displayName = 'Select';
 
+  static defaultProps = {
+    placeholderValue: ''
+  }
+
   static propTypes = {
     id: PropTypes.string,
     /**
@@ -36,6 +40,7 @@ class Select extends Component {
       ])
     ).isRequired,
     placeholder: PropTypes.string,
+    placeholderValue: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.string,
     helpText: PropTypes.oneOfType([
@@ -58,7 +63,7 @@ class Select extends Component {
       placeholder,
       disabled,
       error,
-      placeholderValue = '',
+      placeholderValue,
       ...rest
     } = this.props;
 
