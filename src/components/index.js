@@ -4,6 +4,7 @@ export * from './Button';
 export * from './Checkbox';
 export * from './Datepicker';
 export * from './EmptyState';
+export * from './Error';
 export * from './Grid';
 export * from './Icon';
 export * from './Modal';
