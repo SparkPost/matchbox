@@ -7,8 +7,6 @@ import { Icon } from '../Icon';
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
-const PLACEHOLDER_VALUE = '_placeholder';
-
 const Option = ({ option }) => {
   if (typeof option === 'object') {
     const { value, label = value, ...rest } = option;
@@ -60,6 +58,7 @@ class Select extends Component {
       placeholder,
       disabled,
       error,
+      placeholderValue = '',
       ...rest
     } = this.props;
 
@@ -93,7 +92,7 @@ class Select extends Component {
       : null;
 
     const placeholderOption = placeholder
-      ? <option label={placeholder} value={PLACEHOLDER_VALUE} disabled />
+      ? <option label={placeholder} value={placeholderValue} disabled />
       : null;
 
     const helpMarkup = helpText
