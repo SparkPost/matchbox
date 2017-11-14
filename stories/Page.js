@@ -12,9 +12,10 @@ export default storiesOf('Page', module)
 
   .addWithInfo('with all props', () => {
     const primaryAction = {
-        content: 'Publish',
-        onClick: action('Publish Clicked')
-      };
+      content: 'Publish',
+      onClick: action('Publish Clicked')
+    };
+
     const secondaryActions = [
       {
         content: 'Save',

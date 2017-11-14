@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './Table.module.scss';
 
-const Cell = ({ value, children, ...rest }) => (
-  <td className={styles.Cell} {...rest}>{ value || children }</td>
+const Cell = ({ value, children, className, ...rest }) => (
+  <td className={classnames(styles.Cell, className)} {...rest}>{ value || children }</td>
 );
 
 Cell.propTypes = {
@@ -12,6 +13,7 @@ Cell.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -19,8 +21,8 @@ Cell.propTypes = {
 };
 Cell.displayName = 'Table.Cell';
 
-const HeaderCell = ({ value, children, ...rest }) => (
-  <th className={styles.HeaderCell} {...rest}>{ value || children }</th>
+const HeaderCell = ({ value, children, className, ...rest }) => (
+  <th className={classnames(styles.HeaderCell, className)} {...rest}>{ value || children }</th>
 );
 
 HeaderCell.propTypes = {
@@ -29,6 +31,7 @@ HeaderCell.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -36,8 +39,8 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ rowData, children }) => (
-  <tr className={styles.Row}>
+const Row = ({ rowData, children, className, ...rest }) => (
+  <tr className={classnames(styles.Row, className)} {...rest}>
     {
       rowData
         ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`}/>)
@@ -48,6 +51,7 @@ const Row = ({ rowData, children }) => (
 
 Row.propTypes = {
   rowData: PropTypes.array,
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
