@@ -41,7 +41,7 @@ export class Tooltip extends Component {
   };
 
   static defaultProps = {
-    left: true,
+    right: true,
     bottom: true,
     horizontalOffset: '0px',
     forcePosition: false,
@@ -59,7 +59,7 @@ export class Tooltip extends Component {
       content,
       dark,
       top,
-      right,
+      left,
       horizontalOffset,
       preferredPosition,
       forcePosition,
@@ -67,16 +67,16 @@ export class Tooltip extends Component {
     } = this.props;
 
     const positionTop = preferredPosition.top || (top && !forcePosition);
-    const positionRight = preferredPosition.left || (right && !forcePosition);
+    const positionLeft = preferredPosition.left || (left && !forcePosition);
 
     const wrapperClasses = classnames(
       styles.Wrapper,
       dark && styles.dark,
       positionTop && styles.top,
-      positionRight && styles.right,
+      positionLeft && styles.left,
     );
 
-    const offset = positionRight ? { right: horizontalOffset } : { left: horizontalOffset };
+    const offset = positionLeft ? { right: horizontalOffset } : { left: horizontalOffset };
 
     return (
       <span className={wrapperClasses} ref={positionRef}>
