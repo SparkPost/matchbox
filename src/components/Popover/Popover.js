@@ -26,6 +26,10 @@ class Popover extends Component {
       * Opens the popover
       */
     open: PropTypes.bool,
+    left: PropTypes.bool,
+    right: PropTypes.bool,
+    top: PropTypes.bool,
+    bottom: PropTypes.bool,
     /**
       * Popover Content
       */
@@ -34,6 +38,11 @@ class Popover extends Component {
       PropTypes.node
     ])
   };
+
+  static defaultProps = {
+    right: true,
+    bottom: true
+  }
 
   state = {
     open: false
@@ -69,6 +78,10 @@ class Popover extends Component {
       className = '',
       open,
       manualTrigger,
+      top,
+      bottom,
+      left,
+      right,
       ...rest
     } = this.props;
 
@@ -82,7 +95,9 @@ class Popover extends Component {
 
     const wrapperClasses = classnames(
       styles.Wrapper,
-      shouldBeOpen && styles.open
+      shouldBeOpen && styles.open,
+      top && styles.top,
+      left && styles.left
     );
 
     const triggerMarkup = <span onClick={this.handleTrigger}>{ trigger }</span>;

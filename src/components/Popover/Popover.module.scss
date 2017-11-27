@@ -52,6 +52,7 @@
 }
 
 .Wrapper {
+  display: inline-block;
   position: relative;
 }
 
@@ -60,5 +61,36 @@
     pointer-events: auto;
     opacity: 1;
     transform: translate(0, 0) scale(1);
+  }
+}
+
+.top {
+  .Tip {
+    top: auto;
+    bottom: rem(-14);
+    margin: 0 0 rem(7);
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid color(gray, 8);
+    border-right: 1px solid color(gray, 8);
+    border-bottom-right-radius: border-radius(large);
+  }
+
+  .Popover {
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 rem(14);
+  }
+}
+
+.left {
+  .Popover {
+    left: auto;
+    right: 0;
+  }
+
+  .Tip {
+    left: auto;
+    right: rem(21);
   }
 }

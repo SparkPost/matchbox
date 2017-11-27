@@ -10,13 +10,21 @@ export default storiesOf('Popover', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .addWithInfo('With Datepicker', () => (
-      <Button.Group>
-        <Popover
-          sectioned
-          trigger={<Button onClick={action('Trigger Click')} value={new Date}>Button</Button>}
-          style={{ width: '400px' }}>
-          <Datepicker />
-        </Popover>
-        <Button>Test</Button>
-      </Button.Group>
-    ));
+    <Button.Group>
+      <Popover
+        sectioned
+        trigger={<Button onClick={action('Trigger Click')}>Button</Button>}
+        style={{ width: '400px' }}>
+        <Datepicker />
+      </Popover>
+      <Button>Test</Button>
+    </Button.Group>
+  ))
+  .addWithInfo('With Positioning', () => (
+    <div style={{ textAlign: 'center', marginTop: '40px' }}>
+      <Popover sectioned left top
+        trigger={<Button onClick={action('Trigger Click')}>Button</Button>} >
+        <small>Top & Left</small>
+      </Popover>
+    </div>
+  ));
