@@ -42,6 +42,15 @@ export default storiesOf('TextField', module)
     />
   ))
 
+  .addWithInfo('required', () => (
+    <TextField
+      id='id'
+      label='Template ID'
+      value='template-12'
+      required
+    />
+  ))
+
   .addWithInfo('with help text', () => (
       <TextField
         id='id'
