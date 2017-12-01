@@ -82,6 +82,7 @@ class Popover extends Component {
       bottom,
       left,
       right,
+      wrapper: WrapperComponent = 'span',
       ...rest
     } = this.props;
 
@@ -103,7 +104,7 @@ class Popover extends Component {
     const triggerMarkup = <span onClick={this.handleTrigger}>{ trigger }</span>;
 
     return (
-      <span className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
+      <WrapperComponent className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
         <WindowEvent event='click' handler={this.handleClickOutside} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
         { triggerMarkup }
@@ -113,7 +114,7 @@ class Popover extends Component {
             { children }
           </div>
         </div>
-      </span>
+      </WrapperComponent>
     );
   }
 }
