@@ -12,12 +12,17 @@ class Checkbox extends Component {
 
   static Group = Group;
 
+  static defaultProps = {
+    required: false
+  }
+
   static propTypes = {
     id: PropTypes.string,
     checked: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
+    required: PropTypes.bool,
     value: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.string
@@ -40,6 +45,7 @@ class Checkbox extends Component {
       label,
       labelHidden,
       disabled,
+      required,
       error,
       value,
       onChange,
@@ -54,10 +60,14 @@ class Checkbox extends Component {
       error && styles.error
     );
 
+    const requiredIndicator = required
+      ? ' *'
+      : '';
+
     const labelMarkup = label && !labelHidden
       ? <Label
           id={id}
-          label={label}
+          label={`${label}${requiredIndicator}`}
           className={styles.Label} />
       : null;
 

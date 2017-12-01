@@ -59,6 +59,15 @@ export default storiesOf('Select', module)
     />
   ))
 
+  .addWithInfo('required', () => (
+    <Select
+      id='id'
+      label='Select an option'
+      options={options2}
+      required
+    />
+  ))
+
   .addWithInfo('with help text', () => (
     <Select
       id='id'

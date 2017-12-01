@@ -20,6 +20,7 @@ class TextField extends Component {
     autoFocus: PropTypes.bool,
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
+    required: PropTypes.bool,
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
     helpText: PropTypes.oneOfType([
@@ -50,6 +51,7 @@ class TextField extends Component {
   };
 
   static defaultProps = {
+    required: false,
     type: 'text'
   };
 
@@ -85,6 +87,7 @@ class TextField extends Component {
       autoFocus,
       disabled,
       readOnly,
+      required,
       label,
       labelHidden,
       helpText,
@@ -106,10 +109,14 @@ class TextField extends Component {
       error && styles.error
     );
 
+    const requiredIndicator = required
+      ? ' *'
+      : '';
+
     const labelMarkup = label && !labelHidden
       ? <Label
           id={id}
-          label={label} />
+          label={`${label}${requiredIndicator}`} />
       : null;
 
     const errorMarkup = error
