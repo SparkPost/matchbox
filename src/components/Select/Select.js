@@ -20,7 +20,8 @@ class Select extends Component {
   static displayName = 'Select';
 
   static defaultProps = {
-    placeholderValue: ''
+    placeholderValue: '',
+    required: false
   }
 
   static propTypes = {
@@ -42,6 +43,7 @@ class Select extends Component {
     placeholder: PropTypes.string,
     placeholderValue: PropTypes.string,
     disabled: PropTypes.bool,
+    required: PropTypes.bool,
     label: PropTypes.string,
     helpText: PropTypes.oneOfType([
       PropTypes.string,
@@ -63,6 +65,7 @@ class Select extends Component {
       placeholder,
       placeholderValue,
       disabled,
+      required,
       error,
       ...rest
     } = this.props;
@@ -92,10 +95,14 @@ class Select extends Component {
       ? combined.map((option, key) => <Option option={option} key={key} />)
       : null;
 
+    const requiredIndicator = required
+      ? ' *'
+      : '';
+
     const labelMarkup = label
       ? <Label
           id={id}
-          label={label} />
+          label={`${label}${requiredIndicator}`} />
       : null;
 
     const errorMarkup = error
