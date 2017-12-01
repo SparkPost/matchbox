@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
     "react-day-picker": "^6.1.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.2.0",
     "react-icon-base": "^2.1.0"
   },
   "devDependencies": {

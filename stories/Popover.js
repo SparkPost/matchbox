@@ -17,13 +17,14 @@ export default storiesOf('Popover', module)
         style={{ width: '400px' }}>
         <Datepicker />
       </Popover>
-      <Button>Test</Button>
+      <Button>Button</Button>
     </Button.Group>
   ))
-  .addWithInfo('With Positioning', () => (
+  .addWithInfo('With Positioning and Wrapper', () => (
     <div style={{ textAlign: 'center', marginTop: '40px' }}>
       <Popover sectioned left top
-        trigger={<Button onClick={action('Trigger Click')}>Button</Button>} >
+        wrapper='div'
+        trigger={<TextField/>}>
         <small>Top & Left</small>
       </Popover>
     </div>
