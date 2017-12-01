@@ -60,6 +60,14 @@ export default storiesOf('Checkbox', module)
      />
   ))
 
+  .addWithInfo('Required', () => (
+    <Checkbox
+      id='id'
+      label='I agree to the Terms of Use and Privacy Policy'
+      required
+     />
+  ))
+
   .addWithInfo('With help text', () => (
     <Checkbox
       id='id'
