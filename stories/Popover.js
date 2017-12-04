@@ -14,6 +14,7 @@ export default storiesOf('Popover', module)
       <Popover
         sectioned
         trigger={<Button onClick={action('Trigger Click')}>Button</Button>}
+        onClose={action('Close')}
         style={{ width: '400px' }}>
         <Datepicker />
       </Popover>
