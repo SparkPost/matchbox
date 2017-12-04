@@ -30,6 +30,8 @@ class Popover extends Component {
     right: PropTypes.bool,
     top: PropTypes.bool,
     bottom: PropTypes.bool,
+
+    onClose: PropTypes.func,
     /**
       * Popover Content
       */
@@ -48,19 +50,27 @@ class Popover extends Component {
     open: false
   }
 
-  componentWilMount() {
+  componentWillMount() {
     this.setState({ open: this.props.open });
+  }
+
+  handleClose = (e) => {
+    const { onClose } = this.props;
+
+    this.setState({ open: false }, () => {
+      onClose && onClose();
+    });
   }
 
   handleClickOutside = (e) => {
     if (this.state.open && this.wrapper && !this.wrapper.contains(e.target)) {
-      this.setState({ open: false });
+      this.handleClose(e);
     }
   }
 
   handleEsc = (e) => {
     if (this.state.open && e.key === 'Escape') {
-      this.setState({ open: false });
+      this.handleClose(e);
     }
   }
 
@@ -118,6 +128,5 @@ class Popover extends Component {
     );
   }
 }
-
 
 export default Popover;
