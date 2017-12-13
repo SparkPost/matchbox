@@ -70,3 +70,5 @@ export { default as Settings } from './settings';
 export { default as Search } from './search';
 export { default as SortByAlpha } from './sort-by-alpha';
 export { default as Sort } from './sort';
+
+export { default as Lightning } from './flash-on';
