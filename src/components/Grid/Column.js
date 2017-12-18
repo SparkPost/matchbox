@@ -27,7 +27,8 @@ class Column extends Component {
     const {
       children,
       xs, sm, md, lg, xl,
-      xsOffset, smOffset, mdOffset, lgOffset, xlOffset
+      xsOffset, smOffset, mdOffset, lgOffset, xlOffset,
+      ...rest
     } = this.props;
 
     const colClasses = classnames(
@@ -44,7 +45,7 @@ class Column extends Component {
       xlOffset && styles[`xl-offset-${xlOffset}`]
     );
 
-    return <div className={colClasses}>{ children }</div>;
+    return <div className={colClasses} {...rest}>{ children }</div>;
   }
 }
 
