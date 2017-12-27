@@ -21,6 +21,7 @@ class TextField extends Component {
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
+    resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical', 'block', 'inline']),
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
     helpText: PropTypes.oneOfType([
@@ -52,6 +53,7 @@ class TextField extends Component {
 
   static defaultProps = {
     required: false,
+    resize: 'both',
     type: 'text'
   };
 
@@ -88,6 +90,7 @@ class TextField extends Component {
       disabled,
       readOnly,
       required,
+      resize,
       label,
       labelHidden,
       helpText,
@@ -148,7 +151,7 @@ class TextField extends Component {
       onBlur,
       onChange,
       className: styles.Input,
-      style: { paddingLeft, paddingRight }
+      style: { paddingLeft, paddingRight, resize }
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
