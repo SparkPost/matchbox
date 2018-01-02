@@ -25,6 +25,15 @@ export default storiesOf('TextField', module)
     />
   ))
 
+  .addWithInfo('with an inline error', () => (
+    <TextField
+      id='id'
+      label='Name'
+      inlineErrors={true}
+      error='You forgot my name!'
+    />
+  ))
+
   .addWithInfo('multiline', () => (
     <TextField
       id='id'

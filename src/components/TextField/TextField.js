@@ -46,6 +46,7 @@ class TextField extends Component {
       PropTypes.node
     ]),
     error: PropTypes.string,
+    inlineErrors: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
@@ -94,6 +95,7 @@ class TextField extends Component {
       label,
       labelHidden,
       helpText,
+      inlineErrors,
       error,
       onChange,
       onFocus,
@@ -116,13 +118,18 @@ class TextField extends Component {
       ? ' *'
       : '';
 
-    const labelMarkup = label && !labelHidden
-      ? <Label
-          id={id}
-          label={`${label}${requiredIndicator}`} />
-      : null;
+    let labelMarkup;
+    const renderLabel = !labelHidden || inlineErrors;
+    if (label && renderLabel) {
+      const errorMsg = error && inlineErrors ? <Error inline={true} error={error} /> : null;
+      labelMarkup = <Label
+        id={id}
+        label={`${label}${requiredIndicator}`}>
+        {errorMsg}
+      </Label>;
+    }
 
-    const errorMarkup = error
+    const errorMarkup = error && !inlineErrors
       ? <Error error={error} />
       : null;
 
