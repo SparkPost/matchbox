@@ -21,6 +21,9 @@ class TextField extends Component {
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
+    /**
+     * 'none' | 'both' | 'horizontal' | 'vertical' | 'block' | 'inline'
+     */
     resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical', 'block', 'inline']),
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
@@ -46,6 +49,9 @@ class TextField extends Component {
       PropTypes.node
     ]),
     error: PropTypes.string,
+    /**
+     * Inlines the error message next to the field label. Label prop required.
+     */
     inlineErrors: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
