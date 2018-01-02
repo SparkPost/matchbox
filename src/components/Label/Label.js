@@ -5,13 +5,15 @@ import styles from './Label.module.scss';
 const Label = ({
   label,
   id,
-  className
+  className,
+  children
 }) => (
   <label
     id={id && `${id}Label`}
     htmlFor={id}
     className={classnames(styles.Label, className)} >
     { label }
+    { children }
   </label>
 );
 

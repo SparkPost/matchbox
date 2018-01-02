@@ -21,6 +21,10 @@ class TextField extends Component {
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
     required: PropTypes.bool,
+    /**
+     * 'none' | 'both' | 'horizontal' | 'vertical' | 'block' | 'inline'
+     */
+    resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical', 'block', 'inline']),
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
     helpText: PropTypes.oneOfType([
@@ -45,6 +49,10 @@ class TextField extends Component {
       PropTypes.node
     ]),
     error: PropTypes.string,
+    /**
+     * Inlines the error message next to the field label. Label prop required.
+     */
+    inlineErrors: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
@@ -52,6 +60,7 @@ class TextField extends Component {
 
   static defaultProps = {
     required: false,
+    resize: 'both',
     type: 'text'
   };
 
@@ -88,9 +97,11 @@ class TextField extends Component {
       disabled,
       readOnly,
       required,
+      resize,
       label,
       labelHidden,
       helpText,
+      inlineErrors,
       error,
       onChange,
       onFocus,
@@ -113,13 +124,18 @@ class TextField extends Component {
       ? ' *'
       : '';
 
-    const labelMarkup = label && !labelHidden
-      ? <Label
-          id={id}
-          label={`${label}${requiredIndicator}`} />
-      : null;
+    let labelMarkup;
+    const renderLabel = !labelHidden || inlineErrors;
+    if (label && renderLabel) {
+      const errorMsg = error && inlineErrors ? <Error inline={true} error={error} /> : null;
+      labelMarkup = <Label
+        id={id}
+        label={`${label}${requiredIndicator}`}>
+        {errorMsg}
+      </Label>;
+    }
 
-    const errorMarkup = error
+    const errorMarkup = error && !inlineErrors
       ? <Error error={error} />
       : null;
 
@@ -148,7 +164,7 @@ class TextField extends Component {
       onBlur,
       onChange,
       className: styles.Input,
-      style: { paddingLeft, paddingRight }
+      style: { paddingLeft, paddingRight, resize }
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
