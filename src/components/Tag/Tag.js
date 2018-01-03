@@ -10,11 +10,17 @@ class Tag extends Component {
   static displayName = 'Tag';
 
   static propTypes = {
+    /**
+     * 'orange' | 'blue' | 'yellow' | 'red'
+     */
+    color: PropTypes.oneOf(['orange', 'blue', 'yellow', 'red']),
+    /**
+     * Close button is hidden unless this is provided
+     */
     onRemove: PropTypes.func,
-    orange: PropTypes.bool,
-    blue: PropTypes.bool,
-    yellow: PropTypes.bool,
-    green: PropTypes.bool,
+    /**
+     * Tag content
+     */
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -23,10 +29,7 @@ class Tag extends Component {
 
   render() {
     const {
-      orange,
-      blue,
-      yellow,
-      green,
+      color,
       children,
       onRemove,
       className,
@@ -35,11 +38,8 @@ class Tag extends Component {
 
     const tagClasses = classnames(
       styles.Tag,
-      orange && styles.orange,
-      blue && styles.blue,
-      yellow && styles.yellow,
-      green && styles.green,
       onRemove && styles.hasRemove,
+      color && styles[color],
       className
     );
 

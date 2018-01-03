@@ -17,19 +17,12 @@ storiesOf('Tag', module)
   () => (
     <Tag onRemove={action('Tag Remove')}>domain.com</Tag>
   ))
-  .addWithInfo('Orange',
+  .addWithInfo('Colors',
   () => (
-    <Tag onRemove={action('Tag Remove')} orange>domain.com</Tag>
-  ))
-  .addWithInfo('Blue',
-  () => (
-    <Tag onRemove={action('Tag Remove')} blue>domain.com</Tag>
-  ))
-  .addWithInfo('Yellow',
-  () => (
-    <Tag onRemove={action('Tag Remove')} yellow>domain.com</Tag>
-  ))
-  .addWithInfo('Green',
-  () => (
-    <Tag onRemove={action('Tag Remove')} green>domain.com</Tag>
+    <div>
+      <p><Tag onRemove={action('Tag Remove')} color='orange'>domain.com</Tag></p>
+      <p><Tag onRemove={action('Tag Remove')} color='blue'>domain.com</Tag></p>
+      <p><Tag onRemove={action('Tag Remove')} color='yellow'>domain.com</Tag></p>
+      <p><Tag onRemove={action('Tag Remove')} color='red'>domain.com</Tag></p>
+    </div>
   ));
