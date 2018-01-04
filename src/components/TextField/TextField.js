@@ -6,6 +6,8 @@ import { Connect } from '../Connect';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
+const InlineErrorWrapper = ({ children }) => <span className={styles.InlineError}>{children}</span>;
+
 class TextField extends Component {
   static displayName = 'TextField';
 
@@ -125,9 +127,11 @@ class TextField extends Component {
       : '';
 
     let labelMarkup;
-    const renderLabel = !labelHidden || inlineErrors;
-    if (label && renderLabel) {
-      const errorMsg = error && inlineErrors ? <Error inline={true} error={error} /> : null;
+    const errorWrapper = inlineErrors ? InlineErrorWrapper : 'div';
+    const renderLabel = label && (!labelHidden || inlineErrors);
+    if (renderLabel) {
+      const renderErrorInLabel = error && inlineErrors;
+      const errorMsg = renderErrorInLabel ? <Error wrapper={errorWrapper} error={error} /> : null;
       labelMarkup = <Label
         id={id}
         label={`${label}${requiredIndicator}`}>

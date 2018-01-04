@@ -2,11 +2,14 @@ import React from 'react';
 import { Icon } from '../Icon';
 import styles from './Error.module.scss';
 
-const Error = ({ error, inline }) => {
-  const errorClass = inline ? styles.InlineError : styles.Error;
-  return <div className={errorClass}>
+const Error = (props) => {
+  const {
+    error,
+    wrapper: WrapperComponent = 'div'
+  } = props;
+  return <WrapperComponent className={styles.Error}>
     <span className={styles.Message}><Icon name='Error' className={styles.Icon} size={13} />{ error }</span>
-  </div>;
+  </WrapperComponent>;
 };
 
 Error.displayName = 'Error';
