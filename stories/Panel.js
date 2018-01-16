@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,24 +10,24 @@ storiesOf('Panel', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('with a title', () => (
+  .add('with a title', withInfo()(() => (
     <Panel title="Title" sectioned>This is a panel with a title</Panel>
-  ))
+  )))
 
-  .addWithInfo('highlighted with a title', () => (
+  .add('highlighted with a title', withInfo()(() => (
       <Panel title="Title" accent sectioned>This is a highlighted panel with a title</Panel>
-  ))
+  )))
 
-  .addWithInfo('with multiple sections',
-  () => (
+  .add('with multiple sections',
+  withInfo()(() => (
       <Panel>
         <Panel.Section>This is a panel with sections</Panel.Section>
         <Panel.Section>This is a panel with sections</Panel.Section>
         <Panel.Section>This is a panel with sections</Panel.Section>
       </Panel>
-  ))
+  )))
 
-  .addWithInfo('with actions', () => {
+  .add('with actions', withInfo()(() => {
     const actions = [
       {
         content: 'Edit',
@@ -54,4 +55,4 @@ storiesOf('Panel', module)
           </Panel.Section>
         </Panel>
     );
-  });
+  }));

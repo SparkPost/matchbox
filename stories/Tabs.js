@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -40,13 +41,13 @@ storiesOf('Tabs', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default',
-  () => (
+  .add('Default',
+  withInfo()(() => (
       <Tabs selected={0} connectBelow={false} tabs={tabs}/>
-  ))
+  )))
 
-  .addWithInfo('with other components',
-  () => (
+  .add('with other components',
+  withInfo()(() => (
     <div>
       <Page
         secondaryActions={secondaryActions}
@@ -56,4 +57,4 @@ storiesOf('Tabs', module)
       <Tabs selected={0} tabs={tabs} />
       <Panel sectioned>A panel</Panel>
     </div>
-  ));
+  )));

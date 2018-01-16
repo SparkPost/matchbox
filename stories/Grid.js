@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -21,27 +22,27 @@ storiesOf('Grid', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('Responsive',
-  () => (
+  .add('Responsive',
+  withInfo()(() => (
     <Grid>
       <Grid.Column xs={12} md={2} lg={6}><DemoBlock /></Grid.Column>
       <Grid.Column xs={12} md={5} lg={3}><DemoBlock /></Grid.Column>
       <Grid.Column xs={12} md={5} lg={3}><DemoBlock /></Grid.Column>
     </Grid>
-  ))
+  )))
 
-  .addWithInfo('Auto Width',
-  () => (
+  .add('Auto Width',
+  withInfo()(() => (
     <Grid>
       <Grid.Column><DemoBlock /></Grid.Column>
       <Grid.Column><DemoBlock /></Grid.Column>
       <Grid.Column><DemoBlock /></Grid.Column>
       <Grid.Column><DemoBlock /></Grid.Column>
     </Grid>
-  ))
+  )))
 
-  .addWithInfo('Offset',
-  () => (
+  .add('Offset',
+  withInfo()(() => (
     <Grid>
       <Grid.Column xsOffset={10} xs={2}><DemoBlock /></Grid.Column>
       <Grid.Column xsOffset={8} xs={4}><DemoBlock /></Grid.Column>
@@ -49,10 +50,10 @@ storiesOf('Grid', module)
       <Grid.Column xsOffset={4} xs={8}><DemoBlock /></Grid.Column>
       <Grid.Column xsOffset={2} xs={10}><DemoBlock /></Grid.Column>
     </Grid>
-  ))
+  )))
 
-  .addWithInfo('Horizontal Alignment',
-  () => (
+  .add('Horizontal Alignment',
+  withInfo()(() => (
     <div>
       <Grid start='xs' end='lg'>
         <Grid.Column xs={5}><DemoBlock /></Grid.Column>
@@ -66,10 +67,10 @@ storiesOf('Grid', module)
         <Grid.Column xs={5}><DemoBlock /></Grid.Column>
       </Grid>
     </div>
-  ))
+  )))
 
-  .addWithInfo('Vertical Alignment',
-  () => (
+  .add('Vertical Alignment',
+  withInfo()(() => (
     <div>
       <Grid top='xs'>
         <Grid.Column xs={6}><DemoBlock size='70px'/></Grid.Column>
@@ -86,10 +87,10 @@ storiesOf('Grid', module)
         <Grid.Column xs={6}><DemoBlock /></Grid.Column>
       </Grid>
     </div>
-  ))
+  )))
 
-  .addWithInfo('Distribution',
-  () => (
+  .add('Distribution',
+  withInfo()(() => (
     <div>
       <Grid around='xs'>
         <Grid.Column xs={2}><DemoBlock /></Grid.Column>
@@ -103,4 +104,4 @@ storiesOf('Grid', module)
         <Grid.Column xs={2}><DemoBlock /></Grid.Column>
       </Grid>
     </div>
-  ));
+  )));

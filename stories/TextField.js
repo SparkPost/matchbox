@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,66 +10,66 @@ export default storiesOf('TextField', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <TextField
       id='id'
       label='Name'
       placeholder='Leslie Knope'
     />
-  ))
+  )))
 
-  .addWithInfo('with an error', () => (
+  .add('with an error', withInfo()(() => (
     <TextField
       id='id'
       label='Name'
       error='You forgot your name!'
     />
-  ))
+  )))
 
-  .addWithInfo('with an inline error', () => (
+  .add('with an inline error', withInfo()(() => (
     <TextField
       id='id'
       label='Name'
       inlineErrors={true}
       error='You forgot my name!'
     />
-  ))
+  )))
 
-  .addWithInfo('multiline', () => (
+  .add('multiline', withInfo()(() => (
     <TextField
       id='id'
       label='Your Message'
       multiline
     />
-  ))
+  )))
 
-  .addWithInfo('disabled', () => (
+  .add('disabled', withInfo()(() => (
     <TextField
       id='id'
       label='Template ID'
       value='template-12'
       disabled
     />
-  ))
+  )))
 
-  .addWithInfo('required', () => (
+  .add('required', withInfo()(() => (
     <TextField
       id='id'
       label='Template ID'
       value='template-12'
       required
     />
-  ))
+  )))
 
-  .addWithInfo('with help text', () => (
+  .add('with help text', withInfo()(() => (
       <TextField
         id='id'
         label='Template ID'
         helpText='A unique ID for your template.'
       />
-  ))
+  )))
 
-  .addWithInfo('with connected components', () => (
+  .add('with connected components', withInfo()(() => (
       <TextField
         id='id'
         label='Date Range'
@@ -78,12 +79,12 @@ export default storiesOf('TextField', module)
           ['Last 24 Hours', 'Last Week']
         }/>}
       />
-  ))
+  )))
 
-  .addWithInfo('with prefix and suffix', () => (
+  .add('with prefix and suffix', withInfo()(() => (
       <TextField
         id='id'
         prefix='$'
         suffix={<Icon name='Renew' />}
       />
-  ));
+  )));

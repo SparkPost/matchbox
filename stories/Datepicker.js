@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,8 +10,8 @@ storiesOf('Datepicker', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default',
-  'Refer to http://react-day-picker.js.org/ for usage. The only props overridden by Matchbox are classNames and navbarElement.',
+  .add('Default',
+  withInfo('Refer to http://react-day-picker.js.org/ for usage. The only props overridden by Matchbox are classNames and navbarElement.')(
   () => (
     <Panel sectioned>
       <Datepicker
@@ -28,4 +29,4 @@ storiesOf('Datepicker', module)
         onDayClick={action('Day Clicked')}
       />
     </Panel>
-  ));
+  )));

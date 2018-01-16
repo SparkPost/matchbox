@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -17,7 +18,7 @@ export default storiesOf('Button', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <div>
       <Button size='small'>Cancel</Button> &nbsp;
 
@@ -27,9 +28,9 @@ export default storiesOf('Button', module)
 
       <Button disabled>Cancel</Button> &nbsp;
     </div>
-  ))
+  )))
 
-  .addWithInfo('Primary', () => (
+  .add('Primary', withInfo()(() => (
     <div>
       <Button primary size='small'>Add a domain</Button> &nbsp;
 
@@ -39,9 +40,9 @@ export default storiesOf('Button', module)
 
       <Button primary disabled>Add a domain</Button> &nbsp;
     </div>
-  ))
+  )))
 
-  .addWithInfo('Plain', () => (
+  .add('Plain', withInfo()(() => (
     <div>
       <Button plain size='small'>Verify</Button> &nbsp;
 
@@ -51,9 +52,9 @@ export default storiesOf('Button', module)
 
       <Button plain disabled>Verify</Button> &nbsp;
     </div>
-  ))
+  )))
 
-  .addWithInfo('Destructive', () => (
+  .add('Destructive', withInfo()(() => (
     <div>
       <Button destructive size='small'>Delete domain</Button> &nbsp;
 
@@ -63,9 +64,9 @@ export default storiesOf('Button', module)
 
       <Button destructive disabled>Delete domain</Button> &nbsp;
     </div>
-  ))
+  )))
 
-  .addWithInfo('Outline', () => (
+  .add('Outline', withInfo()(() => (
     <div>
       <Button outline size='small'>Manage IPs</Button> &nbsp;
 
@@ -75,16 +76,16 @@ export default storiesOf('Button', module)
 
       <Button outline disabled>Manage IPs</Button> &nbsp;
     </div>
-  ))
+  )))
 
-  .addWithInfo('External', () => (
+  .add('External', withInfo()(() => (
       <Button to='http://google.com'>Google</Button>
-  ))
+  )))
 
-  .addWithInfo('Group', () => (
+  .add('Group', withInfo()(() => (
       <Button.Group>
         <Button>Linear</Button>
         <Button>Log</Button>
         <Button disabled>Sq Rt</Button>
       </Button.Group>
-  ));
+  )));

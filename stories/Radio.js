@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -10,7 +11,7 @@ export default storiesOf('Radio', module)
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <Radio.Group>
       <Radio
         id='id'
@@ -28,20 +29,20 @@ export default storiesOf('Radio', module)
         name='group'
        />
     </Radio.Group>
-  ))
+  )))
 
-  .addWithInfo('Disabled', () => (
+  .add('Disabled', withInfo()(() => (
     <Radio
       id='id'
       label='Check Me'
       disabled
      />
-  ))
+  )))
 
-  .addWithInfo('With help text', () => (
+  .add('With help text', withInfo()(() => (
     <Radio
       id='id'
       label='Check Me'
       helpText='Check this box'
      />
-  ));
+  )));

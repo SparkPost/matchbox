@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -16,8 +17,8 @@ storiesOf('Table', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default',
-  () => (
+  .add('Default',
+  withInfo()(() => (
     <Panel>
       <Table>
         <tbody>
@@ -32,10 +33,10 @@ storiesOf('Table', module)
         </tbody>
       </Table>
     </Panel>
-  ))
+  )))
 
-  .addWithInfo('with supplied data', () => (
+  .add('with supplied data', withInfo()(() => (
     <Panel>
       <Table data={data} />
     </Panel>
-  ));
+  )));

@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -12,8 +13,8 @@ storiesOf('Tooltip', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default',
-  () => (
+  .add('Default',
+  withInfo()(() => (
     <Button.Group>
       <Tooltip
         content='Messages an ISP or other remote domain accepted' >
@@ -21,10 +22,10 @@ storiesOf('Tooltip', module)
       </Tooltip>
       <Button>Targeted</Button>
     </Button.Group>
-  ))
+  )))
 
-  .addWithInfo('Dark & top',
-  () => (
+  .add('Dark & top',
+  withInfo()(() => (
     <div>
       <Tooltip
         content='Messages an ISP or other remote domain accepted'
@@ -32,10 +33,10 @@ storiesOf('Tooltip', module)
         <Button>Accepted</Button>
       </Tooltip>
     </div>
-  ))
+  )))
 
-  .addWithInfo('Left with horizontal offset',
-  () => (
+  .add('Left with horizontal offset',
+  withInfo()(() => (
     <div style={{ textAlign: 'center' }}>
       <Tooltip
         content='Messages an ISP or other remote domain accepted'
@@ -43,11 +44,10 @@ storiesOf('Tooltip', module)
         Hover
       </Tooltip>
     </div>
-  ))
+  )))
 
-  .addWithInfo('Positioned Automatically',
-  'Tooltips are positioned automatically based on the components position. use forcePosition to disable this behavior.',
-  () => (
+  .add('Positioned Automatically',
+  withInfo('Tooltips are positioned automatically based on the components position. use forcePosition to disable this behavior.')(() => (
     <div>
       <small>scroll down</small>
       <div style={{height:'600px'}}/>
@@ -56,4 +56,4 @@ storiesOf('Tooltip', module)
         <Button>Accepted</Button>
       </ConnectedTooltip>
     </div>
-  ));
+  )));

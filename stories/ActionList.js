@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -49,8 +50,8 @@ storiesOf('ActionList', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('within a Popover',
-  () => (
+  .add('within a Popover',
+  withInfo()(() => (
     <Popover
       open={true}
       trigger={<Button>More Actions</Button>}
@@ -82,7 +83,7 @@ storiesOf('ActionList', module)
         ]}
       />
     </Popover>
-  ))
+  )))
   .add('within a custom component',
   () => (
     <DemoTypeahead />

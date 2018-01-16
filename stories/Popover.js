@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,7 +10,7 @@ export default storiesOf('Popover', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('With Datepicker', () => (
+  .add('With Datepicker', withInfo()(() => (
     <Button.Group>
       <Popover
         sectioned
@@ -20,8 +21,8 @@ export default storiesOf('Popover', module)
       </Popover>
       <Button>Button</Button>
     </Button.Group>
-  ))
-  .addWithInfo('With Positioning and Wrapper', () => (
+  )))
+  .add('With Positioning and Wrapper', withInfo()(() => (
     <div style={{ textAlign: 'center', marginTop: '40px' }}>
       <Popover sectioned left top
         wrapper='div'
@@ -29,4 +30,4 @@ export default storiesOf('Popover', module)
         <small>Top & Left</small>
       </Popover>
     </div>
-  ));
+  )));
