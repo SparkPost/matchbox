@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,20 +10,20 @@ storiesOf('Tag', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default',
-  () => (
+  .add('Default',
+  withInfo()(() => (
     <Tag>domain.com</Tag>
-  ))
-  .addWithInfo('With remove action',
-  () => (
+  )))
+  .add('With remove action',
+  withInfo()(() => (
     <Tag onRemove={action('Tag Remove')}>domain.com</Tag>
-  ))
-  .addWithInfo('Colors',
-  () => (
+  )))
+  .add('Colors',
+  withInfo()(() => (
     <div>
       <p><Tag onRemove={action('Tag Remove')} color='orange'>domain.com</Tag></p>
       <p><Tag onRemove={action('Tag Remove')} color='blue'>domain.com</Tag></p>
       <p><Tag onRemove={action('Tag Remove')} color='yellow'>domain.com</Tag></p>
       <p><Tag onRemove={action('Tag Remove')} color='red'>domain.com</Tag></p>
     </div>
-  ));
+  )));

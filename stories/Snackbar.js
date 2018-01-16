@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -11,14 +12,14 @@ export default storiesOf('Snackbar', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <Snackbar onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  ))
+  )))
 
-  .addWithInfo('Success', () => (
+  .add('Success', withInfo()(() => (
     <Snackbar status='success' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  ))
+  )))
 
-  .addWithInfo('Danger', () => (
+  .add('Danger', withInfo()(() => (
     <Snackbar status='danger' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  ));
+  )));

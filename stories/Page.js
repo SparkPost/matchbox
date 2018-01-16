@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -10,7 +11,7 @@ export default storiesOf('Page', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('with all props', () => {
+  .add('with all props', withInfo()(() => {
     const primaryAction = {
       content: 'Publish',
       onClick: action('Publish Clicked')
@@ -43,9 +44,9 @@ export default storiesOf('Page', module)
         <Panel sectioned>Content</Panel>
       </Page>
     )
-  })
+  }))
 
-  .addWithInfo('with an empty state', () => {
+  .add('with an empty state', withInfo()(() => {
     const primaryAction = {
         content: 'Create',
         onClick: action('Create Clicked')
@@ -61,4 +62,4 @@ export default storiesOf('Page', module)
         title='Template #3'
       />
     )
-  });
+  }));

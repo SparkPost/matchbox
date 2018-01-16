@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -40,7 +41,7 @@ export default storiesOf('Modal', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('Open', () => {
+  .add('Open', () => {
     return (
       <Modal open>
         <Panel title="Delete Template" sectioned accent>
@@ -52,7 +53,7 @@ export default storiesOf('Modal', module)
     )
   })
 
-  .addWithInfo('Toggle Example', () => {
+  .add('Toggle Example', withInfo()(() => {
     return (
       <span>
         <ModalDemo />
@@ -61,4 +62,4 @@ export default storiesOf('Modal', module)
         <Modal/>
       </span>
     )
-  });
+  }));

@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -9,6 +10,6 @@ export default storiesOf('ProgressBar', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <ProgressBar completed={54} />
-  ));
+  )));

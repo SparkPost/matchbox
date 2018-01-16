@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -37,48 +38,48 @@ export default storiesOf('Checkbox', module)
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <Checkbox
       id='id'
       label='Check Me'
      />
-  ))
+  )))
 
-  .addWithInfo('Without Label', () => (
+  .add('Without Label', withInfo()(() => (
     <Checkbox
       id='id'
       label='Check Me'
       labelHidden
      />
-  ))
+  )))
 
-  .addWithInfo('Disabled', () => (
+  .add('Disabled', withInfo()(() => (
     <Checkbox
       id='id'
       label='Check Me'
       disabled
      />
-  ))
+  )))
 
-  .addWithInfo('Required', () => (
+  .add('Required', withInfo()(() => (
     <Checkbox
       id='id'
       label='I agree to the Terms of Use and Privacy Policy'
       required
      />
-  ))
+  )))
 
-  .addWithInfo('With help text', () => (
+  .add('With help text', withInfo()(() => (
     <Checkbox
       id='id'
       label='Check Me'
       helpText='Check this box'
      />
-  ))
+  )))
 
-  .addWithInfo('Group',
+  .add('Group',
   'This component only styles its children with correct spacing.',
-  () => (
+  withInfo()(() => (
     <div>
       <Checkbox
         id='id'
@@ -97,4 +98,4 @@ export default storiesOf('Checkbox', module)
           label='Check Me' />
       </Checkbox.Group>
     </div>
-  ));
+  )));

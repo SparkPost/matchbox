@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -10,19 +11,19 @@ export default storiesOf('Pagination', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('with initial index', () => (
+  .add('with initial index', withInfo()(() => (
     <Pagination
       pages={4}
       pageRange={4}
       initialIndex={3}
       onChange={action('Page Changed')}
     />
-  ))
+  )))
 
-  .addWithInfo('with lots of pages', () => (
+  .add('with lots of pages', withInfo()(() => (
     <Pagination
       pages={30}
       pageRange={7}
       onChange={action('Page Changed')}
     />
-  ));
+  )));

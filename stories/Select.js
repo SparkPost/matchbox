@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -22,7 +23,7 @@ export default storiesOf('Select', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .addWithInfo('Default', () => (
+  .add('Default', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
@@ -30,58 +31,58 @@ export default storiesOf('Select', module)
       defaultValue=''
       options={options2}
     />
-  ))
+  )))
 
-  .addWithInfo('with strings or numbers', () => (
+  .add('with strings or numbers', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
       placeholder='Leslie Knope'
       options={options}
     />
-  ))
+  )))
 
-  .addWithInfo('with an error', () => (
+  .add('with an error', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
       options={options2}
       error='Your forgot to select'
     />
-  ))
+  )))
 
-  .addWithInfo('disabled', () => (
+  .add('disabled', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
       options={options2}
       disabled
     />
-  ))
+  )))
 
-  .addWithInfo('required', () => (
+  .add('required', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
       options={options2}
       required
     />
-  ))
+  )))
 
-  .addWithInfo('with help text', () => (
+  .add('with help text', withInfo()(() => (
     <Select
       id='id'
       label='Select an option'
       options={options2}
       helpText="Remember to select something"
     />
-  ))
+  )))
 
-  .addWithInfo('with custom value for placeholder', () => (
-      <Select
-        placeholderValue="NONE"
-        placeholder='Select one'
-        defaultValue="NONE"
-        options={options2}
-      />
-    ));
+  .add('with custom value for placeholder', withInfo()(() => (
+    <Select
+      placeholderValue="NONE"
+      placeholder='Select one'
+      defaultValue="NONE"
+      options={options2}
+    />
+  )));

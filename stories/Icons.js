@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
@@ -11,11 +12,11 @@ storiesOf('Icons', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .addWithInfo('single icon', () => (
+  .add('single icon', withInfo()(() => (
     <div>
       <Icon name='ReportBox' size={90} />
     </div>
-  ))
+  )))
 
   .add('all icons', () => {
     const renderIcons = Object.keys(icons).map((icon, i) => {
