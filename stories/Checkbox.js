@@ -77,9 +77,7 @@ export default storiesOf('Checkbox', module)
      />
   )))
 
-  .add('Group',
-  'This component only styles its children with correct spacing.',
-  withInfo()(() => (
+  .add('Group', withInfo('This component only styles its children with correct spacing.')(() => (
     <div>
       <Checkbox
         id='id'
