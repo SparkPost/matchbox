@@ -20,7 +20,7 @@ $arrow-margin: 10px;
 .dark {
   .Tip, .Tooltip {
     background: color(gray, 1);
-    border: none;
+    border: none !important;
   }
 
   .Content {
@@ -64,8 +64,8 @@ $arrow-margin: 10px;
   position: absolute;
   top: rem(-14);
   left: rem(21);
-  width: rem(14);
-  height: rem(14);
+  width: rem(18);
+  height: rem(18);
 
   margin: rem(7) 0 0;
 
