@@ -1,31 +1,23 @@
-import { configure, setAddon } from '@storybook/react';
+import * as storybook from '@storybook/react';
+import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
-import infoAddon, { setDefaults } from '@storybook/addon-info';
 
-function loadStories() {
-  require('../stories');
-}
-
-setDefaults({
-  inline: true,
-  maxPropsIntoLine: 1,
-  header: false,
-  // maxPropObjectKeys: 10,
-  // maxPropArrayLength: 20,
-  // maxPropStringLength: 100,
-});
-
-setAddon(infoAddon);
-
+// Option defaults:
 setOptions({
   name: 'Matchbox',
-  // url: 'https://example.com',
-  // goFullScreen: false,
-  // showLeftPanel: false,
-  // showDownPanel: false,
-  showSearchBox: false,
-  // downPanelInRight: true,
-  sortStoriesByKind: false,
+  url: 'https://github.com/SparkPost/matchbox/',
 });
 
-configure(loadStories, module);
+// automatically import all files ending in *.stories.js
+const req = require.context('../stories', true, /.stories.js$/);
+function loadStories() {
+  req.keys().forEach((filename) => req(filename));
+}
+
+// addon-info
+setDefaults({
+  header: false, // Toggles display of header with component name and description
+  inline: true
+});
+
+storybook.configure(loadStories, module);
