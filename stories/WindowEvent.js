@@ -11,6 +11,9 @@ storiesOf('Window Event', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .add('Default Window Event',
-  withInfo('This component does not render anything, but hit your keyboard and watch the action logger.')(() => (
-    <WindowEvent event='keydown' handler={action('Keydown')} />
+  withInfo()(() => (
+    <span>
+      This component does not render anything, but hit your keyboard and watch the action logger.
+      <WindowEvent event='keydown' handler={action('Keydown')} />
+    </span>
   )));

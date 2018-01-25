@@ -46,7 +46,7 @@ class Welcome extends React.Component {
       <div style={styles.main}>
         <h1>Welcome to Matchbox</h1>
         <p>
-          This is a component dev environment for the SparkPost React WebUI.
+          This is a component dev environment for the <a href='http://github.com/SparkPost/2web2ui/' target='_blank'>SparkPost React WebUI</a>.
         </p>
       </div>
     );

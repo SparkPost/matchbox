@@ -49,11 +49,12 @@ storiesOf('Tooltip', module)
   .add('Positioned Automatically',
   withInfo('Tooltips are positioned automatically based on the components position. use forcePosition to disable this behavior.')(() => (
     <div>
-      <small>scroll down</small>
-      <div style={{height:'600px'}}/>
+      <p><small>Tooltips are positioned automatically based on the components position.</small></p>
+      <p><small>Scroll down and hover</small></p>
+      <div style={{height:'400px'}}/>
       <ConnectedTooltip
         content='Messages an ISP or other remote domain accepted'>
-        <Button>Accepted</Button>
+        <Button>Hover</Button>
       </ConnectedTooltip>
     </div>
   )));
