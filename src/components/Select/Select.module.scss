@@ -36,7 +36,7 @@
   line-height: rem(24);
 
   box-shadow: shadow();
-  
+
   transition: border 0.15s;
 
   &:hover {
@@ -69,8 +69,8 @@
 }
 
 .HelpText {
-  padding-top: rem(3);
+  padding-top: rem(6);
   font-size: rem(13);
-  line-height: rem(15);
+  line-height: 1.3em;
   color: color(gray, 4);
 }
