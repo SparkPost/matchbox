@@ -36,7 +36,7 @@
     "@storybook/addons": "^3.3.10",
     "@storybook/react": "^3.3.10",
     "@storybook/storybook-deployer": "^2.0.0",
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^7.2.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
