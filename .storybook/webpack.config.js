@@ -1,4 +1,5 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
@@ -17,6 +18,14 @@ module.exports = {
               sourceMap: true,
               localIdentName: '[name]__[local]___[hash:base64:5]'
             },
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              plugins: () => [
+                autoprefixer()
+              ]
+            }
           },
           {
             loader: require.resolve('sass-loader')
