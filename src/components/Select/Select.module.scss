@@ -55,6 +55,14 @@
   }
 }
 
+// Firefox doesn't respect line-height of <select>
+// @see https://bugzilla.mozilla.org/show_bug.cgi?id=1241167
+@-moz-document url-prefix() {
+  .Input {
+    height: rem(36);
+  }
+}
+
 .Dropdown {
   position: absolute;
   z-index: 1;
