@@ -39,7 +39,7 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ rowData, children, className, ...rest }) => (
+const Row = ({ rowData, children, className, isHeaderRow = false, Cell = (isHeaderRow ? HeaderCell : Cell), ...rest }) => (
   <tr className={classnames(styles.Row, className)} {...rest}>
     {
       rowData
