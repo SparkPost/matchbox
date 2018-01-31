@@ -55,7 +55,8 @@ Row.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  isHeaderRow: PropTypes.bool
 };
 Row.displayName = 'Table.Row';
 
