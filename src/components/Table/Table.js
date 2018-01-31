@@ -12,6 +12,7 @@ class Table extends Component {
 
   static propTypes = {
     data: PropTypes.array,
+    headers: PropTypes.array,
     /**
      * React node(s)
      */
@@ -24,16 +25,22 @@ class Table extends Component {
   render() {
     const {
       children,
+      headers,
       data
     } = this.props;
+    
+    const headersMarkup = headers
+      ? <thead>{headers.map((rowData, i) => <Row rowData={rowData} key={`Header-${i}`} isHeaderRow={true} />)}</thead>
+      : null;
 
     const dataMarkup = data
-      ? <tbody>{ data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />) }</tbody>
+      ? <tbody>{data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />)}</tbody>
       : children;
 
     return (
       <table className={styles.Table}>
-        { dataMarkup }
+        {headerMarkup}
+        {dataMarkup}
       </table>
     );
   }
