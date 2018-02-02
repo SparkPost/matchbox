@@ -7,6 +7,7 @@ export * from './EmptyState';
 export * from './Error';
 export * from './Grid';
 export * from './Icon';
+export * from './Label';
 export * from './Modal';
 export * from './Page';
 export * from './Pagination';
