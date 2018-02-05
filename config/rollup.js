@@ -6,7 +6,7 @@ import jsPlugins from './rollup/js';
 export default {
   entry: 'src/index.js',
   plugins: [
-    cssPlugins,
+    ...cssPlugins,
     ...jsPlugins
   ],
   external: [
