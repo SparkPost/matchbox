@@ -85,6 +85,7 @@ class Button extends Component {
         <a
           href={to}
           target={external ? '_blank' : ''}
+          rel={external ? 'noopener noreferrer' : ''}
           onClick={onClick}
           onFocus={onFocus}
           onBlur={onBlur}
