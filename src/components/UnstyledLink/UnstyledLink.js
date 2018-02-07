@@ -13,7 +13,7 @@ class UnstyledLink extends Component {
     } = this.props;
 
     if (to && !Component) {
-      return <a href={to} target={external ? '_blank' : ''} {...rest}>{ children }</a>;
+      return <a href={to} target={external ? '_blank' : ''} rel={external ? 'noopener noreferrer': ''} {...rest}>{ children }</a>;
     }
 
     if (to && Component) {
