@@ -31,6 +31,5 @@ const createUniqueIdGenerator = () => {
 const uniqueIdGenerator = createUniqueIdGenerator();
 
 export default function(localName, filePath) {
-  const componentName = filePath.split('/').slice(-2, -1);
-  return uniqueIdGenerator(componentName) + '_' + uniqueIdGenerator(localName);
+  return uniqueIdGenerator(filePath) + '_' + uniqueIdGenerator(localName);
 }
