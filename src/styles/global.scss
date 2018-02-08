@@ -70,6 +70,7 @@ pre,table,fieldset,hr {
 
 a, a:visited {
   color: color(blue);
+  text-decoration: underline;
 
   &:hover, &:active, &:focus {
     color: color(blue, dark);

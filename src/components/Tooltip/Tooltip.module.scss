@@ -35,8 +35,6 @@ $arrow-margin: 10px;
     margin: 0 0 rem(7);
     border-top: none;
     border-left: none;
-    border-bottom: 1px solid color(gray, 8);
-    border-right: 1px solid color(gray, 8);
     border-bottom-right-radius: border-radius(large);
   }
 
@@ -71,8 +69,6 @@ $arrow-margin: 10px;
 
   background: color(gray, 10);
   border-top-left-radius: border-radius(large);
-  border-top: 1px solid color(gray, 8);
-  border-left: 1px solid color(gray, 8);
   transform: rotate(45deg);
 }
 
@@ -88,9 +84,8 @@ $arrow-margin: 10px;
   background: color(gray, 10);
   margin: $arrow-margin 0 0;
   padding: rem(12);
-  box-shadow: shadow(deep);
+  box-shadow: shadow(deeper);
   border-radius: border-radius(large);
-  border: 1px solid color(gray, 8);
 
   opacity: 0;
   pointer-events: none;
