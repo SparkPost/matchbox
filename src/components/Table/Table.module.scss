@@ -9,7 +9,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Cell, .HeaderCell {
+
+.HeaderCell {
+  padding: rem(15) spacing();
+}
+
+.Cell {
   padding: rem(15) spacing();
   word-break: break-all;
 }
