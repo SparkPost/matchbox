@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class UnstyledLink extends Component {
   static displayName = 'UnstyledLink';
+
+  static propTypes = {
+    to: PropTypes.string,
+    external: PropTypes.bool,
+    Component: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.element
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
+  }
 
   render() {
     const {
@@ -13,7 +27,7 @@ class UnstyledLink extends Component {
     } = this.props;
 
     if (to && !Component) {
-      return <a href={to} target={external ? '_blank' : ''} rel={external ? 'noopener noreferrer': ''} {...rest}>{ children }</a>;
+      return <a href={to} target={external ? '_blank' : ''} rel={external ? 'noopener noreferrer' : ''} {...rest}>{ children }</a>;
     }
 
     if (to && Component) {

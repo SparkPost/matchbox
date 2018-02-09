@@ -88,8 +88,13 @@
 .Group {
   display: block;
   margin-bottom: spacing();
+
   & > * {
     margin-bottom: spacing(small);
+  }
+
+  &:last-child {
+    margin: 0;
   }
 }
 
