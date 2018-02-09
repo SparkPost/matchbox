@@ -99,8 +99,13 @@
 .Group {
   display: block;
   margin-bottom: spacing();
+
   & > * {
     margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin: 0;
   }
 }
 

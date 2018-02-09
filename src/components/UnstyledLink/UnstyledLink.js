@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class UnstyledLink extends Component {
   static displayName = 'UnstyledLink';
+
+  static propTypes = {
+    to: PropTypes.string,
+    external: PropTypes.bool,
+    Component: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.element
+    ]),
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ])
+  }
 
   render() {
     const {

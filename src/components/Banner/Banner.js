@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 import styles from './Banner.module.scss';
 import { buttonFrom } from '../Button';
 
-const actionOverrides = { outline: true };
+const actionOverrides = { outline: true, size: 'small' };
 
 const IconSection = ({ status }) => {
   const icons = {
@@ -121,7 +121,7 @@ class Banner extends Component {
         <div className={styles.Content}>
           { dismissMarkup }
           { titleMarkup }
-          { children }
+          <div className={styles.Children}>{ children }</div>
           { actionMarkup }
         </div>
       </div>
