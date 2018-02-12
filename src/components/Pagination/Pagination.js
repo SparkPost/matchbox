@@ -55,8 +55,8 @@ class Pagination extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { pages, pageRange, initialIndex } = this.props;
-    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange) {
-      this.handlePageChange(initialIndex);
+    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange || initialIndex !== nextProps.initialIndex) {
+      this.handlePageChange(nextProps.initialIndex);
     }
   }
 
