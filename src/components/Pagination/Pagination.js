@@ -10,6 +10,12 @@ class Pagination extends Component {
   static displayName = 'Pagination';
 
   static propTypes = {
+
+    /**
+     * Sets the current page number
+     */
+    currentPage: PropTypes.number,
+
     /**
      * The total number of pages
      */
@@ -26,18 +32,13 @@ class Pagination extends Component {
     onChange: PropTypes.func,
 
     /**
-     * Sets page index on component mount.
-     */
-    initialIndex: PropTypes.number.isRequired,
-
-    /**
      * Hides first and last buttons
      */
     marginsHidden: PropTypes.bool
   };
 
   static defaultProps = {
-    initialIndex: 0
+    currentPage: 1
   };
 
   constructor(props) {
@@ -50,13 +51,13 @@ class Pagination extends Component {
   }
 
   componentWillMount() {
-    this.handlePageChange(this.props.initialIndex);
+    this.handlePageChange(this.props.currentPage - 1);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { pages, pageRange, initialIndex } = this.props;
-    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange || initialIndex !== nextProps.initialIndex) {
-      this.handlePageChange(nextProps.initialIndex);
+    const { pages, pageRange, currentPage } = this.props;
+    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange || currentPage !== nextProps.currentPage) {
+      this.handlePageChange(nextProps.currentPage - 1);
     }
   }
 
