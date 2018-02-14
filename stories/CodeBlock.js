@@ -10,7 +10,7 @@ storiesOf('Code Block', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .add('without line numbers', withInfo()(() => (
+  .add('without chevrons', withInfo()(() => (
     <Panel sectioned>
     <CodeBlock code={`curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
@@ -30,9 +30,9 @@ https://api.sparkpost.com/api/v1/transmissions
     </Panel>
   )))
 
-  .add('width line numbers', withInfo()(() => (
+  .add('with numbers and height', withInfo()(() => (
     <Panel sectioned>
-    <CodeBlock numbered code={`curl -X POST
+    <CodeBlock numbered height={250} code={`curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
 -H "Authorization: cf85ca1c884bd13624fadea62ec21cc5cd477126"
 -H "Content-Type: application/json"
