@@ -6,24 +6,24 @@
   color: color(gray, 2);
   background: color(gray, 9);
   font-size: rem(13);
-  line-height: rem(24);
+  line-height: 21px;
 }
 
 .Code {
-  padding: spacing(small) spacing() spacing(large) rem(50);
+  padding: spacing() spacing() spacing() rem(50);
   position: absolute;
 }
 
 .PrefixWrapper {
   position: absolute;
-  top: rem(8);
+  top: spacing();
   left: rem(15);
 }
 
 .LineChevron {
   display: block;
   margin: 0;
-  height: rem(22.9);
+  height: 21px;
   fill: color(gray, 6);
 }
 
@@ -31,7 +31,7 @@
   display: block;
   text-align: right;
   margin: 0;
-  height: rem(22.9);
+  height: 21px;
   font-size: rem(12);
   color: color(gray, 6);
 }
