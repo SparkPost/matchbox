@@ -3,6 +3,7 @@ import './ActionList';
 import './Banner';
 import './Button';
 import './Checkbox';
+import './CodeBlock';
 import './Datepicker';
 import './EmptyState';
 import './Grid';

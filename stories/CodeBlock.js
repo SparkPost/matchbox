@@ -1,0 +1,51 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
+import { StoryContainer } from './helpers';
+
+import { CodeBlock, Panel } from '../src';
+
+storiesOf('Code Block', module)
+  .addDecorator((getStory) => (
+    <StoryContainer>{ getStory() }</StoryContainer>
+  ))
+  .add('without line numbers', withInfo()(() => (
+    <Panel sectioned>
+    <CodeBlock code={`curl -X POST
+https://api.sparkpost.com/api/v1/transmissions
+-H "Authorization: cf85ca1c884bd13624fadea62ec21cc5cd477126"
+-H "Content-Type: application/json"
+-d '{
+  "options": {
+    "sandbox": true
+  },
+  "content": {
+    "from": "sandbox@sparkpostbox.com",
+    "subject": "Thundercats are GO!!!",
+    "text": "Sword of Omens, give me sight BEYOND sight"
+  },
+  "recipients": [{ "address": "appteam@messagesystems.com" }]
+}'`}/>
+    </Panel>
+  )))
+
+  .add('width line numbers', withInfo()(() => (
+    <Panel sectioned>
+    <CodeBlock numbered code={`curl -X POST
+https://api.sparkpost.com/api/v1/transmissions
+-H "Authorization: cf85ca1c884bd13624fadea62ec21cc5cd477126"
+-H "Content-Type: application/json"
+-d '{
+  "options": {
+    "sandbox": true
+  },
+  "content": {
+    "from": "sandbox@sparkpostbox.com",
+    "subject": "Thundercats are GO!!!",
+    "text": "Sword of Omens, give me sight BEYOND sight"
+  },
+  "recipients": [{ "address": "appteam@messagesystems.com" }]
+}'`}/>
+    </Panel>
+  )));
