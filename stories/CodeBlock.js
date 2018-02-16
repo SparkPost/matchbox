@@ -14,18 +14,18 @@ storiesOf('Code Block', module)
     <Panel sectioned>
     <CodeBlock code={`curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
--H "Authorization: cf85ca1c884bd13624fadea62ec21cc5cd477126"
+-H "Authorization: api-key-here"
 -H "Content-Type: application/json"
 -d '{
   "options": {
     "sandbox": true
   },
   "content": {
-    "from": "sandbox@sparkpostbox.com",
+    "from": "from@email.com",
     "subject": "Thundercats are GO!!!",
     "text": "Sword of Omens, give me sight BEYOND sight"
   },
-  "recipients": [{ "address": "appteam@messagesystems.com" }]
+  "recipients": [{ "address": "email address here" }]
 }'`}/>
     </Panel>
   )))
@@ -34,18 +34,18 @@ https://api.sparkpost.com/api/v1/transmissions
     <Panel sectioned>
     <CodeBlock numbered height={250} code={`curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
--H "Authorization: cf85ca1c884bd13624fadea62ec21cc5cd477126"
+-H "Authorization: api-key-here"
 -H "Content-Type: application/json"
 -d '{
   "options": {
     "sandbox": true
   },
   "content": {
-    "from": "sandbox@sparkpostbox.com",
+    "from": "from@email.com",
     "subject": "Thundercats are GO!!!",
     "text": "Sword of Omens, give me sight BEYOND sight"
   },
-  "recipients": [{ "address": "appteam@messagesystems.com" }]
+  "recipients": [{ "address": "email address here" }]
 }'`}/>
     </Panel>
   )));
