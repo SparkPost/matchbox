@@ -60,6 +60,8 @@
   font-size: rem(13);
   line-height: 1.3em;
   color: color(gray, 4);
+  word-break: normal;
+  word-wrap: normal;
 }
 
 .Prefix, .Suffix {

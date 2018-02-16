@@ -1,0 +1,37 @@
+@import '../../styles/config';
+
+.CodeBlock {
+  position: relative;
+  font-family: font-family(monospace);
+  color: color(gray, 2);
+  background: color(gray, 9);
+  font-size: rem(13);
+  line-height: 21px;
+}
+
+.Code {
+  padding: spacing() spacing() spacing() rem(50);
+  position: absolute;
+}
+
+.PrefixWrapper {
+  position: absolute;
+  top: spacing();
+  left: rem(15);
+}
+
+.LineChevron {
+  display: block;
+  margin: 0;
+  height: 21px;
+  fill: color(gray, 6);
+}
+
+.LineNumber {
+  display: block;
+  text-align: right;
+  margin: 0;
+  height: 21px;
+  font-size: rem(12);
+  color: color(gray, 6);
+}

@@ -2,6 +2,7 @@ export * from './ActionList';
 export * from './Banner';
 export * from './Button';
 export * from './Checkbox';
+export * from './CodeBlock';
 export * from './Datepicker';
 export * from './EmptyState';
 export * from './Error';
