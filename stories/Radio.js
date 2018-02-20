@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Radio } from '../src';
+import { Radio, UnstyledLink } from '../src';
 
 export default storiesOf('Radio', module)
   .addDecorator((getStory) => (
@@ -29,6 +29,13 @@ export default storiesOf('Radio', module)
         name='group'
        />
     </Radio.Group>
+  )))
+
+  .add('With JSX in Label', withInfo()(() => (
+    <Radio
+      id='id'
+      label={<span>One radio <UnstyledLink>please</UnstyledLink></span>}
+     />
   )))
 
   .add('Disabled', withInfo()(() => (

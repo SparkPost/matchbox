@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Checkbox, TextField } from '../src';
+import { Checkbox, TextField, UnstyledLink } from '../src';
 
 class CheckboxWrapper extends React.Component {
   constructor(props) {
@@ -50,6 +50,13 @@ export default storiesOf('Checkbox', module)
       id='id'
       label='Check Me'
       labelHidden
+     />
+  )))
+
+  .add('With JSX in Label', withInfo()(() => (
+    <Checkbox
+      id='id'
+      label={<span>I agree to SparkPost's <UnstyledLink>Terms of Use</UnstyledLink></span>}
      />
   )))
 
