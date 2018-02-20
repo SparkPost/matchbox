@@ -19,7 +19,10 @@ class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
     checked: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
@@ -65,10 +68,9 @@ class Checkbox extends Component {
       : '';
 
     const labelMarkup = label && !labelHidden
-      ? <Label
-          id={id}
-          label={`${label}${requiredIndicator}`}
-          className={styles.Label} />
+      ? <Label id={id} className={styles.Label}>
+          {label}{requiredIndicator}
+        </Label>
       : null;
 
     const errorMarkup = error

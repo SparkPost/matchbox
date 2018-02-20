@@ -16,7 +16,10 @@ class Radio extends Component {
     id: PropTypes.string,
     name: PropTypes.string,
     checked: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
     value: PropTypes.oneOfType([
@@ -57,10 +60,7 @@ class Radio extends Component {
     );
 
     const labelMarkup = label && !labelHidden
-      ? <Label
-          id={id}
-          label={label}
-          className={styles.Label} />
+      ? <Label id={id} className={styles.Label}>{label}</Label>
       : null;
 
     const errorMarkup = error
