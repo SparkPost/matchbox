@@ -1,19 +1,21 @@
 @import '../../styles/config';
 $arrow-margin: 10px;
 
-.Wrapper {
+.Activator {
   position: relative;
   display: inline-block;
+}
 
+.Wrapper {
   & > * {
     margin-bottom: 0;
   }
+}
 
-  &:hover {
-    .Tooltip {
-      opacity: 1;
-      transform: translate(0, 0) scale(1);
-    }
+.hover {
+  .Tooltip {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
   }
 }
 

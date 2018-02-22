@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withPositioning } from '../WithPositioning';
+import { Overlay } from '../Overlay';
 
 import styles from './Tooltip.module.scss';
 
@@ -32,7 +33,7 @@ export class Tooltip extends Component {
     /**
      * These props are provided automatically through the withPositioning HOC
      */
-    preferredPosition: PropTypes.shape({
+    preferredDirection: PropTypes.shape({
       top: PropTypes.bool,
       bottom: PropTypes.bool,
       left: PropTypes.bool,
@@ -45,7 +46,7 @@ export class Tooltip extends Component {
     bottom: true,
     horizontalOffset: '0px',
     forcePosition: false,
-    preferredPosition: {
+    preferredDirection: {
       bottom: true,
       left: false,
       right: true,
@@ -53,24 +54,34 @@ export class Tooltip extends Component {
     }
   }
 
-  render() {
+  state = {
+    hover: false
+  }
+
+  handleMouseOver = () => {
+    this.setState({ hover: true });
+  }
+
+  handleMouseOut = () => {
+    this.setState({ hover: false });
+  }
+
+  renderTooltip = ({ preferredDirection }) => {
     const {
-      children,
       content,
       dark,
       top,
       left,
       horizontalOffset,
-      preferredPosition,
-      forcePosition,
-      positionRef
+      forcePosition
     } = this.props;
 
-    const positionTop = preferredPosition.top || (top && !forcePosition);
-    const positionLeft = preferredPosition.left || (left && !forcePosition);
+    const positionTop = preferredDirection.top || (top && !forcePosition);
+    const positionLeft = preferredDirection.left || (left && !forcePosition);
 
     const wrapperClasses = classnames(
       styles.Wrapper,
+      this.state.hover && styles.hover,
       dark && styles.dark,
       positionTop && styles.top,
       positionLeft && styles.left,
@@ -79,8 +90,7 @@ export class Tooltip extends Component {
     const offset = positionLeft ? { right: horizontalOffset } : { left: horizontalOffset };
 
     return (
-      <span className={wrapperClasses} ref={positionRef}>
-        { children }
+      <span className={wrapperClasses}>
         <span className={styles.Tooltip} style={offset}>
           <span className={styles.Tip} />
           <div className={styles.Content}>{ content }</div>
@@ -88,6 +98,22 @@ export class Tooltip extends Component {
       </span>
     );
   }
+
+  renderActivator = ({ activatorRef }) => (
+      <span
+        className={styles.Activator}
+        onMouseOver={this.handleMouseOver}
+        onMouseOut={this.handleMouseOut}
+        ref={activatorRef}>
+        { this.props.children }
+      </span>
+    )
+
+  render() {
+    return (
+      <Overlay enableHover render={this.renderTooltip} activator={this.renderActivator} />
+    );
+  }
 }
 
-export default withPositioning(Tooltip);
+export default Tooltip;

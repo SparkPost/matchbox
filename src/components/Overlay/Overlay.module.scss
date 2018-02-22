@@ -1,0 +1,7 @@
+@import '../../styles/config';
+
+.Overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: z-index(overlay)
+}

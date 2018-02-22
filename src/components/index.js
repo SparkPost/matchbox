@@ -10,6 +10,7 @@ export * from './Grid';
 export * from './Icon';
 export * from './Label';
 export * from './Modal';
+export * from './Overlay';
 export * from './Page';
 export * from './Pagination';
 export * from './Panel';

@@ -6,7 +6,7 @@ import { StoryContainer } from './helpers';
 
 import { Button, withPositioning } from '../src';
 import { Tooltip } from '../src/components/Tooltip/Tooltip';
-import ConnectedTooltip from '../src/components/Tooltip/Tooltip';
+// import ConnectedTooltip from '../src/components/Tooltip/Tooltip';
 
 
 storiesOf('Tooltip', module)
@@ -18,7 +18,7 @@ storiesOf('Tooltip', module)
     <Button.Group>
       <Tooltip
         content='Messages an ISP or other remote domain accepted' >
-        <Button>Accepted</Button>
+        <Button onClick={action('click')}>Accepted</Button>
       </Tooltip>
       <Button>Targeted</Button>
     </Button.Group>
@@ -52,9 +52,9 @@ storiesOf('Tooltip', module)
       <p><small>Tooltips are positioned automatically based on the components position.</small></p>
       <p><small>Scroll down and hover</small></p>
       <div style={{height:'400px'}}/>
-      <ConnectedTooltip
+      <Tooltip
         content='Messages an ISP or other remote domain accepted'>
         <Button>Hover</Button>
-      </ConnectedTooltip>
+      </Tooltip>
     </div>
   )));
