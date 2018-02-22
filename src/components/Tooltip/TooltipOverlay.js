@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { debounce } from '../../helpers/debounce';
 import { WindowEvent } from '../WindowEvent';
-import styles from './Overlay.module.scss';
+import styles from './TooltipOverlay.module.scss';
 
-class Overlay extends Component {
-  static displayName = 'Overlay';
+class TooltipOverlay extends Component {
+  static displayName = 'TooltipOverlay';
 
   static propTypes = {
     activator: PropTypes.func.isRequired,
-    render: PropTypes.func.isRequired
+    overlay: PropTypes.func.isRequired
   }
 
   state = {
@@ -50,37 +50,31 @@ class Overlay extends Component {
       width: activator.width,
       height: activator.height
     });
-  }, 200)
+  }, 300)
 
   render() {
-    const {
-      render,
-      activator
-    } = this.props;
+    const { overlay, activator } = this.props;
+    const { top, left, width, height, preferredDirection } = this.state;
 
-    const {
-      top,
-      left,
-      width,
-      height
-    } = this.state;
-
-    const overlayProps = {
-      preferredDirection: this.state.preferredDirection
-    };
-
+    const overlayPosition = { top, left, width, height };
+    const overlayProps = { preferredDirection };
     const activatorProps = {
       activatorRef: (node) => this.activator = node
     };
-
-    const position = { top, left, width, height };
 
     return (
       <Fragment>
         <WindowEvent event='resize' handler={this.handleMeasurement} />
         <WindowEvent event='scroll' handler={this.handleMeasurement} />
         { activator(activatorProps) }
-        { ReactDOM.createPortal(<div className={styles.Overlay} style={position}>{render(overlayProps)}</div>, document.body) }
+        {
+          ReactDOM.createPortal(
+            <div className={styles.TooltipOverlay}
+              style={overlayPosition}>
+              { overlay(overlayProps) }
+            </div>
+          , document.body)
+        }
       </Fragment>
     );
   }
@@ -105,4 +99,4 @@ function getRectForNode(node) {
   return rect.getBoundingClientRect();
 }
 
-export default Overlay;
+export default TooltipOverlay;

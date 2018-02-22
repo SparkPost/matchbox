@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { withPositioning } from '../WithPositioning';
-import { Overlay } from '../Overlay';
+import TooltipOverlay from './TooltipOverlay';
 
 import styles from './Tooltip.module.scss';
 
@@ -110,9 +109,7 @@ export class Tooltip extends Component {
     )
 
   render() {
-    return (
-      <Overlay enableHover render={this.renderTooltip} activator={this.renderActivator} />
-    );
+    return <TooltipOverlay overlay={this.renderTooltip} activator={this.renderActivator} />;
   }
 }
 
