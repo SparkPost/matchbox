@@ -1,23 +1,27 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
+import { Portal } from '../Portal';
 import { debounce } from '../../helpers/debounce';
+import { getWindowRect, getRectForNode } from '../../helpers/geometry';
 import { WindowEvent } from '../WindowEvent';
 import styles from './TooltipOverlay.module.scss';
 
 class TooltipOverlay extends Component {
   static displayName = 'TooltipOverlay';
 
+  static defaultProps = {
+    eventDebounce: 300
+  }
+
   static propTypes = {
-    activator: PropTypes.func.isRequired,
-    overlay: PropTypes.func.isRequired
+    renderActivator: PropTypes.func.isRequired,
+    renderTooltip: PropTypes.func.isRequired,
+    eventDebounce: PropTypes.number
   }
 
   state = {
-    top: 0,
-    left: 0,
-    width: 0,
-    height: 0,
+    mounted: false,
+    position: {},
     preferredDirection: {
       top: null,
       bottom: null,
@@ -26,77 +30,60 @@ class TooltipOverlay extends Component {
     }
   }
 
-  componentDidMount() {
-    this.handleMeasurement();
+  componentDidUpdate() {
+    // Check if the activator has been mounted
+    // then calculate measurements, undebounced
+    if (!this.state.mounted && !Object.keys(getRectForNode(this.activator)).length) {
+      this.handleMeasurement();
+      this.setState({ mounted: true });
+    }
   }
 
-  handleMeasurement = debounce(() => {
+  handleMeasurement = () => {
     const windowRect = getWindowRect();
     const activator = getRectForNode(this.activator);
-    const topOffset = activator.top;
-    const leftOffset = activator.left;
+
     const rightOffset = windowRect.width - activator.right;
     const bottomOffset = windowRect.height - activator.bottom;
 
     this.setState({
       preferredDirection: {
-        bottom: bottomOffset >= topOffset,
-        top: bottomOffset < topOffset,
-        right: rightOffset >= leftOffset,
-        left: rightOffset < leftOffset
+        bottom: bottomOffset >= activator.top,
+        top: bottomOffset < activator.top,
+        right: rightOffset >= activator.left,
+        left: rightOffset < activator.left
       },
-      top: activator.top + windowRect.top,
-      left: activator.left + windowRect.left,
-      width: activator.width,
-      height: activator.height
+      position: {
+        top: activator.top + windowRect.top,
+        left: activator.left + windowRect.left,
+        width: activator.width,
+        height: activator.height
+      }
     });
-  }, 300)
+  }
 
   render() {
-    const { overlay, activator } = this.props;
-    const { top, left, width, height, preferredDirection } = this.state;
+    const { renderTooltip, renderActivator, eventDebounce } = this.props;
+    const { position, preferredDirection } = this.state;
 
-    const overlayPosition = { top, left, width, height };
-    const overlayProps = { preferredDirection };
+    const tooltipProps = { preferredDirection };
     const activatorProps = {
       activatorRef: (node) => this.activator = node
     };
 
     return (
       <Fragment>
-        <WindowEvent event='resize' handler={this.handleMeasurement} />
-        <WindowEvent event='scroll' handler={this.handleMeasurement} />
-        { activator(activatorProps) }
-        {
-          ReactDOM.createPortal(
-            <div className={styles.TooltipOverlay}
-              style={overlayPosition}>
-              { overlay(overlayProps) }
-            </div>
-          , document.body)
-        }
+        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, eventDebounce)} />
+        <WindowEvent event='scroll' handler={debounce(this.handleMeasurement, eventDebounce)} />
+        { renderActivator(activatorProps) }
+        <Portal>
+          <div className={styles.TooltipOverlay} style={position}>
+            { renderTooltip(tooltipProps) }
+          </div>
+        </Portal>
       </Fragment>
     );
   }
-}
-
-function getWindowRect() {
-  return {
-    top: window.scrollY,
-    left: window.scrollX,
-    height: window.innerHeight,
-    width: window.innerWidth
-  };
-}
-
-function getRectForNode(node) {
-  const rect = ReactDOM.findDOMNode(node);
-
-  if (!rect) {
-    return getWindowRect();
-  }
-
-  return rect.getBoundingClientRect();
 }
 
 export default TooltipOverlay;

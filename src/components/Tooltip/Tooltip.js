@@ -5,7 +5,7 @@ import TooltipOverlay from './TooltipOverlay';
 
 import styles from './Tooltip.module.scss';
 
-export class Tooltip extends Component {
+class Tooltip extends Component {
   static displayName = 'Tooltip';
 
   static propTypes = {
@@ -30,7 +30,7 @@ export class Tooltip extends Component {
       PropTypes.node
     ]),
     /**
-     * These props are provided automatically through the withPositioning HOC
+     * These props are provided automatically through the Overlay component
      */
     preferredDirection: PropTypes.shape({
       top: PropTypes.bool,
@@ -109,7 +109,7 @@ export class Tooltip extends Component {
     )
 
   render() {
-    return <TooltipOverlay overlay={this.renderTooltip} activator={this.renderActivator} />;
+    return <TooltipOverlay renderTooltip={this.renderTooltip} renderActivator={this.renderActivator} />;
   }
 }
 

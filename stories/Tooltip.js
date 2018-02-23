@@ -5,9 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
 import { Button, withPositioning } from '../src';
-import { Tooltip } from '../src/components/Tooltip/Tooltip';
-// import ConnectedTooltip from '../src/components/Tooltip/Tooltip';
-
+import { Tooltip } from '../src/components/Tooltip';
 
 storiesOf('Tooltip', module)
   .addDecorator((getStory) => (

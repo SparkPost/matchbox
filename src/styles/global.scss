@@ -86,11 +86,3 @@ small {
 ul, ol {
   padding-left: spacing(larger);
 }
-
-// Enables "xray" vision
-body.XRAY * {
-  color: rgba(color(blue), 0.7) !important;
-  outline: 1px solid rgba(color(blue), 0.3) !important;
-  background: rgba(color(blue), 0.03) !important;
-  opacity: 1 !important;
-}
