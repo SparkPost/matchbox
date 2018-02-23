@@ -20,7 +20,6 @@ class TooltipOverlay extends Component {
   }
 
   state = {
-    mounted: false,
     position: {
       top: 0,
       left: 0,
@@ -35,13 +34,12 @@ class TooltipOverlay extends Component {
     }
   }
 
-  componentDidUpdate() {
-    // Check if the activator ref exists
-    // then calculate measurements, un-debounced
-    if (!this.state.mounted && this.activator) {
-      this.handleMeasurement();
-      this.setState({ mounted: true });
-    }
+  componentDidMount() {
+    this.handleMeasurement();
+  }
+
+  componentWillReceiveProps() {
+    this.handleMeasurement();
   }
 
   handleMeasurement = () => {

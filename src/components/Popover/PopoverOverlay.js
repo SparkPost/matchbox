@@ -10,12 +10,10 @@ class PopoverOverlay extends Component {
 
   static propTypes = {
     renderActivator: PropTypes.func.isRequired,
-    renderPopover: PropTypes.func.isRequired,
-    eventThrottle: PropTypes.number
+    renderPopover: PropTypes.func.isRequired
   }
 
   state = {
-    mounted: false,
     position: {
       top: 0,
       left: 0,
@@ -28,13 +26,8 @@ class PopoverOverlay extends Component {
     this.handleMeasurement();
   }
 
-  componentDidUpdate() {
-    // Check if the activator ref exists
-    // then calculate measurements, un-debounced
-    if (!this.state.mounted && this.activator) {
-      this.handleMeasurement();
-      this.setState({ mounted: true });
-    }
+  componentWillReceiveProps() {
+    this.handleMeasurement();
   }
 
   handleMeasurement = () => {
