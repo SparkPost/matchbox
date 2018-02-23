@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
-import { debounce } from '../../helpers/debounce';
+import { debounce } from '../../helpers/event';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import styles from './TooltipOverlay.module.scss';
 
@@ -52,7 +52,7 @@ class TooltipOverlay extends Component {
   }
 
   render() {
-    const { renderTooltip, renderActivator, eventDebounce } = this.props;
+    const { renderTooltip, renderActivator, eventDebounce, portalId } = this.props;
     const { position, preferredDirection } = this.state;
 
     const tooltipProps = { preferredDirection };
@@ -65,7 +65,7 @@ class TooltipOverlay extends Component {
         <WindowEvent event='resize' handler={debounce(this.handleMeasurement, eventDebounce)} />
         <WindowEvent event='scroll' handler={debounce(this.handleMeasurement, eventDebounce)} />
         { renderActivator(activatorProps) }
-        <Portal>
+        <Portal containerId={portalId}>
           <div className={styles.TooltipOverlay} style={position}>
             { renderTooltip(tooltipProps) }
           </div>

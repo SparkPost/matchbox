@@ -37,7 +37,11 @@ class Tooltip extends Component {
       bottom: PropTypes.bool,
       left: PropTypes.bool,
       right: PropTypes.bool
-    })
+    }),
+    /**
+     * Element ID for the portal that will house tooltips. Appends to body if not provided.
+     */
+    portalId: PropTypes.string
   };
 
   static defaultProps = {
@@ -79,7 +83,6 @@ class Tooltip extends Component {
     const positionLeft = preferredDirection.left || (left && !forcePosition);
 
     const wrapperClasses = classnames(
-      styles.Wrapper,
       this.state.hover && styles.hover,
       dark && styles.dark,
       positionTop && styles.top,
@@ -109,7 +112,12 @@ class Tooltip extends Component {
   )
 
   render() {
-    return <TooltipOverlay renderTooltip={this.renderTooltip} renderActivator={this.renderActivator} />;
+    return (
+      <TooltipOverlay
+        portalId={this.props.portalId}
+        renderTooltip={this.renderTooltip}
+        renderActivator={this.renderActivator} />
+    );
   }
 }
 

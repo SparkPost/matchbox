@@ -6,12 +6,6 @@ $arrow-margin: 10px;
   display: inline-block;
 }
 
-.Wrapper {
-  & > * {
-    margin-bottom: 0;
-  }
-}
-
 .hover {
   .Tooltip {
     opacity: 1;
@@ -38,6 +32,10 @@ $arrow-margin: 10px;
     border-top: none;
     border-left: none;
     border-bottom-right-radius: border-radius(large);
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid color(gray, 8);
+    border-right: 1px solid color(gray, 8);
   }
 
   .Tooltip {
@@ -64,14 +62,17 @@ $arrow-margin: 10px;
   position: absolute;
   top: rem(-14);
   left: rem(21);
-  width: rem(18);
-  height: rem(18);
+  width: rem(16);
+  height: rem(16);
 
   margin: rem(7) 0 0;
 
   background: color(gray, 10);
   border-top-left-radius: border-radius(large);
+  border-top: 1px solid color(gray, 8);
+  border-left: 1px solid color(gray, 8);
   transform: rotate(45deg);
+  z-index: -1;
 }
 
 .Tooltip {
@@ -88,6 +89,7 @@ $arrow-margin: 10px;
   padding: rem(12);
   box-shadow: shadow(deeper);
   border-radius: border-radius(large);
+  border: 1px solid color(gray, 8);
 
   opacity: 0;
   pointer-events: none;

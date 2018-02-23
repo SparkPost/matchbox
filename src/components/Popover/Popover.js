@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
+import PopoverOverlay from './PopoverOverlay';
 
 import styles from './Popover.module.scss';
 
@@ -38,7 +39,11 @@ class Popover extends Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ])
+    ]),
+    /**
+     * Element ID for the portal that will house tooltips. Appends to body if not provided.
+     */
+    portalId: PropTypes.string
   };
 
   static defaultProps = {
@@ -63,7 +68,7 @@ class Popover extends Component {
   }
 
   handleClickOutside = (e) => {
-    if (this.state.open && this.wrapper && !this.wrapper.contains(e.target)) {
+    if (this.state.open && this.wrapper && !this.wrapper.contains(e.target) && this.activator && !this.activator.contains(e.target)) {
       this.handleClose(e);
     }
   }
@@ -80,7 +85,7 @@ class Popover extends Component {
     }
   }
 
-  render() {
+  renderPopover = () => {
     const {
       children,
       sectioned,
@@ -92,7 +97,7 @@ class Popover extends Component {
       bottom,
       left,
       right,
-      wrapper: WrapperComponent = 'span',
+      portalId,
       ...rest
     } = this.props;
 
@@ -105,26 +110,52 @@ class Popover extends Component {
     );
 
     const wrapperClasses = classnames(
-      styles.Wrapper,
       shouldBeOpen && styles.open,
       top && styles.top,
       left && styles.left
     );
 
-    const triggerMarkup = <span onClick={this.handleTrigger}>{ trigger }</span>;
-
     return (
-      <WrapperComponent className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
+      <div className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
         <WindowEvent event='click' handler={this.handleClickOutside} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
-        { triggerMarkup }
         <div className={popoverClasses} {...rest}>
           <span className={styles.Tip} />
           <div className={styles.Content} >
             { children }
           </div>
         </div>
+      </div>
+    );
+  }
+
+  renderActivator = ({ activatorRef }) => {
+    const {
+      trigger,
+      wrapper: WrapperComponent = 'span'
+    } = this.props;
+
+    const assignRefs = (node) => {
+      this.activator = node;
+      activatorRef(node);
+    };
+
+    return (
+      <WrapperComponent
+        className={styles.Activator}
+        onClick={this.handleTrigger}
+        ref={assignRefs}>
+        { trigger }
       </WrapperComponent>
+    );
+  }
+
+  render() {
+    return (
+      <PopoverOverlay
+        portalId={this.props.portalId}
+        renderActivator={this.renderActivator}
+        renderPopover={this.renderPopover} />
     );
   }
 }
