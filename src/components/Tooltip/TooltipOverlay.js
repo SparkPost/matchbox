@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
-import { debounce } from '../../helpers/debounce';
-import { getWindowRect, getRectForNode } from '../../helpers/geometry';
 import { WindowEvent } from '../WindowEvent';
+import { debounce } from '../../helpers/debounce';
+import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import styles from './TooltipOverlay.module.scss';
 
 class TooltipOverlay extends Component {
   static displayName = 'TooltipOverlay';
 
   static defaultProps = {
-    eventDebounce: 300
+    eventDebounce: 400
   }
 
   static propTypes = {
@@ -21,7 +21,12 @@ class TooltipOverlay extends Component {
 
   state = {
     mounted: false,
-    position: {},
+    position: {
+      top: 0,
+      left: 0,
+      width: 0,
+      height: 0
+    },
     preferredDirection: {
       top: null,
       bottom: null,
@@ -31,34 +36,18 @@ class TooltipOverlay extends Component {
   }
 
   componentDidUpdate() {
-    // Check if the activator has been mounted
-    // then calculate measurements, undebounced
-    if (!this.state.mounted && !Object.keys(getRectForNode(this.activator)).length) {
+    // Check if the activator ref exists
+    // then calculate measurements, un-debounced
+    if (!this.state.mounted && this.activator) {
       this.handleMeasurement();
       this.setState({ mounted: true });
     }
   }
 
   handleMeasurement = () => {
-    const windowRect = getWindowRect();
-    const activator = getRectForNode(this.activator);
-
-    const rightOffset = windowRect.width - activator.right;
-    const bottomOffset = windowRect.height - activator.bottom;
-
     this.setState({
-      preferredDirection: {
-        bottom: bottomOffset >= activator.top,
-        top: bottomOffset < activator.top,
-        right: rightOffset >= activator.left,
-        left: rightOffset < activator.left
-      },
-      position: {
-        top: activator.top + windowRect.top,
-        left: activator.left + windowRect.left,
-        width: activator.width,
-        height: activator.height
-      }
+      preferredDirection: getPreferredDirectionFor(this.activator),
+      position: getPositionFor(this.activator)
     });
   }
 

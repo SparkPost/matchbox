@@ -99,14 +99,14 @@ class Tooltip extends Component {
   }
 
   renderActivator = ({ activatorRef }) => (
-      <span
-        className={styles.Activator}
-        onMouseOver={this.handleMouseOver}
-        onMouseOut={this.handleMouseOut}
-        ref={activatorRef}>
-        { this.props.children }
-      </span>
-    )
+    <span
+      className={styles.Activator}
+      onMouseOver={this.handleMouseOver}
+      onMouseOut={this.handleMouseOut}
+      ref={activatorRef}>
+      { this.props.children }
+    </span>
+  )
 
   render() {
     return <TooltipOverlay renderTooltip={this.renderTooltip} renderActivator={this.renderActivator} />;
