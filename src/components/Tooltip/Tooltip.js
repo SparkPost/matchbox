@@ -114,6 +114,7 @@ class Tooltip extends Component {
   render() {
     return (
       <TooltipOverlay
+        eventDebounce={this.props.eventDebounce}
         portalId={this.props.portalId}
         renderTooltip={this.renderTooltip}
         renderActivator={this.renderActivator} />

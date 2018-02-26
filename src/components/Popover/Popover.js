@@ -55,20 +55,29 @@ class Popover extends Component {
     open: false
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ open: this.props.open });
   }
 
   handleClose = (e) => {
-    const { onClose } = this.props;
+    const { onClose, manualTrigger } = this.props;
 
-    this.setState({ open: false }, () => {
-      onClose && onClose();
-    });
+    if (!manualTrigger) {
+      this.setState({ open: false });
+    }
+
+    onClose && onClose();
   }
 
-  handleClickOutside = (e) => {
-    if (this.state.open && this.wrapper && !this.wrapper.contains(e.target) && this.activator && !this.activator.contains(e.target)) {
+  handleOutsideClick = (e) => {
+    const { manualTrigger, open, onOutsideClick } = this.props;
+    const isOutside = this.wrapper && !this.wrapper.contains(e.target) && this.activator && !this.activator.contains(e.target);
+
+    if (manualTrigger && open && isOutside) {
+      onOutsideClick && onOutsideClick(e);
+    }
+
+    if (!this.props.manualTrigger && this.state.open && isOutside) {
       this.handleClose(e);
     }
   }
@@ -117,7 +126,7 @@ class Popover extends Component {
 
     return (
       <div className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
-        <WindowEvent event='click' handler={this.handleClickOutside} />
+        <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
         <div className={popoverClasses} {...rest}>
           <span className={styles.Tip} />
