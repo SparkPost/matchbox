@@ -16,10 +16,6 @@ class Popover extends Component {
      */
     trigger: PropTypes.element,
     /**
-      * If you want to control open state yourself, set this to true
-      */
-    manualTrigger: PropTypes.bool,
-    /**
       * Adds a padding to the Popover
       */
     sectioned: PropTypes.bool,
@@ -52,17 +48,22 @@ class Popover extends Component {
   }
 
   state = {
-    open: false
+    open: null
   }
 
   componentDidMount() {
-    this.setState({ open: this.props.open });
+    const { open: controlledOpen } = this.props;
+
+    // This component becomes "uncontrolled" if the prop 'open' is given a boolean value
+    if (controlledOpen === undefined) {
+      this.setState({ open: false });
+    }
   }
 
   handleClose = (e) => {
-    const { onClose, manualTrigger } = this.props;
+    const { onClose } = this.props;
 
-    if (!manualTrigger) {
+    if (this.state.open) {
       this.setState({ open: false });
     }
 
@@ -70,14 +71,14 @@ class Popover extends Component {
   }
 
   handleOutsideClick = (e) => {
-    const { manualTrigger, open, onOutsideClick } = this.props;
-    const isOutside = this.wrapper && !this.wrapper.contains(e.target) && this.activator && !this.activator.contains(e.target);
+    const { open: controlledOpen, onOutsideClick } = this.props;
+    const isOutside = this.popover && !this.popover.contains(e.target) && this.activator && !this.activator.contains(e.target);
 
-    if (manualTrigger && open && isOutside) {
+    if (controlledOpen && isOutside) {
       onOutsideClick && onOutsideClick(e);
     }
 
-    if (!this.props.manualTrigger && this.state.open && isOutside) {
+    if (this.state.open && isOutside) {
       this.handleClose(e);
     }
   }
@@ -89,7 +90,7 @@ class Popover extends Component {
   }
 
   handleTrigger = () => {
-    if (!this.props.manualTrigger) {
+    if (this.state.open === false) {
       this.setState({ open: true });
     }
   }
@@ -100,8 +101,7 @@ class Popover extends Component {
       sectioned,
       trigger,
       className = '',
-      open,
-      manualTrigger,
+      open: controlledOpen,
       top,
       bottom,
       left,
@@ -110,7 +110,7 @@ class Popover extends Component {
       ...rest
     } = this.props;
 
-    const shouldBeOpen = manualTrigger ? open : this.state.open;
+    const shouldBeOpen = controlledOpen || this.state.open;
 
     const popoverClasses = classnames(
       styles.Popover,
@@ -125,7 +125,7 @@ class Popover extends Component {
     );
 
     return (
-      <div className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
+      <div className={wrapperClasses} ref={(node) => this.popover = node}>
         <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
         <div className={popoverClasses} {...rest}>
