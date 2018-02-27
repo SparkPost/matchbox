@@ -32,7 +32,6 @@ class ControlledPopover extends React.Component {
         <p>Close Count: {this.state.count}</p>
         <Popover
           sectioned
-          manualTrigger
           onClose={this.incClose}
           open={this.state.open}
           trigger={<Button onClick={this.open}>Open Me</Button>}
@@ -73,7 +72,6 @@ export default storiesOf('Popover', module)
 
   .add('with an ActionList', withInfo()(() => (
     <Popover
-      open={true}
       trigger={<Button>More Actions</Button>}
       style={{ width: '200px' }}>
       <ActionList
