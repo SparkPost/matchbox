@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { withPositioning } from '../WithPositioning';
+import TooltipOverlay from './TooltipOverlay';
 
 import styles from './Tooltip.module.scss';
 
-export class Tooltip extends Component {
+class Tooltip extends Component {
   static displayName = 'Tooltip';
 
   static propTypes = {
@@ -14,6 +14,10 @@ export class Tooltip extends Component {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]),
+    /**
+     * Disables hover events
+     */
+    disabled: PropTypes.bool,
     dark: PropTypes.bool,
     active: PropTypes.bool,
     left: PropTypes.bool,
@@ -30,14 +34,18 @@ export class Tooltip extends Component {
       PropTypes.node
     ]),
     /**
-     * These props are provided automatically through the withPositioning HOC
+     * These props are provided automatically through the Overlay component
      */
-    preferredPosition: PropTypes.shape({
+    preferredDirection: PropTypes.shape({
       top: PropTypes.bool,
       bottom: PropTypes.bool,
       left: PropTypes.bool,
       right: PropTypes.bool
-    })
+    }),
+    /**
+     * Element ID for the portal that will house tooltips. Appends to body if not provided.
+     */
+    portalId: PropTypes.string
   };
 
   static defaultProps = {
@@ -45,7 +53,7 @@ export class Tooltip extends Component {
     bottom: true,
     horizontalOffset: '0px',
     forcePosition: false,
-    preferredPosition: {
+    preferredDirection: {
       bottom: true,
       left: false,
       right: true,
@@ -53,24 +61,34 @@ export class Tooltip extends Component {
     }
   }
 
-  render() {
+  state = {
+    hover: false
+  }
+
+  handleMouseOver = () => {
+    this.setState({ hover: true });
+  }
+
+  handleMouseOut = () => {
+    this.setState({ hover: false });
+  }
+
+  renderTooltip = ({ preferredDirection }) => {
     const {
-      children,
       content,
       dark,
       top,
       left,
       horizontalOffset,
-      preferredPosition,
       forcePosition,
-      positionRef
+      disabled
     } = this.props;
 
-    const positionTop = preferredPosition.top || (top && !forcePosition);
-    const positionLeft = preferredPosition.left || (left && !forcePosition);
+    const positionTop = preferredDirection.top || (top && !forcePosition);
+    const positionLeft = preferredDirection.left || (left && !forcePosition);
 
     const wrapperClasses = classnames(
-      styles.Wrapper,
+      !disabled && this.state.hover && styles.hover,
       dark && styles.dark,
       positionTop && styles.top,
       positionLeft && styles.left,
@@ -79,8 +97,7 @@ export class Tooltip extends Component {
     const offset = positionLeft ? { right: horizontalOffset } : { left: horizontalOffset };
 
     return (
-      <span className={wrapperClasses} ref={positionRef}>
-        { children }
+      <span className={wrapperClasses}>
         <span className={styles.Tooltip} style={offset}>
           <span className={styles.Tip} />
           <div className={styles.Content}>{ content }</div>
@@ -88,6 +105,26 @@ export class Tooltip extends Component {
       </span>
     );
   }
+
+  renderActivator = ({ activatorRef }) => (
+    <span
+      className={styles.Activator}
+      onMouseOver={this.handleMouseOver}
+      onMouseOut={this.handleMouseOut}
+      ref={activatorRef}>
+      { this.props.children }
+    </span>
+  )
+
+  render() {
+    return (
+      <TooltipOverlay
+        eventDebounce={this.props.eventDebounce}
+        portalId={this.props.portalId}
+        renderTooltip={this.renderTooltip}
+        renderActivator={this.renderActivator} />
+    );
+  }
 }
 
-export default withPositioning(Tooltip);
+export default Tooltip;

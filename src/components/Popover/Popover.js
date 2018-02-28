@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
+import PopoverOverlay from './PopoverOverlay';
 
 import styles from './Popover.module.scss';
 
@@ -14,10 +15,6 @@ class Popover extends Component {
      * Click events are handled for you
      */
     trigger: PropTypes.element,
-    /**
-      * If you want to control open state yourself, set this to true
-      */
-    manualTrigger: PropTypes.bool,
     /**
       * Adds a padding to the Popover
       */
@@ -32,13 +29,18 @@ class Popover extends Component {
     bottom: PropTypes.bool,
 
     onClose: PropTypes.func,
+    onOutsideClick: PropTypes.func,
     /**
       * Popover Content
       */
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ])
+    ]),
+    /**
+     * Element ID for the portal that will house tooltips. Appends to body if not provided.
+     */
+    portalId: PropTypes.string
   };
 
   static defaultProps = {
@@ -47,23 +49,37 @@ class Popover extends Component {
   }
 
   state = {
-    open: false
+    open: null
   }
 
-  componentWillMount() {
-    this.setState({ open: this.props.open });
+  componentDidMount() {
+    const { open: controlledOpen } = this.props;
+
+    // This component becomes "uncontrolled" if the prop 'open' is given a boolean value
+    if (controlledOpen === undefined) {
+      this.setState({ open: false });
+    }
   }
 
   handleClose = (e) => {
     const { onClose } = this.props;
 
-    this.setState({ open: false }, () => {
-      onClose && onClose();
-    });
+    if (this.state.open) {
+      this.setState({ open: false });
+    }
+
+    onClose && onClose();
   }
 
-  handleClickOutside = (e) => {
-    if (this.state.open && this.wrapper && !this.wrapper.contains(e.target)) {
+  handleOutsideClick = (e) => {
+    const { open: controlledOpen, onOutsideClick } = this.props;
+    const isOutside = this.popover && !this.popover.contains(e.target) && this.activator && !this.activator.contains(e.target);
+
+    if (controlledOpen && isOutside) {
+      onOutsideClick && onOutsideClick(e);
+    }
+
+    if (this.state.open && isOutside) {
       this.handleClose(e);
     }
   }
@@ -75,28 +91,29 @@ class Popover extends Component {
   }
 
   handleTrigger = () => {
-    if (!this.props.manualTrigger) {
+    if (this.state.open === false) {
       this.setState({ open: true });
     }
   }
 
-  render() {
+  renderPopover = () => {
     const {
       children,
       sectioned,
       trigger,
       className = '',
-      open,
-      manualTrigger,
+      open: controlledOpen,
       top,
       bottom,
       left,
       right,
-      wrapper: WrapperComponent = 'span',
+      portalId,
+      onClose,
+      onOutsideClick,
       ...rest
     } = this.props;
 
-    const shouldBeOpen = manualTrigger ? open : this.state.open;
+    const shouldBeOpen = controlledOpen || this.state.open;
 
     const popoverClasses = classnames(
       styles.Popover,
@@ -105,26 +122,52 @@ class Popover extends Component {
     );
 
     const wrapperClasses = classnames(
-      styles.Wrapper,
       shouldBeOpen && styles.open,
       top && styles.top,
       left && styles.left
     );
 
-    const triggerMarkup = <span onClick={this.handleTrigger}>{ trigger }</span>;
-
     return (
-      <WrapperComponent className={wrapperClasses} ref={(wrapper) => this.wrapper = wrapper}>
-        <WindowEvent event='click' handler={this.handleClickOutside} />
+      <div className={wrapperClasses} ref={(node) => this.popover = node}>
+        <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
-        { triggerMarkup }
         <div className={popoverClasses} {...rest}>
           <span className={styles.Tip} />
           <div className={styles.Content} >
             { children }
           </div>
         </div>
+      </div>
+    );
+  }
+
+  renderActivator = ({ activatorRef }) => {
+    const {
+      trigger,
+      wrapper: WrapperComponent = 'span'
+    } = this.props;
+
+    const assignRefs = (node) => {
+      this.activator = node;
+      activatorRef(node);
+    };
+
+    return (
+      <WrapperComponent
+        className={styles.Activator}
+        onClick={this.handleTrigger}
+        ref={assignRefs}>
+        { trigger }
       </WrapperComponent>
+    );
+  }
+
+  render() {
+    return (
+      <PopoverOverlay
+        portalId={this.props.portalId}
+        renderActivator={this.renderActivator}
+        renderPopover={this.renderPopover} />
     );
   }
 }

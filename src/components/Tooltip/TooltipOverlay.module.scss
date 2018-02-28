@@ -1,0 +1,7 @@
+@import '../../styles/config';
+
+.TooltipOverlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: z-index(overlay);
+}

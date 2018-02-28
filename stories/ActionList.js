@@ -58,28 +58,15 @@ storiesOf('ActionList', module)
       style={{ width: '200px' }}>
       <ActionList
         actions={[
-          {
-            content: 'Edit'
-          },
-          {
-            content: 'Delete',
-            selected: true
-          },
-          {
-            content: 'Test'
-          }
+          { content: 'Edit' },
+          { content: 'Delete', selected: true },
+          { content: 'Test' }
         ]}
         sections={[
-          {
-            actions: [
-              {
-                content: 'Sectioned1'
-              },
-              {
-                content: 'Sectioned2'
-              }
-            ]
-          }
+          { actions: [
+              { content: 'Sectioned1' },
+              { content: 'Sectioned2' }
+            ] }
         ]}
       />
     </Popover>
