@@ -14,6 +14,10 @@ class Tooltip extends Component {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
     ]),
+    /**
+     * Disables hover events
+     */
+    disabled: PropTypes.bool,
     dark: PropTypes.bool,
     active: PropTypes.bool,
     left: PropTypes.bool,
@@ -76,14 +80,15 @@ class Tooltip extends Component {
       top,
       left,
       horizontalOffset,
-      forcePosition
+      forcePosition,
+      disabled
     } = this.props;
 
     const positionTop = preferredDirection.top || (top && !forcePosition);
     const positionLeft = preferredDirection.left || (left && !forcePosition);
 
     const wrapperClasses = classnames(
-      this.state.hover && styles.hover,
+      !disabled && this.state.hover && styles.hover,
       dark && styles.dark,
       positionTop && styles.top,
       positionLeft && styles.left,
