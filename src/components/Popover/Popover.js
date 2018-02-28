@@ -114,6 +114,7 @@ class Popover extends Component {
       portalId,
       onClose,
       onOutsideClick,
+      fixed,
       ...rest
     } = this.props;
 
