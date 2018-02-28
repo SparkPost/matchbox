@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor } from '../../helpers/geometry';
-import styles from './PopoverOverlay.module.scss';
+import classnames from 'classnames';
 
+import styles from './PopoverOverlay.module.scss';
 class PopoverOverlay extends Component {
   static displayName = 'PopoverOverlay';
 
@@ -32,25 +33,27 @@ class PopoverOverlay extends Component {
 
   handleMeasurement = () => {
     this.setState({
-      position: getPositionFor(this.activator)
+      position: getPositionFor(this.activator, { fixed: this.props.fixed })
     });
   }
 
   render() {
-    const { renderPopover, renderActivator, portalId } = this.props;
+    const { renderPopover, renderActivator, portalId, fixed } = this.props;
     const { position } = this.state;
 
     const activatorProps = {
       activatorRef: (node) => this.activator = node
     };
 
+    const overlayClasses = classnames(styles.PopoverOverlay, fixed && styles.fixed);
+
     return (
       <Fragment>
         <WindowEvent event='resize' handler={this.handleMeasurement} />
-        <WindowEvent event='scroll' handler={this.handleMeasurement} />
+        { !fixed ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null }
         { renderActivator(activatorProps) }
         <Portal containerId={portalId}>
-          <div className={styles.PopoverOverlay} style={position}>
+          <div className={overlayClasses} style={position}>
             { renderPopover() }
           </div>
         </Portal>

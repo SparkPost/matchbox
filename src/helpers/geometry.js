@@ -48,13 +48,13 @@ export function getPreferredDirectionFor(node) {
  * @param  {React Node} node
  * @return {Shape}
  */
-export function getPositionFor(node) {
+export function getPositionFor(node, { fixed = false } = {}) {
   const windowRect = getWindowRect();
   const elementRect = getRectFor(node);
 
   return {
-    top: elementRect.top + windowRect.top,
-    left: elementRect.left + windowRect.left,
+    top: elementRect.top + (fixed ? 0 : windowRect.top),
+    left: elementRect.left + (fixed ? 0 : windowRect.left),
     width: elementRect.width,
     height: elementRect.height
   };

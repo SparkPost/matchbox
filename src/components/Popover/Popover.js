@@ -40,7 +40,11 @@ class Popover extends Component {
     /**
      * Element ID for the portal that will house tooltips. Appends to body if not provided.
      */
-    portalId: PropTypes.string
+    portalId: PropTypes.string,
+    /**
+     * If this is true, removes on scroll position handling on scroll
+     */
+    fixed: PropTypes.bool
   };
 
   static defaultProps = {
@@ -163,8 +167,11 @@ class Popover extends Component {
   }
 
   render() {
+    const { fixed } = this.props;
+
     return (
       <PopoverOverlay
+        fixed={fixed}
         portalId={this.props.portalId}
         renderActivator={this.renderActivator}
         renderPopover={this.renderPopover} />
