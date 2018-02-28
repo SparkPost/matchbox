@@ -29,6 +29,7 @@ class Popover extends Component {
     bottom: PropTypes.bool,
 
     onClose: PropTypes.func,
+    onOutsideClick: PropTypes.func,
     /**
       * Popover Content
       */
@@ -107,6 +108,8 @@ class Popover extends Component {
       left,
       right,
       portalId,
+      onClose,
+      onOutsideClick,
       ...rest
     } = this.props;
 
