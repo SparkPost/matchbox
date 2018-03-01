@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Section from './Section';
+import Footer from './Footer';
 import Header from './Header';
 import styles from './Panel.module.scss';
 
 class Panel extends Component {
   static Section = Section;
+  static Footer = Footer;
 
   static displayName = 'Panel';
 
