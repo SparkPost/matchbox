@@ -20,6 +20,10 @@ export default storiesOf('Snackbar', module)
     <Snackbar status='success' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
   )))
 
-  .add('Danger', withInfo()(() => (
+  .add('Danger or Error', withInfo()(() => (
     <Snackbar status='danger' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
+  )))
+
+  .add('Warning', withInfo()(() => (
+    <Snackbar status='warning' onDismiss={action('Dismissed')}>Yer suspended</Snackbar>
   )));

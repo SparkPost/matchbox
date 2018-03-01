@@ -10,9 +10,9 @@ class Snackbar extends Component {
 
   static propTypes = {
     /**
-     * The type of snackbar. 'default' | 'success' | 'danger'
+     * The type of snackbar.
      */
-    status: PropTypes.oneOf(['default', 'success', 'danger']),
+    status: PropTypes.oneOf(['default', 'success', 'danger', 'error', 'warning']),
 
     /**
      * Callback when dismiss button is clicked.
