@@ -1,4 +1,5 @@
 # Matchbox
+Matchbox is a React component library for [SparkPost's UI](https://github.com/SparkPost/2web2ui).
 
 #### Links:
 - [Component Demo](https://sparkpost.github.io/matchbox/)
@@ -54,12 +55,30 @@ const YourComponent = () => (
 npm run build
 ```
 
-## Local Development
+## Storybook Development
 [React Storybook](https://github.com/storybooks/storybook) is included for local development.
 ```bash
-# Runs storybook locally
+# Runs storybook locally at localhost:6006
 npm run storybook
 
 # Deploys to gh-pages
 npm run deploy-storybook
 ```
+
+## Local Development with 2web2ui
+Watch mode is not implemented, unfortunately. You will have to run the rollup build every time you want 2web2ui to update with changes.
+
+```bash
+# Make sure to turn off your webpack dev server before linking
+# 1. Build Matchbox and npm link this repo
+npm link
+npm run build
+
+# 2. Link 2web2ui to this repo
+cd ~/path/to/2web2ui
+npm link @sparkpost/matchbox
+
+# 3. Start webpack
+npm run start
+```
+
