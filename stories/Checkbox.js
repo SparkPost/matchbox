@@ -103,4 +103,20 @@ export default storiesOf('Checkbox', module)
           label='Check Me' />
       </Checkbox.Group>
     </div>
+  )))
+
+  .add('Group with label', withInfo()(() => (
+    <div>
+      <Checkbox.Group label="Example">
+        <Checkbox
+          id='id2'
+          label='Check Me' />
+        <Checkbox
+          id='id3'
+          label='Check Me' />
+        <Checkbox
+          id='id4'
+          label='Check Me' />
+      </Checkbox.Group>
+    </div>
   )));

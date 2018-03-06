@@ -109,6 +109,14 @@
   }
 }
 
+.GroupLabel {
+  display: inline-block;
+  line-height: 18px;
+  margin-top: 3px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
 .HelpText {
   font-size: rem(13);
   line-height: 1.3em;
