@@ -5,7 +5,7 @@ import styles from './Checkbox.module.scss';
 
 const Group = ({ children, label, required }) => (
   <div className={styles.Group}>
-    {label && <Label className={styles.GroupLabel}>{label}{required && '*'}</Label>}
+    { label && <Label className={styles.GroupLabel}>{ label }{ required && '*' }</Label> }
     { children }
   </div>
 );
@@ -19,7 +19,10 @@ Group.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node
+  ]),
   required: PropTypes.bool
 };
 

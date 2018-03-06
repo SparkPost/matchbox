@@ -110,11 +110,7 @@
 }
 
 .GroupLabel {
-  display: inline-block;
-  line-height: 18px;
-  margin-top: 3px;
-  vertical-align: top;
-  white-space: nowrap;
+  padding-bottom: spacing(small);
 }
 
 .HelpText {
