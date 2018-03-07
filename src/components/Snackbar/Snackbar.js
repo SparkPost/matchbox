@@ -15,7 +15,7 @@ class Snackbar extends Component {
     status: PropTypes.oneOf(['default', 'success', 'danger']),
 
     /**
-     * Snackbar max-width in rem.
+     * Snackbar max-width in pixels.
      */
     maxWidth: PropTypes.number,
 
