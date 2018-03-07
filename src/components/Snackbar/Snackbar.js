@@ -15,6 +15,11 @@ class Snackbar extends Component {
     status: PropTypes.oneOf(['default', 'success', 'danger']),
 
     /**
+     * Snackbar max-width in rem.
+     */
+    maxWidth: PropTypes.number,
+
+    /**
      * Callback when dismiss button is clicked.
      */
     onDismiss: PropTypes.func.isRequired,
@@ -29,13 +34,15 @@ class Snackbar extends Component {
   };
 
   static defaultProps = {
-    status: 'default'
+    status: 'default',
+    maxWidth: 380
   }
 
   render() {
     const {
       children,
       status,
+      maxWidth,
       onDismiss,
       ...rest
     } = this.props;
@@ -47,7 +54,7 @@ class Snackbar extends Component {
 
     return (
       <div className={snackbarStyles} {...rest}>
-        <div className={styles.Content}>{ children }</div>
+        <div className={styles.Content} style={{ maxWidth }}>{ children }</div>
         <a className={styles.Dismiss} onClick={onDismiss}>
           <Icon name='Close' size={21} className={styles.DismissIcon} />
         </a>
