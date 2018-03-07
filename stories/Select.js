@@ -9,7 +9,7 @@ import { Select } from '../src';
 const options = ['Foo', 2, 'Bar'];
 const options2 = [
   {
-    value: '1',
+    value: 1,
     label: 'One',
     pass: 'through'
   },
