@@ -15,8 +15,27 @@
   background: color(green);
 }
 
-.danger {
+.danger, .error {
   background: color(red);
+}
+
+.warning {
+  background: color(mustard, light);
+  color: color(gray, 1);
+
+  .Content {
+    a, a:visited {
+      color: color(gray, 1);
+    }
+  }
+
+  .Dismiss {
+    color: color(gray, 1);
+  }
+
+  .DismissIcon {
+    fill: color(gray, 1);
+  }
 }
 
 .Content {
