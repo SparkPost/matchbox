@@ -26,4 +26,8 @@ export default storiesOf('Snackbar', module)
 
   .add('Warning', withInfo()(() => (
     <Snackbar status='warning' onDismiss={action('Dismissed')}>Yer suspended</Snackbar>
+  )))
+  
+  .add('Large', withInfo()(() => (
+    <Snackbar maxWidth={700}>This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong landjaeger salami ham spare ribs flank cupim porchetta leberkas.</Snackbar>
   )));

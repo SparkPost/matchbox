@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
@@ -16,6 +16,13 @@ storiesOf('Panel', module)
 
   .add('highlighted with a title', withInfo()(() => (
       <Panel title="Title" accent sectioned>This is a highlighted panel with a title</Panel>
+  )))
+
+  .add('with a footer', withInfo()(() => (
+    <Fragment>
+      <Panel title="Title" accent sectioned>This is a panel</Panel>
+      <Panel.Footer left='Left aligned' right='Right aligned'></Panel.Footer>
+    </Fragment>
   )))
 
   .add('with multiple sections',

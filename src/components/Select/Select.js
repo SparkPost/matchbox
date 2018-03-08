@@ -33,7 +33,7 @@ class Select extends Component {
     options: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.shape({
-          value: PropTypes.string.isRequired,
+          value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
           label: PropTypes.string.isRequired
         }),
         PropTypes.string.isRequired,
