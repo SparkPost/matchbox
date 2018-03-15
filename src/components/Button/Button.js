@@ -19,7 +19,7 @@ class Button extends Component {
     size: PropTypes.oneOf(['small', 'large', 'default']),
     fullWidth: PropTypes.bool,
     submit: PropTypes.bool,
-    to: PropTypes.string,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
     Component: PropTypes.oneOfType([
       PropTypes.func,

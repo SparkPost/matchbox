@@ -5,7 +5,7 @@ class UnstyledLink extends Component {
   static displayName = 'UnstyledLink';
 
   static propTypes = {
-    to: PropTypes.string,
+    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
     Component: PropTypes.oneOfType([
       PropTypes.func,
