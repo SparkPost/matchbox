@@ -1,7 +1,7 @@
 @import '../../styles/config';
 
 .Page {
-  margin-bottom: spacing(large);
+  margin-bottom: spacing(larger);
 }
 
 .MainContent {
@@ -11,7 +11,7 @@
 
 .Title {
   flex: 1 0 0;
-  margin-bottom: 0;
+  margin-bottom: spacing(small);
   margin-top: spacing();
   padding: spacing(small) 0;
   @include text-style-display-heading;
@@ -28,15 +28,15 @@
 .SecondaryAction, .SecondaryAction:visited {
   display: inline-block;
   padding: 0;
-  margin-right: rem(21);
+  margin-right: rem(24);
 
-  color: color(gray, 4);
-  font-size: rem(14);
+  color: color(gray, 3);
+  font-size: rem(15);
   text-decoration: none;
   transition: 0.15s;
 
   &:hover {
-    color: color(gray, 2);
+    color: color(gray, 1);
   }
 }
 
