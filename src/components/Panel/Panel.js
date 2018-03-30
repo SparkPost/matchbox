@@ -17,7 +17,10 @@ class Panel extends Component {
     /**
      * The panel heading title
      */
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
     /**
       * Shows an orange accent bar
       */
