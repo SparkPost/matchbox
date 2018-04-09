@@ -3,8 +3,8 @@
 import cssPlugins from './rollup/css';
 import jsPlugins from './rollup/js';
 
-export default {
-  entry: 'src/index.js',
+export const inputOptions = {
+  input: 'src/index.js',
   plugins: [
     ...cssPlugins,
     ...jsPlugins
@@ -17,5 +17,10 @@ export default {
     'react-icon-base',
     'react-day-picker',
     'react-transition-group'
-  ],
-};
+  ]
+}
+
+export const outputOptions = {
+  format: 'cjs',
+  file: 'matchbox.js'
+}

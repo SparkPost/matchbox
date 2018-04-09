@@ -5,17 +5,14 @@ const fs = require('fs-extra')
 process.env.NODE_ENV = 'production';
 
 import { rollup } from 'rollup';
-import config from '../config/rollup';
+import { inputOptions, outputOptions } from '../config/rollup';
 
-rollup(config).then(( bundle ) => {
-    return bundle.write({
-      format: 'cjs',
-      dest: 'index.js'
-    });
-  })
-  .then(() => {
-    fs.copy('styles.css', 'styles.scss', (err) => {
-      if (err) return console.error(err)
-    });
-  })
-  .then(() => console.log('Build Done.'));
+async function build() {
+  console.log('Starting Build...')
+  const bundle = await rollup(inputOptions);
+  await bundle.write(outputOptions);
+  fs.copy('styles.css', 'styles.scss');
+  console.log('Build Done.')
+}
+
+build();

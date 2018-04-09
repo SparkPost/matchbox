@@ -2,7 +2,7 @@
   "name": "@sparkpost/matchbox",
   "version": "2.4.4",
   "description": "A design system",
-  "main": "index.js",
+  "main": "matchbox.js",
   "author": "SparkPost",
   "license": "MIT",
   "repository": {
@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^16.2.0",
+    "react": "^16.3.1",
     "react-day-picker": "^6.1.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.3.1",
     "react-icon-base": "^2.1.0",
     "react-transition-group": "^2.3.0"
   },
@@ -69,11 +69,11 @@
     "prop-types": "^15.5.10",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.2",
-    "rollup": "^0.41.6",
+    "rollup": "^0.57.1",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-postcss": "^0.4.3",
+    "rollup-plugin-postcss": "^1.5.1",
     "rollup-plugin-uglify": "^1.0.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.17.0"

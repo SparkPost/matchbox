@@ -8,6 +8,7 @@
 
 # production
 /index.js
+/matchbox.js
 /styles.css
 /styles.scss
 
