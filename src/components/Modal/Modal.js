@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { TransitionGroup } from 'react-transition-group';
 import { WindowEvent } from '../WindowEvent';
 import { Grid } from '../Grid';
 import Content from './Content';
@@ -66,9 +65,9 @@ class Modal extends Component {
           <WindowEvent event='keydown' handler={this.handleKeyDown} />
           <WindowEvent event='click' handler={this.handleOutsideClick} />
           <Grid.Column xs={11} md={9} xl={7}>
-            <TransitionGroup>
-              { open && <Content contentRef={(node) => this.content = node}>{ children }</Content> }
-            </TransitionGroup>
+            <Content contentRef={(node) => this.content = node} open={open}>
+              { children }
+            </Content>
           </Grid.Column>
         </Grid>
       </div>
