@@ -1,11 +1,11 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { WindowEvent } from '../WindowEvent';
-import { onEvent } from '../../helpers/keyEvents';
-
 import { Grid } from '../Grid';
+import Content from './Content';
+import { onKey } from '../../helpers/keyEvents';
 import styles from './Modal.module.scss';
 
 class Modal extends Component {
@@ -18,7 +18,7 @@ class Modal extends Component {
     open: PropTypes.bool,
 
     /**
-     * An optional function that is called on key down 'Escape' and click outside modal content
+     * An optional function that is called on key down 'Escape' and on click outside modal content
      */
     onClose: PropTypes.func,
 
@@ -41,8 +41,7 @@ class Modal extends Component {
     const { onClose, open } = this.props;
 
     if (open && onClose) {
-
-      onEvent('escape', onClose)(e);
+      onKey('escape', onClose)(e);
     }
   }
 
@@ -62,14 +61,14 @@ class Modal extends Component {
 
     return (
       <div className={modalClasses} {...rest} ref={(node) => this.container = node}>
-        <WindowEvent event='keydown' handler={this.handleKeyDown} />
-        <WindowEvent event='click' handler={this.handleOutsideClick} />
         <div className={styles.Background} />
         <Grid center='xs' middle='xs' className={styles.Grid}>
+          <WindowEvent event='keydown' handler={this.handleKeyDown} />
+          <WindowEvent event='click' handler={this.handleOutsideClick} />
           <Grid.Column xs={11} md={9} xl={7}>
-            <div className={styles.Content} ref={(node) => this.content = node}>
-              { children }
-            </div>
+            <TransitionGroup>
+              { open && <Content contentRef={(node) => this.content = node}>{ children }</Content> }
+            </TransitionGroup>
           </Grid.Column>
         </Grid>
       </div>

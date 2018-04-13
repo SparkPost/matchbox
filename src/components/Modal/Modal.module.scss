@@ -10,7 +10,7 @@
 
   opacity: 0;
   pointer-events: none;
-  transition: 0.1s;
+  transition: 0.15s;
   will-change: opacity, transform;
   overflow-y: auto;
   max-height: 100vh;
@@ -19,17 +19,6 @@
 .open {
   opacity: 1;
   pointer-events: auto;
-
-  .Content {
-    transform: translate(0, 0);
-  }
-}
-
-.Content {
-  max-width: breakpoint(medium);
-  margin: rem(80) 0;
-  transform: translate(0, 9px);
-  transition: 0.1s ease-out;
 }
 
 .Grid {
@@ -44,4 +33,30 @@
   bottom: 0;
   z-index: -1;
   background: rgba(color(gray, 2), 0.7);
+}
+
+.Content {
+  max-width: breakpoint(medium);
+  margin: rem(80) 0;
+  transform: translate(0, 10px);
+  transition: 0.15s ease-out;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.entered {
+  pointer-events: auto;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.exiting, .exited {
+  transition: 0.15s ease-in;
+  transform: translate(0, 10px);
+  opacity: 0;
+}
+
+.exited {
+  pointer-events: none;
 }

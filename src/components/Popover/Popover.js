@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
 import PopoverOverlay from './PopoverOverlay';
+import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Popover.module.scss';
 
@@ -89,8 +90,8 @@ class Popover extends Component {
   }
 
   handleEsc = (e) => {
-    if (this.state.open && e.key === 'Escape') {
-      this.handleClose(e);
+    if (this.state.open) {
+      onKey('escape', this.handleClose)(e);
     }
   }
 
