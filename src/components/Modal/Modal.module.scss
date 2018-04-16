@@ -10,10 +10,12 @@
 
   opacity: 0;
   pointer-events: none;
-  transition: 0.15s;
-  will-change: opacity, transform;
+  transition: opacity 0.15s;
+  will-change: opacity;
   overflow-y: auto;
   max-height: 100vh;
+
+  background: rgba(color(gray, 2), 0.7);
 }
 
 .open {
@@ -23,16 +25,6 @@
 
 .Grid {
   min-height: 100%;
-}
-
-.Background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: rgba(color(gray, 2), 0.7);
 }
 
 .Content {

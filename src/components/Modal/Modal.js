@@ -60,7 +60,6 @@ class Modal extends Component {
 
     return (
       <div className={modalClasses} {...rest} ref={(node) => this.container = node}>
-        <div className={styles.Background} />
         <Grid center='xs' middle='xs' className={styles.Grid}>
           <Grid.Column xs={11} md={9} xl={7}>
             <Content contentRef={(node) => this.content = node} open={open}>
