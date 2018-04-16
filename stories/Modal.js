@@ -14,7 +14,7 @@ class ModalDemo extends React.Component {
     }
   }
 
-  handleChange() {
+  handleChange = () => {
     this.setState({ open: !this.state.open });
   }
 
@@ -22,16 +22,15 @@ class ModalDemo extends React.Component {
     const { label } = this.props;
     return (
       <div>
-        <a onClick={() => this.handleChange()}>Open modal</a>
-        <Modal open={this.state.open}>
+        <a onClick={this.handleChange}>Open modal</a>
+        <Modal open={this.state.open} onClose={this.handleChange}>
           <Panel title="Delete Template" sectioned accent>
             <p>Are you sure you want to delete your template?</p>
-            <Button style={{ marginRight: '1rem' }} primary onClick={() => this.handleChange()}>Delete</Button>
-            <Button onClick={() => this.handleChange()}>Cancel</Button>
+            <Button style={{ marginRight: '1rem' }} primary onClick={this.handleChange}>Delete</Button>
+            <Button onClick={this.handleChange}>Cancel</Button>
           </Panel>
         </Modal>
       </div>
-
     )
   }
 };

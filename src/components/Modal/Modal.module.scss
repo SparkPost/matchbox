@@ -7,32 +7,48 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(color(gray, 2), 0.7);
 
   opacity: 0;
   pointer-events: none;
-  transition: 0.1s;
-  will-change: opacity, transform;
+  transition: opacity 0.15s;
+  will-change: opacity;
   overflow-y: auto;
   max-height: 100vh;
+
+  background: rgba(color(gray, 2), 0.7);
 }
 
 .open {
   opacity: 1;
   pointer-events: auto;
+}
 
-  .Content {
-    transform: translate(0, 0);
-  }
+.Grid {
+  min-height: 100%;
 }
 
 .Content {
   max-width: breakpoint(medium);
   margin: rem(80) 0;
-  transform: translate(0, 9px);
-  transition: 0.1s ease-out;
+  transform: translate(0, 10px);
+  transition: 0.15s ease-out;
+
+  opacity: 0;
+  pointer-events: none;
 }
 
-.Grid {
-  min-height: 100%;
+.entered {
+  pointer-events: auto;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.exiting, .exited {
+  transition: 0.15s ease-in;
+  transform: translate(0, 10px);
+  opacity: 0;
+}
+
+.exited {
+  pointer-events: none;
 }

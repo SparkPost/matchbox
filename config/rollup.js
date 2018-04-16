@@ -15,6 +15,7 @@ export default {
     'classnames',
     'prop-types',
     'react-icon-base',
-    'react-day-picker'
+    'react-day-picker',
+    'react-transition-group'
   ],
 };
