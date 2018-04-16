@@ -62,10 +62,10 @@ class Modal extends Component {
       <div className={modalClasses} {...rest} ref={(node) => this.container = node}>
         <div className={styles.Background} />
         <Grid center='xs' middle='xs' className={styles.Grid}>
-          <WindowEvent event='keydown' handler={this.handleKeyDown} />
-          <WindowEvent event='click' handler={this.handleOutsideClick} />
           <Grid.Column xs={11} md={9} xl={7}>
             <Content contentRef={(node) => this.content = node} open={open}>
+              <WindowEvent event='keydown' handler={this.handleKeyDown} />
+              <WindowEvent event='click' handler={this.handleOutsideClick} />
               { children }
             </Content>
           </Grid.Column>
