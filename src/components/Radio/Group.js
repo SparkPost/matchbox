@@ -9,10 +9,7 @@ const Group = ({ children }) => (
 );
 
 Group.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  children: PropTypes.node.isRequired
 };
 
 Group.displayName = 'Radio.Group';

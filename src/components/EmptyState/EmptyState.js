@@ -35,10 +35,7 @@ class EmptyState extends Component {
     /**
       * Content below the CTA
       */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

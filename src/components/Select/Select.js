@@ -45,11 +45,7 @@ class Select extends Component {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     label: PropTypes.string,
-    helpText: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
+    helpText: PropTypes.node,
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,

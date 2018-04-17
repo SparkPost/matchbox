@@ -10,10 +10,7 @@ const Group = ({ children, className = '' }) => (
 );
 
 Group.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  children: PropTypes.node.isRequired
 };
 
 Group.displayName = 'Button.Group';

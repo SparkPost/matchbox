@@ -29,27 +29,11 @@ class TextField extends Component {
     resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical', 'block', 'inline']),
     label: PropTypes.string,
     labelHidden: PropTypes.bool,
-    helpText: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
-    connectLeft: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
-    connectRight: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
-    prefix: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
-    suffix: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    helpText: PropTypes.node,
+    connectLeft: PropTypes.node,
+    connectRight: PropTypes.node,
+    prefix: PropTypes.node,
+    suffix: PropTypes.node,
     error: PropTypes.string,
     /**
      * Inlines the error message next to the field label. Label prop required.

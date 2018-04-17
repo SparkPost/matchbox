@@ -19,10 +19,7 @@ class Grid extends Component {
     bottom: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     around: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
     between: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

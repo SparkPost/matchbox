@@ -15,10 +15,7 @@ class Table extends Component {
     /**
      * React node(s)
      */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

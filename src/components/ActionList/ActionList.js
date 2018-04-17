@@ -38,11 +38,7 @@ class ActionList extends Component {
       * e.g. [{ content: 'action label', onClick: callback() }]
       */
     actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-        PropTypes.string
-      ]).isRequired
+      content: PropTypes.node.isRequired
     })),
     /**
       * Creates sections

@@ -16,10 +16,7 @@ class Radio extends Component {
     id: PropTypes.string,
     name: PropTypes.string,
     checked: PropTypes.bool,
-    label: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    label: PropTypes.node,
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
     value: PropTypes.oneOfType([
@@ -30,11 +27,7 @@ class Radio extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    helpText: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    helpText: PropTypes.node
   };
 
   render() {

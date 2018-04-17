@@ -63,19 +63,13 @@ class Page extends Component {
       */
     empty: PropTypes.shape({
       show: PropTypes.bool,
-      content: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-      ])
+      content: PropTypes.node
     }),
 
     /**
       * Page Children
       */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

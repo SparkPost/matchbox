@@ -34,10 +34,7 @@ class Popover extends Component {
     /**
       * Popover Content
       */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
+    children: PropTypes.node,
     /**
      * Element ID for the portal that will house tooltips. Appends to body if not provided.
      */

@@ -15,14 +15,8 @@ Group.defaultProps = {
 };
 
 Group.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node
-  ]),
+  children: PropTypes.node.isRequired,
+  label: PropTypes.node,
   required: PropTypes.bool
 };
 

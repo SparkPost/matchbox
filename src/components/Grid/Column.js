@@ -17,10 +17,7 @@ class Column extends Component {
     smOffset: PropTypes.number,
     mdOffset: PropTypes.number,
     lgOffset: PropTypes.number,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

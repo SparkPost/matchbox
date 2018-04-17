@@ -69,10 +69,7 @@ class Banner extends Component {
     /**
      * Banner Content
      */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   static defaultProps = {

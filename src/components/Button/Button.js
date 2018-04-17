@@ -21,14 +21,11 @@ class Button extends Component {
     submit: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
-    Component: PropTypes.oneOfType([
+    component: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.element
     ]),
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   }
 
   static defaultProps = {
@@ -56,7 +53,7 @@ class Button extends Component {
       submit,
 
       to,
-      Component,
+      component: Wrapper,
       external,
 
       // Events
@@ -80,7 +77,7 @@ class Button extends Component {
       className
     );
 
-    if (to && !Component) {
+    if (to && !Wrapper) {
       return (
         <a
           href={to}
@@ -99,9 +96,9 @@ class Button extends Component {
       );
     }
 
-    if (to && Component) {
+    if (to && Wrapper) {
       return (
-        <Component
+        <Wrapper
           to={to}
           onClick={onClick}
           onFocus={onFocus}
@@ -112,7 +109,7 @@ class Button extends Component {
           {...rest}
         >
           { children }
-        </Component>
+        </Wrapper>
       );
     }
 

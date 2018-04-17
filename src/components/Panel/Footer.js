@@ -11,18 +11,12 @@ class Footer extends Component {
     /**
       * Left aligned content
       */
-    left: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
+    left: PropTypes.node,
 
     /**
       * Right aligned content
       */
-    right: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    right: PropTypes.node
   };
 
   render() {

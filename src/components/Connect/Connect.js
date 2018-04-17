@@ -7,18 +7,9 @@ class Connect extends Component {
   static displayName = 'Connect';
 
   static propTypes = {
-    left: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
-    right: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    left: PropTypes.node,
+    right: PropTypes.node,
+    children: PropTypes.node
   };
 
   render() {

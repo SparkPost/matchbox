@@ -9,11 +9,7 @@ class Tooltip extends Component {
   static displayName = 'Tooltip';
 
   static propTypes = {
-    content: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
+    content: PropTypes.node,
     /**
      * Disables hover events
      */
@@ -29,10 +25,7 @@ class Tooltip extends Component {
      * Disables automatic positioning
      */
     forcePosition: PropTypes.bool,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ]),
+    children: PropTypes.node,
     /**
      * These props are provided automatically through the Overlay component
      */

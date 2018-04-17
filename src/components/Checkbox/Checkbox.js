@@ -19,10 +19,7 @@ class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
     checked: PropTypes.bool,
-    label: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    label: PropTypes.node,
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
@@ -34,11 +31,7 @@ class Checkbox extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    helpText: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    helpText: PropTypes.node
   };
 
   render() {

@@ -27,10 +27,7 @@ class Snackbar extends Component {
     /**
      * Snackbar Content
      */
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   static defaultProps = {

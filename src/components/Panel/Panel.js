@@ -17,10 +17,7 @@ class Panel extends Component {
     /**
      * The panel heading title
      */
-    title: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    title: PropTypes.node,
     /**
       * Shows an orange accent bar
       */
@@ -39,10 +36,7 @@ class Panel extends Component {
     /**
       * Panel Content
       */
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   };
 
   render() {

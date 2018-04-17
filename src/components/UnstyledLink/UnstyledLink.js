@@ -7,31 +7,36 @@ class UnstyledLink extends Component {
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
-    Component: PropTypes.oneOfType([
+    component: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.element
     ]),
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node
-    ])
+    children: PropTypes.node
   }
 
   render() {
     const {
       children,
       to,
-      Component,
+      component: Wrapper,
       external,
       ...rest
     } = this.props;
 
-    if (to && !Component) {
-      return <a href={to} target={external ? '_blank' : ''} rel={external ? 'noopener noreferrer' : ''} {...rest}>{ children }</a>;
+    if (to && !Wrapper) {
+      return (
+        <a
+          href={to}
+          target={external ? '_blank' : ''}
+          rel={external ? 'noopener noreferrer' : ''}
+          {...rest}>
+            { children }
+        </a>
+      );
     }
 
-    if (to && Component) {
-      return <Component to={to} {...rest} >{ children }</Component>;
+    if (to && Wrapper) {
+      return <Wrapper to={to} {...rest} >{ children }</Wrapper>;
     }
 
     return <a {...rest}>{ children }</a>;

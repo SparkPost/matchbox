@@ -8,16 +8,9 @@ const Cell = ({ value, children, className, ...rest }) => (
 );
 
 Cell.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  value: PropTypes.node,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+  children: PropTypes.node
 };
 Cell.displayName = 'Table.Cell';
 
@@ -26,16 +19,9 @@ const HeaderCell = ({ value, children, className, ...rest }) => (
 );
 
 HeaderCell.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  value: PropTypes.node,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+  children: PropTypes.node
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
@@ -52,10 +38,7 @@ const Row = ({ rowData, children, className, ...rest }) => (
 Row.propTypes = {
   rowData: PropTypes.array,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+  children: PropTypes.node
 };
 Row.displayName = 'Table.Row';
 
