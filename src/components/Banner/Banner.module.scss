@@ -39,7 +39,7 @@
 
 .warning {
   &:before {
-    background: color(mustard, light);
+    background: color(yellow, light);
   }
 }
 
@@ -116,10 +116,10 @@
 }
 
 .warningIcon {
-  fill: lighten(color(mustard), 4);
+  fill: lighten(color(yellow), 4);
 
   & + .IconBackdrop {
-    box-shadow: 0 0 0 7px rgba(color(mustard), 0.25);
+    box-shadow: 0 0 0 7px rgba(color(yellow), 0.25);
   }
 }
 

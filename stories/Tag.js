@@ -21,9 +21,9 @@ storiesOf('Tag', module)
   .add('Colors',
   withInfo()(() => (
     <div>
-      <p><Tag onRemove={action('Tag Remove')} color='orange'>domain.com</Tag></p>
-      <p><Tag onRemove={action('Tag Remove')} color='blue'>domain.com</Tag></p>
-      <p><Tag onRemove={action('Tag Remove')} color='yellow'>domain.com</Tag></p>
-      <p><Tag onRemove={action('Tag Remove')} color='red'>domain.com</Tag></p>
+      <Tag onRemove={action('Tag Remove')} color='orange'>domain.com</Tag>{' '}
+      <Tag onRemove={action('Tag Remove')} color='blue'>domain.com</Tag>{' '}
+      <Tag onRemove={action('Tag Remove')} color='yellow'>domain.com</Tag>{' '}
+      <Tag onRemove={action('Tag Remove')} color='red'>domain.com</Tag>{' '}
     </div>
   )));

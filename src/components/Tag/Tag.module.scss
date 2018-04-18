@@ -46,17 +46,17 @@
 
 .yellow {
   .Content {
-    background: color(mustard, light);
+    background: color(yellow, light);
     color: color(gray, 1);
   }
 
   .Close, a.Close {
-    background: color(mustard, light);
+    background: color(yellow, light);
     color: color(gray, 1);
 
     &:hover, &:active {
       color: color(gray, 0);
-      background: darken(color(mustard, light), 5);
+      background: darken(color(yellow, light), 5);
     }
   }
 }
@@ -86,10 +86,6 @@
 
   font-size: rem(12);
   line-height: rem(22);
-
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .Close, a.Close {
