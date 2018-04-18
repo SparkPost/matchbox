@@ -3,6 +3,7 @@
   "version": "2.4.4",
   "description": "A design system",
   "main": "matchbox.js",
+  "module": "matchbox.es.js",
   "author": "SparkPost",
   "license": "MIT",
   "repository": {
@@ -74,7 +75,7 @@
     "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-postcss": "^1.5.1",
-    "rollup-plugin-uglify": "^1.0.2",
+    "rollup-plugin-uglify": "^3.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.17.0"
   },

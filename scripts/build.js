@@ -10,7 +10,12 @@ import { inputOptions, outputOptions } from '../config/rollup';
 async function build() {
   console.log('Starting Build...')
   const bundle = await rollup(inputOptions);
-  await bundle.write(outputOptions);
+
+  for (let option of outputOptions) {
+    console.log(`Writing ${option.format} bundle - ${option.file}`);
+    await bundle.write(option);
+  }
+  
   fs.copy('styles.css', 'styles.scss');
   console.log('Build Done.')
 }
