@@ -11,6 +11,10 @@ class UnstyledLink extends Component {
       PropTypes.func,
       PropTypes.element
     ]),
+    Component: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.element
+    ]),
     children: PropTypes.node
   }
 
@@ -18,12 +22,15 @@ class UnstyledLink extends Component {
     const {
       children,
       to,
-      component: Wrapper,
+      Component,
+      component,
       external,
       ...rest
     } = this.props;
 
-    if (to && !Wrapper) {
+    const WrapperComponent = component || Component;
+
+    if (to && !WrapperComponent) {
       return (
         <a
           href={to}
@@ -35,8 +42,8 @@ class UnstyledLink extends Component {
       );
     }
 
-    if (to && Wrapper) {
-      return <Wrapper to={to} {...rest} >{ children }</Wrapper>;
+    if (to && WrapperComponent) {
+      return <WrapperComponent to={to} {...rest} >{ children }</WrapperComponent>;
     }
 
     return <a {...rest}>{ children }</a>;

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { buttonFrom } from '../Button';
 import { linkFrom } from '../UnstyledLink';
-
-import * as Images from '../../images';
 import styles from './EmptyState.module.scss';
 
 const primaryActionOverrides = {
@@ -33,6 +31,13 @@ class EmptyState extends Component {
       content: PropTypes.string.isRequired
     }),
     /**
+      * Image to display
+      */
+    image: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.element
+    ]),
+    /**
       * Content below the CTA
       */
     children: PropTypes.node
@@ -43,21 +48,13 @@ class EmptyState extends Component {
       title,
       primaryAction,
       secondaryAction,
-      children,
-      image
+      image: Image,
+      children
     } = this.props;
 
-    let imageMarkup = null;
-
-    if (image) {
-      const Image = Images[image];
-
-      if (!Image) {
-        throw new Error('Empty State image does not exist. Available images: "Generic", "Setup", "Templates", "Users"');
-      }
-
-      imageMarkup = <div className={styles.Image}><Image /></div>;
-    }
+    const imageMarkup = Image
+      ? <div className={styles.Image}><Image /></div>
+      : null;
 
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, primaryActionOverrides)

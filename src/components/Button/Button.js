@@ -25,6 +25,10 @@ class Button extends Component {
       PropTypes.func,
       PropTypes.element
     ]),
+    Component: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.element
+    ]),
     children: PropTypes.node
   }
 
@@ -53,7 +57,8 @@ class Button extends Component {
       submit,
 
       to,
-      component: Wrapper,
+      Component,
+      component,
       external,
 
       // Events
@@ -64,6 +69,8 @@ class Button extends Component {
       className = '',
       ...rest
     } = this.props;
+
+    const WrapperComponent = component || Component;
 
     const classname = classnames(
       styles.Button,
@@ -77,7 +84,7 @@ class Button extends Component {
       className
     );
 
-    if (to && !Wrapper) {
+    if (to && !WrapperComponent) {
       return (
         <a
           href={to}
@@ -96,9 +103,9 @@ class Button extends Component {
       );
     }
 
-    if (to && Wrapper) {
+    if (to && WrapperComponent) {
       return (
-        <Wrapper
+        <WrapperComponent
           to={to}
           onClick={onClick}
           onFocus={onFocus}
@@ -109,7 +116,7 @@ class Button extends Component {
           {...rest}
         >
           { children }
-        </Wrapper>
+        </WrapperComponent>
       );
     }
 
