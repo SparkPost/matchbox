@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdSort = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m5 21.6v-3.2h20v3.2h-20z m0-11.6h30v3.4h-30v-3.4z m0 20v-3.4h10v3.4h-10z"/></g>
-  </Icon>
-);
-
-export default MdSort;
+export default createSvgIcon(
+  <g><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" /></g>
+, 'Sort');

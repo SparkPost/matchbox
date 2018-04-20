@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdRefresh = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m29.5 10.5l3.9-3.9v11.8h-11.8l5.4-5.4c-1.8-1.8-4.3-3-7-3-5.5 0-10 4.5-10 10s4.5 10 10 10c4.4 0 8.1-2.7 9.5-6.6h3.4c-1.5 5.7-6.6 10-12.9 10-7.3 0-13.3-6.1-13.3-13.4s6-13.4 13.3-13.4c3.7 0 7 1.5 9.5 3.9z"/></g>
-  </Icon>
-);
-
-export default MdRefresh;
+export default createSvgIcon(
+  <g><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" /></g>
+, 'Refresh');

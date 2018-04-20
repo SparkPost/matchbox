@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Label } from '../Label';
 import { Error } from '../Error';
-import { Icon } from '../Icon';
+import Check from '../../icons/Check';
 import Group from './Group';
 import styles from './Checkbox.module.scss';
 
@@ -89,7 +89,7 @@ class Checkbox extends Component {
           {...rest} />
           <label htmlFor={id} className={styles.Control}>
             <div className={styles.Box} />
-            <Icon name='Check' className={styles.Check} size={14}/>
+            <Check className={styles.Check} size={14}/>
           </label>
         { labelMarkup }
         { errorMarkup }

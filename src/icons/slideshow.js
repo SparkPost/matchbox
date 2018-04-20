@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdSlideshow = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 31.6v-23.2h-23.2v23.2h23.2z m0-26.6c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h23.2z m-15 8.4l8.4 6.6-8.4 6.6v-13.2z"/></g>
-    </Icon>
-)
-
-export default MdSlideshow
+export default createSvgIcon(
+  <g><path d="M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" /></g>
+, 'Slideshow');

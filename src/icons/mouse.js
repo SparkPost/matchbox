@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdMouse = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m18.4 1.8v13.2h-11.8c0-6.8 5.2-12.4 11.8-13.2z m-11.8 23.2v-6.6h26.8v6.6c0 7.3-6.1 13.4-13.4 13.4s-13.4-6.1-13.4-13.4z m15-23.2c6.6 0.8 11.8 6.4 11.8 13.2h-11.8v-13.2z"/></g>
-    </Icon>
-)
-
-export default MdMouse
+export default createSvgIcon(
+  <g><path d="M13 1.07V9h7c0-4.08-3.05-7.44-7-7.93zM4 15c0 4.42 3.58 8 8 8s8-3.58 8-8v-4H4v4zm7-13.93C7.05 1.56 4 4.92 4 9h7V1.07z" /></g>
+, 'Mouse');

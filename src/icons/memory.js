@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdMemory = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m28.4 28.4v-16.8h-16.8v16.8h16.8z m6.6-10h-3.4v3.2h3.4v3.4h-3.4v3.4c0 1.8-1.4 3.2-3.2 3.2h-3.4v3.4h-3.4v-3.4h-3.2v3.4h-3.4v-3.4h-3.4c-1.8 0-3.2-1.4-3.2-3.2v-3.4h-3.4v-3.4h3.4v-3.2h-3.4v-3.4h3.4v-3.4c0-1.8 1.4-3.2 3.2-3.2h3.4v-3.4h3.4v3.4h3.2v-3.4h3.4v3.4h3.4c1.8 0 3.2 1.4 3.2 3.2v3.4h3.4v3.4z m-13.4 3.2v-3.2h-3.2v3.2h3.2z m3.4-6.6v10h-10v-10h10z"/></g>
-    </Icon>
-)
-
-export default MdMemory
+export default createSvgIcon(
+  <g><path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z" /></g>
+, 'Memory');

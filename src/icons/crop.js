@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdCrop = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m11.6 28.4h26.8v3.2h-6.8v6.8h-3.2v-6.8h-16.8c-1.8 0-3.2-1.4-3.2-3.2v-16.8h-6.8v-3.2h6.8v-6.8h3.2v26.8z m16.8-3.4v-13.4h-13.4v-3.2h13.4c1.8 0 3.2 1.4 3.2 3.2v13.4h-3.2z"/></g>
-    </Icon>
-)
-
-export default MdCrop
+export default createSvgIcon(
+  <g><path d="M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z" /></g>
+, 'Crop');

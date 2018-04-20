@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdColorize = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m11.6 31.6l13.4-13.4-3.2-3.2-13.4 13.4z m22.9-22.2c0.7 0.6 0.7 1.6 0 2.3l-5.2 5.3 3.2 3.2-2.3 2.3-2.4-2.3-14.9 14.8h-7.9v-7.9l14.8-14.9-2.3-2.4 2.3-2.3 3.3 3.2 5.2-5.2c0.6-0.7 1.7-0.7 2.3 0z"/></g>
-    </Icon>
-)
-
-export default MdColorize
+export default createSvgIcon(
+  <g><path d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z" /></g>
+, 'Colorize');

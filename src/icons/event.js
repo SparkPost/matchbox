@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdEvent = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 31.6v-18.2h-23.2v18.2h23.2z m-5-30h3.4v3.4h1.6q1.4 0 2.4 1t1 2.4v23.2q0 1.4-1 2.4t-2.4 1h-23.2q-1.4 0-2.4-1t-1-2.4v-23.2q0-1.4 1-2.4t2.4-1h1.6v-3.4h3.4v3.4h13.2v-3.4z m1.8 18.4v8.4h-8.4v-8.4h8.4z"/></g>
-    </Icon>
-)
-
-export default MdEvent
+export default createSvgIcon(
+  <g><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" /></g>
+, 'Event');

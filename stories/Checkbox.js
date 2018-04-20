@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Checkbox, TextField, UnstyledLink } from '../src';
+import { Checkbox, UnstyledLink } from '../src';
 
 class CheckboxWrapper extends React.Component {
   constructor(props) {

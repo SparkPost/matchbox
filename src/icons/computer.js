@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdComputer = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m6.6 10v16.6h26.8v-16.6h-26.8z m26.8 20h6.6v3.4h-40v-3.4h6.6q-1.3 0-2.3-1t-0.9-2.4v-16.6q0-1.3 0.9-2.3t2.3-1.1h26.8q1.3 0 2.3 1.1t0.9 2.3v16.6q0 1.4-0.9 2.4t-2.3 1z"/></g>
-    </Icon>
-)
-
-export default MdComputer
+export default createSvgIcon(
+  <g><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" /></g>
+, 'Computer');

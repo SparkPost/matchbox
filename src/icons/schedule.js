@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdSchedule = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m20.9 11.6v8.8l7.5 4.4-1.3 2.2-8.7-5.4v-10h2.5z m-0.9 21.8c7.3 0 13.4-6.1 13.4-13.4s-6.1-13.4-13.4-13.4-13.4 6.1-13.4 13.4 6.1 13.4 13.4 13.4z m0-30c9.2 0 16.6 7.4 16.6 16.6s-7.4 16.6-16.6 16.6-16.6-7.4-16.6-16.6 7.4-16.6 16.6-16.6z"/></g>
-  </Icon>
-);
-
-export default MdSchedule;
+export default createSvgIcon(
+  <g><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></g>
+, 'Schedule');

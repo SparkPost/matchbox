@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdDone = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"/></g>
-    </Icon>
-)
-
-export default MdDone
+export default createSvgIcon(
+  <g><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" /></g>
+, 'Done');

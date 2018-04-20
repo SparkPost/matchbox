@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdBlock = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m20 33.4c7.3 0 13.4-6.1 13.4-13.4 0-3-1.1-5.9-2.9-8.2l-18.7 18.7c2.3 1.8 5.2 2.9 8.2 2.9z m-13.4-13.4c0 3 1.1 5.9 2.9 8.2l18.7-18.7c-2.3-1.8-5.2-2.9-8.2-2.9-7.3 0-13.4 6.1-13.4 13.4z m13.4-16.6c9.2 0 16.6 7.4 16.6 16.6s-7.4 16.6-16.6 16.6-16.6-7.4-16.6-16.6 7.4-16.6 16.6-16.6z"/></g>
-  </Icon>
-);
-
-export default MdBlock;
+export default createSvgIcon(
+  <g><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z" /></g>
+, 'Block');

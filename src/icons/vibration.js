@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdVibration = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m26.6 31.6v-23.2h-13.2v23.2h13.2z m0.9-26.6c1.4 0 2.5 1.1 2.5 2.5v25c0 1.4-1.1 2.5-2.5 2.5h-15c-1.4 0-2.5-1.1-2.5-2.5v-25c0-1.4 1.1-2.5 2.5-2.5h15z m4.1 23.4v-16.8h3.4v16.8h-3.4z m5-13.4h3.4v10h-3.4v-10z m-31.6 13.4v-16.8h3.4v16.8h-3.4z m-5-3.4v-10h3.4v10h-3.4z"/></g>
-    </Icon>
-)
-
-export default MdVibration
+export default createSvgIcon(
+  <g><path d="M0 15h2V9H0v6zm3 2h2V7H3v10zm19-8v6h2V9h-2zm-3 8h2V7h-2v10zM16.5 3h-9C6.67 3 6 3.67 6 4.5v15c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5v-15c0-.83-.67-1.5-1.5-1.5zM16 19H8V5h8v14z" /></g>
+, 'Vibration');

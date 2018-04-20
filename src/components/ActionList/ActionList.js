@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { linkFrom } from '../UnstyledLink';
-import { Icon } from '../Icon';
+import Check from '../../icons/Check';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {
@@ -16,7 +16,7 @@ const Section = ({ section }) => {
     );
 
     const linkContent = selected
-      ? <span>{content}<Icon name='Check' className={styles.Check} size={21}/></span>
+      ? <span>{content}<Check className={styles.Check} size={21}/></span>
       : content;
 
     return linkFrom({ content: linkContent, ...action, className: classes }, index);

@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdEqualizer = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m26.6 15h6.8v18.4h-6.8v-18.4z m-20 18.4v-13.4h6.8v13.4h-6.8z m10 0v-26.8h6.8v26.8h-6.8z"/></g>
-  </Icon>
-);
-
-export default MdEqualizer;
+export default createSvgIcon(
+  <g><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z" /></g>
+, 'Equalizer');

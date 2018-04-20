@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdShuffle = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m24.7 22.3l5.2 5.3 3.5-3.5v9.3h-9.3l3.5-3.5-5.3-5.2z m-0.6-15.7h9.3v9.3l-3.5-3.5-20.9 21-2.4-2.4 21-20.9z m-6.4 8.7l-2.4 2.4-8.7-8.7 2.4-2.4z"/></g>
-    </Icon>
-)
-
-export default MdShuffle
+export default createSvgIcon(
+  <g><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" /></g>
+, 'Shuffle');

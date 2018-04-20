@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdHeadset = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 1.6c8.3 0 15 6.8 15 15v11.8c0 2.7-2.3 5-5 5h-5v-13.4h6.6v-3.4c0-6.4-5.1-11.6-11.6-11.6s-11.6 5.2-11.6 11.6v3.4h6.6v13.4h-5c-2.7 0-5-2.3-5-5v-11.8c0-8.2 6.7-15 15-15z"/></g>
-    </Icon>
-)
-
-export default MdHeadset
+export default createSvgIcon(
+  <g><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z" /></g>
+, 'Headset');

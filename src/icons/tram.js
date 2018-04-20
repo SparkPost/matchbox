@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTram = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m28.4 23.4v-8.4h-16.8v8.4h16.8z m-8.4 7.5c1.4 0 2.5-1.1 2.5-2.5s-1.1-2.5-2.5-2.5-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5z m11.6-2.7c0 2.8-1.4 5.2-4.3 5.2h0.2l2.5 2.5v0.7h-3.4l-3.2-3.2h-6.4l-3.2 3.2h-3.8v-0.7l2.7-2.7c-2.4-0.5-4.3-2.6-4.3-5v-14.1c0-4.6 4.7-5.6 9.9-5.7l1.3-2.5h-8v-2.5h16.8v2.5h-5.5l-1.3 2.5c5.7 0.1 10 1.1 10 5.7v14.1z"/></g>
-    </Icon>
-)
-
-export default MdTram
+export default createSvgIcon(
+  <g><path d="M19 16.94V8.5c0-2.79-2.61-3.4-6.01-3.49l.76-1.51H17V2H7v1.5h4.75l-.76 1.52C7.86 5.11 5 5.73 5 8.5v8.44c0 1.45 1.19 2.66 2.59 2.97L6 21.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 20h-.08c1.69 0 2.58-1.37 2.58-3.06zm-7 1.56c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4.5H7V9h10v5z" /></g>
+, 'Tram');

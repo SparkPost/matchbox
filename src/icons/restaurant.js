@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdRestaurant = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m26.6 10c0-3 3.8-6.6 8.4-6.6v33.2h-4.1v-13.2h-4.3v-13.4z m-8.2 5v-11.6h3.2v11.6c0 3.5-2.7 6.4-6.2 6.6v15h-4.1v-15c-3.6-0.2-6.3-3.1-6.3-6.6v-11.6h3.4v11.6h3.2v-11.6h3.4v11.6h3.4z"/></g>
-    </Icon>
-)
-
-export default MdRestaurant
+export default createSvgIcon(
+  <g><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" /></g>
+, 'Restaurant');

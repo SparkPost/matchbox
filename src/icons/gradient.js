@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdGradient = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 18.4v-10h-23.2v10h3.2v3.2h3.4v3.4h3.4v-3.4h3.2v3.4h3.4v-3.4h3.4v-3.2h3.2z m-3.2 11.6v-3.4h-3.4v3.4h3.4z m-6.8 0v-3.4h-3.2v3.4h3.2z m-6.6 0v-3.4h-3.4v3.4h3.4z m16.6-25c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h23.2z m-20 10h3.4v3.4h-3.4v-3.4z m13.4 0h3.4v3.4h-3.4v-3.4z m-6.6 0h3.2v3.4h3.4v3.2h-3.4v-3.2h-3.2v3.2h-3.4v-3.2h3.4v-3.4z m10 6.6v3.4h3.2v-3.4h-3.2z m-16.8 0h-3.2v3.4h3.2v-3.4z"/></g>
-    </Icon>
-)
-
-export default MdGradient
+export default createSvgIcon(
+  <g><path d="M11 9h2v2h-2zm-2 2h2v2H9zm4 0h2v2h-2zm2-2h2v2h-2zM7 9h2v2H7zm12-6H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 18H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm2-7h-2v2h2v2h-2v-2h-2v2h-2v-2h-2v2H9v-2H7v2H5v-2h2v-2H5V5h14v6z" /></g>
+, 'Gradient');

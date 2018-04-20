@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdAirplay = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m35 5c1.8 0 3.4 1.6 3.4 3.4v20c0 1.8-1.6 3.2-3.4 3.2h-6.6v-3.2h6.6v-20h-30v20h6.6v3.2h-6.6c-1.8 0-3.4-1.4-3.4-3.2v-20c0-1.8 1.6-3.4 3.4-3.4h30z m-25 31.6l10-10 10 10h-20z"/></g>
-    </Icon>
-)
-
-export default MdAirplay
+export default createSvgIcon(
+  <g><path d="M6 22h12l-6-6zM21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V5h18v12h-4v2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" /></g>
+, 'Airplay');

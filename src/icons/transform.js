@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTransform = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m16.6 13.4v-3.4h10c1.8 0 3.4 1.6 3.4 3.4v10h-3.4v-10h-10z m20 16.6h-6.6v3.4h3.4l-5 5-5-5h3.2v-3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4v-13.2h-6.6v-3.4h6.6v-3.4h-3.4l5-5 5 5h-3.2v20h23.2v3.4z"/></g>
-    </Icon>
-)
-
-export default MdTransform
+export default createSvgIcon(
+  <g><path d="M22 18v-2H8V4h2L7 1 4 4h2v2H2v2h4v8c0 1.1.9 2 2 2h8v2h-2l3 3 3-3h-2v-2h4zM10 8h6v6h2V8c0-1.1-.9-2-2-2h-6v2z" /></g>
+, 'Transform');

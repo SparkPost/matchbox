@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdCancel = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m28.4 26l-6.1-6 6.1-6-2.4-2.4-6 6.1-6-6.1-2.4 2.4 6.1 6-6.1 6 2.4 2.4 6-6.1 6 6.1z m-8.4-22.6c9.2 0 16.6 7.4 16.6 16.6s-7.4 16.6-16.6 16.6-16.6-7.4-16.6-16.6 7.4-16.6 16.6-16.6z"/></g>
-  </Icon>
-);
-
-export default MdCancel;
+export default createSvgIcon(
+  <g><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" /></g>
+, 'Cancel');

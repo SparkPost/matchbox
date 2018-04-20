@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdExplicit = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m25 15v-3.4h-10v16.8h10v-3.4h-6.6v-3.4h6.6v-3.2h-6.6v-3.4h6.6z m6.6-10c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h23.2z"/></g>
-    </Icon>
-)
-
-export default MdExplicit
+export default createSvgIcon(
+  <g><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h4v2h-4v2h4v2H9V7h6v2z" /></g>
+, 'Explicit');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdVignette = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 30c7.3 0 13.4-4.5 13.4-10s-6.1-10-13.4-10-13.4 4.5-13.4 10 6.1 10 13.4 10z m15-25c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-30c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h30z"/></g>
-    </Icon>
-)
-
-export default MdVignette
+export default createSvgIcon(
+  <g><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 15c-4.42 0-8-2.69-8-6s3.58-6 8-6 8 2.69 8 6-3.58 6-8 6z" /></g>
+, 'Vignette');

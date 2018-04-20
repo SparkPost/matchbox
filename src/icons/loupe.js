@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdLoupe = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 33.4c7.3 0 13.4-6.1 13.4-13.4s-6.1-13.4-13.4-13.4-13.4 6.1-13.4 13.4 6.1 13.4 13.4 13.4z m0-30c9.2 0 16.6 7.4 16.6 16.6v13.4c0 1.8-1.4 3.2-3.2 3.2h-13.4c-9.2 0-16.6-7.4-16.6-16.6s7.4-16.6 16.6-16.6z m1.6 8.2v6.8h6.8v3.2h-6.8v6.8h-3.2v-6.8h-6.8v-3.2h6.8v-6.8h3.2z"/></g>
-    </Icon>
-)
-
-export default MdLoupe
+export default createSvgIcon(
+  <g><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10h8c1.1 0 2-.9 2-2v-8c0-5.51-4.49-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" /></g>
+, 'Loupe');

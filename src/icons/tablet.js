@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTablet = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 30v-20h-23.2v20h23.2z m3.4-23.4c1.8 0 3.4 1.6 3.4 3.4l-0.1 20c0 1.8-1.5 3.4-3.3 3.4h-30c-1.8 0-3.4-1.6-3.4-3.4v-20c0-1.8 1.6-3.4 3.4-3.4h30z"/></g>
-    </Icon>
-)
-
-export default MdTablet
+export default createSvgIcon(
+  <g><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 1.99-.9 1.99-2L23 6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z" /></g>
+, 'Tablet');

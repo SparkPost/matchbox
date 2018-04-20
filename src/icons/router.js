@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdRouter = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m25 30v-3.4h-3.4v3.4h3.4z m-5.9 0v-3.4h-3.2v3.4h3.2z m-5.7 0v-3.4h-3.4v3.4h3.4z m18.2-8.4c1.8 0 3.4 1.6 3.4 3.4v6.6c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-6.6c0-1.8 1.6-3.4 3.4-3.4h16.6v-6.6h3.4v6.6h3.2z m0.6-10.4l-1.3 1.3c-1.2-1.2-2.8-1.6-4.3-1.6s-2.9 0.4-4.1 1.6l-1.3-1.3c1.5-1.5 3.4-2.4 5.4-2.4s4.1 0.9 5.6 2.4z m1.5-1.4c-2.1-1.8-4.6-2.8-7.1-2.8s-4.9 1-6.9 2.8l-1.3-1.3c2.3-2.3 5.3-3.5 8.2-3.5s6.1 1.2 8.4 3.5z"/></g>
-    </Icon>
-)
-
-export default MdRouter
+export default createSvgIcon(
+  <g><path d="M20.2 5.9l.8-.8C19.6 3.7 17.8 3 16 3s-3.6.7-5 2.1l.8.8C13 4.8 14.5 4.2 16 4.2s3 .6 4.2 1.7zm-.9.8c-.9-.9-2.1-1.4-3.3-1.4s-2.4.5-3.3 1.4l.8.8c.7-.7 1.6-1 2.5-1 .9 0 1.8.3 2.5 1l.8-.8zM19 13h-2V9h-2v4H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zM8 18H6v-2h2v2zm3.5 0h-2v-2h2v2zm3.5 0h-2v-2h2v2z" /></g>
+, 'Router');

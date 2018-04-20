@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdSnooze = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m15 18.4v-3.4h10v3l-6 7h6v3.4h-10v-3.1l6-6.9h-6z m5 15c6.5 0 11.6-5.3 11.6-11.8s-5.1-11.6-11.6-11.6-11.6 5.2-11.6 11.6 5.1 11.8 11.6 11.8z m0-26.8c8.3 0 15 6.8 15 15s-6.7 15-15 15-15-6.7-15-15 6.7-15 15-15z m16.6 2.9l-2.1 2.6-7.6-6.5 2.1-2.5z m-23.5-3.9l-7.6 6.4-2.1-2.5 7.6-6.4z"/></g>
-    </Icon>
-)
-
-export default MdSnooze
+export default createSvgIcon(
+  <g><path d="M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z" /></g>
+, 'Snooze');

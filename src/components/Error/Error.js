@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../Icon';
+import ErrorIcon from '../../icons/Error';
 import styles from './Error.module.scss';
 
 const Error = (props) => {
@@ -7,9 +7,12 @@ const Error = (props) => {
     error,
     wrapper: WrapperComponent = 'div'
   } = props;
-  return <WrapperComponent className={styles.Error}>
-    <span className={styles.Message}><Icon name='Error' className={styles.Icon} size={13} />{ error }</span>
-  </WrapperComponent>;
+
+  return (
+    <WrapperComponent className={styles.Error}>
+      <span className={styles.Message}><ErrorIcon className={styles.Icon} size={13} />{ error }</span>
+    </WrapperComponent>
+  );
 };
 
 Error.displayName = 'Error';

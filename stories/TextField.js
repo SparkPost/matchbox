@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { TextField, Button, Select, Icon, Tooltip } from '../src';
+import { TextField, Button, Select, Tooltip, Autorenew } from '../src';
 
 export default storiesOf('TextField', module)
   .addDecorator((getStory) => (
@@ -85,6 +85,6 @@ export default storiesOf('TextField', module)
       <TextField
         id='id'
         prefix='$'
-        suffix={<Icon name='Renew' />}
+        suffix={<Autorenew />}
       />
   )));

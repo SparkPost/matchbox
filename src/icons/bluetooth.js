@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdBluetooth = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m24.8 27.2l-3.2-3.2v6.3z m-3.2-17.5v6.3l3.2-3.2z m7.9 3.1l-7.2 7.2 7.2 7.2-9.5 9.4h-1.6v-12.6l-7.7 7.6-2.3-2.3 9.3-9.3-9.3-9.3 2.3-2.3 7.7 7.6v-12.6h1.6z"/></g>
-    </Icon>
-)
-
-export default MdBluetooth
+export default createSvgIcon(
+  <g><path d="M17.71 7.71L12 2h-1v7.59L6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 11 14.41V22h1l5.71-5.71-4.3-4.29 4.3-4.29zM13 5.83l1.88 1.88L13 9.59V5.83zm1.88 10.46L13 18.17v-3.76l1.88 1.88z" /></g>
+, 'Bluetooth');

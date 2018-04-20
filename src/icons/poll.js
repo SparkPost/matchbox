@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdPoll = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m28.4 28.4v-6.8h-3.4v6.8h3.4z m-6.8 0v-16.8h-3.2v16.8h3.2z m-6.6 0v-11.8h-3.4v11.8h3.4z m16.6-23.4c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h23.2z"/></g>
-    </Icon>
-)
-
-export default MdPoll
+export default createSvgIcon(
+  <g><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" /></g>
+, 'Poll');

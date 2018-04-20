@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdUndo = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20.9 13.4c7.7 0 14.2 5 16.5 12l-3.9 1.2c-1.7-5.3-6.7-9.1-12.6-9.1-3.3 0-6.3 1.2-8.6 3.1l6.1 6h-15v-15l5.9 6.1c3-2.7 7.1-4.3 11.6-4.3z"/></g>
-    </Icon>
-)
-
-export default MdUndo
+export default createSvgIcon(
+  <g><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z" /></g>
+, 'Undo');

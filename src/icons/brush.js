@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdBrush = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m34.5 7.7c0.7 0.7 0.7 1.8 0 2.4l-14.9 14.9-4.6-4.6 14.9-14.9c0.6-0.7 1.7-0.7 2.4 0z m-22.9 15.7c2.8 0 5 2.2 5 5 0 3.6-2.9 6.6-6.6 6.6-2.5 0-5.1-1.3-6.6-3.4 1.4 0 3.2-1.1 3.2-3.2 0-2.8 2.3-5 5-5z"/></g>
-    </Icon>
-)
-
-export default MdBrush
+export default createSvgIcon(
+  <g><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z" /></g>
+, 'Brush');

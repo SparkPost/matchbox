@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdRadio = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m33.4 20v-6.6h-26.8v6.6h20v-3.4h3.4v3.4h3.4z m-21.8 13.4c2.8 0 5-2.3 5-5s-2.2-5-5-5-5 2.2-5 5 2.3 5 5 5z m-6.2-23.2l21.1-8.6 1.1 2.9-13.8 5.5h19.6c1.8 0 3.2 1.5 3.2 3.4v20c0 1.8-1.4 3.2-3.2 3.2h-26.8c-1.8 0-3.2-1.4-3.2-3.2v-20c0-1.4 0.7-2.7 2-3.2z"/></g>
-    </Icon>
-)
-
-export default MdRadio
+export default createSvgIcon(
+  <g><path d="M3.24 6.15C2.51 6.43 2 7.17 2 8v12c0 1.1.89 2 2 2h16c1.11 0 2-.9 2-2V8c0-1.11-.89-2-2-2H8.3l8.26-3.34L15.88 1 3.24 6.15zM7 20c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-8h-2v-2h-2v2H4V8h16v4z" /></g>
+, 'Radio');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdPageview = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m28 30.3l2.3-2.3-4.8-4.9c0.7-1.1 1.1-2.5 1.1-4 0-4.1-3.3-7.5-7.5-7.5s-7.5 3.4-7.5 7.5 3.4 7.5 7.5 7.5c1.5 0 2.9-0.4 4-1.1z m5.4-23.7c1.8 0 3.2 1.6 3.2 3.4v20c0 1.8-1.4 3.4-3.2 3.4h-26.8c-1.8 0-3.2-1.6-3.2-3.4v-20c0-1.8 1.4-3.4 3.2-3.4h26.8z m-14.3 8.4c2.3 0 4.3 1.9 4.3 4.1s-2 4.3-4.3 4.3-4.1-2-4.1-4.3 1.9-4.1 4.1-4.1z"/></g>
-    </Icon>
-)
-
-export default MdPageview
+export default createSvgIcon(
+  <g><path d="M11.5 9C10.12 9 9 10.12 9 11.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S12.88 9 11.5 9zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.21 14.21l-2.91-2.91c-.69.44-1.51.7-2.39.7C9.01 16 7 13.99 7 11.5S9.01 7 11.5 7 16 9.01 16 11.5c0 .88-.26 1.69-.7 2.39l2.91 2.9-1.42 1.42z" /></g>
+, 'Pageview');

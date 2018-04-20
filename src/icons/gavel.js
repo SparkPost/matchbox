@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdGavel = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m6.4 15.8l9.4 9.4-4.7 4.7-9.5-9.3z m14.1-14.2l9.4 9.5-4.7 4.7-9.4-9.4z m-11.7 11.8l4.6-4.6 23.6 23.5-4.7 4.7z m-7.2 21.6h20v3.4h-20v-3.4z"/></g>
-    </Icon>
-)
-
-export default MdGavel
+export default createSvgIcon(
+  <g><path d="M1 21h12v2H1zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z" /></g>
+, 'Gavel');

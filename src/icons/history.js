@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdHistory = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m20 13.4h2.5v7l5.9 3.5-1.3 2-7.1-4.3v-8.2z m1.6-8.4q6.2 0 10.6 4.4t4.4 10.6-4.4 10.6-10.6 4.4-10.5-4.4l2.3-2.4q3.5 3.4 8.2 3.4 4.9 0 8.3-3.4t3.5-8.2-3.5-8.2-8.3-3.4-8.2 3.4-3.4 8.2h5l-6.7 6.7-0.2-0.2-6.5-6.5h5q0-6.2 4.5-10.6t10.5-4.4z"/></g>
-  </Icon>
-);
-
-export default MdHistory;
+export default createSvgIcon(
+  <g><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" /></g>
+, 'History');

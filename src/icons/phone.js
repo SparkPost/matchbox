@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdPhone = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m11 18c2.4 4.7 6.3 8.6 11 11l3.7-3.7c0.5-0.5 1.2-0.6 1.7-0.4 1.9 0.6 3.9 1 6 1 0.9 0 1.6 0.7 1.6 1.6v5.9c0 0.9-0.7 1.6-1.6 1.6-15.7 0-28.4-12.7-28.4-28.4 0-0.9 0.7-1.6 1.6-1.6h5.9c0.9 0 1.6 0.7 1.6 1.6 0 2.2 0.4 4.1 1 6 0.1 0.5 0.1 1.2-0.4 1.7z"/></g>
-    </Icon>
-)
-
-export default MdPhone
+export default createSvgIcon(
+  <g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></g>
+, 'Phone');

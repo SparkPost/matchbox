@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdExtension = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m34.1 18.4c2.3 0 4.3 1.8 4.3 4.1s-2 4.1-4.3 4.1h-2.5v6.8c0 1.8-1.4 3.2-3.2 3.2h-6.4v-2.5c0-2.5-2-4.4-4.5-4.4s-4.5 1.9-4.5 4.4v2.5h-6.4c-1.8 0-3.2-1.4-3.2-3.2v-6.4h2.5c2.5 0 4.4-2 4.4-4.5s-1.9-4.5-4.4-4.5h-2.5v-6.4c0-1.8 1.4-3.2 3.2-3.2h6.8v-2.5c0-2.3 1.8-4.3 4.1-4.3s4.1 2 4.1 4.3v2.5h6.8c1.8 0 3.2 1.4 3.2 3.2v6.8h2.5z"/></g>
-    </Icon>
-)
-
-export default MdExtension
+export default createSvgIcon(
+  <g><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z" /></g>
+, 'Extension');

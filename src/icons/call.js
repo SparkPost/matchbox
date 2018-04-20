@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdCall = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m11 18q3.8 7.2 11 11l3.7-3.7q0.8-0.8 1.7-0.4 2.8 1 6 1 0.7 0 1.1 0.4t0.5 1.2v5.9q0 0.7-0.5 1.1t-1.1 0.5q-11.8 0-20.1-8.3t-8.3-20.1q0-0.7 0.5-1.1t1.1-0.5h5.9q0.7 0 1.2 0.5t0.4 1.1q0 3.2 1 6 0.3 1-0.4 1.7z"/></g>
-    </Icon>
-)
-
-export default MdCall
+export default createSvgIcon(
+  <g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></g>
+, 'Call');

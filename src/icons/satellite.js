@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdSatellite = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m8.4 30h23.2l-7.5-10-5.7 7.5-4.3-5z m0-10c6.4 0 11.6-5.2 11.6-11.7h-3.4c0 4.6-3.6 8.3-8.2 8.3v3.4z m0-11.7v5.1c2.7 0 5-2.4 5-5.1h-5z m23.2-3.3c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h23.2z"/></g>
-    </Icon>
-)
-
-export default MdSatellite
+export default createSvgIcon(
+  <g><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.99h3C8 6.65 6.66 8 5 8V4.99zM5 12v-2c2.76 0 5-2.25 5-5.01h2C12 8.86 8.87 12 5 12zm0 6l3.5-4.5 2.5 3.01L14.5 12l4.5 6H5z" /></g>
+, 'Satellite');

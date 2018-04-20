@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { Button, buttonsFrom } from '../Button';
-import { Icon } from '../Icon';
+import MoreHoriz from '../../icons/MoreHoriz';
+import ArrowBack from '../../icons/ArrowBack';
+import ArrowForward from '../../icons/ArrowForward';
 import styles from './Pagination.module.scss';
 
 class Pagination extends Component {
@@ -140,13 +142,13 @@ class Pagination extends Component {
           onClick={() => this.handlePageChange(0)} >
             1
         </Button>
-        <Icon name='MoreHoriz' className={styles.Ellipse}/>
+        <MoreHoriz className={styles.Ellipse}/>
       </span>
       : null;
 
     const lastButton = !marginsHidden && start + pageRange < pages
       ? <span>
-        <Icon name='MoreHoriz' className={styles.Ellipse}/>
+        <MoreHoriz className={styles.Ellipse}/>
         <Button
           className={styles.End}
           onClick={() => this.handlePageChange(pages - 1)} >
@@ -161,7 +163,7 @@ class Pagination extends Component {
           className={styles.Back}
           onClick={() => this.handlePrevious()}
           disabled={!hasPrevious} >
-          <Icon name='ArrowLeft' size={16} />
+          <ArrowBack size={16} />
         </Button>
         { firstButton }
         <span className={styles.Pages}>{ buttonMarkup() }</span>
@@ -170,7 +172,7 @@ class Pagination extends Component {
           className={styles.Next}
           onClick={() => this.handleNext()}
           disabled={!hasNext} >
-          <Icon name='ArrowRight' size={16} />
+          <ArrowForward size={16} />
         </Button>
       </div>
     );

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdCloud = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m32.3 16.7q3.2 0.3 5.4 2.6t2.3 5.7q0 3.4-2.5 5.9t-5.9 2.5h-21.6q-4.1 0-7.1-3t-2.9-7q0-3.9 2.6-6.7t6.3-3.3q1.6-3 4.6-4.9t6.5-1.9q4.5 0 8 2.9t4.3 7.2z"/></g>
-    </Icon>
-)
-
-export default MdCloud
+export default createSvgIcon(
+  <g><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></g>
+, 'Cloud');

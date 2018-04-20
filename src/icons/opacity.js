@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdOpacity = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m10 23.4h20c0-3.4-1.1-5.4-3-7.3l-7-7.3-7 7.2c-1.9 1.9-3 4-3 7.4z m19.5-10c2.5 2.5 3.9 6 3.9 9.3s-1.4 6.9-3.9 9.5-6.1 3.9-9.5 3.9-6.9-1.3-9.5-3.9-3.9-6.1-3.9-9.5 1.4-6.8 3.9-9.3l9.5-9.5z"/></g>
-    </Icon>
-)
-
-export default MdOpacity
+export default createSvgIcon(
+  <g><path d="M17.66 8L12 2.35 6.34 8C4.78 9.56 4 11.64 4 13.64s.78 4.11 2.34 5.67 3.61 2.35 5.66 2.35 4.1-.79 5.66-2.35S20 15.64 20 13.64 19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z" /></g>
+, 'Opacity');

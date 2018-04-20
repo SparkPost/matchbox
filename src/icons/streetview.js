@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdStreetview = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m19.1 10c0 3 1.3 5.7 3.2 7.7l-16.3 16.3c-0.6-0.6-1-1.4-1-2.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h12c-0.8 1.5-1.3 3.2-1.3 5z m2.5 0c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.4-8.4 8.4-8.4-3.8-8.4-8.4z m-0.7 13.9c2.5-1.9 5.7-3 9.1-3 1.7 0 3.4 0.3 5 0.8v9.9c0 1.8-1.6 3.4-3.4 3.4h-11.6v-9.1c0-0.8 0.4-1.5 0.9-2z"/></g>
-    </Icon>
-)
-
-export default MdStreetview
+export default createSvgIcon(
+  <g><path d="M12.56 14.33c-.34.27-.56.7-.56 1.17V21h7c1.1 0 2-.9 2-2v-5.98c-.94-.33-1.95-.52-3-.52-2.03 0-3.93.7-5.44 1.83z" /><circle cx="18" cy="6" r="5" /><path d="M11.5 6c0-1.08.27-2.1.74-3H5c-1.1 0-2 .9-2 2v14c0 .55.23 1.05.59 1.41l9.82-9.82C12.23 9.42 11.5 7.8 11.5 6z" /></g>
+, 'Streetview');

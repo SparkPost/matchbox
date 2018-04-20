@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdWallpaper = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m6.6 21.6v11.8h11.8v3.2h-11.8c-1.8 0-3.2-1.4-3.2-3.2v-11.8h3.2z m26.8 11.8v-11.8h3.2v11.8c0 1.8-1.4 3.2-3.2 3.2h-11.8v-3.2h11.8z m0-30c1.8 0 3.2 1.4 3.2 3.2v11.8h-3.2v-11.8h-11.8v-3.2h11.8z m-5 10.7c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5z m-11.8 7.5l5 6.2 3.4-4.4 5 6.6h-20z m-10-15v11.8h-3.2v-11.8c0-1.8 1.4-3.2 3.2-3.2h11.8v3.2h-11.8z"/></g>
-    </Icon>
-)
-
-export default MdWallpaper
+export default createSvgIcon(
+  <g><path d="M4 4h7V2H4c-1.1 0-2 .9-2 2v7h2V4zm6 9l-4 5h12l-3-4-2.03 2.71L10 13zm7-4.5c0-.83-.67-1.5-1.5-1.5S14 7.67 14 8.5s.67 1.5 1.5 1.5S17 9.33 17 8.5zM20 2h-7v2h7v7h2V4c0-1.1-.9-2-2-2zm0 18h-7v2h7c1.1 0 2-.9 2-2v-7h-2v7zM4 13H2v7c0 1.1.9 2 2 2h7v-2H4v-7z" /></g>
+, 'Wallpaper');

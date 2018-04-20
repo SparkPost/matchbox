@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Icon } from '../Icon';
+import ChevronRight from '../../icons/ChevronRight';
 
 import styles from './CodeBlock.module.scss';
 
@@ -34,7 +34,7 @@ class CodeBlock extends Component {
     if (this.props.numbered) {
       return <div className={styles.LineNumber}>{i}</div>;
     } else {
-      return <Icon key={i} name='ChevronRight' className={styles.LineChevron}/>;
+      return <ChevronRight key={i} className={styles.LineChevron}/>;
     }
   }
 

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdAudiotrack = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 5h11.6v5h-6.6v18.4h-0.1c-0.4 3.7-3.6 6.6-7.4 6.6-4.1 0-7.5-3.4-7.5-7.5s3.4-7.5 7.5-7.5c0.9 0 1.7 0.2 2.5 0.5v-15.5z"/></g>
-    </Icon>
-)
-
-export default MdAudiotrack
+export default createSvgIcon(
+  <g><path d="M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z" /></g>
+, 'Audiotrack');

@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdCode = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m24.3 27.7l7.7-7.7-7.7-7.7 2.3-2.3 10 10-10 10z m-8.6 0l-2.3 2.3-10-10 10-10 2.3 2.3-7.7 7.7z"/></g>
-  </Icon>
-);
-
-export default MdCode;
+export default createSvgIcon(
+  <g><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" /></g>
+, 'Code');

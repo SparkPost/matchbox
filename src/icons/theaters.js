@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTheaters = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m30 15v-3.4h-3.4v3.4h3.4z m0 6.6v-3.2h-3.4v3.2h3.4z m0 6.8v-3.4h-3.4v3.4h3.4z m-16.6-13.4v-3.4h-3.4v3.4h3.4z m0 6.6v-3.2h-3.4v3.2h3.4z m0 6.8v-3.4h-3.4v3.4h3.4z m16.6-23.4h3.4v30h-3.4v-3.4h-3.4v3.4h-13.2v-3.4h-3.4v3.4h-3.4v-30h3.4v3.4h3.4v-3.4h13.2v3.4h3.4v-3.4z"/></g>
-    </Icon>
-)
-
-export default MdTheaters
+export default createSvgIcon(
+  <g><path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z" /></g>
+, 'Theaters');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdStraighten = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m35 26.6v-13.2h-3.4v6.6h-3.2v-6.6h-3.4v6.6h-3.4v-6.6h-3.2v6.6h-3.4v-6.6h-3.4v6.6h-3.2v-6.6h-3.4v13.2h30z m0-16.6c1.8 0 3.4 1.6 3.4 3.4v13.2c0 1.8-1.6 3.4-3.4 3.4h-30c-1.8 0-3.4-1.6-3.4-3.4v-13.2c0-1.8 1.6-3.4 3.4-3.4h30z"/></g>
-    </Icon>
-)
-
-export default MdStraighten
+export default createSvgIcon(
+  <g><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z" /></g>
+, 'Straighten');

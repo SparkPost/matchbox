@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdSpellcheck = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m36 19.3l2.4 2.3-15.9 15.9-8.4-8.5 2.3-2.4 6.1 6.2z m-25.3-0.9h6.9l-3.5-9.3z m10.1 8.2l-2-5h-9.3l-1.9 5h-3.5l8.5-21.6h3.1l8.5 21.6h-3.4z"/></g>
-    </Icon>
-)
-
-export default MdSpellcheck
+export default createSvgIcon(
+  <g><path d="M12.45 16h2.09L9.43 3H7.57L2.46 16h2.09l1.12-3h5.64l1.14 3zm-6.02-5L8.5 5.48 10.57 11H6.43zm15.16.59l-8.09 8.09L9.83 16l-1.41 1.41 5.09 5.09L23 13l-1.41-1.41z" /></g>
+, 'Spellcheck');

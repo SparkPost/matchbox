@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdDvr = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m11.6 20v3.4h-3.2v-3.4h3.2z m0-6.6v3.2h-3.2v-3.2h3.2z m20 6.6v3.4h-18.2v-3.4h18.2z m0-6.6v3.2h-18.2v-3.2h18.2z m3.4 15v-20h-30v20h30z m0-23.4c1.8 0 3.4 1.6 3.4 3.4l-0.1 20c0 1.8-1.5 3.2-3.3 3.2h-8.4v3.4h-13.2v-3.4h-8.4c-1.8 0-3.4-1.4-3.4-3.2v-20c0-1.8 1.6-3.4 3.4-3.4h30z"/></g>
-    </Icon>
-)
-
-export default MdDvr
+export default createSvgIcon(
+  <g><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zm-2-9H8v2h11V8zm0 4H8v2h11v-2zM7 8H5v2h2V8zm0 4H5v2h2v-2z" /></g>
+, 'Dvr');

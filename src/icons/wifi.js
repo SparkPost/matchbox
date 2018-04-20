@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdWifi = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m8.4 21.6c6.4-6.4 16.8-6.4 23.2 0l-3.2 3.4c-4.7-4.6-12.2-4.6-16.8 0z m6.6 6.8c2.7-2.8 7.3-2.8 10 0l-5 5z m-13.4-13.4c10.2-10.1 26.7-10.1 36.8 0l-3.4 3.4c-8.3-8.3-21.7-8.3-30 0z"/></g>
-    </Icon>
-)
-
-export default MdWifi
+export default createSvgIcon(
+  <g><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" /></g>
+, 'Wifi');

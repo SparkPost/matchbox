@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdReplay = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 8.4c7.3 0 13.4 5.9 13.4 13.2s-6.1 13.4-13.4 13.4-13.4-6-13.4-13.4h3.4c0 5.6 4.5 10 10 10s10-4.4 10-10-4.5-10-10-10v6.8l-8.4-8.4 8.4-8.4v6.8z"/></g>
-    </Icon>
-)
-
-export default MdReplay
+export default createSvgIcon(
+  <g><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" /></g>
+, 'Replay');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdContacts = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m28.4 28.4v-2.5c0-2.9-5.6-4.3-8.4-4.3s-8.4 1.4-8.4 4.3v2.5h16.8z m-8.4-17.1c-2 0-3.7 1.7-3.7 3.7s1.7 3.8 3.7 3.8 3.8-1.8 3.8-3.8-1.8-3.7-3.8-3.7z m13.4-4.7c1.8 0 3.2 1.6 3.2 3.4v20c0 1.8-1.4 3.4-3.2 3.4h-26.8c-1.8 0-3.2-1.6-3.2-3.4v-20c0-1.8 1.4-3.4 3.2-3.4h26.8z m-26.8 33.4v-3.4h26.8v3.4h-26.8z m26.8-40v3.4h-26.8v-3.4h26.8z"/></g>
-    </Icon>
-)
-
-export default MdContacts
+export default createSvgIcon(
+  <g><path d="M20 0H4v2h16V0zM4 24h16v-2H4v2zM20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 2.75c1.24 0 2.25 1.01 2.25 2.25s-1.01 2.25-2.25 2.25S9.75 10.24 9.75 9 10.76 6.75 12 6.75zM17 17H7v-1.5c0-1.67 3.33-2.5 5-2.5s5 .83 5 2.5V17z" /></g>
+, 'Contacts');

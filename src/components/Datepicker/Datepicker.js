@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 
-import { Icon } from '../Icon';
+import ArrowForward from '../../icons/ArrowForward';
+import ArrowBack from '../../icons/ArrowBack';
 import styles from './Datepicker.module.scss';
 
 class Navbar extends Component {
@@ -15,13 +16,11 @@ class Navbar extends Component {
 
     return (
       <div className={styles.Navbar}>
-        <Icon
-          name='ArrowLeft'
+        <ArrowBack
           size={21}
           onClick={() => onPreviousClick()}
           className={styles.Prev} />
-        <Icon
-          name='ArrowRight'
+        <ArrowForward
           size={21}
           onClick={() => onNextClick()}
           className={styles.Next} />

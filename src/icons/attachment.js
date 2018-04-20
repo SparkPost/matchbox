@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdAttachment = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m3.4 20.9c0-5.1 4-9.3 9.1-9.3h17.5c3.7 0 6.6 3.1 6.6 6.8s-2.9 6.6-6.6 6.6h-14.1c-2.3 0-4.3-1.9-4.3-4.1s2-4.3 4.3-4.3h12.5v3.4h-12.7c-0.9 0-0.9 1.6 0 1.6h14.3c1.8 0 3.4-1.4 3.4-3.2s-1.6-3.4-3.4-3.4h-17.5c-3.2 0-5.9 2.7-5.9 5.9s2.7 5.7 5.9 5.7h15.9v3.4h-15.9c-5.1 0-9.1-4.1-9.1-9.1z"/></g>
-    </Icon>
-)
-
-export default MdAttachment
+export default createSvgIcon(
+  <g><path d="M2 12.5C2 9.46 4.46 7 7.5 7H18c2.21 0 4 1.79 4 4s-1.79 4-4 4H9.5C8.12 15 7 13.88 7 12.5S8.12 10 9.5 10H17v2H9.41c-.55 0-.55 1 0 1H18c1.1 0 2-.9 2-2s-.9-2-2-2H7.5C5.57 9 4 10.57 4 12.5S5.57 16 7.5 16H17v2H7.5C4.46 18 2 15.54 2 12.5z" /></g>
+, 'Attachment');

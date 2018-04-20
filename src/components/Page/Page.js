@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { buttonFrom } from '../Button';
-import { Icon } from '../Icon';
+import ChevronLeft from '../../icons/ChevronLeft';
 import { EmptyState } from '../EmptyState';
 import { UnstyledLink, linkFrom } from '../UnstyledLink';
 
@@ -19,7 +19,7 @@ const secondaryOverrides = {
 
 const Breadcrumb = ({ content, ...rest }) => (
   <UnstyledLink {...rest}>
-    <Icon name='ChevronLeft' size={27} />
+    <ChevronLeft size={27} />
     { content }
   </UnstyledLink>
 );

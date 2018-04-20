@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Icon } from '../Icon';
+import Close from '../../icons/Close';
 
 import styles from './Snackbar.module.scss';
 
@@ -53,7 +53,7 @@ class Snackbar extends Component {
       <div className={snackbarStyles} {...rest}>
         <div className={styles.Content} style={{ maxWidth }}>{ children }</div>
         <a className={styles.Dismiss} onClick={onDismiss}>
-          <Icon name='Close' size={21} className={styles.DismissIcon} />
+          <Close size={21} className={styles.DismissIcon} />
         </a>
       </div>
     );

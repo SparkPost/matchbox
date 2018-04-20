@@ -1,11 +1,6 @@
-
 import React from 'react';
-import Icon from 'react-icon-base';
+import { createSvgIcon } from '../components/IconBase';
 
-const MdCheck = (props) => (
-  <Icon viewBox="0 0 40 40" {...props}>
-    <g><path d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"/></g>
-  </Icon>
-);
-
-export default MdCheck;
+export default createSvgIcon(
+  <g><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></g>
+, 'Check');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdMovie = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m30 6.6h6.6v23.4q0 1.3-0.9 2.3t-2.3 1.1h-26.8q-1.3 0-2.3-1.1t-0.9-2.3v-20q0-1.3 0.9-2.3t2.3-1.1h1.8l3.2 6.8h5l-3.2-6.8h3.2l3.4 6.8h5l-3.4-6.8h3.4l3.4 6.8h5z"/></g>
-    </Icon>
-)
-
-export default MdMovie
+export default createSvgIcon(
+  <g><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" /></g>
+, 'Movie');

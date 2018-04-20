@@ -4,8 +4,8 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { Icon } from '../src';
 import * as icons from '../src/icons';
+const Assessment = icons.Assessment;
 
 storiesOf('Icons', module)
   .addDecorator((getStory) => (
@@ -13,24 +13,20 @@ storiesOf('Icons', module)
   ))
 
   .add('single icon', withInfo()(() => (
-    <div>
-      <Icon name='ReportBox' size={90} />
-    </div>
+    <Assessment size={50} />
   )))
 
   .add('all icons', () => {
-    const renderIcons = Object.keys(icons).map((icon, i) => {
-      const name = icon.replace('Md', '');
+    const renderIcons = Object.keys(icons).map((name, i) => {
+      const Icon = icons[name];
+
       return (
         <span style={{ display: 'inline-block', width: '220px', margin: '30px 0', textAlign: 'center'}}>
-          <Icon name={name} size={50} />
-          <p>{ name }</p>
+          <Icon size={50} />
+          <p>{'<'}{ name } {'/>'}</p>
         </span>
       )
     });
-    return (
-      <div>
-        { renderIcons }
-      </div>
-    );
+
+    return <div>{ renderIcons }</div>;
   });

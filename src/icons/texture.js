@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTexture = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m15.5 35l19.5-19.5v4.7l-14.8 14.8h-4.7z m19.5-3.4c0 1.8-1.6 3.4-3.4 3.4h-3.2l6.6-6.6v3.2z m-26.6-26.6h3.2l-6.6 6.6v-3.2c0-1.8 1.6-3.4 3.4-3.4z m11.4 0h4.7l-19.5 19.5v-4.7z m12.7 0.2c1.2 0.3 2.1 1.1 2.4 2.3l-27.4 27.3c-1.1-0.3-2-1.2-2.3-2.3z"/></g>
-    </Icon>
-)
-
-export default MdTexture
+export default createSvgIcon(
+  <g><path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" /></g>
+, 'Texture');

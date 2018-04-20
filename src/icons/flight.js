@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdFlight = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m35 26.6l-13.4-4.1v9.1l3.4 2.5v2.5l-5.9-1.6-5.7 1.6v-2.5l3.2-2.5v-9.1l-13.2 4.1v-3.2l13.2-8.4v-9.1c0-1.5 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v9.1l13.4 8.4v3.2z"/></g>
-    </Icon>
-)
-
-export default MdFlight
+export default createSvgIcon(
+  <g><path d="M10.18 9" /><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" /></g>
+, 'Flight');

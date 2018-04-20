@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
-import { Icon } from '../Icon';
-
+import ArrowDropDown from '../../icons/ArrowDropDown';
 import classnames from 'classnames';
 import styles from './Select.module.scss';
 
@@ -118,7 +117,7 @@ class Select extends Component {
           {...rest} >
           { optionMarkup }
         </select>
-        <Icon name='CaretDown' className={dropdownClasses} />
+        <ArrowDropDown className={dropdownClasses} />
         { errorMarkup }
         { helpMarkup }
       </fieldset>

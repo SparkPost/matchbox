@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdCompare = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 5c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-8.2v-15l8.2 10v-21.6h-8.2v-3.4h8.2z m-15 25v-10l-8.2 10h8.2z m0-25v-3.4h3.4v36.8h-3.4v-3.4h-8.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h8.2z"/></g>
-    </Icon>
-)
-
-export default MdCompare
+export default createSvgIcon(
+  <g><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v2h2V1h-2v2zm0 15H5l5-6v6zm9-15h-5v2h5v13l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" /></g>
+, 'Compare');

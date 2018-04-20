@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdWeb = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m33.4 30v-15h-6.8v15h6.8z m-8.4-8.4v-6.6h-18.4v6.6h18.4z m0 8.4v-6.6h-18.4v6.6h18.4z m8.4-23.4c1.8 0 3.2 1.6 3.2 3.4v20c0 1.8-1.4 3.4-3.2 3.4h-26.8c-1.8 0-3.2-1.6-3.2-3.4v-20c0-1.8 1.4-3.4 3.2-3.4h26.8z"/></g>
-    </Icon>
-)
-
-export default MdWeb
+export default createSvgIcon(
+  <g><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z" /></g>
+, 'Web');

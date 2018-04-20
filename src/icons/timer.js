@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdTimer = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 33.4c6.5 0 11.6-5.3 11.6-11.8s-5.1-11.6-11.6-11.6-11.6 5.2-11.6 11.6 5.1 11.8 11.6 11.8z m11.7-21.1c2.1 2.6 3.3 5.8 3.3 9.3 0 8.3-6.7 15-15 15s-15-6.7-15-15 6.7-15 15-15c3.5 0 6.8 1.4 9.4 3.4l2.3-2.4c0.9 0.7 1.7 1.5 2.4 2.3z m-13.3 11.1v-10h3.2v10h-3.2z m6.6-21.8v3.4h-10v-3.4h10z"/></g>
-    </Icon>
-)
-
-export default MdTimer
+export default createSvgIcon(
+  <g><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" /></g>
+, 'Timer');

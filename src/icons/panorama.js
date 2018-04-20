@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdPanorama = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m14.1 20.9l-5.7 7.5h23.2l-7.5-10-5.7 7.5z m24.3 9.1c0 1.8-1.6 3.4-3.4 3.4h-30c-1.8 0-3.4-1.6-3.4-3.4v-20c0-1.8 1.6-3.4 3.4-3.4h30c1.8 0 3.4 1.6 3.4 3.4v20z"/></g>
-    </Icon>
-)
-
-export default MdPanorama
+export default createSvgIcon(
+  <g><path d="M23 18V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2zM8.5 12.5l2.5 3.01L14.5 11l4.5 6H5l3.5-4.5z" /></g>
+, 'Panorama');

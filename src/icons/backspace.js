@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdBackspace = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m31.6 26l-5.9-6 5.9-6-2.3-2.4-5.9 6.1-6.1-6.1-2.3 2.4 6 6-6 6 2.3 2.4 6.1-6.1 5.9 6.1z m5-21c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-25c-1.1 0-2-0.6-2.6-1.5l-9-13.5 9-13.5c0.6-0.9 1.5-1.5 2.6-1.5h25z"/></g>
-    </Icon>
-)
-
-export default MdBackspace
+export default createSvgIcon(
+  <g><path d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z" /></g>
+, 'Backspace');

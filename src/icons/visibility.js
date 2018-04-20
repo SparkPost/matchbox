@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdVisibility = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m20 15c2.7 0 5 2.3 5 5s-2.3 5-5 5-5-2.3-5-5 2.3-5 5-5z m0 13.4c4.6 0 8.4-3.8 8.4-8.4s-3.8-8.4-8.4-8.4-8.4 3.8-8.4 8.4 3.8 8.4 8.4 8.4z m0-20.9c8.4 0 15.5 5.2 18.4 12.5-2.9 7.3-10 12.5-18.4 12.5s-15.5-5.2-18.4-12.5c2.9-7.3 10-12.5 18.4-12.5z"/></g>
-    </Icon>
-)
-
-export default MdVisibility
+export default createSvgIcon(
+  <g><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" /></g>
+, 'Visibility');

@@ -1,11 +1,6 @@
+import React from 'react';
+import { createSvgIcon } from '../components/IconBase';
 
-import React from 'react'
-import Icon from 'react-icon-base'
-
-const MdRedo = props => (
-    <Icon viewBox="0 0 40 40" {...props}>
-        <g><path d="m30.7 17.7l5.9-6.1v15h-15l6.1-6c-2.3-1.9-5.3-3.1-8.6-3.1-5.9 0-10.9 3.8-12.6 9.1l-3.9-1.2c2.2-7 8.8-12 16.5-12 4.5 0 8.6 1.6 11.6 4.3z"/></g>
-    </Icon>
-)
-
-export default MdRedo
+export default createSvgIcon(
+  <g><path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z" /></g>
+, 'Redo');
