@@ -4,7 +4,8 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import { TextField, Button, Select, Tooltip, Autorenew } from '../src';
+import { TextField, Button, Select, Tooltip } from '../src';
+import { Autorenew } from '@sparkpost/matchbox-icons';
 
 export default storiesOf('TextField', module)
   .addDecorator((getStory) => (

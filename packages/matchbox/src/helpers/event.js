@@ -1,6 +1,6 @@
 export function debounce(func, wait, immediate) {
   let timeout;
-  return function() {
+  return function() { // eslint-disable-line
     const context = this; // eslint-disable-line
     const args = arguments;
     const later = function() {

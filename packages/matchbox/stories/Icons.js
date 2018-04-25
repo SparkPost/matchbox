@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { StoryContainer } from './helpers';
 
-import * as icons from '../src/icons';
+import * as icons from '@sparkpost/matchbox-icons';
 const Assessment = icons.Assessment;
 
 storiesOf('Icons', module)
