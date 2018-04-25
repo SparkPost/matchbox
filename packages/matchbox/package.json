@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/SparkPost/matchbox"
   },
+  "homepage": "https://github.com/SparkPost/matchbox/tree/master/packages/matchbox#readme",
   "publishConfig": {
     "access": "public"
   },

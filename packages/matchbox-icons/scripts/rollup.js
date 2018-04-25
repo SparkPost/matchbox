@@ -11,7 +11,7 @@ export const inputOptions = {
   external: [
     'react',
     'react-dom',
-    '@sparkpost/matchbox'
+    'prop-types'
   ]
 }
 

@@ -6,14 +6,6 @@ node_modules
 # testing
 /coverage
 
-# production
-/packages/matchbox/matchbox.js
-/packages/matchbox/matchbox.es.js
-/packages/matchbox/styles.css
-/packages/matchbox/styles.scss
-/packages/matchbox-icons/matchbox-icons.js
-/packages/matchbox-icons/matchbox-icons.es.js
-
 # misc
 .DS_Store
 .env

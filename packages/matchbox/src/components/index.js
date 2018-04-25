@@ -7,7 +7,6 @@ export * from './Datepicker';
 export * from './EmptyState';
 export * from './Error';
 export * from './Grid';
-export * from './IconBase';
 export * from './Label';
 export * from './Modal';
 export * from './Page';

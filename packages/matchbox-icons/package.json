@@ -16,15 +16,14 @@
   "bugs": {
     "url": "https://github.com/SparkPost/matchbox/issues"
   },
-  "homepage": "https://github.com/SparkPost/matchbox#readme",
+  "homepage": "https://github.com/SparkPost/matchbox/tree/master/packages/matchbox-icons#readme",
   "sideEffects": false,
   "scripts": {
     "build": "babel-node scripts/build.js --presets=node6"
   },
   "dependencies": {
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "@sparkpost/matchbox": "^2.4.4"
+    "react-dom": "^16.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -34,6 +33,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
     "rollup": "^0.58.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.0",
