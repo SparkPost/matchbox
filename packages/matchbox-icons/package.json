@@ -1,0 +1,43 @@
+{
+  "name": "@sparkpost/matchbox-icons",
+  "version": "1.0.0",
+  "description": "React icons for Matchbox",
+  "main": "matchbox-icons.js",
+  "module": "matchbox-icons.es.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparkPost/matchbox.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "SparkPost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SparkPost/matchbox/issues"
+  },
+  "homepage": "https://github.com/SparkPost/matchbox#readme",
+  "sideEffects": false,
+  "scripts": {
+    "build": "babel-node scripts/build.js --presets=node6"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "@sparkpost/matchbox": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-react": "^6.24.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^3.0.0"
+  }
+}

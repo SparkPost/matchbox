@@ -1,17 +1,18 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 
 # testing
 /coverage
 
 # production
-/index.js
-/matchbox.js
-/matchbox.es.js
-/styles.css
-/styles.scss
+/packages/matchbox/matchbox.js
+/packages/matchbox/matchbox.es.js
+/packages/matchbox/styles.css
+/packages/matchbox/styles.scss
+/packages/matchbox-icons/matchbox-icons.js
+/packages/matchbox-icons/matchbox-icons.es.js
 
 # misc
 .DS_Store
