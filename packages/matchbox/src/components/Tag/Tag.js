@@ -13,7 +13,7 @@ class Tag extends Component {
     /**
      * 'orange' | 'blue' | 'yellow' | 'red'
      */
-    color: PropTypes.oneOf(['orange', 'blue', 'yellow', 'red']),
+    color: PropTypes.oneOf(['orange', 'blue', 'yellow', 'red', 'navy', 'purple']),
     /**
      * Close button is hidden unless this is provided
      */

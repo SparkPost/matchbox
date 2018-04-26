@@ -78,8 +78,43 @@
   }
 }
 
+.navy {
+  .Content {
+    background: color(navy);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(navy);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: color(navy, dark);
+    }
+  }
+}
+
+.purple {
+  .Content {
+    background: color(purple);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(purple);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: color(purple, dark);
+    }
+  }
+}
+
 .Content {
   display: inline-block;
+  vertical-align: middle;
   padding: rem(2) rem(7) 0;
   border-radius: border-radius(large);
   background: color(gray, 8);
@@ -90,13 +125,13 @@
 
 .Close, a.Close {
   display: inline-block;
-  padding: rem(2) rem(6) 0;
+  vertical-align: middle;
+  padding: 0 rem(6);
   border-radius: 0 border-radius(large) border-radius(large) 0;
   background: color(gray, 8);
 
   color: color(gray, 4);
-  font-size: rem(12);
-  line-height: rem(22);
+  line-height: rem(24);
   transition: 0.15s;
 
   &:hover, &:active {

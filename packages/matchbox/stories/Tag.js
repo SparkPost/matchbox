@@ -25,5 +25,7 @@ storiesOf('Tag', module)
       <Tag onRemove={action('Tag Remove')} color='blue'>domain.com</Tag>{' '}
       <Tag onRemove={action('Tag Remove')} color='yellow'>domain.com</Tag>{' '}
       <Tag onRemove={action('Tag Remove')} color='red'>domain.com</Tag>{' '}
+      <Tag onRemove={action('Tag Remove')} color='navy'>domain.com</Tag>{' '}
+      <Tag onRemove={action('Tag Remove')} color='purple'>domain.com</Tag>{' '}
     </div>
   )));
