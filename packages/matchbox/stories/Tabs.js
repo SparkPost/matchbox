@@ -54,7 +54,17 @@ storiesOf('Tabs', module)
         breadcrumbAction={breadcrumbAction}
         title='Webhook #2'
       />
-      <Tabs selected={0} tabs={tabs} />
+      <Tabs selected={0} color='red' tabs={tabs} />
       <Panel sectioned>A panel</Panel>
+    </div>
+  )))
+
+  .add('Colors', withInfo()(() => (
+    <div>
+      <Tabs connectBelow={false} selected={0} color='purple' tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='navy' tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='blue' tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='orange' tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='red' tabs={tabs} />
     </div>
   )));

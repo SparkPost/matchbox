@@ -59,12 +59,36 @@
 
 .selected, a.selected {
   &, &:focus {
-    color: color(orange);
     pointer-events: none;
 
     &:after {
-      background: color(orange);
       opacity: 1;
     }
+
+    .color-orange & {
+      color: color(orange);
+      &:after { background: color(orange); }
+    }
+
+    .color-blue & {
+      color: color(blue);
+      &:after { background: color(blue); }
+    }
+
+    .color-navy & {
+      color: color(navy);
+      &:after { background: color(navy); }
+    }
+
+    .color-purple & {
+      color: color(purple);
+      &:after { background: color(purple); }
+    }
+
+    .color-red & {
+      color: color(red);
+      &:after { background: color(red); }
+    }
+
   }
 }

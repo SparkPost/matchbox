@@ -35,6 +35,11 @@ class Tabs extends Component {
     tabs: PropTypes.arrayOf(PropTypes.shape({
       content: PropTypes.string.isRequired
     })),
+
+    /**
+     * Tab Color
+     */
+    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
     /**
       * Index of selected tab
       */
@@ -46,16 +51,18 @@ class Tabs extends Component {
   };
 
   static defaultProps = {
-    connectBelow: true
+    connectBelow: true,
+    color: 'orange'
   };
 
   render() {
-    const { tabs, selected, connectBelow } = this.props;
+    const { tabs, selected, connectBelow, color } = this.props;
 
     const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} selected={selected} {...tab} />);
 
     const tabsClasses = classnames(
       styles.Tabs,
+      styles[`color-${color}`],
       connectBelow && styles.connectBelow
     );
 
