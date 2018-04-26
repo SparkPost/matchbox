@@ -11,5 +11,5 @@ export default storiesOf('ProgressBar', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .add('Default', withInfo()(() => (
-    <ProgressBar completed={54} />
+    <ProgressBar completed={54} color='red' />
   )));

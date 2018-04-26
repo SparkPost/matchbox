@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './ProgressBar.module.scss';
 
 class ProgressBar extends Component {
@@ -9,15 +10,21 @@ class ProgressBar extends Component {
     /**
      * Completion in percentage
      */
-    completed: PropTypes.number.isRequired
+    completed: PropTypes.number.isRequired,
+
+    /**
+     * Bar color
+     */
+    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
   };
 
   static defaultProps = {
-    completed: 0
+    completed: 0,
+    color: 'orange'
   }
 
   render() {
-    const { completed = 0 } = this.props;
+    const { completed = 0, color } = this.props;
 
     let percentage = completed;
 
@@ -28,7 +35,7 @@ class ProgressBar extends Component {
     }
 
     return (
-      <div className={styles.ProgressBar}>
+      <div className={classnames(styles.ProgressBar, styles[color])}>
         <div className={styles.Progress} style={{ width: `${percentage}%` }}/>
       </div>
     );

@@ -11,8 +11,29 @@
 
 .Progress {
   height: rem(21);
-  background: color(orange);
   border-radius: border-radius();
   box-shadow: shadow();
-  border-bottom: 1px solid color(orange, dark);
+
+  .orange & {
+    background: color(orange);
+    border-bottom: 1px solid color(orange, dark);
+  }
+
+  .blue & {
+    background: color(blue);
+    border-bottom: 1px solid color(blue, dark);
+  }
+
+  .navy & {
+    background: color(navy);
+    border-bottom: 1px solid color(navy, dark);
+  }
+  .purple & {
+    background: color(purple);
+    border-bottom: 1px solid color(purple, dark);
+  }
+  .red & {
+    background: color(red);
+    border-bottom: 1px solid color(red, dark);
+  }
 }
