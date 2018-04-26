@@ -8,15 +8,19 @@
   border-radius: border-radius();
 }
 
-.accent {
-  &:before {
-    display: block;
-    content: "";
-    background: color(orange);
-    height: 3px;
-    border-radius: border-radius() border-radius() 0 0;
-  }
+.Accent {
+  height: 3px;
+  border-radius: border-radius() border-radius() 0 0;
 }
+
+.accent-blue { background: color(blue); }
+.accent-navy { background: color(navy); }
+.accent-purple { background: color(purple); }
+.accent-red { background: color(red); }
+.accent-orange { background: color(orange); }
+.accent-gray { background: color(gray, 5); }
+.accent-yellow { background: color(yellow); }
+.accent-green { background: color(green, dark); }
 
 .Header, .Body {
   display: flex;

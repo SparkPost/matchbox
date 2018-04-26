@@ -74,9 +74,9 @@
   }
 }
 
-// Primary Styles
-.primary,
-.primary:visited {
+// Color Styles
+.color-orange,
+.color-orange:visited {
   background: linear-gradient(180deg, color(orange), color(orange, dark));
   color: color(gray, 10);
   border: 1px solid darken(color(orange), 12);
@@ -87,16 +87,169 @@
   }
 
   &:focus {
-    border: 1px solid darken(color(orange), 20);
-    box-shadow: shadow(),
-                inset 0 3px 4px 0 rgba(color(gray, 2), 0.1),
-                0 0 0 2px darken(color(orange), 20);
+    border: 1px solid darken(color(orange), 12);
+    box-shadow: inset 0 3px 4px 0 rgba(color(gray, 2), 0.1),
+                0 0 0 2px rgba(color(orange), 0.6);
   }
 
   &.disabled:disabled {
     background: linear-gradient(180deg, color(orange), color(orange, dark));
     &:hover {
       background: linear-gradient(180deg, color(orange), color(orange, dark));
+    }
+  }
+
+  &.plain {
+    color: color(orange);
+    &:hover, &:active, &:focus { color: color(orange); }
+  }
+}
+
+.color-blue,
+.color-blue:visited {
+  background: linear-gradient(180deg, color(blue), color(blue, dark));
+  color: color(gray, 10);
+  border: 1px solid darken(color(blue), 12);
+
+  &:hover {
+    color: color(gray, 10);
+    background: linear-gradient(180deg, darken(color(blue, dark), 3), darken(color(blue, dark), 3));
+  }
+
+  &:focus {
+    border: 1px solid darken(color(blue), 12);
+    box-shadow: inset 0 3px 4px 0 rgba(color(gray, 2), 0.1),
+                0 0 0 2px rgba(color(blue), 0.6);
+  }
+
+  &.disabled:disabled {
+    background: linear-gradient(180deg, color(blue), color(blue, dark));
+    &:hover {
+      background: linear-gradient(180deg, color(blue), color(blue, dark));
+    }
+  }
+
+  &.plain {
+    color: color(blue, dark);
+    &:hover, &:active, &:focus { color: color(blue, dark); }
+  }
+}
+
+.color-navy,
+.color-navy:visited {
+  background: linear-gradient(180deg, color(navy), color(navy, dark));
+  color: color(gray, 10);
+  border: 1px solid darken(color(navy), 12);
+
+  &:hover {
+    color: color(gray, 10);
+    background: linear-gradient(180deg, darken(color(navy, dark), 3), darken(color(navy, dark), 3));
+  }
+
+  &:focus {
+    border: 1px solid darken(color(navy), 20);
+    box-shadow: inset 0 3px 4px 0 rgba(color(gray, 2), 0.1),
+                0 0 0 2px color(navy, light);
+  }
+
+  &.disabled:disabled {
+    background: linear-gradient(180deg, color(navy), color(navy, dark));
+    &:hover {
+      background: linear-gradient(180deg, color(navy), color(navy, dark));
+    }
+  }
+
+  &.plain {
+    color: color(navy);
+    &:hover, &:active, &:focus { color: color(navy); }
+  }
+}
+
+.color-red,
+.color-red:visited {
+  background: linear-gradient(180deg, color(red), color(red, dark));
+  color: color(gray, 10);
+  border: 1px solid color(red, dark);
+
+  &:hover {
+    color: color(gray, 10);
+    background: linear-gradient(180deg, darken(color(red, dark), 3), darken(color(red, dark), 3));
+  }
+
+  &:focus {
+    border: 1px solid color(red, dark);
+    box-shadow: inset 0 3px 4px 0 rgba(color(gray, 2), 0.2),
+                0 0 0 2px rgba(color(red, dark), 0.6);
+  }
+
+  &.disabled:disabled {
+    background: linear-gradient(180deg, color(red), color(red, dark));
+    &:hover {
+      background: linear-gradient(180deg, color(red), color(red, dark));
+    }
+  }
+
+  &.plain {
+    color: color(red);
+    &:hover, &:active, &:focus { color: color(red); }
+  }
+}
+
+.color-purple,
+.color-purple:visited {
+  background: linear-gradient(180deg, color(purple), color(purple, dark));
+  color: color(gray, 10);
+  border: 1px solid color(purple, dark);
+
+  &:hover {
+    color: color(gray, 10);
+    background: linear-gradient(180deg, darken(color(purple, dark), 3), darken(color(purple, dark), 3));
+  }
+
+  &:focus {
+    border: 1px solid color(purple, dark);
+    box-shadow: inset 0 3px 4px 0 rgba(color(gray, 2), 0.2),
+                0 0 0 2px rgba(color(purple, dark), 0.6);
+  }
+
+  &.disabled:disabled {
+    background: linear-gradient(180deg, color(purple), color(purple, dark));
+    &:hover {
+      background: linear-gradient(180deg, color(purple), color(purple, dark));
+    }
+  }
+
+  &.plain {
+    color: color(purple);
+    &:hover, &:active, &:focus { color: color(purple); }
+  }
+}
+
+// Plain Styles
+.plain,
+.plain:visited {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  color: color(gray, 2);
+
+  &:hover, &:active {
+    color: color(gray, 1);
+    background: color(gray, 9);
+    box-shadow: none;
+  }
+
+  &:focus {
+    color: color(gray, 1);
+    box-shadow: 0 0 0 2px color(gray, 7);
+    border: none;
+  }
+
+  &.disabled:disabled {
+    opacity: 0.6;
+    background: transparent;
+    &:hover {
+      background: transparent;
     }
   }
 }
@@ -108,35 +261,6 @@
 
   &:hover {
     color: color(red, dark);
-  }
-}
-
-// Plain Styles
-.plain,
-.plain:visited {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  color: color(orange);
-
-  &:hover, &:active {
-    color: color(orange);
-    background: color(gray, 9);
-    box-shadow: none;
-  }
-
-  &:focus {
-    color: darken(color(orange, dark), 6);
-    box-shadow: 0 0 0 2px color(gray, 7);
-    border: none;
-  }
-
-  &.disabled:disabled {
-    opacity: 0.6;
-    background: transparent;
-    &:hover {
-      background: transparent;
-    }
   }
 }
 

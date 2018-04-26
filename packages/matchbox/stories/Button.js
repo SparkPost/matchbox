@@ -18,50 +18,61 @@ export default storiesOf('Button', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .add('Default', withInfo()(() => (
+
+  .add('Sizing', withInfo()(() => (
     <div>
-      <Button size='small'>Cancel</Button> &nbsp;
-
-      <Button>Cancel</Button> &nbsp;
-
-      <Button size='large'>Cancel</Button> &nbsp;
-
-      <Button disabled>Cancel</Button> &nbsp;
+      <Button size='small'>Small Button</Button> &nbsp;
+      <Button>Default Button</Button> &nbsp;
+      <Button size='large'>Large Button</Button>
     </div>
   )))
 
-  .add('Primary', withInfo()(() => (
+  .add('Colors', withInfo()(() => (
     <div>
-      <Button primary size='small'>Add a domain</Button> &nbsp;
-
-      <Button primary>Add a domain</Button> &nbsp;
-
-      <Button primary size='large'>Add a domain</Button> &nbsp;
-
-      <Button primary disabled>Add a domain</Button> &nbsp;
-    </div>
-  )))
-
-  .add('Plain', withInfo()(() => (
-    <div>
-      <Button plain size='small'>Verify</Button> &nbsp;
-
-      <Button plain>Verify</Button> &nbsp;
-
-      <Button plain size='large'>Verify</Button> &nbsp;
-
-      <Button plain disabled>Verify</Button> &nbsp;
+      <p>
+        <Button >Button</Button> &nbsp;
+        <Button disabled>Disabled</Button> &nbsp;
+        <Button plain>Plain</Button> &nbsp;
+        <Button plain disabled>Plain Disabled</Button>
+      </p>
+      <p>
+        <Button color='red'>Button</Button> &nbsp;
+        <Button color='red' disabled>Disabled</Button> &nbsp;
+        <Button color='red' plain>Plain</Button> &nbsp;
+        <Button color='red' plain disabled>Plain Disabled</Button>
+      </p>
+      <p>
+        <Button color='orange'>Button</Button> &nbsp;
+        <Button color='orange' disabled>Disabled</Button> &nbsp;
+        <Button color='orange' plain>Plain</Button> &nbsp;
+        <Button color='orange' plain disabled>Plain Disabled</Button>
+      </p>
+      <p>
+        <Button color='blue'>Button</Button> &nbsp;
+        <Button color='blue' disabled>Disabled</Button> &nbsp;
+        <Button color='blue' plain>Plain</Button> &nbsp;
+        <Button color='blue' plain disabled>Plain Disabled</Button>
+      </p>
+      <p>
+        <Button color='navy'>Button</Button> &nbsp;
+        <Button color='navy' disabled>Disabled</Button> &nbsp;
+        <Button color='navy' plain>Plain</Button> &nbsp;
+        <Button color='navy' plain disabled>Plain Disabled</Button>
+      </p>
+      <p>
+        <Button color='purple'>Button</Button> &nbsp;
+        <Button color='purple' disabled>Disabled</Button> &nbsp;
+        <Button color='purple' plain>Plain</Button> &nbsp;
+        <Button color='purple' plain disabled>Plain Disabled</Button>
+      </p>
     </div>
   )))
 
   .add('Destructive', withInfo()(() => (
     <div>
       <Button destructive size='small'>Delete domain</Button> &nbsp;
-
       <Button destructive>Delete domain</Button> &nbsp;
-
       <Button destructive size='large'>Delete domain</Button> &nbsp;
-
       <Button destructive disabled>Delete domain</Button> &nbsp;
     </div>
   )))
@@ -69,11 +80,8 @@ export default storiesOf('Button', module)
   .add('Outline', withInfo()(() => (
     <div>
       <Button outline size='small'>Manage IPs</Button> &nbsp;
-
       <Button outline>Manage IPs</Button> &nbsp;
-
       <Button outline size='large'>Manage IPs</Button> &nbsp;
-
       <Button outline disabled>Manage IPs</Button> &nbsp;
     </div>
   )))

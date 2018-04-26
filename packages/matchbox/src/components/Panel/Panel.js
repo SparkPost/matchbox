@@ -19,9 +19,12 @@ class Panel extends Component {
      */
     title: PropTypes.node,
     /**
-      * Shows an orange accent bar
+      * Shows an accent bar, defaults to orange if boolean
       */
-    accent: PropTypes.bool,
+    accent: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow', 'green', 'gray'])
+    ]),
     /**
       * Adds a padded section automatically
       */
@@ -50,6 +53,8 @@ class Panel extends Component {
       ...rest
     } = this.props;
 
+    const accentColor = accent === true ? 'orange' : accent;
+
     const headerMarkup = title
       ? <Header title={title} actions={actions} />
       : null;
@@ -58,10 +63,15 @@ class Panel extends Component {
       ? <Section>{children}</Section>
       : children;
 
-    const panelStyles = classnames(styles.Panel, accent && styles.accent, className);
+    const accentMarkup = accentColor
+      ? <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
+      : null;
+
+    const panelStyles = classnames(styles.Panel, className);
 
     return (
       <div className={panelStyles} {...rest}>
+        { accentMarkup }
         { headerMarkup }
         { contentMarkup }
       </div>

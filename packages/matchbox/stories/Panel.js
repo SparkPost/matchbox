@@ -14,8 +14,11 @@ storiesOf('Panel', module)
     <Panel title="Title" sectioned>This is a panel with a title</Panel>
   )))
 
-  .add('highlighted with a title', withInfo()(() => (
-      <Panel title="Title" accent sectioned>This is a highlighted panel with a title</Panel>
+  .add('with an accent', withInfo()(() => (
+    <Fragment>
+      <Panel accent sectioned>This is a highlighted panel with a title</Panel>
+      <Panel accent='yellow' sectioned>This is a highlighted panel with a title</Panel>
+    </Fragment>
   )))
 
   .add('with a footer', withInfo()(() => (
@@ -38,27 +41,30 @@ storiesOf('Panel', module)
     const actions = [
       {
         content: 'Edit',
-        onClick: action('Edit Clicked')
+        onClick: action('Edit Clicked'),
+        color: 'blue'
       },
       {
         content: 'Delete',
-        onClick: action('Delete Clicked')
+        onClick: action('Delete Clicked'),
+        color: 'blue'
       },
     ];
     const sectionActions = [
       {
         content: 'View Details',
-        onClick: action('Details Clicked')
+        onClick: action('Details Clicked'),
+        color: 'blue'
       }
     ];
     return (
         <Panel
           actions={actions}
-          accent
+          accent='blue'
           title='Panel with Actions'>
           <Panel.Section
             actions={sectionActions} >
-            <h5>More Actions</h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum reprehenderit, odio temporibus culpa beatae iure!</p>
           </Panel.Section>
         </Panel>
     );

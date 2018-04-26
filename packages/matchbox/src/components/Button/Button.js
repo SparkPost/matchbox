@@ -11,7 +11,7 @@ class Button extends Component {
   static Group = Group;
 
   static propTypes = {
-    primary: PropTypes.bool,
+    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
     disabled: PropTypes.bool,
     destructive: PropTypes.bool,
     plain: PropTypes.bool,
@@ -22,10 +22,6 @@ class Button extends Component {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
     component: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
-    Component: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.element
     ]),
@@ -45,7 +41,8 @@ class Button extends Component {
       children,
 
       // Styles
-      primary,
+      primary, // Deprecate in future
+      color,
       disabled,
       destructive,
       plain,
@@ -72,9 +69,11 @@ class Button extends Component {
 
     const WrapperComponent = component || Component;
 
+    const buttonColor = primary ? 'orange' : color;
+
     const classname = classnames(
       styles.Button,
-      primary && styles.primary,
+      buttonColor && styles[`color-${buttonColor}`],
       disabled && styles.disabled,
       destructive && styles.destructive,
       plain && styles.plain,
