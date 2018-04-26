@@ -4,11 +4,6 @@ import { buttonFrom } from '../Button';
 import { linkFrom } from '../UnstyledLink';
 import styles from './EmptyState.module.scss';
 
-const primaryActionOverrides = {
-  primary: true,
-  size: 'large'
-};
-
 class EmptyState extends Component {
   static displayName = 'EmptyState';
 
@@ -57,7 +52,10 @@ class EmptyState extends Component {
       : null;
 
     const primaryActionMarkup = primaryAction
-      ? buttonFrom(primaryAction, primaryActionOverrides)
+      ? buttonFrom(primaryAction, {
+        size: 'large',
+        ...(!primaryAction.color ? { color: 'orange' } : {})
+      })
       : null;
 
     const secondaryActionMarkup = secondaryAction

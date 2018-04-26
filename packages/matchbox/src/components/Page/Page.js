@@ -8,15 +8,6 @@ import { UnstyledLink, linkFrom } from '../UnstyledLink';
 
 import styles from './Page.module.scss';
 
-const primaryOverrides = {
-  primary: true,
-  size: 'large'
-};
-
-const secondaryOverrides = {
-  className: styles.SecondaryAction
-};
-
 const Breadcrumb = ({ content, ...rest }) => (
   <UnstyledLink {...rest}>
     <ChevronLeft size={27} />
@@ -96,13 +87,14 @@ class Page extends Component {
     }
 
     const primaryActionMarkup = primaryAction
-      ? buttonFrom(primaryAction, primaryOverrides)
+      ? buttonFrom(primaryAction, {
+        size: 'large',
+        ...(!primaryAction.color ? { color: 'orange' } : {})
+      })
       : null;
 
     const secondaryActionsMarkup = secondaryActions
-      ? secondaryActions.map((action, i) => linkFrom(
-        { ...action, ...secondaryOverrides }, i
-      ))
+      ? secondaryActions.map((action, i) => linkFrom({ ...action, className: styles.SecondaryAction }, i))
       : null;
 
     const breadcrumbMarkup = breadcrumbAction

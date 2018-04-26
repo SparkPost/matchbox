@@ -14,7 +14,8 @@ export default storiesOf('Page', module)
   .add('with all props', withInfo()(() => {
     const primaryAction = {
       content: 'Publish',
-      onClick: action('Publish Clicked')
+      onClick: action('Publish Clicked'),
+      color: 'orange'
     };
 
     const secondaryActions = [
@@ -49,7 +50,8 @@ export default storiesOf('Page', module)
   .add('with an empty state', withInfo()(() => {
     const primaryAction = {
         content: 'Create',
-        onClick: action('Create Clicked')
+        onClick: action('Create Clicked'),
+        color: 'orange'
       };
     return (
       <Page

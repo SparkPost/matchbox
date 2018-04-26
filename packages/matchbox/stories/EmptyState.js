@@ -10,12 +10,11 @@ storiesOf('Empty State', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .add('Default Empty State',
+  .add('Empty State',
   withInfo()(() => (
     <EmptyState
       title='Manage your email templates'
-      image='Generic'
-      primaryAction={{ content: 'Create Template', onClick: action('Create Template') }}
+      primaryAction={{ content: 'Create Template', onClick: action('Create Template'), color: 'orange' }}
       secondaryAction={{ content: 'Learn More', onClick: action('Learn More') }}>
       <p>Build, test, preview and send your transmissions.</p>
     </EmptyState>
