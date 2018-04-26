@@ -17,13 +17,33 @@
 }
 
 .Page, .Start, .End {
+  color: color(gray, 3);
   min-width: rem(42);
 }
 
 .Selected {
   font-weight: 700;
-  color: color(orange);
   pointer-events: none;
+}
+
+.color-orange {
+  color: color(orange);
+}
+
+.color-blue {
+  color: color(blue, dark);
+}
+
+.color-navy {
+  color: color(navy, light);
+}
+
+.color-purple {
+  color: color(purple, light);
+}
+
+.color-red {
+  color: color(red, light);
 }
 
 .Ellipse {

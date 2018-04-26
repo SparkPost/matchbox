@@ -24,6 +24,7 @@ export default storiesOf('Pagination', module)
     <Pagination
       pages={30}
       pageRange={7}
+      selectedColor='navy'
       onChange={action('Page Changed')}
     />
   )));

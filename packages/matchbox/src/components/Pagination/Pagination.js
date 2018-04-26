@@ -34,21 +34,24 @@ class Pagination extends Component {
     /**
      * Hides first and last buttons
      */
-    marginsHidden: PropTypes.bool
+    marginsHidden: PropTypes.bool,
+
+    /**
+     * Selected page color
+     */
+    selectedColor: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
   };
 
   static defaultProps = {
-    currentPage: 1
+    currentPage: 1,
+    selectedColor: 'orange'
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-      hasPrevious: false,
-      hasNext: true
-    };
-  }
+  state = {
+    index: 0,
+    hasPrevious: false,
+    hasNext: true
+  };
 
   componentWillMount() {
     this.handlePageChange(this.props.currentPage - 1);
@@ -86,7 +89,11 @@ class Pagination extends Component {
       buttons.push({
         content: `${index + 1}`,
         onClick: this.handlePageChange.bind(this, index),
-        className: classnames(styles.Page, index === this.state.index && styles.Selected)
+        className: classnames(
+          styles.Page,
+          index === this.state.index && styles.Selected,
+          index === this.state.index && styles[`color-${this.props.selectedColor}`]
+        )
       });
     }
 
