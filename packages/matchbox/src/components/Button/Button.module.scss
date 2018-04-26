@@ -99,7 +99,7 @@
     }
   }
 
-  &.plain {
+  &.flat {
     color: color(orange);
     &:hover, &:active, &:focus { color: color(orange); }
   }
@@ -129,7 +129,7 @@
     }
   }
 
-  &.plain {
+  &.flat {
     color: color(blue, dark);
     &:hover, &:active, &:focus { color: color(blue, dark); }
   }
@@ -159,7 +159,7 @@
     }
   }
 
-  &.plain {
+  &.flat {
     color: color(navy);
     &:hover, &:active, &:focus { color: color(navy); }
   }
@@ -189,7 +189,7 @@
     }
   }
 
-  &.plain {
+  &.flat {
     color: color(red);
     &:hover, &:active, &:focus { color: color(red); }
   }
@@ -219,15 +219,15 @@
     }
   }
 
-  &.plain {
+  &.flat {
     color: color(purple);
     &:hover, &:active, &:focus { color: color(purple); }
   }
 }
 
 // Plain Styles
-.plain,
-.plain:visited {
+.flat,
+.flat:visited {
   background: transparent;
   box-shadow: none;
   border: none;

@@ -14,7 +14,7 @@ class Button extends Component {
     color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
     disabled: PropTypes.bool,
     destructive: PropTypes.bool,
-    plain: PropTypes.bool,
+    flat: PropTypes.bool,
     outline: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'large', 'default']),
     fullWidth: PropTypes.bool,
@@ -41,11 +41,12 @@ class Button extends Component {
       children,
 
       // Styles
-      primary, // Deprecate in future
+      primary, // Deprecate in favor of color
       color,
       disabled,
       destructive,
-      plain,
+      plain, // Deprecate in favor of flat
+      flat,
       outline,
 
       // Options
@@ -76,7 +77,7 @@ class Button extends Component {
       buttonColor && styles[`color-${buttonColor}`],
       disabled && styles.disabled,
       destructive && styles.destructive,
-      plain && styles.plain,
+      (flat || plain) && styles.flat,
       outline && styles.outline,
       fullWidth && styles.fullWidth,
       size && styles[`${size}`],

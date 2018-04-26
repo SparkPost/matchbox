@@ -17,7 +17,7 @@ storiesOf('Panel', module)
   .add('with an accent', withInfo()(() => (
     <Fragment>
       <Panel accent sectioned>This is a highlighted panel with a title</Panel>
-      <Panel accent='yellow' sectioned>This is a highlighted panel with a title</Panel>
+      <Panel accent='navy' sectioned>This is a highlighted panel with a title</Panel>
     </Fragment>
   )))
 
@@ -42,25 +42,25 @@ storiesOf('Panel', module)
       {
         content: 'Edit',
         onClick: action('Edit Clicked'),
-        color: 'blue'
+        color: 'red'
       },
       {
         content: 'Delete',
         onClick: action('Delete Clicked'),
-        color: 'blue'
+        color: 'red'
       },
     ];
     const sectionActions = [
       {
         content: 'View Details',
         onClick: action('Details Clicked'),
-        color: 'blue'
+        color: 'red'
       }
     ];
     return (
         <Panel
           actions={actions}
-          accent='blue'
+          accent='red'
           title='Panel with Actions'>
           <Panel.Section
             actions={sectionActions} >

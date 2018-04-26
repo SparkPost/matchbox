@@ -4,7 +4,7 @@ import { buttonsFrom } from '../Button';
 import classnames from 'classnames';
 import styles from './Panel.module.scss';
 
-const actionOverrides = { plain: true, size: 'small' };
+const actionOverrides = { flat: true, size: 'small' };
 
 class Section extends Component {
 
