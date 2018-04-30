@@ -11,10 +11,6 @@ class UnstyledLink extends Component {
       PropTypes.func,
       PropTypes.element
     ]),
-    Component: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
     children: PropTypes.node
   }
 
