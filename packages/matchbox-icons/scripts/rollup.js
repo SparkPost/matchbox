@@ -4,7 +4,7 @@ import jsPlugins from './plugins/js';
 import pkg from '../package.json'
 
 export const inputOptions = {
-  input: 'icons/index.js',
+  input: 'src/index.js',
   plugins: [
     ...jsPlugins
   ],

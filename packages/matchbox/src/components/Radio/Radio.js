@@ -79,10 +79,10 @@ class Radio extends Component {
           onBlur={onBlur}
           type='radio'
           {...rest}/>
-          <label htmlFor={id} className={styles.Control}>
-            <div className={styles.Outline} />
-            <div className={styles.Fill} />
-          </label>
+        <label htmlFor={id} className={styles.Control}>
+          <div className={styles.Outline} />
+          <div className={styles.Fill} />
+        </label>
         { errorMarkup }
         { helpMarkup }
       </fieldset>

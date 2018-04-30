@@ -22,8 +22,8 @@
     "build": "babel-node scripts/build.js --presets=node6"
   },
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "^15.3.0 || ^16.0.0",
+    "react-dom": "^15.3.0 || ^16.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -31,6 +31,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.1",

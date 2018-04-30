@@ -160,10 +160,10 @@ class TextField extends Component {
 
     const inputMarkup = prefix || suffix
       ? <div className={styles.InputWrapper}>
-          { prefixMarkup }
-          { input }
-          { suffixMarkup }
-        </div>
+        { prefixMarkup }
+        { input }
+        { suffixMarkup }
+      </div>
       : input;
 
     return (

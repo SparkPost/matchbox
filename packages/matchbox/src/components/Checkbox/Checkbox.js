@@ -62,8 +62,8 @@ class Checkbox extends Component {
 
     const labelMarkup = label && !labelHidden
       ? <Label id={id} className={styles.Label}>
-          {label}{requiredIndicator}
-        </Label>
+        {label}{requiredIndicator}
+      </Label>
       : null;
 
     const errorMarkup = error
@@ -87,10 +87,10 @@ class Checkbox extends Component {
           onBlur={onBlur}
           type='checkbox'
           {...rest} />
-          <label htmlFor={id} className={styles.Control}>
-            <div className={styles.Box} />
-            <Check className={styles.Check} size={14}/>
-          </label>
+        <label htmlFor={id} className={styles.Control}>
+          <div className={styles.Box} />
+          <Check className={styles.Check} size={14}/>
+        </label>
         { labelMarkup }
         { errorMarkup }
         { helpMarkup }

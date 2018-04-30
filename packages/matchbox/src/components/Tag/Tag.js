@@ -42,10 +42,10 @@ class Tag extends Component {
 
     const closeMarkup = onRemove
       ? <UnstyledLink
-          className={styles.Close}
-          onClick={onRemove}>
-          <Close size={16} />
-        </UnstyledLink>
+        className={styles.Close}
+        onClick={onRemove}>
+        <Close size={16} />
+      </UnstyledLink>
       : null;
 
     return (

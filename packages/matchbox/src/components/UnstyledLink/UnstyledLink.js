@@ -37,7 +37,7 @@ class UnstyledLink extends Component {
           target={external ? '_blank' : ''}
           rel={external ? 'noopener noreferrer' : ''}
           {...rest}>
-            { children }
+          { children }
         </a>
       );
     }

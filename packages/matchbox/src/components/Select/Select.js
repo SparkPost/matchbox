@@ -96,8 +96,8 @@ class Select extends Component {
 
     const labelMarkup = label
       ? <Label
-          id={id}
-          label={`${label}${requiredIndicator}`} />
+        id={id}
+        label={`${label}${requiredIndicator}`} />
       : null;
 
     const errorMarkup = error

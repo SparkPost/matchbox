@@ -47,12 +47,12 @@ class Toggle extends Component {
           onBlur={onBlur}
           type='checkbox'
           {...rest} />
-          <span className={styles.Outline}></span>
-          <div className={styles.Labels}>
-            <span>On</span>
-            <span>Off</span>
-          </div>
-          <span className={styles.Indicator}></span>
+        <span className={styles.Outline}></span>
+        <div className={styles.Labels}>
+          <span>On</span>
+          <span>Off</span>
+        </div>
+        <span className={styles.Indicator}></span>
       </label>
     );
   }

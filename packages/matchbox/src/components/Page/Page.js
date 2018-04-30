@@ -81,8 +81,8 @@ class Page extends Component {
           title={title}
           primaryAction={primaryAction}
           {...emptyOptions}>
-            { content }
-          </EmptyState>
+          { content }
+        </EmptyState>
       );
     }
 
