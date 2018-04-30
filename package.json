@@ -71,7 +71,7 @@
     "postcss-modules": "^0.7.0",
     "postcss-modules-scope": "^1.0.2",
     "prop-types": "^15.5.10",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^16.3.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
