@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - "8"
-install: npm ci
+install: npm install
 script:
+  - npm --version
   - npm run test-ci
 # before_install: npm install -g greenkeeper-lockfile@1
 # before_script: greenkeeper-lockfile-update

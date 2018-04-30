@@ -15,6 +15,7 @@
   "scripts": {
     "build": "babel-node scripts/build.js --presets=node6",
     "test": "node scripts/test.js --env=jsdom",
+    "test-ci": "npm test -- --coverage && cat ./coverage/lcov.info | coveralls",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
