@@ -1,4 +1,16 @@
 {
+  "name": "matchbox-workspace",
+  "private": true,
+  "scripts": {
+    "clean": "lerna clean --yes",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --ignore @sparkpost/matchbox-stories",
+    "delink": "lerna exec --scope @sparkpost/matchbox -- npm i @sparkpost/matchbox-icons",
+    "watch": "lerna exec --scope @sparkpost/matchbox -- npm run watch",
+    "dev": "lerna run storybook --stream --scope @sparkpost/matchbox-stories & npm run watch",
+    "watch:rollup-broken": "lerna run --parallel --stream watch --ignore @sparkpost/matchbox-stories",
+    "dev:totallybroke": "npm run watch:rollup-broken & lerna run storybook --stream --scope @sparkpost/matchbox-stories"
+  },
 	"devDependencies": {
 		"lerna": "^2.10.2"
 	}
