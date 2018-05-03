@@ -16,6 +16,10 @@
   background: rgba(color(red, dark), 0.06);
 }
 
+.InlineError {
+  padding-left: spacing(small);
+}
+
 .Input {
   appearance: none;
   position: relative;
