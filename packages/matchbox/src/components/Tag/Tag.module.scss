@@ -1,0 +1,141 @@
+@import '../../styles/config';
+
+.Tag {
+  display: inline-block;
+}
+
+.hasRemove {
+  .Content {
+    border-radius: border-radius(large) 0 0 border-radius(large);
+  }
+}
+
+.orange {
+  .Content {
+    background: color(orange, dark);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(orange, dark);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: darken(color(orange, dark), 5);
+    }
+  }
+}
+
+.blue {
+  .Content {
+    background: color(blue, dark);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(blue, dark);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: darken(color(blue, dark), 5);
+    }
+  }
+}
+
+.yellow {
+  .Content {
+    background: color(yellow, light);
+    color: color(gray, 1);
+  }
+
+  .Close, a.Close {
+    background: color(yellow, light);
+    color: color(gray, 1);
+
+    &:hover, &:active {
+      color: color(gray, 0);
+      background: darken(color(yellow, light), 5);
+    }
+  }
+}
+
+.red {
+  .Content {
+    background: color(red);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(red);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: color(red, dark);
+    }
+  }
+}
+
+.navy {
+  .Content {
+    background: color(navy);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(navy);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: color(navy, dark);
+    }
+  }
+}
+
+.purple {
+  .Content {
+    background: color(purple);
+    color: color(gray, 10);
+  }
+
+  .Close, a.Close {
+    background: color(purple);
+    color: color(gray, 9);
+
+    &:hover, &:active {
+      color: color(gray, 10);
+      background: color(purple, dark);
+    }
+  }
+}
+
+.Content {
+  display: inline-block;
+  vertical-align: middle;
+  padding: rem(2) rem(7) 0;
+  border-radius: border-radius(large);
+  background: color(gray, 8);
+
+  font-size: rem(12);
+  line-height: rem(22);
+}
+
+.Close, a.Close {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 rem(6);
+  border-radius: 0 border-radius(large) border-radius(large) 0;
+  background: color(gray, 8);
+
+  color: color(gray, 4);
+  line-height: rem(24);
+  transition: 0.15s;
+
+  &:hover, &:active {
+    color: color(gray, 1);
+    background: color(gray, 7);
+  }
+}

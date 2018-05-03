@@ -1,0 +1,93 @@
+@import '../../styles/config';
+
+.Tabs {
+  margin-bottom: spacing();
+  padding: 0 rem(18);
+
+  background: color(gray, 10);
+  box-shadow: shadow();
+
+  white-space: nowrap;
+}
+
+.connectBelow {
+  margin-bottom: 0;
+  border-top-left-radius: border-radius();
+  border-top-right-radius: border-radius();
+  border-bottom: 1px solid color(gray, 8);
+
+  & + * {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.Tab, a.Tab {
+  position: relative;
+  display: inline-block;
+  padding: rem(15) 0;
+  margin-right: rem(21);
+
+  color: color(gray, 4);
+  font-size: rem(14);
+  text-decoration: none;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: rem(4);
+
+    border-radius: 1px;
+
+    opacity: 0;
+    transition: 0.15s;
+  }
+
+  &:hover, &:active, &:focus {
+    color: color(gray, 2);
+
+    &:after {
+      background: color(gray, 8);
+      opacity: 1;
+    }
+  }
+}
+
+.selected, a.selected {
+  &, &:focus {
+    pointer-events: none;
+
+    &:after {
+      opacity: 1;
+    }
+
+    .color-orange & {
+      color: color(orange);
+      &:after { background: color(orange); }
+    }
+
+    .color-blue & {
+      color: color(blue);
+      &:after { background: color(blue); }
+    }
+
+    .color-navy & {
+      color: color(navy);
+      &:after { background: color(navy); }
+    }
+
+    .color-purple & {
+      color: color(purple);
+      &:after { background: color(purple); }
+    }
+
+    .color-red & {
+      color: color(red);
+      &:after { background: color(red); }
+    }
+  }
+}
