@@ -6,8 +6,6 @@ import { Connect } from '../Connect';
 import classnames from 'classnames';
 import styles from './TextField.module.scss';
 
-const InlineErrorWrapper = ({ children }) => <span className={styles.InlineError}>{children}</span>;
-
 class TextField extends Component {
   static displayName = 'TextField';
 
@@ -35,16 +33,14 @@ class TextField extends Component {
     prefix: PropTypes.node,
     suffix: PropTypes.node,
     error: PropTypes.string,
-    /**
-     * Inlines the error message next to the field label. Label prop required.
-     */
-    inlineErrors: PropTypes.bool,
+    errorInLabel: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
   };
 
   static defaultProps = {
+    errorInLabel: false,
     required: false,
     resize: 'both',
     type: 'text'
@@ -87,8 +83,8 @@ class TextField extends Component {
       label,
       labelHidden,
       helpText,
-      inlineErrors,
       error,
+      errorInLabel,
       onChange,
       onFocus,
       onBlur,
@@ -110,22 +106,11 @@ class TextField extends Component {
       ? ' *'
       : '';
 
-    let labelMarkup;
-    const errorWrapper = inlineErrors ? InlineErrorWrapper : 'div';
-    const renderLabel = label && (!labelHidden || inlineErrors);
-    if (renderLabel) {
-      const renderErrorInLabel = error && inlineErrors;
-      const errorMsg = renderErrorInLabel ? <Error wrapper={errorWrapper} error={error} /> : null;
-      labelMarkup = <Label
-        id={id}
-        label={`${label}${requiredIndicator}`}>
-        {errorMsg}
-      </Label>;
-    }
-
-    const errorMarkup = error && !inlineErrors
-      ? <Error error={error} />
-      : null;
+    const labelMarkup = (
+      <Label id={id} label={`${label}${requiredIndicator}`}>
+        { error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} /> }
+      </Label>
+    );
 
     const helpMarkup = helpText
       ? <div className={styles.HelpText}>{ helpText }</div>
@@ -168,11 +153,11 @@ class TextField extends Component {
 
     return (
       <fieldset className={setClasses}>
-        { labelMarkup }
+        { label && !labelHidden && labelMarkup }
         <Connect left={connectLeft} right={connectRight}>
           { inputMarkup }
         </Connect>
-        { errorMarkup }
+        { error && !errorInLabel && <Error error={error} /> }
         { helpMarkup }
       </fieldset>
     );
