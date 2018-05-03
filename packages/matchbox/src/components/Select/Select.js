@@ -19,6 +19,7 @@ class Select extends Component {
   static displayName = 'Select';
 
   static defaultProps = {
+    errorInLabel: false,
     placeholderValue: '',
     required: false
   }
@@ -46,6 +47,7 @@ class Select extends Component {
     label: PropTypes.string,
     helpText: PropTypes.node,
     error: PropTypes.string,
+    errorInLabel: PropTypes.bool,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
@@ -62,6 +64,7 @@ class Select extends Component {
       disabled,
       required,
       error,
+      errorInLabel,
       ...rest
     } = this.props;
 
@@ -94,15 +97,11 @@ class Select extends Component {
       ? ' *'
       : '';
 
-    const labelMarkup = label
-      ? <Label
-        id={id}
-        label={`${label}${requiredIndicator}`} />
-      : null;
-
-    const errorMarkup = error
-      ? <Error error={error} />
-      : null;
+    const labelMarkup = (
+      <Label id={id} label={`${label}${requiredIndicator}`}>
+        { error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} /> }
+      </Label>
+    );
 
     const helpMarkup = helpText
       ? <div className={styles.HelpText}>{ helpText }</div>
@@ -110,7 +109,7 @@ class Select extends Component {
 
     return (
       <fieldset className={setClasses}>
-        { labelMarkup }
+        { label && labelMarkup }
         <select
           className={inputClasses}
           disabled={disabled}
@@ -118,7 +117,7 @@ class Select extends Component {
           { optionMarkup }
         </select>
         <ArrowDropDown className={dropdownClasses} />
-        { errorMarkup }
+        { error && !errorInLabel && <Error error={error} /> }
         { helpMarkup }
       </fieldset>
     );
