@@ -40,8 +40,6 @@ class TextField extends Component {
   };
 
   static defaultProps = {
-    errorInLabel: false,
-    required: false,
     resize: 'both',
     type: 'text'
   };

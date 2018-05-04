@@ -19,9 +19,7 @@ class Select extends Component {
   static displayName = 'Select';
 
   static defaultProps = {
-    errorInLabel: false,
-    placeholderValue: '',
-    required: false
+    placeholderValue: ''
   }
 
   static propTypes = {
