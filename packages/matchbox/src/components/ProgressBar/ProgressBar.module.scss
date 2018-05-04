@@ -1,0 +1,39 @@
+@import '../../styles/config';
+
+.ProgressBar {
+  position: relative;
+  margin-bottom: rem(18);
+  height: rem(21);
+  background: color(gray, 8);
+  border-bottom: 1px solid color(gray, 7);
+  border-radius: border-radius();
+}
+
+.Progress {
+  height: rem(21);
+  border-radius: border-radius();
+  box-shadow: shadow();
+
+  .orange & {
+    background: color(orange);
+    border-bottom: 1px solid color(orange, dark);
+  }
+
+  .blue & {
+    background: color(blue);
+    border-bottom: 1px solid color(blue, dark);
+  }
+
+  .navy & {
+    background: color(navy);
+    border-bottom: 1px solid color(navy, dark);
+  }
+  .purple & {
+    background: color(purple);
+    border-bottom: 1px solid color(purple, dark);
+  }
+  .red & {
+    background: color(red);
+    border-bottom: 1px solid color(red, dark);
+  }
+}

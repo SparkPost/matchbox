@@ -1,0 +1,81 @@
+
+$color-map: (
+  orange: (
+    light: #FE783E,
+    base : #FA6423,
+    dark : #E9591B
+  ),
+
+  blue: (
+    light: #52C7FA,
+    base : #37AADC,
+    dark : #2693C3
+  ),
+
+  green: (
+    light: #A6E84F,
+    base : #8CCA3A,
+    dark : #87B847
+  ),
+
+  yellow: (
+    light: #FDE15A,
+    base : #FFD300,
+    dark : #E3AF00
+  ),
+
+  red: (
+    light: #F44846,
+    base : #DB2F2D,
+    dark : #C8292D
+  ),
+
+  navy: (
+    light: #4F88FD,
+    base : #2861D4,
+    dark : #2250AD
+  ),
+
+  purple: (
+    light: #9944E6,
+    base : #7C38B9,
+    dark : #6D31A3
+  ),
+
+  magenta: (
+    light: #D665B4,
+    base : #B94696,
+    dark : #9D3C80
+  ),
+
+  gray: (
+    base : #55555a,
+    0    : #000000,
+    1    : #414146,
+    2    : #55555a,
+    3    : #6e6e73,
+    4    : #828287,
+    5    : #aaaaaf,
+    6    : #bebec3,
+    7    : #d2d2d7,
+    8    : #e1e1e6,
+    9    : #f2f2f5,
+    10   : #ffffff
+  ),
+);
+
+// Returns color hex code
+// @param {String} $hue - The base color hue
+// @param {String} $value - The color hue variant
+// @return {Color} The color hex code
+
+@function color($hue, $value: base) {
+  $hue-map: map-get($color-map, $hue);
+  $color: map-get($hue-map, $value);
+
+  @if type-of($color) == color {
+    @return $color;
+  } @else {
+    @error 'Color `#{$hue} - #{$value}` not found.';
+  }
+}
