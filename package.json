@@ -7,9 +7,62 @@
     "build": "lerna run build --ignore @sparkpost/matchbox-stories",
     "delink": "lerna exec --scope @sparkpost/matchbox -- npm i @sparkpost/matchbox-icons",
     "watch": "lerna exec --scope @sparkpost/matchbox -- npm run watch",
-    "dev": "lerna run storybook --stream --scope @sparkpost/matchbox-stories & npm run watch"
+    "dev": "lerna run storybook --stream --scope @sparkpost/matchbox-stories & npm run watch",
+    "pretest": "npm run bootstrap && npm run build",
+    "test": "node scripts/test.js --env=jsdom",
+    "test-ci": "npm test -- --coverage && cat ./coverage/lcov.info | coveralls"
   },
-	"devDependencies": {
-		"lerna": "^2.10.2"
-	}
+  "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^3.1.1",
+    "classnames": "^2.2.5",
+    "coveralls": "^3.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
+    "lerna": "^2.10.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-test-renderer": "^16.3.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "react-app"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "packages/matchbox/src/components/**/*.{js,jsx}",
+      "packages/matchbox-icons/src/IconBase/**/*.{js,jsx}"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    }
+  }
 }
