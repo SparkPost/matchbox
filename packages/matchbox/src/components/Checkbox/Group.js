@@ -10,10 +10,6 @@ const Group = ({ children, label, required }) => (
   </div>
 );
 
-Group.defaultProps = {
-  required: false
-};
-
 Group.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.node,

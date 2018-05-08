@@ -19,10 +19,7 @@ class Radio extends Component {
     label: PropTypes.node,
     labelHidden: PropTypes.bool,
     disabled: PropTypes.bool,
-    value: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string
-    ]),
+    value: PropTypes.string,
     error: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -74,7 +71,7 @@ class Radio extends Component {
           checked={checked}
           className={styles.Input}
           disabled={disabled}
-          onChange={(event) => onChange(event)}
+          onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
           type='radio'

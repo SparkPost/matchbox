@@ -21,7 +21,7 @@ class Popover extends Component {
       */
     sectioned: PropTypes.bool,
     /**
-      * Opens the popover
+      * Opens the popover. By default open state is handled automatically. Passing this value in will turn this into a controlled component.
       */
     open: PropTypes.bool,
     left: PropTypes.bool,
@@ -36,13 +36,9 @@ class Popover extends Component {
       */
     children: PropTypes.node,
     /**
-     * Element ID for the portal that will house tooltips. Appends to body if not provided.
+     * Element ID for the portal that will house Popover. Appends to body if not provided.
      */
-    portalId: PropTypes.string,
-    /**
-     * If this is true, removes on scroll position handling on scroll
-     */
-    fixed: PropTypes.bool
+    portalId: PropTypes.string
   };
 
   static defaultProps = {

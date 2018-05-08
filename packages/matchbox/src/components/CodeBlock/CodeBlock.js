@@ -32,7 +32,7 @@ class CodeBlock extends Component {
 
   renderPrefix = (row, i) => {
     if (this.props.numbered) {
-      return <div className={styles.LineNumber}>{i}</div>;
+      return <div key={i} className={styles.LineNumber}>{i}</div>;
     } else {
       return <ChevronRight key={i} className={styles.LineChevron}/>;
     }

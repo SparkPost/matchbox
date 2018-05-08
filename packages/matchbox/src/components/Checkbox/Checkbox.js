@@ -12,10 +12,6 @@ class Checkbox extends Component {
 
   static Group = Group;
 
-  static defaultProps = {
-    required: false
-  }
-
   static propTypes = {
     id: PropTypes.string,
     checked: PropTypes.bool,
@@ -82,7 +78,7 @@ class Checkbox extends Component {
           checked={checked}
           disabled={disabled}
           className={styles.Input}
-          onChange={(event) => onChange(event)}
+          onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
           type='checkbox'

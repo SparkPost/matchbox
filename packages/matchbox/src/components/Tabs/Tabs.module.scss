@@ -22,6 +22,11 @@
   }
 }
 
+.fitted {
+  display: flex;
+  padding: 0;
+}
+
 .Tab, a.Tab {
   position: relative;
   display: inline-block;
@@ -54,6 +59,12 @@
       background: color(gray, 8);
       opacity: 1;
     }
+  }
+
+  &.fittedTab {
+    flex: 1 0 0;
+    text-align: center;
+    margin-right: 0;
   }
 }
 

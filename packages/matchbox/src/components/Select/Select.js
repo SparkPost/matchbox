@@ -18,15 +18,11 @@ const Option = ({ option }) => {
 class Select extends Component {
   static displayName = 'Select';
 
-  static defaultProps = {
-    placeholderValue: ''
-  }
-
   static propTypes = {
     id: PropTypes.string,
     /**
      * Select options -
-     * Array of Objects with { value, label } or Strings
+     * Array of Objects with { value, label }, Strings, or Numbers
      */
     options: PropTypes.arrayOf(
       PropTypes.oneOfType([
@@ -38,8 +34,6 @@ class Select extends Component {
         PropTypes.number.isRequired
       ])
     ).isRequired,
-    placeholder: PropTypes.string,
-    placeholderValue: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     label: PropTypes.string,
