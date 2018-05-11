@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StoryContainer from './helpers/StoryContainer';
+import StoryContainer from './storyHelpers/StoryContainer';
 
 export default storiesOf('Welcome', module)
   .addDecorator((getStory) => (
