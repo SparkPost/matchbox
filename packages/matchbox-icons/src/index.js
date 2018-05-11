@@ -583,6 +583,7 @@ export { default as NotificationsActive } from './icons/NotificationsActive';
 export { default as NotificationsNone } from './icons/NotificationsNone';
 export { default as NotificationsOff } from './icons/NotificationsOff';
 export { default as NotificationsPaused } from './icons/NotificationsPaused';
+export { default as NotificationsUnread } from './icons/NotificationsUnread';
 export { default as NotInterested } from './icons/NotInterested';
 export { default as OfflinePin } from './icons/OfflinePin';
 export { default as OndemandVideo } from './icons/OndemandVideo';
