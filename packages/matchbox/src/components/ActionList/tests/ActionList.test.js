@@ -3,9 +3,14 @@ import ActionList from '../ActionList';
 import { shallow } from 'enzyme';
 
 describe('ActionList', () => {
+  const props = {
+    actions: [{ content: 'action label' }, { content: 'action label 2', selected: true }]
+  }
 
-  it('render correctly', () => {
-    expect(shallow(<ActionList />)).toMatchSnapshot();
+  it('renders correctly', () => {
+    const wrapper = shallow(<ActionList {...props} />);
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('Section').dive()).toMatchSnapshot();
   });
 
 });

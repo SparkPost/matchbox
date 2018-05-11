@@ -49,11 +49,12 @@ class ActionList extends Component {
       */
     maxHeight: PropTypes.oneOf([PropTypes.string, PropTypes.number])
   };
+
   render() {
     const {
       actions,
       sections,
-      maxHeight,
+      maxHeight = 'none',
       ...rest
     } = this.props;
 

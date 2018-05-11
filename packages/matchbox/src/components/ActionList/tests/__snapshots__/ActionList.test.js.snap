@@ -1,3 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionList render correctly 1`] = `<div />`;
+exports[`ActionList renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "maxHeight": "none",
+    }
+  }
+>
+  <Section
+    key="0"
+    section={
+      Array [
+        Object {
+          "content": "action label",
+        },
+        Object {
+          "content": "action label 2",
+          "selected": true,
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`ActionList renders correctly 2`] = `
+<div>
+  <UnstyledLink
+    className=""
+    key="0"
+  >
+    action label
+  </UnstyledLink>
+  <UnstyledLink
+    className=""
+    key="1"
+  >
+    <span>
+      action label 2
+      <Check
+        size={21}
+      />
+    </span>
+  </UnstyledLink>
+</div>
+`;
