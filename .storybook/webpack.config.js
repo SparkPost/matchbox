@@ -31,12 +31,3 @@ module.exports = (baseConfig, env, defaults) => {
 
   return defaults;
 };
-
-
-// module.exports = ({ platform }, defaults) => ({
-//   entry: `./storybook/index.${platform}.js`,
-//   resolve: {
-//     ...defaults.resolve,
-//     modules: [path.join(__dirname, 'node_modules')]
-//   }
-// });
