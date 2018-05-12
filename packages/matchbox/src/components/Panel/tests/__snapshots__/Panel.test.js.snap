@@ -2,10 +2,10 @@
 
 exports[`Panel renders correctly 1`] = `
 <div
-  className=""
+  className="Panel"
 >
   <div
-    className=""
+    className="Accent accent-orange"
   />
   <Header
     title="title"
@@ -18,7 +18,7 @@ exports[`Panel renders correctly 1`] = `
 
 exports[`Panel renders correctly with sections 1`] = `
 <div
-  className=""
+  className="Panel"
 >
   <Panel.Section>
     <Panel.Section>

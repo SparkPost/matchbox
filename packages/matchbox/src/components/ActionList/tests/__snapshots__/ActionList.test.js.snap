@@ -2,6 +2,7 @@
 
 exports[`ActionList renders correctly 1`] = `
 <div
+  className="ActionList"
   style={
     Object {
       "maxHeight": "none",
@@ -26,20 +27,23 @@ exports[`ActionList renders correctly 1`] = `
 `;
 
 exports[`ActionList renders correctly 2`] = `
-<div>
+<div
+  className="Section"
+>
   <UnstyledLink
-    className=""
+    className="Action"
     key="0"
   >
     action label
   </UnstyledLink>
   <UnstyledLink
-    className=""
+    className="Action"
     key="1"
   >
     <span>
       action label 2
       <Check
+        className="Check"
         size={21}
       />
     </span>
