@@ -133,7 +133,7 @@ class Popover extends Component {
         <div className={popoverClasses} {...rest}>
           <span className={styles.Tip} />
           <div className={styles.Content} >
-            { children }
+            {children}
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ class Popover extends Component {
         className={styles.Activator}
         onClick={this.handleTrigger}
         ref={assignRefs}>
-        { trigger }
+        {trigger}
       </WrapperComponent>
     );
   }

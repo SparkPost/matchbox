@@ -67,7 +67,7 @@ class Checkbox extends Component {
       : null;
 
     const helpMarkup = helpText
-      ? <div className={styles.HelpText}>{ helpText }</div>
+      ? <div className={styles.HelpText}>{helpText}</div>
       : null;
 
     return (
@@ -87,9 +87,9 @@ class Checkbox extends Component {
           <div className={styles.Box} />
           <Check className={styles.Check} size={14}/>
         </label>
-        { labelMarkup }
-        { errorMarkup }
-        { helpMarkup }
+        {labelMarkup}
+        {errorMarkup}
+        {helpMarkup}
       </fieldset>
     );
   }

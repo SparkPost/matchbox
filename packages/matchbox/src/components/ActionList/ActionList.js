@@ -24,7 +24,7 @@ const Section = ({ section }) => {
 
   return (
     <div className={styles.Section}>
-      { actions }
+      {actions}
     </div>
   );
 };
@@ -67,7 +67,7 @@ class ActionList extends Component {
 
     return (
       <div className={styles.ActionList} style={{ maxHeight }} {...rest}>
-        { listMarkup }
+        {listMarkup}
       </div>
     );
   }

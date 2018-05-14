@@ -51,7 +51,7 @@ class CodeBlock extends Component {
     if (rows.length) {
       prefixMarkup = (
         <div className={styles.PrefixWrapper}>
-          { rows.map(this.renderPrefix) }
+          {rows.map(this.renderPrefix)}
         </div>
       );
     }

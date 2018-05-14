@@ -18,7 +18,7 @@ class Tab extends Component {
     );
     return (
       <UnstyledLink className={classes} {...rest}>
-        { content }
+        {content}
       </UnstyledLink>
     );
   }
@@ -70,7 +70,7 @@ class Tabs extends Component {
 
     return (
       <div className={tabsClasses}>
-        { tabMarkup }
+        {tabMarkup}
       </div>
     );
   }

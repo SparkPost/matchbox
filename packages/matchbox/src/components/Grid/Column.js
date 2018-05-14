@@ -42,7 +42,7 @@ class Column extends Component {
       xlOffset && styles[`xl-offset-${xlOffset}`]
     );
 
-    return <div className={colClasses} {...rest}>{ children }</div>;
+    return <div className={colClasses} {...rest}>{children}</div>;
   }
 }
 

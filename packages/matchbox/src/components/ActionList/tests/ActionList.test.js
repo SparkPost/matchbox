@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe('ActionList', () => {
   const props = {
     actions: [{ content: 'action label' }, { content: 'action label 2', selected: true }]
-  }
+  };
 
   it('renders correctly', () => {
     const wrapper = shallow(<ActionList {...props} />);

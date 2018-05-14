@@ -12,8 +12,8 @@ const Label = ({
     id={id && `${id}Label`}
     htmlFor={id}
     className={classnames(styles.Label, className)} >
-    { label }
-    { children }
+    {label}
+    {children}
   </label>
 );
 

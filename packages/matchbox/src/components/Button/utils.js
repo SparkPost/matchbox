@@ -3,7 +3,7 @@ import Button from './Button';
 
 export function buttonsFrom(actions, overrides) {
   if (actions.length) {
-    return <Button.Group>{ actions.map((action, key) => buttonFrom(action, overrides, key)) }</Button.Group>;
+    return <Button.Group>{actions.map((action, key) => buttonFrom(action, overrides, key))}</Button.Group>;
   }
 }
 

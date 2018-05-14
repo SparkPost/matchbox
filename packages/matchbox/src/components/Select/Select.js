@@ -11,7 +11,7 @@ const Option = ({ option }) => {
     const { value, label = value, ...rest } = option;
     return <option value={value} {...rest}>{label}</option>;
   } else if (typeof option === 'string' || typeof option === 'number') {
-    return <option value={option}>{ option }</option>;
+    return <option value={option}>{option}</option>;
   }
 };
 
@@ -91,26 +91,26 @@ class Select extends Component {
 
     const labelMarkup = (
       <Label id={id} label={`${label}${requiredIndicator}`}>
-        { error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} /> }
+        {error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} />}
       </Label>
     );
 
     const helpMarkup = helpText
-      ? <div className={styles.HelpText}>{ helpText }</div>
+      ? <div className={styles.HelpText}>{helpText}</div>
       : null;
 
     return (
       <fieldset className={setClasses}>
-        { label && labelMarkup }
+        {label && labelMarkup}
         <select
           className={inputClasses}
           disabled={disabled}
           {...rest} >
-          { optionMarkup }
+          {optionMarkup}
         </select>
         <ArrowDropDown className={dropdownClasses} />
-        { error && !errorInLabel && <Error error={error} /> }
-        { helpMarkup }
+        {error && !errorInLabel && <Error error={error} />}
+        {helpMarkup}
       </fieldset>
     );
   }

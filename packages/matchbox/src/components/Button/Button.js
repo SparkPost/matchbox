@@ -98,7 +98,7 @@ class Button extends Component {
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
         >
-          { children }
+          {children}
         </a>
       );
     }
@@ -115,7 +115,7 @@ class Button extends Component {
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
         >
-          { children }
+          {children}
         </WrapperComponent>
       );
     }
@@ -131,7 +131,7 @@ class Button extends Component {
         onMouseUp={(e) => this.handleMouseUp(e)}
         {...rest}
       >
-        { children }
+        {children}
       </button>
     );
   }

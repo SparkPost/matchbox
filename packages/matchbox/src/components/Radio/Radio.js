@@ -58,12 +58,12 @@ class Radio extends Component {
       : null;
 
     const helpMarkup = helpText
-      ? <div className={styles.HelpText}>{ helpText }</div>
+      ? <div className={styles.HelpText}>{helpText}</div>
       : null;
 
     return (
       <fieldset className={setClasses}>
-        { labelMarkup }
+        {labelMarkup}
         <input
           id={id}
           name={name}
@@ -80,8 +80,8 @@ class Radio extends Component {
           <div className={styles.Outline} />
           <div className={styles.Fill} />
         </label>
-        { errorMarkup }
-        { helpMarkup }
+        {errorMarkup}
+        {helpMarkup}
       </fieldset>
     );
   }

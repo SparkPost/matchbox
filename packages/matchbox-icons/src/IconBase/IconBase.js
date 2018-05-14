@@ -47,7 +47,7 @@ class IconBase extends Component {
         height={height || size}
         {...rest}
         style={styleProp}>
-          { children }
+        {children}
       </svg>
     );
   }
@@ -55,7 +55,7 @@ class IconBase extends Component {
 
 export function createSvgIcon(path, displayName) {
   const Icon = (props) => (
-    <IconBase {...props}>{ path }</IconBase>
+    <IconBase {...props}>{path}</IconBase>
   );
 
   Icon.displayName = displayName;

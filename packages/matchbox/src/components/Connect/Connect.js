@@ -20,11 +20,11 @@ class Connect extends Component {
     } = this.props;
 
     const leftMarkup = left
-      ? <div className={styles.Left}>{ left }</div>
+      ? <div className={styles.Left}>{left}</div>
       : null;
 
     const rightMarkup = right
-      ? <div className={styles.Right}>{ right }</div>
+      ? <div className={styles.Right}>{right}</div>
       : null;
 
     const primaryClasses = classnames(
@@ -35,9 +35,9 @@ class Connect extends Component {
 
     return (
       <div className={styles.Connect}>
-        { leftMarkup }
-        <div className={primaryClasses}>{ children }</div>
-        { rightMarkup }
+        {leftMarkup}
+        <div className={primaryClasses}>{children}</div>
+        {rightMarkup}
       </div>
     );
   }

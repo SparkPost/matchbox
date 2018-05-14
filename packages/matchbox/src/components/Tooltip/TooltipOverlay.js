@@ -62,10 +62,10 @@ class TooltipOverlay extends Component {
       <Fragment>
         <WindowEvent event='resize' handler={debounce(this.handleMeasurement, eventDebounce)} />
         <WindowEvent event='scroll' handler={debounce(this.handleMeasurement, eventDebounce)} />
-        { renderActivator(activatorProps) }
+        {renderActivator(activatorProps)}
         <Portal containerId={portalId}>
           <div className={styles.TooltipOverlay} style={position}>
-            { renderTooltip(tooltipProps) }
+            {renderTooltip(tooltipProps)}
           </div>
         </Portal>
       </Fragment>

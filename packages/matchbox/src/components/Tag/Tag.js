@@ -50,8 +50,8 @@ class Tag extends Component {
 
     return (
       <div className={tagClasses} {...rest}>
-        <div className={styles.Content}>{ children }</div>
-        { closeMarkup }
+        <div className={styles.Content}>{children}</div>
+        {closeMarkup}
       </div>
     );
   }

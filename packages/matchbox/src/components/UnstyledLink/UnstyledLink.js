@@ -33,16 +33,16 @@ class UnstyledLink extends Component {
           target={external ? '_blank' : ''}
           rel={external ? 'noopener noreferrer' : ''}
           {...rest}>
-          { children }
+          {children}
         </a>
       );
     }
 
     if (to && WrapperComponent) {
-      return <WrapperComponent to={to} {...rest} >{ children }</WrapperComponent>;
+      return <WrapperComponent to={to} {...rest} >{children}</WrapperComponent>;
     }
 
-    return <a {...rest}>{ children }</a>;
+    return <a {...rest}>{children}</a>;
   }
 }
 
