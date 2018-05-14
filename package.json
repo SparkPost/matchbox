@@ -57,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-lodash": "^2.7.0",
     "eslint-plugin-react": "^7.8.2",
+    "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "jest-enzyme": "^6.0.0",
