@@ -16,7 +16,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "packages/**/*.js": [
       "eslint --fix",
       "git add"
     ]
