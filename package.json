@@ -10,7 +10,16 @@
     "test-ci": "npm test -- --coverage && cat ./coverage/lcov.info | coveralls",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "node node_modules/eslint/bin/eslint.js packages",
+    "lintfix": "npm run lint -- --fix",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "prop-types": "^15.6.1",
@@ -38,10 +47,14 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-config-sparkpost": "^1.4.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "jest-enzyme": "^6.0.0",
     "lerna": "^2.10.2",
+    "lint-staged": "^7.1.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
     "react-test-renderer": "^16.3.2",
