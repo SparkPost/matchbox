@@ -3,13 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import StoryContainer from './storyHelpers/StoryContainer';
+import StoryContainer from '../storyHelpers/StoryContainer';
 
 import * as icons from '@sparkpost/matchbox-icons';
 import { IconBase } from '@sparkpost/matchbox-icons/IconBase';
 const Assessment = icons.Assessment;
 
-storiesOf('matchbox-icons|Icons', module)
+storiesOf('Icons|matchbox-icons', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
