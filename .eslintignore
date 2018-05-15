@@ -1,7 +1,5 @@
-node_modules
-rollup
-packages/matchbox/matchbox.js
-packages/matchbox/matchbox.es.js
-packages/matchbox-icons/matchbox-icons.js
-packages/matchbox-icons/matchbox-icons.es.js
-packages/matchbox-icons/src/icons
+packages/matchbox/*
+!packages/matchbox/src
+
+packages/matchbox-icons/*
+!packages/matchbox-icons/src
