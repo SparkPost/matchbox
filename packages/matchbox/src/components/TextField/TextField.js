@@ -106,20 +106,20 @@ class TextField extends Component {
 
     const labelMarkup = (
       <Label id={id} label={`${label}${requiredIndicator}`}>
-        { error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} /> }
+        {error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} />}
       </Label>
     );
 
     const helpMarkup = helpText
-      ? <div className={styles.HelpText}>{ helpText }</div>
+      ? <div className={styles.HelpText}>{helpText}</div>
       : null;
 
     const prefixMarkup = prefix
-      ? <span className={styles.Prefix} ref={(node) => this.prefixNode = node}>{ prefix }</span>
+      ? <span className={styles.Prefix} ref={(node) => this.prefixNode = node}>{prefix}</span>
       : null;
 
     const suffixMarkup = suffix
-      ? <span className={styles.Suffix} ref={(node) => this.suffixNode = node}>{ suffix }</span>
+      ? <span className={styles.Suffix} ref={(node) => this.suffixNode = node}>{suffix}</span>
       : null;
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {
@@ -143,20 +143,20 @@ class TextField extends Component {
 
     const inputMarkup = prefix || suffix
       ? <div className={styles.InputWrapper}>
-        { prefixMarkup }
-        { input }
-        { suffixMarkup }
+        {prefixMarkup}
+        {input}
+        {suffixMarkup}
       </div>
       : input;
 
     return (
       <fieldset className={setClasses}>
-        { label && !labelHidden && labelMarkup }
+        {label && !labelHidden && labelMarkup}
         <Connect left={connectLeft} right={connectRight}>
-          { inputMarkup }
+          {inputMarkup}
         </Connect>
-        { error && !errorInLabel && <Error error={error} /> }
-        { helpMarkup }
+        {error && !errorInLabel && <Error error={error} />}
+        {helpMarkup}
       </fieldset>
     );
   }

@@ -1,20 +1,30 @@
-import ReactDOM from 'react-dom';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
 
-const Portal = ({ children, containerId }) => {
-  const container = containerId
-    ? document.getElementById(containerId)
-    : document.body;
-  return ReactDOM.createPortal(children, container);
-};
+class Portal extends Component {
+  static displayName = 'Portal';
 
-Portal.displayName = 'Portal';
+  static propTypes = {
+    /**
+     * ID of the target portal container. Appends a new portal to document body if not provided.
+     */
+    containerId: PropTypes.string,
+    /**
+      * Content rendered inside the portal
+      */
+    children: PropTypes.node
+  };
 
-Portal.propTypes = {
-  /**
-   * ID of the target portal container
-   */
-  containerId: PropTypes.string
-};
+  render() {
+    const { containerId, children } = this.props;
+
+    const container = containerId
+      ? document.getElementById(containerId)
+      : document.body;
+
+    return ReactDOM.createPortal(children, container);
+  }
+}
 
 export default Portal;

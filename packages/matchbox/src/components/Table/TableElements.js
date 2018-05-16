@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './Table.module.scss';
 
 const Cell = ({ value, children, className, ...rest }) => (
-  <td className={classnames(styles.Cell, className)} {...rest}>{ value || children }</td>
+  <td className={classnames(styles.Cell, className)} {...rest}>{value || children}</td>
 );
 
 Cell.propTypes = {
@@ -15,7 +15,7 @@ Cell.propTypes = {
 Cell.displayName = 'Table.Cell';
 
 const HeaderCell = ({ value, children, className, ...rest }) => (
-  <th className={classnames(styles.HeaderCell, className)} {...rest}>{ value || children }</th>
+  <th className={classnames(styles.HeaderCell, className)} {...rest}>{value || children}</th>
 );
 
 HeaderCell.propTypes = {

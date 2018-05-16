@@ -7,7 +7,7 @@ import { Check } from '@sparkpost/matchbox-icons';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {
-  const actions = section.actions.map(({ className, highlighted, selected, content, ...action }, index) => {
+  const actions = section.map(({ className, highlighted, selected, content, ...action }, index) => {
 
     const classes = classnames(
       styles.Action,
@@ -24,7 +24,7 @@ const Section = ({ section }) => {
 
   return (
     <div className={styles.Section}>
-      { actions }
+      {actions}
     </div>
   );
 };
@@ -37,25 +37,28 @@ class ActionList extends Component {
       * Actions
       * e.g. [{ content: 'action label', onClick: callback() }]
       */
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.node.isRequired
-    })),
+    actions: PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
     /**
       * Creates sections
-      * e.g. [{ actions:[{ content: 'action label', onClick: callback() }]}]
+      * e.g. [[{ content: 'action label', onClick: callback() }]]
       */
-    sections: PropTypes.arrayOf(PropTypes.shape({
-      actions: PropTypes.array
-    }))
+    sections: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired }))),
+
+    /**
+      * Max height of list
+      */
+    maxHeight: PropTypes.oneOf([PropTypes.string, PropTypes.number])
   };
+
   render() {
     const {
       actions,
       sections,
+      maxHeight = 'none',
       ...rest
     } = this.props;
 
-    let list = actions ? [{ actions }] : [];
+    let list = [actions];
     if (sections) {
       list = list.concat(sections);
     }
@@ -63,8 +66,8 @@ class ActionList extends Component {
     const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
     return (
-      <div className={styles.ActionList} {...rest}>
-        { listMarkup }
+      <div className={styles.ActionList} style={{ maxHeight }} {...rest}>
+        {listMarkup}
       </div>
     );
   }

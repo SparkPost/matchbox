@@ -25,12 +25,12 @@ class Table extends Component {
     } = this.props;
 
     const dataMarkup = data
-      ? <tbody>{ data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />) }</tbody>
+      ? <tbody>{data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />)}</tbody>
       : children;
 
     return (
       <table className={styles.Table}>
-        { dataMarkup }
+        {dataMarkup}
       </table>
     );
   }

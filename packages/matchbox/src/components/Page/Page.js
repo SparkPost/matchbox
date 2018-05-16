@@ -11,7 +11,7 @@ import styles from './Page.module.scss';
 const Breadcrumb = ({ content, ...rest }) => (
   <UnstyledLink {...rest}>
     <ChevronLeft size={27} />
-    { content }
+    {content}
   </UnstyledLink>
 );
 
@@ -81,7 +81,7 @@ class Page extends Component {
           title={title}
           primaryAction={primaryAction}
           {...emptyOptions}>
-          { content }
+          {content}
         </EmptyState>
       );
     }
@@ -101,25 +101,25 @@ class Page extends Component {
       ? <Breadcrumb {...breadcrumbAction} className={styles.Breadcrumb}/>
       : null;
 
-    const titleMarkup = title ? <h1 className={styles.Title}>{ title }</h1> : null;
+    const titleMarkup = title ? <h1 className={styles.Title}>{title}</h1> : null;
 
     return (
       <div>
         <div className={styles.Page}>
           <div className={styles.Breadcrumb}>
-            { breadcrumbMarkup }
+            {breadcrumbMarkup}
           </div>
           <div className={styles.MainContent}>
-            { titleMarkup }
+            {titleMarkup}
             <div className={styles.PrimaryAction}>
-              { primaryActionMarkup }
+              {primaryActionMarkup}
             </div>
           </div>
           <div className={styles.SecondaryActions}>
-            { secondaryActionsMarkup }
+            {secondaryActionsMarkup}
           </div>
         </div>
-        { children }
+        {children}
       </div>
     );
   }

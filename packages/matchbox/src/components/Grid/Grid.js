@@ -44,7 +44,7 @@ class Grid extends Component {
       className
     );
 
-    return <div className={gridClasses}>{ children }</div>;
+    return <div className={gridClasses}>{children}</div>;
   }
 }
 

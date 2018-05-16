@@ -12,10 +12,6 @@ class Checkbox extends Component {
 
   static Group = Group;
 
-  static defaultProps = {
-    required: false
-  }
-
   static propTypes = {
     id: PropTypes.string,
     checked: PropTypes.bool,
@@ -71,7 +67,7 @@ class Checkbox extends Component {
       : null;
 
     const helpMarkup = helpText
-      ? <div className={styles.HelpText}>{ helpText }</div>
+      ? <div className={styles.HelpText}>{helpText}</div>
       : null;
 
     return (
@@ -82,7 +78,7 @@ class Checkbox extends Component {
           checked={checked}
           disabled={disabled}
           className={styles.Input}
-          onChange={(event) => onChange(event)}
+          onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
           type='checkbox'
@@ -91,9 +87,9 @@ class Checkbox extends Component {
           <div className={styles.Box} />
           <Check className={styles.Check} size={14}/>
         </label>
-        { labelMarkup }
-        { errorMarkup }
-        { helpMarkup }
+        {labelMarkup}
+        {errorMarkup}
+        {helpMarkup}
       </fieldset>
     );
   }

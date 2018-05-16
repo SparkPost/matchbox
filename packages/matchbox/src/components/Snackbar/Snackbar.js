@@ -51,7 +51,7 @@ class Snackbar extends Component {
 
     return (
       <div className={snackbarStyles} {...rest}>
-        <div className={styles.Content} style={{ maxWidth }}>{ children }</div>
+        <div className={styles.Content} style={{ maxWidth }}>{children}</div>
         <a className={styles.Dismiss} onClick={onDismiss}>
           <Close size={21} className={styles.DismissIcon} />
         </a>

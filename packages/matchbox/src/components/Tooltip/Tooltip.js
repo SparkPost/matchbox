@@ -93,7 +93,7 @@ class Tooltip extends Component {
       <span className={wrapperClasses}>
         <span className={styles.Tooltip} style={offset}>
           <span className={styles.Tip} />
-          <div className={styles.Content}>{ content }</div>
+          <div className={styles.Content}>{content}</div>
         </span>
       </span>
     );
@@ -105,7 +105,7 @@ class Tooltip extends Component {
       onMouseOver={this.handleMouseOver}
       onMouseOut={this.handleMouseOut}
       ref={activatorRef}>
-      { this.props.children }
+      {this.props.children}
     </span>
   )
 

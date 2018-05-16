@@ -157,7 +157,7 @@ class Pagination extends Component {
         <Button
           className={styles.End}
           onClick={() => this.handlePageChange(pages - 1)} >
-          { pages }
+          {pages}
         </Button>
       </span>
       : null;
@@ -170,9 +170,9 @@ class Pagination extends Component {
           disabled={!hasPrevious} >
           <ArrowBack size={16} />
         </Button>
-        { firstButton }
-        <span className={styles.Pages}>{ buttonMarkup() }</span>
-        { lastButton }
+        {firstButton}
+        <span className={styles.Pages}>{buttonMarkup()}</span>
+        {lastButton}
         <Button
           className={styles.Next}
           onClick={() => this.handleNext()}

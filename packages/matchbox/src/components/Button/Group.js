@@ -5,7 +5,7 @@ import styles from './Button.module.scss';
 
 const Group = ({ children, className = '' }) => (
   <div className={classnames(styles.Group, className)}>
-    { children }
+    {children}
   </div>
 );
 

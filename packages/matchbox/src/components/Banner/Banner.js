@@ -90,17 +90,17 @@ class Banner extends Component {
     } = this.props;
 
     const titleMarkup = title
-      ? <h5 className={styles.Title}>{ title }</h5>
+      ? <h5 className={styles.Title}>{title}</h5>
       : null;
 
     let actionMarkup = action
-      ? <div className={styles.Actions}>{ buttonFrom(action, actionOverrides) }</div>
+      ? <div className={styles.Actions}>{buttonFrom(action, actionOverrides)}</div>
       : null;
 
     if (actions) {
       actionMarkup = (
         <div className={styles.Actions}>
-          { actions.map((action, i) => buttonFrom(action, actionOverrides, i)) }
+          {actions.map((action, i) => buttonFrom(action, actionOverrides, i))}
         </div>
       );
     }
@@ -118,10 +118,10 @@ class Banner extends Component {
       <div className={bannerStyles} {...rest}>
         <IconSection status={status} />
         <div className={styles.Content}>
-          { dismissMarkup }
-          { titleMarkup }
-          <div className={styles.Children}>{ children }</div>
-          { actionMarkup }
+          {dismissMarkup}
+          {titleMarkup}
+          <div className={styles.Children}>{children}</div>
+          {actionMarkup}
         </div>
       </div>
     );

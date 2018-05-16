@@ -10,14 +10,15 @@ class Tab extends Component {
   static displayName = 'Tab';
 
   render() {
-    const { index, content, selected, ...rest } = this.props;
+    const { index, content, selected, fittedTab, ...rest } = this.props;
     const classes = classnames(
       styles.Tab,
-      selected === index && styles.selected
+      selected === index && styles.selected,
+      fittedTab && styles.fittedTab
     );
     return (
       <UnstyledLink className={classes} {...rest}>
-        { content }
+        {content}
       </UnstyledLink>
     );
   }
@@ -56,19 +57,20 @@ class Tabs extends Component {
   };
 
   render() {
-    const { tabs, selected, connectBelow, color } = this.props;
+    const { tabs, selected, connectBelow, color, fitted } = this.props;
 
-    const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} selected={selected} {...tab} />);
+    const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} fittedTab={fitted} selected={selected} {...tab} />);
 
     const tabsClasses = classnames(
       styles.Tabs,
       styles[`color-${color}`],
-      connectBelow && styles.connectBelow
+      connectBelow && styles.connectBelow,
+      fitted && styles.fitted
     );
 
     return (
       <div className={tabsClasses}>
-        { tabMarkup }
+        {tabMarkup}
       </div>
     );
   }

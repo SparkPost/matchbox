@@ -71,9 +71,9 @@ class Panel extends Component {
 
     return (
       <div className={panelStyles} {...rest}>
-        { accentMarkup }
-        { headerMarkup }
-        { contentMarkup }
+        {accentMarkup}
+        {headerMarkup}
+        {contentMarkup}
       </div>
     );
   }

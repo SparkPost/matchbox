@@ -33,15 +33,15 @@ class Section extends Component {
     } = this.props;
 
     const actionMarkup = actions && actions.length
-      ? <div className={styles.Actions}>{ buttonsFrom(actions, actionOverrides) }</div>
+      ? <div className={styles.Actions}>{buttonsFrom(actions, actionOverrides)}</div>
       : null;
 
     return (
       <div className={classnames(styles.Body, className)} {...rest}>
         <div className={styles.SectionContent}>
-          { children }
+          {children}
         </div>
-        { actionMarkup }
+        {actionMarkup}
       </div>
     );
   }

@@ -64,12 +64,12 @@ class EmptyState extends Component {
 
     return (
       <div className={styles.EmptyState}>
-        <h1 className={styles.Title}>{ title }</h1>
-        <div className={styles.Content}>{ children }</div>
+        <h1 className={styles.Title}>{title}</h1>
+        <div className={styles.Content}>{children}</div>
         <div className={styles.Actions}>
-          { primaryActionMarkup } { secondaryActionMarkup }
+          {primaryActionMarkup} {secondaryActionMarkup}
         </div>
-        { imageMarkup }
+        {imageMarkup}
       </div>
     );
   }

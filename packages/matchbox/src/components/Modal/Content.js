@@ -7,7 +7,7 @@ const Content = ({ children, contentRef, open }) => (
   <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: 150 }}>
     {(state) => {
       const classes = classnames(styles.Content, state && styles[state]);
-      return <div className={classes} ref={contentRef}>{ children }</div>;
+      return <div className={classes} ref={contentRef}>{children}</div>;
     }}
   </Transition>
 );

@@ -98,7 +98,7 @@ class Button extends Component {
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
         >
-          { children }
+          {children}
         </a>
       );
     }
@@ -115,7 +115,7 @@ class Button extends Component {
           onMouseUp={(e) => this.handleMouseUp(e)}
           {...rest}
         >
-          { children }
+          {children}
         </WrapperComponent>
       );
     }
@@ -131,27 +131,10 @@ class Button extends Component {
         onMouseUp={(e) => this.handleMouseUp(e)}
         {...rest}
       >
-        { children }
+        {children}
       </button>
     );
   }
-}
-
-export function buttonsFrom(actions, overrides) {
-  if (actions.length) {
-    return <Button.Group>{ actions.map((action, key) => buttonFrom(action, overrides, key)) }</Button.Group>;
-  }
-}
-
-export function buttonFrom({ content, ...action }, overrides, key) {
-  return (
-    <Button
-      key={key}
-      children={content}
-      {...action}
-      {...overrides}
-    />
-  );
 }
 
 export default Button;

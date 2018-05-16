@@ -65,7 +65,7 @@ class Modal extends Component {
             <Content contentRef={(node) => this.content = node} open={open}>
               <WindowEvent event='keydown' handler={this.handleKeyDown} />
               <WindowEvent event='click' handler={this.handleOutsideClick} />
-              { children }
+              {children}
             </Content>
           </Grid.Column>
         </Grid>

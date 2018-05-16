@@ -27,12 +27,12 @@ class Footer extends Component {
         <Grid>
           <Grid.Column xs={6}>
             <div className={styles.Left}>
-              { left }
+              {left}
             </div>
           </Grid.Column>
           <Grid.Column xs={6}>
             <div className={styles.Right}>
-              { right }
+              {right}
             </div>
           </Grid.Column>
         </Grid>

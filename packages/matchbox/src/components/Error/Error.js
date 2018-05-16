@@ -12,7 +12,7 @@ const Error = (props) => {
 
   return (
     <WrapperComponent className={classNames(styles.Error, className)}>
-      <span className={styles.Message}><ErrorIcon className={styles.Icon} size={13} />{ error }</span>
+      <span className={styles.Message}><ErrorIcon className={styles.Icon} size={13} />{error}</span>
     </WrapperComponent>
   );
 };
