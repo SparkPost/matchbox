@@ -3,14 +3,37 @@ import ActionList from '../ActionList';
 import { shallow } from 'enzyme';
 
 describe('ActionList', () => {
-  const props = {
-    actions: [{ content: 'action label' }, { content: 'action label 2', selected: true }]
-  };
-
-  it('renders correctly', () => {
-    const wrapper = shallow(<ActionList {...props} />);
+  it('renders actions correctly', () => {
+    const wrapper = shallow(
+      <ActionList actions={[{ content: 'Action' }, { content: 'Action 2', selected: true }]} />
+    );
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Section').dive()).toMatchSnapshot();
   });
 
+  it('renders sections correctly', () => {
+    const wrapper = shallow(
+      <ActionList
+        sections={[
+          [{ content: 'Sectioned1' }, { content: 'Sectioned2' }],
+          [{ content: 'Sectioned3' }, { content: 'Sectioned4' }]
+        ]}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders sections with actions and max height correctly', () => {
+    const wrapper = shallow(
+      <ActionList
+        maxHeight={50}
+        actions={[{ content: 'Action1' }, { content: 'Action2' }]}
+        sections={[
+          [{ content: 'Sectioned1' }, { content: 'Sectioned2' }],
+          [{ content: 'Sectioned3' }, { content: 'Sectioned4' }]
+        ]}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

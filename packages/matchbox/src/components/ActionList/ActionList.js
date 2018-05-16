@@ -47,19 +47,19 @@ class ActionList extends Component {
     /**
       * Max height of list
       */
-    maxHeight: PropTypes.oneOf([PropTypes.string, PropTypes.number])
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
 
   render() {
     const {
-      actions,
-      sections,
+      actions = [],
+      sections = [],
       maxHeight = 'none',
       ...rest
     } = this.props;
 
-    let list = [actions];
-    if (sections) {
+    let list = actions.length ? [actions] : [];
+    if (sections.length) {
       list = list.concat(sections);
     }
 
