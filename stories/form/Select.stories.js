@@ -24,7 +24,6 @@ export default storiesOf('Form|Select', module)
     <Select
       id='id'
       label='Select an option'
-      placeholder='Leslie Knope'
       options={options}
     />
   )))
