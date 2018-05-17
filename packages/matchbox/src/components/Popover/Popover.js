@@ -30,7 +30,6 @@ class Popover extends Component {
     bottom: PropTypes.bool,
 
     onClose: PropTypes.func,
-    onOutsideClick: PropTypes.func,
     /**
       * Popover Content
       */
@@ -53,44 +52,44 @@ class Popover extends Component {
   componentDidMount() {
     const { open: controlledOpen } = this.props;
 
-    // This component becomes "uncontrolled" if the prop 'open' is given a boolean value
+    // This component becomes "controlled" if the prop 'open' is given a boolean value
     if (controlledOpen === undefined) {
       this.setState({ open: false });
     }
   }
 
-  handleClose = (e) => {
-    const { onClose } = this.props;
-
-    if (this.state.open) {
-      this.setState({ open: false });
-    }
-
-    onClose && onClose();
+  uncontrolledToggle = () => {
+    this.setState({ open: !this.state.open });
   }
 
   handleOutsideClick = (e) => {
-    const { open: controlledOpen, onOutsideClick } = this.props;
+    const { open: controlledOpen, onClose } = this.props;
     const isOutside = this.popover && !this.popover.contains(e.target) && this.activator && !this.activator.contains(e.target);
 
-    if (controlledOpen && isOutside) {
-      onOutsideClick && onOutsideClick(e);
+    if (controlledOpen && onClose && isOutside) {
+      onClose(e);
     }
 
     if (this.state.open && isOutside) {
-      this.handleClose(e);
+      this.uncontrolledToggle();
     }
   }
 
   handleEsc = (e) => {
+    const { open: controlledOpen, onClose } = this.props;
+
+    if (controlledOpen && onClose) {
+      onKey('escape', onClose)(e);
+    }
+
     if (this.state.open) {
-      onKey('escape', this.handleClose)(e);
+      onKey('escape', this.uncontrolledToggle)(e);
     }
   }
 
   handleTrigger = () => {
     if (this.state.open === false) {
-      this.setState({ open: true });
+      this.uncontrolledToggle();
     }
   }
 
@@ -107,7 +106,6 @@ class Popover extends Component {
       right,
       portalId,
       onClose,
-      onOutsideClick,
       fixed,
       ...rest
     } = this.props;
