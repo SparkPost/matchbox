@@ -98,7 +98,7 @@ class Page extends Component {
       : null;
 
     const breadcrumbMarkup = breadcrumbAction
-      ? <Breadcrumb {...breadcrumbAction} className={styles.Breadcrumb}/>
+      ? <div><Breadcrumb {...breadcrumbAction} className={styles.Breadcrumb}/></div>
       : null;
 
     const titleMarkup = title ? <h1 className={styles.Title}>{title}</h1> : null;
@@ -106,9 +106,7 @@ class Page extends Component {
     return (
       <div>
         <div className={styles.Page}>
-          <div className={styles.Breadcrumb}>
-            {breadcrumbMarkup}
-          </div>
+          {breadcrumbMarkup}
           <div className={styles.MainContent}>
             {titleMarkup}
             <div className={styles.PrimaryAction}>
