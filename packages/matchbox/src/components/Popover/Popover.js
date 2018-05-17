@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
 import PopoverOverlay from './PopoverOverlay';
+import PopoverContent from './PopoverContent';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Popover.module.scss';
@@ -13,7 +14,7 @@ class Popover extends Component {
   static propTypes = {
     /**
      * A React component to will trigger the popover
-     * Click events are handled for you
+     * Click event is handled for you if this component is uncontrolled.
      */
     trigger: PropTypes.element,
     /**
@@ -21,14 +22,17 @@ class Popover extends Component {
       */
     sectioned: PropTypes.bool,
     /**
-      * Opens the popover. By default open state is handled automatically. Passing this value in will turn this into a controlled component.
+      * Opens the popover.
+      * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
       */
     open: PropTypes.bool,
     left: PropTypes.bool,
     right: PropTypes.bool,
     top: PropTypes.bool,
     bottom: PropTypes.bool,
-
+    /**
+      * Callback function that is called when clicking outside the popover, or hitting escape.
+      */
     onClose: PropTypes.func,
     /**
       * Popover Content
@@ -119,22 +123,21 @@ class Popover extends Component {
     );
 
     const wrapperClasses = classnames(
-      shouldBeOpen && styles.open,
       top && styles.top,
       left && styles.left
     );
 
     return (
-      <div className={wrapperClasses} ref={(node) => this.popover = node}>
+      <PopoverContent
+        open={shouldBeOpen}
+        popoverRef={(node) => this.popover = node}
+        wrapperClasses={wrapperClasses}
+        popoverClasses={popoverClasses}
+        {...rest}>
         <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
-        <div className={popoverClasses} {...rest}>
-          <span className={styles.Tip} />
-          <div className={styles.Content} >
-            {children}
-          </div>
-        </div>
-      </div>
+        {children}
+      </PopoverContent>
     );
   }
 

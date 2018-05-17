@@ -19,44 +19,32 @@ exports[`Popover activator render should render correctly 1`] = `
 `;
 
 exports[`Popover popover render should render correctly 1`] = `
-<div
-  className=""
->
-  <WindowEvent
-    event="click"
-    handler={[Function]}
-  />
-  <WindowEvent
-    event="keydown"
-    handler={[Function]}
-  />
-  <div
-    className="Popover"
-  >
-    <span
-      className="Tip"
-    />
-    <div
-      className="Content"
-    >
-      Popover Content
-    </div>
-  </div>
-</div>
+<Transition
+  appear={false}
+  enter={true}
+  exit={true}
+  in={false}
+  mountOnEnter={true}
+  onEnter={[Function]}
+  onEntered={[Function]}
+  onEntering={[Function]}
+  onExit={[Function]}
+  onExited={[Function]}
+  onExiting={[Function]}
+  timeout={
+    Object {
+      "enter": 0,
+      "exit": 100,
+    }
+  }
+  unmountOnExit={true}
+/>
 `;
 
 exports[`Popover popover render should use correct classnames 1`] = `
 <div
   className="top left"
 >
-  <WindowEvent
-    event="click"
-    handler={[Function]}
-  />
-  <WindowEvent
-    event="keydown"
-    handler={[Function]}
-  />
   <div
     className="Popover sectioned"
   >
@@ -66,6 +54,14 @@ exports[`Popover popover render should use correct classnames 1`] = `
     <div
       className="Content"
     >
+      <WindowEvent
+        event="click"
+        handler={[Function]}
+      />
+      <WindowEvent
+        event="keydown"
+        handler={[Function]}
+      />
       Popover Content
     </div>
   </div>

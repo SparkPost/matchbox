@@ -54,18 +54,17 @@ describe('Popover', () => {
     });
 
     it('should be open if controlled or uncontrolled', () => {
-      expect(popover().props().className).toEqual('');
+      expect(popover().props().in).toEqual(false);
       wrapper.setProps({ open: true });
-      expect(popover().props().className).toEqual('open');
+      expect(popover().props().in).toEqual(true);
       wrapper.setProps({ open: false });
       activator().simulate('click');
-      expect(popover().props().className).toEqual('open');
+      expect(popover().props().in).toEqual(true);
     });
 
     it('should use correct classnames', () => {
-      expect(popover().props().className).toEqual('');
       wrapper.setProps({ sectioned: true, top: true, left: true });
-      expect(popover()).toMatchSnapshot();
+      expect(popover().props().children()).toMatchSnapshot();
     });
   });
 

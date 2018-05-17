@@ -16,8 +16,8 @@
 
   opacity: 0;
   pointer-events: none;
-  transform: translate(0, 0) scale(0.96);
-  transition: 0.06s ease-out;
+  transform: scale(0.96);
+  transition: 0.1s ease-out;
   transition-property: opacity, transform;
 
   z-index: 1;
@@ -27,15 +27,31 @@
   padding: spacing();
 }
 
+.entered {
+  pointer-events: auto;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.exiting, .exited {
+  transition: 0.06s ease-out;
+  transform: scale(0.96);
+  opacity: 0;
+}
+
+.exited {
+  pointer-events: none;
+}
+
 .Tip {
   display: block;
   position: absolute;
-  top: rem(-14);
-  left: rem(21);
-  width: rem(14);
-  height: rem(14);
+  top: -14px;
+  left: 14px;
+  width: 14px;
+  height: 14px;
 
-  margin: rem(7) 0 0;
+  margin: 6px 0 0;
 
   background: color(gray, 10);
   border-top-left-radius: border-radius(large);
@@ -58,19 +74,12 @@
 
 .Wrapper {}
 
-.open {
-  .Popover {
-    pointer-events: auto;
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-}
-
 .top {
   .Tip {
     top: auto;
-    bottom: rem(-14);
-    margin: 0 0 rem(7);
+    bottom: -14px;
+    margin: 0 0 6px;
+
     border-top: none;
     border-left: none;
     border-bottom: 1px solid color(gray, 8);
@@ -93,6 +102,6 @@
 
   .Tip {
     left: auto;
-    right: rem(21);
+    right: 14px;
   }
 }
