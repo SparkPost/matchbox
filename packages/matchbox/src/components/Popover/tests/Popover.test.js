@@ -14,7 +14,7 @@ describe('Popover', () => {
   beforeEach(() => {
     wrapper = shallow(<Popover trigger={<Trigger/>} portalId='portal'>Popover Content</Popover>);
     activator = () => shallow(wrapper.instance().renderActivator({ activatorRef: activatorRefMock }));
-    popover = () => shallow(wrapper.instance().renderPopover());
+    popover = () => shallow(wrapper.instance().renderPopover({ activatorWidth: 100 }));
     keyEventHelpers.onKey = jest.fn(() => jest.fn());
     toggleSpy = jest.spyOn(wrapper.instance(), 'uncontrolledToggle');
   });

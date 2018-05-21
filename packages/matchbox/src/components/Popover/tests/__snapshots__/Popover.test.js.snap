@@ -43,13 +43,19 @@ exports[`Popover popover render should render correctly 1`] = `
 
 exports[`Popover popover render should use correct classnames 1`] = `
 <div
-  className="top left"
+  className="Wrapper top left"
 >
   <div
     className="Popover sectioned"
+    portalId="portal"
   >
     <span
       className="Tip"
+      style={
+        Object {
+          "right": 50,
+        }
+      }
     />
     <div
       className="Content"

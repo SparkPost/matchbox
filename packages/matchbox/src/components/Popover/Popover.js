@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
 import PopoverOverlay from './PopoverOverlay';
 import PopoverContent from './PopoverContent';
@@ -97,42 +96,20 @@ class Popover extends Component {
     }
   }
 
-  renderPopover = () => {
+  renderPopover = ({ activatorWidth }) => {
     const {
       children,
-      sectioned,
-      trigger,
-      className = '',
       open: controlledOpen,
-      top,
-      bottom,
-      left,
-      right,
-      portalId,
-      onClose,
-      fixed,
       ...rest
     } = this.props;
 
     const shouldBeOpen = controlledOpen || this.state.open;
 
-    const popoverClasses = classnames(
-      styles.Popover,
-      sectioned && styles.sectioned,
-      className
-    );
-
-    const wrapperClasses = classnames(
-      top && styles.top,
-      left && styles.left
-    );
-
     return (
       <PopoverContent
         open={shouldBeOpen}
         popoverRef={(node) => this.popover = node}
-        wrapperClasses={wrapperClasses}
-        popoverClasses={popoverClasses}
+        activatorWidth={activatorWidth}
         {...rest}>
         <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />

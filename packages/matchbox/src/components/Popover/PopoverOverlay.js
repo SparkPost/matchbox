@@ -27,7 +27,7 @@ class PopoverOverlay extends Component {
     this.handleMeasurement();
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     this.handleMeasurement();
   }
 
@@ -54,7 +54,7 @@ class PopoverOverlay extends Component {
         {renderActivator(activatorProps)}
         <Portal containerId={portalId}>
           <div className={overlayClasses} style={position}>
-            {renderPopover()}
+            {renderPopover({ activatorWidth: this.state.position.width })}
           </div>
         </Portal>
       </Fragment>

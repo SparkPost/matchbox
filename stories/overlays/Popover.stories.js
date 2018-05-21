@@ -58,24 +58,26 @@ export default storiesOf('Overlays|Popover', module)
   )))
 
   .add('with an ActionList', withInfo()(() => (
-    <Popover
-      left
-      trigger={<Button style={{ marginLeft: 100 }}>More Actions</Button>}
-      style={{ width: '200px' }}>
-      <ActionList
-        actions={[
-          { content: 'Edit' },
-          { content: 'Delete', selected: true },
-          { content: 'Test' }
-        ]}
-        sections={[
-          [
-            { content: 'Sectioned1' },
-            { content: 'Sectioned2' }
-          ]
-        ]}
-      />
-    </Popover>
+    <div style={{ paddingLeft: 100 }}>
+      <Popover
+        left
+        trigger={<Button>More Actions</Button>}
+        style={{ width: '200px' }}>
+        <ActionList
+          actions={[
+            { content: 'Edit' },
+            { content: 'Delete', selected: true },
+            { content: 'Test' }
+          ]}
+          sections={[
+            [
+              { content: 'Sectioned1' },
+              { content: 'Sectioned2' }
+            ]
+          ]}
+        />
+      </Popover>
+    </div>
   )))
 
   .add('with a controlled open state', withInfo({

@@ -8,7 +8,7 @@
   min-width: rem(200);
 
   background: color(gray, 10);
-  margin: rem(14) 0 0;
+  margin: 13px 0 0;
 
   box-shadow: shadow(deep);
   border-radius: border-radius(large);
@@ -16,40 +16,36 @@
 
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.96);
   transition: 0.1s ease-out;
-  transition-property: opacity, transform;
+  transition-property: opacity;
 
   z-index: 1;
-}
 
-.sectioned {
-  padding: spacing();
-}
+  &.entered {
+    pointer-events: auto;
+    opacity: 1;
+  }
 
-.entered {
-  pointer-events: auto;
-  transform: scale(1);
-  opacity: 1;
-}
+  &.exiting, &.exited {
+    transition: 0.06s ease-out;
+    opacity: 0;
+  }
 
-.exiting, .exited {
-  transition: 0.06s ease-out;
-  transform: scale(0.96);
-  opacity: 0;
-}
+  &.exited {
+    pointer-events: none;
+  }
 
-.exited {
-  pointer-events: none;
+  &.sectioned {
+    padding: spacing();
+  }
 }
 
 .Tip {
   display: block;
   position: absolute;
-  top: -14px;
-  left: 14px;
-  width: 14px;
-  height: 14px;
+  top: -13px;
+  width: 13px;
+  height: 13px;
 
   margin: 6px 0 0;
 
@@ -57,7 +53,7 @@
   border-top-left-radius: border-radius(large);
   border-top: 1px solid color(gray, 8);
   border-left: 1px solid color(gray, 8);
-  transform: rotate(45deg);
+  transform: translate(-50%, 0) rotate(45deg);
 
   z-index: 1;
 }
@@ -72,12 +68,10 @@
   position: relative;
 }
 
-.Wrapper {}
-
 .top {
   .Tip {
     top: auto;
-    bottom: -14px;
+    bottom: -13px;
     margin: 0 0 6px;
 
     border-top: none;
@@ -90,7 +84,7 @@
   .Popover {
     top: auto;
     bottom: 100%;
-    margin: 0 0 rem(14);
+    margin: 0 0 13px;
   }
 }
 
@@ -102,6 +96,6 @@
 
   .Tip {
     left: auto;
-    right: 14px;
+    transform: translate(50%, 0) rotate(45deg);
   }
 }
