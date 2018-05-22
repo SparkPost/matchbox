@@ -15,7 +15,7 @@ class Popover extends Component {
      * A React component to will trigger the popover
      * Click event is handled for you if this component is uncontrolled.
      */
-    trigger: PropTypes.element,
+    trigger: PropTypes.node,
     /**
       * Adds a padding to the Popover
       */
