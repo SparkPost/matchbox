@@ -57,12 +57,17 @@ class ActionList extends Component {
     groupByKey: PropTypes.string
   };
 
+  static defaultProps = {
+    maxHeight: 'none',
+    groupByKey: 'section'
+  };
+
   render() {
     const {
       actions = [],
       sections = [],
-      maxHeight = 'none',
-      groupByKey = 'section',
+      maxHeight,
+      groupByKey,
       ...rest
     } = this.props;
 
