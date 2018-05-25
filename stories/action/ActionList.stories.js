@@ -12,52 +12,73 @@ storiesOf('Action|ActionList', module)
   ))
   .add('within a Popover', withInfo()(() => (
     <div>
-      <Popover
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
         open
-        trigger={<Button style={{ marginRight: 150, marginBottom: 250 }}>Actions</Button>}
+        trigger={<Button style={{ marginBottom: 250 }}>Actions</Button>}
         style={{ width: '200px' }}>
-        <ActionList
-          actions={[
-            { content: 'Action1' },
-            { content: 'Action2' }
-          ]}
-        />
-      </Popover>
+          <ActionList
+            actions={[
+              { content: 'Action1' },
+              { content: 'Action2' }
+            ]}
+          />
+        </Popover>
+      </div>
 
-      <Popover
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
         open
-        trigger={<Button style={{ marginRight: 150, marginBottom: 250 }}>Sections</Button>}
+        trigger={<Button style={{ marginBottom: 250 }}>Sections</Button>}
         style={{ width: '200px' }}>
-        <ActionList
-          sections={[
-            [
-              { content: 'Sectioned1' },
-              { content: 'Sectioned2' }
-            ],
-            [
-              { content: 'Sectioned3' },
-              { content: 'Sectioned4' }
-            ]
-          ]}
-        />
-      </Popover>
+          <ActionList
+            sections={[
+              [
+                { content: 'Sectioned1' },
+                { content: 'Sectioned2' }
+              ],
+              [
+                { content: 'Sectioned3' },
+                { content: 'Sectioned4' }
+              ]
+            ]}
+          />
+        </Popover>
+      </div>
 
-      <Popover
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
         open
-        trigger={<Button style={{ marginRight: 150, marginBottom: 250 }}>Actions with Sections</Button>}
+        trigger={<Button style={{ marginBottom: 250 }}>Actions with Sections</Button>}
         style={{ width: '200px' }}>
-        <ActionList
-          actions={[
-            { content: 'Action1' },
-            { content: 'Action2' }
-          ]}
-          sections={[
-            [
-              { content: 'Sectioned1' },
-              { content: 'Sectioned2' }
-            ]
-          ]}
-        />
-      </Popover>
+          <ActionList
+            actions={[
+              { content: 'Action1' },
+              { content: 'Action2' }
+            ]}
+            sections={[
+              [
+                { content: 'Sectioned1' },
+                { content: 'Sectioned2' }
+              ]
+            ]}
+          />
+        </Popover>
+      </div>
+
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
+        open
+        trigger={<Button style={{ marginBottom: 250 }}>Actions with Group By Key</Button>}
+        style={{ width: '200px' }}>
+          <ActionList
+            groupByKey='group'
+            actions={[
+              { content: 'Action1', group: 1 },
+              { content: 'Action2', group: 2 }
+            ]}
+          />
+        </Popover>
+      </div>
     </div>
   )));

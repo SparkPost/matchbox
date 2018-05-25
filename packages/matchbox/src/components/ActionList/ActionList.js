@@ -58,7 +58,6 @@ class ActionList extends Component {
   };
 
   static defaultProps = {
-    maxHeight: 'none',
     groupByKey: 'section'
   };
 
@@ -66,7 +65,7 @@ class ActionList extends Component {
     const {
       actions = [],
       sections = [],
-      maxHeight,
+      maxHeight = 'none',
       groupByKey,
       ...rest
     } = this.props;

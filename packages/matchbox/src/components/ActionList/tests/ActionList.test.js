@@ -23,6 +23,18 @@ describe('ActionList', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders sections correctly using a group by key', () => {
+    const wrapper = shallow(
+      <ActionList
+        actions={[
+          { content: 'Sectioned1', section: 1 }, { content: 'Sectioned2', section: 1 },
+          { content: 'Sectioned3', section: 2 }, { content: 'Sectioned4', section: 2 }
+        ]}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders sections with actions and max height correctly', () => {
     const wrapper = shallow(
       <ActionList
