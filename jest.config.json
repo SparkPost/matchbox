@@ -1,6 +1,7 @@
 {
   "collectCoverageFrom": [
     "packages/matchbox/src/components/**/*.{js,jsx}",
+    "packages/matchbox/src/helpers/**/*.{js,jsx}",
     "packages/matchbox-icons/src/IconBase/**/*.{js,jsx}"
   ],
   "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
