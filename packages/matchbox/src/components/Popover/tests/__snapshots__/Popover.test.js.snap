@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover activator render should render a wrapper component correctly 1`] = `
+<div
+  className="Activator"
+  onClick={[Function]}
+>
+  <Trigger />
+</div>
+`;
+
+exports[`Popover activator render should render correctly 1`] = `
+<span
+  className="Activator"
+  onClick={[Function]}
+>
+  <Trigger />
+</span>
+`;
+
+exports[`Popover popover render should render correctly 1`] = `
+<Transition
+  appear={false}
+  enter={true}
+  exit={true}
+  in={false}
+  mountOnEnter={true}
+  onEnter={[Function]}
+  onEntered={[Function]}
+  onEntering={[Function]}
+  onExit={[Function]}
+  onExited={[Function]}
+  onExiting={[Function]}
+  timeout={
+    Object {
+      "enter": 0,
+      "exit": 100,
+    }
+  }
+  unmountOnExit={true}
+/>
+`;
+
+exports[`Popover popover render should use correct classnames 1`] = `
+<div
+  className="Wrapper top left"
+>
+  <div
+    className="Popover sectioned"
+    portalId="portal"
+  >
+    <span
+      className="Tip"
+      style={
+        Object {
+          "right": 50,
+        }
+      }
+    />
+    <div
+      className="Content"
+    >
+      <WindowEvent
+        event="click"
+        handler={[Function]}
+      />
+      <WindowEvent
+        event="keydown"
+        handler={[Function]}
+      />
+      Popover Content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popover should render overlay correctly 1`] = `
+<PopoverOverlay
+  portalId="portal"
+  renderActivator={[Function]}
+  renderPopover={[Function]}
+/>
+`;

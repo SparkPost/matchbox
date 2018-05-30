@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helper: Array helpers groupBy should group a list by a given key 1`] = `
+Object {
+  "1": Array [
+    Object {
+      "name": "a",
+      "section": 1,
+    },
+    Object {
+      "name": "c",
+      "section": 1,
+    },
+  ],
+  "4": Array [
+    Object {
+      "name": "b",
+      "section": 4,
+    },
+  ],
+  "mixed whoa": Array [
+    Object {
+      "name": "d",
+      "section": "mixed whoa",
+    },
+  ],
+}
+`;
+
+exports[`Helper: Array helpers groupBy should group items into a single group when the group by key is not present in any item 1`] = `
+Object {
+  "undefined": Array [
+    Object {
+      "name": "a",
+      "section": 1,
+    },
+    Object {
+      "name": "b",
+      "section": 4,
+    },
+    Object {
+      "name": "c",
+      "section": 1,
+    },
+    Object {
+      "name": "d",
+      "section": "mixed whoa",
+    },
+  ],
+}
+`;
+
+exports[`Helper: Array helpers groupBy should group items without a key into an undefined group 1`] = `
+Object {
+  "1": Array [
+    Object {
+      "name": "a",
+      "section": 1,
+    },
+    Object {
+      "name": "c",
+      "section": 1,
+    },
+  ],
+  "4": Array [
+    Object {
+      "name": "b",
+      "section": 4,
+    },
+  ],
+  "mixed whoa": Array [
+    Object {
+      "name": "d",
+      "section": "mixed whoa",
+    },
+  ],
+  "undefined": Array [
+    Object {
+      "name": "no section 1",
+    },
+    Object {
+      "name": "no section 2",
+    },
+  ],
+}
+`;
+
+exports[`Helper: Array helpers groupByValues should return a grouped array 1`] = `
+Array [
+  Array [
+    Object {
+      "name": "a",
+      "section": 1,
+    },
+    Object {
+      "name": "c",
+      "section": 1,
+    },
+  ],
+  Array [
+    Object {
+      "name": "b",
+      "section": 4,
+    },
+  ],
+  Array [
+    Object {
+      "name": "d",
+      "section": "mixed whoa",
+    },
+  ],
+]
+`;

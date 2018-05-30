@@ -89,6 +89,48 @@ exports[`ActionList renders sections correctly 1`] = `
 </div>
 `;
 
+exports[`ActionList renders sections correctly using a group by key 1`] = `
+<div
+  className="ActionList"
+  style={
+    Object {
+      "maxHeight": "none",
+    }
+  }
+>
+  <Section
+    key="0"
+    section={
+      Array [
+        Object {
+          "content": "Sectioned1",
+          "section": 1,
+        },
+        Object {
+          "content": "Sectioned2",
+          "section": 1,
+        },
+      ]
+    }
+  />
+  <Section
+    key="1"
+    section={
+      Array [
+        Object {
+          "content": "Sectioned3",
+          "section": 2,
+        },
+        Object {
+          "content": "Sectioned4",
+          "section": 2,
+        },
+      ]
+    }
+  />
+</div>
+`;
+
 exports[`ActionList renders sections with actions and max height correctly 1`] = `
 <div
   className="ActionList"

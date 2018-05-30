@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { WindowEvent } from '../WindowEvent';
 import PopoverOverlay from './PopoverOverlay';
+import PopoverContent from './PopoverContent';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Popover.module.scss';
@@ -13,24 +13,26 @@ class Popover extends Component {
   static propTypes = {
     /**
      * A React component to will trigger the popover
-     * Click events are handled for you
+     * Click event is handled for you if this component is uncontrolled.
      */
-    trigger: PropTypes.element,
+    trigger: PropTypes.node,
     /**
       * Adds a padding to the Popover
       */
     sectioned: PropTypes.bool,
     /**
-      * Opens the popover. By default open state is handled automatically. Passing this value in will turn this into a controlled component.
+      * Opens the popover.
+      * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
       */
     open: PropTypes.bool,
     left: PropTypes.bool,
     right: PropTypes.bool,
     top: PropTypes.bool,
     bottom: PropTypes.bool,
-
+    /**
+      * Callback function that is called when clicking outside the popover, or hitting escape.
+      */
     onClose: PropTypes.func,
-    onOutsideClick: PropTypes.func,
     /**
       * Popover Content
       */
@@ -53,90 +55,66 @@ class Popover extends Component {
   componentDidMount() {
     const { open: controlledOpen } = this.props;
 
-    // This component becomes "uncontrolled" if the prop 'open' is given a boolean value
+    // This component becomes "controlled" if the prop 'open' is given a boolean value
     if (controlledOpen === undefined) {
       this.setState({ open: false });
     }
   }
 
-  handleClose = (e) => {
-    const { onClose } = this.props;
-
-    if (this.state.open) {
-      this.setState({ open: false });
-    }
-
-    onClose && onClose();
+  uncontrolledToggle = () => {
+    this.setState({ open: !this.state.open });
   }
 
   handleOutsideClick = (e) => {
-    const { open: controlledOpen, onOutsideClick } = this.props;
+    const { open: controlledOpen, onClose } = this.props;
     const isOutside = this.popover && !this.popover.contains(e.target) && this.activator && !this.activator.contains(e.target);
 
-    if (controlledOpen && isOutside) {
-      onOutsideClick && onOutsideClick(e);
+    if (controlledOpen && onClose && isOutside) {
+      onClose(e);
     }
 
     if (this.state.open && isOutside) {
-      this.handleClose(e);
+      this.uncontrolledToggle();
     }
   }
 
   handleEsc = (e) => {
+    const { open: controlledOpen, onClose } = this.props;
+
+    if (controlledOpen && onClose) {
+      onKey('escape', onClose)(e);
+    }
+
     if (this.state.open) {
-      onKey('escape', this.handleClose)(e);
+      onKey('escape', this.uncontrolledToggle)(e);
     }
   }
 
   handleTrigger = () => {
     if (this.state.open === false) {
-      this.setState({ open: true });
+      this.uncontrolledToggle();
     }
   }
 
-  renderPopover = () => {
+  renderPopover = ({ activatorWidth }) => {
     const {
       children,
-      sectioned,
-      trigger,
-      className = '',
       open: controlledOpen,
-      top,
-      bottom,
-      left,
-      right,
-      portalId,
-      onClose,
-      onOutsideClick,
-      fixed,
       ...rest
     } = this.props;
 
     const shouldBeOpen = controlledOpen || this.state.open;
 
-    const popoverClasses = classnames(
-      styles.Popover,
-      sectioned && styles.sectioned,
-      className
-    );
-
-    const wrapperClasses = classnames(
-      shouldBeOpen && styles.open,
-      top && styles.top,
-      left && styles.left
-    );
-
     return (
-      <div className={wrapperClasses} ref={(node) => this.popover = node}>
+      <PopoverContent
+        open={shouldBeOpen}
+        popoverRef={(node) => this.popover = node}
+        activatorWidth={activatorWidth}
+        {...rest}>
         <WindowEvent event='click' handler={this.handleOutsideClick} />
         <WindowEvent event='keydown' handler={this.handleEsc} />
-        <div className={popoverClasses} {...rest}>
-          <span className={styles.Tip} />
-          <div className={styles.Content} >
-            {children}
-          </div>
-        </div>
-      </div>
+        {children}
+      </PopoverContent>
     );
   }
 

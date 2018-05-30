@@ -30,12 +30,13 @@ class ControlledPopover extends React.Component {
       <React.Fragment>
         <p>State: {this.state.open ? 'open' : 'closed' }</p>
         <p>Close Count: {this.state.count}</p>
+        <br/>
         <Popover
+          top
           sectioned
-          onClose={this.incClose}
+          onClose={this.close}
           open={this.state.open}
-          trigger={<Button onClick={this.open}>Open Me</Button>}
-          onOutsideClick={this.close}>
+          trigger={<Button onClick={this.open}>Open Me</Button>}>
             <p>I am controlled</p>
           <Button onClick={this.close}>Close me</Button>
         </Popover>
@@ -48,38 +49,42 @@ export default storiesOf('Overlays|Popover', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
-  .add('With Positioning', withInfo()(() => (
-    <Popover sectioned bottom right
+  .add('Uncontrolled open state', withInfo()(() => (
+    <Popover sectioned
       style={{ width: '400px' }}
       trigger={<Button onClick={action('Trigger Click')}>Button</Button>}>
-        <small>Popover Content</small>
+        <div>Popover Content</div>
     </Popover>
   )))
 
   .add('with an ActionList', withInfo()(() => (
-    <Popover
-      trigger={<Button>More Actions</Button>}
-      style={{ width: '200px' }}>
-      <ActionList
-        actions={[
-          { content: 'Edit' },
-          { content: 'Delete', selected: true },
-          { content: 'Test' }
-        ]}
-        sections={[
-          [
-            { content: 'Sectioned1' },
-            { content: 'Sectioned2' }
-          ]
-        ]}
-      />
-    </Popover>
+    <div style={{ paddingLeft: 100 }}>
+      <Popover
+        left
+        trigger={<Button>More Actions</Button>}
+        style={{ width: '200px' }}>
+        <ActionList
+          actions={[
+            { content: 'Edit' },
+            { content: 'Delete', selected: true },
+            { content: 'Test' }
+          ]}
+          sections={[
+            [
+              { content: 'Sectioned1' },
+              { content: 'Sectioned2' }
+            ]
+          ]}
+        />
+      </Popover>
+    </div>
   )))
 
   .add('with a controlled open state', withInfo({
     source: false,
     propTables: [Popover],
-    propTablesExclude: [ControlledPopover]
+    propTablesExclude: [ControlledPopover],
+    text: 'Manually set the `open` prop to take full control of the Popovers open state.'
   })(() => (
     <ControlledPopover />
   )))
