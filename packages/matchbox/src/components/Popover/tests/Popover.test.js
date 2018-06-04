@@ -6,6 +6,7 @@ import * as keyEventHelpers from '../../../helpers/keyEvents';
 describe('Popover', () => {
   const Trigger = (props) => <div {...props} />;
   let wrapper;
+  let instance;
   let activator;
   let popover;
   const activatorRefMock = jest.fn();
@@ -13,6 +14,7 @@ describe('Popover', () => {
 
   beforeEach(() => {
     wrapper = shallow(<Popover trigger={<Trigger/>} portalId='portal'>Popover Content</Popover>);
+    instance = wrapper.instance();
     activator = () => shallow(wrapper.instance().renderActivator({ activatorRef: activatorRefMock }));
     popover = () => shallow(wrapper.instance().renderPopover({ activatorWidth: 100 }));
     keyEventHelpers.onKey = jest.fn(() => jest.fn());
@@ -69,73 +71,89 @@ describe('Popover', () => {
   });
 
   describe('window events', () => {
+
     describe('escape', () => {
       it('should do nothing if popover is not open', () => {
+        wrapper.setProps({ onClose: jest.fn() });
         wrapper.instance().handleEsc('event');
         expect(keyEventHelpers.onKey).not.toHaveBeenCalled();
       });
 
       it('should call onClose prop if controlled component', () => {
-        const props = {
-          open: true,
-          onClose: jest.fn()
-        };
-        wrapper.setProps(props);
+        wrapper.setProps({ open: true, onClose: jest.fn() });
         wrapper.instance().handleEsc('event');
-        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', props.onClose);
+        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', instance.props.onClose);
+        expect(keyEventHelpers.onKey).not.toHaveBeenCalledWith('escape', wrapper.instance().uncontrolledToggle);
       });
 
       it('should close popover if uncontrolled', () => {
+        wrapper.setProps({ onClose: jest.fn() });
         wrapper.instance().setState({ open: true });
         wrapper.instance().handleEsc('event');
+        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', instance.props.onClose);
         expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', wrapper.instance().uncontrolledToggle);
       });
     });
 
     describe('outside click', () => {
-      const props = { onClose: jest.fn() };
+      describe('is outside', () => {
 
-      beforeEach(() => {
-        wrapper.setProps(props);
+        beforeEach(() => {
+          wrapper.setProps({ onClose: jest.fn() });
+          instance.popover = { contains: jest.fn(() => false) };
+          instance.activator = { contains: jest.fn(() => false) };
+        });
+
+        it('should close if controlled open', () => {
+          wrapper.setProps({ open: true });
+          instance.handleOutsideClick('event');
+          expect(toggleSpy).not.toHaveBeenCalled();
+          expect(instance.props.onClose).toHaveBeenCalled();
+        });
+
+        it('should close if uncontrolled open', () => {
+          instance.setState({ open: true });
+          instance.handleOutsideClick('event');
+          expect(toggleSpy).toHaveBeenCalled();
+          expect(instance.props.onClose).toHaveBeenCalled();
+        });
+
+        it('should not close if closed', () => {
+          instance.setState({ open: false });
+          instance.handleOutsideClick('event');
+          wrapper.setProps({ open: false });
+          instance.handleOutsideClick('event');
+          expect(toggleSpy).not.toHaveBeenCalled();
+          expect(instance.props.onClose).not.toHaveBeenCalled();
+        });
       });
 
-      it('should do nothing click is inside activator or popover', () => {
-        wrapper.instance().popover = { contains: jest.fn(() => true) };
-        wrapper.instance().activator = { contains: jest.fn(() => true) };
-        wrapper.instance().handleOutsideClick('event');
-        expect(toggleSpy).not.toHaveBeenCalled();
-        expect(props.onClose).not.toHaveBeenCalled();
-      });
+      describe('is inside', () => {
+        beforeEach(() => {
+          wrapper.setProps({ onClose: jest.fn() });
+          instance.popover = { contains: jest.fn(() => true) };
+          instance.activator = { contains: jest.fn(() => true) };
+        });
 
-      it('should close popover if uncontrolled', () => {
-        wrapper.instance().setState({ open: true });
-        wrapper.instance().popover = { contains: jest.fn(() => false) };
-        wrapper.instance().activator = { contains: jest.fn(() => false) };
-        wrapper.instance().handleOutsideClick('event');
-        expect(toggleSpy).toHaveBeenCalled();
-        expect(props.onClose).not.toHaveBeenCalled();
-      });
-
-      it('should close popover if controlled', () => {
-        wrapper.setProps({ open: true });
-        wrapper.instance().popover = { contains: jest.fn(() => false) };
-        wrapper.instance().activator = { contains: jest.fn(() => false) };
-        wrapper.instance().handleOutsideClick('event');
-        expect(toggleSpy).not.toHaveBeenCalled();
-        expect(props.onClose).toHaveBeenCalled();
+        it('should not close', () => {
+          instance.setState({ open: true });
+          instance.handleOutsideClick('event');
+          expect(toggleSpy).not.toHaveBeenCalled();
+          expect(instance.props.onClose).not.toHaveBeenCalled();
+        });
       });
     });
   });
 
   describe('handle trigger toggle', () => {
     it('should do nothing if popover is controlled', () => {
-      wrapper.instance().setState({ open: null }); // Reverts to default state
-      wrapper.instance().handleTrigger();
+      instance.setState({ open: null }); // Reverts to default state
+      instance.handleTrigger();
       expect(toggleSpy).not.toHaveBeenCalled();
     });
 
     it('should open popover if uncontrolled', () => {
-      wrapper.instance().handleTrigger();
+      instance.handleTrigger();
       expect(toggleSpy).toHaveBeenCalled();
     });
   });
