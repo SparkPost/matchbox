@@ -19,7 +19,7 @@ class ModalDemo extends React.Component {
     return (
       <div>
         <a onClick={this.handleChange}>Open modal</a>
-        <Modal open={this.state.open} onClose={this.handleChange}>
+        <Modal open={this.state.open} onClose={this.handleChange} showCloseButton={true}>
           <Panel title="Delete Template" sectioned accent>
             <p>Are you sure you want to delete your template?</p>
             <Button style={{ marginRight: '1rem' }} primary onClick={this.handleChange}>Delete</Button>
