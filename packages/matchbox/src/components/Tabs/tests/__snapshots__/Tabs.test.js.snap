@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render container with no tabs 1`] = `
+<div
+  className="Tabs color-orange connectBelow"
+/>
+`;
+
+exports[`Tabs should render tabs 1`] = `
+<div
+  className="Tabs color-orange connectBelow"
+>
+  <Tab
+    content="Example One"
+    index={0}
+    key="0"
+    selected={0}
+  />
+  <Tab
+    content="Example Two"
+    index={1}
+    key="1"
+    selected={0}
+  />
+  <Tab
+    content="Example Three"
+    index={2}
+    key="2"
+    selected={0}
+  />
+</div>
+`;

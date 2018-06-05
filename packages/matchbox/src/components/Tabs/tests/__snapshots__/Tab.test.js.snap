@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab should render a tab 1`] = `
+<UnstyledLink
+  className="Tab"
+  onClick={[Function]}
+>
+  Example
+</UnstyledLink>
+`;

@@ -2,27 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { UnstyledLink } from '../UnstyledLink';
+import Tab from './Tab';
 
 import styles from './Tabs.module.scss';
-
-class Tab extends Component {
-  static displayName = 'Tab';
-
-  render() {
-    const { index, content, selected, fittedTab, ...rest } = this.props;
-    const classes = classnames(
-      styles.Tab,
-      selected === index && styles.selected,
-      fittedTab && styles.fittedTab
-    );
-    return (
-      <UnstyledLink className={classes} {...rest}>
-        {content}
-      </UnstyledLink>
-    );
-  }
-}
 
 class Tabs extends Component {
   static displayName = 'Tabs';
