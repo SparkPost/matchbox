@@ -69,19 +69,21 @@ class Popover extends Component {
     const { open: controlledOpen, onClose } = this.props;
     const isOutside = this.popover && !this.popover.contains(e.target) && this.activator && !this.activator.contains(e.target);
 
-    if (controlledOpen && onClose && isOutside) {
-      onClose(e);
-    }
+    if (isOutside && (controlledOpen || this.state.open)) {
+      if (onClose) {
+        onClose(e);
+      }
 
-    if (this.state.open && isOutside) {
-      this.uncontrolledToggle();
+      if (this.state.open) {
+        this.uncontrolledToggle();
+      }
     }
   }
 
   handleEsc = (e) => {
     const { open: controlledOpen, onClose } = this.props;
 
-    if (controlledOpen && onClose) {
+    if (onClose && (controlledOpen || this.state.open)) {
       onKey('escape', onClose)(e);
     }
 
