@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render modal 1`] = `
+<div
+  className="Modal"
+  onClose={[MockFunction]}
+>
+  <Grid
+    center="xs"
+    className="Grid"
+    middle="xs"
+  >
+    <Grid.Column
+      md={9}
+      xl={7}
+      xs={11}
+    >
+      <Modal.Content
+        contentRef={[Function]}
+      >
+        <WindowEvent
+          event="keydown"
+          handler={[Function]}
+        />
+        <WindowEvent
+          event="click"
+          handler={[Function]}
+        />
+        <h1>
+          Test Example
+        </h1>
+      </Modal.Content>
+    </Grid.Column>
+  </Grid>
+</div>
+`;
+
+exports[`Modal should render modal with close button 1`] = `
+<div
+  className="Modal"
+  onClose={[MockFunction]}
+>
+  <Grid
+    center="xs"
+    className="Grid"
+    middle="xs"
+  >
+    <Grid.Column
+      md={9}
+      xl={7}
+      xs={11}
+    >
+      <Modal.Content
+        contentRef={[Function]}
+      >
+        <WindowEvent
+          event="keydown"
+          handler={[Function]}
+        />
+        <WindowEvent
+          event="click"
+          handler={[Function]}
+        />
+        <Button
+          className="CloseButton"
+          flat={true}
+          onClick={[MockFunction]}
+          size="default"
+        >
+          Close 
+          <Close />
+        </Button>
+        <h1>
+          Test Example
+        </h1>
+      </Modal.Content>
+    </Grid.Column>
+  </Grid>
+</div>
+`;

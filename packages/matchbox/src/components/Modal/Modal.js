@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Close } from '@sparkpost/matchbox-icons';
 import { WindowEvent } from '../WindowEvent';
+import { Button } from '../Button';
 import { Grid } from '../Grid';
 import Content from './Content';
 import { onKey } from '../../helpers/keyEvents';
@@ -24,7 +26,9 @@ class Modal extends Component {
     /**
      * Modal content
      */
-    children: PropTypes.node
+    children: PropTypes.node,
+
+    showCloseButton: PropTypes.bool
   };
 
   handleOutsideClick = (e) => {
@@ -46,9 +50,11 @@ class Modal extends Component {
 
   render() {
     const {
+      onClose,
       open,
       children,
       className,
+      showCloseButton,
       ...rest
     } = this.props;
 
@@ -59,12 +65,17 @@ class Modal extends Component {
     );
 
     return (
-      <div className={modalClasses} {...rest} ref={(node) => this.container = node}>
+      <div className={modalClasses} onClose={onClose} {...rest} ref={(node) => this.container = node}>
         <Grid center='xs' middle='xs' className={styles.Grid}>
           <Grid.Column xs={11} md={9} xl={7}>
             <Content contentRef={(node) => this.content = node} open={open}>
               <WindowEvent event='keydown' handler={this.handleKeyDown} />
               <WindowEvent event='click' handler={this.handleOutsideClick} />
+              {showCloseButton && (
+                <Button className={styles.CloseButton} flat onClick={onClose}>
+                  Close <Close />
+                </Button>
+              )}
               {children}
             </Content>
           </Grid.Column>

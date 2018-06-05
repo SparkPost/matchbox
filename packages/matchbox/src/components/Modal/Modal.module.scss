@@ -52,3 +52,10 @@
 .exited {
   pointer-events: none;
 }
+
+.CloseButton {
+  color: color(grey, 10);
+  position: absolute !important;
+  right: 0;
+  top: rem(-35);
+}
