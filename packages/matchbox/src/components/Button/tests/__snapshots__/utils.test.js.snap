@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
+<Button
+  foo="bar"
+  size="default"
+  type="submit"
+>
+  <span>
+    button content
+  </span>
+</Button>
+`;
+
+exports[`Button Utils buttonFrom renders correctly 1`] = `
+<Button
+  disabled={false}
+  size="default"
+>
+  <span>
+    button content
+  </span>
+</Button>
+`;
+
+exports[`Button Utils buttonsFrom renders correctly 1`] = `
+<Button.Group>
+  <Button
+    action={
+      Object {
+        "content": <span>
+          foo
+        </span>,
+      }
+    }
+    size="default"
+  >
+    <span>
+      button 1 content
+    </span>
+  </Button>
+  <Button
+    action={Object {}}
+    size="default"
+  >
+    <span>
+      button 2 content
+    </span>
+  </Button>
+</Button.Group>
+`;
