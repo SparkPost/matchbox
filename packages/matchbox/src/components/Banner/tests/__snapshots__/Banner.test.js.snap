@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner invokes onClick func of action 1`] = `
+<div
+  className="Banner default"
+>
+  <IconSection
+    status="default"
+  />
+  <div
+    className="Content"
+  >
+    <a
+      className="Dismiss"
+      onClick={[MockFunction]}
+    >
+      <Close
+        className="DismissIcon"
+        size={24}
+      />
+    </a>
+    <h5
+      className="Title"
+    >
+      Test Banner
+    </h5>
+    <div
+      className="Children"
+    >
+      <p>
+        You know this is a banner
+      </p>
+    </div>
+    <div
+      className="Actions"
+    >
+      <Button
+        onClick={[MockFunction]}
+        outline={true}
+        size="small"
+      >
+        Click me
+      </Button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Banner renders correctly with default props 1`] = `
+<div
+  className="Banner default"
+>
+  <IconSection
+    status="default"
+  />
+  <div
+    className="Content"
+  >
+    <a
+      className="Dismiss"
+      onClick={[MockFunction]}
+    >
+      <Close
+        className="DismissIcon"
+        size={24}
+      />
+    </a>
+    <h5
+      className="Title"
+    >
+      Test Banner
+    </h5>
+    <div
+      className="Children"
+    >
+      <p>
+        You know this is a banner
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Banner renders multiple banner actions 1`] = `
+<div
+  className="Banner default"
+>
+  <IconSection
+    status="default"
+  />
+  <div
+    className="Content"
+  >
+    <a
+      className="Dismiss"
+      onClick={[MockFunction]}
+    >
+      <Close
+        className="DismissIcon"
+        size={24}
+      />
+    </a>
+    <h5
+      className="Title"
+    >
+      Test Banner
+    </h5>
+    <div
+      className="Children"
+    >
+      <p>
+        You know this is a banner
+      </p>
+    </div>
+    <div
+      className="Actions"
+    >
+      <Button
+        key="0"
+        onClick={[MockFunction]}
+        outline={true}
+        size="small"
+      >
+        Click Me 1
+      </Button>
+      <Button
+        key="1"
+        onClick={[MockFunction]}
+        outline={true}
+        size="small"
+      >
+        Click Me 2
+      </Button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Banner renders status 1`] = `
+<div
+  className="Banner success"
+>
+  <IconSection
+    status="success"
+  />
+  <div
+    className="Content"
+  >
+    <a
+      className="Dismiss"
+      onClick={[MockFunction]}
+    >
+      <Close
+        className="DismissIcon"
+        size={24}
+      />
+    </a>
+    <h5
+      className="Title"
+    >
+      Test Banner
+    </h5>
+    <div
+      className="Children"
+    >
+      <p>
+        You know this is a banner
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Banner renders status 2`] = `
+<div
+  className="Banner danger"
+>
+  <IconSection
+    status="danger"
+  />
+  <div
+    className="Content"
+  >
+    <a
+      className="Dismiss"
+      onClick={[MockFunction]}
+    >
+      <Close
+        className="DismissIcon"
+        size={24}
+      />
+    </a>
+    <h5
+      className="Title"
+    >
+      Test Banner
+    </h5>
+    <div
+      className="Children"
+    >
+      <p>
+        You know this is a banner
+      </p>
+    </div>
+  </div>
+</div>
+`;
