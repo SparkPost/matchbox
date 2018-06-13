@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders button states color navy 1`] = `
+<button
+  className="Button color-navy default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states destructive 1`] = `
+<button
+  className="Button destructive default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states disabled 1`] = `
+<button
+  className="Button disabled default"
+  disabled={true}
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states external button 1`] = `
+<button
+  className="Button default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states flat 1`] = `
+<button
+  className="Button flat default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states fullWidth 1`] = `
+<button
+  className="Button fullWidth default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states large size 1`] = `
+<button
+  className="Button large"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states outline enabled 1`] = `
+<button
+  className="Button outline default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states outline orange 1`] = `
+<button
+  className="Button color-orange outline default"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states submit 1`] = `
+<button
+  className="Button default"
+  onMouseUp={[Function]}
+  type="submit"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states to with component 1`] = `
+<bound fn
+  className="Button default"
+  onMouseUp={[Function]}
+  to="/withcomp"
+>
+  Hola!
+</bound fn>
+`;
+
+exports[`Button renders button states to without component 1`] = `
+<a
+  className="Button default"
+  href="/nocomp"
+  onMouseUp={[Function]}
+  rel=""
+  target=""
+>
+  Hola!
+</a>
+`;
