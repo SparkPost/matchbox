@@ -76,6 +76,7 @@ exports[`Popover popover render should use correct classnames 1`] = `
 
 exports[`Popover should render overlay correctly 1`] = `
 <PopoverOverlay
+  open={false}
   portalId="portal"
   renderActivator={[Function]}
   renderPopover={[Function]}

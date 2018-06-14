@@ -38,7 +38,7 @@ class PopoverOverlay extends Component {
   }
 
   render() {
-    const { renderPopover, renderActivator, portalId, fixed } = this.props;
+    const { renderPopover, renderActivator, portalId, fixed, open } = this.props;
     const { position } = this.state;
 
     const activatorProps = {
@@ -49,8 +49,8 @@ class PopoverOverlay extends Component {
 
     return (
       <Fragment>
-        <WindowEvent event='resize' handler={this.handleMeasurement} />
-        {!fixed ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null}
+        {open ? <WindowEvent event='resize' handler={this.handleMeasurement} /> : null}
+        {(!fixed && open) ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null}
         {renderActivator(activatorProps)}
         <Portal containerId={portalId}>
           <div className={overlayClasses} style={position}>
