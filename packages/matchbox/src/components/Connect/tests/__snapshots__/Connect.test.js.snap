@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connect renders correctly with connected components on left & right 1`] = `
+<div
+  className="Connect"
+>
+  <div
+    className="Left"
+  >
+    <button>
+      Button on Left
+    </button>
+  </div>
+  <div
+    className="Primary hasLeft hasRight"
+  >
+    <input
+      type="text"
+    />
+  </div>
+  <div
+    className="Right"
+  >
+    <button>
+      Button on Right
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Connect renders correctly with connected components on left 1`] = `
+<div
+  className="Connect"
+>
+  <div
+    className="Left"
+  >
+    <button>
+      Button on Left
+    </button>
+  </div>
+  <div
+    className="Primary hasLeft"
+  >
+    <input
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Connect renders correctly with connected components on right 1`] = `
+<div
+  className="Connect"
+>
+  <div
+    className="Primary hasRight"
+  >
+    <input
+      type="text"
+    />
+  </div>
+  <div
+    className="Right"
+  >
+    <button>
+      Button on Right
+    </button>
+  </div>
+</div>
+`;
