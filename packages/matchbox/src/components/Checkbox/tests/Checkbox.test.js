@@ -22,9 +22,6 @@ describe('Checkbox', () => {
   ];
 
   cases('renders checkbox states', (opts) => {
-    const newProps = {};
-    newProps[opts.prop] = opts.val;
-
     wrapper.setProps(opts.props);
 
     expect(wrapper).toMatchSnapshot();

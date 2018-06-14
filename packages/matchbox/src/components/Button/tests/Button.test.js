@@ -25,11 +25,7 @@ describe('Button', () => {
   ];
 
   cases('renders button states', (opts) => {
-    const newProps = {};
-    newProps[opts.prop] = opts.val;
-
     wrapper.setProps(opts.props);
-
     expect(wrapper).toMatchSnapshot();
   }, testCases);
 
