@@ -33,18 +33,18 @@ describe('Button', () => {
     expect(wrapper).toMatchSnapshot();
   }, testCases);
 
-  cases('invokes', (opts) => {
+  cases('invokes event', (opts) => {
     const fn = jest.fn();
     const newProps = {};
     newProps[opts.name] = fn;
     wrapper.setProps(newProps);
 
-    wrapper.simulate(opts.event.toLowerCase());
+    wrapper.simulate(opts.event);
     expect(fn).toHaveBeenCalledTimes(1);
   }, [
-    { name: 'onClick', event: 'Click' },
-    { name: 'onBlur', event: 'Blur' },
-    { name: 'onFocus', event: 'Focus' }
+    { name: 'onClick', event: 'click' },
+    { name: 'onBlur', event: 'blur' },
+    { name: 'onFocus', event: 'focus' }
   ]);
 });
 

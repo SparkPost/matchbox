@@ -30,5 +30,19 @@ describe('Checkbox', () => {
     expect(wrapper).toMatchSnapshot();
   }, testCases);
 
+  cases('invokes event', (opts) => {
+    const fn = jest.fn();
+    const newProps = {};
+    newProps[opts.name] = fn;
+    wrapper.setProps(newProps);
+
+    wrapper.find('input').simulate(opts.event);
+    expect(fn).toHaveBeenCalledTimes(1);
+  }, [
+    { name: 'onChange', event: 'change' },
+    { name: 'onBlur', event: 'blur' },
+    { name: 'onFocus', event: 'focus' }
+  ]);
+
 });
 
