@@ -80,5 +80,21 @@ storiesOf('Action|ActionList', module)
           />
         </Popover>
       </div>
+
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
+        open
+        trigger={<Button style={{ marginBottom: 250 }}>Actions with Visible Key</Button>}
+        style={{ width: '200px' }}>
+          <ActionList
+            groupByKey='group'
+            actions={[
+              { content: 'Action1', group: 1 },
+              { content: 'Action2', group: 2, visible: true },
+              { content: 'Action3', group: 2, visible: false }
+            ]}
+          />
+        </Popover>
+      </div>
     </div>
   )));

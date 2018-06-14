@@ -1,9 +1,12 @@
 import React from 'react';
 import Button from './Button';
+import { filterByVisible } from '../../helpers/array';
 
 export function buttonsFrom(actions, overrides) {
-  if (actions.length) {
-    return <Button.Group>{actions.map((action, key) => buttonFrom(action, overrides, key))}</Button.Group>;
+  const filteredActions = filterByVisible(actions);
+
+  if (filteredActions.length) {
+    return <Button.Group>{filteredActions.map((action, key) => buttonFrom(action, overrides, key))}</Button.Group>;
   }
 }
 

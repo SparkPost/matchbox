@@ -5,6 +5,7 @@ import { buttonFrom } from '../Button';
 import { ChevronLeft } from '@sparkpost/matchbox-icons';
 import { EmptyState } from '../EmptyState';
 import { UnstyledLink, linkFrom } from '../UnstyledLink';
+import { filterByVisible } from '../../helpers/array';
 
 import styles from './Page.module.scss';
 
@@ -94,7 +95,7 @@ class Page extends Component {
       : null;
 
     const secondaryActionsMarkup = secondaryActions
-      ? secondaryActions.map((action, i) => linkFrom({ ...action, className: styles.SecondaryAction }, i))
+      ? filterByVisible(secondaryActions).map((action, i) => linkFrom({ ...action, className: styles.SecondaryAction }, i))
       : null;
 
     const breadcrumbMarkup = breadcrumbAction
