@@ -48,12 +48,20 @@ storiesOf('Layout|Panel', module)
         onClick: action('Delete Clicked'),
         color: 'red'
       },
+      {
+        content: 'Not Visible',
+        visible: false
+      }
     ];
     const sectionActions = [
       {
         content: 'View Details',
         onClick: action('Details Clicked'),
         color: 'red'
+      },
+      {
+        content: 'Not Visible',
+        visible: false
       }
     ];
     return (

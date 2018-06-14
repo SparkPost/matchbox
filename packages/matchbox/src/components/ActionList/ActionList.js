@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { groupByValues } from '../../helpers/array';
+import { groupByValues, filterByVisible } from '../../helpers/array';
 import { linkFrom } from '../UnstyledLink';
 import { Check } from '@sparkpost/matchbox-icons';
 import styles from './ActionList.module.scss';
 
 const Section = ({ section }) => {
-  const actions = section.map(({ className, highlighted, selected, content, ...action }, index) => {
+  const actions = filterByVisible(section).map(({ className, highlighted, selected, content, ...action }, index) => {
 
     const classes = classnames(
       styles.Action,

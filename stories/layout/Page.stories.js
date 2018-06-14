@@ -31,6 +31,10 @@ export default storiesOf('Layout|Page', module)
       {
         content: 'Preview & Send',
         onClick: action('Preview Clicked')
+      },
+      {
+        content: 'Not Visible',
+        visible: false
       }
     ];
     const breadcrumbAction = {
