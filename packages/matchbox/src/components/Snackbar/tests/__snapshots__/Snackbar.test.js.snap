@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snackbar renders Snackbar 1`] = `
+<div
+  className="Snackbar default"
+>
+  <div
+    className="Content"
+    style={
+      Object {
+        "maxWidth": 500,
+      }
+    }
+  >
+    Snacksssss
+  </div>
+  <a
+    className="Dismiss"
+    onClick={[MockFunction]}
+  >
+    <Close
+      className="DismissIcon"
+      size={21}
+    />
+  </a>
+</div>
+`;
+
+exports[`Snackbar renders Snackbar with different props 1`] = `
+<div
+  className="Snackbar danger"
+>
+  <div
+    className="Content"
+    style={
+      Object {
+        "maxWidth": 100,
+      }
+    }
+  >
+    Snacksssss
+  </div>
+  <a
+    className="Dismiss"
+    onClick={[MockFunction]}
+  >
+    <Close
+      className="DismissIcon"
+      size={21}
+    />
+  </a>
+</div>
+`;
