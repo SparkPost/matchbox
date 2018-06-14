@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Datepicker passes through all props 1`] = `
+<DayPicker
+  canChangeMonth={true}
+  captionElement={
+    <Caption
+      classNames={
+        Object {
+          "body": "DayPicker-Body",
+          "caption": "DayPicker-Caption",
+          "container": "DayPicker",
+          "day": "DayPicker-Day",
+          "disabled": "disabled",
+          "footer": "DayPicker-Footer",
+          "interactionDisabled": "DayPicker--interactionDisabled",
+          "month": "DayPicker-Month",
+          "navBar": "DayPicker-NavBar",
+          "navButtonInteractionDisabled": "DayPicker-NavButton--interactionDisabled",
+          "navButtonNext": "DayPicker-NavButton DayPicker-NavButton--next",
+          "navButtonPrev": "DayPicker-NavButton DayPicker-NavButton--prev",
+          "outside": "outside",
+          "selected": "selected",
+          "today": "today",
+          "todayButton": "DayPicker-TodayButton",
+          "week": "DayPicker-Week",
+          "weekNumber": "DayPicker-WeekNumber",
+          "weekday": "DayPicker-Weekday",
+          "weekdays": "DayPicker-Weekdays",
+          "weekdaysRow": "DayPicker-WeekdaysRow",
+          "wrapper": "DayPicker-wrapper",
+        }
+      }
+    />
+  }
+  classNames={null}
+  enableOutsideDays={false}
+  fixedWeeks={false}
+  foo="bar"
+  foo2="bar2"
+  initialMonth={2018-06-13T14:28:58.549Z}
+  labels={
+    Object {
+      "nextMonth": "Next Month",
+      "previousMonth": "Previous Month",
+    }
+  }
+  locale="en"
+  localeUtils={
+    Object {
+      "default": Object {
+        "formatDay": [Function],
+        "formatMonthTitle": [Function],
+        "formatWeekdayLong": [Function],
+        "formatWeekdayShort": [Function],
+        "getFirstDayOfWeek": [Function],
+        "getMonths": [Function],
+      },
+      "formatDay": [Function],
+      "formatMonthTitle": [Function],
+      "formatWeekdayLong": [Function],
+      "formatWeekdayShort": [Function],
+      "getFirstDayOfWeek": [Function],
+      "getMonths": [Function],
+    }
+  }
+  modifiers={
+    Object {
+      "firstSelected": [Function],
+      "lastSelected": [Function],
+    }
+  }
+  modifiersStyles={
+    Object {
+      "firstSelected": Object {
+        "backgroundColor": "#2693c3",
+        "borderBottomLeftRadius": "4px",
+        "borderTopLeftRadius": "4px",
+        "color": "white",
+      },
+      "lastSelected": Object {
+        "backgroundColor": "#2693c3",
+        "borderBottomRightRadius": "4px",
+        "borderTopRightRadius": "4px",
+        "color": "white",
+      },
+    }
+  }
+  navbarElement={[Function]}
+  numberOfMonths={1}
+  pagedNavigation={false}
+  renderDay={[Function]}
+  reverseMonths={false}
+  selectedDays={
+    Object {
+      "from": "2018-06-13T14:28:58.549Z",
+      "to": "2018-06-14T14:28:58.549Z",
+    }
+  }
+  showWeekNumbers={false}
+  tabIndex={0}
+  weekdayElement={<Weekday />}
+/>
+`;
+
+exports[`Datepicker renders correctly with default props 1`] = `
+<DayPicker
+  canChangeMonth={true}
+  captionElement={
+    <Caption
+      classNames={
+        Object {
+          "body": "DayPicker-Body",
+          "caption": "DayPicker-Caption",
+          "container": "DayPicker",
+          "day": "DayPicker-Day",
+          "disabled": "disabled",
+          "footer": "DayPicker-Footer",
+          "interactionDisabled": "DayPicker--interactionDisabled",
+          "month": "DayPicker-Month",
+          "navBar": "DayPicker-NavBar",
+          "navButtonInteractionDisabled": "DayPicker-NavButton--interactionDisabled",
+          "navButtonNext": "DayPicker-NavButton DayPicker-NavButton--next",
+          "navButtonPrev": "DayPicker-NavButton DayPicker-NavButton--prev",
+          "outside": "outside",
+          "selected": "selected",
+          "today": "today",
+          "todayButton": "DayPicker-TodayButton",
+          "week": "DayPicker-Week",
+          "weekNumber": "DayPicker-WeekNumber",
+          "weekday": "DayPicker-Weekday",
+          "weekdays": "DayPicker-Weekdays",
+          "weekdaysRow": "DayPicker-WeekdaysRow",
+          "wrapper": "DayPicker-wrapper",
+        }
+      }
+    />
+  }
+  classNames={null}
+  enableOutsideDays={false}
+  fixedWeeks={false}
+  initialMonth={2018-06-13T14:28:58.549Z}
+  labels={
+    Object {
+      "nextMonth": "Next Month",
+      "previousMonth": "Previous Month",
+    }
+  }
+  locale="en"
+  localeUtils={
+    Object {
+      "default": Object {
+        "formatDay": [Function],
+        "formatMonthTitle": [Function],
+        "formatWeekdayLong": [Function],
+        "formatWeekdayShort": [Function],
+        "getFirstDayOfWeek": [Function],
+        "getMonths": [Function],
+      },
+      "formatDay": [Function],
+      "formatMonthTitle": [Function],
+      "formatWeekdayLong": [Function],
+      "formatWeekdayShort": [Function],
+      "getFirstDayOfWeek": [Function],
+      "getMonths": [Function],
+    }
+  }
+  modifiers={
+    Object {
+      "firstSelected": [Function],
+      "lastSelected": [Function],
+    }
+  }
+  modifiersStyles={
+    Object {
+      "firstSelected": Object {
+        "backgroundColor": "#2693c3",
+        "borderBottomLeftRadius": "4px",
+        "borderTopLeftRadius": "4px",
+        "color": "white",
+      },
+      "lastSelected": Object {
+        "backgroundColor": "#2693c3",
+        "borderBottomRightRadius": "4px",
+        "borderTopRightRadius": "4px",
+        "color": "white",
+      },
+    }
+  }
+  navbarElement={[Function]}
+  numberOfMonths={1}
+  pagedNavigation={false}
+  renderDay={[Function]}
+  reverseMonths={false}
+  selectedDays={
+    Object {
+      "from": "2018-06-13T14:28:58.549Z",
+      "to": "2018-06-14T14:28:58.549Z",
+    }
+  }
+  showWeekNumbers={false}
+  tabIndex={0}
+  weekdayElement={<Weekday />}
+/>
+`;
