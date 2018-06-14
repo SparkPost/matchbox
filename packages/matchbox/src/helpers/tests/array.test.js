@@ -1,4 +1,4 @@
-import { groupBy, groupByValues } from '../array';
+import { groupBy, groupByValues, filterByVisible } from '../array';
 
 describe('Helper: Array helpers', () => {
 
@@ -53,6 +53,16 @@ describe('Helper: Array helpers', () => {
       expect(groupByValues(list, 'section')).toMatchSnapshot();
     });
 
+  });
+
+  describe('filterByVisible', () => {
+    it('should return only visible actions', () => {
+      expect(filterByVisible([
+        { content: '1' },
+        { content: '2', visible: true },
+        { content: '3', visible: false }
+      ])).toMatchSnapshot();
+    });
   });
 
 });
