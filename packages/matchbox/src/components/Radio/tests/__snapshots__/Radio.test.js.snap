@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio renders radio checked 1`] = `
+<fieldset
+  className="Radio"
+>
+  <input
+    checked={true}
+    className="Input"
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Radio renders radio disabled 1`] = `
+<fieldset
+  className="Radio"
+>
+  <input
+    className="Input"
+    disabled={true}
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Radio renders radio error 1`] = `
+<fieldset
+  className="Radio error"
+>
+  <input
+    className="Input"
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+  <Error
+    error="There is an error"
+  />
+</fieldset>
+`;
+
+exports[`Radio renders radio helpText 1`] = `
+<fieldset
+  className="Radio error"
+>
+  <input
+    className="Input"
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+  <Error
+    error="Radio Help Text"
+  />
+</fieldset>
+`;
+
+exports[`Radio renders radio label 1`] = `
+<fieldset
+  className="Radio"
+>
+  <Label
+    className="Label"
+  >
+    Radio Label
+  </Label>
+  <input
+    className="Input"
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Radio renders radio label hidden 1`] = `
+<fieldset
+  className="Radio"
+>
+  <input
+    className="Input"
+    type="radio"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Radio renders radio value 1`] = `
+<fieldset
+  className="Radio"
+>
+  <input
+    className="Input"
+    type="radio"
+    value="selected"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Radio renders radio with name & id 1`] = `
+<fieldset
+  className="Radio"
+>
+  <input
+    className="Input"
+    id="label1Id"
+    name="label1"
+    type="radio"
+  />
+  <label
+    className="Control"
+    htmlFor="label1Id"
+  >
+    <div
+      className="Outline"
+    />
+    <div
+      className="Fill"
+    />
+  </label>
+</fieldset>
+`;
