@@ -142,11 +142,13 @@ class Popover extends Component {
   }
 
   render() {
-    const { fixed } = this.props;
+    const { fixed, open: controlledOpen } = this.props;
+    const shouldBeOpen = controlledOpen || this.state.open;
 
     return (
       <PopoverOverlay
         fixed={fixed}
+        open={shouldBeOpen}
         portalId={this.props.portalId}
         renderActivator={this.renderActivator}
         renderPopover={this.renderPopover} />
