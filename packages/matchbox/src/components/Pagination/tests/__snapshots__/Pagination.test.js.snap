@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders pagination 1`] = `
+<div
+  className="Pagination"
+>
+  <Button
+    className="Back"
+    disabled={true}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowBack
+      size={16}
+    />
+  </Button>
+  <span
+    className="Pages"
+  >
+    <Button.Group>
+      <Button
+        className="Page Selected color-blue"
+        key="0"
+        onClick={[Function]}
+        size="default"
+      >
+        1
+      </Button>
+      <Button
+        className="Page"
+        key="1"
+        onClick={[Function]}
+        size="default"
+      >
+        2
+      </Button>
+      <Button
+        className="Page"
+        key="2"
+        onClick={[Function]}
+        size="default"
+      >
+        3
+      </Button>
+    </Button.Group>
+  </span>
+  <span>
+    <MoreHoriz
+      className="Ellipse"
+    />
+    <Button
+      className="End"
+      onClick={[Function]}
+      size="default"
+    >
+      10
+    </Button>
+  </span>
+  <Button
+    className="Next"
+    disabled={false}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowForward
+      size={16}
+    />
+  </Button>
+</div>
+`;
+
+exports[`Pagination renders pagination with marginsHidden true 1`] = `
+<div
+  className="Pagination"
+>
+  <Button
+    className="Back"
+    disabled={true}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowBack
+      size={16}
+    />
+  </Button>
+  <span
+    className="Pages"
+  >
+    <Button.Group>
+      <Button
+        className="Page Selected color-blue"
+        key="0"
+        onClick={[Function]}
+        size="default"
+      >
+        1
+      </Button>
+      <Button
+        className="Page"
+        key="1"
+        onClick={[Function]}
+        size="default"
+      >
+        2
+      </Button>
+      <Button
+        className="Page"
+        key="2"
+        onClick={[Function]}
+        size="default"
+      >
+        3
+      </Button>
+    </Button.Group>
+  </span>
+  <Button
+    className="Next"
+    disabled={false}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowForward
+      size={16}
+    />
+  </Button>
+</div>
+`;
