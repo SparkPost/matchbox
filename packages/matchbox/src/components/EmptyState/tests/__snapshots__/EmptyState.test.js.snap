@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState renders with actions 1`] = `
+<div
+  className="EmptyState"
+>
+  <h1
+    className="Title"
+  >
+    Not there yet!
+  </h1>
+  <div
+    className="Content"
+  >
+    <p>
+      Nothing here yet!
+    </p>
+  </div>
+  <div
+    className="Actions"
+  >
+    <Button
+      color="orange"
+      onClick={[MockFunction]}
+      size="large"
+    >
+      button
+    </Button>
+     
+    <UnstyledLink
+      onClick={[MockFunction]}
+    >
+      secondary
+    </UnstyledLink>
+  </div>
+</div>
+`;
+
+exports[`EmptyState renders with image 1`] = `
+<div
+  className="EmptyState"
+>
+  <h1
+    className="Title"
+  >
+    Not there yet!
+  </h1>
+  <div
+    className="Content"
+  >
+    <p>
+      Nothing here yet!
+    </p>
+  </div>
+  <div
+    className="Actions"
+  >
+     
+  </div>
+  <div
+    className="Image"
+  >
+    <mockConstructor />
+  </div>
+</div>
+`;
+
+exports[`EmptyState renders with primary action 1`] = `
+<div
+  className="EmptyState"
+>
+  <h1
+    className="Title"
+  >
+    Not there yet!
+  </h1>
+  <div
+    className="Content"
+  >
+    <p>
+      Nothing here yet!
+    </p>
+  </div>
+  <div
+    className="Actions"
+  >
+    <Button
+      color="orange"
+      onClick={[MockFunction]}
+      size="large"
+    >
+      button
+    </Button>
+     
+  </div>
+</div>
+`;
+
+exports[`EmptyState renders without any actions 1`] = `
+<div
+  className="EmptyState"
+>
+  <h1
+    className="Title"
+  >
+    Not there yet!
+  </h1>
+  <div
+    className="Content"
+  >
+    <p>
+      Nothing here yet!
+    </p>
+  </div>
+  <div
+    className="Actions"
+  >
+     
+  </div>
+</div>
+`;
