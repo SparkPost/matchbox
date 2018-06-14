@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders correctly 1`] = `
+<label
+  className="Label form-field"
+  htmlFor="label1"
+  id="label1Label"
+>
+  Label text
+  <span>
+    Select one!
+  </span>
+</label>
+`;
