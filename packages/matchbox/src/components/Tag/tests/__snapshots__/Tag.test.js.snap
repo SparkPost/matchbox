@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders with close button 1`] = `
+<div
+  className="Tag hasRemove purple"
+>
+  <div
+    className="Content"
+  >
+    <span>
+      Tag 1
+    </span>
+  </div>
+  <UnstyledLink
+    className="Close"
+    onClick={[MockFunction]}
+  >
+    <Close
+      size={16}
+    />
+  </UnstyledLink>
+</div>
+`;
+
+exports[`Tag renders without close button 1`] = `
+<div
+  className="Tag red"
+>
+  <div
+    className="Content"
+  >
+    <span>
+      Tag 1
+    </span>
+  </div>
+</div>
+`;
