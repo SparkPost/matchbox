@@ -1,8 +1,8 @@
 # Matchbox
 Matchbox is a React component library for [SparkPost's UI](https://github.com/SparkPost/2web2ui).
 
-[![Build Status](https://travis-ci.org/SparkPost/matchbox.svg?branch=master)](https://travis-ci.org/SparkPost/matchbox)
-[![Coverage Status](https://coveralls.io/repos/github/SparkPost/matchbox/badge.svg?branch=master)](https://coveralls.io/github/SparkPost/matchbox?branch=master)
+[![Build Status](https://img.shields.io/travis/SparkPost/matchbox/master.svg?style=flat-square)](https://travis-ci.org/SparkPost/matchbox) 
+[![Coverage Status](https://img.shields.io/coveralls/github/SparkPost/matchbox/master.svg?style=flat-square)](https://coveralls.io/github/SparkPost/matchbox?branch=master)
 
 #### Links:
 - [Component Demo](https://sparkpost.github.io/matchbox/)
