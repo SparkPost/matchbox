@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders Table 1`] = `
+<table
+  className="Table"
+>
+  <tbody>
+    <Table.Row
+      key="Row-0"
+      rowData={
+        Array [
+          "A",
+          "B",
+          "C",
+        ]
+      }
+    />
+    <Table.Row
+      key="Row-1"
+      rowData={
+        Array [
+          1,
+          2,
+          3,
+        ]
+      }
+    />
+  </tbody>
+</table>
+`;
