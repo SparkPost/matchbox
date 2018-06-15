@@ -85,14 +85,6 @@ exports[`Popover should render overlay correctly 1`] = `
 
 exports[`Popover should render overlay correctly 2`] = `
 <React.Fragment>
-  <WindowEvent
-    event="resize"
-    handler={[Function]}
-  />
-  <WindowEvent
-    event="scroll"
-    handler={[Function]}
-  />
   <span
     className="Activator"
     onClick={[Function]}

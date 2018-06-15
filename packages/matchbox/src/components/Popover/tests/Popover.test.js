@@ -26,6 +26,11 @@ describe('Popover', () => {
     expect(wrapper.find('PopoverOverlay').dive()).toMatchSnapshot();
   });
 
+  it('should render window events when open', () => {
+    wrapper.setProps({ open: true });
+    expect(wrapper.find('PopoverOverlay').dive().find('WindowEvent')).toHaveLength(4);
+  });
+
   it('should use local state if not controlled', () => {
     expect(shallow(<Popover />)).toHaveState({ open: false });
   });
