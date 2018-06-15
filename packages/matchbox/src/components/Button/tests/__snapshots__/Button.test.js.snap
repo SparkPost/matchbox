@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders button states color navy 1`] = `
+<button
+  className="Button color-navy"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states deprecated prop - primary 1`] = `
+<button
+  className="Button color-orange"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states destructive 1`] = `
+<button
+  className="Button destructive"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states disabled 1`] = `
+<button
+  className="Button disabled"
+  disabled={true}
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states external button 1`] = `
+<button
+  className="Button"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states external to without component 1`] = `
+<a
+  className="Button"
+  href="/nocomp"
+  onMouseUp={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Hola!
+</a>
+`;
+
+exports[`Button renders button states flat 1`] = `
+<button
+  className="Button flat"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states flat with color 1`] = `
+<button
+  className="Button color-red flat"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states flat with color and disabled 1`] = `
+<button
+  className="Button color-red disabled flat"
+  disabled={true}
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states fullWidth 1`] = `
+<button
+  className="Button fullWidth"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states large size 1`] = `
+<button
+  className="Button large"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states outline enabled 1`] = `
+<button
+  className="Button outline"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states submit 1`] = `
+<button
+  className="Button"
+  onMouseUp={[Function]}
+  type="submit"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states to with component 1`] = `
+<bound fn
+  className="Button"
+  onMouseUp={[Function]}
+  to="/withcomp"
+>
+  Hola!
+</bound fn>
+`;
+
+exports[`Button renders button states to without component 1`] = `
+<a
+  className="Button"
+  href="/nocomp"
+  onMouseUp={[Function]}
+  rel=""
+  target=""
+>
+  Hola!
+</a>
+`;

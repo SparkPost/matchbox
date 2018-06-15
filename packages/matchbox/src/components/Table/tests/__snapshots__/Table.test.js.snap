@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Cell renders children 1`] = `
+<td
+  className="Cell"
+>
+  children test
+</td>
+`;
+
+exports[`Table Cell renders value 1`] = `
+<td
+  className="Cell test"
+>
+  foo
+</td>
+`;
+
+exports[`Table HeaderCell renders children 1`] = `
+<th
+  className="HeaderCell"
+>
+  children test
+</th>
+`;
+
+exports[`Table HeaderCell renders value 1`] = `
+<th
+  className="HeaderCell test"
+>
+  foo
+</th>
+`;
+
+exports[`Table Row renders children 1`] = `
+<tr
+  className="Row"
+>
+  children test
+</tr>
+`;
+
+exports[`Table Row renders row data 1`] = `
+<tr
+  className="Row test"
+>
+  <Table.Cell
+    key="Cell-0"
+    value={1}
+  />
+  <Table.Cell
+    key="Cell-1"
+    value="2"
+  />
+  <Table.Cell
+    key="Cell-2"
+    value={
+      <span>
+        3
+      </span>
+    }
+  />
+</tr>
+`;
+
+exports[`Table renders children 1`] = `
+<table
+  className="Table"
+>
+  children test
+</table>
+`;
+
+exports[`Table renders data 1`] = `
+<table
+  className="Table"
+>
+  <tbody>
+    <Table.Row
+      key="Row-0"
+      rowData={
+        Array [
+          "A",
+          "B",
+          "C",
+        ]
+      }
+    />
+    <Table.Row
+      key="Row-1"
+      rowData={
+        Array [
+          1,
+          2,
+          3,
+        ]
+      }
+    />
+  </tbody>
+</table>
+`;

@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField renders TextField disabled 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      disabled={true}
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField error 1`] = `
+<fieldset
+  className="TextField error"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+  <Error
+    error="An error occurred"
+  />
+</fieldset>
+`;
+
+exports[`TextField renders TextField errorInLabel 1`] = `
+<fieldset
+  className="TextField error"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField helpText 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      HelpText="TextField help text"
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField hidden label 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField label with required 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Label
+    label="TextField Label *"
+  />
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField label without required 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Label
+    label="TextField Label"
+  />
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField type email 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="email"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField type password 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="password"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField with multiline 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <textarea
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField with placehoders 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      placehodler="Enter your email"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField with prefix & suffix 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <div
+      className="InputWrapper"
+    >
+      <span
+        className="Prefix"
+      >
+        <span>
+          Before Text
+        </span>
+      </span>
+      <input
+        className="Input"
+        style={
+          Object {
+            "paddingLeft": undefined,
+            "paddingRight": undefined,
+            "resize": "both",
+          }
+        }
+        type="text"
+      />
+      <span
+        className="Suffix"
+      >
+        <span>
+          After Text
+        </span>
+      </span>
+    </div>
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField with prefix 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <div
+      className="InputWrapper"
+    >
+      <span
+        className="Prefix"
+      >
+        <span>
+          Before Text
+        </span>
+      </span>
+      <input
+        className="Input"
+        style={
+          Object {
+            "paddingLeft": undefined,
+            "paddingRight": undefined,
+            "resize": "both",
+          }
+        }
+        type="text"
+      />
+    </div>
+  </Connect>
+</fieldset>
+`;
+
+exports[`TextField renders TextField with suffix 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <div
+      className="InputWrapper"
+    >
+      <input
+        className="Input"
+        style={
+          Object {
+            "paddingLeft": undefined,
+            "paddingRight": undefined,
+            "resize": "both",
+          }
+        }
+        type="text"
+      />
+      <span
+        className="Suffix"
+      >
+        <span>
+          After Text
+        </span>
+      </span>
+    </div>
+  </Connect>
+</fieldset>
+`;

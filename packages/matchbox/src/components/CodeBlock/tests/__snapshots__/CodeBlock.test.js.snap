@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeBlock renders line numbers 1`] = `
+<div
+  className="PrefixWrapper"
+>
+  <div
+    className="LineNumber"
+    key="0"
+  >
+    0
+  </div>
+  <div
+    className="LineNumber"
+    key="1"
+  >
+    1
+  </div>
+  <div
+    className="LineNumber"
+    key="2"
+  >
+    2
+  </div>
+</div>
+`;
+
+exports[`CodeBlock renders with default props 1`] = `
+<pre
+  className="CodeBlock"
+  style={
+    Object {
+      "height": "355px",
+    }
+  }
+>
+  <code
+    className="Code"
+  >
+    curl -X POST
+https://api.sparkpost.com/api/v1/tran…
+
+  </code>
+  <div
+    className="PrefixWrapper"
+  >
+    <ChevronRight
+      className="LineChevron"
+      key="0"
+    />
+    <ChevronRight
+      className="LineChevron"
+      key="1"
+    />
+    <ChevronRight
+      className="LineChevron"
+      key="2"
+    />
+  </div>
+</pre>
+`;

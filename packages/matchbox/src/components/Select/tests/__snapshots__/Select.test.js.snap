@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders Select disabled 1`] = `
+<fieldset
+  className="Select"
+>
+  <select
+    className="Input disabled"
+    disabled={true}
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown labelHidden"
+  />
+</fieldset>
+`;
+
+exports[`Select renders Select error 1`] = `
+<fieldset
+  className="Select"
+>
+  <Label
+    label="An error occurred"
+  />
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown"
+  />
+</fieldset>
+`;
+
+exports[`Select renders Select errorInLabel 1`] = `
+<fieldset
+  className="Select error"
+>
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown labelHidden"
+  />
+</fieldset>
+`;
+
+exports[`Select renders Select helpText 1`] = `
+<fieldset
+  className="Select"
+>
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown labelHidden"
+  />
+  <div
+    className="HelpText"
+  >
+    Select help text
+  </div>
+</fieldset>
+`;
+
+exports[`Select renders Select label 1`] = `
+<fieldset
+  className="Select"
+>
+  <Label
+    label="Select Label"
+  />
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown"
+  />
+</fieldset>
+`;
+
+exports[`Select renders Select required 1`] = `
+<fieldset
+  className="Select"
+>
+  <Label
+    label="Select Label *"
+  />
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown"
+  />
+</fieldset>
+`;
+
+exports[`Select renders Select with options 1`] = `
+<fieldset
+  className="Select"
+>
+  <select
+    className="Input"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+    <Option
+      key="1"
+      option="option 2"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown labelHidden"
+  />
+</fieldset>
+`;
+
+exports[`Select should render Option correctly 1`] = `
+<option
+  value="option 1"
+>
+  option 1
+</option>
+`;
+
+exports[`Select should render Option correctly 2`] = `
+<option
+  value={2}
+>
+  2
+</option>
+`;
+
+exports[`Select should render Option correctly 3`] = `
+<option
+  disabled={true}
+  value={3}
+>
+  three
+</option>
+`;

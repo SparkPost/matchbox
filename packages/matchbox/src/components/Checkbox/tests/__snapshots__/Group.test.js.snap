@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox Group renders correctly 1`] = `
+<div
+  className="Group"
+>
+  <Label
+    className="GroupLabel"
+  >
+    Checkbox Label
+  </Label>
+  <span>
+    Checkbox Child
+  </span>
+</div>
+`;
+
+exports[`Checkbox Group renders correctly on required 1`] = `
+<div
+  className="Group"
+>
+  <Label
+    className="GroupLabel"
+  >
+    Checkbox Label
+     *
+  </Label>
+  <span>
+    Checkbox Child
+  </span>
+</div>
+`;

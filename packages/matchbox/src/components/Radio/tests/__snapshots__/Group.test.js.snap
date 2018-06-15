@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Group renders children correctly 1`] = `
+<div
+  className="Group"
+>
+  children
+</div>
+`;
+
+exports[`Group sets label and required 1`] = `
+<div
+  className="Group"
+>
+  <Label
+    className="GroupLabel"
+  >
+    label
+     *
+  </Label>
+  children
+</div>
+`;

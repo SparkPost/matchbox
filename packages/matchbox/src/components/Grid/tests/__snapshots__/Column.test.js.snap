@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column renders with default props 1`] = `
+<div
+  className="Column"
+>
+  <p>
+    Grid
+  </p>
+</div>
+`;
+
+exports[`Column renders with sizing prop 1`] = `
+<div
+  className="Column xs-12 sm-6 md-6 lg-4 xl-2 xs-offset-1 sm-offset-2 md-offset-2 lg-offset-3 xl-offset-4"
+>
+  <p>
+    Grid
+  </p>
+</div>
+`;

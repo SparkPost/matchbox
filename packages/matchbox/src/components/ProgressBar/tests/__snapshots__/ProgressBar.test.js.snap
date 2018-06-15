@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar renders at 50% progress in navy color 1`] = `
+<div
+  className="ProgressBar navy"
+>
+  <div
+    className="Progress"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`ProgressBar renders progressbar at defaults 1`] = `
+<div
+  className="ProgressBar orange"
+>
+  <div
+    className="Progress"
+    style={
+      Object {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;

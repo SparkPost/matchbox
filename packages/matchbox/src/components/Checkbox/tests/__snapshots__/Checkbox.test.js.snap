@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders checkbox states checked 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    checked={true}
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states disabled 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    disabled={true}
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states label with labelHidden 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states labelHidden 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states required 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+  <Label
+    className="Label"
+  >
+    Required field
+     *
+  </Label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states with error 1`] = `
+<fieldset
+  className="Checkbox error"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+  <Error
+    error="Checkbox error"
+  />
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states with helptext 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+  <div
+    className="HelpText"
+  >
+    <p>
+      This is helptext for checkbox
+    </p>
+  </div>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states with id 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    id="chkCheckbox"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+    htmlFor="chkCheckbox"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+</fieldset>
+`;
+
+exports[`Checkbox renders checkbox states with label 1`] = `
+<fieldset
+  className="Checkbox"
+>
+  <input
+    className="Input"
+    type="checkbox"
+  />
+  <label
+    className="Control"
+  >
+    <div
+      className="Box"
+    />
+    <Check
+      className="Check"
+      size={14}
+    />
+  </label>
+  <Label
+    className="Label"
+  >
+    Check me!
+  </Label>
+</fieldset>
+`;

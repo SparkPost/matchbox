@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs renders when connected with below components 1`] = `
+<div
+  className="Tabs color-orange connectBelow"
+>
+  <Tab
+    content="Tab 1"
+    index={0}
+    key="0"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+  <Tab
+    content="Tab 2"
+    index={1}
+    key="1"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+</div>
+`;
+
+exports[`Tabs renders with first tab selected 1`] = `
+<div
+  className="Tabs color-orange"
+>
+  <Tab
+    content="Tab 1"
+    index={0}
+    key="0"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+  <Tab
+    content="Tab 2"
+    index={1}
+    key="1"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+</div>
+`;
+
+exports[`Tabs renders with first tab selected 2`] = `
+<UnstyledLink
+  className="Tab selected"
+  onClick={[MockFunction]}
+>
+  Tab 1
+</UnstyledLink>
+`;
+
+exports[`Tabs renders with first tab selected 3`] = `
+<UnstyledLink
+  className="Tab"
+  onClick={[MockFunction]}
+>
+  Tab 2
+</UnstyledLink>
+`;
+
+exports[`Tabs renders with fitted tabs 1`] = `
+<div
+  className="Tabs color-orange fitted"
+>
+  <Tab
+    content="Tab 1"
+    fittedTab={true}
+    index={0}
+    key="0"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+  <Tab
+    content="Tab 2"
+    fittedTab={true}
+    index={1}
+    key="1"
+    onClick={[MockFunction]}
+    selected={0}
+  />
+</div>
+`;
