@@ -8,6 +8,11 @@
     "index.js",
     "Datepicker.js"
   ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 90
+    }
+  },
   "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
   "setupFiles": [
     "<rootDir>/config/polyfills.js"
