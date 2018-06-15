@@ -205,3 +205,17 @@ exports[`Banner renders status 2`] = `
   </div>
 </div>
 `;
+
+exports[`Banner renders status 3`] = `
+<div
+  className="IconWrapper"
+>
+  <Error
+    className="Icon dangerIcon"
+    size={30}
+  />
+  <div
+    className="IconBackdrop"
+  />
+</div>
+`;

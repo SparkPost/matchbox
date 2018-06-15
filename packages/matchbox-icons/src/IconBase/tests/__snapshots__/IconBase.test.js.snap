@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconBase renders children correctly 1`] = `
+<svg
+  fill="currentColor"
+  height={18}
+  preserveAspectRatio="xMidYMid meet"
+  style={
+    Object {
+      "marginTop": "-0.09em",
+      "verticalAlign": "middle",
+    }
+  }
+  viewBox="0 0 24 24"
+  width={18}
+>
+  <g>
+    <path
+      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+    />
+  </g>
+</svg>
+`;
+
+exports[`createSvgIcon creates an Icon correctly 1`] = `
+<IconBase
+  size={18}
+>
+  <path
+    d="a path"
+  />
+</IconBase>
+`;

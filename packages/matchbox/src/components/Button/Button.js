@@ -80,7 +80,7 @@ class Button extends Component {
       (flat || plain) && styles.flat,
       outline && styles.outline,
       fullWidth && styles.fullWidth,
-      size && styles[`${size}`],
+      (size && size !== 'default') && styles[`${size}`],
       className
     );
 
@@ -95,7 +95,7 @@ class Button extends Component {
           onBlur={onBlur}
           className={classname}
           disabled={disabled}
-          onMouseUp={(e) => this.handleMouseUp(e)}
+          onMouseUp={this.handleMouseUp}
           {...rest}
         >
           {children}
@@ -112,7 +112,7 @@ class Button extends Component {
           onBlur={onBlur}
           className={classname}
           disabled={disabled}
-          onMouseUp={(e) => this.handleMouseUp(e)}
+          onMouseUp={this.handleMouseUp}
           {...rest}
         >
           {children}
@@ -128,7 +128,7 @@ class Button extends Component {
         onBlur={onBlur}
         className={classname}
         disabled={disabled}
-        onMouseUp={(e) => this.handleMouseUp(e)}
+        onMouseUp={this.handleMouseUp}
         {...rest}
       >
         {children}

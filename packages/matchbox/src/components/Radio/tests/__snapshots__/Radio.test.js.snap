@@ -70,7 +70,7 @@ exports[`Radio renders radio error 1`] = `
 
 exports[`Radio renders radio helpText 1`] = `
 <fieldset
-  className="Radio error"
+  className="Radio"
 >
   <input
     className="Input"
@@ -86,9 +86,11 @@ exports[`Radio renders radio helpText 1`] = `
       className="Fill"
     />
   </label>
-  <Error
-    error="Radio Help Text"
-  />
+  <div
+    className="HelpText"
+  >
+    Radio Help Text
+  </div>
 </fieldset>
 `;
 

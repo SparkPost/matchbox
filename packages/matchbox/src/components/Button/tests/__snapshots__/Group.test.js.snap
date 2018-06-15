@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Group renders correctly 1`] = `
+exports[`Group renders children correctly 1`] = `
 <div
   className="Group"
 >

@@ -18,4 +18,9 @@ describe('ProgressBar', () => {
     wrapper.setProps({ completed: 50, color: 'navy' });
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders at 100% progress if given a value over 100', () => {
+    wrapper.setProps({ completed: 200 });
+    expect(wrapper.find('.Progress').props().style.width).toEqual('100%');
+  });
 });

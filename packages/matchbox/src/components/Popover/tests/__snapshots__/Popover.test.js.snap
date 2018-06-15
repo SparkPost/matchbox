@@ -81,3 +81,56 @@ exports[`Popover should render overlay correctly 1`] = `
   renderPopover={[Function]}
 />
 `;
+
+exports[`Popover should render overlay correctly 2`] = `
+<React.Fragment>
+  <WindowEvent
+    event="resize"
+    handler={[Function]}
+  />
+  <WindowEvent
+    event="scroll"
+    handler={[Function]}
+  />
+  <span
+    className="Activator"
+    onClick={[Function]}
+  >
+    <Trigger />
+  </span>
+  <Portal
+    containerId="portal"
+  >
+    <div
+      className="PopoverOverlay"
+      style={
+        Object {
+          "height": undefined,
+          "left": NaN,
+          "top": NaN,
+          "width": undefined,
+        }
+      }
+    >
+      <Popover.Content
+        bottom={true}
+        open={false}
+        popoverRef={[Function]}
+        portalId="portal"
+        right={true}
+        trigger={<Trigger />}
+      >
+        <WindowEvent
+          event="click"
+          handler={[Function]}
+        />
+        <WindowEvent
+          event="keydown"
+          handler={[Function]}
+        />
+        Popover Content
+      </Popover.Content>
+    </div>
+  </Portal>
+</React.Fragment>
+`;

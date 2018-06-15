@@ -11,4 +11,18 @@ describe('Grid', () => {
   it('renders with default props', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders other props', () => {
+    wrapper.setProps({
+      center: 'xs',
+      start: 'xs',
+      end: 'xs',
+      top: 'xs',
+      middle: 'xs',
+      bottom: 'xs',
+      around: 'xs',
+      between: 'xs'
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
 });

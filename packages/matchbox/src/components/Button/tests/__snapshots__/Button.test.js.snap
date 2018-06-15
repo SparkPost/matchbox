@@ -2,7 +2,17 @@
 
 exports[`Button renders button states color navy 1`] = `
 <button
-  className="Button color-navy default"
+  className="Button color-navy"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states deprecated prop - primary 1`] = `
+<button
+  className="Button color-orange"
   onMouseUp={[Function]}
   type="button"
 >
@@ -12,7 +22,7 @@ exports[`Button renders button states color navy 1`] = `
 
 exports[`Button renders button states destructive 1`] = `
 <button
-  className="Button destructive default"
+  className="Button destructive"
   onMouseUp={[Function]}
   type="button"
 >
@@ -22,7 +32,7 @@ exports[`Button renders button states destructive 1`] = `
 
 exports[`Button renders button states disabled 1`] = `
 <button
-  className="Button disabled default"
+  className="Button disabled"
   disabled={true}
   onMouseUp={[Function]}
   type="button"
@@ -33,7 +43,7 @@ exports[`Button renders button states disabled 1`] = `
 
 exports[`Button renders button states external button 1`] = `
 <button
-  className="Button default"
+  className="Button"
   onMouseUp={[Function]}
   type="button"
 >
@@ -41,9 +51,42 @@ exports[`Button renders button states external button 1`] = `
 </button>
 `;
 
+exports[`Button renders button states external to without component 1`] = `
+<a
+  className="Button"
+  href="/nocomp"
+  onMouseUp={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Hola!
+</a>
+`;
+
 exports[`Button renders button states flat 1`] = `
 <button
-  className="Button flat default"
+  className="Button flat"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states flat with color 1`] = `
+<button
+  className="Button color-red flat"
+  onMouseUp={[Function]}
+  type="button"
+>
+  Hola!
+</button>
+`;
+
+exports[`Button renders button states flat with color and disabled 1`] = `
+<button
+  className="Button color-red disabled flat"
+  disabled={true}
   onMouseUp={[Function]}
   type="button"
 >
@@ -53,7 +96,7 @@ exports[`Button renders button states flat 1`] = `
 
 exports[`Button renders button states fullWidth 1`] = `
 <button
-  className="Button fullWidth default"
+  className="Button fullWidth"
   onMouseUp={[Function]}
   type="button"
 >
@@ -73,17 +116,7 @@ exports[`Button renders button states large size 1`] = `
 
 exports[`Button renders button states outline enabled 1`] = `
 <button
-  className="Button outline default"
-  onMouseUp={[Function]}
-  type="button"
->
-  Hola!
-</button>
-`;
-
-exports[`Button renders button states outline orange 1`] = `
-<button
-  className="Button color-orange outline default"
+  className="Button outline"
   onMouseUp={[Function]}
   type="button"
 >
@@ -93,7 +126,7 @@ exports[`Button renders button states outline orange 1`] = `
 
 exports[`Button renders button states submit 1`] = `
 <button
-  className="Button default"
+  className="Button"
   onMouseUp={[Function]}
   type="submit"
 >
@@ -103,7 +136,7 @@ exports[`Button renders button states submit 1`] = `
 
 exports[`Button renders button states to with component 1`] = `
 <bound fn
-  className="Button default"
+  className="Button"
   onMouseUp={[Function]}
   to="/withcomp"
 >
@@ -113,7 +146,7 @@ exports[`Button renders button states to with component 1`] = `
 
 exports[`Button renders button states to without component 1`] = `
 <a
-  className="Button default"
+  className="Button"
   href="/nocomp"
   onMouseUp={[Function]}
   rel=""

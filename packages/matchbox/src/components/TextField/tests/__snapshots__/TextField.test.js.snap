@@ -23,11 +23,8 @@ exports[`TextField renders TextField disabled 1`] = `
 
 exports[`TextField renders TextField error 1`] = `
 <fieldset
-  className="TextField"
+  className="TextField error"
 >
-  <Label
-    label="An error occurred"
-  />
   <Connect>
     <input
       className="Input"
@@ -41,6 +38,9 @@ exports[`TextField renders TextField error 1`] = `
       type="text"
     />
   </Connect>
+  <Error
+    error="An error occurred"
+  />
 </fieldset>
 `;
 
@@ -68,11 +68,9 @@ exports[`TextField renders TextField helpText 1`] = `
 <fieldset
   className="TextField"
 >
-  <Label
-    label="TextField help text"
-  />
   <Connect>
     <input
+      HelpText="TextField help text"
       className="Input"
       style={
         Object {

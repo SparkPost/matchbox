@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnstyledLink renders link states external button 1`] = `
+<a>
+  Hola!
+</a>
+`;
+
+exports[`UnstyledLink renders link states external to without component 1`] = `
+<a
+  href="/nocomp"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Hola!
+</a>
+`;
+
+exports[`UnstyledLink renders link states to with component 1`] = `
+<bound fn
+  to="/withcomp"
+>
+  Hola!
+</bound fn>
+`;
+
+exports[`UnstyledLink renders link states to without component 1`] = `
+<a
+  href="/nocomp"
+  rel=""
+  target=""
+>
+  Hola!
+</a>
+`;

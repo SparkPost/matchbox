@@ -1,32 +1,218 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Panel renders correctly 1`] = `
-<div
-  className="Panel"
+<Panel
+  accent={true}
+  actions={
+    Array [
+      Object {
+        "content": "Action",
+      },
+    ]
+  }
+  sectioned={true}
+  title="title"
 >
   <div
-    className="Accent accent-orange"
-  />
-  <Header
-    title="title"
-  />
-  <Panel.Section>
-    Foo
-  </Panel.Section>
+    className="Panel"
+  >
+    <div
+      className="Accent accent-orange"
+    />
+    <Header
+      actions={
+        Array [
+          Object {
+            "content": "Action",
+          },
+        ]
+      }
+      title="title"
+    >
+      <div
+        className="Header"
+      >
+        <div
+          className="HeaderText"
+        >
+          title
+        </div>
+        <div
+          className="Actions"
+        >
+          <Button.Group>
+            <div
+              className="Group"
+            >
+              <Button
+                flat={true}
+                key="0"
+                size="small"
+              >
+                <button
+                  className="Button flat small"
+                  onMouseUp={[Function]}
+                  type="button"
+                >
+                  Action
+                </button>
+              </Button>
+            </div>
+          </Button.Group>
+        </div>
+      </div>
+    </Header>
+    <Panel.Section>
+      <div
+        className="Body"
+      >
+        <div
+          className="SectionContent"
+        >
+          Foo
+        </div>
+      </div>
+    </Panel.Section>
+  </div>
+</Panel>
+`;
+
+exports[`Panel renders correctly with footer 1`] = `
+<div>
+  <Panel
+    accent="red"
+  >
+    <div
+      className="Panel"
+    >
+      <div
+        className="Accent accent-red"
+      />
+    </div>
+  </Panel>
+  <Panel.Footer
+    left={
+      <span>
+        left
+      </span>
+    }
+    right="right"
+  >
+    <div
+      className="Footer"
+    >
+      <Grid>
+        <div
+          className="Grid"
+        >
+          <Grid.Column
+            xs={6}
+          >
+            <div
+              className="Column xs-6"
+            >
+              <div
+                className="Left"
+              >
+                <span>
+                  left
+                </span>
+              </div>
+            </div>
+          </Grid.Column>
+          <Grid.Column
+            xs={6}
+          >
+            <div
+              className="Column xs-6"
+            >
+              <div
+                className="Right"
+              >
+                right
+              </div>
+            </div>
+          </Grid.Column>
+        </div>
+      </Grid>
+    </div>
+  </Panel.Footer>
 </div>
 `;
 
 exports[`Panel renders correctly with sections 1`] = `
-<div
-  className="Panel"
+<Panel
+  title="title"
 >
-  <Panel.Section>
-    <Panel.Section>
-      Foo
+  <div
+    className="Panel"
+  >
+    <Header
+      title="title"
+    >
+      <div
+        className="Header"
+      >
+        <div
+          className="HeaderText"
+        >
+          title
+        </div>
+      </div>
+    </Header>
+    <Panel.Section
+      actions={
+        Array [
+          Object {
+            "content": "Action",
+          },
+        ]
+      }
+    >
+      <div
+        className="Body"
+      >
+        <div
+          className="SectionContent"
+        >
+          Foo
+        </div>
+        <div
+          className="Actions"
+        >
+          <Button.Group>
+            <div
+              className="Group"
+            >
+              <Button
+                flat={true}
+                key="0"
+                size="small"
+              >
+                <button
+                  className="Button flat small"
+                  onMouseUp={[Function]}
+                  type="button"
+                >
+                  Action
+                </button>
+              </Button>
+            </div>
+          </Button.Group>
+        </div>
+      </div>
     </Panel.Section>
     <Panel.Section>
-      Bar
+      <div
+        className="Body"
+      >
+        <div
+          className="SectionContent"
+        >
+          Bar
+        </div>
+      </div>
     </Panel.Section>
-  </Panel.Section>
-</div>
+  </div>
+</Panel>
 `;

@@ -19,7 +19,7 @@ describe('Radio', () => {
     { name: 'label hidden', props: { label: 'Radio Label', labelHidden: true }},
     { name: 'value', props: { value: 'selected' }},
     { name: 'error', props: { error: 'There is an error' }},
-    { name: 'helpText', props: { error: 'Radio Help Text' }}
+    { name: 'helpText', props: { helpText: 'Radio Help Text' }}
   ];
 
   cases('renders radio', (opts) => {

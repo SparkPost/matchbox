@@ -23,6 +23,7 @@ describe('Popover', () => {
 
   it('should render overlay correctly', () => {
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('PopoverOverlay').dive()).toMatchSnapshot();
   });
 
   it('should use local state if not controlled', () => {

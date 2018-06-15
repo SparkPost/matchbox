@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPositionFor should return direction 1`] = `
+Object {
+  "height": 10,
+  "left": 70,
+  "top": 610,
+  "width": 20,
+}
+`;
+
+exports[`getPositionFor should return direction if node is fixed 1`] = `
+Object {
+  "height": 10,
+  "left": 50,
+  "top": 600,
+  "width": 20,
+}
+`;
+
+exports[`getPreferredDirectionFor should return direction 1`] = `
+Object {
+  "bottom": false,
+  "left": false,
+  "right": true,
+  "top": true,
+}
+`;
+
+exports[`getRectFor should return empty object with no node 1`] = `Object {}`;
+
+exports[`getRectFor should return node dimensions 1`] = `"dimensions"`;
+
+exports[`getWindowRect should return window dimensions 1`] = `
+Object {
+  "height": 600,
+  "left": 20,
+  "top": 10,
+  "width": 900,
+}
+`;

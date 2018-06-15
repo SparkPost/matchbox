@@ -28,6 +28,7 @@ describe('Page', () => {
   it('renders page with breadcrumb', () => {
     wrapper.setProps({ breadcrumbAction: { content: 'Step 1' }});
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('Breadcrumb').dive()).toMatchSnapshot();
   });
 
   it('renders page with empty state', () => {

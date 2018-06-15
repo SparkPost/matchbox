@@ -4,6 +4,10 @@
     "packages/matchbox/src/helpers/**/*.{js,jsx}",
     "packages/matchbox-icons/src/IconBase/**/*.{js,jsx}"
   ],
+  "coveragePathIgnorePatterns": [
+    "index.js",
+    "Datepicker.js"
+  ],
   "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
   "setupFiles": [
     "<rootDir>/config/polyfills.js"

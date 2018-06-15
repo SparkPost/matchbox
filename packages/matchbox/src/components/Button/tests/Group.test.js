@@ -8,13 +8,12 @@ describe('Group', () => {
     wrapper = shallow(<Group><button>Button 1</button><button>Button 2</button></Group>);
   });
 
-  it('renders correctly', () => {
+  it('renders children correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
   it('sets classname if passed', () => {
     wrapper.setProps({ className: 'group-of-buttons' });
     expect(wrapper).toMatchSnapshot();
   });
-
 });
-

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle renders toggle states checked 1`] = `
+<label
+  className="Toggle"
+  htmlFor="foo"
+>
+  <input
+    checked={true}
+    className="Input"
+    id="foo"
+    type="checkbox"
+    value="bar"
+  />
+  <span
+    className="Outline"
+  />
+  <div
+    className="Labels"
+  >
+    <span>
+      On
+    </span>
+    <span>
+      Off
+    </span>
+  </div>
+  <span
+    className="Indicator"
+  />
+</label>
+`;
+
+exports[`Toggle renders toggle states disabled 1`] = `
+<label
+  className="Toggle"
+  htmlFor="foo"
+>
+  <input
+    className="Input"
+    disabled={true}
+    id="foo"
+    type="checkbox"
+    value="bar"
+  />
+  <span
+    className="Outline"
+  />
+  <div
+    className="Labels"
+  >
+    <span>
+      On
+    </span>
+    <span>
+      Off
+    </span>
+  </div>
+  <span
+    className="Indicator"
+  />
+</label>
+`;

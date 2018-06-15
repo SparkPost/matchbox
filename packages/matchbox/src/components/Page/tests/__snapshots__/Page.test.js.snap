@@ -40,6 +40,17 @@ exports[`Page renders page with breadcrumb 1`] = `
 </div>
 `;
 
+exports[`Page renders page with breadcrumb 2`] = `
+<UnstyledLink
+  className="Breadcrumb"
+>
+  <ChevronLeft
+    size={27}
+  />
+  Step 1
+</UnstyledLink>
+`;
+
 exports[`Page renders page with children 1`] = `
 <div>
   <div

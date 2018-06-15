@@ -22,10 +22,17 @@ describe('Tabs', () => {
 
   it('renders with first tab selected', () => {
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('Tab').at(0).dive()).toMatchSnapshot();
+    expect(wrapper.find('Tab').at(1).dive()).toMatchSnapshot();
   });
 
   it('renders with fitted tabs', () => {
     wrapper.setProps({ fitted: true });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders when connected with below components', () => {
+    wrapper.setProps({ connectBelow: true });
     expect(wrapper).toMatchSnapshot();
   });
 

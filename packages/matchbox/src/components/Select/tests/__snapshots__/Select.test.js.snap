@@ -62,9 +62,6 @@ exports[`Select renders Select helpText 1`] = `
 <fieldset
   className="Select"
 >
-  <Label
-    label="Select help text"
-  />
   <select
     className="Input"
   >
@@ -74,8 +71,13 @@ exports[`Select renders Select helpText 1`] = `
     />
   </select>
   <ArrowDropDown
-    className="Dropdown"
+    className="Dropdown labelHidden"
   />
+  <div
+    className="HelpText"
+  >
+    Select help text
+  </div>
 </fieldset>
 `;
 
@@ -141,4 +143,29 @@ exports[`Select renders Select with options 1`] = `
     className="Dropdown labelHidden"
   />
 </fieldset>
+`;
+
+exports[`Select should render Option correctly 1`] = `
+<option
+  value="option 1"
+>
+  option 1
+</option>
+`;
+
+exports[`Select should render Option correctly 2`] = `
+<option
+  value={2}
+>
+  2
+</option>
+`;
+
+exports[`Select should render Option correctly 3`] = `
+<option
+  disabled={true}
+  value={3}
+>
+  three
+</option>
 `;

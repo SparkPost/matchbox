@@ -19,7 +19,7 @@ describe('CodeBlock', () => {
 
   it('renders line numbers', () => {
     wrapper.setProps({ numbered: true, height: 200 });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.PrefixWrapper')).toMatchSnapshot();
   });
 
 });

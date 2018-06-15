@@ -19,6 +19,7 @@ describe('Banner', () => {
 
   it('renders correctly with default props', () => {
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('IconSection').dive().html()).toEqual(null);
   });
 
   it('renders status', () => {
@@ -26,6 +27,7 @@ describe('Banner', () => {
     expect(wrapper).toMatchSnapshot();
     wrapper.setProps({ status: 'danger' });
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
   });
 
   it('dismisses banner correctly upon clicking dismissin icon', () => {
@@ -57,6 +59,4 @@ describe('Banner', () => {
     wrapper.find(`.${styles.Actions}`).find('Button').at(1).simulate('click');
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
   });
-
-
 });

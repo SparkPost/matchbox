@@ -19,7 +19,7 @@ describe('Select', () => {
     { name: 'disabled', props: { disabled: true }},
     { name: 'required', props: { required: true, label: 'Select Label' }},
     { name: 'label', props: { label: 'Select Label' }},
-    { name: 'helpText', props: { label: 'Select help text' }},
+    { name: 'helpText', props: { helpText: 'Select help text' }},
     { name: 'error', props: { label: 'An error occurred' }},
     { name: 'errorInLabel', props: { error: 'Error occurred', errorInLabel: true }},
     { name: 'with options', props: { options: ['option 1', 'option 2']}}
@@ -42,5 +42,11 @@ describe('Select', () => {
     { name: 'onBlur', event: 'blur' },
     { name: 'onFocus', event: 'focus' }
   ]);
+
+  it('should render Option correctly', () => {
+    wrapper.setProps({ options: ['option 1', 2, { label: 'three', value: 3, disabled: true } ]});
+    const options = wrapper.find('Option');
+    options.forEach((option) => expect(option.dive()).toMatchSnapshot());
+  });
 
 });

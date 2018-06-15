@@ -8,7 +8,6 @@ describe('EmptyState', () => {
   beforeEach(() => {
     props = {
       title: 'Not there yet!'
-
     };
 
     wrapper = shallow(<EmptyState {...props}><p>Nothing here yet!</p></EmptyState>);
