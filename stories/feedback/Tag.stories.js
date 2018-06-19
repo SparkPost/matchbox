@@ -4,13 +4,14 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { Tag } from '@sparkpost/matchbox';
+import { Language } from '@sparkpost/matchbox-icons';
 
 storiesOf('Feedback|Tag', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .add('basic tag', withInfo()(() => (
-    <Tag>domain.com</Tag>
+    <Tag>domain.com <Language/></Tag>
   )))
   .add('with remove action', withInfo()(() => (
     <Tag onRemove={action('Tag Remove')}>domain.com</Tag>
