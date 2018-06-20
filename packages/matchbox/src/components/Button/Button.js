@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Group from './Group';
+import Group from './Button.Group';
 import styles from './Button.module.scss';
 
 class Button extends Component {
