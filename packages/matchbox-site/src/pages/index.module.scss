@@ -1,16 +1,21 @@
 @import '../../../matchbox/src/styles/config.scss';
 
 .Title {
-  font-size: rem(40);
+  font-size: rem(36);
   font-weight: bold;
   color: color(gray, 0);
-  margin-bottom: spacing(small);
+  margin-bottom: 0;
 }
 
 .Description {
   font-size: rem(18);
+  margin-bottom: spacing(larger);
+}
+
+.Link, .Link:visited {
+  color: color(gray, 0);
 }
 
 .ButtonWrapper > * {
-  margin-right: spacing(small);
+  margin-right: spacing();
 }
