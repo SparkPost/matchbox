@@ -48,7 +48,6 @@
     "classnames": "^2.2.5",
     "coveralls": "^3.0.1",
     "css-loader": "^0.28.11",
-    "docz": "^0.2.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
@@ -71,8 +70,7 @@
     "postcss-loader": "^2.1.5",
     "react-test-renderer": "^16.3.2",
     "sass-loader": "^7.0.1",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.12.0"
+    "style-loader": "^0.21.0"
   },
   "babel": {
     "presets": [
