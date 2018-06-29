@@ -5,6 +5,7 @@
     "start:site": "lerna exec --scope @sparkpost/matchbox-site -- npm run develop",
     "start:storybook": "start-storybook -p 9001 -c .storybook",
     "build": "lerna run build --ignore @sparkpost/matchbox-site",
+    "prebuild:site": "lerna exec --scope @sparkpost/matchbox-site -- npm install",
     "build:site": "lerna exec --scope @sparkpost/matchbox-site -- npm run build",
     "clean": "lerna clean --yes",
     "bootstrap": "lerna bootstrap",
