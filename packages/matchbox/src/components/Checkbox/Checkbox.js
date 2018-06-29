@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Check } from '@sparkpost/matchbox-icons';
-import Group from './Checkbox.Group';
+import Group from './Group';
 import styles from './Checkbox.module.scss';
 
 class Checkbox extends Component {

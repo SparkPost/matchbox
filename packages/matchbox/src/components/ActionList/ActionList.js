@@ -1,9 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { groupByValues } from '../../helpers/array';
-import Section from './ActionList.Section';
+import { groupByValues, filterByVisible } from '../../helpers/array';
+import { linkFrom } from '../UnstyledLink';
+import { Check } from '@sparkpost/matchbox-icons';
 import styles from './ActionList.module.scss';
+
+const Section = ({ section }) => {
+  const actions = filterByVisible(section).map(({ className, highlighted, selected, content, ...action }, index) => {
+
+    const classes = classnames(
+      styles.Action,
+      highlighted && styles.highlighted,
+      className
+    );
+
+    const linkContent = selected
+      ? <span>{content}<Check className={styles.Check} size={21}/></span>
+      : content;
+
+    return linkFrom({ content: linkContent, ...action, className: classes }, index);
+  });
+
+  return (
+    <div className={styles.Section}>
+      {actions}
+    </div>
+  );
+};
 
 class ActionList extends Component {
   static displayName = 'ActionList';

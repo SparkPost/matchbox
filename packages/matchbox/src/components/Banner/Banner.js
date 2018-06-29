@@ -34,7 +34,6 @@ const IconSection = ({ status }) => {
     </div>
   );
 };
-IconSection.displayName = 'Banner.IconSection';
 
 class Banner extends Component {
   static displayName = 'Banner';
