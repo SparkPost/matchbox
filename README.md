@@ -56,7 +56,7 @@ npm link
 # Build the packages
 npm run build
 
-# You can also run the packages in watch module if you prefer
+# You can also run the packages in watch mode if you prefer
 # Specify the package you want to watch with --scope
 lerna exec --scope @sparkpost/matchbox -- npm run watch
 
