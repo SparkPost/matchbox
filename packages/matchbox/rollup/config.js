@@ -15,7 +15,6 @@ export const inputOptions = {
     'react-dom',
     'classnames',
     'prop-types',
-    'react-day-picker',
     'react-transition-group',
     '@sparkpost/matchbox-icons'
   ]
