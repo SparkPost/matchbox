@@ -34,7 +34,7 @@ class Tabs extends Component {
      * e.g. { content: 'Label', onClick: callback() }
      */
     tabs: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     })),
 
     /**

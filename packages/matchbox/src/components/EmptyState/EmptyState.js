@@ -17,13 +17,13 @@ class EmptyState extends Component {
       * e.g. { content: 'button label', onClick: callback() }
       */
     primaryAction: PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     }),
     /**
       * Secondary Action - appear as a link next to the primary action
       */
     secondaryAction: PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     }),
     /**
       * Image to display
