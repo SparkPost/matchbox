@@ -34,7 +34,7 @@ class Panel extends Component {
       * e.g. { content: 'button label', onClick: callback() }
       */
     actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     })),
     /**
       * Panel Content

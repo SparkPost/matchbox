@@ -33,21 +33,21 @@ class Page extends Component {
       * e.g. { content: 'button label', onClick: callback() }
       */
     primaryAction: PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     }),
     /**
       * Actions that appear below title
       * e.g. { content: 'button label', onClick: callback() }
       */
     secondaryActions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     })),
 
     /**
       * The back link action
       */
     breadcrumbAction: PropTypes.shape({
-      content: PropTypes.string.isRequired
+      content: PropTypes.node.isRequired
     }),
 
     /**

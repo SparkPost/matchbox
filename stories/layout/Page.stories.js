@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Page, Panel } from '@sparkpost/matchbox';
+import { Save } from '@sparkpost/matchbox-icons';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
 
 export default storiesOf('Layout|Page', module)
@@ -21,7 +22,7 @@ export default storiesOf('Layout|Page', module)
 
     const secondaryActions = [
       {
-        content: 'Save',
+        content: <span><Save /> Save</span>,
         onClick: action('Save Clicked')
       },
       {
