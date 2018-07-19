@@ -6,7 +6,6 @@
   ],
   "coveragePathIgnorePatterns": [
     "index.js",
-    "Datepicker.js"
   ],
   "coverageThreshold": {
     "global": {
