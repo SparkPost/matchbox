@@ -15,7 +15,7 @@ class ProgressBar extends Component {
     /**
      * Bar color
      */
-    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
+    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow'])
   };
 
   static defaultProps = {
@@ -24,7 +24,7 @@ class ProgressBar extends Component {
   }
 
   render() {
-    const { completed = 0, color } = this.props;
+    const { completed = 0, color, className } = this.props;
 
     let percentage = completed;
 
@@ -35,7 +35,7 @@ class ProgressBar extends Component {
     }
 
     return (
-      <div className={classnames(styles.ProgressBar, styles[color])}>
+      <div className={classnames(styles.ProgressBar, styles[color], className)}>
         <div className={styles.Progress} style={{ width: `${percentage}%` }}/>
       </div>
     );

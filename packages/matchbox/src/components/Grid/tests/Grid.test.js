@@ -21,7 +21,8 @@ describe('Grid', () => {
       middle: 'xs',
       bottom: 'xs',
       around: 'xs',
-      between: 'xs'
+      between: 'xs',
+      className: 'test'
     });
     expect(wrapper).toMatchSnapshot();
   });

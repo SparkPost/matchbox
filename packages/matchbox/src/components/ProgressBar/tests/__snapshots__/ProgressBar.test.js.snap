@@ -29,3 +29,5 @@ exports[`ProgressBar renders progressbar at defaults 1`] = `
   />
 </div>
 `;
+
+exports[`ProgressBar should pass through className 1`] = `"ProgressBar orange test"`;

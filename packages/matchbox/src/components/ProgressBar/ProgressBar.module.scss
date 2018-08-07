@@ -28,12 +28,19 @@
     background: color(navy);
     border-bottom: 1px solid color(navy, dark);
   }
+
   .purple & {
     background: color(purple);
     border-bottom: 1px solid color(purple, dark);
   }
+
   .red & {
     background: color(red);
     border-bottom: 1px solid color(red, dark);
+  }
+
+  .yellow & {
+    background: color(yellow);
+    border-bottom: 1px solid color(yellow, dark);
   }
 }

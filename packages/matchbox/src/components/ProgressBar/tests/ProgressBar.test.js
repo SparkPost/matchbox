@@ -23,4 +23,9 @@ describe('ProgressBar', () => {
     wrapper.setProps({ completed: 200 });
     expect(wrapper.find('.Progress').props().style.width).toEqual('100%');
   });
+
+  it('should pass through className', () => {
+    wrapper.setProps({ className: 'test' });
+    expect(wrapper.find('.ProgressBar').prop('className')).toMatchSnapshot();
+  });
 });

@@ -13,7 +13,7 @@ describe('Column', () => {
   });
 
   it('renders with sizing prop', () => {
-    wrapper.setProps({ xs: 12, sm: 6, md: 6, lg: 4, xl: 2, xsOffset: 1, smOffset: 2, mdOffset: 2, lgOffset: 3, xlOffset: 4 });
+    wrapper.setProps({ xs: 12, sm: 6, md: 6, lg: 4, xl: 2, xsOffset: 1, smOffset: 2, mdOffset: 2, lgOffset: 3, xlOffset: 4, className: 'test' });
     expect(wrapper).toMatchSnapshot();
   });
 });

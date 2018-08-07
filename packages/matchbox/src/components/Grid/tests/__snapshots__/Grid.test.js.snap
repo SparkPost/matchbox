@@ -2,7 +2,7 @@
 
 exports[`Grid renders other props 1`] = `
 <div
-  className="Grid start-xs center-xs end-xs top-xs middle-xs bottom-xs around-xs between-xs"
+  className="Grid start-xs center-xs end-xs top-xs middle-xs bottom-xs around-xs between-xs test"
 >
   <p>
     Grid
