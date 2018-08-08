@@ -2,17 +2,35 @@
 
 .ProgressBar {
   position: relative;
-  margin-bottom: rem(18);
+  margin-bottom: spacing();
   height: rem(21);
   background: color(gray, 8);
   border-bottom: 1px solid color(gray, 7);
   border-radius: border-radius();
+
+  &.small {
+    height: rem(12);
+  }
+
+  &.large {
+    height: rem(30);
+    border-radius: border-radius(large);
+  }
 }
 
 .Progress {
   height: rem(21);
   border-radius: border-radius();
   box-shadow: shadow();
+
+  .small & {
+    height: rem(12);
+  }
+
+  .large & {
+    height: rem(30);
+    border-radius: border-radius(large);
+  }
 
   .orange & {
     background: color(orange);

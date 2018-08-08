@@ -13,6 +13,13 @@ export default storiesOf('Feedback|ProgressBar', module)
   .add('Default', withInfo()(() => (
     <ProgressBar completed={54} />
   )))
+  .add('Sizes', withInfo()(() => (
+    <div>
+      <ProgressBar completed={54} size='small' />
+      <ProgressBar completed={54} />
+      <ProgressBar completed={54} size='large' />
+    </div>
+  )))
   .add('Colors', withInfo()(() => (
     <div>
       <ProgressBar completed={54} color='red' />

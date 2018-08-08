@@ -8,7 +8,7 @@ exports[`ProgressBar renders at 50% progress in navy color 1`] = `
     className="Progress"
     style={
       Object {
-        "width": "50%",
+        "width": "50.5%",
       }
     }
   />

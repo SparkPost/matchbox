@@ -15,7 +15,7 @@ describe('ProgressBar', () => {
   });
 
   it('renders at 50% progress in navy color', () => {
-    wrapper.setProps({ completed: 50, color: 'navy' });
+    wrapper.setProps({ completed: 50.5, color: 'navy' });
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -27,5 +27,10 @@ describe('ProgressBar', () => {
   it('should pass through className', () => {
     wrapper.setProps({ className: 'test' });
     expect(wrapper.find('.ProgressBar').prop('className')).toMatchSnapshot();
+  });
+
+  it('should handle negative percentage', () => {
+    wrapper.setProps({ completed: -5 });
+    expect(wrapper.find('.Progress').prop('style').width).toEqual('0%');
   });
 });
