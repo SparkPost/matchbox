@@ -21,7 +21,7 @@ npm install @sparkpost/matchbox --save
 ### 2. Include Styles
 
 ```scss
- // TODO: fill this out	 // Import matchbox's styles
+ // Import matchbox's styles
  @import '~@sparkpost/matchbox/styles.scss';
  // Optionally include config.scss for sass functions and mixins
  @import '~@sparkpost/matchbox/src/styles/config.scss';
