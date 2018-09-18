@@ -64,7 +64,7 @@
     box-shadow: 0 0 0 1px color(blue);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     opacity: 0.6;
     background: color(gray, 9);
     &:hover {
@@ -92,7 +92,7 @@
                 0 0 0 2px rgba(color(orange), 0.6);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: linear-gradient(180deg, color(orange), color(orange, dark));
     &:hover {
       background: linear-gradient(180deg, color(orange), color(orange, dark));
@@ -122,7 +122,7 @@
                 0 0 0 2px rgba(color(blue), 0.6);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: linear-gradient(180deg, color(blue), color(blue, dark));
     &:hover {
       background: linear-gradient(180deg, color(blue), color(blue, dark));
@@ -152,7 +152,7 @@
                 0 0 0 2px color(navy, light);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: linear-gradient(180deg, color(navy), color(navy, dark));
     &:hover {
       background: linear-gradient(180deg, color(navy), color(navy, dark));
@@ -182,7 +182,7 @@
                 0 0 0 2px rgba(color(red, dark), 0.6);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: linear-gradient(180deg, color(red), color(red, dark));
     &:hover {
       background: linear-gradient(180deg, color(red), color(red, dark));
@@ -212,7 +212,7 @@
                 0 0 0 2px rgba(color(purple, dark), 0.6);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: linear-gradient(180deg, color(purple), color(purple, dark));
     &:hover {
       background: linear-gradient(180deg, color(purple), color(purple, dark));
@@ -245,7 +245,7 @@
     border: none;
   }
 
-  &.disabled:disabled {
+  &.disabled {
     opacity: 0.6;
     background: transparent;
     &:hover {
@@ -283,7 +283,7 @@
                 0 0 0 2px color(gray, 4);
   }
 
-  &.disabled:disabled {
+  &.disabled {
     background: transparent;
     &:hover {
       background: transparent;

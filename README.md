@@ -20,8 +20,11 @@ npm install @sparkpost/matchbox --save
 
 ### 2. Include Styles
 
-```js
- // TODO: fill this out
+```scss
+ // Import matchbox's styles
+ @import '~@sparkpost/matchbox/styles.scss';
+ // Optionally include config.scss for sass functions and mixins
+ @import '~@sparkpost/matchbox/src/styles/config.scss';
 ```
 
 ### 3. Use the React components
@@ -44,27 +47,4 @@ const YourComponent = () => (
 ```bash
 # Runs storybook at localhost:9001
 npm run start:storybook
-```
-
-## Local Development with your app
-
-```bash
-# Make sure to turn off your webpack dev server before linking
-# npm link this repo
-npm link
-
-# Build the packages
-npm run build
-
-# You can also run the packages in watch mode if you prefer
-# Specify the package you want to watch with --scope
-lerna exec --scope @sparkpost/matchbox -- npm run watch
-
-# Link your app to this repo
-cd ~/path/to/your-app
-npm link @sparkpost/matchbox
-npm link @sparkpost/matchbox-icons
-
-# Start your app
-npm run start
 ```
