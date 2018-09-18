@@ -65,7 +65,7 @@
     "jest-enzyme": "^6.0.0",
     "lerna": "^2.10.2",
     "lint-staged": "^7.1.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "postcss-loader": "^2.1.5",
     "react-test-renderer": "^16.3.2",
     "sass-loader": "^7.0.1",
