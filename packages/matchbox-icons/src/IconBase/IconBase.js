@@ -35,7 +35,6 @@ class IconBase extends Component {
 
     const styleProp = {
       verticalAlign: 'middle',
-      marginTop: '-0.09em',
       ...style
     };
 

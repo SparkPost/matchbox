@@ -7,7 +7,6 @@ exports[`IconBase renders children correctly 1`] = `
   preserveAspectRatio="xMidYMid meet"
   style={
     Object {
-      "marginTop": "-0.09em",
       "verticalAlign": "middle",
     }
   }
