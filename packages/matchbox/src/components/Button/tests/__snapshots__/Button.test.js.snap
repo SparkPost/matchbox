@@ -134,6 +134,17 @@ exports[`Button renders button states submit 1`] = `
 </button>
 `;
 
+exports[`Button renders button states to while disabled 1`] = `
+<bound fn
+  className="Button disabled"
+  disabled={true}
+  onMouseUp={[Function]}
+  to="/withcomp"
+>
+  Hola!
+</bound fn>
+`;
+
 exports[`Button renders button states to with component 1`] = `
 <bound fn
   className="Button"

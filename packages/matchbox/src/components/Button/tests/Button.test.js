@@ -24,6 +24,7 @@ describe('Button', () => {
     { name: 'to without component', props: { to: '/nocomp' }},
     { name: 'external to without component', props: { to: '/nocomp', external: true }},
     { name: 'to with component', props: { to: '/withcomp', component: jest.fn }},
+    { name: 'to while disabled', props: { to: '/withcomp', component: jest.fn, disabled: true }},
     { name: 'deprecated prop - primary', props: { primary: true }}
   ];
 
