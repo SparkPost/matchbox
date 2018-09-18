@@ -33,7 +33,7 @@
     "install": "^0.11.0",
     "loader-utils": "^1.1.0",
     "lodash": "^4.17.10",
-    "npm": "^6.1.0",
+    "npm": "^6.4.1",
     "prettier": "^1.12.0",
     "prop-types": "^15.6.2",
     "react-docgen": "^3.0.0-beta9",
