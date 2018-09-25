@@ -27,11 +27,15 @@ exports[`EmptyState renders with actions 1`] = `
       button
     </Button>
      
-    <UnstyledLink
-      onClick={[MockFunction]}
+    <span
+      className="SecondaryAction"
     >
-      secondary
-    </UnstyledLink>
+      <UnstyledLink
+        onClick={[MockFunction]}
+      >
+        secondary
+      </UnstyledLink>
+    </span>
   </div>
 </div>
 `;
