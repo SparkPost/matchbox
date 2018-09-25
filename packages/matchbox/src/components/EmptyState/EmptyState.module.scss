@@ -31,9 +31,21 @@
 }
 
 .Actions {
+  width: auto;
+
+  @media screen and (min-width: breakpoint(small)) {
+    width: 45%;
+  }
+
   & > * {
     margin-right: spacing();
   }
+}
+
+.SecondaryAction {
+  display: inline-block;
+  padding-top: spacing();
+  white-space: nowrap;
 }
 
 .Image {

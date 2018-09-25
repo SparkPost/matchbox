@@ -59,7 +59,7 @@ class EmptyState extends Component {
       : null;
 
     const secondaryActionMarkup = secondaryAction
-      ? linkFrom(secondaryAction)
+      ? <span className={styles.SecondaryAction}>{linkFrom(secondaryAction)}</span>
       : null;
 
     return (
