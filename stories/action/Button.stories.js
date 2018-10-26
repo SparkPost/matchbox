@@ -2,21 +2,22 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { withSmartKnobs } from 'storybook-addon-smart-knobs'
 import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Button } from '@sparkpost/matchbox';
 
+import { withKnobs, text } from '@storybook/addon-knobs';
+
 export default storiesOf('Action|Button', module)
+  .addDecorator(withSmartKnobs)
+  .addDecorator(withKnobs)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
 
   .add('Sizing', withInfo()(() => (
-    <div>
-      <Button size='small'>Small Button</Button> &nbsp;
-      <Button>Default Button</Button> &nbsp;
-      <Button size='large'>Large Button</Button>
-    </div>
+    <Button>Click Me</Button>
   )))
 
   .add('Colors', withInfo()(() => (

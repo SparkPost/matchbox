@@ -32,6 +32,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.3",
     "@storybook/addon-info": "^3.4.3",
+    "@storybook/addon-knobs": "^3.4.11",
     "@storybook/addon-links": "^3.4.3",
     "@storybook/addon-options": "^3.4.3",
     "@storybook/addons": "^3.4.3",
@@ -69,6 +70,7 @@
     "postcss-loader": "^2.1.5",
     "react-test-renderer": "^16.3.2",
     "sass-loader": "^7.0.1",
+    "storybook-addon-smart-knobs": "^3.3.1",
     "style-loader": "^0.21.0",
     "webpack": "^3.12.0"
   },
