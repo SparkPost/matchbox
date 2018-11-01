@@ -169,6 +169,7 @@ export { default as Check } from './icons/Check';
 export { default as CheckBox } from './icons/CheckBox';
 export { default as CheckBoxOutlineBlank } from './icons/CheckBoxOutlineBlank';
 export { default as CheckCircle } from './icons/CheckCircle';
+export { default as CheckCircleOutline } from './icons/CheckCircleOutline';
 export { default as ChevronLeft } from './icons/ChevronLeft';
 export { default as ChevronRight } from './icons/ChevronRight';
 export { default as ChildCare } from './icons/ChildCare';
