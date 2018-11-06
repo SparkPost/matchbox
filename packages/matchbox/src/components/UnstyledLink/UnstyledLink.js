@@ -38,7 +38,7 @@ class UnstyledLink extends Component {
       );
     }
 
-    if (to && WrapperComponent) {
+    if (WrapperComponent) {
       return <WrapperComponent to={to} {...rest} >{children}</WrapperComponent>;
     }
 
