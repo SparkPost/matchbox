@@ -9,6 +9,11 @@ import styles from './Tabs.module.scss';
 class Tab extends Component {
   static displayName = 'Tab';
 
+  handleClick = (event) => {
+    const { index, onClick } = this.props;
+    onClick(event, index);
+  }
+
   render() {
     const { index, content, selected, fittedTab, ...rest } = this.props;
     const classes = classnames(
@@ -16,8 +21,9 @@ class Tab extends Component {
       selected === index && styles.selected,
       fittedTab && styles.fittedTab
     );
+
     return (
-      <UnstyledLink className={classes} {...rest}>
+      <UnstyledLink className={classes} {...rest} onClick={this.handleClick}>
         {content}
       </UnstyledLink>
     );
@@ -48,7 +54,9 @@ class Tabs extends Component {
     /**
       * Connects this component with component underneath it. Works well with Panels.
       */
-    connectBelow: PropTypes.bool
+    connectBelow: PropTypes.bool,
+
+    onSelect: PropTypes.func
   };
 
   static defaultProps = {
@@ -56,10 +64,25 @@ class Tabs extends Component {
     color: 'orange'
   };
 
+  handleClick = (event, index) => {
+    const { onSelect, selected, tabs } = this.props;
+    const { onClick } = tabs[index];
+
+    if (onClick) {
+      onClick(event, index);
+    }
+
+    if (onSelect && selected !== index) {
+      onSelect(index, selected);
+    }
+  }
+
   render() {
     const { tabs, selected, connectBelow, color, fitted } = this.props;
 
-    const tabMarkup = tabs.map((tab, i) => <Tab key={i} index={i} fittedTab={fitted} selected={selected} {...tab} />);
+    const tabMarkup = tabs.map((tab, i) => (
+      <Tab key={i} index={i} fittedTab={fitted} selected={selected} {...tab} onClick={this.handleClick} />
+    ));
 
     const tabsClasses = classnames(
       styles.Tabs,
