@@ -14,7 +14,8 @@ describe('Tabs', () => {
         { content: 'Tab 2', onClick: jest.fn() }
       ],
       selected: 0,
-      connectBelow: false
+      connectBelow: false,
+      onSelect: jest.fn()
     };
 
     wrapper = shallow(<Tabs {...props}/>);
@@ -37,7 +38,9 @@ describe('Tabs', () => {
   });
 
   it('changes selected tab on click', () => {
-    wrapper.find('Tab').at(1).simulate('click');
+    const event = {};
+    wrapper.find('Tab').at(1).simulate('click', event, 1);
     expect(props.tabs[1].onClick).toHaveBeenCalledTimes(1);
+    expect(props.onSelect).toHaveBeenCalledWith(1, 0);
   });
 });

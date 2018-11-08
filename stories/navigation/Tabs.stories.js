@@ -37,16 +37,18 @@ const tabs = [
   },
 ];
 
+const handleSelect = action('Tab Selected');
+
 storiesOf('Navigation|Tabs', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
   .add('basic example', withInfo()(() => (
-    <Tabs selected={0} connectBelow={false} tabs={tabs}/>
+    <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
   )))
 
   .add('fitted tabs', withInfo()(() => (
-    <Tabs fitted selected={0} connectBelow={false} tabs={tabs}/>
+    <Tabs fitted selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
   )))
 
   .add('with other components', withInfo({
@@ -58,17 +60,17 @@ storiesOf('Navigation|Tabs', module)
         breadcrumbAction={breadcrumbAction}
         title='Webhook #2'
       />
-      <Tabs selected={0} color='red' tabs={tabs} />
+      <Tabs selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
       <Panel sectioned>A panel</Panel>
     </div>
   )))
 
   .add('colors', withInfo()(() => (
     <div>
-      <Tabs connectBelow={false} selected={0} color='purple' tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='navy' tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='blue' tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='orange' tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='red' tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='purple' onSelect={handleSelect} tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='navy' onSelect={handleSelect} tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='blue' onSelect={handleSelect} tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='orange' onSelect={handleSelect} tabs={tabs} />
+      <Tabs connectBelow={false} selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
     </div>
   )));
