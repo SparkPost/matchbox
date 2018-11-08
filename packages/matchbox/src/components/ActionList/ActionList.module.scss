@@ -1,6 +1,7 @@
 @import '../../styles/config';
 
 .ActionList {
+  overflow-y: auto;
   z-index: 1;
 }
 
