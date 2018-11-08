@@ -96,5 +96,24 @@ storiesOf('Action|ActionList', module)
           />
         </Popover>
       </div>
+
+      <div style={{ display: 'inline-block', marginRight: 150 }}>
+        <Popover
+        open
+        trigger={<Button style={{ marginBottom: 250 }}>Actions with a max height</Button>}
+        style={{ width: '200px' }}>
+          <ActionList
+            groupByKey='group'
+            maxHeight={100}
+            actions={[
+              { content: 'Action1', group: 1 },
+              { content: 'Action2', group: 2, visible: true },
+              { content: 'Action2', group: 3, visible: true },
+              { content: 'Action2', group: 4, visible: true },
+              { content: 'Action2', group: 5, visible: true }
+            ]}
+          />
+        </Popover>
+      </div>
     </div>
   )));
