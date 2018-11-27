@@ -74,11 +74,11 @@ class Pagination extends Component {
     this.props.onChange && this.props.onChange(index);
   }
 
-  handleNext() {
+  handleNext = () => {
     this.handlePageChange(this.state.index + 1);
   }
 
-  handlePrevious() {
+  handlePrevious = () => {
     this.handlePageChange(this.state.index - 1);
   }
 
@@ -166,7 +166,7 @@ class Pagination extends Component {
       <div className={styles.Pagination}>
         <Button
           className={styles.Back}
-          onClick={() => this.handlePrevious()}
+          onClick={this.handlePrevious}
           disabled={!hasPrevious} >
           <ArrowBack size={16} />
         </Button>
@@ -175,7 +175,7 @@ class Pagination extends Component {
         {lastButton}
         <Button
           className={styles.Next}
-          onClick={() => this.handleNext()}
+          onClick={this.handleNext}
           disabled={!hasNext} >
           <ArrowForward size={16} />
         </Button>

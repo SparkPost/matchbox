@@ -1,0 +1,13 @@
+@import '../../styles/config';
+
+.Pager {
+  margin-bottom: spacing();
+}
+
+.Next {
+  margin-left: spacing(small);
+}
+
+.Previous {
+  margin-right: spacing(small);
+}

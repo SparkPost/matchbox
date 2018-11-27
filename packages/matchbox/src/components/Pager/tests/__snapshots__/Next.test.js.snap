@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pager.Next renders button 1`] = `
+<Button
+  className="Next"
+  size="default"
+>
+  <ArrowForward
+    size={16}
+  />
+</Button>
+`;
+
+exports[`Pager.Next renders disabled button 1`] = `
+<Button
+  className="Next"
+  disabled={true}
+  size="default"
+>
+  <ArrowForward
+    size={16}
+  />
+</Button>
+`;
