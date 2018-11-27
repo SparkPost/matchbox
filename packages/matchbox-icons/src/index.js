@@ -806,6 +806,7 @@ export { default as SmsFailed } from './icons/SmsFailed';
 export { default as Snooze } from './icons/Snooze';
 export { default as Sort } from './icons/Sort';
 export { default as SortByAlpha } from './icons/SortByAlpha';
+export { default as SpSignals } from './icons/SpSignals';
 export { default as Spa } from './icons/Spa';
 export { default as SpaceBar } from './icons/SpaceBar';
 export { default as Speaker } from './icons/Speaker';

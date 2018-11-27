@@ -27,7 +27,19 @@ class Page extends Component {
     /**
      * The Page display title
      */
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
+
+    /**
+     * Subtitle that appears to the right of the title
+     */
+    subtitle: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node
+    ]),
+
     /**
       * Main cta. Most button props will work in here.
       * e.g. { content: 'button label', onClick: callback() }
@@ -35,6 +47,12 @@ class Page extends Component {
     primaryAction: PropTypes.shape({
       content: PropTypes.node.isRequired
     }),
+
+    /**
+     * Alternative to primaryAction, accepts React nodes
+     */
+    primaryArea: PropTypes.node,
+
     /**
       * Actions that appear below title
       * e.g. { content: 'button label', onClick: callback() }
@@ -67,7 +85,9 @@ class Page extends Component {
   render() {
     const {
       title,
+      subtitle,
       primaryAction,
+      primaryArea,
       secondaryActions,
       breadcrumbAction,
       empty,
@@ -75,6 +95,8 @@ class Page extends Component {
     } = this.props;
 
     const { show, content, ...emptyOptions } = empty;
+    let subtitleMarkup = null;
+    let primaryActionMarkup = null;
 
     if (show) {
       return (
@@ -87,12 +109,13 @@ class Page extends Component {
       );
     }
 
-    const primaryActionMarkup = primaryAction
-      ? buttonFrom(primaryAction, {
-        size: 'large',
-        ...(!primaryAction.color ? { color: 'orange' } : {})
-      })
-      : null;
+    if (primaryAction) {
+      primaryActionMarkup = buttonFrom(primaryAction, { size: 'large', ...(!primaryAction.color ? { color: 'orange' } : {}) });
+    }
+
+    if (primaryArea) {
+      primaryActionMarkup = primaryArea;
+    }
 
     const secondaryActionsMarkup = secondaryActions
       ? filterByVisible(secondaryActions).map((action, i) => linkFrom({ ...action, className: styles.SecondaryAction }, i))
@@ -104,12 +127,17 @@ class Page extends Component {
 
     const titleMarkup = title ? <h1 className={styles.Title}>{title}</h1> : null;
 
+    if (subtitle) {
+      subtitleMarkup = typeof subtitle === 'string' ? <h2 className={styles.Subtitle}>{subtitle}</h2> : <div className={styles.SubtitleNode}>{subtitle}</div>;
+    }
+
     return (
       <div>
         <div className={styles.Page}>
           {breadcrumbMarkup}
           <div className={styles.MainContent}>
             {titleMarkup}
+            {subtitleMarkup}
             <div className={styles.PrimaryAction}>
               {primaryActionMarkup}
             </div>
