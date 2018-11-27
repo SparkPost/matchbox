@@ -76,11 +76,6 @@ export default storiesOf('Layout|Page', module)
   }))
 
   .add('with a subtitle and primary area', withInfo()(() => {
-    const primaryAction = {
-      content: 'Create',
-      onClick: action('Create Clicked'),
-      color: 'orange'
-    };
     return (
       <Page
         title='Template #3'
@@ -95,7 +90,7 @@ export default storiesOf('Layout|Page', module)
       <Page
         title={<span><Code size={30} style={{ marginTop: '-0.1em' }} /> Template #3</span>}
         subtitle={<Button flat>Select Something <ArrowDropDown /></Button>}
-        primaryArea={<div style={{ width: '200px', float: 'right' }}><TextField placeholder='Search...' prefix={<Search/>} /></div>}
+        primaryArea={<div style={{ width: '200px' }}><TextField placeholder='Search...' prefix={<Search/>} /></div>}
       />
     )
   }));

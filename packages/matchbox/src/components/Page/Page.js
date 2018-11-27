@@ -27,18 +27,12 @@ class Page extends Component {
     /**
      * The Page display title
      */
-    title: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    title: PropTypes.node,
 
     /**
      * Subtitle that appears to the right of the title
      */
-    subtitle: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node
-    ]),
+    subtitle: PropTypes.node,
 
     /**
       * Main cta. Most button props will work in here.
