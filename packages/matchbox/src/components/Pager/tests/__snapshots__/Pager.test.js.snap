@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pager renders pager with buttons 1`] = `
+<div
+  className="Pager"
+>
+  <Pager.Previous />
+  <Pager.Next />
+</div>
+`;

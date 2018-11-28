@@ -9,6 +9,7 @@ export * from './Grid';
 export * from './Label';
 export * from './Modal';
 export * from './Page';
+export * from './Pager';
 export * from './Pagination';
 export * from './Panel';
 export * from './Popover';
