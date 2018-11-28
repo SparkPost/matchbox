@@ -769,6 +769,7 @@ export { default as ShopTwo } from './icons/ShopTwo';
 export { default as ShortText } from './icons/ShortText';
 export { default as ShowChart } from './icons/ShowChart';
 export { default as Shuffle } from './icons/Shuffle';
+export { default as Signal } from './icons/Signal';
 export { default as SignalCellular0Bar } from './icons/SignalCellular0Bar';
 export { default as SignalCellular1Bar } from './icons/SignalCellular1Bar';
 export { default as SignalCellular2Bar } from './icons/SignalCellular2Bar';

@@ -4,8 +4,8 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
-import { Page, Panel } from '@sparkpost/matchbox';
-import { Save } from '@sparkpost/matchbox-icons';
+import { Page, Panel, Button, TextField } from '@sparkpost/matchbox';
+import { Save, ArrowDropDown, Search, Code } from '@sparkpost/matchbox-icons';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
 
 export default storiesOf('Layout|Page', module)
@@ -55,10 +55,10 @@ export default storiesOf('Layout|Page', module)
 
   .add('with an embedded empty state', withInfo()(() => {
     const primaryAction = {
-        content: 'Create',
-        onClick: action('Create Clicked'),
-        color: 'orange'
-      };
+      content: 'Create',
+      onClick: action('Create Clicked'),
+      color: 'orange'
+    };
     return (
       <Page
         empty={{
@@ -71,6 +71,26 @@ export default storiesOf('Layout|Page', module)
         }}
         primaryAction={primaryAction}
         title='Template #3'
+      />
+    )
+  }))
+
+  .add('with a subtitle and primary area', withInfo()(() => {
+    return (
+      <Page
+        title='Template #3'
+        subtitle='Subaccount 101'
+        primaryArea={<Button>Primary</Button>}
+      />
+    )
+  }))
+
+  .add('with an icon, subtitle node, and primary area', withInfo()(() => {
+    return (
+      <Page
+        title={<span><Code size={30} style={{ marginTop: '-0.1em' }} /> Template #3</span>}
+        subtitle={<Button flat>Select Something <ArrowDropDown /></Button>}
+        primaryArea={<div style={{ width: '200px' }}><TextField placeholder='Search...' prefix={<Search/>} /></div>}
       />
     )
   }));

@@ -11,15 +11,30 @@
 }
 
 .Title {
-  flex: 1 0 0;
+  flex: 0 0 0;
   margin-bottom: spacing(small);
   margin-top: spacing();
   padding: spacing(small) 0;
   @include text-style-display-heading;
+  white-space: nowrap;
+}
+
+.Subtitle, .SubtitleNode {
+  flex: 1 0 0;
+  margin-top: spacing();
+  margin-left: spacing();
+  margin-bottom: 0;
+}
+
+.Subtitle {
+  @include text-style-smaller-heading;
 }
 
 .PrimaryAction {
-  flex: 0 0 0;
+  flex: 1 0 0;
+  margin-top: spacing();
+  display: flex;
+  justify-content: flex-end;
 }
 
 .SecondaryActions {

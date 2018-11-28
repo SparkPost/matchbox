@@ -41,4 +41,24 @@ describe('Page', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders title as a node', () => {
+    wrapper.setProps({ title: <div>test</div> });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders subtitle string', () => {
+    wrapper.setProps({ subtitle: 'sub' });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders subtitle node', () => {
+    wrapper.setProps({ subtitle: <div>sub</div> });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders primary area node', () => {
+    wrapper.setProps({ primaryArea: <div>primary</div> });
+    expect(wrapper).toMatchSnapshot();
+  });
+
 });
