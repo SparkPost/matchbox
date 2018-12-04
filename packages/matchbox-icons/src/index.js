@@ -71,6 +71,7 @@ export { default as Autorenew } from './icons/Autorenew';
 export { default as AvTimer } from './icons/AvTimer';
 export { default as Backspace } from './icons/Backspace';
 export { default as Backup } from './icons/Backup';
+export { default as BarChart } from './icons/BarChart';
 export { default as Battery20 } from './icons/Battery20';
 export { default as Battery30 } from './icons/Battery30';
 export { default as Battery50 } from './icons/Battery50';
