@@ -12,6 +12,11 @@ exports[`Pagination renders pagination 1`] = `
   >
     <ArrowBack
       size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
     />
   </Button>
   <span
@@ -47,6 +52,11 @@ exports[`Pagination renders pagination 1`] = `
   <span>
     <MoreHoriz
       className="Ellipse"
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
     />
     <Button
       className="End"
@@ -64,6 +74,101 @@ exports[`Pagination renders pagination 1`] = `
   >
     <ArrowForward
       size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
+    />
+  </Button>
+</div>
+`;
+
+exports[`Pagination renders pagination with flat buttons 1`] = `
+<div
+  className="Pagination"
+>
+  <Button
+    className="Back"
+    disabled={true}
+    flat={true}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowBack
+      size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
+    />
+  </Button>
+  <span
+    className="Pages"
+  >
+    <Button.Group>
+      <Button
+        className="Page Selected color-blue"
+        flat={true}
+        key="0"
+        onClick={[Function]}
+        size="default"
+      >
+        1
+      </Button>
+      <Button
+        className="Page"
+        flat={true}
+        key="1"
+        onClick={[Function]}
+        size="default"
+      >
+        2
+      </Button>
+      <Button
+        className="Page"
+        flat={true}
+        key="2"
+        onClick={[Function]}
+        size="default"
+      >
+        3
+      </Button>
+    </Button.Group>
+  </span>
+  <span>
+    <MoreHoriz
+      className="Ellipse"
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
+    />
+    <Button
+      className="End"
+      flat={true}
+      onClick={[Function]}
+      size="default"
+    >
+      10
+    </Button>
+  </span>
+  <Button
+    className="Next"
+    disabled={false}
+    flat={true}
+    onClick={[Function]}
+    size="default"
+  >
+    <ArrowForward
+      size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
     />
   </Button>
 </div>
@@ -81,6 +186,11 @@ exports[`Pagination renders pagination with marginsHidden true 1`] = `
   >
     <ArrowBack
       size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
     />
   </Button>
   <span
@@ -121,6 +231,11 @@ exports[`Pagination renders pagination with marginsHidden true 1`] = `
   >
     <ArrowForward
       size={16}
+      style={
+        Object {
+          "marginTop": "-0.2em",
+        }
+      }
     />
   </Button>
 </div>

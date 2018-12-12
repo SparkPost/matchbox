@@ -20,8 +20,9 @@ export default storiesOf('Navigation|Pagination', module)
     />
   )))
 
-  .add('with lots of pages', withInfo()(() => (
+  .add('with lots of pages and flat buttons', withInfo()(() => (
     <Pagination
+      flat
       pages={30}
       pageRange={7}
       selectedColor='navy'
