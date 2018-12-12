@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
-import { Pagination, Panel } from '@sparkpost/matchbox';
+import { Pagination } from '@sparkpost/matchbox';
 
 export default storiesOf('Navigation|Pagination', module)
   .addDecorator((getStory) => (
@@ -20,13 +20,12 @@ export default storiesOf('Navigation|Pagination', module)
     />
   )))
 
-  .add('with lots of pages', withInfo()(() => (
-    <Panel>
+  .add('with lots of pages and flat buttons', withInfo()(() => (
     <Pagination
       flat
       pages={30}
       pageRange={7}
       selectedColor='navy'
       onChange={action('Page Changed')}
-    /></Panel>
+    />
   )));
