@@ -37,6 +37,11 @@ class Pagination extends Component {
     marginsHidden: PropTypes.bool,
 
     /**
+     * Flat style buttons
+     */
+    flat: PropTypes.bool,
+
+    /**
      * Selected page color
      */
     selectedColor: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
@@ -89,6 +94,7 @@ class Pagination extends Component {
       buttons.push({
         content: `${index + 1}`,
         onClick: this.handlePageChange.bind(this, index),
+        flat: this.props.flat,
         className: classnames(
           styles.Page,
           index === this.state.index && styles.Selected,
@@ -122,7 +128,9 @@ class Pagination extends Component {
     const {
       pages,
       pageRange,
-      marginsHidden
+      marginsHidden,
+      flat,
+      className
     } = this.props;
 
     const {
@@ -142,19 +150,19 @@ class Pagination extends Component {
 
     const firstButton = !marginsHidden && start > 1
       ? <span>
-        <Button
+        <Button flat={flat}
           className={styles.Start}
           onClick={() => this.handlePageChange(0)} >
             1
         </Button>
-        <MoreHoriz className={styles.Ellipse}/>
+        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
       </span>
       : null;
 
     const lastButton = !marginsHidden && start + pageRange < pages
       ? <span>
-        <MoreHoriz className={styles.Ellipse}/>
-        <Button
+        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
+        <Button flat={flat}
           className={styles.End}
           onClick={() => this.handlePageChange(pages - 1)} >
           {pages}
@@ -163,21 +171,21 @@ class Pagination extends Component {
       : null;
 
     return (
-      <div className={styles.Pagination}>
-        <Button
+      <div className={classnames(styles.Pagination, className)}>
+        <Button flat={flat}
           className={styles.Back}
           onClick={this.handlePrevious}
           disabled={!hasPrevious} >
-          <ArrowBack size={16} />
+          <ArrowBack size={16} style={{ marginTop: '-0.2em' }}/>
         </Button>
         {firstButton}
         <span className={styles.Pages}>{buttonMarkup()}</span>
         {lastButton}
-        <Button
+        <Button flat={flat}
           className={styles.Next}
           onClick={this.handleNext}
           disabled={!hasNext} >
-          <ArrowForward size={16} />
+          <ArrowForward size={16} style={{ marginTop: '-0.2em' }}/>
         </Button>
       </div>
     );

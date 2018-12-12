@@ -29,12 +29,12 @@
     margin-right: -1px;
     border-radius: 0;
 
-    &:first-child.Button {
+    &:first-child.Button:not(.flat) {
       border-top-left-radius: border-radius();
       border-bottom-left-radius: border-radius();
     }
 
-    &:last-child.Button {
+    &:last-child.Button:not(.flat) {
       border-top-right-radius: border-radius();
       border-bottom-right-radius: border-radius();
     }
@@ -231,6 +231,7 @@
   background: transparent;
   box-shadow: none;
   border: none;
+  border-radius: 0;
   color: color(gray, 2);
 
   &:hover, &:active {

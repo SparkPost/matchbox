@@ -33,4 +33,9 @@ describe('Pagination', () => {
     wrapper.setProps({ marginsHidden: true });
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders pagination with flat buttons', () => {
+    wrapper.setProps({ flat: true });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
