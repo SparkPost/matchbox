@@ -11,11 +11,6 @@
   }
 }
 
-.Error {
-  border: 1px solid color(red);
-  background: rgba(color(red, dark), 0.06);
-}
-
 .InlineError {
   padding-left: spacing(small);
 }
@@ -38,6 +33,11 @@
   line-height: rem(24);
 
   transition: border 0.15s;
+
+  &.Error {
+    border: 1px solid color(red);
+    background: rgba(color(red, dark), 0.06);
+  }
 
   &:focus {
     border: 1px solid color(blue);
