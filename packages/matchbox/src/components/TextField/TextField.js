@@ -95,9 +95,9 @@ class TextField extends Component {
 
     const { paddingLeft, paddingRight } = this.state;
 
-    const setClasses = classnames(
-      styles.TextField,
-      error && styles.error
+    const setInputClasses = classnames(
+      styles.Input,
+      error && styles.Error
     );
 
     const requiredIndicator = required
@@ -134,7 +134,7 @@ class TextField extends Component {
       onFocus,
       onBlur,
       onChange,
-      className: styles.Input,
+      className: setInputClasses,
       style: { paddingLeft, paddingRight, resize }
       // 'aria-describedby':
       // 'aria-labelledby':
@@ -150,7 +150,7 @@ class TextField extends Component {
       : input;
 
     return (
-      <fieldset className={setClasses}>
+      <fieldset className={styles.TextField}>
         {label && !labelHidden && labelMarkup}
         <Connect left={connectLeft} right={connectRight}>
           {inputMarkup}

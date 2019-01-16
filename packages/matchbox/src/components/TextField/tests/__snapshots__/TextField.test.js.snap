@@ -23,11 +23,11 @@ exports[`TextField renders TextField disabled 1`] = `
 
 exports[`TextField renders TextField error 1`] = `
 <fieldset
-  className="TextField error"
+  className="TextField"
 >
   <Connect>
     <input
-      className="Input"
+      className="Input Error"
       style={
         Object {
           "paddingLeft": undefined,
@@ -46,11 +46,11 @@ exports[`TextField renders TextField error 1`] = `
 
 exports[`TextField renders TextField errorInLabel 1`] = `
 <fieldset
-  className="TextField error"
+  className="TextField"
 >
   <Connect>
     <input
-      className="Input"
+      className="Input Error"
       style={
         Object {
           "paddingLeft": undefined,
