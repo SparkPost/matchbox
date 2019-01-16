@@ -20,14 +20,30 @@
 }
 
 .Subtitle, .SubtitleNode {
+  position: relative;
   flex: 1 0 0;
   margin-top: spacing();
-  margin-left: spacing();
+  margin-left: rem(14);
   margin-bottom: 0;
+  padding: spacing(small) 0 spacing(small) rem(14);
+
+  &:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+    width: 1px;
+    height: rem(16);
+    background: color(gray, 5);
+  }
 }
 
 .Subtitle {
-  @include text-style-smaller-heading;
+  font-size: rem(16);
+  font-weight: 500;
+  color: color(gray, 1);
 }
 
 .PrimaryAction {

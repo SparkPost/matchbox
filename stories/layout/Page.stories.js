@@ -78,8 +78,8 @@ export default storiesOf('Layout|Page', module)
   .add('with a subtitle and primary area', withInfo()(() => {
     return (
       <Page
-        title='Template #3'
-        subtitle='Subaccount 101'
+        title='Signals'
+        subtitle='Health Score for test.com'
         primaryArea={<Button>Primary</Button>}
       />
     )
