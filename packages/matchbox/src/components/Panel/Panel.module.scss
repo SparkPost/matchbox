@@ -4,13 +4,13 @@
   position: relative;
   margin-bottom: rem(18);
   background: color(gray, 10);
-  box-shadow: shadow();
-  border-radius: border-radius();
+  box-shadow: shadow(shallow);
+  border-radius: border-radius(large);
 }
 
 .Accent {
   height: 3px;
-  border-radius: border-radius() border-radius() 0 0;
+  border-radius: border-radius(large) border-radius(large) 0 0;
 }
 
 .accent-blue { background: color(blue); }
