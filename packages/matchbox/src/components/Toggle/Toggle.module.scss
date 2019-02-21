@@ -20,28 +20,23 @@
     left: rem(4);
     width: rem(11);
     height: rem(11);
-    background: color(gray, 4);
   }
 
   .Input:checked ~ .Indicator {
     transform: translate(rem(11), 0);
-    background: color(green, dark);
   }
 
   .Input:focus ~ .Outline,
   .Input:active ~ .Outline {
-    box-shadow: 0 0 0 2px white, 0 0 0 4px color(gray, 6);
-    border: 2px solid color(gray, 4);
+    background: color(gray, 6);
   }
 
   .Outline {
-    background: transparent;
-    border: 2px solid color(gray, 4);
+    background: color(gray, 5);
   }
 
   .Input:checked ~ .Outline {
-    background: transparent;
-    border: 2px solid color(green, dark);
+    background: color(green);
   }
 }
 
@@ -50,10 +45,6 @@
 
   *, *:hover {
     cursor: not-allowed;
-  }
-
-  &.compact {
-    opacity: 0.7;
   }
 
   .Labels {
@@ -68,8 +59,7 @@
 
   &:focus ~ .Outline,
   &:active ~ .Outline {
-    box-shadow: 0 0 0 1px color(blue);
-    border: 1px solid color(blue);
+    box-shadow: 0 0 0 1px white, 0 0 0 3px color(blue);
   }
 
   &:checked {
@@ -78,7 +68,7 @@
     }
 
     & ~ .Outline {
-      background: color(blue);
+      background: color(green);
     }
   }
 }
