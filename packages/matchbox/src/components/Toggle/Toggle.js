@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import styles from './Toggle.module.scss';
 
@@ -12,6 +13,7 @@ class Toggle extends Component {
       PropTypes.bool,
       PropTypes.string
     ]),
+    compact: PropTypes.bool,
     value: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.string
@@ -27,6 +29,7 @@ class Toggle extends Component {
       id,
       value,
       checked,
+      compact,
       disabled,
       onChange,
       onFocus,
@@ -34,8 +37,15 @@ class Toggle extends Component {
       ...rest
     } = this.props;
 
+    const labelMarkup = compact ? null : (
+      <div className={styles.Labels}>
+        <span>On</span>
+        <span>Off</span>
+      </div>
+    );
+
     return (
-      <label htmlFor={id} className={styles.Toggle}>
+      <label htmlFor={id} className={classnames(styles.Toggle, compact && styles.compact, disabled && styles.disabled)}>
         <input
           id={id}
           value={value}
@@ -48,10 +58,7 @@ class Toggle extends Component {
           type='checkbox'
           {...rest} />
         <span className={styles.Outline}></span>
-        <div className={styles.Labels}>
-          <span>On</span>
-          <span>Off</span>
-        </div>
+        {labelMarkup}
         <span className={styles.Indicator}></span>
       </label>
     );

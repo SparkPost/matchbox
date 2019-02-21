@@ -17,4 +17,12 @@ export default storiesOf('Action|Toggle', module)
 
   .add('disabled toggle', withInfo()(() => (
     <Toggle id='id' disabled />
+  )))
+
+  .add('compact toggle', withInfo()(() => (
+    <Toggle id='id' compact />
+  )))
+
+  .add('compact and disabled toggle', withInfo()(() => (
+    <Toggle id='id' checked compact disabled />
   )));

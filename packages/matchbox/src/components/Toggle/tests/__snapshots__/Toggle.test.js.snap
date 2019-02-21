@@ -31,9 +31,29 @@ exports[`Toggle renders toggle states checked 1`] = `
 </label>
 `;
 
+exports[`Toggle renders toggle states compact 1`] = `
+<label
+  className="Toggle compact"
+  htmlFor="foo"
+>
+  <input
+    className="Input"
+    id="foo"
+    type="checkbox"
+    value="bar"
+  />
+  <span
+    className="Outline"
+  />
+  <span
+    className="Indicator"
+  />
+</label>
+`;
+
 exports[`Toggle renders toggle states disabled 1`] = `
 <label
-  className="Toggle"
+  className="Toggle disabled"
   htmlFor="foo"
 >
   <input
