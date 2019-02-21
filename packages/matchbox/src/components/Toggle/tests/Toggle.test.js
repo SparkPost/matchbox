@@ -12,7 +12,8 @@ describe('Toggle', () => {
 
   const testCases = [
     { name: 'checked', props: { checked: true }},
-    { name: 'disabled', props: { disabled: true }}
+    { name: 'disabled', props: { disabled: true }},
+    { name: 'compact', props: { compact: true }}
   ];
 
   cases('renders toggle states', (opts) => {

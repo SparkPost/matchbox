@@ -11,6 +11,58 @@
   }
 }
 
+.compact {
+  height: rem(18);
+  width: rem(30);
+
+  .Indicator {
+    top: 3px;
+    left: rem(4);
+    width: rem(11);
+    height: rem(11);
+    background: color(gray, 4);
+  }
+
+  .Input:checked ~ .Indicator {
+    transform: translate(rem(11), 0);
+    background: color(green, dark);
+  }
+
+  .Input:focus ~ .Outline,
+  .Input:active ~ .Outline {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px color(gray, 6);
+    border: 2px solid color(gray, 4);
+  }
+
+  .Outline {
+    background: transparent;
+    border: 2px solid color(gray, 4);
+  }
+
+  .Input:checked ~ .Outline {
+    background: transparent;
+    border: 2px solid color(green, dark);
+  }
+}
+
+.disabled {
+  opacity: 0.9;
+
+  *, *:hover {
+    cursor: not-allowed;
+  }
+
+  &.compact {
+    opacity: 0.7;
+  }
+
+  .Labels {
+    span {
+      opacity: 0.4;
+    }
+  }
+}
+
 .Input {
   @include visually-hidden;
 
@@ -27,21 +79,6 @@
 
     & ~ .Outline {
       background: color(blue);
-    }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    & ~ .Indicator {
-      background: color(gray, 9);
-      cursor: not-allowed;
-    }
-
-    & ~ .Labels {
-      span {
-        opacity: 0.8;
-        cursor: not-allowed;
-      }
     }
   }
 }
@@ -62,9 +99,9 @@
 .Indicator {
   pointer-events: none;
   position: absolute;
-  top: rem(3);
-  left: rem(3);
-  bottom: rem(3);
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
   width: rem(25);
 
   background: color(gray, 10);
@@ -84,9 +121,10 @@
 
   span {
     position: absolute;
-    top: rem(3);
+    top: 3px;
     font-size: rem(12);
     font-weight: 500;
+    line-height: 2em;
 
     &:first-child {
       left: rem(9);
