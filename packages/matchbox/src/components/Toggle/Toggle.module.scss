@@ -12,18 +12,18 @@
 }
 
 .compact {
-  height: rem(18);
-  width: rem(30);
+  height: rem(21);
+  width: rem(36);
 
   .Indicator {
-    top: 3px;
+    top: 4px;
     left: rem(4);
-    width: rem(11);
-    height: rem(11);
+    width: rem(13);
+    height: rem(13);
   }
 
   .Input:checked ~ .Indicator {
-    transform: translate(rem(11), 0);
+    transform: translate(rem(15), 0);
   }
 
   .Input:focus ~ .Outline,
@@ -97,7 +97,7 @@
   background: color(gray, 10);
   transition: 0.15s;
 
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: shadow(deep);
 }
 
