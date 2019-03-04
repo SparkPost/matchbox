@@ -90,6 +90,7 @@ class TextField extends Component {
       connectRight,
       prefix,
       suffix,
+      style,
       ...rest
     } = this.props;
 
@@ -135,7 +136,7 @@ class TextField extends Component {
       onBlur,
       onChange,
       className: setInputClasses,
-      style: { paddingLeft, paddingRight, resize }
+      style: { paddingLeft, paddingRight, resize, ...style }
       // 'aria-describedby':
       // 'aria-labelledby':
       // 'aria-invalid':
