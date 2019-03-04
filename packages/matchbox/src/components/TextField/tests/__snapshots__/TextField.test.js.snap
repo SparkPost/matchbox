@@ -301,6 +301,27 @@ exports[`TextField renders TextField with prefix 1`] = `
 </fieldset>
 `;
 
+exports[`TextField renders TextField with style 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Connect>
+    <input
+      className="Input"
+      style={
+        Object {
+          "paddingLeft": undefined,
+          "paddingRight": undefined,
+          "resize": "both",
+          "textAlign": "right",
+        }
+      }
+      type="text"
+    />
+  </Connect>
+</fieldset>
+`;
+
 exports[`TextField renders TextField with suffix 1`] = `
 <fieldset
   className="TextField"
