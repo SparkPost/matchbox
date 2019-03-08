@@ -38,7 +38,9 @@ exports[`Popover popover render should render correctly 1`] = `
     }
   }
   unmountOnExit={true}
-/>
+>
+  <Component />
+</Transition>
 `;
 
 exports[`Popover popover render should use correct classnames 1`] = `
@@ -84,7 +86,11 @@ exports[`Popover should render overlay correctly 1`] = `
 `;
 
 exports[`Popover should render overlay correctly 2`] = `
-<React.Fragment>
+<Fragment>
+  <WindowEvent
+    event="resize"
+    handler={[Function]}
+  />
   <span
     className="Activator"
     onClick={[Function]}
@@ -125,5 +131,5 @@ exports[`Popover should render overlay correctly 2`] = `
       </Popover.Content>
     </div>
   </Portal>
-</React.Fragment>
+</Fragment>
 `;
