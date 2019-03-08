@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor } from '../../helpers/geometry';
+import { debounce } from '../../helpers/event';
 import classnames from 'classnames';
 
 import styles from './PopoverOverlay.module.scss';
@@ -49,7 +50,7 @@ class PopoverOverlay extends Component {
 
     return (
       <Fragment>
-        {open ? <WindowEvent event='resize' handler={this.handleMeasurement} /> : null}
+        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, 2000)} />
         {(!fixed && open) ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null}
         {renderActivator(activatorProps)}
         <Portal containerId={portalId}>

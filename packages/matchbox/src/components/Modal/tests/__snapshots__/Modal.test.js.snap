@@ -56,7 +56,9 @@ exports[`Modal should render contents when open 2`] = `
     }
   }
   unmountOnExit={true}
-/>
+>
+  <Component />
+</Transition>
 `;
 
 exports[`Modal should render contents when open 3`] = `
