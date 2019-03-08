@@ -76,6 +76,17 @@ exports[`Popover popover render should use correct classnames 1`] = `
 </div>
 `;
 
+exports[`Popover should measure position when opened and revert to default when closed 1`] = `"mock position"`;
+
+exports[`Popover should measure position when opened and revert to default when closed 2`] = `
+Object {
+  "height": 0,
+  "left": 0,
+  "top": 0,
+  "width": 0,
+}
+`;
+
 exports[`Popover should render overlay correctly 1`] = `
 <PopoverOverlay
   open={false}
@@ -87,10 +98,6 @@ exports[`Popover should render overlay correctly 1`] = `
 
 exports[`Popover should render overlay correctly 2`] = `
 <Fragment>
-  <WindowEvent
-    event="resize"
-    handler={[Function]}
-  />
   <span
     className="Activator"
     onClick={[Function]}
@@ -104,14 +111,15 @@ exports[`Popover should render overlay correctly 2`] = `
       className="PopoverOverlay"
       style={
         Object {
-          "height": undefined,
-          "left": NaN,
-          "top": NaN,
-          "width": undefined,
+          "height": 0,
+          "left": 0,
+          "top": 0,
+          "width": 0,
         }
       }
     >
       <Popover.Content
+        activatorWidth={0}
         bottom={true}
         open={false}
         popoverRef={[Function]}

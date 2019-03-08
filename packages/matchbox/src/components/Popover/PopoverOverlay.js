@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor } from '../../helpers/geometry';
-import { debounce } from '../../helpers/event';
 import classnames from 'classnames';
 
 import styles from './PopoverOverlay.module.scss';
+
+const defaultPosition = {
+  top: 0,
+  left: 0,
+  width: 0,
+  height: 0
+};
+
 class PopoverOverlay extends Component {
   static displayName = 'PopoverOverlay';
 
@@ -16,26 +23,27 @@ class PopoverOverlay extends Component {
   }
 
   state = {
-    position: {
-      top: 0,
-      left: 0,
-      width: 0,
-      height: 0
-    }
+    position: defaultPosition
   }
 
   componentDidMount() {
     this.handleMeasurement();
   }
 
-  UNSAFE_componentWillReceiveProps() {
-    this.handleMeasurement();
+  componentDidUpdate({ open: prevOpen }) {
+    if (prevOpen !== this.props.open) {
+      this.handleMeasurement();
+    }
   }
 
   handleMeasurement = () => {
-    this.setState({
-      position: getPositionFor(this.activator, { fixed: this.props.fixed })
-    });
+    if (!this.props.open) {
+      this.setState({ position: defaultPosition });
+    } else {
+      this.setState({
+        position: getPositionFor(this.activator, { fixed: this.props.fixed })
+      });
+    }
   }
 
   render() {
@@ -50,7 +58,7 @@ class PopoverOverlay extends Component {
 
     return (
       <Fragment>
-        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, 2000)} />
+        {open && <WindowEvent event='resize' handler={this.handleMeasurement} />}
         {(!fixed && open) ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null}
         {renderActivator(activatorProps)}
         <Portal containerId={portalId}>
