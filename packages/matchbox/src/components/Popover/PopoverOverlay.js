@@ -50,7 +50,7 @@ class PopoverOverlay extends Component {
 
     return (
       <Fragment>
-        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, 1000)} />
+        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, 2000)} />
         {(!fixed && open) ? <WindowEvent event='scroll' handler={this.handleMeasurement} /> : null}
         {renderActivator(activatorProps)}
         <Portal containerId={portalId}>
