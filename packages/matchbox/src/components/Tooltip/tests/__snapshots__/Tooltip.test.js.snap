@@ -69,7 +69,7 @@ exports[`Tooltip renders tooltip states top left and offset 2`] = `
 `;
 
 exports[`Tooltip should render overlay 1`] = `
-<React.Fragment>
+<Fragment>
   <WindowEvent
     event="resize"
     handler={[Function]}
@@ -122,5 +122,5 @@ exports[`Tooltip should render overlay 1`] = `
       </span>
     </div>
   </Portal>
-</React.Fragment>
+</Fragment>
 `;
