@@ -34,7 +34,7 @@ exports[`Popover popover render should render correctly 1`] = `
   timeout={
     Object {
       "enter": 0,
-      "exit": 100,
+      "exit": 0,
     }
   }
   unmountOnExit={true}
