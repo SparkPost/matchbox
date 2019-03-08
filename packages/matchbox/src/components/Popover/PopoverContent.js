@@ -30,7 +30,7 @@ const Content = ({
   const tipStyle = { [left ? 'right' : 'left']: activatorWidth / 2 };
 
   return (
-    <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: 100 }}>
+    <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: 0 }}>
       {(state) => (
         <div className={wrapperClasses} ref={popoverRef}>
           <div className={classnames(popoverClasses, state && styles[state])} {...rest}>
