@@ -58,14 +58,14 @@ class Pagination extends Component {
     hasNext: true
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.handlePageChange(this.props.currentPage - 1);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { pages, pageRange, currentPage } = this.props;
-    if (pages !== nextProps.pages || pageRange !== nextProps.pageRange || currentPage !== nextProps.currentPage) {
-      this.handlePageChange(nextProps.currentPage - 1);
+    if (pages !== prevProps.pages || pageRange !== prevProps.pageRange || currentPage !== prevProps.currentPage) {
+      this.handlePageChange(currentPage - 1);
     }
   }
 
