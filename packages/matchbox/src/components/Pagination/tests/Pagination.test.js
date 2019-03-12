@@ -29,6 +29,30 @@ describe('Pagination', () => {
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
+  describe('invokes onChange when props change', () => {
+    let fn;
+
+    beforeEach(() => {
+      fn = jest.fn();
+      wrapper.setProps({ onChange: fn });
+    });
+
+    it('page', () => {
+      wrapper.setProps({ pages: 11 });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    it('currentPage', () => {
+      wrapper.setProps({ currentPage: 4 });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    it('pageRange', () => {
+      wrapper.setProps({ pageRange: 6 });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+  });
+
   it('renders pagination with marginsHidden true', () => {
     wrapper.setProps({ marginsHidden: true });
     expect(wrapper).toMatchSnapshot();
