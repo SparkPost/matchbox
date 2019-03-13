@@ -27,7 +27,7 @@
   }
 
   &.exiting, &.exited {
-    transition: 0.06s ease-out;
+    transition: 0s;
     opacity: 0;
   }
 

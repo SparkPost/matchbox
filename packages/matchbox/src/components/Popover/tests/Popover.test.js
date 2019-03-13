@@ -2,6 +2,7 @@ import React from 'react';
 import Popover from '../Popover';
 import { shallow } from 'enzyme';
 import * as keyEventHelpers from '../../../helpers/keyEvents';
+import * as geometryHelpers from '../../../helpers/geometry';
 
 describe('Popover', () => {
   const Trigger = (props) => <div {...props} />;
@@ -18,6 +19,7 @@ describe('Popover', () => {
     activator = () => shallow(wrapper.instance().renderActivator({ activatorRef: activatorRefMock }));
     popover = () => shallow(wrapper.instance().renderPopover({ activatorWidth: 100 }));
     keyEventHelpers.onKey = jest.fn(() => jest.fn());
+    geometryHelpers.getPositionFor = jest.fn(() => 'mock position');
     toggleSpy = jest.spyOn(wrapper.instance(), 'uncontrolledToggle');
   });
 
@@ -29,6 +31,13 @@ describe('Popover', () => {
   it('should render window events when open', () => {
     wrapper.setProps({ open: true });
     expect(wrapper.find('PopoverOverlay').dive().find('WindowEvent')).toHaveLength(4);
+  });
+
+  it('should measure position when opened and revert to default when closed', () => {
+    wrapper.setProps({ open: true });
+    expect(wrapper.find('PopoverOverlay').dive().find('.PopoverOverlay').prop('style')).toMatchSnapshot();
+    wrapper.setProps({ open: false });
+    expect(wrapper.find('PopoverOverlay').dive().find('.PopoverOverlay').prop('style')).toMatchSnapshot();
   });
 
   it('should use local state if not controlled', () => {
