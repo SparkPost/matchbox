@@ -13,11 +13,29 @@ exports[`Radio renders radio checked 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
@@ -35,11 +53,29 @@ exports[`Radio renders radio disabled 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
@@ -56,11 +92,29 @@ exports[`Radio renders radio error 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
   <Error
     error="There is an error"
@@ -80,11 +134,29 @@ exports[`Radio renders radio helpText 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
   <div
     className="HelpText"
@@ -111,11 +183,29 @@ exports[`Radio renders radio label 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
@@ -132,11 +222,29 @@ exports[`Radio renders radio label hidden 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
@@ -154,11 +262,29 @@ exports[`Radio renders radio value 1`] = `
     className="Control"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
@@ -178,11 +304,29 @@ exports[`Radio renders radio with name & id 1`] = `
     htmlFor="label1Id"
   >
     <div
-      className="Outline"
-    />
+      className="SvgUnchecked"
+    >
+      <RadioButtonUnchecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
     <div
-      className="Fill"
-    />
+      className="SvgChecked"
+    >
+      <RadioButtonChecked
+        size={21}
+        style={
+          Object {
+            "verticalAlign": "top",
+          }
+        }
+      />
+    </div>
   </label>
 </fieldset>
 `;
