@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Autorenew } from '@sparkpost/matchbox-icons';
+import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { TextField, Button, Select, Tooltip } from '@sparkpost/matchbox';
 
@@ -78,5 +78,17 @@ export default storiesOf('Form|TextField', module)
         prefix='$'
         suffix={<Autorenew />}
         style={{ textAlign: 'right' }}
+      />
+  )))
+
+  .add('with connected component and suffix', withInfo()(() => (
+      <TextField
+        id='id'
+        label='Date Range'
+        value='July 21, 2017 - July 28, 2017'
+        connectLeft={<Select options={
+          ['Last 24 Hours', 'Last Week']
+        }/>}
+        suffix={<Search />}
       />
   )));
