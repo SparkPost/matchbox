@@ -10,40 +10,28 @@
 .Input {
   @include visually-hidden;
 
-  &:hover{
-    & ~ .Control .Outline {
-      border: 1px solid color(gray, 5);
+  &:hover:not(:disabled) {
+    & ~ .Control .SvgUnchecked svg {
+      fill: color(gray, 4);
     }
-  }
-
-  &:focus ~ .Control .Outline {
-    box-shadow: 0 0 0 1px color(blue);
-    border: 1px solid color(blue);
   }
 
   &:checked {
-    & ~ .Control .Outline {
-      border: 1px solid color(blue);
+    & ~ .Control .SvgUnchecked {
+      opacity: 0;
     }
 
-    & ~ .Control .Fill {
+    & ~ .Control .SvgChecked {
       opacity: 1;
-      transform: scale(1);
-    }
-
-    &:focus ~ .Control .Outline,
-    &:active ~ .Control .Outline {
-      box-shadow: 0 0 0 1px color(blue);
-      border: 1px solid color(blue);
     }
   }
 
-  &:disabled  ~ .Control .Outline {
-    background: color(gray, 9);
-  }
-  &:disabled  ~ .Control .Outline,
-  &:disabled  ~ .Control .Fill {
+  &:disabled  ~ .Control .SvgChecked,
+  &:disabled  ~ .Control .SvgUnchecked {
     cursor: not-allowed;
+    svg {
+      fill: color(gray, 5);
+    }
   }
 }
 
@@ -51,31 +39,31 @@
   cursor: pointer;
 }
 
-.Outline, .Fill {
-  transition: 0.15s;
-}
-
-.Outline {
-  position: relative;
-  top: 1px;
-  left: 1px;
-  width: 18px;
-  height: 18px;
-  border: 1px solid color(gray, 6);
-  border-radius: 50%;
-}
-
-.Fill {
+.SvgUnchecked, .SvgChecked {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  background: color(blue);
-  border-radius: 50%;
+  top: 0;
+  left: 0;
 
+  &, & > svg {
+    transition: 0.15s;
+  }
+}
+
+.Control {
+  display: block;
+  position: relative;
+  height: 21px;
+  width: 21px;
+}
+
+.SvgUnchecked {
+  opacity: 1;
+  svg { fill: color(gray, 6) }
+}
+
+.SvgChecked {
   opacity: 0;
-  transform: scale(0.3);
+  svg { fill: color(blue) }
 }
 
 .Label {

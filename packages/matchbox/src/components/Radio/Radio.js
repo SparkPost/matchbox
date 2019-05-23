@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Label } from '../Label';
 import { Error } from '../Error';
+import { RadioButtonChecked, RadioButtonUnchecked } from '@sparkpost/matchbox-icons';
 import Group from './Group';
 
 import styles from './Radio.module.scss';
@@ -77,8 +78,12 @@ class Radio extends Component {
           type='radio'
           {...rest}/>
         <label htmlFor={id} className={styles.Control}>
-          <div className={styles.Outline} />
-          <div className={styles.Fill} />
+          <div className={styles.SvgUnchecked}>
+            <RadioButtonUnchecked size={21} style={{ verticalAlign: 'top' }}/>
+          </div>
+          <div className={styles.SvgChecked}>
+            <RadioButtonChecked size={21} style={{ verticalAlign: 'top' }}/>
+          </div>
         </label>
         {errorMarkup}
         {helpMarkup}

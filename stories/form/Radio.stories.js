@@ -38,11 +38,19 @@ export default storiesOf('Form|Radio', module)
   )))
 
   .add('Disabled', withInfo()(() => (
-    <Radio
-      id='id'
-      label='Check Me'
-      disabled
-     />
+    <Radio.Group>
+      <Radio
+        id='id'
+        label='Check Me'
+        disabled
+       />
+       <Radio
+         id='id'
+         label='Check Me'
+         checked
+         disabled
+        />
+     </Radio.Group>
   )))
 
   .add('With help text', withInfo()(() => (
