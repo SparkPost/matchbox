@@ -860,6 +860,7 @@ export { default as TabletMac } from './icons/TabletMac';
 export { default as TabUnselected } from './icons/TabUnselected';
 export { default as TagFaces } from './icons/TagFaces';
 export { default as TapAndPlay } from './icons/TapAndPlay';
+export { default as TemplateOutlineFill } from './icons/TemplateOutlineFill';
 export { default as Terrain } from './icons/Terrain';
 export { default as TextFields } from './icons/TextFields';
 export { default as TextFormat } from './icons/TextFormat';
