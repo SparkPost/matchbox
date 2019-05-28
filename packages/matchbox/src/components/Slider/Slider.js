@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { getRectFor, lerp } from '../../helpers/geometry';
-import { noop } from '../../helpers/event';
-import { onKeys } from '../../helpers/keyEvents';
+import { noop, isNotTouchEvent } from '../../helpers/event';
+import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, trim } from '../../helpers/math';
 import styles from './Slider.module.scss';
 
@@ -12,7 +12,7 @@ function Slider(props) {
 
   const [sliderValue, setSliderValue] = React.useState(value || defaultValue || 0);
   const [pixelOffset, setPixelOffset] = React.useState(0);
-  const [moving, setMoving] = React.useState(false);
+  const [moving, setMoving] = React.useState();
 
   const sliderRef = React.useRef();
 
@@ -31,11 +31,14 @@ function Slider(props) {
     onChange && onChange(sliderValue);
   }, [sliderValue]);
 
+  // Event handlers
   function handleMouseDown(e) {
-    if (e.button !== 0) { return; }
+    if (e.button !== 0) {
+      return;
+    }
     const mousePosition = e.pageX;
     setPositions(mousePosition);
-    setMoving(true);
+    setMoving('mouse');
   }
 
   function handleMouseMove(e) {
@@ -43,8 +46,25 @@ function Slider(props) {
     setPositions(mousePosition);
   }
 
-  function handleMouseUp(e) {
-    setMoving(false);
+  function handleTouchStart(e) {
+    if (isNotTouchEvent(e)) {
+      return;
+    }
+    const position = e.touches[0].pageX;
+    setPositions(position);
+    setMoving('touch');
+  }
+
+  function handleTouchMove(e) {
+    if (isNotTouchEvent(e)) {
+      return;
+    }
+    const position = e.touches[0].pageX;
+    setPositions(position);
+  }
+
+  function handleEnd(e) {
+    setMoving(null);
   }
 
   function handleKeyDown(e) {
@@ -57,13 +77,10 @@ function Slider(props) {
       interval = `0.${[...Array(precision - 1).keys()].reduce((acc) => `0${acc}`, '1')}`;
     }
 
-    onKeys(['arrowLeft', 'arrowDown'], () => {
-      setValue(sliderValue - Number(interval));
-    })(e);
-
-    onKeys(['arrowRight', 'arrowUp'], () => {
-      setValue(sliderValue + Number(interval));
-    })(e);
+    onKeys(['arrowLeft', 'arrowDown'], setValue(sliderValue - Number(interval)))(e);
+    onKeys(['arrowRight', 'arrowUp'], setValue(sliderValue + Number(interval)))(e);
+    onKey('home', setValue(min))(e);
+    onKey('end', setValue(max))(e);
   }
 
   // Sets positions based on mouse position
@@ -80,16 +97,28 @@ function Slider(props) {
     setSliderValue(roundToPlaces(trimmedValue, precision));
   }
 
-  // Handles mouse drag events
+  // Binding of mouse/touch drag events
   React.useEffect(() => {
-    if (moving) {
+    if (moving === 'mouse') {
       addEventListener('mousemove', handleMouseMove);
-      addEventListener('mouseup', handleMouseUp);
+      addEventListener('mouseup', handleEnd);
+    }
+
+    if (moving === 'touch') {
+      addEventListener('touchmove', handleTouchMove);
+      addEventListener('touchend', handleEnd);
     }
 
     return (() => {
-      removeEventListener('mousemove', handleMouseMove);
-      removeEventListener('mouseUp', handleMouseUp);
+      if (moving === 'mouse') {
+        removeEventListener('mousemove', handleMouseMove);
+        removeEventListener('mouseUp', handleEnd);
+      }
+
+      if (moving === 'mouse') {
+        removeEventListener('touchmove', handleTouchMove);
+        removeEventListener('touchend', handleEnd);
+      }
     });
   }, [moving]);
 
@@ -101,6 +130,7 @@ function Slider(props) {
   return (
     <div
       className={sliderClasses}
+      onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
       ref={sliderRef}
     >

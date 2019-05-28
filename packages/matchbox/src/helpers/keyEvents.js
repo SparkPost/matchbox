@@ -28,6 +28,16 @@ const keys = {
     key: 'ArrowDown',
     keyCode: 40,
     shiftKey: false
+  },
+  home: {
+    key: 'Home',
+    keyCode: 36,
+    shiftKey: false
+  },
+  end: {
+    key: 'End',
+    keyCode: 35,
+    shiftKey: false
   }
 };
 
