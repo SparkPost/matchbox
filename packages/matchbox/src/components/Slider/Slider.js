@@ -78,10 +78,10 @@ function Slider(props) {
       interval = `0.${[...Array(precision - 1).keys()].reduce((acc) => `0${acc}`, '1')}`;
     }
 
-    onKeys(['arrowLeft', 'arrowDown'], setValue(sliderValue - Number(interval)))(e);
-    onKeys(['arrowRight', 'arrowUp'], setValue(sliderValue + Number(interval)))(e);
-    onKey('home', setValue(min))(e);
-    onKey('end', setValue(max))(e);
+    onKeys(['arrowLeft', 'arrowDown'], () => setValue(sliderValue - Number(interval)))(e);
+    onKeys(['arrowRight', 'arrowUp'], () => setValue(sliderValue + Number(interval)))(e);
+    onKey('home', () => setValue(min))(e);
+    onKey('end', () => setValue(max))(e);
   }
 
   // Sets positions based on mouse position
