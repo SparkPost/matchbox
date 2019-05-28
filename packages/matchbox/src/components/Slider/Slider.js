@@ -29,7 +29,9 @@ function Slider(props) {
     const trimmedValue = trim(sliderValue, min, max);
     const absolutePercentage = (trimmedValue + Math.abs(min)) / Math.abs(min - max);
     setPixelOffset(lerp(0, rect.width, absolutePercentage));
-    onChange && onChange(sliderValue);
+    if (sliderValue && onChange) {
+      onChange(sliderValue);
+    }
   }, [sliderValue]);
 
   // Event handlers
