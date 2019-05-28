@@ -8,6 +8,26 @@ const keys = {
     key: 'Escape',
     keyCode: 27,
     shiftKey: false
+  },
+  arrowRight: {
+    key: 'ArrowRight',
+    keyCode: 39,
+    shiftKey: false
+  },
+  arrowLeft: {
+    key: 'ArrowLeft',
+    keyCode: 37,
+    shiftKey: false
+  },
+  arrowUp: {
+    key: 'ArrowUp',
+    keyCode: 38,
+    shiftKey: false
+  },
+  arrowDown: {
+    key: 'ArrowDown',
+    keyCode: 40,
+    shiftKey: false
   }
 };
 
