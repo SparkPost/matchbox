@@ -169,12 +169,7 @@ Slider.propTypes = {
   max: PropTypes.number,
   onChange: PropTypes.func,
   precision: PropTypes.number,
-  tooltipFormatter: PropTypes.func,
-  tooltipVisible: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
-  ])
+  value: PropTypes.number
 };
 
 export default Slider;
