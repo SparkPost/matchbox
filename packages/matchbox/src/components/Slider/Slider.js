@@ -27,7 +27,8 @@ function Slider(props) {
   React.useLayoutEffect(() => {
     const rect = getRectFor(sliderRef.current);
     const trimmedValue = trim(sliderValue, min, max);
-    setPixelOffset(lerp(0, rect.width, trimmedValue / max));
+    const absolutePercentage = (trimmedValue + Math.abs(min)) / Math.abs(min - max);
+    setPixelOffset(lerp(0, rect.width, absolutePercentage));
     onChange && onChange(sliderValue);
   }, [sliderValue]);
 

@@ -32,7 +32,7 @@ export default storiesOf('Form|Slider', module)
       return (
         <React.Fragment>
           <TextField value={value} onChange={(e) => setValue(e.target.value)} />
-          <Slider precision={1} max={80} value={value} onChange={(value) => setValue(value)} />
+          <Slider precision={1} max={100} min={-100} value={value} onChange={(value) => setValue(value)} />
         </React.Fragment>
       )
     }
