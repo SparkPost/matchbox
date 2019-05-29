@@ -23,9 +23,9 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
-    "react": "^15.3.0 || ^16.0.0",
-    "react-dom": "^15.3.0 || ^16.0.0"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
