@@ -1,7 +1,17 @@
 import React from 'react';
 import Slider from '../Slider';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import * as geometry from '../../../helpers/geometry';
+
+const map = {};
+global.addEventListener = jest.fn((event, cb) => {
+  map[event] = cb;
+});
+
+global.removeEventListener = jest.fn((event, cb) => {
+  delete map[event];
+});
 
 describe('Slider component', () => {
   let onChange;
@@ -40,6 +50,28 @@ describe('Slider component', () => {
     expect(slider.find('.Track').prop('style').width).toBe(26);
     expect(slider.find('.Handle').prop('style').left).toBe(26);
     expect(onChange).toHaveBeenCalledWith(13);
+  });
+
+  it('should handle a mouse drag chain of events', () => {
+    const slider = subject({ value: 50, onChange });
+    slider.find('.Slider').simulate('mouseDown', { pageX: 0, button: 0 });
+
+    act(() => {
+      map.mousemove({ pageX: 150 });
+    });
+
+    slider.update();
+    expect(slider.find('.Track').prop('style').width).toBe(150);
+    expect(slider.find('.Handle').prop('style').left).toBe(150);
+    expect(onChange).toHaveBeenCalledWith(75);
+
+    act(() => {
+      map.mouseup();
+    });
+
+    slider.update();
+    expect(map.mousemove).toBe(undefined);
+    expect(map.mouseup).toBe(undefined);
   });
 
   it('should handle a touch start', () => {

@@ -115,10 +115,10 @@ function Slider(props) {
     return (() => {
       if (moving === 'mouse') {
         removeEventListener('mousemove', handleMouseMove);
-        removeEventListener('mouseUp', handleEnd);
+        removeEventListener('mouseup', handleEnd);
       }
 
-      if (moving === 'mouse') {
+      if (moving === 'touch') {
         removeEventListener('touchmove', handleTouchMove);
         removeEventListener('touchend', handleEnd);
       }
