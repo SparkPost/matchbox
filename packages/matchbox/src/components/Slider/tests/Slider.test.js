@@ -2,11 +2,12 @@ import React from 'react';
 import Slider from '../Slider';
 import { mount } from 'enzyme';
 import * as geometry from '../../../helpers/geometry';
-import * as event from '../../../helpers/event';
 
 describe('Slider component', () => {
+  let onChange;
 
   beforeEach(() => {
+    onChange = jest.fn();
     geometry.getRectFor = jest.fn(() => ({
       left: 0, right: 0, width: 200
     }));
@@ -24,7 +25,6 @@ describe('Slider component', () => {
   });
 
   it('should handle a provided value', () => {
-    const onChange = jest.fn();
     const slider = subject({ value: 50, onChange });
     expect(slider.find('.Track').prop('style').width).toBe(100);
     expect(slider.find('.Handle').prop('style').left).toBe(100);
@@ -32,7 +32,6 @@ describe('Slider component', () => {
   });
 
   it('should handle a mouse down', () => {
-    const onChange = jest.fn();
     const slider = subject({ value: 50, onChange });
     slider.find('.Slider').simulate('mouseDown', {
       pageX: 25,
@@ -44,7 +43,6 @@ describe('Slider component', () => {
   });
 
   it('should handle a touch start', () => {
-    const onChange = jest.fn();
     const slider = subject({ value: 50, onChange });
     slider.find('.Slider').simulate('touchStart', {
       touches: [{ pageX: 25 }]
@@ -57,7 +55,6 @@ describe('Slider component', () => {
   describe('key events', () => {
 
     it('should handle a increment', () => {
-      const onChange = jest.fn();
       const slider = subject({ value: 50, onChange });
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowUp',
@@ -77,7 +74,6 @@ describe('Slider component', () => {
     });
 
     it('should handle a decrement with a precision value to the tenth', () => {
-      const onChange = jest.fn();
       const slider = subject({ value: 50, onChange, precision: 1 });
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowDown',
@@ -97,7 +93,6 @@ describe('Slider component', () => {
     });
 
     it('should handle home and end key events', () => {
-      const onChange = jest.fn();
       const slider = subject({ value: 50, onChange });
       slider.find('.Handle').simulate('keyDown', {
         key: 'Home',
@@ -118,10 +113,6 @@ describe('Slider component', () => {
   });
 
   describe('disabled', () => {
-    beforeEach(() => {
-      event.noop = jest.fn();
-    });
-
     it('should render disabled', () => {
       const slider = subject({ value: 50, disabled: true });
       expect(slider.find('.Slider').prop('className')).toMatch('Disabled');
@@ -129,14 +120,11 @@ describe('Slider component', () => {
     });
 
     it('should not move when disabled', () => {
-      const onChange = jest.fn();
       const slider = subject({ value: 50, onChange, disabled: true });
       slider.find('.Handle').simulate('keyDown', { key: 'Home', shiftKey: false });
       slider.find('.Slider').simulate('touchStart', { touches: [{ pageX: 25 }]});
       slider.find('.Slider').simulate('mouseDown', { pageX: 25, button: 0 });
       expect(onChange).toHaveBeenCalledTimes(1);
     });
-
-
   });
 });
