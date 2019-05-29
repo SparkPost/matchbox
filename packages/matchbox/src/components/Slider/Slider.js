@@ -17,7 +17,7 @@ function Slider(props) {
   const sliderRef = React.useRef();
 
   // Sets internal value when this is a controlled component
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (value) {
       setSliderValue(value);
     }
@@ -29,7 +29,7 @@ function Slider(props) {
     const trimmedValue = trim(sliderValue, min, max);
     const absolutePercentage = (trimmedValue + Math.abs(min)) / Math.abs(min - max);
     setPixelOffset(lerp(0, rect.width, absolutePercentage));
-    if (sliderValue && onChange) {
+    if (!isNaN(parseFloat(sliderValue)) && isFinite(sliderValue) && onChange) {
       onChange(sliderValue);
     }
   }, [sliderValue]);
@@ -101,7 +101,7 @@ function Slider(props) {
   }
 
   // Binding of mouse/touch drag events
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (moving === 'mouse') {
       addEventListener('mousemove', handleMouseMove);
       addEventListener('mouseup', handleEnd);
