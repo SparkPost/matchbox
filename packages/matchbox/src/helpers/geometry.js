@@ -1,5 +1,5 @@
 import { findDOMNode } from 'react-dom';
-import { trim } from './math';
+import { clamp } from './math';
 
 export function getWindowRect() {
   return {
@@ -73,5 +73,5 @@ export function getPositionFor(node, { fixed = false } = {}) {
  */
 export function lerp(min, max, n) {
   const value = (max - min) * n + min;
-  return trim(value, min, max);
+  return clamp(value, min, max);
 }

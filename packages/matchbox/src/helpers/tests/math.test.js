@@ -7,16 +7,16 @@ describe('roundToPlaces', () => {
 });
 
 
-describe('trim', () => {
-  it('should trim upper bounds', () => {
-    expect(helpers.trim(10, 0, 5)).toBe(5);
+describe('clamp', () => {
+  it('should clamp upper bounds', () => {
+    expect(helpers.clamp(10, 0, 5)).toBe(5);
   });
 
-  it('should trim lower bounds', () => {
-    expect(helpers.trim(-10, 0, 5)).toBe(0);
+  it('should clamp lower bounds', () => {
+    expect(helpers.clamp(-10, 0, 5)).toBe(0);
   });
 
-  it('should not trim in between', () => {
-    expect(helpers.trim(2, 0, 5)).toBe(2);
+  it('should not clamp in between', () => {
+    expect(helpers.clamp(2, 0, 5)).toBe(2);
   });
 });

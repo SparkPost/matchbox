@@ -4,30 +4,39 @@ import classnames from 'classnames';
 import { getRectFor, lerp } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
-import { roundToPlaces, trim } from '../../helpers/math';
+import { roundToPlaces, clamp } from '../../helpers/math';
 import styles from './Slider.module.scss';
 
 function Slider(props) {
   const { defaultValue, disabled, max, min, onChange, precision, value } = props;
 
-  const [sliderValue, setSliderValue] = React.useState(value || defaultValue || 0);
+  const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
   const [pixelOffset, setPixelOffset] = React.useState(0);
   const [moving, setMoving] = React.useState();
-
   const sliderRef = React.useRef();
 
-  // Sets internal value when this is a controlled component
-  React.useLayoutEffect(() => {
+  // Calculates step increments based on precision
+  const interval = React.useMemo(() => {
+    let interval = 1;
+    if (precision > 0) {
+      const zeros = '0'.repeat(precision - 1);
+      interval = parseFloat(`0.${zeros}1`);
+    }
+    return interval;
+  }, [precision]);
+
+  // Sets internal value when value is controlled externally
+  React.useEffect(() => {
     if (value) {
-      setSliderValue(value);
+      setValue(value);
     }
   }, [value]);
 
   // Calculates pixel offset for handle and track when internal value changes
   React.useLayoutEffect(() => {
     const rect = getRectFor(sliderRef.current);
-    const trimmedValue = trim(sliderValue, min, max);
-    const absolutePercentage = (trimmedValue + Math.abs(min)) / Math.abs(min - max);
+    const clampedValue = clamp(sliderValue, min, max);
+    const absolutePercentage = (clampedValue + Math.abs(min)) / Math.abs(min - max);
     setPixelOffset(lerp(0, rect.width, absolutePercentage));
     if (!isNaN(parseFloat(sliderValue)) && isFinite(sliderValue) && onChange) {
       onChange(sliderValue);
@@ -74,14 +83,8 @@ function Slider(props) {
     e.stopPropagation();
     e.preventDefault();
 
-    // Calculates step increments based on precision
-    let interval = 1;
-    if (precision > 0) {
-      interval = `0.${[...Array(precision - 1).keys()].reduce((acc) => `0${acc}`, '1')}`;
-    }
-
-    onKeys(['arrowLeft', 'arrowDown'], () => setValue(sliderValue - Number(interval)))(e);
-    onKeys(['arrowRight', 'arrowUp'], () => setValue(sliderValue + Number(interval)))(e);
+    onKeys(['arrowLeft', 'arrowDown'], () => setValue(sliderValue - interval))(e);
+    onKeys(['arrowRight', 'arrowUp'], () => setValue(sliderValue + interval))(e);
     onKey('home', () => setValue(min))(e);
     onKey('end', () => setValue(max))(e);
   }
@@ -89,38 +92,38 @@ function Slider(props) {
   // Sets positions based on mouse position
   function setPositions(mousePosition) {
     const rect = getRectFor(sliderRef.current);
-    const trimmedPixelOffset = trim(mousePosition - rect.left, 0, rect.width);
-    const percentOffset = trimmedPixelOffset / rect.width;
+    const clampedPixelOffset = clamp(mousePosition - rect.left, 0, rect.width);
+    const percentOffset = clampedPixelOffset / rect.width;
     setValue(lerp(min, max, percentOffset));
   }
 
   // Sets value to a provided value
   function setValue(newValue) {
-    const trimmedValue = trim(newValue, min, max);
-    setSliderValue(roundToPlaces(trimmedValue, precision));
+    const clampedValue = clamp(newValue, min, max);
+    setSliderValue(roundToPlaces(clampedValue, precision));
   }
 
   // Binding of mouse/touch drag events
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (moving === 'mouse') {
-      addEventListener('mousemove', handleMouseMove);
-      addEventListener('mouseup', handleEnd);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleEnd);
     }
 
     if (moving === 'touch') {
-      addEventListener('touchmove', handleTouchMove);
-      addEventListener('touchend', handleEnd);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleEnd);
     }
 
     return (() => {
       if (moving === 'mouse') {
-        removeEventListener('mousemove', handleMouseMove);
-        removeEventListener('mouseup', handleEnd);
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleEnd);
       }
 
       if (moving === 'touch') {
-        removeEventListener('touchmove', handleTouchMove);
-        removeEventListener('touchend', handleEnd);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleEnd);
       }
     });
   }, [moving]);
@@ -165,12 +168,30 @@ Slider.defaultProps = {
 };
 
 Slider.propTypes = {
+  /**
+   * The slider's initial value on first render
+   */
   defaultValue: PropTypes.number,
+  /**
+   * Disables focus, key down, mouse and touch events
+   */
   disabled: PropTypes.bool,
+  /**
+   * The slider's lower bounds
+   */
   min: PropTypes.number,
+  /**
+   * The slider's upper bounds
+   */
   max: PropTypes.number,
   onChange: PropTypes.func,
+  /**
+   * The number of decimal places to round values to
+   */
   precision: PropTypes.number,
+  /**
+   * A value to programatically control the slider
+   */
   value: PropTypes.number
 };
 

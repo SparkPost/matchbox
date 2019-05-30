@@ -3,7 +3,7 @@ export function roundToPlaces(number, places) {
   return Math.round(number * multiplier) / multiplier;
 }
 
-export function trim(n, lower, upper) {
+export function clamp(n, lower, upper) {
   if (n < lower) {
     return lower;
   }
