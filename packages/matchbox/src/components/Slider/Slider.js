@@ -9,7 +9,7 @@ import { roundToPlaces, clamp } from '../../helpers/math';
 import styles from './Slider.module.scss';
 
 function Slider(props) {
-  const { defaultValue, disabled, max, min, onBlur, onFocus, onChange, precision, value } = props;
+  const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, value } = props;
 
   const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
   const [sliderLocation, setSliderLocation] = React.useState(0);
@@ -146,6 +146,7 @@ function Slider(props) {
         style={{ width: sliderLocation }}
       />
       <div
+        id={id}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={value}

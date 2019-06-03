@@ -4,13 +4,13 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import * as geometry from '../../../helpers/geometry';
 
-const map = {};
+const windowEvents = {};
 global.addEventListener = jest.fn((event, cb) => {
-  map[event] = cb;
+  windowEvents[event] = cb;
 });
 
 global.removeEventListener = jest.fn((event, cb) => {
-  delete map[event];
+  delete windowEvents[event];
 });
 
 describe('Slider component', () => {
@@ -28,16 +28,17 @@ describe('Slider component', () => {
     expect(subject()).toMatchSnapshot();
   });
 
-  it('should render a default value', () => {
-    const slider = subject({ defaultValue: 50 });
-    expect(slider.find('.Track').prop('style').width).toBe(100);
-    expect(slider.find('.Handle').prop('style').left).toBe(100);
+  it('should render a default value and id', () => {
+    const slider = subject({ defaultValue: 50, id: 'test-id' });
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '100px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '100px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('id', 'test-id');
   });
 
   it('should handle a provided value', () => {
     const slider = subject({ value: 50, onChange });
-    expect(slider.find('.Track').prop('style').width).toBe(100);
-    expect(slider.find('.Handle').prop('style').left).toBe(100);
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '100px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '100px' });
     expect(onChange).toHaveBeenCalledWith(50);
   });
 
@@ -47,8 +48,8 @@ describe('Slider component', () => {
       pageX: 25,
       button: 0
     });
-    expect(slider.find('.Track').prop('style').width).toBe(26);
-    expect(slider.find('.Handle').prop('style').left).toBe(26);
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '26px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '26px' });
     expect(onChange).toHaveBeenCalledWith(13);
   });
 
@@ -57,21 +58,21 @@ describe('Slider component', () => {
     slider.find('.Slider').simulate('mouseDown', { pageX: 0, button: 0 });
 
     act(() => {
-      map.mousemove({ pageX: 150 });
+      windowEvents.mousemove({ pageX: 150 });
     });
 
     slider.update();
-    expect(slider.find('.Track').prop('style').width).toBe(150);
-    expect(slider.find('.Handle').prop('style').left).toBe(150);
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '150px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '150px' });
     expect(onChange).toHaveBeenCalledWith(75);
 
     act(() => {
-      map.mouseup();
+      windowEvents.mouseup();
     });
 
     slider.update();
-    expect(map.mousemove).toBe(undefined);
-    expect(map.mouseup).toBe(undefined);
+    expect(windowEvents.mousemove).toBe(undefined);
+    expect(windowEvents.mouseup).toBe(undefined);
   });
 
   it('should handle a touch start', () => {
@@ -79,8 +80,8 @@ describe('Slider component', () => {
     slider.find('.Slider').simulate('touchStart', {
       touches: [{ pageX: 25 }]
     });
-    expect(slider.find('.Track').prop('style').width).toBe(26);
-    expect(slider.find('.Handle').prop('style').left).toBe(26);
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '26px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '26px' });
     expect(onChange).toHaveBeenCalledWith(13);
   });
 
@@ -92,16 +93,16 @@ describe('Slider component', () => {
         key: 'ArrowUp',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(102);
-      expect(slider.find('.Handle').prop('style').left).toBe(102);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '102px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '102px' });
       expect(onChange).toHaveBeenCalledWith(51);
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowRight',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(104);
-      expect(slider.find('.Handle').prop('style').left).toBe(104);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '104px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '104px' });
       expect(onChange).toHaveBeenCalledWith(52);
     });
 
@@ -111,16 +112,16 @@ describe('Slider component', () => {
         key: 'ArrowDown',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(99.8);
-      expect(slider.find('.Handle').prop('style').left).toBe(99.8);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '99.8px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '99.8px' });
       expect(onChange).toHaveBeenCalledWith(49.9);
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowLeft',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(99.6);
-      expect(slider.find('.Handle').prop('style').left).toBe(99.6);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '99.6px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '99.6px' });
       expect(onChange).toHaveBeenCalledWith(49.8);
     });
 
@@ -130,16 +131,16 @@ describe('Slider component', () => {
         key: 'Home',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(0);
-      expect(slider.find('.Handle').prop('style').left).toBe(0);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '0px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '0px' });
       expect(onChange).toHaveBeenCalledWith(0);
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'End',
         shiftKey: false
       });
-      expect(slider.find('.Track').prop('style').width).toBe(200);
-      expect(slider.find('.Handle').prop('style').left).toBe(200);
+      expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '200px' });
+      expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '200px' });
       expect(onChange).toHaveBeenCalledWith(100);
     });
   });
@@ -147,8 +148,8 @@ describe('Slider component', () => {
   describe('disabled', () => {
     it('should render disabled', () => {
       const slider = subject({ value: 50, disabled: true });
-      expect(slider.find('.Slider').prop('className')).toMatch('Disabled');
-      expect(slider.find('.Handle').prop('aria-disabled')).toBe(true);
+      expect(slider.find('.Slider')).toHaveAttributeValue('class', 'Slider Disabled');
+      expect(slider.find('.Handle')).toHaveAttributeValue('aria-disabled', 'true');
     });
 
     it('should not move when disabled', () => {

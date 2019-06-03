@@ -3,10 +3,14 @@ import './raf';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import * as matchers from './matchers'
+
 // Provides enzyme assertions.
 // See https://github.com/blainekasten/enzyme-matchers#assertions
 import 'jest-enzyme';
 
+// Register custom matchers
+expect.extend(matchers);
 Enzyme.configure({ adapter: new Adapter() });
 
 // Fail tests on any warning
