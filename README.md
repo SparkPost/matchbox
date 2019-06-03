@@ -48,3 +48,22 @@ const YourComponent = () => (
 # Runs storybook at localhost:9001
 npm run start:storybook
 ```
+
+## Publishing
+```bash
+# First merge your PR into master
+# Move into the package you want to publish
+cd packages/matchbox
+
+# Bump version number
+npm version x.x.x
+
+# Commit the release
+git add .
+git commit -m "Publish @sparkpost/matchbox x.x.x
+git push
+
+# Run the build and publish to NPM with your 2fa code
+npm run build
+npm publish --otp=xxxxxx
+```
