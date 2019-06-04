@@ -1,0 +1,64 @@
+@import '../../styles/config';
+
+.Slider {
+  position: relative;
+  margin-bottom: spacing();
+  padding: spacing() 0;
+  cursor: pointer;
+
+  &.Disabled {
+    cursor: not-allowed;
+  }
+}
+
+.Rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+  background: color(gray, 8);
+  border-radius: 3px;
+  transition: 0.3s;
+
+  .Slider:hover & {
+    background: color(gray, 7);
+  }
+}
+
+.Track {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  background: color(orange);
+  border-radius: 3px;
+
+  .Slider.Disabled  & {
+    background: color(gray, 4);
+  }
+}
+
+.Handle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translate(-7px, -5px);
+
+  border-radius: 50%;
+  border: 3px solid color(orange);
+  background: color(gray, 10);
+  transition: 0.1s box-shadow;
+
+  outline: none;
+
+  .Slider:not(.Disabled) & {
+    &:focus, &:active, &:hover {
+      outline: none;
+      box-shadow: 0 0 0 5px rgba(color(orange), 0.3);
+    }
+  }
+
+  .Slider.Disabled  & {
+    border: 2px solid color(gray, 4);
+  }
+}

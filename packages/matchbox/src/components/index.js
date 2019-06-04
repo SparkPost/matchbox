@@ -17,6 +17,7 @@ export * from './Portal';
 export * from './ProgressBar';
 export * from './Radio';
 export * from './Select';
+export * from './Slider';
 export * from './Snackbar';
 export * from './Table';
 export * from './Tabs';

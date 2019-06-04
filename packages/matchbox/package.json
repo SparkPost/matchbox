@@ -22,12 +22,12 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-transition-group": "^2.3.0"
   },
   "devDependencies": {
-    "@sparkpost/matchbox-icons": "^1.1.6",
+    "@sparkpost/matchbox-icons": "^1.1.10",
     "autoprefixer": "^7.2.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

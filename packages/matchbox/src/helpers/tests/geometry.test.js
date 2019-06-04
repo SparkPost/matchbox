@@ -1,4 +1,4 @@
-import { getWindowRect, getRectFor, getPreferredDirectionFor, getPositionFor } from '../geometry';
+import { getWindowRect, getRectFor, getPreferredDirectionFor, getPositionFor, lerp } from '../geometry';
 import * as reactDomMock from 'react-dom';
 jest.mock('react-dom');
 
@@ -55,5 +55,20 @@ describe('getPositionFor', () => {
 
   it('should return direction if node is fixed', () => {
     expect(getPositionFor('test', { fixed: true })).toMatchSnapshot();
+  });
+});
+
+
+describe('linear interpolation', () => {
+  it('should correctly interpolate between two points', () => {
+    expect(lerp(-10, 30, 0.5)).toBe(10);
+  });
+
+  it('should clamp lower bounds', () => {
+    expect(lerp(-10, 30, -1.5)).toBe(-10);
+  });
+
+  it('should clamp upper bounds', () => {
+    expect(lerp(-10, 30, 1.5)).toBe(30);
   });
 });

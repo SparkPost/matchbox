@@ -1,4 +1,5 @@
 import { findDOMNode } from 'react-dom';
+import { clamp } from './math';
 
 export function getWindowRect() {
   return {
@@ -58,4 +59,19 @@ export function getPositionFor(node, { fixed = false } = {}) {
     width: elementRect.width,
     height: elementRect.height
   };
+}
+
+/**
+ * Linearly interpolates and clamps between two values
+ * @param  {number} min
+ * @param  {number} max
+ * @param  {number} n
+ * @return {number}
+ * @example
+ *   lerp(10, 20, 0.5)
+ *   > 15
+ */
+export function lerp(min, max, n) {
+  const value = (max - min) * n + min;
+  return clamp(value, min, max);
 }

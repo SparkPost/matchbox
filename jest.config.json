@@ -17,7 +17,8 @@
     "<rootDir>/config/polyfills.js"
   ],
   "testPathIgnorePatterns": [
-    "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
+    "/.cache/"
   ],
   "testEnvironment": "node",
   "testURL": "http://localhost",
