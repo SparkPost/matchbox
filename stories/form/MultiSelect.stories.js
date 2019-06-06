@@ -53,6 +53,10 @@ function TypeaheadExample(props) {
     setSelected(selected.filter((i) => i !== item));
   }
 
+  function itemToString({ name = ''} = {}) {
+    return name;
+  }
+
   function typeaheadfn(downshift) {
     const {
       getInputProps,
@@ -67,7 +71,7 @@ function TypeaheadExample(props) {
     const items = getItems()
       .filter((item) => !selected.some(({ name }) => name === item.name))
       .map((item, index) => getItemProps({
-        content: item.name,
+        content: itemToString(item),
         highlighted: highlightedIndex === index,
         index,
         item
@@ -78,7 +82,7 @@ function TypeaheadExample(props) {
       id: 'story',
       label: 'Label',
       selectedItems: selected,
-      itemToString: ({ name }) => name,
+      itemToString,
       removeItem,
       onFocus: openMenu,
       error: error && !isOpen ? 'test' : null,
@@ -102,7 +106,7 @@ function TypeaheadExample(props) {
   }
 
   return (
-    <Downshift itemToString={(item) => item ? item.name : ''} stateReducer={stateReducer}>
+    <Downshift itemToString={itemToString} stateReducer={stateReducer}>
       {typeaheadfn}
     </Downshift>
   );

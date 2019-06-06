@@ -77,7 +77,10 @@ function MultiSelectTextField(props) {
         removeItem(selectedItems[selectedItems.length - 1]);
       })(e);
     }
-    onKeyDown(e);
+
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
   }
 
   return (
