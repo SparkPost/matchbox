@@ -88,12 +88,10 @@ describe('MultiSelectTextField', () => {
 
     it('should not remove on a backspace with a value', () => {
       const removeItem = jest.fn();
-      const onKeyDown = jest.fn();
-      const textfield = subject({ removeItem, value: 'test', onKeyDown });
+      const textfield = subject({ removeItem, value: 'test' });
 
       textfield.find('input').simulate('keyDown', { key: 'Backspace', shiftKey: false });
-      expect(removeItem).not.toHaveBeenCalledWith();
-      expect(onKeyDown).toHaveBeenCalledWith({ key: 'Backspace', shiftKey: false });
+      expect(removeItem).not.toHaveBeenCalled();
     });
   });
 });
