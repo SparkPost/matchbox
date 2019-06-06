@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import StoryContainer from '../storyHelpers/StoryContainer';
-import { MultiSelectTextField, TypeaheadMenu } from '@sparkpost/matchbox';
+import { MultiSelectTextField, MultiSelectMenu } from '@sparkpost/matchbox';
 import Downshift from 'downshift'
 
 // This is an example of a multi select downshift typeahead
@@ -81,19 +81,22 @@ function TypeaheadExample(props) {
       itemToString: ({ name }) => name,
       removeItem,
       onFocus: openMenu,
-      error: error && !isOpen ? 'test' : null
+      error: error && !isOpen ? 'test' : null,
+      placeholder: 'Type to search',
+      helpText: 'Help text'
     });
 
     const menuProps = getMenuProps({
       items,
       isOpen: Boolean(isOpen && items.length),
       refKey: 'menuRef',
+      style: { marginTop: '-18px' } // Offsets help text height
     });
 
     return (
       <div style={{ position: 'relative' }}>
         <MultiSelectTextField {...inputProps}  />
-        <TypeaheadMenu {...menuProps} />
+        <MultiSelectMenu {...menuProps} />
       </div>
     )
   }
@@ -110,6 +113,30 @@ export default storiesOf('Form|MultiSelect', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
-  .add('Basic', (() => (
+
+  .add('TextField with Menu', (() => (
     <TypeaheadExample />
+  )))
+
+  .add('TextField', withInfo()(() => (
+    <MultiSelectTextField
+      selectedItems={[
+        { name: 'foo' },
+        { name: 'bar' }
+      ]}
+      itemToString={({ name }) => name}
+      value='input value'
+      label='Filters'
+    />
+  )))
+
+  .add('Menu', withInfo()(() => (
+    <div>
+      <div style={{ position: 'relative' }}>
+        <MultiSelectMenu isOpen={true} items={[
+          { content: 'foo' }, { content: 'bar' }
+        ]}/>
+      </div>
+      <div style={{ height: '150px' }} />
+    </div>
   )));

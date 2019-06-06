@@ -1,2 +1,2 @@
 export { default as MultiSelectTextField } from './MultiSelectTextField';
-export { default as TypeaheadMenu } from './TypeaheadMenu';
+export { default as MultiSelectMenu } from './MultiSelectMenu';

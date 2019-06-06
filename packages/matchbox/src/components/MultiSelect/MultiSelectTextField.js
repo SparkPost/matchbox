@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Tag } from '../Tag';
-import { identity } from '../../helpers/event';
+import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
 import classnames from 'classnames';
 import styles from './MultiSelectTextField.module.scss';
@@ -37,7 +37,8 @@ function MultiSelectTextField(props) {
 
   const setWrapperClasses = classnames(
     styles.Wrapper,
-    error && styles.Error
+    error && styles.Error,
+    disabled && styles.Disabled
   );
 
   const labelMarkup = (
@@ -52,7 +53,13 @@ function MultiSelectTextField(props) {
 
   const selectedMarkup = selectedItems.length
     ? selectedItems.map((item, i) => (
-      <Tag key={i} onRemove={() => removeItem(item)}>
+      <Tag
+        key={i}
+        onRemove={!disabled
+          ? () => removeItem(item)
+          : null
+        }
+      >
         {itemToString(item)}
       </Tag>
     ))
@@ -124,7 +131,8 @@ MultiSelectTextField.propTypes = {
 
 MultiSelectTextField.defaultProps = {
   selectedItems: [],
-  itemToString: identity
+  itemToString: identity,
+  removeItem: noop
 };
 
 export default MultiSelectTextField;

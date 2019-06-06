@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ActionList } from '../ActionList';
-import styles from './TypeaheadMenu.module.scss';
+import styles from './MultiSelectMenu.module.scss';
 
-function TypeaheadMenu(props) {
+function MultiSelectMenu(props) {
   const { items, menuRef, isOpen, maxHeight, ...rest } = props;
 
   const listClasses = classnames(
@@ -19,14 +19,23 @@ function TypeaheadMenu(props) {
   );
 }
 
-TypeaheadMenu.propTypes = {
+MultiSelectMenu.propTypes = {
+  /**
+   * Array of items. see ActionList prop types.
+   */
   items: PropTypes.array,
+  /**
+   * Controls menu visibility
+   */
   isOpen: PropTypes.bool,
+  /**
+   * Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
+   */
   menuRef: PropTypes.func
 };
 
-TypeaheadMenu.defaultProps = {
+MultiSelectMenu.defaultProps = {
   items: []
 };
 
-export default TypeaheadMenu;
+export default MultiSelectMenu;

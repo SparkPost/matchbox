@@ -30,7 +30,7 @@
   font-weight: 400;
   font-size: rem(15);
   line-height: rem(24);
-  padding: 3px 0;
+  padding: rem(3) rem(3);
 
   &:disabled {
     background: color(gray, 9);
@@ -45,7 +45,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  padding: rem(5) rem(12);
+  padding: rem(2) rem(6);
 
   outline: none;
   border: 1px solid color(gray, 7);
@@ -57,12 +57,18 @@
     border: 1px solid color(red);
   }
 
+  &.Disabled {
+    background: color(gray, 9);
+    color: color(gray, 3);
+    cursor: not-allowed;
+  }
+
   &:focus-within {
     border: 1px solid color(blue);
     box-shadow: 0 0 0 1px color(blue);
   }
 
-  &:hover {
+  &:hover:not(.Disabled) {
     cursor: text;
   }
 
