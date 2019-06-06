@@ -1,0 +1,31 @@
+@import '../../styles/config';
+
+.List {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: z-index(overlay);
+
+  background: color(gray, 10);
+  border-radius: border-radius();
+  border: 1px solid color(gray, 7);
+  box-shadow: shadow(deep);
+
+  margin-top: 3px;
+  max-height: 20rem;
+
+  overflow-y: scroll;
+  pointer-events: none;
+
+  transform: scaleY(0.97) translate(0, -5px);
+  opacity: 0;
+  transition: 0s ease-out;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scaleY(1) translate(0, 0);
+    transition: 0.2s ease-out;
+  }
+}

@@ -25,5 +25,6 @@ export * from './Tag';
 export * from './TextField';
 export * from './Toggle';
 export * from './Tooltip';
+export * from './Typeahead';
 export * from './UnstyledLink';
 export * from './WindowEvent';

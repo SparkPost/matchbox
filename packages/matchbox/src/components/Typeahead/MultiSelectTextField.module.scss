@@ -1,0 +1,74 @@
+@import '../../styles/config';
+
+.TextField {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.HelpText {
+  padding-top: rem(6);
+  font-size: rem(13);
+  line-height: 1.3em;
+  color: color(gray, 4);
+  word-break: normal;
+  word-wrap: normal;
+}
+
+.Input {
+  flex: 1;
+  display: inline-block;
+  outline: none;
+  border: none;
+
+  color: color(gray, 1);
+  font-weight: 400;
+  font-size: rem(15);
+  line-height: rem(24);
+  padding: 3px 0;
+
+  &:disabled {
+    background: color(gray, 9);
+    color: color(gray, 3);
+    cursor: not-allowed;
+  }
+}
+
+.Wrapper {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: rem(5) rem(12);
+
+  outline: none;
+  border: 1px solid color(gray, 7);
+  border-radius: border-radius();
+
+  transition: border 0.15s;
+
+  &.Error {
+    border: 1px solid color(red);
+  }
+
+  &:focus-within {
+    border: 1px solid color(blue);
+    box-shadow: 0 0 0 1px color(blue);
+  }
+
+  &:hover {
+    cursor: text;
+  }
+
+  // Targets tags
+  & > div {
+    display: inline-block;
+    margin: 0 3px 0 0;
+  }
+}
