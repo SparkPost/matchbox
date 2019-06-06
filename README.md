@@ -60,7 +60,7 @@ npm version x.x.x
 
 # Commit the release
 git add .
-git commit -m "Publish @sparkpost/matchbox x.x.x
+git commit -m "Publish @sparkpost/matchbox x.x.x"
 git push
 
 # Run the build and publish to NPM with your 2fa code
