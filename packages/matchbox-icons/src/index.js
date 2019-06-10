@@ -308,6 +308,7 @@ export { default as FiberNew } from './icons/FiberNew';
 export { default as FiberPin } from './icons/FiberPin';
 export { default as FiberSmartRecord } from './icons/FiberSmartRecord';
 export { default as FileDownload } from './icons/FileDownload';
+export { default as FileEdit } from './icons/FileEdit';
 export { default as FileUpload } from './icons/FileUpload';
 export { default as Filter } from './icons/Filter';
 export { default as Filter1 } from './icons/Filter1';
