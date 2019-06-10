@@ -1,8 +1,8 @@
 import React from 'react';
-import MultiSelectTextField from '../MultiSelectTextField';
+import ComboBoxTextField from '../ComboBoxTextField';
 import { shallow } from 'enzyme';
 
-describe('MultiSelectTextField', () => {
+describe('ComboBoxTextField', () => {
   let focus;
 
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe('MultiSelectTextField', () => {
   ];
   const itemToString = ({ content }) => content;
   const subject = (props = {}) => shallow(
-    <MultiSelectTextField
+    <ComboBoxTextField
       selectedItems={items}
       itemToString={itemToString}
       {...props}

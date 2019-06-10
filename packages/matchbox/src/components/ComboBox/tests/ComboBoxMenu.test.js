@@ -1,9 +1,9 @@
 import React from 'react';
-import MultiSelectMenu from '../MultiSelectMenu';
+import ComboBoxMenu from '../ComboBoxMenu';
 import { mount } from 'enzyme';
 
-describe('MultiSelectMenu', () => {
-  const subject = (props = {}) => mount(<MultiSelectMenu {...props}/>);
+describe('ComboBoxMenu', () => {
+  const subject = (props = {}) => mount(<ComboBoxMenu {...props}/>);
   const items = [
     { content: 'foo' },
     { content: <div>bar</div> }

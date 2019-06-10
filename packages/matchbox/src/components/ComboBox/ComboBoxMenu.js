@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ActionList } from '../ActionList';
-import styles from './MultiSelectMenu.module.scss';
+import styles from './ComboBoxMenu.module.scss';
 
-function MultiSelectMenu(props) {
+function ComboBoxMenu(props) {
   const { items, menuRef, isOpen, maxHeight, ...rest } = props;
 
   const listClasses = classnames(
@@ -19,7 +19,7 @@ function MultiSelectMenu(props) {
   );
 }
 
-MultiSelectMenu.propTypes = {
+ComboBoxMenu.propTypes = {
   /**
    * Array of items. see ActionList prop types.
    */
@@ -34,8 +34,8 @@ MultiSelectMenu.propTypes = {
   menuRef: PropTypes.func
 };
 
-MultiSelectMenu.defaultProps = {
+ComboBoxMenu.defaultProps = {
   items: []
 };
 
-export default MultiSelectMenu;
+export default ComboBoxMenu;

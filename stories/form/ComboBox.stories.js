@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import StoryContainer from '../storyHelpers/StoryContainer';
-import { MultiSelectTextField, MultiSelectMenu } from '@sparkpost/matchbox';
+import { ComboBox, ComboBoxTextField, ComboBoxMenu } from '@sparkpost/matchbox';
 import Downshift from 'downshift'
 
 // This is an example of a multi select downshift typeahead
@@ -65,7 +65,8 @@ function TypeaheadExample(props) {
       inputValue,
       getItemProps,
       highlightedIndex,
-      openMenu
+      openMenu,
+      getRootProps
     } = downshift;
 
     const items = getItems()
@@ -96,12 +97,12 @@ function TypeaheadExample(props) {
       refKey: 'menuRef',
       style: { marginTop: '-18px' } // Offsets help text height
     });
-
+    console.log(getRootProps())
     return (
-      <div style={{ position: 'relative' }}>
-        <MultiSelectTextField {...inputProps}  />
-        <MultiSelectMenu {...menuProps} />
-      </div>
+      <ComboBox {...getRootProps()}>
+        <ComboBoxTextField {...inputProps}  />
+        <ComboBoxMenu {...menuProps} />
+      </ComboBox>
     )
   }
 
@@ -113,7 +114,7 @@ function TypeaheadExample(props) {
 }
 
 //
-export default storiesOf('Form|MultiSelect', module)
+export default storiesOf('Form|ComboBox', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
@@ -123,7 +124,7 @@ export default storiesOf('Form|MultiSelect', module)
   )))
 
   .add('TextField', withInfo()(() => (
-    <MultiSelectTextField
+    <ComboBoxTextField
       selectedItems={[
         { name: 'foo' },
         { name: 'bar' }
@@ -136,11 +137,11 @@ export default storiesOf('Form|MultiSelect', module)
 
   .add('Menu', withInfo()(() => (
     <div>
-      <div style={{ position: 'relative' }}>
-        <MultiSelectMenu isOpen={true} items={[
+      <ComboBox>
+        <ComboBoxMenu isOpen={true} items={[
           { content: 'foo' }, { content: 'bar' }
         ]}/>
-      </div>
+      </ComboBox>
       <div style={{ height: '150px' }} />
     </div>
   )));

@@ -6,9 +6,9 @@ import { Tag } from '../Tag';
 import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
 import classnames from 'classnames';
-import styles from './MultiSelectTextField.module.scss';
+import styles from './ComboBoxTextField.module.scss';
 
-function MultiSelectTextField(props) {
+function ComboBoxTextField(props) {
   const {
     autoFocus,
     disabled,
@@ -112,7 +112,7 @@ function MultiSelectTextField(props) {
   );
 }
 
-MultiSelectTextField.propTypes = {
+ComboBoxTextField.propTypes = {
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   error: PropTypes.string,
@@ -132,10 +132,10 @@ MultiSelectTextField.propTypes = {
   selectedItems: PropTypes.array
 };
 
-MultiSelectTextField.defaultProps = {
+ComboBoxTextField.defaultProps = {
   selectedItems: [],
   itemToString: identity,
   removeItem: noop
 };
 
-export default MultiSelectTextField;
+export default ComboBoxTextField;

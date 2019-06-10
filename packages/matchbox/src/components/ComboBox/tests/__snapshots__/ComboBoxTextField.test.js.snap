@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MultiSelectTextField selected items should render selected items correctly 1`] = `
+exports[`ComboBoxTextField selected items should render selected items correctly 1`] = `
 Array [
   <Tag
     key="0"
@@ -17,7 +17,7 @@ Array [
 ]
 `;
 
-exports[`MultiSelectTextField should render the full fieldset with label, id, error and help text 1`] = `
+exports[`ComboBoxTextField should render the full fieldset with label, id, error and help text 1`] = `
 <fieldset
   className="TextField"
 >
