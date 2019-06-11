@@ -20,6 +20,7 @@
   },
   "sideEffects": false,
   "dependencies": {
+    "@sparkpost/design-tokens": "0.0.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
