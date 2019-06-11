@@ -1,27 +1,4 @@
-$font-family-map: (
-  base: #{
-    'Gotham Narrow SSm A',
-    'Gotham Narrow SSm B',
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol"
-  },
-  monospace: #{
-    "SFMono-Regular",
-    Consolas,
-    "Liberation Mono",
-    Menlo,
-    Courier,
-    monospace
-  }
-);
+@import '@sparkpost/design-tokens/dist/font-family.map.scss';
 
 // Returns a font family stack
 // @param {String} $font - The font family to use
@@ -39,7 +16,7 @@ $font-family-map: (
 
 $font-size-map: (
   body: (
-    base: rem(15),
+    base: rem(18),
   ),
 
   heading: (
@@ -64,7 +41,7 @@ $font-size-map: (
 @mixin text-style-body {
   font-size: font-size(body);
   font-weight: 400;
-  line-height: 1.8em;
+  line-height: 1.5em;
 }
 
 @mixin text-style-heading {
