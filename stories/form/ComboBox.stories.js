@@ -53,8 +53,11 @@ function TypeaheadExample(props) {
     setSelected(selected.filter((i) => i !== item));
   }
 
-  function itemToString({ name = ''} = {}) {
-    return name;
+  function itemToString(item) {
+    if (item) {
+      return item.name;
+    }
+    return '';
   }
 
   function typeaheadfn(downshift) {
@@ -68,6 +71,10 @@ function TypeaheadExample(props) {
       openMenu,
       getRootProps
     } = downshift;
+
+    const rootProps = getRootProps({
+      refKey: 'rootRef'
+    });
 
     const items = getItems()
       .filter((item) => !selected.some(({ name }) => name === item.name))
@@ -99,7 +106,7 @@ function TypeaheadExample(props) {
     });
 
     return (
-      <ComboBox {...getRootProps()}>
+      <ComboBox {...rootProps}>
         <ComboBoxTextField {...inputProps}  />
         <ComboBoxMenu {...menuProps} />
       </ComboBox>
