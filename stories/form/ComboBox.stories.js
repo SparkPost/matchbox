@@ -97,7 +97,7 @@ function TypeaheadExample(props) {
       refKey: 'menuRef',
       style: { marginTop: '-18px' } // Offsets help text height
     });
-    console.log(getRootProps())
+
     return (
       <ComboBox {...getRootProps()}>
         <ComboBoxTextField {...inputProps}  />
