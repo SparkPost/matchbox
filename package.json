@@ -25,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",

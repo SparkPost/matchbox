@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBoxMenu should render items correctly 1`] = `
+<ComboBoxMenu
+  items={
+    Array [
+      Object {
+        "content": "foo",
+      },
+      Object {
+        "content": <div>
+          bar
+        </div>,
+      },
+    ]
+  }
+>
+  <div
+    className="List"
+  >
+    <ActionList
+      actions={
+        Array [
+          Object {
+            "content": "foo",
+          },
+          Object {
+            "content": <div>
+              bar
+            </div>,
+          },
+        ]
+      }
+      groupByKey="section"
+    >
+      <div
+        className="ActionList"
+        style={
+          Object {
+            "maxHeight": "none",
+          }
+        }
+      >
+        <Section
+          key="0"
+          section={
+            Array [
+              Object {
+                "content": "foo",
+              },
+              Object {
+                "content": <div>
+                  bar
+                </div>,
+              },
+            ]
+          }
+        >
+          <div
+            className="Section"
+          >
+            <UnstyledLink
+              className="Action"
+              key="0"
+            >
+              <a
+                className="Action"
+              >
+                foo
+              </a>
+            </UnstyledLink>
+            <UnstyledLink
+              className="Action"
+              key="1"
+            >
+              <a
+                className="Action"
+              >
+                <div>
+                  bar
+                </div>
+              </a>
+            </UnstyledLink>
+          </div>
+        </Section>
+      </div>
+    </ActionList>
+  </div>
+</ComboBoxMenu>
+`;

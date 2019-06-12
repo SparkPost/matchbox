@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBoxTextField selected items should render selected items correctly 1`] = `
+Array [
+  <Tag
+    key="0"
+    onRemove={[Function]}
+  >
+    foo
+  </Tag>,
+  <Tag
+    key="1"
+    onRemove={[Function]}
+  >
+    bar
+  </Tag>,
+]
+`;
+
+exports[`ComboBoxTextField should render the full fieldset with label, id, error and help text 1`] = `
+<fieldset
+  className="TextField"
+>
+  <Label
+    id="test-id"
+    label="test label"
+  />
+  <div
+    className="Wrapper Error"
+    onClick={[Function]}
+  >
+    <Tag
+      key="0"
+      onRemove={[Function]}
+    >
+      foo
+    </Tag>
+    <Tag
+      key="1"
+      onRemove={[Function]}
+    >
+      bar
+    </Tag>
+    <input
+      className="Input"
+      id="test-id"
+      onKeyDown={[Function]}
+    />
+  </div>
+  <Error
+    error="error"
+  />
+  <div
+    className="HelpText"
+  >
+    help
+  </div>
+</fieldset>
+`;

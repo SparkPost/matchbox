@@ -1,4 +1,4 @@
-import { debounce, noop, isNotTouchEvent } from '../event';
+import { debounce, identity, isNotTouchEvent, noop } from '../event';
 
 // TODO Move to test helpers
 function delay(ms) {
@@ -18,6 +18,12 @@ describe('debounce', () => {
 describe('noop', () => {
   it('should return nothing', () => {
     expect(noop()).toBe(undefined);
+  });
+});
+
+describe('identity', () => {
+  it('should return first parameter', () => {
+    expect(identity('a')).toEqual('a');
   });
 });
 

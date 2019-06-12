@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBox Wrapper should render styles, children, and other props correctly 1`] = `
+<div
+  onClick={[MockFunction]}
+  style={
+    Object {
+      "background": "red",
+      "position": "relative",
+    }
+  }
+>
+  <span>
+    test children
+  </span>
+</div>
+`;

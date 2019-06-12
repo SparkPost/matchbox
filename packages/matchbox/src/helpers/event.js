@@ -17,6 +17,10 @@ export function debounce(func, wait, immediate) {
 export function noop() {
 }
 
+export function identity(a) {
+  return a;
+}
+
 export function isNotTouchEvent(e) {
   return e.touches.length > 1 || (e.type.toLowerCase() === 'touchend' && e.touches.length > 0);
 }

@@ -1,4 +1,9 @@
 const keys = {
+  backspace: {
+    key: 'Backspace',
+    keyCode: 8,
+    shiftKey: false
+  },
   enter: {
     key: 'Enter',
     keyCode: 13,

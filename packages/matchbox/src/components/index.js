@@ -3,6 +3,7 @@ export * from './Banner';
 export * from './Button';
 export * from './Checkbox';
 export * from './CodeBlock';
+export * from './ComboBox';
 export * from './EmptyState';
 export * from './Error';
 export * from './Grid';
