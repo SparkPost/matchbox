@@ -9,6 +9,7 @@ function Expandable(props) {
   const {
     children,
     defaultOpen,
+    icon,
     id,
     open,
     onToggle,
@@ -52,8 +53,16 @@ function Expandable(props) {
     })(e);
   }
 
-  const contentClasses = classnames(styles.Content, isOpen && styles.Open);
-  const iconClasses = classnames(styles.Icon, isOpen && styles.Open);
+  const iconMarkup = icon
+    ? <div className={styles.Icon}>{icon}</div>
+    : null;
+
+  const contentSpacer = icon
+    ? <div className={styles.ContentSpacer} />
+    : null;
+
+  const contentClasses = classnames(styles.ContentWrapper, isOpen && styles.Open);
+  const arrowClasses = classnames(styles.Arrow, isOpen && styles.Open);
 
   return (
     <div className={styles.Expandable}>
@@ -67,20 +76,24 @@ function Expandable(props) {
         role='button'
         tabIndex='1'
       >
+        {iconMarkup}
         <div className={styles.HeaderContent}>
           <h3 className={styles.Title}>{title}</h3>
           <h6 className={styles.Subtitle}>{subtitle}</h6>
         </div>
         <div className={styles.HeaderArrow}>
-          <KeyboardArrowRight size={36} className={iconClasses} />
+          <KeyboardArrowRight size={36} className={arrowClasses} />
         </div>
       </div>
       <div
-        aria-hidden={isOpen}
+        aria-hidden={!isOpen}
         className={contentClasses}
         id={id}
       >
-        {children}
+        {contentSpacer}
+        <div className={styles.Content}>
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -90,32 +103,34 @@ Expandable.defaultProps = {
   defaultOpen: false
 };
 
-Expandable.proptypes = {
+Expandable.propTypes = {
   /**
    * Default open state when not controlled
    */
   defaultOpen: Proptypes.bool,
   /**
-   * Optional React node for an image or icon
-   *
+   * Optional React node for an image or icon. Works best with an SVG optimized for 40x40.
    */
   icon: Proptypes.node,
   /**
    * Required for accessilibty between header and content
-   *
    */
   id: Proptypes.string.isRequired,
   /**
    * Pass a boolean to control open state
-   *
    */
   open: Proptypes.bool,
   /**
    * Optional, but required when controlling open state
-   *
    */
   onToggle: Proptypes.func,
+  /**
+   * Optional content area beneath header title
+   */
   subtitle: Proptypes.node,
+  /**
+   * Main header title content
+   */
   title: Proptypes.node.isRequired
 };
 
