@@ -6,6 +6,7 @@ export * from './CodeBlock';
 export * from './ComboBox';
 export * from './EmptyState';
 export * from './Error';
+export * from './Expandable';
 export * from './Grid';
 export * from './Label';
 export * from './Modal';
