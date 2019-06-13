@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider component should render default state with title and id correctly 1`] = `
+<Expandable
+  defaultOpen={false}
+  id="test-id"
+  title="test-title"
+>
+  <div
+    className="Expandable"
+  >
+    <div
+      aria-controls="test-id"
+      aria-expanded={false}
+      className="Header"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="1"
+    >
+      <div
+        className="HeaderContent"
+      >
+        <h3
+          className="Title"
+        >
+          test-title
+        </h3>
+        <h6
+          className="Subtitle"
+        />
+      </div>
+      <div
+        className="HeaderArrow"
+      >
+        <KeyboardArrowRight
+          className="Arrow"
+          size={36}
+        >
+          <IconBase
+            className="Arrow"
+            size={36}
+          >
+            <svg
+              className="Arrow"
+              fill="currentColor"
+              height={36}
+              preserveAspectRatio="xMidYMid meet"
+              style={
+                Object {
+                  "verticalAlign": "middle",
+                }
+              }
+              viewBox="0 0 24 24"
+              width={36}
+            >
+              <g>
+                <path
+                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                />
+              </g>
+            </svg>
+          </IconBase>
+        </KeyboardArrowRight>
+      </div>
+    </div>
+    <div
+      aria-hidden={true}
+      className="ContentWrapper"
+      id="test-id"
+    >
+      <div
+        className="Content"
+      />
+    </div>
+  </div>
+</Expandable>
+`;
+
+exports[`Slider component should render provided default state with an icon 1`] = `
+<Expandable
+  defaultOpen={true}
+  icon={
+    <svg>
+      test
+    </svg>
+  }
+  id="test-id"
+  title="test-title"
+>
+  <div
+    className="Expandable"
+  >
+    <div
+      aria-controls="test-id"
+      aria-expanded={true}
+      className="Header"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="1"
+    >
+      <div
+        className="Icon"
+      >
+        <svg>
+          test
+        </svg>
+      </div>
+      <div
+        className="HeaderContent"
+      >
+        <h3
+          className="Title"
+        >
+          test-title
+        </h3>
+        <h6
+          className="Subtitle"
+        />
+      </div>
+      <div
+        className="HeaderArrow"
+      >
+        <KeyboardArrowRight
+          className="Arrow Open"
+          size={36}
+        >
+          <IconBase
+            className="Arrow Open"
+            size={36}
+          >
+            <svg
+              className="Arrow Open"
+              fill="currentColor"
+              height={36}
+              preserveAspectRatio="xMidYMid meet"
+              style={
+                Object {
+                  "verticalAlign": "middle",
+                }
+              }
+              viewBox="0 0 24 24"
+              width={36}
+            >
+              <g>
+                <path
+                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                />
+              </g>
+            </svg>
+          </IconBase>
+        </KeyboardArrowRight>
+      </div>
+    </div>
+    <div
+      aria-hidden={false}
+      className="ContentWrapper Open"
+      id="test-id"
+    >
+      <div
+        className="ContentSpacer"
+      />
+      <div
+        className="Content"
+      />
+    </div>
+  </div>
+</Expandable>
+`;

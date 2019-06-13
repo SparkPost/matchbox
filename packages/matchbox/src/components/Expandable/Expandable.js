@@ -26,13 +26,6 @@ function Expandable(props) {
     setIsOpen(open);
   }, [open]);
 
-  // Handles onToggle when open state is uncontrolled
-  React.useEffect(() => {
-    if (!controlled && onToggle) {
-      onToggle();
-    }
-  }, [isOpen]);
-
   function handleToggle() {
     if (controlled) {
       onToggle();
