@@ -279,7 +279,7 @@ exports[`TextField renders TextField with prefix 1`] = `
       className="InputWrapper"
     >
       <span
-        className="Prefix"
+        className="Prefix prefixclass"
       >
         <span>
           Before Text
@@ -342,7 +342,7 @@ exports[`TextField renders TextField with suffix 1`] = `
         type="text"
       />
       <span
-        className="Suffix"
+        className="Suffix prefixclass"
       >
         <span>
           After Text

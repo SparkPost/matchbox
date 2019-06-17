@@ -89,7 +89,9 @@ class TextField extends Component {
       connectLeft,
       connectRight,
       prefix,
+      prefixClassname,
       suffix,
+      suffixClassname,
       style,
       ...rest
     } = this.props;
@@ -100,6 +102,9 @@ class TextField extends Component {
       styles.Input,
       error && styles.Error
     );
+
+    const prefixClasses = classnames(styles.Prefix, prefixClassname);
+    const suffixClasses = classnames(styles.Suffix, suffixClassname);
 
     const requiredIndicator = required
       ? ' *'
@@ -116,11 +121,11 @@ class TextField extends Component {
       : null;
 
     const prefixMarkup = prefix
-      ? <span className={styles.Prefix} ref={(node) => this.prefixNode = node}>{prefix}</span>
+      ? <span className={prefixClasses} ref={(node) => this.prefixNode = node}>{prefix}</span>
       : null;
 
     const suffixMarkup = suffix
-      ? <span className={styles.Suffix} ref={(node) => this.suffixNode = node}>{suffix}</span>
+      ? <span className={suffixClasses} ref={(node) => this.suffixNode = node}>{suffix}</span>
       : null;
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {

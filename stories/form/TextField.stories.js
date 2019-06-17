@@ -77,6 +77,7 @@ export default storiesOf('Form|TextField', module)
         id='id'
         prefix='$'
         suffix={<Autorenew />}
+        suffixClassname='test'
         style={{ textAlign: 'right' }}
       />
   )))

@@ -27,8 +27,8 @@ describe('TextField', () => {
     { name: 'type password', props: { type: 'password' }},
     { name: 'with multiline', props: { multiline: true }},
     { name: 'with style', props: { style: { textAlign: 'right' }}},
-    { name: 'with prefix', props: { prefix: <span>Before Text</span> }},
-    { name: 'with suffix', props: { suffix: <span>After Text</span> }},
+    { name: 'with prefix', props: { prefix: <span>Before Text</span>, prefixClassname: 'prefixclass' }},
+    { name: 'with suffix', props: { suffix: <span>After Text</span>, suffixClassname: 'prefixclass' }},
     { name: 'with prefix & suffix', props: { prefix: <span>Before Text</span>, suffix: <span>After Text</span> }}
   ];
 
