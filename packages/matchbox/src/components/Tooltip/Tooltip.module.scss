@@ -106,7 +106,7 @@ $arrow-margin: 10px;
 
   word-break: normal;
   text-align: left;
-  font-size: rem(15);
+  font-size: font-size(body, 300);
   font-weight: 400;
   line-height: rem(21);
 }

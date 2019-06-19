@@ -36,7 +36,7 @@
 
   color: color(gray, 1);
   font-weight: 400;
-  font-size: rem(18);
+  font-size: font-size(body, 600);
   line-height: rem(24);
 
   box-shadow: shadow();
@@ -82,7 +82,7 @@
 
 .HelpText {
   padding-top: rem(6);
-  font-size: rem(15);
-  line-height: 1.3em;
+  font-size: font-size(body, 300);
+  line-height: line-height(300);
   color: color(gray, 4);
 }

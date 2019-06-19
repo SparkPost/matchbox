@@ -41,7 +41,7 @@
 }
 
 .Subtitle {
-  font-size: rem(18);
+  font-size: font-size(display, 300);
   font-weight: 500;
   color: color(gray, 1);
 }
@@ -63,7 +63,7 @@
   margin-right: rem(24);
 
   color: color(gray, 3);
-  font-size: rem(18);
+  font-size: font-size(body, 600);
   text-decoration: none;
   transition: 0.15s;
 

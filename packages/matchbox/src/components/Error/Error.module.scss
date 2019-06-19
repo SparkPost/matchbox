@@ -14,7 +14,7 @@
 .Message {
   display: inline-block;
   vertical-align: top;
-  font-size: rem(15);
+  font-size: font-size(body, 300);
   line-height: rem(15);
   font-weight: 500;
   color: color(red);

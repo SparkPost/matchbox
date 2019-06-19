@@ -77,7 +77,7 @@ a, a:visited {
 }
 
 small {
-  font-size: rem(15);
+  font-size: font-size(body, 300);
   color: color(gray, 3);
 }
 
