@@ -151,4 +151,17 @@ export default storiesOf('Form|ComboBox', module)
       </ComboBox>
       <div style={{ height: '150px' }} />
     </div>
+  )))
+
+  .add('TextField with Error', withInfo()(() => (
+    <ComboBoxTextField
+      selectedItems={[
+        { name: 'foo' },
+        { name: 'bar' }
+      ]}
+      itemToString={({ name }) => name}
+      value='input value'
+      label='Filters'
+      error='Required'
+    />
   )));

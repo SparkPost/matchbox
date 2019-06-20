@@ -25,6 +25,7 @@
   display: inline-block;
   outline: none;
   border: none;
+  background: transparent;
 
   color: color(gray, 1);
   font-weight: 400;
@@ -55,6 +56,7 @@
 
   &.Error {
     border: 1px solid color(red);
+    background: rgba(color(red, dark), 0.06);
   }
 
   &.Disabled {
