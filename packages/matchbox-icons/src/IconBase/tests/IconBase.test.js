@@ -1,5 +1,5 @@
 import React from 'react';
-import IconBase, { createSvgIcon } from '../IconBase';
+import IconBase, { createSvgIcon, createExtendedSvgIcon } from '../IconBase';
 import { shallow } from 'enzyme';
 
 describe('IconBase', () => {
@@ -27,5 +27,23 @@ describe('createSvgIcon', () => {
   it('creates an Icon correctly', () => {
     const Icon = createSvgIcon(<path d="a path" />, 'TestIcon');
     expect(shallow(<Icon />)).toMatchSnapshot();
+  });
+});
+
+describe('createExtendedSvgIcon', () => {
+  it('creates an extended Icon correctly', () => {
+    const Icon = createExtendedSvgIcon({
+      path: <path d="a path"/>,
+      displayName: 'TextIcon',
+      viewBox: '0 0 100 100',
+      textContainer: {
+        x: '22',
+        y: '62',
+        fontSize: '24'
+      }
+    });
+    expect(shallow(
+      <Icon text='test text' textFill='white' textProps={{ stroke: 'black' }} />
+    )).toMatchSnapshot();
   });
 });

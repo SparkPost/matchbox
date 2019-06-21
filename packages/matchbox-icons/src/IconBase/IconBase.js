@@ -20,7 +20,14 @@ class IconBase extends Component {
     height: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
-    ])
+    ]),
+    viewBox: PropTypes.string,
+    /** FileType icon only */
+    text: PropTypes.string,
+    /** FileType icon only */
+    textFill: PropTypes.string,
+    /** FileType icon only */
+    textProps: PropTypes.object
   }
 
   render() {
@@ -30,6 +37,7 @@ class IconBase extends Component {
       height,
       size,
       style = {},
+      viewBox = '0 0 24 24',
       ...rest
     } = this.props;
 
@@ -42,7 +50,7 @@ class IconBase extends Component {
       <svg
         fill='currentColor'
         preserveAspectRatio='xMidYMid meet'
-        viewBox='0 0 24 24'
+        viewBox={viewBox}
         width={width || size}
         height={height || size}
         {...rest}
@@ -56,6 +64,32 @@ class IconBase extends Component {
 export function createSvgIcon(path, displayName) {
   const Icon = (props) => (
     <IconBase {...props}>{path}</IconBase>
+  );
+
+  Icon.displayName = displayName;
+
+  return Icon;
+}
+
+export function createExtendedSvgIcon({
+  displayName,
+  path,
+  text,
+  textContainer,
+  viewBox
+}) {
+  const Icon = ({
+    text,
+    textFill = 'white',
+    textProps,
+    ...props
+  }) => (
+    <IconBase viewBox={viewBox} {...props}>
+      {path}
+      <text fill={textFill} {...textContainer} {...textProps}>
+        {text}
+      </text>
+    </IconBase>
   );
 
   Icon.displayName = displayName;
