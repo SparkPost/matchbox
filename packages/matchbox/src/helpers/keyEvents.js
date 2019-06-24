@@ -43,6 +43,11 @@ const keys = {
     key: 'End',
     keyCode: 35,
     shiftKey: false
+  },
+  space: {
+    key: ' ',
+    keyCode: 32,
+    shiftKey: false
   }
 };
 

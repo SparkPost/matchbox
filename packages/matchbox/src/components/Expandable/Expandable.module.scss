@@ -1,0 +1,91 @@
+@import '../../styles/config';
+
+.Expandable {
+  margin-bottom: spacing();
+  border: 2px solid color(gray, 8);
+  border-radius: border-radius(large);
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  padding: rem(12);
+
+  user-select: none;
+  outline: none;
+
+  transition: background 0.1s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus:not(:hover) {
+    background: color(gray, 9);
+  }
+}
+
+.HeaderContent {
+  flex: 1;
+}
+
+.HeaderArrow {
+  flex: 0;
+}
+
+.Title {
+  margin-bottom: 0;
+}
+
+.Subtitle {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.ContentWrapper {
+  padding: rem(12);
+  visibility: hidden;
+  display: none;
+
+  &.Open {
+    visibility: visible;
+    display: flex;
+  }
+}
+
+.Content {
+  flex: 1;
+}
+
+.ContentSpacer {
+  flex: 0;
+  margin-right: rem(12);
+  min-width: 40px;
+  max-width: 40px;
+}
+
+.Icon {
+  flex: 0;
+  margin-right: rem(12);
+  min-width: 40px;
+  max-width: 40px;
+
+  svg {
+    vertical-align: middle;
+  }
+}
+
+.Arrow {
+  border-radius: 50%;
+  padding: spacing(small);
+  transition: 0.1s ease-in-out;
+  transform-origin: center;
+
+  &.Open {
+    transform: rotate(90deg);
+  }
+
+  .Header:hover & {
+    background: color(gray, 9);
+  }
+}
