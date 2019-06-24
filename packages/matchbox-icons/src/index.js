@@ -1,4 +1,8 @@
 /* eslint-disable max-lines */
+// Extended Icons
+export { default as FileType } from './extendedIcons/FileType';
+
+// Regular Icons
 export { default as AccessAlarm } from './icons/AccessAlarm';
 export { default as AccessAlarms } from './icons/AccessAlarms';
 export { default as Accessibility } from './icons/Accessibility';

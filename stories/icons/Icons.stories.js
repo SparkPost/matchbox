@@ -8,6 +8,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 import * as icons from '@sparkpost/matchbox-icons';
 import { IconBase } from '@sparkpost/matchbox-icons/IconBase';
 const Assessment = icons.Assessment;
+const FileType = icons.FileType;
 
 storiesOf('Icons|matchbox-icons', module)
   .addDecorator((getStory) => (
@@ -16,6 +17,18 @@ storiesOf('Icons|matchbox-icons', module)
 
   .add('single icon', withInfo({ propTables: [IconBase], propTablesExclude: [Assessment] })(() => (
     <Assessment size={50} />
+  )))
+
+  .add('extended icons', withInfo({ propTables: [IconBase], propTablesExclude: [FileType] })(() => (
+    <div>
+      <FileType size={150} text='CSV' textFill='white' />
+      <FileType size={150} text='WEBM' textProps={{
+        fill: 'white',
+        fontSize: '19',
+        x: 17,
+        y: 60
+      }} />
+    </div>
   )))
 
   .add('all icons', () => {

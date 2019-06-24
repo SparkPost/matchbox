@@ -21,6 +21,26 @@ exports[`IconBase renders children correctly 1`] = `
 </svg>
 `;
 
+exports[`createExtendedSvgIcon creates an extended Icon correctly 1`] = `
+<IconBase
+  size={18}
+  viewBox="0 0 100 100"
+>
+  <path
+    d="a path"
+  />
+  <text
+    fill="white"
+    fontSize="24"
+    stroke="black"
+    x="22"
+    y="62"
+  >
+    test text
+  </text>
+</IconBase>
+`;
+
 exports[`createSvgIcon creates an Icon correctly 1`] = `
 <IconBase
   size={18}
