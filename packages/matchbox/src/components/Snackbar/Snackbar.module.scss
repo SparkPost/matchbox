@@ -45,6 +45,7 @@
   padding: rem(12) spacing();
   min-width: rem(200);
   font-weight: 500;
+  font-size: font-size(body, 500);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
