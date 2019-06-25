@@ -139,4 +139,8 @@
     color: color(gray, 1);
     background: color(gray, 7);
   }
+
+  & > * {
+    margin-top: -0.2em;
+  }
 }
