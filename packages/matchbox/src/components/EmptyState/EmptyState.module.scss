@@ -8,7 +8,7 @@
 
 .Title {
   @include text-style-display-heading;
-  margin-bottom: spacing(smaller);
+  margin-bottom: spacing();
   width: auto;
 
   @media screen and (min-width: breakpoint(small)) {
