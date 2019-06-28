@@ -68,13 +68,13 @@
 
 .Children {
   &, & * {
-    font-size: font-size(body, 300);
+    font-size: font-size(300);
   }
 }
 
 .Title {
   margin-bottom: 0;
-  font-size: font-size(display, 300);
+  font-size: font-size(600);
 }
 
 .Actions {
