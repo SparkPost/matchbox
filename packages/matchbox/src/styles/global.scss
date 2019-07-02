@@ -49,6 +49,10 @@ p {
   @include text-style-body;
 }
 
+strong, b, th {
+  font-weight: 600;
+}
+
 ::selection {
   color: #111;
   background: #D6EDFF;
