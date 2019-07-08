@@ -78,7 +78,6 @@ export default storiesOf('Form|TextField', module)
         prefix='$'
         suffix={<Autorenew />}
         suffixClassname='test'
-        style={{ textAlign: 'right' }}
       />
   )))
 
@@ -91,5 +90,13 @@ export default storiesOf('Form|TextField', module)
           ['Last 24 Hours', 'Last Week']
         }/>}
         suffix={<Search />}
+      />
+  )))
+
+  .add('aligned to the right', withInfo()(() => (
+      <TextField
+        value={500}
+        align='right'
+        suffix='emails'
       />
   )));
