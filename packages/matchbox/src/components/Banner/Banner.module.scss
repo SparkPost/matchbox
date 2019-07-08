@@ -59,7 +59,6 @@
 
 .Content {
   flex: 1 0 0;
-  padding-top: 4px;
   padding-right: rem(39);
 
   & > *:last-child {
@@ -69,13 +68,13 @@
 
 .Children {
   &, & * {
-    font-size: rem(14);
+    font-size: font-size(300);
   }
 }
 
 .Title {
   margin-bottom: 0;
-  font-size: rem(16);
+  font-size: font-size(600);
 }
 
 .Actions {

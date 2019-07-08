@@ -13,8 +13,8 @@
 
 .HelpText {
   padding-top: rem(6);
-  font-size: rem(13);
-  line-height: 1.3em;
+  font-size: font-size(300);
+  line-height: line-height(300);
   color: color(gray, 4);
   word-break: normal;
   word-wrap: normal;
@@ -29,7 +29,7 @@
 
   color: color(gray, 1);
   font-weight: 400;
-  font-size: rem(15);
+  font-size: font-size(400);
   line-height: rem(24);
   padding: rem(3) rem(3);
 
@@ -45,6 +45,7 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 
   padding: rem(2) rem(6);
 

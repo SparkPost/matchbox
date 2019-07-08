@@ -16,7 +16,8 @@ export const inputOptions = {
     'classnames',
     'prop-types',
     'react-transition-group',
-    '@sparkpost/matchbox-icons'
+    '@sparkpost/matchbox-icons',
+    '@sparkpost/design-tokens'
   ]
 }
 

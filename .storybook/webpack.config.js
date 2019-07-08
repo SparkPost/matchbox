@@ -16,7 +16,10 @@ module.exports = (baseConfig, env, defaults) => {
         },
       },
       { loader: require.resolve('postcss-loader'), options: { plugins: () => [autoprefixer()]} },
-      { loader: require.resolve('sass-loader') }
+      {
+        loader: require.resolve('sass-loader'),
+        options: { includePaths: ['node_modules']}
+      }
     ],
     include: path.resolve(__dirname, '..')
   });

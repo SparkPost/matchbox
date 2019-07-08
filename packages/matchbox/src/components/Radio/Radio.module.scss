@@ -69,7 +69,7 @@
 .Label {
   position: absolute;
   padding-left: 27px;
-  padding-top: 4px;
+  padding-top: 3px;
   white-space: nowrap;
 }
 
@@ -87,9 +87,9 @@
 }
 
 .HelpText {
-  padding-top: rem(6);
-  font-size: rem(13);
-  line-height: 1.3em;
+  padding-top: rem(5);
+  font-size: font-size(300);
+  line-height: line-height(300);
   color: color(gray, 4);
   padding-left: 27px;
 }

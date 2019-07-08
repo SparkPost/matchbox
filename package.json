@@ -25,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "@sparkpost/design-tokens": "0.0.4",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.6.1",
