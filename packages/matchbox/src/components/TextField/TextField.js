@@ -10,6 +10,10 @@ class TextField extends Component {
   static displayName = 'TextField';
 
   static propTypes = {
+    /**
+     * 'left' | 'center' | 'right'
+     */
+    align: PropTypes.oneOf(['left', 'center', 'right']),
     id: PropTypes.string,
     multiline: PropTypes.bool,
     /**
@@ -68,6 +72,7 @@ class TextField extends Component {
 
   render() {
     const {
+      align,
       id,
       name,
       multiline,
@@ -141,10 +146,13 @@ class TextField extends Component {
       onBlur,
       onChange,
       className: setInputClasses,
-      style: { paddingLeft, paddingRight, resize, ...style }
-      // 'aria-describedby':
-      // 'aria-labelledby':
-      // 'aria-invalid':
+      style: {
+        textAlign: align,
+        paddingLeft,
+        paddingRight,
+        resize,
+        ...style
+      }
     });
 
     const inputMarkup = prefix || suffix

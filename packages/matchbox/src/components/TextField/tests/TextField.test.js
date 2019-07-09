@@ -29,7 +29,9 @@ describe('TextField', () => {
     { name: 'with style', props: { style: { textAlign: 'right' }}},
     { name: 'with prefix', props: { prefix: <span>Before Text</span>, prefixClassname: 'prefixclass' }},
     { name: 'with suffix', props: { suffix: <span>After Text</span>, suffixClassname: 'prefixclass' }},
-    { name: 'with prefix & suffix', props: { prefix: <span>Before Text</span>, suffix: <span>After Text</span> }}
+    { name: 'with prefix & suffix', props: { prefix: <span>Before Text</span>, suffix: <span>After Text</span> }},
+    { name: 'centered', props: { align: 'center' }},
+    { name: 'right', props: { align: 'right' }}
   ];
 
   cases('renders TextField', (opts) => {
