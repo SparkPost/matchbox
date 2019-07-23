@@ -32,6 +32,16 @@ describe('Slider component', () => {
   });
 
   describe('uncontrolled', () => {
+    it('should use default defaultOpen on first render', () => {
+      const wrapper = subject();
+      testOpen(wrapper, false);
+    });
+
+    it('should use defaultOpen on first render', () => {
+      const wrapper = subject({ defaultOpen: true });
+      testOpen(wrapper, true);
+    });
+
     it('should toggle open when clicking on header', () => {
       const wrapper = subject();
       wrapper.find('.Header').simulate('click');
