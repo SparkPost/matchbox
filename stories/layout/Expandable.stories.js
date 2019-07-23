@@ -17,7 +17,7 @@ storiesOf('Layout|Expandable', module)
   ))
   .add('with image title and subtitle', withInfo({ propTablesExclude: [Panel] })(() => (
     <Panel sectioned>
-      <Expandable icon={<Slack />} title='Slack' id='example' subtitle="Integrate alerts into your team's Slack channels">
+      <Expandable defaultOpen={true} icon={<Slack />} title='Slack' id='example' subtitle="Integrate alerts into your team's Slack channels">
         Content here
       </Expandable>
     </Panel>

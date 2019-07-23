@@ -23,7 +23,9 @@ function Expandable(props) {
 
   // Sets internal open state when controlled externally
   React.useEffect(() => {
-    setIsOpen(open);
+    if (controlled) {
+      setIsOpen(open);
+    }
   }, [open]);
 
   function handleToggle() {
