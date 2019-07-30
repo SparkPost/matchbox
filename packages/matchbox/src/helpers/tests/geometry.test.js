@@ -9,15 +9,6 @@ function MockComponent() {
   return <div {...size} />;
 }
 
-const windowEvents = {};
-global.addEventListener = jest.fn((event, cb) => {
-  windowEvents[event] = cb;
-});
-
-global.removeEventListener = jest.fn((event, cb) => {
-  delete windowEvents[event];
-});
-
 global.scrollY = 10;
 global.scrollX = 20;
 global.innerHeight = 600;
