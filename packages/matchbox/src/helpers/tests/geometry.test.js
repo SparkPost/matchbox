@@ -1,6 +1,22 @@
-import { getWindowRect, getRectFor, getPreferredDirectionFor, getPositionFor, lerp } from '../geometry';
+import React from 'react';
+import { mount } from 'enzyme';
+import { getWindowRect, getRectFor, getPreferredDirectionFor, getPositionFor, lerp, useWindowSize } from '../geometry';
 import * as reactDomMock from 'react-dom';
 jest.mock('react-dom');
+
+function MockComponent() {
+  const size = useWindowSize();
+  return <div {...size} />;
+}
+
+const windowEvents = {};
+global.addEventListener = jest.fn((event, cb) => {
+  windowEvents[event] = cb;
+});
+
+global.removeEventListener = jest.fn((event, cb) => {
+  delete windowEvents[event];
+});
 
 global.scrollY = 10;
 global.scrollX = 20;
@@ -31,6 +47,13 @@ describe('getRectFor', () => {
     const result = getRectFor('test');
     expect(reactDomMock.findDOMNode).toHaveBeenCalledWith('test');
     expect(result).toMatchSnapshot();
+  });
+});
+
+describe('useWindowSize', () => {
+  it('should return window dimensions', () => {
+    const wrapper = mount(<MockComponent/>);
+    expect(wrapper).toMatchSnapshot();
   });
 });
 
