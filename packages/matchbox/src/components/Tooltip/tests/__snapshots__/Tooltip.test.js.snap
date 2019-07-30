@@ -9,6 +9,7 @@ exports[`Tooltip renders tooltip states dark 1`] = `
     style={
       Object {
         "left": "0px",
+        "width": "210px",
       }
     }
   >
@@ -43,6 +44,7 @@ exports[`Tooltip renders tooltip states top left and offset 1`] = `
     style={
       Object {
         "right": "10px",
+        "width": "210px",
       }
     }
   >
@@ -59,6 +61,41 @@ exports[`Tooltip renders tooltip states top left and offset 1`] = `
 `;
 
 exports[`Tooltip renders tooltip states top left and offset 2`] = `
+<span
+  className="Activator"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  Hola!
+</span>
+`;
+
+exports[`Tooltip renders tooltip states with a width 1`] = `
+<span
+  className=""
+>
+  <span
+    className="Tooltip"
+    style={
+      Object {
+        "left": "0px",
+        "width": "100px",
+      }
+    }
+  >
+    <span
+      className="Tip"
+    />
+    <div
+      className="Content"
+    >
+      content test
+    </div>
+  </span>
+</span>
+`;
+
+exports[`Tooltip renders tooltip states with a width 2`] = `
 <span
   className="Activator"
   onMouseOut={[Function]}
@@ -107,6 +144,7 @@ exports[`Tooltip should render overlay 1`] = `
           style={
             Object {
               "left": "0px",
+              "width": "210px",
             }
           }
         >

@@ -11,7 +11,8 @@ describe('Tooltip', () => {
 
   const testCases = [
     { name: 'dark', props: { dark: true }},
-    { name: 'top left and offset', props: { left: true, top: true, horizontalOffset: '10px' }}
+    { name: 'top left and offset', props: { left: true, top: true, horizontalOffset: '10px' }},
+    { name: 'with a width', props: { width: '100px' }}
   ];
 
   cases('renders tooltip states', (opts) => {
