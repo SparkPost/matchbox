@@ -49,7 +49,7 @@ storiesOf('Overlays|Tooltip', module)
     </div>
   )))
 
-  .add('Automatic Width', withInfo({
+  .add('With Specified Width', withInfo({
     propTablesExclude: [Button, Button.Group],
     text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
   })(() => (
