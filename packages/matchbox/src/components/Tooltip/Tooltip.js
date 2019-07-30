@@ -74,7 +74,8 @@ class Tooltip extends Component {
       left,
       horizontalOffset,
       forcePosition,
-      disabled
+      disabled,
+      width = '210px'
     } = this.props;
 
     const positionTop = preferredDirection.top || (top && !forcePosition);
@@ -91,7 +92,7 @@ class Tooltip extends Component {
 
     return (
       <span className={wrapperClasses}>
-        <span className={styles.Tooltip} style={offset}>
+        <span className={styles.Tooltip} style={{ ...offset, width }}>
           <span className={styles.Tip} />
           <div className={styles.Content}>{content}</div>
         </span>

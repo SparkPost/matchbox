@@ -1,5 +1,7 @@
+import React from 'react';
 import { findDOMNode } from 'react-dom';
 import { clamp } from './math';
+import { debounce } from './event';
 
 export function getWindowRect() {
   return {
@@ -18,6 +20,28 @@ export function getRectFor(node) {
   }
 
   return rect.getBoundingClientRect();
+}
+
+/**
+ * Provides a hook that returns window dimensions
+ * @param  {number} [wait=100] Timer for debounced dimension calculation
+ * @return {Shape}             Same results as `getWindowRect``
+ */
+export function useWindowSize(wait = 100) {
+  const [size, setSize] = React.useState(getWindowRect());
+
+  const handleResize = debounce(() => {
+    setSize(getWindowRect());
+  }, wait);
+
+  React.useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return size;
 }
 
 /**

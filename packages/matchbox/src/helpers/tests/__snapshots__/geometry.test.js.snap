@@ -39,3 +39,14 @@ Object {
   "width": 900,
 }
 `;
+
+exports[`useWindowSize should return window dimensions 1`] = `
+<MockComponent>
+  <div
+    height={600}
+    left={20}
+    top={10}
+    width={900}
+  />
+</MockComponent>
+`;

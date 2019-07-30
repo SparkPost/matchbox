@@ -34,8 +34,7 @@ storiesOf('Overlays|Tooltip', module)
     </div>
   )))
 
-  .add('Positioned Automatically',
-  withInfo({
+  .add('Positioned Automatically', withInfo({
     propTablesExclude: [Button, Button.Group],
     text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
   })(() => (
@@ -45,6 +44,21 @@ storiesOf('Overlays|Tooltip', module)
       <div style={{height:'400px'}}/>
       <Tooltip
         content='Messages an ISP or other remote domain accepted'>
+        <Button>Hover</Button>
+      </Tooltip>
+    </div>
+  )))
+
+  .add('With Specified Width', withInfo({
+    propTablesExclude: [Button, Button.Group],
+    text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
+  })(() => (
+    <div>
+      <Tooltip width='auto' content='Short'>
+        <Button>Hover</Button>
+      </Tooltip>
+
+      <Tooltip width='500px' content='Very long'>
         <Button>Hover</Button>
       </Tooltip>
     </div>

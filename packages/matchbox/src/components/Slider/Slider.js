@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { getRectFor, lerp } from '../../helpers/geometry';
+import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
@@ -11,6 +11,7 @@ import styles from './Slider.module.scss';
 function Slider(props) {
   const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, value } = props;
 
+  const windowSize = useWindowSize(50);
   const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
   const [sliderLocation, setSliderLocation] = React.useState(0);
   const [moving, setMoving] = React.useState();
@@ -41,7 +42,7 @@ function Slider(props) {
     if (onChange) {
       onChange(sliderValue);
     }
-  }, [sliderValue]);
+  }, [sliderValue, windowSize]);
 
   // Event handlers
   function handleMouseDown(e) {
