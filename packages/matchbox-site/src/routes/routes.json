@@ -1,0 +1,64 @@
+[
+  {
+    "path": "/",
+    "label": "Home",
+    "hiddenFromNav": true
+  },
+  {
+    "path": "/brand",
+    "label": "Brand",
+    "disabled": true
+  },
+  {
+    "path": "/design",
+    "label": "Design",
+    "childRoutes": [
+      {
+        "path": "/design",
+        "label": "Overview",
+        "disabled": false
+      },
+      {
+        "path": "/design/color",
+        "label": "Color",
+        "disabled": false
+      },
+      {
+        "path": "/design/typography",
+        "label": "Typography",
+        "disabled": false
+      },
+      {
+        "path": "/design/spacing",
+        "label": "Spacing",
+        "disabled": false
+      },
+      {
+        "path": "/design/elevation",
+        "label": "Elevation",
+        "disabled": false
+      },
+      {
+        "path": "/design/motion",
+        "label": "Motion",
+        "disabled": false
+      },
+      {
+        "path": "/design/datavisualization",
+        "label": "Data Visualization",
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "path": "/components",
+    "label": "Components",
+    "childRoutes": [
+      {
+        "path": "/components",
+        "label": "Overview",
+        "disabled": false
+      }
+    ]
+  }
+]
