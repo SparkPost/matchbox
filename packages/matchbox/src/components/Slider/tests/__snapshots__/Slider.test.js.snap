@@ -39,3 +39,38 @@ exports[`Slider component should render default state correctly 1`] = `
   </div>
 </Slider>
 `;
+
+exports[`Slider component ticks should render ticks 1`] = `
+Array [
+  <div
+    className="Tick Included"
+    key="25"
+    style={
+      Object {
+        "left": 50,
+      }
+    }
+  >
+    <div
+      className="TickLabel"
+    >
+      test tick
+    </div>
+  </div>,
+  <div
+    className="Tick"
+    key="55"
+    style={
+      Object {
+        "left": 110.00000000000001,
+      }
+    }
+  >
+    <div
+      className="TickLabel"
+    >
+      not included tick
+    </div>
+  </div>,
+]
+`;

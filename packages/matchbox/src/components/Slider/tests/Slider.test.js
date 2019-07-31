@@ -160,4 +160,11 @@ describe('Slider component', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('ticks', () => {
+    it('should render ticks', () => {
+      const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' }});
+      expect(slider.find('.Tick')).toMatchSnapshot();
+    });
+  });
 });

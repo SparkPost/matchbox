@@ -9,11 +9,12 @@ import { roundToPlaces, clamp } from '../../helpers/math';
 import styles from './Slider.module.scss';
 
 function Slider(props) {
-  const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, value } = props;
+  const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, ticks, value } = props;
 
   const windowSize = useWindowSize(50);
   const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
   const [sliderLocation, setSliderLocation] = React.useState(0);
+  const [tickLocations, setTickLocations] = React.useState({});
   const [moving, setMoving] = React.useState();
   const sliderRef = React.useRef();
 
@@ -43,6 +44,22 @@ function Slider(props) {
       onChange(sliderValue);
     }
   }, [sliderValue, windowSize]);
+
+  // Updates tick locations when ticks or window size change
+  React.useLayoutEffect(() => {
+    if (typeof ticks === 'object') {
+      const newTicks = {};
+      const rect = getRectFor(sliderRef.current);
+      Object.keys(ticks).map((number) => {
+        const absoluteProportion = (Number(number) + Math.abs(min)) / Math.abs(min - max);
+        newTicks[number] = {
+          position: lerp(0, rect.width, absoluteProportion),
+          label: ticks[number]
+        };
+      });
+      setTickLocations(newTicks);
+    }
+  }, [ticks, windowSize]);
 
   // Event handlers
   function handleMouseDown(e) {
@@ -134,6 +151,18 @@ function Slider(props) {
     disabled && styles.Disabled
   );
 
+  const tickMarkup = Object.keys(tickLocations).map((tick) => {
+    const { label, position } = tickLocations[tick];
+    return (
+      <div
+        key={tick}
+        style={{ left: position }}
+        className={classnames(styles.Tick, tick < sliderValue && styles.Included)}>
+        <div className={styles.TickLabel}>{label}</div>
+      </div>
+    );
+  });
+
   return (
     <div
       className={sliderClasses}
@@ -142,6 +171,7 @@ function Slider(props) {
       ref={sliderRef}
     >
       <div className={styles.Rail} />
+      {tickMarkup}
       <div
         className={styles.Track}
         style={{ width: sliderLocation }}
@@ -195,6 +225,11 @@ Slider.propTypes = {
    * The number of decimal places to round values to
    */
   precision: PropTypes.number,
+
+  /**
+   * Generates tick marks
+   */
+  ticks: PropTypes.objectOf(PropTypes.node),
   /**
    * A value to programatically control the slider
    */

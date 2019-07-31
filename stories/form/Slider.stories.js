@@ -24,6 +24,23 @@ export default storiesOf('Form|Slider', module)
     )
   }))
 
+  .add('slider width ticks', withInfo({})(() => {
+    return (
+      <div>
+        <Slider value={75} ticks={{
+          0: '0',
+          50: '50',
+          25: 'Recommended',
+          100: '100',
+        }} />
+        <Slider disabled value={33} ticks={{
+          50: '50',
+          25: 'Recommended'
+        }} />
+      </div>
+    )
+  }))
+
   .add('value controlled slider', () => {
 
     function Example() {
