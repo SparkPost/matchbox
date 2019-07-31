@@ -1,0 +1,19 @@
+.Container {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+.Content {
+  display: flex;
+}
+
+.Aside {
+  flex: 0 0 0;
+  min-width: 200px;
+}
+
+.Main {
+  flex: 1 0 0;
+  padding: 0.5rem 0;
+}
