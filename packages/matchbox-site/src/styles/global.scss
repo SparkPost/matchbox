@@ -1,0 +1,59 @@
+@import './tokens.scss';
+@import '~normalize.css';
+
+html {
+  font-family: font-family(base);
+  font-size: font-size(400);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5, h6 {
+  font-size: 16px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: #eee;
+  margin: 2rem 0;
+}
+
+main {
+  a, a:visited {
+    color: #0000ff;
+  }
+
+  P {
+    line-height: 1.2em;
+  }
+}
