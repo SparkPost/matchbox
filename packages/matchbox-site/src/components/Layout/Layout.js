@@ -68,7 +68,8 @@ function Layout(props) {
   }, [allRoutes, pathname]);
 
   return (
-    <>'     '<SEO title={pageTitle} />'     '<div className={styles.Container}>
+    <div className={styles.Container}>
+      <SEO title={pageTitle} />
       <Header
         siteTitle={data.site.siteMetadata.title}
         navItems={navItems}
@@ -85,7 +86,7 @@ function Layout(props) {
           </MDXProvider>
         </main>
       </div>
-    </div>'   '</>
+    </div>
   );
 }
 
