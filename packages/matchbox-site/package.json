@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "@sparkpost/matchbox-site",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "SparkPost",
   "dependencies": {
     "@sparkpost/design-tokens": "0.0.7",
     "gatsby": "^2.13.42",
@@ -45,9 +45,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/SparkPost/matchbox"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/SparkPost/matchbox/issues"
   }
 }
