@@ -5,11 +5,4 @@ import MDXProvider from './MDXProvider';
 import SideNavigation from './SideNavigation/SideNavigation';
 import Token from './tokens/Token';
 
-export {
-  Header,
-  Layout,
-  MainNavigation,
-  MDXProvider,
-  SideNavigation,
-  Token
-};
+export { Header, Layout, MainNavigation, MDXProvider, SideNavigation, Token };
