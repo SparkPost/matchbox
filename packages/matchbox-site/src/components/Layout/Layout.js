@@ -35,26 +35,30 @@ function Layout(props) {
   const allRoutes = data.allRoutesJson.nodes;
 
   function selected(locationPath, path, strict) {
-    return strict
-      ? locationPath === path
-      : locationPath.includes(path);
+    return strict ? locationPath === path : locationPath.includes(path);
   }
 
   const navItems = React.useMemo(() => {
     function mapRoute({ path, childRoutes, ...rest }) {
       const nested = childRoutes
         ? childRoutes.map(({ path: childPath, ...child }) => ({
-          ...child, path: childPath, selected: selected(pathname, childPath, true)
-        })) : null;
+          ...child,
+          path: childPath,
+          selected: selected(pathname, childPath, true)
+        }))
+        : null;
 
       return {
-        ...rest, path,
+        ...rest,
+        path,
         selected: selected(pathname, path, false),
         childRoutes: nested
       };
     }
 
-    return allRoutes.filter(({ hiddenFromNav }) => !hiddenFromNav).map(mapRoute);
+    return allRoutes
+      .filter(({ hiddenFromNav }) => !hiddenFromNav)
+      .map(mapRoute);
   }, [allRoutes, pathname]);
 
   const sideItems = React.useMemo(() => {
@@ -63,17 +67,16 @@ function Layout(props) {
   }, [navItems, pathname]);
 
   const pageTitle = React.useMemo(() => {
-    const selectedRoute = _.findLast(allRoutes, ({ path }) => selected(pathname, path, false));
+    const selectedRoute = _.findLast(allRoutes, ({ path }) =>
+      selected(pathname, path, false)
+    );
     return _.get(selectedRoute, 'label', '404');
   }, [allRoutes, pathname]);
 
   return (
     <div className={styles.Container}>
       <SEO title={pageTitle} />
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        navItems={navItems}
-      />
+      <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
       <div className={styles.Content}>
         {Boolean(sideItems.length) && (
           <aside className={styles.Aside}>
@@ -81,9 +84,7 @@ function Layout(props) {
           </aside>
         )}
         <main className={styles.Main}>
-          <MDXProvider>
-            {props.children}
-          </MDXProvider>
+          <MDXProvider>{props.children}</MDXProvider>
         </main>
       </div>
     </div>
