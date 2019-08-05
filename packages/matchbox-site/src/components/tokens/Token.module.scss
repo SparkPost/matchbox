@@ -3,8 +3,6 @@
   padding: 0 2px;
   position: relative;
 
-  
-  color: #000;
   font-weight: 600;
 
   &:after {
@@ -15,9 +13,18 @@
     left: 0;
     right: 0;
     height: 1px;
-    background-image: linear-gradient(to right, #aaa, #aaa 50%, transparent 50%, transparent);
+    background-image: linear-gradient(
+      to right,
+      #aaa,
+      #aaa 50%,
+      transparent 50%,
+      transparent
+    );
     background-size: 4px 1px;
+  }
 
+  &:hover {
+    cursor: pointer;
   }
 }
 
