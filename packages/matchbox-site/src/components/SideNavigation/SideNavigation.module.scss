@@ -1,5 +1,4 @@
 .SideNavigation {
-
 }
 
 .List {
@@ -14,7 +13,7 @@
 
   &.Selected .Link {
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       bottom: 7px;

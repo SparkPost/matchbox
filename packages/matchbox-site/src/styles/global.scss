@@ -1,15 +1,26 @@
 @import './tokens.scss';
 @import '~normalize.css';
+@import '~@sparkpost/matchbox/styles.scss';
 
 html {
   font-family: font-family(base);
-  font-size: font-size(400);
+  font-size: 18px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+body {
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #000;
 }
 
 h1 {
@@ -28,16 +39,25 @@ h4 {
   font-size: 20px;
 }
 
-h5, h6 {
+h5,
+h6 {
   font-size: 16px;
 }
 
 p {
+  font-size: 18px;
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-b, strong {
+ul,
+ol,
+li {
+  font-size: 18px; 
+}
+
+b,
+strong {
   font-weight: 600;
 }
 
@@ -48,12 +68,25 @@ hr {
   margin: 2rem 0;
 }
 
+a,
+a:visited {
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+
 main {
-  a, a:visited {
+  a,
+  a:visited {
     color: #0000ff;
+    &:hover {
+      color: #0000ff;
+      text-decoration: underline;
+    }
   }
 
-  P {
+  p {
     line-height: 1.2em;
   }
 }

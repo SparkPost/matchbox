@@ -11,7 +11,10 @@ function MainNavigation(props) {
       key={item.path}
       className={classnames(styles.ListItem, item.selected && styles.Selected)}
     >
-      <Link to={item.path} className={classnames(styles.Link, item.disabled && styles.Disabled)}>
+      <Link
+        to={item.path}
+        className={classnames(styles.Link, item.disabled && styles.Disabled)}
+      >
         {item.label}
       </Link>
     </li>
@@ -19,9 +22,7 @@ function MainNavigation(props) {
 
   return (
     <nav className={styles.Navigation}>
-      <ul className={styles.List}>
-        {items}
-      </ul>
+      <ul className={styles.List}>{items}</ul>
     </nav>
   );
 }
