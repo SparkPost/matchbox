@@ -54,7 +54,7 @@ function Token(props) {
     <Tooltip dark width='auto' content={clicked ? 'Copied' : token.value}>
       <span className={styles.Token} onClick={handleClick}>
         {getPrefix()}
-        {token.friendly}
+        {token.name}
       </span>
     </Tooltip>
   );
