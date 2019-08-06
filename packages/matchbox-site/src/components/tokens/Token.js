@@ -35,9 +35,11 @@ function Token(props) {
   function getPrefix() {
     switch (token.type) {
       case 'font-size':
+        return <span className={styles.Size}>Aa</span>;
       case 'line-height':
+        return <span className={styles.Height}>Aa</span>;
       case 'font-family':
-        return <span className={styles.Type}>Aa</span>;
+        return <span className={styles.Family}>Aa</span>;
       case 'color':
         return (
           <span
@@ -54,7 +56,7 @@ function Token(props) {
     <Tooltip dark width='auto' content={clicked ? 'Copied' : token.value}>
       <span className={styles.Token} onClick={handleClick}>
         {getPrefix()}
-        {token.name}
+        {token.friendly}
       </span>
     </Tooltip>
   );

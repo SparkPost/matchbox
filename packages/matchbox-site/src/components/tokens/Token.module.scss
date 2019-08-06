@@ -38,8 +38,20 @@
   user-select: none;
 }
 
-.Type {
-  color: #ee0055;
+.Family, .Size, .Height {
   margin-right: 4px;
   user-select: none;
+}
+
+
+.Family {
+  color: #0055ff;
+}
+
+.Height {
+  color: #ee0055;
+}
+
+.Size {
+  color: #5500ee;
 }
