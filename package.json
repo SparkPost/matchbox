@@ -7,7 +7,7 @@
     "start:storybook:static": "build-storybook && http-server ./storybook-static -p 9001 --silent",
     "prebuild": "lerna bootstrap",
     "build": "lerna run build --ignore @sparkpost/matchbox-site",
-    "build:site": "npm run bootstrap && lerna exec --scope @sparkpost/matchbox-site -- npm run build",
+    "build:site": "lerna exec --scope @sparkpost/matchbox-site -- npm run build",
     "clean": "lerna clean --yes",
     "pretest": "npm run clean && lerna link",
     "test:ci": "npm run test:unit:ci && npm run test:e2e:ci",
@@ -29,7 +29,6 @@
     ]
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "0.0.4",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.6.1",
