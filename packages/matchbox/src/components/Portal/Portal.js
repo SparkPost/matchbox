@@ -19,11 +19,15 @@ class Portal extends Component {
   render() {
     const { containerId, children } = this.props;
 
-    const container = containerId
-      ? document.getElementById(containerId)
-      : document.body;
+    if (typeof document !== 'undefined') {
+      const container = containerId
+        ? document.getElementById(containerId)
+        : document.body;
 
-    return ReactDOM.createPortal(children, container);
+      return ReactDOM.createPortal(children, container);
+    }
+
+    return null;
   }
 }
 
