@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "SparkPost",
   "dependencies": {
-    "@sparkpost/design-tokens": "0.0.8",
-    "@sparkpost/matchbox": "^3.5.3",
+    "@sparkpost/design-tokens": "^1.0.0-beta.2",
+    "@sparkpost/matchbox": "^3.5.4",
     "@sparkpost/matchbox-icons": "^1.1.12",
     "copy-to-clipboard": "^3.2.0",
     "gatsby": "^2.13.42",
@@ -38,7 +38,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm i && gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop -p 8001",
     "format": "prettier --write src/**/*.{js,jsx}",

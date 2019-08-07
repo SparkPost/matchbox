@@ -1,1 +1,29 @@
-Placeholder
+import { Token, TypographyExplorer } from '../../components';
+
+### Typography
+
+These guidelines are used to maintain readability and visual heirarchy.
+
+---
+
+### Typefaces
+
+Matchbox's primary font is **Calibre**.
+
+When Calibre is unavailable, our base font stack token, <Token name='font-family-base'/>, defaults to native system font families. A monospace token, <Token name='font-family-monospace' />, is also available with system defaults.
+
+_Calibre is visually small with a low baseline. When paired with other typefaces, size adjustments should be made to account for the difference in visual weight._
+
+---
+### Size, Line Height, and Weight
+Three font weights are used: normal **400**, medium **500**, and semibold **600**. While light **300** is available, it should be used sparingly.
+
+Font sizes and line height tokens utilize the same naming convention that font weight uses – sizes are three digit numbers divisble by 100, with **400** acting as the regular or normal variant.
+
+These two sets of tokens are built to be paired with each other, for example: the size <Token name='font-size-800' /> should be paired with <Token name='line-height-800' />. This rule mostly only applies to body copy.
+
+---
+
+<TypographyExplorer />
+
+---
