@@ -1,6 +1,6 @@
 import React from 'react';
 import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
-import { Token } from '../';
+import { TokenUsage } from '../';
 import _ from 'lodash';
 import styles from './TypographyExplorer.module.scss';
 
@@ -15,7 +15,6 @@ const WEIGHTS = [
   { value: '600', name: 'Semi Bold' }
 ];
 
-
 function Group(props) {
   const { items, selected, onSelect } = props;
 
@@ -28,7 +27,6 @@ function Group(props) {
     </button>
   ));
 }
-
 
 function TypographyExplorer() {
   const [type, setType] = React.useState('css');
@@ -57,6 +55,8 @@ function TypographyExplorer() {
   function handleTypeSelect(e) {
     setType(e.target.value);
   }
+
+  // TODO: Temporary styling & layout pending final designs
 
   return (
     <div>
@@ -94,19 +94,30 @@ function TypographyExplorer() {
         <option value='javascript'>Javascript</option>
       </select>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '16px 0' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '16px 0', alignItems: 'center' }}>
         <div>
-          <Token name={selectedSize.name}/>
+          Font Size
         </div>
         <div>
-          <code>{selectedSize[type]}</code>
+          <TokenUsage usage={selectedSize[type]}/>
         </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div><Token name={selectedHeight.name}/></div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '16px 0', alignItems: 'center' }}>
         <div>
-          <code>{selectedHeight[type]}</code>
+          Line Height
+        </div>
+        <div>
+          <TokenUsage usage={selectedHeight[type]}/>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          Font Weight
+        </div>
+        <div>
+          <TokenUsage usage={weight}/>
         </div>
       </div>
 
