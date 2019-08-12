@@ -14,9 +14,13 @@ function Slider(props) {
   const windowSize = useWindowSize(50);
   const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
   const [sliderLocation, setSliderLocation] = React.useState(0);
-  const [tickLocations, setTickLocations] = React.useState({});
+  const [rect, setRect] = React.useState({});
   const [moving, setMoving] = React.useState();
   const sliderRef = React.useRef();
+
+  React.useEffect(() => {
+    setRect(getRectFor(sliderRef.current));
+  }, [windowSize, sliderRef.current]);
 
   // Calculates step increments based on precision
   const interval = React.useMemo(() => {
@@ -36,30 +40,35 @@ function Slider(props) {
   }, [value]);
 
   // Updates slider location when value changes
-  React.useLayoutEffect(() => {
-    const rect = getRectFor(sliderRef.current);
-    const absoluteProportion = (sliderValue + Math.abs(min)) / Math.abs(min - max);
-    setSliderLocation(lerp(0, rect.width, absoluteProportion));
-    if (onChange) {
-      onChange(sliderValue);
+  React.useEffect(() => {
+    if (rect.width) {
+      const absoluteProportion = (sliderValue + Math.abs(min)) / Math.abs(min - max);
+      setSliderLocation(lerp(0, rect.width, absoluteProportion));
+      if (onChange) {
+        onChange(sliderValue);
+      }
     }
-  }, [sliderValue, windowSize]);
+  }, [sliderValue, rect.width]);
 
   // Updates tick locations when ticks or window size change
-  React.useLayoutEffect(() => {
-    if (typeof ticks === 'object') {
-      const newTicks = {};
-      const rect = getRectFor(sliderRef.current);
-      Object.keys(ticks).map((number) => {
-        const absoluteProportion = (Number(number) + Math.abs(min)) / Math.abs(min - max);
-        newTicks[number] = {
+  const tickLocations = React.useMemo(() => {
+
+    if (!ticks || !rect.width) {
+      return {};
+    }
+
+    return Object.keys(ticks).reduce((acc, number) => {
+      const absoluteProportion = (Number(number) + Math.abs(min)) / Math.abs(min - max);
+      return {
+        ...acc,
+        [number]: {
           position: lerp(0, rect.width, absoluteProportion),
           label: ticks[number]
-        };
-      });
-      setTickLocations(newTicks);
-    }
-  }, [ticks, windowSize]);
+        }
+      };
+    }, {});
+
+  }, [ticks, rect.width]);
 
   // Event handlers
   function handleMouseDown(e) {
@@ -109,7 +118,6 @@ function Slider(props) {
 
   // Sets slider value based on an x position
   function setPositions(xPosition) {
-    const rect = getRectFor(sliderRef.current);
     const clampedPixelOffset = clamp(xPosition - rect.left, 0, rect.width);
     const percentOffset = clampedPixelOffset / rect.width;
     setValue(lerp(min, max, percentOffset));
