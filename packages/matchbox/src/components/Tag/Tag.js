@@ -24,6 +24,10 @@ class Tag extends Component {
     children: PropTypes.node
   };
 
+  handleKeydown(e, callback) {
+    if (e.which === 32) { callback(); }
+  }
+
   render() {
     const {
       color,
@@ -43,7 +47,10 @@ class Tag extends Component {
     const closeMarkup = onRemove
       ? <UnstyledLink
         className={styles.Close}
-        onClick={onRemove}>
+        onClick={onRemove}
+        onKeyDown={(e) => this.handleKeydown(e, onRemove)}
+        to="javascript:void(0)"
+        role="button">
         <Close size={16} />
       </UnstyledLink>
       : null;
