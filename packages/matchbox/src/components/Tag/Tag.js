@@ -25,7 +25,7 @@ class Tag extends Component {
   };
 
   handleKeydown(e, callback) {
-    if (e.which === 32) { callback(); }
+    if (e.keyCode === 32) { callback(); }
   }
 
   render() {
