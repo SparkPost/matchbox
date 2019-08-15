@@ -22,7 +22,7 @@ describe('Tag', () => {
     wrapper.setProps({ onRemove: fn, color: 'purple' });
     expect(wrapper).toMatchSnapshot();
     wrapper.find('UnstyledLink').simulate('click');
-    wrapper.find('UnstyledLink').simulate('keydown', { keyCode: 32 }); // Simulating spacebar
+    wrapper.find('UnstyledLink').simulate('keydown', { keyCode: 32, shiftKey: false }); // Simulating spacebar, note that the `onKey` helper requires that the `shiftKey` value be explicitly defined
     expect(fn).toHaveBeenCalledTimes(2);
   });
 });
