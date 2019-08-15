@@ -3,6 +3,7 @@
 exports[`Snackbar renders Snackbar 1`] = `
 <div
   className="Snackbar default"
+  role="alert"
 >
   <div
     className="Content"
@@ -29,6 +30,7 @@ exports[`Snackbar renders Snackbar 1`] = `
 exports[`Snackbar renders Snackbar with different props 1`] = `
 <div
   className="Snackbar danger"
+  role="alert"
 >
   <div
     className="Content"
