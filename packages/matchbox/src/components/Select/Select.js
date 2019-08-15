@@ -100,7 +100,7 @@ class Select extends Component {
       : null;
 
     return (
-      <fieldset className={setClasses}>
+      <div className={setClasses}>
         {label && labelMarkup}
         <select
           className={inputClasses}
@@ -111,7 +111,7 @@ class Select extends Component {
         <ArrowDropDown className={dropdownClasses} />
         {error && !errorInLabel && <Error error={error} />}
         {helpMarkup}
-      </fieldset>
+      </div>
     );
   }
 }
