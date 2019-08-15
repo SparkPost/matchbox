@@ -39,6 +39,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '100px' });
     expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '100px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('aria-valuenow', '50');
     expect(onChange).toHaveBeenCalledWith(50);
   });
 
@@ -158,6 +159,13 @@ describe('Slider component', () => {
       slider.find('.Slider').simulate('touchStart', { touches: [{ pageX: 25 }]});
       slider.find('.Slider').simulate('mouseDown', { pageX: 25, button: 0 });
       expect(onChange).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('ticks', () => {
+    it('should render ticks', () => {
+      const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' }});
+      expect(slider.find('.Tick')).toMatchSnapshot();
     });
   });
 });

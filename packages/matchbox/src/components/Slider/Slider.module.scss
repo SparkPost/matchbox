@@ -19,7 +19,7 @@
   height: 4px;
   background: color(gray, 8);
   border-radius: 3px;
-  transition: 0.3s;
+  transition: 0.3s background;
 
   .Slider:hover & {
     background: color(gray, 7);
@@ -61,4 +61,39 @@
   .Slider.Disabled  & {
     border: 2px solid color(gray, 4);
   }
+}
+
+.Tick {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  transform: translate(-3px, -3px);
+
+  background: color(gray, 8);
+  transition: 0.3s background;
+
+  user-select: none;
+
+  .Slider.Disabled &.Included {
+    background: color(gray, 4);
+  }
+
+  .Slider:not(.Disabled) &.Included {
+    background: color(orange);
+  }
+
+  .Slider:hover:not(.Disabled) &:not(.Included) {
+    background: color(gray, 7);
+  }
+}
+
+.TickLabel {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  color: color(gray, 4);
+  font-size: font-size(200);
 }
