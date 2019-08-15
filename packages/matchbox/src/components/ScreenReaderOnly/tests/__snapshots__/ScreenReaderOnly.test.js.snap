@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenReaderOnly Renders according to the snapshot 1`] = `
+<span
+  className="ScreenReaderOnly"
+>
+  I am screen reader only content.
+</span>
+`;
