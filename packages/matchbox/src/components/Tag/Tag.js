@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { onKey } from '../../helpers/keyEvents';
 import { Close } from '@sparkpost/matchbox-icons';
 import { UnstyledLink } from '../UnstyledLink';
 
@@ -24,10 +25,6 @@ class Tag extends Component {
     children: PropTypes.node
   };
 
-  handleKeydown(e, callback) {
-    if (e.keyCode === 32) { callback(); }
-  }
-
   render() {
     const {
       color,
@@ -48,7 +45,7 @@ class Tag extends Component {
       ? <UnstyledLink
         className={styles.Close}
         onClick={onRemove}
-        onKeyDown={(e) => this.handleKeydown(e, onRemove)}
+        onKeyDown={onKey('space', onRemove)}
         to="javascript:void(0)"
         role="button">
         <Close size={16} />
