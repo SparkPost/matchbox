@@ -39,6 +39,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '100px' });
     expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '100px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('aria-valuenow', '50');
     expect(onChange).toHaveBeenCalledWith(50);
   });
 

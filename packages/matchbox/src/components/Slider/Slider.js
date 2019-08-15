@@ -188,7 +188,7 @@ function Slider(props) {
         id={id}
         aria-valuemin={min}
         aria-valuemax={max}
-        aria-valuenow={value}
+        aria-valuenow={sliderValue}
         aria-disabled={disabled}
         className={styles.Handle}
         onBlur={onBlur}
