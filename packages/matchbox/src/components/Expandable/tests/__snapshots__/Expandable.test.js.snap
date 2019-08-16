@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slider component should render default state with title and id correctly 1`] = `
+exports[`Expandable component should render default state with title and id correctly 1`] = `
 <Expandable
   defaultOpen={false}
   id="test-id"
@@ -78,7 +78,7 @@ exports[`Slider component should render default state with title and id correctl
 </Expandable>
 `;
 
-exports[`Slider component should render provided default state with an icon 1`] = `
+exports[`Expandable component should render provided default state with an icon 1`] = `
 <Expandable
   defaultOpen={true}
   icon={
