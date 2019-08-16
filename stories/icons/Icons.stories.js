@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 
 import StoryContainer from '../storyHelpers/StoryContainer';
 
@@ -44,7 +43,7 @@ storiesOf('Icons|matchbox-icons', module)
           <Icon size={50} />
           <p>{'<'}{name} {'/>'}</p>
         </span>
-      )
+      );
     });
 
     return <div>{renderIcons}</div>;
