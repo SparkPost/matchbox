@@ -42,6 +42,7 @@ exports[`Slider component should render default state with title and id correctl
             size={36}
           >
             <svg
+              aria-hidden="true"
               className="Arrow"
               fill="currentColor"
               height={36}
@@ -131,6 +132,7 @@ exports[`Slider component should render provided default state with an icon 1`] 
             size={36}
           >
             <svg
+              aria-hidden="true"
               className="Arrow Open"
               fill="currentColor"
               height={36}
