@@ -17,7 +17,10 @@ exports[`Snackbar renders Snackbar 1`] = `
   </div>
   <a
     className="Dismiss"
+    href="javascript:void(0);"
     onClick={[MockFunction]}
+    onKeyDown={[Function]}
+    role="button"
   >
     <Close
       className="DismissIcon"
@@ -44,7 +47,10 @@ exports[`Snackbar renders Snackbar with different props 1`] = `
   </div>
   <a
     className="Dismiss"
+    href="javascript:void(0);"
     onClick={[MockFunction]}
+    onKeyDown={[Function]}
+    role="button"
   >
     <Close
       className="DismissIcon"
