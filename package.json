@@ -11,7 +11,7 @@
     "bootstrap": "lerna bootstrap",
     "pretest": "npm run clean && lerna link",
     "test": "node scripts/test.js --env=jsdom --config=./jest.config.json",
-    "test-ci": "npm run build && npm test -- --coverage && cat ./coverage/lcov.info | coveralls --u",
+    "test-ci": "npm run build && npm test -- --coverage && cat ./coverage/lcov.info | coveralls",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
