@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Close } from '@sparkpost/matchbox-icons';
+import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Snackbar.module.scss';
 
@@ -35,6 +36,12 @@ class Snackbar extends Component {
     maxWidth: 380
   }
 
+  handleKeydown = (e) => {
+    const { onDismiss } = this.props;
+
+    onKey('space', () => onDismiss())(e);
+  }
+
   render() {
     const {
       children,
@@ -52,7 +59,13 @@ class Snackbar extends Component {
     return (
       <div className={snackbarStyles} role="alert" {...rest}>
         <div className={styles.Content} style={{ maxWidth }}>{children}</div>
-        <a className={styles.Dismiss} onClick={onDismiss}>
+        <a
+          className={styles.Dismiss}
+          onClick={onDismiss}
+          onKeyDown={this.handleKeydown}
+          role="button"
+          href="javascript:void(0);"
+        >
           <Close size={21} className={styles.DismissIcon} />
         </a>
       </div>
