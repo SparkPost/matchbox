@@ -16,6 +16,4 @@ describe('Error', () => {
   it('renders error message', () => {
     expect(wrapper).toMatchSnapshot();
   });
-
-
 });

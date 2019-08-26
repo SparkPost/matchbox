@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Error as ErrorIcon } from '@sparkpost/matchbox-icons';
+import { ErrorIcon } from '@sparkpost/matchbox-icons';
 import styles from './Error.module.scss';
 
 const Error = (props) => {

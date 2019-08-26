@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Error as ErrorIcon, CheckCircle, InfoOutline, Close } from '@sparkpost/matchbox-icons';
+import { ErrorIcon, CheckCircle, InfoOutline, Close } from '@sparkpost/matchbox-icons';
 
 import styles from './Banner.module.scss';
 import { buttonFrom } from '../Button';
