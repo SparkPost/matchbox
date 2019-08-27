@@ -21,6 +21,7 @@ class IconBase extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
+    label: PropTypes.string,
     viewBox: PropTypes.string,
     /** FileType icon only */
     text: PropTypes.string,
@@ -38,6 +39,7 @@ class IconBase extends Component {
       size,
       style = {},
       viewBox = '0 0 24 24',
+      label,
       ...rest
     } = this.props;
 
@@ -53,6 +55,9 @@ class IconBase extends Component {
         viewBox={viewBox}
         width={width || size}
         height={height || size}
+        aria-label={label}
+        role={label && 'img'}
+        aria-hidden={label ? 'false' : 'true'}
         {...rest}
         style={styleProp}>
         {children}

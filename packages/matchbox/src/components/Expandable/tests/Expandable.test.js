@@ -2,7 +2,7 @@ import React from 'react';
 import Expandable from '../Expandable';
 import { mount } from 'enzyme';
 
-describe('Slider component', () => {
+describe('Expandable component', () => {
   let onToggle;
 
   beforeEach(() => {

@@ -21,6 +21,13 @@ describe('IconBase', () => {
     expect(wrapper.instance().props.width).toEqual(16);
     expect(wrapper.instance().props.height).toEqual(15);
   });
+
+  it('renders an accessible label when the label prop has a value', () => {
+    wrapper.setProps({ label: 'Hello, world' });
+
+    expect(wrapper.instance().props.label).toEqual('Hello, world');
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 describe('createSvgIcon', () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 
 import StoryContainer from '../storyHelpers/StoryContainer';
 
@@ -12,14 +11,18 @@ const FileType = icons.FileType;
 
 storiesOf('Icons|matchbox-icons', module)
   .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
+    <StoryContainer>{getStory()}</StoryContainer>
   ))
 
-  .add('single icon', withInfo({ propTables: [IconBase], propTablesExclude: [Assessment] })(() => (
+  .add('single icon', withInfo({ propTables: [IconBase], propTablesExclude: [Assessment]})(() => (
     <Assessment size={50} />
   )))
 
-  .add('extended icons', withInfo({ propTables: [IconBase], propTablesExclude: [FileType] })(() => (
+  .add('single icon with a11y label', withInfo({ propTables: [IconBase], propTablesExclude: [Assessment]})(() => (
+    <Assessment size={50} label='Accessible label!' />
+  )))
+
+  .add('extended icons', withInfo({ propTables: [IconBase], propTablesExclude: [FileType]})(() => (
     <div>
       <FileType size={150} text='CSV' textFill='white' />
       <FileType size={150} text='WEBM' textProps={{
@@ -36,12 +39,12 @@ storiesOf('Icons|matchbox-icons', module)
       const Icon = icons[name];
 
       return (
-        <span style={{ display: 'inline-block', width: '220px', margin: '30px 0', textAlign: 'center'}}>
+        <span style={{ display: 'inline-block', width: '220px', margin: '30px 0', textAlign: 'center' }}>
           <Icon size={50} />
-          <p>{'<'}{ name } {'/>'}</p>
+          <p>{'<'}{name} {'/>'}</p>
         </span>
-      )
+      );
     });
 
-    return <div>{ renderIcons }</div>;
+    return <div>{renderIcons}</div>;
   });
