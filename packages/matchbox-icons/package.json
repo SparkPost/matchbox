@@ -20,6 +20,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
+    "prepublishOnly": "npm run build",
     "watch": "rollup -cw"
   },
   "dependencies": {
