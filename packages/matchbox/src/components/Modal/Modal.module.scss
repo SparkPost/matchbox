@@ -7,14 +7,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s;
   will-change: opacity;
   overflow-y: auto;
   max-height: 100vh;
-
   background: rgba(color(gray, 2), 0.7);
 }
 
@@ -27,12 +25,15 @@
   min-height: 100%;
 }
 
+.ContentWrapper:focus {
+  outline: none; // It isn't necesssary to demonstrate to users that the modal is currently in focus visually, particularly since this isn't an interactive element (i.e., a link or a button)
+}
+
 .Content {
   max-width: breakpoint(medium);
   margin: rem(80) auto;
   transform: translate(0, 10px);
   transition: 0.15s ease-out;
-
   opacity: 0;
   pointer-events: none;
 }

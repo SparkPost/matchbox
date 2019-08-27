@@ -18,12 +18,17 @@ class ModalDemo extends React.Component {
   render() {
     return (
       <div>
-        <a onClick={this.handleChange}>Open modal</a>
+        <a onClick={this.handleChange} href="javascript:void(0);" role="button" data-test="open-modal">
+          Open modal
+        </a>
+
         <Modal open={this.state.open} onClose={this.handleChange} showCloseButton={true}>
           <Panel title="Delete Template" sectioned accent>
             <p>Are you sure you want to delete your template?</p>
-            <Button style={{ marginRight: '1rem' }} primary onClick={this.handleChange}>Delete</Button>
-            <Button onClick={this.handleChange}>Cancel</Button>
+
+            <Button style={{ marginRight: '1rem' }} primary onClick={this.handleChange} data-test="delete-button">Delete</Button>
+
+            <Button onClick={this.handleChange} data-test="cancel-button">Cancel</Button>
           </Panel>
         </Modal>
       </div>
