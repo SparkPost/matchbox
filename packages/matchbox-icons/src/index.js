@@ -957,6 +957,7 @@ export { default as WbSunny } from './icons/WbSunny';
 export { default as Wc } from './icons/Wc';
 export { default as Web } from './icons/Web';
 export { default as WebAsset } from './icons/WebAsset';
+export { default as Webhook } from './icons/Webhook';
 export { default as Weekend } from './icons/Weekend';
 export { default as Whatshot } from './icons/Whatshot';
 export { default as Widgets } from './icons/Widgets';
