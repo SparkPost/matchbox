@@ -13,6 +13,11 @@
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
+    },
+    "version": {
+      "allowBranch": "master",
+      "message": "Publish"
     }
-  }
+  },
+  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
 }
