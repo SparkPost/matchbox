@@ -3,10 +3,10 @@ language: node_js
 node_js:
   - "10.8"
 
-# addons:
-#   apt:
-#     packages:
-#       - libgconf-2-4
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 
 cache:
     # Caching node modules and Cypress binary to speed up build
