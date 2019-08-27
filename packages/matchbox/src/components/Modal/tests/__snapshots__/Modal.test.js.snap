@@ -1,74 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal should render contents when open 1`] = `
-<div
-  className="Modal open"
-  onClose={[MockFunction]}
->
-  <Grid
-    center="xs"
-    className="Grid"
-    middle="xs"
-  >
-    <Grid.Column
-      md={9}
-      xl={7}
-      xs={11}
-    >
-      <Modal.Content
-        contentRef={[Function]}
-        open={true}
-      >
-        <WindowEvent
-          event="keydown"
-          handler={[Function]}
-        />
-        <WindowEvent
-          event="click"
-          handler={[Function]}
-        />
-        <h1>
-          Test Example
-        </h1>
-      </Modal.Content>
-    </Grid.Column>
-  </Grid>
-</div>
-`;
-
-exports[`Modal should render contents when open 2`] = `
-<Transition
-  appear={false}
-  enter={true}
-  exit={true}
-  in={true}
-  mountOnEnter={true}
-  onEnter={[Function]}
-  onEntered={[Function]}
-  onEntering={[Function]}
-  onExit={[Function]}
-  onExited={[Function]}
-  onExiting={[Function]}
-  timeout={
-    Object {
-      "enter": 0,
-      "exit": 150,
-    }
-  }
-  unmountOnExit={true}
->
-  <Component />
-</Transition>
-`;
-
-exports[`Modal should render contents when open 3`] = `
-<div
-  className="Content [object Object]"
->
-  Content test
-</div>
-`;
-
 exports[`Modal should render modal 1`] = `
 <div
   className="Modal"
@@ -96,51 +27,6 @@ exports[`Modal should render modal 1`] = `
           event="click"
           handler={[Function]}
         />
-        <h1>
-          Test Example
-        </h1>
-      </Modal.Content>
-    </Grid.Column>
-  </Grid>
-</div>
-`;
-
-exports[`Modal should render modal with close button 1`] = `
-<div
-  className="Modal"
-  onClose={[MockFunction]}
->
-  <Grid
-    center="xs"
-    className="Grid"
-    middle="xs"
-  >
-    <Grid.Column
-      md={9}
-      xl={7}
-      xs={11}
-    >
-      <Modal.Content
-        contentRef={[Function]}
-        open={false}
-      >
-        <WindowEvent
-          event="keydown"
-          handler={[Function]}
-        />
-        <WindowEvent
-          event="click"
-          handler={[Function]}
-        />
-        <Button
-          className="CloseButton"
-          flat={true}
-          onClick={[MockFunction]}
-          size="default"
-        >
-          Close 
-          <Close />
-        </Button>
         <h1>
           Test Example
         </h1>

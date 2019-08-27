@@ -18,7 +18,8 @@
   ],
   "testPathIgnorePatterns": [
     "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
-    "/.cache/"
+    "/.cache/",
+    "/cypress/"
   ],
   "testEnvironment": "node",
   "testURL": "http://localhost",

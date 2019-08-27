@@ -18,7 +18,7 @@ class Content extends Component {
   focusContent = () => {
     const { open } = this.props;
 
-    if (open) {
+    if (open && this.contentWrapperRef.current) {
       this.contentWrapperRef.current.focus();
     }
   }

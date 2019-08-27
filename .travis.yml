@@ -16,6 +16,4 @@ cache:
 
 script:
   - npm --version
-  - npm ci
-  - npx cypress verify
   - npm run test
