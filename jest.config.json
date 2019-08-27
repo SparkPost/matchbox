@@ -32,6 +32,8 @@
   ],
   "moduleNameMapper": {
     "^react-native$": "react-native-web",
-    "\\.(css|scss)$": "identity-obj-proxy"
+    "\\.(css|scss)$": "identity-obj-proxy",
+    "@sparkpost/matchbox-icons(.*)": "<rootDir>/packages/matchbox-icons/src",
+    "@sparkpost/matchbox(.*)": "<rootDir>/packages/matchbox/src"
   }
 }
