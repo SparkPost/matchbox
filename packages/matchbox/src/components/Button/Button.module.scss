@@ -15,7 +15,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  transition: 0.15s;
+  transition-property: background, color, border, box-shadow, outline;
+  transition-duration: .15s;
 
   text-decoration: none;
   white-space: nowrap;
