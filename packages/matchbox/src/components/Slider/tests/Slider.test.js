@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from '../Slider';
 import { mount } from 'enzyme';
-//import { act } from 'react-dom/test-utils';
+import { act } from 'react-dom/test-utils';
 import * as geometry from '../../../helpers/geometry';
 
 const windowEvents = {};
@@ -54,27 +54,27 @@ describe('Slider component', () => {
     expect(onChange).toHaveBeenCalledWith(13);
   });
 
-  // it('should handle a mouse drag chain of events', () => {
-  //   const slider = subject({ value: 50, onChange });
-  //   slider.find('.Slider').simulate('mouseDown', { pageX: 0, button: 0 });
+  it('should handle a mouse drag chain of events', () => {
+    const slider = subject({ value: 50, onChange });
+    slider.find('.Slider').simulate('mouseDown', { pageX: 0, button: 0 });
 
-  //   act(() => {
-  //     windowEvents.mousemove({ pageX: 150 });
-  //   });
+    act(() => {
+      windowEvents.mousemove({ pageX: 150 });
+    });
 
-  //   slider.update();
-  //   expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '150px' });
-  //   expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '150px' });
-  //   expect(onChange).toHaveBeenCalledWith(75);
+    slider.update();
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '150px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '150px' });
+    expect(onChange).toHaveBeenCalledWith(75);
 
-  //   act(() => {
-  //     windowEvents.mouseup();
-  //   });
+    act(() => {
+      windowEvents.mouseup();
+    });
 
-  //   slider.update();
-  //   expect(windowEvents.mousemove).toBe(undefined);
-  //   expect(windowEvents.mouseup).toBe(undefined);
-  // });
+    slider.update();
+    expect(windowEvents.mousemove).toBe(undefined);
+    expect(windowEvents.mouseup).toBe(undefined);
+  });
 
   it('should handle a touch start', () => {
     const slider = subject({ value: 50, onChange });
