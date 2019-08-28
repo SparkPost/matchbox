@@ -15,7 +15,7 @@ const data = [
 
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
   <Panel>
-    <Table p={500}>
+    <Table p={500} title="My Table">
       <thead>
         <Table.Row header>
           <Table.HeaderCell>Heading 1</Table.HeaderCell>

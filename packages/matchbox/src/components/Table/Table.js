@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { margin, padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { pick } from '../../helpers/systemProps';
 import { Cell, HeaderCell, Row } from './TableElements';
 import { TablePaddingContext } from './context';
@@ -48,7 +49,9 @@ function Table(props) {
     <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
-          <caption>{title}</caption>
+          <caption>
+            <ScreenReaderOnly>{title}</ScreenReaderOnly>
+          </caption>
           {dataMarkup}
         </TablePaddingContext.Provider>
       </StyledTable>
