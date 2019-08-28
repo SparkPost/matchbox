@@ -7,10 +7,6 @@ addons:
   apt:
     packages:
       - libgconf-2-4
-  artifacts:
-    debug: true
-    paths:
-      - /home/travis/build/SparkPost/matchbox/cypress/videos/
 
 cache:
     # Caching node modules and Cypress binary to speed up build
