@@ -23,10 +23,10 @@ describe('Modal', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // it('should render modal with close button', () => {
-  //   wrapper.setProps({ showCloseButton: true });
-  //   expect(wrapper).toMatchSnapshot();
-  // });
+  it('should render modal with close button', () => {
+    wrapper.setProps({ showCloseButton: true });
+    expect(wrapper).toMatchSnapshot();
+  });
 
   // it('should render contents when open', () => {
   //   wrapper.setProps({ open: true });
