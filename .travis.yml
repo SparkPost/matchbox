@@ -14,6 +14,9 @@ cache:
       - ~/.npm
       - ~/.cache
 
-script:
+install:
   - npm --version
+  - npm install
+
+script:
   - npm run test:ci
