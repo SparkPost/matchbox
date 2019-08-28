@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-//import * as keyMock from '../../../helpers/keyEvents';
+import * as keyMock from '../../../helpers/keyEvents';
 import Modal from '../Modal';
 import Content from '../Content';
 
@@ -41,18 +41,18 @@ describe('Modal', () => {
     expect(Children).toMatchSnapshot();
   });
 
-  // it('handle key down', () => {
-  //   keyMock.onKey.mockImplementationOnce(() => jest.fn());
-  //   wrapper.setProps({ open: true });
-  //   wrapper.instance().handleKeyDown();
-  //   expect(keyMock.onKey).toHaveBeenCalledWith('escape', props.onClose);
-  // });
+  it('handle key down', () => {
+    keyMock.onKey.mockImplementationOnce(() => jest.fn());
+    wrapper.setProps({ open: true });
+    wrapper.instance().handleKeyDown();
+    expect(keyMock.onKey).toHaveBeenCalledWith('escape', props.onClose);
+  });
 
-  // it('handle outside click', () => {
-  //   wrapper.setProps({ open: true });
-  //   wrapper.instance().content = { contains: jest.fn(() => false) };
-  //   wrapper.instance().container = { contains: jest.fn(() => true) };
-  //   wrapper.instance().handleOutsideClick({ target: 'test' });
-  //   expect(props.onClose).toHaveBeenCalledTimes(1);
-  // });
+  it('handle outside click', () => {
+    wrapper.setProps({ open: true });
+    wrapper.instance().content = { contains: jest.fn(() => false) };
+    wrapper.instance().container = { contains: jest.fn(() => true) };
+    wrapper.instance().handleOutsideClick({ target: 'test' });
+    expect(props.onClose).toHaveBeenCalledTimes(1);
+  });
 });
