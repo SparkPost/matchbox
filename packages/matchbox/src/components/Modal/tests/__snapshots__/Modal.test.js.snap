@@ -42,7 +42,6 @@ exports[`Modal should render contents when open 2`] = `
 >
   <Transition
     appear={false}
-    data-foo="bar"
     enter={true}
     exit={true}
     in={true}

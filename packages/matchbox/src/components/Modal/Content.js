@@ -33,7 +33,6 @@ class Content extends Component {
     return (
       <FocusLock disabled={!open}>
         <Transition
-          data-foo="bar"
           mountOnEnter
           unmountOnExit
           in={open}
