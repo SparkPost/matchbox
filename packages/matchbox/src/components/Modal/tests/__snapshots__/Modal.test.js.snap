@@ -37,7 +37,9 @@ exports[`Modal should render contents when open 1`] = `
 `;
 
 exports[`Modal should render contents when open 2`] = `
-<FocusLockCombination>
+<FocusLockCombination
+  disabled={false}
+>
   <Transition
     appear={false}
     data-foo="bar"

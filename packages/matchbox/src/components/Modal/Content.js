@@ -31,7 +31,7 @@ class Content extends Component {
     } = this.props;
 
     return (
-      <FocusLock>
+      <FocusLock disabled={!open}>
         <Transition
           data-foo="bar"
           mountOnEnter
