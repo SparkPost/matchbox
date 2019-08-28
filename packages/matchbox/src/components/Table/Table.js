@@ -21,7 +21,7 @@ const Wrapper = styled(Box)`
 `;
 
 function Table(props) {
-  const { children, data, freezeFirstColumn, ...rest } = props;
+  const { children, data, freezeFirstColumn, title, ...rest } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   const handleScroll = React.useCallback(
@@ -48,6 +48,7 @@ function Table(props) {
     <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+          <caption>{title}</caption>
           {dataMarkup}
         </TablePaddingContext.Provider>
       </StyledTable>
@@ -67,6 +68,7 @@ Table.propTypes = {
    * React node(s)
    */
   children: PropTypes.node,
+  title: PropTypes.string,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
 };
