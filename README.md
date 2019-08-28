@@ -73,12 +73,12 @@ npm run start:storybook
 
 Then, either run Cypress in headless mode:
 ```bash
-test:e2e:headless
+npm run test:e2e:headless
 ```
 
 Or, run Cypress with the GUI
 ```bash
-test:e2e:gui
+npm run test:e2e:gui
 ```
 
 ## Publishing
