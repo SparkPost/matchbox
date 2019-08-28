@@ -21,6 +21,9 @@ exports[`Tag renders with close button 1`] = `
     <Close
       size={16}
     />
+    <ScreenReaderOnly>
+      Close
+    </ScreenReaderOnly>
   </UnstyledLink>
 </div>
 `;

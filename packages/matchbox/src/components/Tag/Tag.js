@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { onKey } from '../../helpers/keyEvents';
 import { Close } from '@sparkpost/matchbox-icons';
 import { UnstyledLink } from '../UnstyledLink';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 
 import styles from './Tag.module.scss';
 
@@ -55,6 +56,8 @@ class Tag extends Component {
         to="javascript:void(0)"
         role="button">
         <Close size={16} />
+
+        <ScreenReaderOnly>Close</ScreenReaderOnly>
       </UnstyledLink>
       : null;
 
