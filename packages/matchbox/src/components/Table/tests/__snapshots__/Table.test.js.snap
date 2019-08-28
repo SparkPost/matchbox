@@ -68,7 +68,9 @@ exports[`Table renders children 1`] = `
   className="Table"
 >
   <caption>
-    My Table with Children
+    <ScreenReaderOnly>
+      My Table with Children
+    </ScreenReaderOnly>
   </caption>
   children test
 </table>
@@ -79,7 +81,9 @@ exports[`Table renders data 1`] = `
   className="Table"
 >
   <caption>
-    My Data Table
+    <ScreenReaderOnly>
+      My Data Table
+    </ScreenReaderOnly>
   </caption>
   <tbody>
     <Table.Row
