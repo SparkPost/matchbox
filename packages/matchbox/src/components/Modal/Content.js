@@ -4,7 +4,7 @@ import FocusLock from 'react-focus-lock';
 import classnames from 'classnames';
 import styles from './Modal.module.scss';
 
-export default class Content extends Component {
+class Content extends Component {
   contentWrapperRef = React.createRef()
 
   componentDidMount = () => {
@@ -60,4 +60,4 @@ export default class Content extends Component {
 }
 
 Content.displayName = 'Modal.Content';
-//export default Content;
+export default Content;
