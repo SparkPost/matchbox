@@ -16,4 +16,4 @@ cache:
 
 script:
   - npm --version
-  - npm run test:e2e:ci
+  - npm run test:ci
