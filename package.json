@@ -10,7 +10,7 @@
     "build:site": "npm run bootstrap && lerna exec --scope @sparkpost/matchbox-site -- npm run build",
     "clean": "lerna clean --yes",
     "bootstrap": "lerna bootstrap",
-    "pretest": "npm run clean && lerna link &&",
+    "pretest": "npm run clean && lerna link && npm run build",
     "test:ci": "npm run build && npm run test:unit:ci && npm run test:e2e:ci",
     "test:e2e:headless": " node_modules/.bin/cypress run",
     "test:e2e:gui": "node_modules/.bin/cypress open",

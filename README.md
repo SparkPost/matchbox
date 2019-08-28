@@ -50,6 +50,37 @@ const YourComponent = () => (
 npm run start:storybook
 ```
 
+## Running Tests
+
+### Unit Testing
+When running tests for the first time locally:
+```bash
+npm run pretest
+```
+
+After the initial setup, tests can be run at any time via:
+```bash
+npm run test:unit
+```
+
+### End to End Testing
+End to end tests can be run locally, either in headless mode or with a GUI.
+
+First, run storybook with a local server:
+```bash
+npm run start:storybook
+```
+
+Then, either run Cypress in headless mode:
+```bash
+test:e2e:headless
+```
+
+Or, run Cypress with the GUI
+```bash
+test:e2e:gui
+```
+
 ## Publishing
 ```bash
 # First merge your PR into master
