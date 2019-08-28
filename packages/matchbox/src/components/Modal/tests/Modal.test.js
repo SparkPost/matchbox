@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 //import * as keyMock from '../../../helpers/keyEvents';
 import Modal from '../Modal';
-//import Content from '../Content';
+import Content from '../Content';
 
 jest.mock('../../../helpers/keyEvents');
 
@@ -28,14 +28,18 @@ describe('Modal', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // it('should render contents when open', () => {
-  //   wrapper.setProps({ open: true });
-  //   expect(wrapper).toMatchSnapshot();
-  //   const content = shallow(<Content open>Content test</Content>);
-  //   const Children = content.props().children;
-  //   expect(content).toMatchSnapshot();
-  //   expect(shallow(<Children />)).toMatchSnapshot();
-  // });
+  it('should render contents when open', () => {
+    wrapper.setProps({ open: true });
+    expect(wrapper).toMatchSnapshot();
+
+    const content = shallow(<Content open>Content test</Content>);
+
+    expect(content).toMatchSnapshot();
+
+    const Children = shallow(content.props().children);
+
+    expect(Children).toMatchSnapshot();
+  });
 
   // it('handle key down', () => {
   //   keyMock.onKey.mockImplementationOnce(() => jest.fn());
