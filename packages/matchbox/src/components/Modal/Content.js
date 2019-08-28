@@ -8,16 +8,16 @@ class Content extends Component {
   contentWrapperRef = React.createRef()
 
   componentDidMount = () => {
-    this.handleFocus();
+    this.handleOpen();
   }
 
   componentDidUpdate = (prevProps) => {
     if (this.props.open !== prevProps.open) {
-      this.handleFocus();
+      this.handleOpen();
     }
   }
 
-  handleFocus = () => {
+  handleOpen = () => {
     const { open } = this.props;
 
     if (open && this.contentWrapperRef.current) {
