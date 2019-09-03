@@ -1,4 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
+import _ from 'lodash';
 
 function useComponentProps(name) {
   const data = useStaticQuery(graphql`
@@ -27,9 +28,8 @@ function useComponentProps(name) {
     }
   `);
 
-  const nodes = data.allComponentMetadata.nodes;
-
-  return nodes.filter(({ displayName, ...rest }) => displayName === name).shift();
+  const nodes = _.get(data, 'allComponentMetadata.nodes');
+  return _.filter(nodes, ({ displayName, ...rest }) => displayName === name).shift();
 }
 
 export default useComponentProps;
