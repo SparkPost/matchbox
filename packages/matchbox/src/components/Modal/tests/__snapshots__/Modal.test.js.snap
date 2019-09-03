@@ -37,35 +37,45 @@ exports[`Modal should render contents when open 1`] = `
 `;
 
 exports[`Modal should render contents when open 2`] = `
-<Transition
-  appear={false}
-  enter={true}
-  exit={true}
-  in={true}
-  mountOnEnter={true}
-  onEnter={[Function]}
-  onEntered={[Function]}
-  onEntering={[Function]}
-  onExit={[Function]}
-  onExited={[Function]}
-  onExiting={[Function]}
-  timeout={
-    Object {
-      "enter": 0,
-      "exit": 150,
-    }
-  }
-  unmountOnExit={true}
+<FocusLockCombination
+  disabled={false}
 >
-  <Component />
-</Transition>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={true}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={
+      Object {
+        "enter": 0,
+        "exit": 150,
+      }
+    }
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</FocusLockCombination>
 `;
 
 exports[`Modal should render contents when open 3`] = `
 <div
-  className="Content [object Object]"
+  className="ContentWrapper"
+  data-test="modal-content-wrapper"
+  tabIndex="-1"
 >
-  Content test
+  <div
+    className="Content entered"
+  >
+    Content test
+  </div>
 </div>
 `;
 
@@ -134,6 +144,7 @@ exports[`Modal should render modal with close button 1`] = `
         />
         <Button
           className="CloseButton"
+          data-test="modal-close"
           flat={true}
           onClick={[MockFunction]}
           size="default"

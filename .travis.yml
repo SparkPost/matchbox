@@ -1,10 +1,22 @@
 language: node_js
+
 node_js:
-  - "8"
-install: npm install
-script:
+  - "10.8"
+
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
+cache:
+    # Caching node modules and Cypress binary to speed up build
+    directories:
+      - ~/.npm
+      - ~/.cache
+
+install:
   - npm --version
-  - npm run test-ci
-# before_install: npm install -g greenkeeper-lockfile@1
-# before_script: greenkeeper-lockfile-update
-# after_script: greenkeeper-lockfile-upload
+  - npm install
+
+script:
+  - npm run test:ci
