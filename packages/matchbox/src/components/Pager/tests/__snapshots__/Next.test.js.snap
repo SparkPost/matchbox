@@ -8,6 +8,9 @@ exports[`Pager.Next renders button 1`] = `
   <ArrowForward
     size={16}
   />
+  <ScreenReaderOnly>
+    Next
+  </ScreenReaderOnly>
 </Button>
 `;
 
@@ -20,5 +23,8 @@ exports[`Pager.Next renders disabled button 1`] = `
   <ArrowForward
     size={16}
   />
+  <ScreenReaderOnly>
+    Next
+  </ScreenReaderOnly>
 </Button>
 `;

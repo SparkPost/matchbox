@@ -8,6 +8,9 @@ exports[`Pager.Previous renders button 1`] = `
   <ArrowBack
     size={16}
   />
+  <ScreenReaderOnly>
+    Previous
+  </ScreenReaderOnly>
 </Button>
 `;
 
@@ -20,5 +23,8 @@ exports[`Pager.Previous renders disabled button 1`] = `
   <ArrowBack
     size={16}
   />
+  <ScreenReaderOnly>
+    Previous
+  </ScreenReaderOnly>
 </Button>
 `;
