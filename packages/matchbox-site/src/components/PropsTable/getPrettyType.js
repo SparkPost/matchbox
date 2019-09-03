@@ -24,8 +24,9 @@ const typeMap = {
   'union': OneOfType,
   'arrayOf': ArrayOf,
   'objectOf': ObjectOf,
-  // 'literal': Literal,
   'enum': OneOf
+  // Other unused prop types
+  // 'literal': Literal,
   // 'instanceOf': InstanceOf],
   // 'signature': Signature],
 };
