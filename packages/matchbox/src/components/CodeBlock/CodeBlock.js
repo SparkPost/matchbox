@@ -20,7 +20,7 @@ class CodeBlock extends Component {
     code: PropTypes.string,
 
     /**
-     * Height in pixels of the <pre> block
+     * Height in pixels of the `pre` block
      */
     height: PropTypes.number,
 
