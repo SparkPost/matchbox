@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Error as ErrorIcon, CheckCircle, InfoOutline, Close } from '@sparkpost/matchbox-icons';
+import { Error as ErrorIcon, Warning, CheckCircle, InfoOutline, Close } from '@sparkpost/matchbox-icons';
 
 import styles from './Banner.module.scss';
 import { buttonFrom } from '../Button';
@@ -12,7 +12,7 @@ const IconSection = ({ status }) => {
   const icons = {
     success: CheckCircle,
     info: InfoOutline,
-    warning: ErrorIcon,
+    warning: Warning,
     danger: ErrorIcon
   };
 
@@ -30,6 +30,9 @@ const IconSection = ({ status }) => {
   return (
     <div className={styles.IconWrapper}>
       <Icon size={30} className={iconClasses} />
+
+      {status === 'warning' && <div className={styles.IconWarningMiddleground}/>}
+
       <div className={styles.IconBackdrop} />
     </div>
   );

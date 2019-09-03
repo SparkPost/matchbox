@@ -95,13 +95,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 3;
 }
 
 .successIcon {
   fill: color(green);
 
-  & + .IconBackdrop {
+  & ~ .IconBackdrop {
     box-shadow: 0 0 0 7px rgba(color(green), 0.25);
   }
 }
@@ -109,29 +109,46 @@
 .infoIcon {
   fill: darken(color(blue), 8);
 
-  & + .IconBackdrop {
+  & ~ .IconBackdrop {
     box-shadow: 0 0 0 7px rgba(color(blue), 0.25);
   }
 }
 
 .warningIcon {
-  fill: lighten(color(yellow), 4);
-
-  & + .IconBackdrop {
-    box-shadow: 0 0 0 7px rgba(color(yellow), 0.25);
+  // sizing and transformations appear hacky, but appear to be necessary when
+  // addressing positioning of the backdrop element
+  & ~ .IconBackdrop {
+    border-radius: initial;
+    background: rgba(color(yellow), 0.4);
+    width: 48px;
+    height: 40px;
+    transform: translate(-50%, -55%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
 }
 
 .dangerIcon {
   fill: color(red);
 
-  & + .IconBackdrop {
+  & ~ .IconBackdrop {
     box-shadow: 0 0 0 7px rgba(color(red), 0.25);
   }
 }
 
+.IconWarningMiddleground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 15px;
+  background: #FFF;
+  z-index: 2;
+}
+
 .IconBackdrop {
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
