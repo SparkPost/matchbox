@@ -9,7 +9,7 @@
 .ListItem {
   position: relative;
   list-style-type: none;
-  margin: 0 0 0 2rem;
+  margin: 0 0 0 4rem;
   padding: 0.3rem 0;
 
   &.Selected {
@@ -27,7 +27,7 @@
 }
 
 .Link {
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   color: #000;
 
