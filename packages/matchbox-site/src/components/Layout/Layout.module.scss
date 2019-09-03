@@ -1,6 +1,6 @@
 .Container {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1080px;
   padding: 0 2rem;
 }
 
@@ -10,10 +10,10 @@
 
 .Aside {
   flex: 0 0 0;
-  min-width: 200px;
+  min-width: 300px;
 }
 
 .Main {
   flex: 1 0 0;
-  padding: 0.5rem 0;
+  padding: 0 0 0.5rem 0;
 }
