@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Close, Info, CheckCircle, Warning, Error } from '@sparkpost/matchbox-icons';
+import { Close, Info, CheckCircle, Warning, Error as ErrorIcon } from '@sparkpost/matchbox-icons';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Snackbar.module.scss';
@@ -65,7 +65,7 @@ class Snackbar extends Component {
 
           {status === 'warning' && <Warning label="Warning" />}
 
-          {(status === 'error' || status === 'danger') && <Error label="Error" />}
+          {(status === 'error' || status === 'danger') && <ErrorIcon label="Error" />}
         </div>
 
         <div className={styles.Content} style={{ maxWidth }}>{children}</div>
