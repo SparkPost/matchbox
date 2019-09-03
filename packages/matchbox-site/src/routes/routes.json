@@ -56,18 +56,23 @@
     "childRoutes": [
       {
         "path": "/components",
-        "label": "Overview",
-        "disabled": false
+        "label": "Overview"
       },
       {
         "path": "/components/button",
-        "label": "Button",
-        "disabled": false
+        "label": "Button"
       },
       {
         "path": "/components/slider",
-        "label": "Slider",
-        "disabled": false
+        "label": "Slider"
+      },
+      {
+        "path": "/components/snackbar",
+        "label": "Snackbar"
+      },
+      {
+        "path": "/components/panel",
+        "label": "Panel"
       }
     ]
   }
