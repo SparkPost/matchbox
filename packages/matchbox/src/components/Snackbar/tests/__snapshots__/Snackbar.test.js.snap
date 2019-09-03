@@ -6,6 +6,13 @@ exports[`Snackbar renders Snackbar 1`] = `
   role="alert"
 >
   <div
+    className="IconWrapper"
+  >
+    <Info
+      label="Info"
+    />
+  </div>
+  <div
     className="Content"
     style={
       Object {
@@ -35,6 +42,13 @@ exports[`Snackbar renders Snackbar with different props 1`] = `
   className="Snackbar danger"
   role="alert"
 >
+  <div
+    className="IconWrapper"
+  >
+    <Error
+      label="Error"
+    />
+  </div>
   <div
     className="Content"
     style={
