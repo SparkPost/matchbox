@@ -28,6 +28,13 @@ describe('Modal', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders with relevant ARIA attributes', () => {
+    const wrapperProps = wrapper.props();
+
+    expect(wrapperProps.role).toEqual('dialog');
+    expect(wrapperProps['aria-modal']).toEqual('true');
+  });
+
   it('should render contents when open', () => {
     wrapper.setProps({ open: true });
     expect(wrapper).toMatchSnapshot();

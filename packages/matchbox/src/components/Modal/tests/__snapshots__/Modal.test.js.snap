@@ -2,8 +2,10 @@
 
 exports[`Modal should render contents when open 1`] = `
 <div
+  aria-modal="true"
   className="Modal open"
   onClose={[MockFunction]}
+  role="dialog"
 >
   <Grid
     center="xs"
@@ -81,8 +83,10 @@ exports[`Modal should render contents when open 3`] = `
 
 exports[`Modal should render modal 1`] = `
 <div
+  aria-modal="true"
   className="Modal"
   onClose={[MockFunction]}
+  role="dialog"
 >
   <Grid
     center="xs"
@@ -117,8 +121,10 @@ exports[`Modal should render modal 1`] = `
 
 exports[`Modal should render modal with close button 1`] = `
 <div
+  aria-modal="true"
   className="Modal"
   onClose={[MockFunction]}
+  role="dialog"
 >
   <Grid
     center="xs"

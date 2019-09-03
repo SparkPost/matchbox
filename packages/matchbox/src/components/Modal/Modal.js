@@ -65,7 +65,7 @@ class Modal extends Component {
     );
 
     return (
-      <div className={modalClasses} onClose={onClose} {...rest} ref={(node) => this.container = node}>
+      <div className={modalClasses} onClose={onClose} {...rest} ref={(node) => this.container = node} role="dialog" aria-modal="true">
         <Grid center='xs' middle='xs' className={styles.Grid}>
           <Grid.Column xs={11} md={9} xl={7}>
             <Content contentRef={(node) => this.content = node} open={open}>
