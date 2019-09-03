@@ -29,7 +29,7 @@ function Group(props) {
 }
 
 function TypographyExplorer() {
-  const [type, setType] = React.useState('css');
+  const [type, setType] = React.useState('scss');
   const [size, setSize] = React.useState('16px');
   const [lh, setLh] = React.useState('24px');
   const [weight, setWeight] = React.useState('400');
@@ -88,7 +88,7 @@ function TypographyExplorer() {
       <hr/>
 
       <h4>Tokens</h4>
-      <select onChange={handleTypeSelect}>
+      <select onChange={handleTypeSelect} value={type} >
         <option value='scss'>Scss</option>
         <option value='css'>CSS</option>
         <option value='javascript'>Javascript</option>
