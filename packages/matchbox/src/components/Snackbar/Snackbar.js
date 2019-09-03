@@ -59,13 +59,13 @@ class Snackbar extends Component {
     return (
       <div className={snackbarStyles} role="alert" {...rest}>
         <div className={styles.IconWrapper}>
-          {status === 'default' && <Info/>}
+          {status === 'default' && <Info label="Info" />}
 
-          {status === 'success' && <CheckCircle/>}
+          {status === 'success' && <CheckCircle label="Success"/>}
 
-          {status === 'warning' && <Warning/>}
+          {status === 'warning' && <Warning label="Warning" />}
 
-          {(status === 'error' || status === 'danger') && <Error/>}
+          {(status === 'error' || status === 'danger') && <Error label="Error" />}
         </div>
 
         <div className={styles.Content} style={{ maxWidth }}>{children}</div>
