@@ -58,6 +58,16 @@
         "path": "/components",
         "label": "Overview",
         "disabled": false
+      },
+      {
+        "path": "/components/button",
+        "label": "Button",
+        "disabled": false
+      },
+      {
+        "path": "/components/slider",
+        "label": "Slider",
+        "disabled": false
       }
     ]
   }
