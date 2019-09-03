@@ -526,6 +526,7 @@ export { default as LocationSearching } from './icons/LocationSearching';
 export { default as Lock } from './icons/Lock';
 export { default as LockOpen } from './icons/LockOpen';
 export { default as LockOutline } from './icons/LockOutline';
+export { default as Log } from './icons/Log';
 export { default as Looks } from './icons/Looks';
 export { default as Looks3 } from './icons/Looks3';
 export { default as Looks4 } from './icons/Looks4';
