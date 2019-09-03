@@ -1,0 +1,36 @@
+Table {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  tr {
+    border-bottom: 2px solid #eee;
+  }
+
+  th, td {
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 1rem 0;
+    font-size: 18px;
+
+    &:not(:first-child):not(:last-child) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  td:first-child {
+    width: 15%;
+  }
+
+  td:nth-child(2) {
+    width: 20%;
+    color: #c41d7f;
+  }
+
+  td:nth-child(4) {
+    width: 45%;
+  }
+}
