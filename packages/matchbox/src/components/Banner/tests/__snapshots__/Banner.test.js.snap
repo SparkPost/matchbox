@@ -212,6 +212,7 @@ exports[`Banner renders status 3`] = `
 >
   <Error
     className="Icon dangerIcon"
+    label="Error"
     size={30}
   />
   <div
