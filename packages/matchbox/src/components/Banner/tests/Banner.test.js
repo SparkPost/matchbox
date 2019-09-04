@@ -30,7 +30,7 @@ describe('Banner', () => {
     expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
   });
 
-  it('dismisses banner correctly upon clicking dismissin icon', () => {
+  it('dismisses banner correctly upon clicking dismiss icon', () => {
     const elem = `a.${styles.Dismiss}`;
     wrapper.find(elem).simulate('click');
     expect(props.onDismiss).toHaveBeenCalledTimes(1);
