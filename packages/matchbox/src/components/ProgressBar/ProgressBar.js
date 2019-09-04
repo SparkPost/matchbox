@@ -23,10 +23,20 @@ export const StyledProgressBarInner = styled(Box)`
 `;
 
 function ProgressBar(props) {
-  const { completed = 0, size, ...rest } = props;
+  const { completed = 0, label, size, valueText, ...rest } = props;
 
   return (
-    <StyledProgressBarOuter as="div" visualSize={size} {...rest}>
+    <StyledProgressBarOuter
+      as="div"
+      visualSize={size}
+      {...rest}
+      role="progressbar"
+      aria-label={label}
+      aria-valuenow={completed}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuetext={valueText}
+    >
       <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
     </StyledProgressBarOuter>
   );
@@ -41,6 +51,15 @@ ProgressBar.propTypes = {
     'Color is always blue for now. This may be updated in the future.',
   ),
   size: PropTypes.oneOf(['normal', 'small']),
+  /**
+   * Describes what the progressbar represents - content is visually hidden
+   */
+  label: PropTypes.string,
+
+  /**
+   * Used to describe the current status of the progress bar to screen reader only users if completion percentage is inadequete
+   */
+  valueText: PropTypes.string,
   ...createPropTypes(margin.propNames),
 };
 
