@@ -26,6 +26,7 @@ function Layout(props) {
             label
             path
             disabled
+            section
           }
         }
       }
