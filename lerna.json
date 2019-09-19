@@ -1,7 +1,8 @@
 {
   "lerna": "2.10.2",
   "packages": [
-    "packages/*"
+    "packages/matchbox-icons",
+    "packages/matchbox"
   ],
   "version": "independent",
   "command": {
