@@ -4,3 +4,4 @@
 - #237 - Add Log icon 
 - #236 - Resolve issue #231 by targeting specific CSS properties with transition-property
 - #226 - Resolve issue #214 to incorporate modal component keyboard tab trap
+- #250 - Resolve issue #220 by exporting the Error icon as ErrorIcon
