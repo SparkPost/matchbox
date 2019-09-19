@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "3.7.2",
+  "version": "3.8.0",
   "description": "A React UI component library",
   "main": "matchbox.js",
   "module": "matchbox.es.js",
@@ -22,7 +22,7 @@
   "sideEffects": false,
   "dependencies": {
     "@sparkpost/design-tokens": "0.0.4",
-    "@sparkpost/matchbox-icons": "^1.2.0",
+    "@sparkpost/matchbox-icons": "^1.2.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
