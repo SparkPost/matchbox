@@ -278,6 +278,7 @@ export { default as Email } from './icons/Email';
 export { default as EnhancedEncryption } from './icons/EnhancedEncryption';
 export { default as Equalizer } from './icons/Equalizer';
 export { default as Error } from './icons/Error';
+export { default as ErrorIcon } from './icons/ErrorIcon';
 export { default as ErrorOutline } from './icons/ErrorOutline';
 export { default as EuroSymbol } from './icons/EuroSymbol';
 export { default as Event } from './icons/Event';
