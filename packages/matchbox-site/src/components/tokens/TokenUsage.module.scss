@@ -3,15 +3,18 @@
 .TokenUsage {
   display: inline-block;
   padding: 2px 8px;
-  background: #eeeef5;
-  border-radius: 2px;
+  background: color(gray, 700);
+  border-radius: 1px;
+  transition: 0.1s;
 
   code {
     font-family: font-family(monospace);
-    font-size: 14px;
+    font-size: font-size(200);
+    color: color(gray, 200);
   }
 
   &:hover {
     cursor: pointer;
+    background: color(gray, 600);
   }
 }
