@@ -25,20 +25,22 @@ function TokenTable(props) {
   }
 
   return (
-    <>'     '<div className={styles.Header}>
-      <h4>Tokens</h4>
-      <div>
-        <select onChange={handleTypeSelect} value={usageType}>
-          <option value='scss'>Scss</option>
-          <option value='css'>CSS</option>
-          <option value='javascript'>Javascript</option>
-        </select>
-      </div>
-    </div>'     '<table className={styles.TokenTable}>
-      <tbody>
-        {props.tokens.map(renderTokenRow)}
-      </tbody>
-    </table>'   '</>
+    <div>
+      <div className={styles.Header}>
+        <h4>Tokens</h4>
+        <div>
+          <select onChange={handleTypeSelect} value={usageType}>
+            <option value='scss'>Scss</option>
+            <option value='css'>CSS</option>
+            <option value='javascript'>Javascript</option>
+          </select>
+        </div>
+      </div>'     '<table className={styles.TokenTable}>
+        <tbody>
+          {props.tokens.map(renderTokenRow)}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
