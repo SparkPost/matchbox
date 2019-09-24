@@ -125,8 +125,12 @@
   font-size: font-size(300);
   line-height: rem(22);
 
-  > * {
-    word-spacing: 3px;
+  // This margin is a little funky, however, appears to be the best route to take to add
+  // spacing between icons and other tag content. Ideally, if Tag instances do not have bare
+  // strings inside, then the sibling combinator could be used (i.e., `> * + svg { margin-left: 2px; }`),
+  // however, that's not possible as bare strings do not count as sibling elements.
+  > svg {
+    margin: 0 2px;
   }
 }
 
