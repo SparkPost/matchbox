@@ -35,7 +35,8 @@ function TokenTable(props) {
             <option value='javascript'>Javascript</option>
           </select>
         </div>
-      </div>'     '<table className={styles.TokenTable}>
+      </div>
+      <table className={styles.TokenTable}>
         <tbody>
           {props.tokens.map(renderTokenRow)}
         </tbody>
