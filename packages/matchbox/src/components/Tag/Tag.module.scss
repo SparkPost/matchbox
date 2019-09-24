@@ -114,7 +114,9 @@
 }
 
 .Content {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   vertical-align: middle;
   padding: rem(1) rem(7) rem(1);
   border-radius: border-radius(large);
@@ -122,6 +124,10 @@
 
   font-size: font-size(300);
   line-height: rem(22);
+
+  > * {
+    word-spacing: 3px;
+  }
 }
 
 .Close, a.Close {
