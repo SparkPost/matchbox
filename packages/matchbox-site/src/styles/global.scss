@@ -157,9 +157,11 @@ a:visited {
 main {
   a,
   a:visited {
-    color: color(blue, dark);
+    color: color(blue);
+    font-weight: 500;
+
     &:hover {
-      color: color(blue, dark);
+      color: color(blue);
       text-decoration: underline;
     }
   }
@@ -171,5 +173,11 @@ main {
 
   code {
     font-size: 14px;
+  }
+
+  small {
+    font-size: font-size(300);
+    line-height: line-height(300);
+    color: color(gray, 300);
   }
 }
