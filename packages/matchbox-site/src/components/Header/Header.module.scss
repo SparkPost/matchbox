@@ -1,3 +1,5 @@
+@import '~@sparkpost/design-tokens/dist/index.scss';
+
 .Header {
   display: flex;
   align-items: baseline;
@@ -8,11 +10,12 @@
 .Title {
   flex: 0 0 0;
   text-decoration: none;
-  color: #000;
+  color: color(gray, 100);
 }
 
 .TitleText {
   font-size: 24px;
+  margin: 0;
 }
 
 .NavWrapper {
