@@ -1,1 +1,18 @@
+import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import SpacingPreview from '../../components/SpacingPreview/SpacingPreview';
+
 # Spacing
+
+Spacing tokens make it easy to configure a component's padding, margin, or position. Consistent spacing promotes a visual balance that helps make UIs more digestible and scannable.
+
+---
+
+<SpacingPreview />
+
+
+---
+
+<TokenTable
+  columns={['friendly', 'value', 'pixel_value', 'usage']}
+  tokens={tokens.filter(({ category }) => category === 'spacing' )}
+/>
