@@ -1,12 +1,13 @@
 import React from 'react';
 import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
-import { TokenUsage } from '../';
 import _ from 'lodash';
 import styles from './TypographyExplorer.module.scss';
+import TokenTable from '../tokens/TokenTable';
 
-const SIZES = _.filter(tokens, (size) => size.category === 'font-size' && !size.name.includes('base')).reverse();
-
-const LINE_HEIGHTS = _.filter(tokens, (size) => size.category === 'line-height').reverse();
+// Omit base tokens because they are only used to indicate defaults in scss map formats
+const omitBaseTokens = _.filter(tokens, ({ name }) => !name.includes('base'));
+const SIZES = _.filter(omitBaseTokens, (size) => size.category === 'font-size' && !size.name.includes('base')).reverse();
+const LINE_HEIGHTS = _.filter(omitBaseTokens, (size) => size.category === 'line-height').reverse();
 
 const WEIGHTS = [
   { value: '300', name: 'Light' },
@@ -29,7 +30,7 @@ function Group(props) {
 }
 
 function TypographyExplorer() {
-  const [type, setType] = React.useState('scss');
+
   const [size, setSize] = React.useState('16px');
   const [lh, setLh] = React.useState('24px');
   const [weight, setWeight] = React.useState('400');
@@ -52,11 +53,13 @@ function TypographyExplorer() {
     setWeight(item.value);
   }
 
-  function handleTypeSelect(e) {
-    setType(e.target.value);
-  }
-
-  // TODO: Temporary styling & layout pending final designs
+  const tokensToRender = [
+    selectedSize, selectedHeight,
+    {
+      friendly: 'Font Weight',
+      value: weight
+    }
+  ];
 
   return (
     <div>
@@ -86,40 +89,10 @@ function TypographyExplorer() {
       </p>
 
       <hr/>
-
-      <h4>Tokens</h4>
-      <select onChange={handleTypeSelect} value={type} >
-        <option value='scss'>Scss</option>
-        <option value='css'>CSS</option>
-        <option value='javascript'>Javascript</option>
-      </select>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '16px 0', alignItems: 'center' }}>
-        <div>
-          Font Size
-        </div>
-        <div>
-          <TokenUsage usage={selectedSize[type]}/>
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '16px 0', alignItems: 'center' }}>
-        <div>
-          Line Height
-        </div>
-        <div>
-          <TokenUsage usage={selectedHeight[type]}/>
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          Font Weight
-        </div>
-        <div>
-          <TokenUsage usage={weight}/>
-        </div>
-      </div>
+      <TokenTable
+        columns={['friendly', 'value', 'usage']}
+        tokens={tokensToRender}
+      />
 
     </div>
   );

@@ -1,3 +1,5 @@
+@import '~@sparkpost/design-tokens/dist/index.scss';
+
 .List {
   display: flex;
   justify-content: flex-end;
@@ -13,6 +15,8 @@
   padding: 0.3rem 0;
 
   &.Selected {
+    color: color(gray, 100);
+
     &:after {
       content: '';
       display: block;
@@ -21,15 +25,16 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: #000;
+      background: color(gray, 100);
     }
   }
 }
 
-.Link {
+.Link, .Link:visited {
   font-size: 18px;
   text-decoration: none;
-  color: #000;
+  color: color(gray, 100);
+  font-weight: 500;
 
   &.Disabled {
     opacity: 0.4;
