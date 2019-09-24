@@ -1,0 +1,44 @@
+@import '~@sparkpost/design-tokens/dist/index.scss';
+
+.TokenTable {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 18px;
+
+  tr {
+    td {
+      padding: 0.5rem 0;
+      vertical-align: middle;
+      text-align: right;
+
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+.friendly {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.usage {
+  text-align: right;
+}
+
+.value, .pixel_value {
+  font-size: font-size(400);
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h4 {
+    margin: 0;
+  }
+}

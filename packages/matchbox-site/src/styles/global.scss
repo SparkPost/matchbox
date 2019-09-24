@@ -89,7 +89,7 @@ html {
 }
 
 body {
-  color: #000;
+  color: color(gray, 100);
 }
 
 h1,
@@ -101,32 +101,28 @@ h6 {
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
-  color: #000;
+  color: color(gray, 100);
 }
 
-h1 {
-  font-size: 48px;
+h1, h2 {
+  font-size: font-size(800);
+  line-height: line-height(800);
 }
 
-h2 {
-  font-size: 36px;
-}
-
-h3 {
-  font-size: 28px;
-}
-
-h4 {
-  font-size: 24px;
+h3, h4 {
+  font-size: font-size(600);
+  line-height: line-height(600);
 }
 
 h5,
 h6 {
-  font-size: 18px;
+  font-size: font-size(500);
+  line-height: line-height(500);
 }
 
 p {
-  font-size: 18px;
+  font-size: font-size(400);
+  line-height: line-height(400);
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -134,7 +130,8 @@ p {
 ul,
 ol,
 li {
-  font-size: 16px;
+  font-size: font-size(400);
+  line-height: line-height(400);
 }
 
 b,
@@ -145,30 +142,31 @@ strong {
 hr {
   border: none;
   height: 2px;
-  background: #eee;
-  margin: 3rem 0;
+  background: color(gray, 700);
+  margin: spacing(900) 0;
 }
 
 a,
 a:visited {
-  color: #000;
+  color: color(gray, 100);
   &:hover {
-    color: #000;
+    color: color(gray, 100);
   }
 }
 
 main {
   a,
   a:visited {
-    color: #0000ff;
+    color: color(blue, dark);
     &:hover {
-      color: #0000ff;
+      color: color(blue, dark);
       text-decoration: underline;
     }
   }
 
   p {
-    line-height: 1.3em;
+    font-size: font-size(400);
+    line-height: line-height(400);
   }
 
   code {

@@ -1,0 +1,25 @@
+@import '~@sparkpost/design-tokens/dist/index.scss';
+
+.SpacingPreview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Space {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > div {
+    background: color(blue);
+    height: spacing(900);
+    border-radius: 1px;
+  }
+
+  p {
+    margin: spacing(300) 0 0;
+    font-size: font-size(300);
+    color: color(gray, 300);
+    font-weight: 500;
+  }
+}
