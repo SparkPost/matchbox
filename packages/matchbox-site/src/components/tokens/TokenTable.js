@@ -3,7 +3,7 @@ import styles from './TokenTable.module.scss';
 import TokenUsage from './TokenUsage';
 
 function TokenTable(props) {
-  const [usageType, setType] = React.useState('scss');
+  const [usageType, setType] = React.useState('javascript');
 
   function handleTypeSelect(e) {
     setType(e.target.value);
@@ -30,9 +30,9 @@ function TokenTable(props) {
         <h4>Tokens</h4>
         <div>
           <select onChange={handleTypeSelect} value={usageType}>
+            <option value='javascript'>Javascript</option>
             <option value='scss'>Scss</option>
             <option value='css'>CSS</option>
-            <option value='javascript'>Javascript</option>
           </select>
         </div>
       </div>
