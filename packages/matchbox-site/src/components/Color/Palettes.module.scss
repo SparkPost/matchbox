@@ -1,0 +1,68 @@
+@import '~@sparkpost/design-tokens/dist/index.scss';
+
+.Palettes {
+
+}
+
+.Palette {
+  display: flex;
+  margin-bottom: spacing(800);
+}
+
+.Colors {
+  flex: 1 0 0;
+}
+
+.Color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  transition: 0.15s;
+
+  height: spacing(800);
+
+  color: color(gray, 100);
+  font-size: font-size(300);
+  font-weight: 500;
+  letter-spacing: 0.012em;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  &.dark {
+    color: color(white);
+  }
+
+  &:first-child  {
+    border-radius: 1px 1px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 1px 1px;
+  }
+
+  &.selected {
+    text-decoration: underline;
+  }
+}
+
+.Usage {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 0 0 spacing(800);
+
+  & > div {
+    display: flex;
+    margin-bottom: spacing();
+
+    & > * {
+      min-width: spacing(800);
+    }
+  }
+}
