@@ -104,6 +104,7 @@ class Select extends Component {
         {label && labelMarkup}
         <select
           className={inputClasses}
+          id={id}
           disabled={disabled}
           {...rest} >
           {optionMarkup}

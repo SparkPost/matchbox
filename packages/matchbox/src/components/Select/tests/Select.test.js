@@ -19,6 +19,7 @@ describe('Select', () => {
     { name: 'disabled', props: { disabled: true }},
     { name: 'required', props: { required: true, label: 'Select Label' }},
     { name: 'label', props: { label: 'Select Label' }},
+    { name: 'withId', props: { id: 'with-an-id' }},
     { name: 'helpText', props: { helpText: 'Select help text' }},
     { name: 'error', props: { label: 'An error occurred' }},
     { name: 'errorInLabel', props: { error: 'Error occurred', errorInLabel: true }},
@@ -48,5 +49,4 @@ describe('Select', () => {
     const options = wrapper.find('Option');
     options.forEach((option) => expect(option.dive()).toMatchSnapshot());
   });
-
 });

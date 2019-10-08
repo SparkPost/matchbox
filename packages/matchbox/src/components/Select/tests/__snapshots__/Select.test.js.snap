@@ -145,6 +145,25 @@ exports[`Select renders Select with options 1`] = `
 </div>
 `;
 
+exports[`Select renders Select withId 1`] = `
+<div
+  className="Select"
+>
+  <select
+    className="Input"
+    id="with-an-id"
+  >
+    <Option
+      key="0"
+      option="option 1"
+    />
+  </select>
+  <ArrowDropDown
+    className="Dropdown labelHidden"
+  />
+</div>
+`;
+
 exports[`Select should render Option correctly 1`] = `
 <option
   value="option 1"
