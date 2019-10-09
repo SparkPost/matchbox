@@ -10,10 +10,22 @@ const actionOverrides = { outline: true, size: 'small' };
 
 const IconSection = ({ status }) => {
   const icons = {
-    success: CheckCircle,
-    info: InfoOutline,
-    warning: ErrorIcon,
-    danger: ErrorIcon
+    success: {
+      iconName: CheckCircle,
+      iconLabel: 'Success'
+    },
+    info: {
+      iconName: InfoOutline,
+      iconLabel: 'Info'
+    },
+    warning: {
+      iconName: ErrorIcon,
+      iconLabel: 'Warning'
+    },
+    danger: {
+      iconName: ErrorIcon,
+      iconLabel: 'Error'
+    }
   };
 
   if (status === 'default' || !icons[status]) {
@@ -25,11 +37,12 @@ const IconSection = ({ status }) => {
     status && styles[`${status}Icon`]
   );
 
-  const Icon = icons[status];
+  const Icon = icons[status].iconName;
+  const iconLabel = icons[status].iconLabel;
 
   return (
     <div className={styles.IconWrapper}>
-      <Icon size={30} className={iconClasses} />
+      <Icon size={30} className={iconClasses} label={iconLabel}/>
       <div className={styles.IconBackdrop} />
     </div>
   );

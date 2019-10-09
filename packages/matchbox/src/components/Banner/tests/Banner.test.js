@@ -25,12 +25,22 @@ describe('Banner', () => {
   it('renders status', () => {
     wrapper.setProps({ status: 'success' });
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+
     wrapper.setProps({ status: 'danger' });
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+
+    wrapper.setProps({ status: 'warning' });
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+
+    wrapper.setProps({ status: 'info' });
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
   });
 
-  it('dismisses banner correctly upon clicking dismissin icon', () => {
+  it('dismisses banner correctly upon clicking dismiss icon', () => {
     const elem = `a.${styles.Dismiss}`;
     wrapper.find(elem).simulate('click');
     expect(props.onDismiss).toHaveBeenCalledTimes(1);
