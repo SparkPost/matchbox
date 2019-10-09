@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Close, Info, CheckCircle, Warning, Error as ErrorIcon } from '@sparkpost/matchbox-icons';
+import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Snackbar.module.scss';
