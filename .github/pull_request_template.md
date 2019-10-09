@@ -1,5 +1,4 @@
-### Give your PR a recognizable title
-For example: **FE-123: Ticket Title** or **Resolve Issue #123: Description**.
+Give your PR a recognizable title. For example: **FE-123: Ticket Title** or **Resolve Issue #123: Description**.
 
 ### What Changed
 What changes does this PR propose? 
