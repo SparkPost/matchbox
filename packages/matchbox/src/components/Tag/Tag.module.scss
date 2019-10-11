@@ -116,8 +116,6 @@
 .Content {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  vertical-align: middle;
   padding: rem(1) rem(7) rem(1);
   border-radius: border-radius(large);
   background: color(gray, 8);
@@ -136,16 +134,17 @@
 
 .Close, a.Close {
   display: inline-block;
-  vertical-align: middle;
   padding: 0 rem(6);
   border-radius: 0 border-radius(large) border-radius(large) 0;
   background: color(gray, 8);
-
   color: color(gray, 4);
   line-height: rem(24);
   transition: 0.15s;
+  transition: color 0.15s ease-in-out,
+              background 0.15s ease-in-out;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: color(gray, 1);
     background: color(gray, 7);
   }
