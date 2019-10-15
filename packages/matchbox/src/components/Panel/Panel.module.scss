@@ -58,8 +58,12 @@
   white-space: nowrap;
 }
 
-.SectionContent, .HeaderText {
+.SectionContent,
+.HeaderText {
   flex: 1 0 0;
+}
+
+.HeaderText {
   padding-right: spacing(small);
 }
 
