@@ -15,7 +15,7 @@ function ColorDescription(props) {
       <div className={styles.Description}>
         <div>{props.children}</div>
         {props.alternative && (
-          <div>Altenative: <Token name={props.alternative}/></div>
+          <div>Alternative: <Token name={props.alternative}/></div>
         )}
       </div>
     </div>
