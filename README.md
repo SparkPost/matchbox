@@ -6,7 +6,7 @@ Matchbox is an open source React component library, built for [SparkPost's UI](h
 
 #### Links:
 - [Component Demo](https://sparkpost.github.io/matchbox/)
-- [Sass Documentation](src/styles/README.md)
+- [Sass Documentation](packages/matchbox/src/styles/README.md)
 - [Unreleased Changes](unreleased.md)
 
 ---
