@@ -74,7 +74,7 @@ exports[`Modal should render contents when open 3`] = `
   tabIndex="-1"
 >
   <div
-    className="Content entered"
+    className="Content"
   >
     Content test
   </div>
