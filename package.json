@@ -38,6 +38,9 @@
     "react-focus-lock": "^2.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^3.4.3",
     "@storybook/addon-info": "^3.4.3",
     "@storybook/addon-links": "^3.4.3",
@@ -47,20 +50,20 @@
     "@storybook/storybook-deployer": "^2.3.0",
     "@testing-library/cypress": "^5.0.2",
     "autoprefixer": "^8.4.1",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-jest": "^22.4.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.1",
+    "babel-preset-react-app": "^9.0.2",
     "classnames": "^2.2.5",
     "coveralls": "^3.0.1",
     "css-loader": "^0.28.11",
     "cypress": "^3.8.0",
     "cypress-plugin-tab": "^1.0.1",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.10.0",
-    "enzyme-to-json": "^3.3.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-react-app": "^2.1.0",
@@ -75,8 +78,8 @@
     "http-server": "^0.11.1",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.3",
-    "jest-enzyme": "^6.0.0",
+    "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.1",
     "lerna": "^3.16.4",
     "lint-staged": "^7.1.0",
     "node-sass": "^4.11.0",
@@ -87,15 +90,5 @@
     "start-server-and-test": "^1.10.0",
     "style-loader": "^0.21.0",
     "webpack": "^3.12.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react",
-      "react-app"
-    ],
-    "plugins": [
-      "transform-class-properties"
-    ]
   }
 }
