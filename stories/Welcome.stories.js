@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryContainer from './storyHelpers/StoryContainer';
 
-export default storiesOf('Welcome', module)
+storiesOf('Welcome', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

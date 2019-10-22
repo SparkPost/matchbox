@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { Checkbox, UnstyledLink } from '@sparkpost/matchbox';
 
-export default storiesOf('Form|Checkbox', module)
+storiesOf('Form|Checkbox', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

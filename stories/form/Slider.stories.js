@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 import { Slider, TextField } from '@sparkpost/matchbox';
 
 
-export default storiesOf('Form|Slider', module)
+storiesOf('Form|Slider', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

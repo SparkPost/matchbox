@@ -36,7 +36,7 @@ class ModalDemo extends React.Component {
   }
 };
 
-export default storiesOf('Overlays|Modal', module)
+storiesOf('Overlays|Modal', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))

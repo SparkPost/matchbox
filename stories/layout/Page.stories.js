@@ -8,7 +8,7 @@ import { Page, Panel, Button, TextField } from '@sparkpost/matchbox';
 import { Save, ArrowDropDown, Search, Code } from '@sparkpost/matchbox-icons';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
 
-export default storiesOf('Layout|Page', module)
+storiesOf('Layout|Page', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
