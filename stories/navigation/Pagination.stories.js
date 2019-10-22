@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Pagination } from '@sparkpost/matchbox';
 
-export default storiesOf('Navigation|Pagination', module)
+storiesOf('Navigation|Pagination', module)
   .addDecorator((getStory) => (
     <StoryContainer>{getStory()}</StoryContainer>
   ))

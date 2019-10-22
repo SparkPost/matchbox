@@ -11,7 +11,7 @@ const primaryAction = {
   onClick: action('Learn More Clicked')
 };
 
-export default storiesOf('Feedback|Banner', module)
+storiesOf('Feedback|Banner', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))

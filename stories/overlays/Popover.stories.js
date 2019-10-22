@@ -45,7 +45,7 @@ class ControlledPopover extends React.Component {
   }
 }
 
-export default storiesOf('Overlays|Popover', module)
+storiesOf('Overlays|Popover', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
