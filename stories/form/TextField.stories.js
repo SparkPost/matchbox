@@ -6,7 +6,7 @@ import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { TextField, Button, Select, Tooltip } from '@sparkpost/matchbox';
 
-export default storiesOf('Form|TextField', module)
+storiesOf('Form|TextField', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

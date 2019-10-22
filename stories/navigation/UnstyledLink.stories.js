@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { UnstyledLink } from '@sparkpost/matchbox';
 
-export default storiesOf('Navigation|UnstyledLink', module)
+storiesOf('Navigation|UnstyledLink', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))

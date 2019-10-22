@@ -7,7 +7,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 import { Snackbar } from '@sparkpost/matchbox';
 
 
-export default storiesOf('Feedback|Snackbar', module)
+storiesOf('Feedback|Snackbar', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))

@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Button } from '@sparkpost/matchbox';
 
-export default storiesOf('Action|Button', module)
+storiesOf('Action|Button', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
