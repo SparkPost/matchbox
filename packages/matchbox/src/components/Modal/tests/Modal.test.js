@@ -36,7 +36,7 @@ describe('Modal', () => {
 
     expect(content).toMatchSnapshot();
 
-    const Children = shallow(content.props().children);
+    const Children = shallow(content.find('Transition').props().children());
 
     expect(Children).toMatchSnapshot();
   });
