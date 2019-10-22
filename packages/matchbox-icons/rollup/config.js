@@ -21,7 +21,7 @@ export const outputOptions = [
     file: pkg.main
   },
   {
-    format: 'es',
+    format: 'esm',
     file: pkg.module
   }
 ]
