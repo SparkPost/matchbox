@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { Radio, UnstyledLink } from '@sparkpost/matchbox';
 
-export default storiesOf('Form|Radio', module)
+storiesOf('Form|Radio', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
