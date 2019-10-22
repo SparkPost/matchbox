@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Toggle, Checkbox } from '@sparkpost/matchbox';
 
-export default storiesOf('Action|Toggle', module)
+storiesOf('Action|Toggle', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))
