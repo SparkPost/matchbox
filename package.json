@@ -51,7 +51,6 @@
     "@storybook/storybook-deployer": "^2.3.0",
     "@testing-library/cypress": "^5.0.2",
     "autoprefixer": "^8.4.1",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
