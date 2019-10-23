@@ -16,7 +16,7 @@ const options = [
 ];
 
 
-export default storiesOf('Form|Select', module)
+storiesOf('Form|Select', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

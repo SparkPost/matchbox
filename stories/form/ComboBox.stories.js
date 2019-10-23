@@ -121,7 +121,7 @@ function TypeaheadExample(props) {
 }
 
 //
-export default storiesOf('Form|ComboBox', module)
+storiesOf('Form|ComboBox', module)
   .addDecorator((getStory) => (
     <StoryContainer bg='white'>{ getStory() }</StoryContainer>
   ))

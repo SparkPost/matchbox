@@ -6,7 +6,7 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { ProgressBar } from '@sparkpost/matchbox';
 
-export default storiesOf('Feedback|ProgressBar', module)
+storiesOf('Feedback|ProgressBar', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
   ))

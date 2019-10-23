@@ -16,5 +16,4 @@ setDefaults({
   maxPropsIntoLine: 1
 });
 
-const req = require.context('../stories', true, /\.stories\.js$/)
-storybook.configure(() => req.keys().forEach((filename) => req(filename)), module);
+storybook.configure(require.context('../stories', true, /\.stories\.js$/), module);

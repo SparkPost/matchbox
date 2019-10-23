@@ -1,30 +1,28 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 
-module.exports = (baseConfig, env, defaults) => {
-  defaults.module.rules.push({
+module.exports = async ({ config, mode }) => {
+  config.module.rules.push({
     test: /\.scss$/,
     use: [
-      { loader: require.resolve('style-loader'), },
+      'style-loader',
       {
-        loader: require.resolve('css-loader'),
+        loader: 'css-loader',
         options: {
           modules: true,
-          importLoaders: 2,
-          sourceMap: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]'
-        },
+          importLoaders: 2
+        }
       },
-      { loader: require.resolve('postcss-loader'), options: { plugins: () => [autoprefixer()]} },
       {
-        loader: require.resolve('sass-loader'),
-        options: { includePaths: ['node_modules']}
-      }
+        loader: 'postcss-loader',
+        options: { plugins: () => [autoprefixer()]}
+      },
+      'sass-loader'
     ],
-    include: path.resolve(__dirname, '..')
+    include: path.resolve(__dirname, '../'),
   });
 
-  defaults.resolve = {
+  config.resolve = {
     alias: {
       '@sparkpost/matchbox-icons': path.resolve(__dirname, '../packages/matchbox-icons/src'),
       '@sparkpost/matchbox': path.resolve(__dirname, '../packages/matchbox/src')
@@ -32,5 +30,5 @@ module.exports = (baseConfig, env, defaults) => {
     modules: [path.join(__dirname, '../node_modules')]
   }
 
-  return defaults;
+  return config;
 };
