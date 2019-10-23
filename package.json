@@ -38,9 +38,9 @@
     "react-focus-lock": "^2.0.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-info": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
