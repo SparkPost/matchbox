@@ -2,7 +2,8 @@
 
 .Snackbar {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 
   border-radius: border-radius(large);
   box-shadow: shadow(deep);
@@ -38,11 +39,16 @@
   }
 }
 
+.IconWrapper {
+  margin: 0 spacing(small) 0 spacing();
+  transform: translateY(-2px); // Used to help vertically center icon to offset content line height
+}
+
 .Content {
   display: inline-block;
   vertical-align: top;
   margin-right: -4px;
-  padding: rem(12) spacing();
+  padding: rem(12) spacing(small);
   min-width: rem(200);
   font-weight: 500;
   font-size: font-size(500);
