@@ -1,5 +1,6 @@
 export * from './ActionList';
 export * from './Banner';
+export * from './Box';
 export * from './Button';
 export * from './Checkbox';
 export * from './CodeBlock';
@@ -26,6 +27,7 @@ export * from './Tabs';
 export * from './Tag';
 export * from './TextField';
 export * from './Toggle';
+export * from './ThemeProvider';
 export * from './Tooltip';
 export * from './UnstyledLink';
 export * from './WindowEvent';

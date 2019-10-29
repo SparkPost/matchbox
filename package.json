@@ -29,13 +29,16 @@
     ]
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "0.0.4",
+    "@sparkpost/design-tokens": "^1.0.0-beta.10",
+    "@styled-system/prop-types": "^5.1.2",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-focus-lock": "^2.0.5"
+    "react-focus-lock": "^2.0.5",
+    "styled-components": "^4.4.0",
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -82,6 +85,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.1",
+    "jest-styled-components": "^6.3.3",
     "lerna": "^3.16.4",
     "lint-staged": "^7.1.0",
     "node-sass": "^4.11.0",
