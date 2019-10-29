@@ -18,7 +18,10 @@ export const inputOptions = {
     'react-transition-group',
     'react-focus-lock',
     '@sparkpost/matchbox-icons',
-    '@sparkpost/design-tokens'
+    '@sparkpost/design-tokens',
+    '@styled-system/prop-types',
+    "styled-components",
+    "styled-system"
   ]
 }
 
