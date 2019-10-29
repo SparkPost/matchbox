@@ -1,9 +1,14 @@
+/**
+ * Includes global styles and normalize
+ */
+
+@import '~@sparkpost/design-tokens/tokens.scss';
 @import 'vendor/normalize';
 
 html {
   position: relative;
   box-sizing: border-box;
-  font-size: $base-font-size + 0px;
+  font-size: $DEFAULT_FONT_SIZE;
 }
 
 body {
@@ -11,80 +16,105 @@ body {
   margin: 0;
   padding: 0;
 
-  color: color(gray, 2);
+  color: color(gray, 900);
   font-family: font-family();
-  @include text-style-body;
+  font-size: font-size(300);
+  line-height: line-height(300);
+  font-weight: 400;
 }
 
 * {
   box-sizing: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol {
-  margin: 0;
-  margin-bottom: spacing(base);
-  font-size: 1em;
-
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
 }
 
-h1, h2, {
-  color: color(gray, 1);
-  @include text-style-heading;
+h1 {
+  font-size: font-size(700);
+  line-height: line-height(700);
 }
 
-h3, h4, h5 {
-  color: color(gray, 1);
-  @include text-style-small-heading;
+h2 {
+  font-size: font-size(600);
+  line-height: line-height(600);
+}
+
+h3 {
+  font-size: font-size(500);
+  line-height: line-height(500);
+}
+
+h4 {
+  font-size: font-size(400);
+  line-height: line-height(400);
+}
+
+h5 {
+  font-size: font-size(300);
+  line-height: line-height(300);
 }
 
 h6 {
-  color: color(gray, 1);
-  @include text-style-smaller-heading;
+  font-size: font-size(200);
+  line-height: line-height(200);
 }
 
-p {
-  @include text-style-body;
+p, ul, ol {
+  font-size: font-size(300);
+  line-height: line-height(300);
 }
 
-strong, b, th {
+small {
+  font-size: font-size(200);
+  line-height: line-height(200);
+}
+
+strong, b {
   font-weight: 600;
 }
 
 ::selection {
-  color: #111;
-  background: #D6EDFF;
+  color: color(gray, 1000);
+  background: color(blue, 300);
   text-shadow: none;
 }
 
 code, pre {
   font-family: font-family(monospace);
+  font-size: font-size(100);
+  line-height: line-height(100);
 }
 
 ul,ol,dd,
 figure,
 pre,table,fieldset,hr {
   margin-top: 0;
-  margin-bottom: spacing();
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, pre,
+table, fieldset {
+  margin: 0;
+}
+
+hr {
+  margin: spacing(500) 0;
+  background: color(gray, 400);
+  border: none;
+  height: 1px;
 }
 
 a, a:visited {
-  color: color(blue);
-  text-decoration: none;
+  color: color(blue, 700);
 
   &:hover, &:active, &:focus {
-    color: color(blue, dark);
+    color: color(blue, 800);
     cursor: pointer;
   }
 }
 
-small {
-  font-size: font-size(300);
-  color: color(gray, 3);
-}
-
 ul, ol {
-  padding-left: spacing(larger);
+  padding-left: spacing(500);
 }
