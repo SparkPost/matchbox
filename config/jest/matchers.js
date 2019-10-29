@@ -1,5 +1,14 @@
 export function toHaveAttributeValue(received, attr, expected) {
-  const recievedValue = received.getDOMNode().getAttribute(attr);
+  let recievedValue;
+
+  if (received.getDOMNode) {
+    // For Enzyme's shallow and mount methods
+    recievedValue = received.getDOMNode().getAttribute(attr);
+  } else {
+    // For Cheerio wrappers from Enzyme's render method
+    recievedValue = received.attr(attr);
+  }
+
   let pass;
 
   if (attr === 'style') {
