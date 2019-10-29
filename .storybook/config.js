@@ -16,4 +16,4 @@ setDefaults({
   maxPropsIntoLine: 1
 });
 
-storybook.configure(require.context('../stories', true, /\.stories\.js$/), module);
+storybook.configure(require.context('../stories-4.0', true, /\.stories\.js$/), module);
