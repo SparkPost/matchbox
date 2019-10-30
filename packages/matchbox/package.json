@@ -46,6 +46,7 @@
     "cssnano": "^3.10.0",
     "fs-extra": "^3.0.1",
     "incstr": "^1.2.3",
+    "jest-styled-components": "^6.3.3",
     "node-sass": "^4.11.0",
     "postcss-modules": "^1.4.1",
     "postcss-modules-scope": "^1.0.2",

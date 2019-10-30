@@ -80,6 +80,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.1",
+    "jest-styled-components": "^6.3.3",
     "lerna": "^3.16.4",
     "lint-staged": "^7.1.0",
     "node-sass": "^4.11.0",
