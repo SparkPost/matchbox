@@ -1,7 +1,11 @@
 /* eslint-disable max-lines */
 import tokens from '@sparkpost/design-tokens/dist/index.common.js';
 
+// Style prop reference:
+// https://styled-system.com/table
+
 const theme = {
+
   // Example: <Box bg="blue.100" color={gray.1000} />
   colors: {
     gray: {
@@ -107,7 +111,7 @@ const theme = {
     }
   },
 
-  // Example: <Box marinBottom="400" padding={400} />
+  // Example: <Box marginBottom="400" padding={400} />
   space: {
     0: tokens.spacing_0,
     100: tokens.spacing_100,
@@ -194,7 +198,15 @@ const theme = {
     normal: tokens.fontWeight_normal,
     medium: tokens.fontWeight_medium,
     semibold: tokens.fontWeight_semibold
-  }
+  },
+
+  breakpoints: [
+    tokens.mediaQuery_xs,
+    tokens.mediaQuery_sm,
+    tokens.mediaQuery_md,
+    tokens.mediaQuery_lg,
+    tokens.mediaQuery_xl
+  ]
 };
 
 export default theme;
