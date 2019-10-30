@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import tokens from '@sparkpost/design-tokens/dist/index.common.js';
+import tokens from '@sparkpost/design-tokens';
 
 // Style prop reference:
 // https://styled-system.com/table

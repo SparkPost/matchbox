@@ -1,11 +1,9 @@
-$base-font-size: 18;
-
 // Returns rem value from a pixel value
 // @param {Number} $n - Pixel value to be converted
 // @return {Number} Rem value
 
 @function rem($n) {
-  $result: 0rem + $n / $base-font-size;
+  $result: 0rem + $n / $DEFAULT_FONT_SIZE;
   @return $result;
 }
 
@@ -14,7 +12,7 @@ $base-font-size: 18;
 // @return {Number} em value
 
 @function em($n) {
-  $result: 0em + $n / $base-font-size;
+  $result: 0em + $n / $DEFAULT_FONT_SIZE;
   @return $result;
 }
 
