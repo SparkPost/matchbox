@@ -1,5 +1,7 @@
 /**
  * Includes Sass mixins and helpers functions
+ * Pre-Hibana components, stories, and tests still rely on these utilities
+ * Do not remove maps until all components have been converted to use tokens
  */
 
 @import 'config/accessibility';
