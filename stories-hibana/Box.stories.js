@@ -9,7 +9,7 @@ addDecorator(withInfo({ propTables: [Box] }));
 addDecorator((storyFn) => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
-  title: 'Testing',
+  title: 'Box',
 };
 
 export const StyledBox = () => (
