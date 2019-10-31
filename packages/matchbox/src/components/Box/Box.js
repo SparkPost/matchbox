@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { border, color, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system';
 import propTypes from '@styled-system/prop-types';
+import PropTypes from 'prop-types';
 
 const system = compose(
   border,
@@ -38,7 +39,9 @@ Box.propTypes = {
   ...propTypes.position,
   ...propTypes.shadow,
   ...propTypes.space,
-  ...propTypes.typography
+  ...propTypes.typography,
+  truncate: PropTypes.bool
 };
 
+Box.displayName = 'Box';
 export default Box;

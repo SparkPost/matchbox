@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
-import '../../styles/index.scss';
+import '../../styles/global.scss';
 
 /**
  * Provides context for styled-system,

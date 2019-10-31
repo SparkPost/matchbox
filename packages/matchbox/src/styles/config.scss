@@ -1,3 +1,8 @@
+/**
+ * Includes Sass mixins and helpers functions
+ */
+
+@import 'config/accessibility';
 @import 'config/utilities';
 @import 'config/colors';
 @import 'config/border-radius';
@@ -5,6 +10,4 @@
 @import 'config/spacing';
 @import 'config/typography';
 @import 'config/breakpoints';
-@import 'config/accessibility';
-@import 'config/utilities';
 @import 'config/z-index';
