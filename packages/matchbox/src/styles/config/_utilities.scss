@@ -1,23 +1,5 @@
 @import '~@sparkpost/design-tokens/tokens.scss';
 
-// Returns rem value from a pixel value
-// @param {Number} $n - Pixel value to be converted
-// @return {Number} Rem value
-
-@function rem($n) {
-  $result: 0rem + $n / 16;
-  @return $result;
-}
-
-// Returns em value from a pixel value
-// @param {Number} $n - Pixel value to be converted
-// @return {Number} em value
-
-@function em($n) {
-  $result: 0em + $n / 16;
-  @return $result;
-}
-
 @mixin clearfix {
   &:before,
   &:after {
