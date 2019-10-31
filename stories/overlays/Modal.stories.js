@@ -53,12 +53,8 @@ storiesOf('Overlays|Modal', module)
     )
   })
 
-  .add('Toggle Example', withInfo({
-    source: false,
-    propTables: [Modal],
-    propTablesExclude: [ModalDemo]
-  })(() => {
+  .add('Toggle Example', () => {
     return (
       <ModalDemo />
     )
-  }));
+  });
