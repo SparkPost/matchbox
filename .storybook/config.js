@@ -17,4 +17,4 @@ setDefaults({
   header: false
 });
 
-storybook.configure(require.context('../stories-hibana', true, /\.stories\.js$/), module);
+storybook.configure(require.context('../stories', true, /\.stories\.js$/), module);

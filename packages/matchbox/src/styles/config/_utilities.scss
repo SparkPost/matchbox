@@ -5,7 +5,7 @@
 // @return {Number} Rem value
 
 @function rem($n) {
-  $result: 0rem + $n / $DEFAULT_FONT_SIZE;
+  $result: 0rem + $n / 16;
   @return $result;
 }
 
@@ -14,7 +14,7 @@
 // @return {Number} em value
 
 @function em($n) {
-  $result: 0em + $n / $DEFAULT_FONT_SIZE;
+  $result: 0em + $n / 16;
   @return $result;
 }
 
