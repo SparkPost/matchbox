@@ -1,35 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Box it should render correctly 1`] = `
-.c0 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: #f5f8fa;
-  background-color: #e8f3ff;
-  border-radius: 9999em;
-  border: 1px solid #c5ced6;
-  font-size: 1rem;
-  line-height: 1.25rem;
-  font-family: 'SFMono-Regular',Monaco,Consolas,'Lucida Console',monospace;
-}
-
-@media screen and (min-width:450px) {
-  .c0 {
-    background-color: #78b6ff;
-  }
-}
-
-@media screen and (min-width:720px) {
-  .c0 {
-    background-color: #0060cc;
-  }
-}
-
 <div
-  class="c0"
-  color="gray.100"
-  font-family="monospace"
-  font-size="200"
+  class=""
 >
   Just a Box
 </div>
