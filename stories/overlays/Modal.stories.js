@@ -41,11 +41,7 @@ storiesOf('Overlays|Modal', module)
     <StoryContainer>{ getStory() }</StoryContainer>
   ))
 
-  .add('Open', withInfo({
-    source: false,
-    propTables: [Modal],
-    propTablesExclude: [ModalDemo]
-  })(() => {
+  .add('Open', () => {
     return (
       <Modal open>
         <Panel title="Delete Template" sectioned accent>
@@ -55,10 +51,14 @@ storiesOf('Overlays|Modal', module)
         </Panel>
       </Modal>
     )
-  }))
+  })
 
-  .add('Toggle Example', () => {
+  .add('Toggle Example', withInfo({
+    source: false,
+    propTables: [Modal],
+    propTablesExclude: [ModalDemo]
+  })(() => {
     return (
       <ModalDemo />
     )
-  });
+  }));
