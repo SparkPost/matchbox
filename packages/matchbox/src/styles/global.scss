@@ -34,37 +34,37 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: font-size(700);
-  line-height: font-size(700);
+  line-height: line-height(700);
 }
 
 h2 {
   font-size: font-size(600);
-  line-height: font-size(600);
+  line-height: line-height(600);
 }
 
 h3 {
   font-size: font-size(500);
-  line-height: font-size(500);
+  line-height: line-height(500);
 }
 
 h4 {
   font-size: font-size(400);
-  line-height: font-size(400);
+  line-height: line-height(400);
 }
 
 h5 {
   font-size: font-size(300);
-  line-height: font-size(300);
+  line-height: line-height(300);
 }
 
 h6 {
   font-size: font-size(200);
-  line-height: font-size(200);
+  line-height: line-height(200);
 }
 
 p, ul, ol {
   font-size: font-size(300);
-  line-height: font-size(300);
+  line-height: line-height(300);
 }
 
 small {
