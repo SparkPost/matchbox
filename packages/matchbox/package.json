@@ -25,8 +25,8 @@
     "@sparkpost/matchbox-icons": "^1.2.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-focus-lock": "^2.0.5",
     "react-transition-group": "^2.3.0"
   },
