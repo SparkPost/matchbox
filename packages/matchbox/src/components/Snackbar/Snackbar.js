@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
-import { UnstyledLink } from '../';
+import { UnstyledLink } from '../UnstyledLink';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Snackbar.module.scss';
