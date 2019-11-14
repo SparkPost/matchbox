@@ -13,10 +13,9 @@ exports[`Tag renders with close button 1`] = `
   </div>
   <UnstyledLink
     className="Close"
+    component="button"
     onClick={[MockFunction]}
     onKeyDown={[Function]}
-    role="button"
-    to="javascript:void(0)"
   >
     <Close
       size={16}

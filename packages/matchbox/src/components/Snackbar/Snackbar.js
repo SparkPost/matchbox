@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
+import { UnstyledLink } from '../';
 import { onKey } from '../../helpers/keyEvents';
 
 import styles from './Snackbar.module.scss';
@@ -70,15 +71,14 @@ class Snackbar extends Component {
 
         <div className={styles.Content} style={{ maxWidth }}>{children}</div>
 
-        <a
+        <UnstyledLink
+          component='button'
           className={styles.Dismiss}
           onClick={onDismiss}
           onKeyDown={this.handleKeydown}
-          role="button"
-          href="javascript:void(0);"
         >
           <Close size={21} className={styles.DismissIcon} />
-        </a>
+        </UnstyledLink>
       </div>
     );
   }

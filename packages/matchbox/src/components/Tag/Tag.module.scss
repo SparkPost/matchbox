@@ -135,6 +135,7 @@
 .Close, a.Close {
   display: inline-block;
   padding: 0 rem(6);
+  border: none;
   border-radius: 0 border-radius(large) border-radius(large) 0;
   background: color(gray, 8);
   color: color(gray, 4);

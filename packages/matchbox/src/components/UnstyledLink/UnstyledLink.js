@@ -9,7 +9,8 @@ class UnstyledLink extends Component {
     external: PropTypes.bool,
     component: PropTypes.oneOfType([
       PropTypes.func,
-      PropTypes.element
+      PropTypes.element,
+      PropTypes.string
     ]),
     children: PropTypes.node
   }

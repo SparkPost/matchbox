@@ -50,11 +50,10 @@ class Tag extends Component {
 
     const closeMarkup = onRemove
       ? <UnstyledLink
+        component='button'
         className={styles.Close}
         onClick={onRemove}
-        onKeyDown={this.handleKeydown}
-        to="javascript:void(0)"
-        role="button">
+        onKeyDown={this.handleKeydown}>
         <Close size={16} />
 
         <ScreenReaderOnly>Close</ScreenReaderOnly>

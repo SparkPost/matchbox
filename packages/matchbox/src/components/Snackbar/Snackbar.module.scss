@@ -68,9 +68,9 @@
   margin-right: -4px;
   vertical-align: top;
   padding: rem(12) spacing();
-  border-bottom: none;
   user-select: none;
-
+  background: transparent;
+  border: none;
   color: color(gray, 10);
   font-size: font-size(200);
 

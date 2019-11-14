@@ -22,18 +22,17 @@ exports[`Snackbar renders Snackbar 1`] = `
   >
     Snacksssss
   </div>
-  <a
+  <UnstyledLink
     className="Dismiss"
-    href="javascript:void(0);"
+    component="button"
     onClick={[MockFunction]}
     onKeyDown={[Function]}
-    role="button"
   >
     <Close
       className="DismissIcon"
       size={21}
     />
-  </a>
+  </UnstyledLink>
 </div>
 `;
 
@@ -59,17 +58,16 @@ exports[`Snackbar renders Snackbar with different props 1`] = `
   >
     Snacksssss
   </div>
-  <a
+  <UnstyledLink
     className="Dismiss"
-    href="javascript:void(0);"
+    component="button"
     onClick={[MockFunction]}
     onKeyDown={[Function]}
-    role="button"
   >
     <Close
       className="DismissIcon"
       size={21}
     />
-  </a>
+  </UnstyledLink>
 </div>
 `;
