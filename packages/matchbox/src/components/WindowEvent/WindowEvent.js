@@ -24,7 +24,7 @@ class WindowEvent extends Component {
     this.addEvent();
   }
 
-  componentWillUpdate() {
+  UNSAFE_componentWillUpdate() {
     this.removeEvent();
   }
 

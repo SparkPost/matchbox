@@ -38,7 +38,7 @@ class TooltipOverlay extends Component {
     this.handleMeasurement();
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     this.handleMeasurement();
   }
 
