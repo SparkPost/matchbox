@@ -4,7 +4,13 @@ import { render } from 'enzyme';
 import theme from '../packages/matchbox/src/components/ThemeProvider/theme';
 
 jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
-  "mock-theme-key": "mock-theme-value"
+  "mock-theme-key": "mock-theme-value",
+  fontSizes: {
+    400: "1rem"
+  },
+  lineHeights: {
+    400: "1.5rem"
+  },
 }));
 
 // jest-styled-components@6.3.3 has some issues:

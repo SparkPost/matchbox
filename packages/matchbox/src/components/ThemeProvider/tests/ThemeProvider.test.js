@@ -7,9 +7,8 @@ describe('ThemeProvider', () => {
   const subject = (props) => shallow(<ThemeProvider {...props} />);
 
   it('should use a provided theme', () => {
-    expect(subject().prop('theme')).toEqual({
-      'mock-theme-key': 'mock-theme-value' // Theme mocked in global helpers.js
-    });
+    // Theme mocked in global helpers.js
+    expect(subject().prop('theme')).toMatchSnapshot();
   });
 
   it('should be able to modify the theme', () => {
