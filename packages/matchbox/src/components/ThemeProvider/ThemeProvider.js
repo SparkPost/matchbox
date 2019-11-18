@@ -3,8 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 
 /**
- * Provides context for styled-system,
- * and imports Matchbox's global reset CSS sheet
+ * Provides context for styled-system
  *
  * - https://www.styled-components.com/docs/advanced#theming
  * - https://styled-system.com/theme-specification
