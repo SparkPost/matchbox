@@ -29,21 +29,19 @@ export const Truncated = withInfo(infoOptions)(() => (
 export const Cropped = withInfo(infoOptions)(() => (
   <Box display="flex" justifyContent="space-around" m="600" alignItems="center">
     <Box border='400' padding="600">
-        <Text crop fontSize="700" lineHeight='700'>Cropped</Text>
-        <Text crop fontSize="700" lineHeight='700'>Cropped</Text>
-        <Text crop fontSize="700" lineHeight='700'>Cropped</Text>
-        <Text crop fontSize="700" lineHeight='700'>Cropped</Text>
+      <Text crop fontSize="700" lineHeight='700'>CROPPED</Text>
+      <Text crop fontSize="700" lineHeight='700'>CROPPED</Text>
+      <Text crop fontSize="700" lineHeight='700'>CROPPED</Text>
+      <Text crop fontSize="700" lineHeight='700'>CROPPED</Text>
     </Box>
     <Box border='400' padding="600">
-        <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
-        <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
-        <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
-        <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
+      <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
+      <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
+      <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
+      <Box fontSize="700" lineHeight='700'>Not Cropped</Box>
     </Box>
     <Box border='400' padding="200">
-      <Box>
-        <Text crop fontSize="500" lineHeight='500'>Cropped</Text>
-      </Box>
+      <Text crop fontSize="500" lineHeight='500'>Cropped</Text>
     </Box>
     <Box border='400' padding="200">
       <Box fontSize="500" lineHeight='500'>Not Cropped</Box>

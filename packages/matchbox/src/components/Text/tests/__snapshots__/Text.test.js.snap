@@ -4,9 +4,9 @@ exports[`Text cropping it should crop when provided a size and line height 1`] =
 .c0 {
   font-size: 1rem;
   line-height: 1.5rem;
-  -webkit-transform: translate(0,6px);
-  -ms-transform: translate(0,6px);
-  transform: translate(0,6px);
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
 }
 
 .c0::before {
@@ -14,7 +14,7 @@ exports[`Text cropping it should crop when provided a size and line height 1`] =
   display: block;
   height: 0;
   width: 0;
-  margin-top: -12px;
+  margin-top: -10px;
 }
 
 <p

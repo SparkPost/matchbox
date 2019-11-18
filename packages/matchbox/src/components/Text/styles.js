@@ -14,11 +14,12 @@ export const truncate = (props) => {
 /**
  * Crops the text elements line height.
  * The element's vertical bounds will begin & end at the rendered font instead of line height.
- * Warning: This is an experimental prop
+ * This is an experimental prop
+ * Calibre naturally has more spacing above than below, cropping is not perfect.
  */
 export const crop = (props) => {
-  const capHeight = 0.65; // Cap height optimized for Calibre
-  const baseline = 4; // Calculated height will always be divisible by this baseline
+  const capHeight = 0.69; // Cap height optimized for Calibre
+  const baseline = 2; // Calculated height will always be divisible by this baseline
 
   // Requires lineHeight and fontSize to reference a token
   if (
@@ -32,18 +33,19 @@ export const crop = (props) => {
   const lineHeight = _.find(tokens, ({ name }) => name === `line-height-${props.lineHeight}`).pixel_value.replace('px', '');
   const fontSize = _.find(tokens, ({ name }) => name === `font-size-${props.fontSize}`).pixel_value.replace('px', '');
 
-  const topSpace = Number(lineHeight) - capHeight * Number(fontSize);
-  const heightCorrection = topSpace - (topSpace % baseline);
+  const desiredHeight = capHeight * Number(fontSize);
+  const spaceToRemove = (Number(lineHeight) - desiredHeight);
+  const spaceRoundedToBaseline = spaceToRemove - (spaceToRemove % baseline);
 
   return `
-    transform: translate(0, ${heightCorrection / 2}px);
+    transform: translateY(${spaceRoundedToBaseline / 2}px);
 
     &::before {
       content: '';
       display: block;
       height: 0;
       width: 0;
-      margin-top: -${heightCorrection}px;
+      margin-top: -${spaceRoundedToBaseline}px;
     }
   `;
 };
