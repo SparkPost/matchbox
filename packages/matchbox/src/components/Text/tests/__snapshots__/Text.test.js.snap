@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text cropping it should crop when provided a size and line height 1`] = `
+.c0 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+.c0::before {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  margin-top: -10px;
+}
+
+<p
+  class="c0"
+  font-size="400"
+>
+  Text
+</p>
+`;
+
+exports[`Text cropping it should not crop with an unsupported line height token 1`] = `
+.c0 {
+  font-size: 1rem;
+  line-height: 10px;
+}
+
+<p
+  class="c0"
+  font-size="400"
+>
+  Text
+</p>
+`;
+
+exports[`Text cropping it should not crop with an unsupported size token 1`] = `
+.c0 {
+  font-size: 10px;
+  line-height: 1.5rem;
+}
+
+<p
+  class="c0"
+  font-size="10px"
+>
+  Text
+</p>
+`;
+
+exports[`Text it should render correctly 1`] = `
+<p
+  class=""
+  id="text-id"
+>
+  Text
+</p>
+`;
+
+exports[`Text it should truncate 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<p
+  class="c0"
+>
+  Text
+</p>
+`;
