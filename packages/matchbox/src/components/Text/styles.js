@@ -1,4 +1,4 @@
-import tokens from '@sparkpost/design-tokens/meta';
+import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 
 export const truncate = (props) => {
@@ -24,14 +24,14 @@ export const crop = (props) => {
   // Requires lineHeight and fontSize to reference a token
   if (
     !props.crop || !props.lineHeight || !props.fontSize ||
-    !_.find(tokens, ({ name }) => name === `line-height-${props.lineHeight}`) ||
-    !_.find(tokens, ({ name }) => name === `font-size-${props.fontSize}`)
+    !_.find(meta, ({ name }) => name === `line-height-${props.lineHeight}`) ||
+    !_.find(meta, ({ name }) => name === `font-size-${props.fontSize}`)
   ) {
     return;
   }
 
-  const lineHeight = _.find(tokens, ({ name }) => name === `line-height-${props.lineHeight}`).pixel_value.replace('px', '');
-  const fontSize = _.find(tokens, ({ name }) => name === `font-size-${props.fontSize}`).pixel_value.replace('px', '');
+  const lineHeight = _.find(meta, ({ name }) => name === `line-height-${props.lineHeight}`).pixel_value.replace('px', '');
+  const fontSize = _.find(meta, ({ name }) => name === `font-size-${props.fontSize}`).pixel_value.replace('px', '');
 
   const desiredHeight = capHeight * Number(fontSize);
   const spaceToRemove = (Number(lineHeight) - desiredHeight);

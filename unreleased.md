@@ -6,3 +6,4 @@
 - #267 - Updates to Babel 7, Rollup 1, Storybook 5
 - #270 - Refreshes global CSS, Adds Box component, and Installs styled-system
 - #272 - Adds primitive Text component
+- #277 - Removes usage of default token variants
