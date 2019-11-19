@@ -1,0 +1,28 @@
+global:
+  category: line-height
+  type: line-height
+props:
+  - name: line-height-800
+    value: 4.25rem
+    comment: 68px
+  - name: line-height-700
+    value: 3.5rem
+    comment: 56px
+  - name: line-height-600
+    value: 2.5rem
+    comment: 40px
+  - name: line-height-500
+    value: 2rem
+    comment: 32px
+  - name: line-height-400
+    value: 1.750rem
+    comment: 28px
+  - name: line-height-300
+    value: 1.5rem
+    comment: 24px
+  - name: line-height-200
+    value: 1.25rem
+    comment: 20px
+  - name: line-height-100
+    value: 1rem
+    comment: 16px

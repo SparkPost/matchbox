@@ -1,0 +1,34 @@
+$line-height-map: (
+  line-height-800: (
+    4.25rem
+  ),
+  line-height-700: (
+    3.5rem
+  ),
+  line-height-600: (
+    2.5rem
+  ),
+  line-height-500: (
+    2rem
+  ),
+  line-height-400: (
+    1.75rem
+  ),
+  line-height-300: (
+    1.5rem
+  ),
+  line-height-200: (
+    1.25rem
+  ),
+  line-height-100: (
+    1rem
+  )
+);
+
+@function line-height($variant) {
+  @if map-has-key($line-height-map, "line-height-#{$variant}") {
+    @return map-get($line-height-map, "line-height-#{$variant}");
+  }
+
+  @error 'line-height #{$variant} not found.';
+}

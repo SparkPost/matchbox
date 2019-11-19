@@ -1,0 +1,31 @@
+global:
+  category: font-size
+  type: font-size
+aliases:
+  DEFAULT_BASE:
+    value: "16"
+props:
+  - name: font-size-800
+    value: 3.5rem
+    comment: 56px
+  - name: font-size-700
+    value: 2.75rem
+    comment: 44px
+  - name: font-size-600
+    value: 2rem
+    comment: 32px
+  - name: font-size-500
+    value: 1.5rem
+    comment: 24px
+  - name: font-size-400
+    value: 1.25rem
+    comment: 20px
+  - name: font-size-300
+    value: 1.125rem
+    comment: 18px
+  - name: font-size-200
+    value: 1rem
+    comment: 16px
+  - name: font-size-100
+    value: 0.875rem
+    comment: 14px

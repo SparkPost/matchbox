@@ -1,0 +1,31 @@
+global:
+  category: spacing
+  type: spacing
+props:
+  - name: spacing-800
+    value: 4rem
+    comment: 64px
+  - name: spacing-700
+    value: 3rem
+    comment: 48px
+  - name: spacing-600
+    value: 2rem
+    comment: 32px
+  - name: spacing-500
+    value: 1.5rem
+    comment: 24px
+  - name: spacing-400
+    value: 1rem
+    comment: 16px
+  - name: spacing-300
+    value: 0.75rem
+    comment: 12px
+  - name: spacing-200
+    value: 0.5rem
+    comment: 8px
+  - name: spacing-100
+    value: 0.25rem
+    comment: 4px
+  - name: spacing-0
+    value: 0rem
+    comment: 0px

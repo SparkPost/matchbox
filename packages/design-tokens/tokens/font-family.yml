@@ -1,0 +1,8 @@
+global:
+  category: font-family
+  type: font-family
+props:
+  - name: font-family-sans
+    value: "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif"
+  - name: font-family-monospace
+    value: "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace"
