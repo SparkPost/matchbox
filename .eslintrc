@@ -64,7 +64,7 @@
   ],
   "overrides": [
     {
-      "files": ["*.test.js"],
+      "files": ["*.test.js", "**/dist/*.js"],
       "rules": {
         "max-lines": "off"
       }

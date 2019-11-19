@@ -1,0 +1,116 @@
+$color-map: (
+  brand: (
+    orange: #fa6423,
+    gray: #55555a,
+    blue: #37aadc
+  ),
+  yellow: (
+    1000: #3d3121,
+    900: #523e21,
+    800: #614d27,
+    700: #876a2f,
+    600: #b58c12,
+    500: #e3ad0b,
+    400: #ffda00,
+    300: #ffe75c,
+    200: #fff4b5,
+    100: #fffadb
+  ),
+  green: (
+    1000: #233b33,
+    900: #1b5441,
+    800: #067852,
+    700: #009f6a,
+    600: #28bd8b,
+    500: #52d9ac,
+    400: #8debcb,
+    300: #b5f5e0,
+    200: #d6fff1,
+    100: #e8fff7
+  ),
+  teal: (
+    1000: #223a3b,
+    900: #274c4d,
+    800: #226363,
+    700: #199091,
+    600: #13bebf,
+    500: #37e4e6,
+    400: #6ef4f5,
+    300: #96feff,
+    200: #ccffff,
+    100: #e3ffff
+  ),
+  blue: (
+    1000: #203752,
+    900: #1a497d,
+    800: #0060cc,
+    700: #0578ff,
+    600: #429bff,
+    500: #78b6ff,
+    400: #abd2ff,
+    300: #cce3ff,
+    200: #e8f3ff,
+    100: #f2f8ff
+  ),
+  purple: (
+    1000: #352e4a,
+    900: #4c2e87,
+    800: #7122e3,
+    700: #8c40ff,
+    600: #a469ff,
+    500: #bd91ff,
+    400: #d7bdff,
+    300: #e5d4ff,
+    200: #f3ebff,
+    100: #f9f5ff
+  ),
+  magenta: (
+    1000: #522338,
+    900: #782449,
+    800: #992659,
+    700: #d1347a,
+    600: #f0549a,
+    500: #ff7db7,
+    400: #ffb0d3,
+    300: #ffcce3,
+    200: #ffe8f2,
+    100: #fff2f8
+  ),
+  red: (
+    1000: #5c2121,
+    900: #80252a,
+    800: #a12b2b,
+    700: #d9363e,
+    600: #ff5760,
+    500: #ff858b,
+    400: #ffb5b9,
+    300: #ffcfd1,
+    200: #ffebec,
+    100: #fff2f3
+  ),
+  gray: (
+    1000: #2c353d,
+    900: #39444d,
+    800: #46525c,
+    700: #626f7a,
+    600: #818e9a,
+    500: #a2adb8,
+    400: #c5ced6,
+    300: #d9e0e6,
+    200: #ebf0f5,
+    100: #f5f8fa
+  ),
+  white: (
+    base: #ffffff
+  )
+);
+
+@function color($parent, $variant: base) {
+  @if map-has-key($color-map, $parent) {
+    $parent-map: map-get($color-map, $parent);
+    @if map-has-key($parent-map, $variant) {
+      @return map-get($parent-map, $variant);
+    }
+  }
+  @error 'color '#{$parent} - #{$variant}' not found.';
+}
