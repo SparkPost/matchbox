@@ -1,0 +1,48 @@
+$font-size-map: (
+  font-size-800: (
+    3.5rem
+  ),
+  font-size-700: (
+    2.75rem
+  ),
+  font-size-600: (
+    2rem
+  ),
+  font-size-500: (
+    1.5rem
+  ),
+  font-size-400: (
+    1.25rem
+  ),
+  font-size-300: (
+    1.125rem
+  ),
+  font-size-200: (
+    1rem
+  ),
+  font-size-100: (
+    0.875rem
+  )
+);
+
+$DEFAULT_FONT_SIZE: 16px;
+$DEFAULT_FONT_SIZE_UNITLESS: 16;
+
+@function rem($n) {
+  $result: 0rem + $n / $DEFAULT_FONT_SIZE_UNITLESS;
+  @return $result;
+}
+
+@function em($n) {
+  $result: 0em + $n / $DEFAULT_FONT_SIZE_UNITLESS;
+  @return $result;
+}
+
+@function font-size($variant) {
+  @if map-has-key($font-size-map, "font-size-#{$variant}") {
+    $result: map-get($font-size-map, "font-size-#{$variant}");
+    @return $result;
+  }
+
+  @error 'font-size #{$variant} not found.';
+}

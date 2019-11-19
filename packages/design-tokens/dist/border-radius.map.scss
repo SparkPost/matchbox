@@ -1,0 +1,25 @@
+$border-radius-map: (
+  border-radius-0: (
+    0
+  ),
+  border-radius-100: (
+    1px
+  ),
+  border-radius-200: (
+    2px
+  ),
+  border-radius-pill: (
+    9999em
+  ),
+  border-radius-circle: (
+    50%
+  )
+);
+
+@function border-radius($variant) {
+  @if map-has-key($border-radius-map, "border-radius-#{$variant}") {
+    @return map-get($border-radius-map, "border-radius-#{$variant}");
+  }
+
+  @error 'border-radius #{$variant} not found.';
+}
