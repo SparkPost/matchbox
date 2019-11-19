@@ -2,10 +2,12 @@ import React from 'react';
 import Text from '../Text';
 import 'jest-styled-components';
 
-jest.mock('@sparkpost/design-tokens/meta', () => ([
-  { name: 'font-size-400', pixel_value: '18px' },
-  { name: 'line-height-400', pixel_value: '24px' }
-]));
+jest.mock('@sparkpost/design-tokens', () => ({
+  meta: [
+    { name: 'font-size-400', pixel_value: '18px' },
+    { name: 'line-height-400', pixel_value: '24px' }
+  ]
+}));
 
 describe('Text', () => {
   it('it should render correctly', () => {
