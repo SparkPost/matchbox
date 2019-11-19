@@ -18,7 +18,7 @@
     "build": "npm-run-all build:**",
     "build:gulp": "gulp",
     "build:scss": "node scripts/scss.js",
-    "build:format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --config ./.prettierrc",
+    "build:format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
     "clean": "rimraf ./dist",
     "start": "npm run build && gulp serve"
   },
