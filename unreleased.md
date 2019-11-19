@@ -9,3 +9,4 @@
 - #270 - Refreshes global CSS, Adds Box component, and Installs styled-system
 - #272 - Adds primitive Text component
 - #277 - Removes usage of default token variants
+- #278 - Adds @sparkpost/design-tokens to the Matchbox monorepo

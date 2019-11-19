@@ -1,0 +1,25 @@
+$media-query-map: (
+  media-query-xs: (
+    450px
+  ),
+  media-query-sm: (
+    720px
+  ),
+  media-query-md: (
+    960px
+  ),
+  media-query-lg: (
+    1200px
+  ),
+  media-query-xl: (
+    1470px
+  )
+);
+
+@function media-query($variant) {
+  @if map-has-key($media-query-map, "media-query-#{$variant}") {
+    @return map-get($media-query-map, "media-query-#{$variant}");
+  }
+
+  @error 'media-query #{$variant} not found.';
+}
