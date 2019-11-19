@@ -20,8 +20,9 @@ export const inputOptions = {
     '@sparkpost/matchbox-icons',
     '@sparkpost/design-tokens',
     '@styled-system/prop-types',
-    "styled-components",
-    "styled-system"
+    'styled-components',
+    'styled-system',
+    'lodash'
   ]
 }
 

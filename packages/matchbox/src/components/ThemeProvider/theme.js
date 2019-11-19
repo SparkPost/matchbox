@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import tokens from '@sparkpost/design-tokens';
+import { tokens } from '@sparkpost/design-tokens';
 
 // Style prop reference:
 // https://styled-system.com/table
@@ -167,7 +167,7 @@ const theme = {
   //   fontWeight="medium"
   // />
   fonts: {
-    sans: tokens.fontFamily,
+    sans: tokens.fontFamily_sans,
     monospace: tokens.fontFamily_monospace
   },
 
