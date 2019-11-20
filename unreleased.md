@@ -8,4 +8,4 @@
 - #272 - Adds primitive Text component
 - #277 - Removes usage of default token variants
 - #278 - Adds @sparkpost/design-tokens to the Matchbox monorepo
-- #278 - Adds a custom deprecate prop type
+- #280 - Adds a custom deprecate prop type
