@@ -6,6 +6,12 @@ import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { UnstyledLink } from '@sparkpost/matchbox';
 
+class DemoWrapper extends React.Component {
+  render() {
+    return <a>{this.props.children}</a>;
+  }
+}
+
 storiesOf('Navigation|UnstyledLink', module)
   .addDecorator((getStory) => (
     <StoryContainer>{ getStory() }</StoryContainer>
@@ -17,4 +23,12 @@ storiesOf('Navigation|UnstyledLink', module)
 
   .add('with an external link', withInfo()(() => (
     <UnstyledLink to='https://google.com' external>Google</UnstyledLink>
+  )))
+  
+  .add('with wrapper components', withInfo()(() => (
+    <>
+      <UnstyledLink component='button'>Any valid HTML tag</UnstyledLink>
+      <UnstyledLink component={({ children }) => <a>{children}</a>}>A Function</UnstyledLink>
+      <UnstyledLink component={DemoWrapper}>A Component</UnstyledLink>
+    </>
   )));

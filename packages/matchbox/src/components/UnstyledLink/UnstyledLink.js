@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { deprecate } from '../../helpers/propTypes';
 
 class UnstyledLink extends Component {
   static displayName = 'UnstyledLink';
@@ -7,10 +8,8 @@ class UnstyledLink extends Component {
   static propTypes = {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     external: PropTypes.bool,
-    component: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
+    component: PropTypes.elementType,
+    Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
     children: PropTypes.node
   }
 

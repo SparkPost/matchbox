@@ -19,6 +19,7 @@
         "skipBlankLines": true
       }
     ],
+    "max-params": ["error", 4],
     "object-curly-spacing": [
       "error",
       "always",
