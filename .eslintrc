@@ -46,11 +46,7 @@
     "plugin:jest/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "lodash",
-    "jest",
-    "prettier"
-  ],
+  "plugins": ["lodash", "jest", "prettier"],
   "overrides": [
     {
       "files": ["*.test.js", "**/dist/*.js"],
