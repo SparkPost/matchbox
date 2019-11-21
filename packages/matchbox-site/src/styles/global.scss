@@ -83,13 +83,13 @@
 } */
 
 html {
-  font-family: font-family(base);
+  font-family: font-family(sans);
   font-size: 18px;
   line-height: line-height(400);
 }
 
 body {
-  color: color(gray, 100);
+  color: color(gray, 900);
 }
 
 h1,
@@ -101,7 +101,7 @@ h6 {
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
-  color: color(gray, 100);
+  color: color(gray, 900);
 }
 
 h1, h2 {
@@ -142,26 +142,26 @@ strong {
 hr {
   border: none;
   height: 2px;
-  background: color(gray, 700);
-  margin: spacing(900) 0;
+  background: color(gray, 200);
+  margin: spacing(800) 0;
 }
 
 a,
 a:visited {
-  color: color(gray, 100);
+  color: color(gray, 900);
   &:hover {
-    color: color(gray, 100);
+    color: color(gray, 900);
   }
 }
 
 main {
   a,
   a:visited {
-    color: color(blue);
+    color: color(blue, 700);
     font-weight: 500;
 
     &:hover {
-      color: color(blue);
+      color: color(blue, 700);
       text-decoration: underline;
     }
   }

@@ -1,9 +1,9 @@
-@import '~@sparkpost/design-tokens/dist/index.scss';
+@import '~@sparkpost/design-tokens/tokens.scss';
 
 .SpacingPreview {
   display: flex;
   justify-content: space-between;
-  margin-bottom: spacing();
+  margin-bottom: spacing(400);
 }
 
 .Space {
@@ -12,8 +12,8 @@
   align-items: center;
 
   & > div {
-    background: color(blue);
-    height: spacing(900);
+    background: color(blue, 700);
+    height: spacing(800);
     border-radius: 1px;
   }
 

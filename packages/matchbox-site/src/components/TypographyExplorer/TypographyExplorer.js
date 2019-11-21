@@ -1,11 +1,11 @@
 import React from 'react';
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import styles from './TypographyExplorer.module.scss';
 import TokenTable from '../tokens/TokenTable';
 
 // Omit base tokens because they are only used to indicate defaults in scss map formats
-const omitBaseTokens = _.filter(tokens, ({ name }) => !name.includes('base'));
+const omitBaseTokens = _.filter(meta, ({ name }) => !name.includes('base'));
 const SIZES = _.filter(omitBaseTokens, (size) => size.category === 'font-size' && !size.name.includes('base')).reverse();
 const LINE_HEIGHTS = _.filter(omitBaseTokens, (size) => size.category === 'line-height').reverse();
 

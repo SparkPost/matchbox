@@ -1,5 +1,5 @@
 import React from 'react';
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import { Tooltip } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import copy from 'copy-to-clipboard';
@@ -8,7 +8,7 @@ import styles from './Token.module.scss';
 function Token(props) {
   const { name } = props;
   const [clicked, setClicked] = React.useState(false);
-  const token = _.find(tokens, ['name', name]);
+  const token = _.find(meta, ['name', name]);
 
   if (!token) {
     return <span className={styles.Token}>Token Not Found</span>;

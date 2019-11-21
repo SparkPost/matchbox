@@ -1,4 +1,4 @@
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import SpacingPreview from '../../components/SpacingPreview/SpacingPreview';
 
 # Space
@@ -17,7 +17,7 @@ Spacing variants use the same naming convention as font weight, like [typography
 
 <TokenTable
   columns={['friendly', 'value', 'pixel_value', 'usage']}
-  tokens={tokens.filter(({ category }) => category === 'spacing' )}
+  tokens={meta.filter(({ category }) => category === 'spacing' )}
 />
 
 ---

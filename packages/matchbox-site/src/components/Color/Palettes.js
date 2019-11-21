@@ -1,12 +1,12 @@
 import React from 'react';
 import TokenUsage from '../tokens/TokenUsage';
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import color from 'color';
 import classnames from 'classnames';
 import styles from './Palettes.module.scss';
 
-const colors = tokens.filter(({ type }) => type === 'color');
+const colors = meta.filter(({ type }) => type === 'color');
 
 function Palette(props) {
   const [selected, setSelected] = React.useState(props.colors[0]);
