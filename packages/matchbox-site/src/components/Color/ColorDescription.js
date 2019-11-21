@@ -1,11 +1,11 @@
 import React from 'react';
 import Token from '../tokens/Token';
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import styles from './ColorDescription.module.scss';
 
 function ColorDescription(props) {
-  const color = _.find(tokens, ['name', props.name]);
+  const color = _.find(meta, ['name', props.name]);
 
   return (
     <div className={styles.Wrapper}>

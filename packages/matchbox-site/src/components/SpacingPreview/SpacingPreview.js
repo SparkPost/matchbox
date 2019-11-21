@@ -1,9 +1,9 @@
 import React from 'react';
-import tokens from '@sparkpost/design-tokens/dist/index.meta.json';
+import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import styles from './SpacingPreview.module.scss';
 
-const spacingScale = _.filter(tokens, ({ name, value, category }) => !name.includes('base') && category === 'spacing' && value !== '0rem').reverse();
+const spacingScale = _.filter(meta, ({ name, value, category }) => !name.includes('base') && category === 'spacing' && value !== '0rem').reverse();
 
 function SpacingPreview() {
   return (
