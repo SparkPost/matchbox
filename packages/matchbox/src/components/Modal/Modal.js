@@ -72,7 +72,7 @@ class Modal extends Component {
               <WindowEvent event='keydown' handler={this.handleKeyDown} />
               <WindowEvent event='click' handler={this.handleOutsideClick} />
               {showCloseButton && (
-                <Button className={styles.CloseButton} flat onClick={onClose} data-test='modal-close'>
+                <Button className={styles.CloseButton} flat onClick={onClose} data-id='modal-close'>
                   Close <Close />
                 </Button>
               )}

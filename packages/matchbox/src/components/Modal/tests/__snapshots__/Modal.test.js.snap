@@ -70,7 +70,7 @@ exports[`Modal should render contents when open 2`] = `
 exports[`Modal should render contents when open 3`] = `
 <div
   className="ContentWrapper"
-  data-test="modal-content-wrapper"
+  data-id="modal-content-wrapper"
   tabIndex="-1"
 >
   <div
@@ -150,7 +150,7 @@ exports[`Modal should render modal with close button 1`] = `
         />
         <Button
           className="CloseButton"
-          data-test="modal-close"
+          data-id="modal-close"
           flat={true}
           onClick={[MockFunction]}
           size="default"

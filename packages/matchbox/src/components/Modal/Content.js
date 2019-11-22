@@ -47,7 +47,7 @@ class Content extends Component {
             const classes = classnames(styles.Content, state && styles[state]);
 
             return (
-              <div className={styles.ContentWrapper} ref={this.contentWrapperRef} tabIndex="-1" data-test="modal-content-wrapper">
+              <div className={styles.ContentWrapper} ref={this.contentWrapperRef} tabIndex="-1" data-id="modal-content-wrapper">
                 <div className={classes} ref={contentRef}>
                   {children}
                 </div>
