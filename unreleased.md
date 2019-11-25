@@ -1,3 +1,3 @@
 ### Unreleased Changes
 
-- PR# - PR Title
+- #284 - Fix vertical alignment of tag close button
