@@ -27,7 +27,7 @@
 		"gatsby-transformer-react-docgen": "^1.0.17",
 		"install": "^0.11.0",
 		"loader-utils": "^1.1.0",
-		"lodash": "^4.17.10",
+		"lodash": "^4.17.13",
 		"npm": "^6.4.1",
 		"prettier": "^1.12.0",
 		"prop-types": "^15.6.2",
