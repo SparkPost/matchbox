@@ -1,8 +1,9 @@
 @import '../../styles/config';
 
 .Tag {
-  display: inline-block;
+  display: inline-flex;
   white-space: nowrap;
+  align-items: center;
 }
 
 .hasRemove {
