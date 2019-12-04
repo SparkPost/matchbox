@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
-import { Toggle, Checkbox } from '@sparkpost/matchbox';
+import { Toggle } from '@sparkpost/matchbox';
 
 export default storiesOf('Action|Toggle', module)
   .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
+    <StoryContainer bg='white'>{getStory()}</StoryContainer>
   ))
 
   .add('basic toggle', withInfo()(() => (
