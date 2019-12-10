@@ -58,7 +58,7 @@ function Slider(props) {
     }
 
     return Object.keys(ticks).reduce((acc, number) => {
-      const absoluteProportion = (Number(number) + Math.abs(min)) / Math.abs(min - max);
+      const absoluteProportion = (Number(number) - min) / Math.abs(min - max);
       return {
         ...acc,
         [number]: {
