@@ -186,6 +186,7 @@ function Slider(props) {
       />
       <div
         id={id}
+        aria-controls={props['aria-controls']}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={sliderValue}
