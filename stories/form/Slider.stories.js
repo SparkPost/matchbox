@@ -14,7 +14,11 @@ export default storiesOf('Form|Slider', module)
 
   .add('basic slider', withInfo({})(() => {
     return (
-      <Slider defaultValue={50} />
+      <div>
+        <Slider min={100000} max={1000000}/>
+        <Slider min={-100} max={-50}/>
+        <Slider min={10} max={100}/>
+      </div>
     )
   }))
 
