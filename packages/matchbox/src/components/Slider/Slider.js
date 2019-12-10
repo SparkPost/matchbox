@@ -42,7 +42,7 @@ function Slider(props) {
   // Updates slider location when value changes
   React.useEffect(() => {
     if (rect.width) {
-      const absoluteProportion = (sliderValue + Math.abs(min)) / Math.abs(min - max);
+      const absoluteProportion = (sliderValue - min) / Math.abs(min - max);
       setSliderLocation(lerp(0, rect.width, absoluteProportion));
       if (onChange) {
         onChange(sliderValue);
