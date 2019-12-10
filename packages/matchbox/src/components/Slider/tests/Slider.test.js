@@ -48,6 +48,13 @@ describe('Slider component', () => {
     expect(onChange).toHaveBeenCalledWith(50);
   });
 
+  it('should handle a provided value with a min and max', () => {
+    const slider = subject({ value: 1000, onChange, min: 1000, max: 10000 });
+    expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '0px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '0px' });
+    expect(slider.find('.Handle')).toHaveAttributeValue('aria-valuenow', '1000');
+  });
+
   it('should handle a mouse down', () => {
     const slider = subject({ value: 50, onChange });
     slider.find('.Slider').simulate('mouseDown', {
