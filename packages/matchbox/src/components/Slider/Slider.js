@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 250] */
+/* eslint max-lines: ["error", 260] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -242,7 +242,11 @@ Slider.propTypes = {
   /**
    * A value to programatically control the slider
    */
-  value: PropTypes.number
+  value: PropTypes.number,
+  /**
+   * Describes a side-effect relationship with another DOM element
+   */
+  'aria-controls': PropTypes.string
 };
 
 export default Slider;
