@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 250] */
+/* eslint max-lines: ["error", 260] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -42,7 +42,7 @@ function Slider(props) {
   // Updates slider location when value changes
   React.useEffect(() => {
     if (rect.width) {
-      const absoluteProportion = (sliderValue + Math.abs(min)) / Math.abs(min - max);
+      const absoluteProportion = (sliderValue - min) / Math.abs(min - max);
       setSliderLocation(lerp(0, rect.width, absoluteProportion));
       if (onChange) {
         onChange(sliderValue);
@@ -58,7 +58,7 @@ function Slider(props) {
     }
 
     return Object.keys(ticks).reduce((acc, number) => {
-      const absoluteProportion = (Number(number) + Math.abs(min)) / Math.abs(min - max);
+      const absoluteProportion = (Number(number) - min) / Math.abs(min - max);
       return {
         ...acc,
         [number]: {
@@ -186,6 +186,7 @@ function Slider(props) {
       />
       <div
         id={id}
+        aria-controls={props['aria-controls']}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={sliderValue}
@@ -241,7 +242,11 @@ Slider.propTypes = {
   /**
    * A value to programatically control the slider
    */
-  value: PropTypes.number
+  value: PropTypes.number,
+  /**
+   * Describes a side-effect relationship with another DOM element
+   */
+  'aria-controls': PropTypes.string
 };
 
 export default Slider;

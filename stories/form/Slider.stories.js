@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Slider, TextField } from '@sparkpost/matchbox';
@@ -14,7 +13,11 @@ export default storiesOf('Form|Slider', module)
 
   .add('basic slider', withInfo({})(() => {
     return (
-      <Slider defaultValue={50} />
+      <div>
+        <Slider aria-controls='test-id' min={100000} max={1000000}/>
+        <Slider min={-100} max={-50}/>
+        <Slider min={10} max={100}/>
+      </div>
     )
   }))
 
