@@ -6,20 +6,20 @@ describe('The Slider component', () => {
   beforeEach(() => {
     // Setting viewport dimensions to avoid side effects
     cy.viewport(1000, 660);
-
-    // Need to wait for the slider's ref to mount and calculate dimensions
-    // TODO: Do not calculate handle & track position until ref is available
-    cy.wait(20);
   });
 
   describe('when enabled', () => {
     beforeEach(() => {
-        cy.visit('/iframe.html?selectedKind=Form%7CSlider&selectedStory=basic%20slider');
+      cy.visit('/iframe.html?selectedKind=Form%7CSlider&selectedStory=basic%20slider');
     });
 
     it('should update the sliders value when clicking on the track', () => {
-      cy.get('[data-id="slider-wrapper"]').first().trigger('mousedown', { button: 0, pageX: 200});
-      cy.get('[data-id="slider-wrapper"]').first().trigger('mouseup');
+      // Wait until slider has fully rendered with dimensions
+      cy.waitUntil(() => cy.get('[data-id="slider-test"]').then(el => {
+        return el[0].style.left === '470px';
+      }));
+      cy.get('[data-id="slider-wrapper"]').trigger('mousedown', { button: 0, pageX: 200 });
+      cy.get('[data-id="slider-wrapper"]').trigger('mouseup');
       cy.get('[data-id="slider-test"]').should('have.attr', 'aria-valuenow', '109')
     });
   

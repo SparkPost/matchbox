@@ -13,17 +13,13 @@ export default storiesOf('Form|Slider', module)
 
   .add('basic slider', withInfo({})(() => {
     return (
-      <div>
-        <Slider
-          aria-controls='test-id'
-          data-id='slider-test'
-          defaultValue={125}      
-          min={100}
-          max={150}
-        />
-        <Slider min={-100} max={-50}/>
-        <Slider min={10} max={100}/>
-      </div>
+      <Slider
+        aria-controls='test-id'
+        data-id='slider-test'
+        defaultValue={125}      
+        min={100}
+        max={150}
+      />
     )
   }))
 
