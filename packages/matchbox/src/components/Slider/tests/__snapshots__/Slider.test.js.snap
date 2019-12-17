@@ -9,6 +9,7 @@ exports[`Slider component should render default state correctly 1`] = `
 >
   <div
     className="Slider"
+    data-id="slider-wrapper"
     onMouseDown={[Function]}
     onTouchStart={[Function]}
   >

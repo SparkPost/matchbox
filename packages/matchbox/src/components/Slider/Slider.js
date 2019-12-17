@@ -12,7 +12,7 @@ function Slider(props) {
   const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, ticks, value } = props;
 
   const windowSize = useWindowSize(50);
-  const [sliderValue, setSliderValue] = React.useState(value || defaultValue);
+  const [sliderValue, setSliderValue] = React.useState(value || defaultValue || min);
   const [sliderLocation, setSliderLocation] = React.useState(0);
   const [rect, setRect] = React.useState({});
   const [moving, setMoving] = React.useState();
@@ -174,6 +174,7 @@ function Slider(props) {
   return (
     <div
       className={sliderClasses}
+      data-id='slider-wrapper'
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
       ref={sliderRef}
@@ -192,6 +193,7 @@ function Slider(props) {
         aria-valuenow={sliderValue}
         aria-disabled={disabled}
         className={styles.Handle}
+        data-id={props['data-id']}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={disabled ? noop : handleKeyDown}
@@ -246,7 +248,11 @@ Slider.propTypes = {
   /**
    * Describes a side-effect relationship with another DOM element
    */
-  'aria-controls': PropTypes.string
+  'aria-controls': PropTypes.string,
+  /**
+   * Identifier passed to the handle for testing or tracking purposes
+   */
+  'data-id': PropTypes.string
 };
 
 export default Slider;
