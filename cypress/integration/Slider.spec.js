@@ -16,8 +16,8 @@ describe('The Slider component', () => {
     it('should update the sliders value when clicking on the track', () => {
       // Wait until slider has fully rendered with dimensions
       cy.waitUntil(() => cy.get('[data-id="slider-test"]').then(el => {
-        return el[0].style.left === '470px';
-      }), { timeout: 8000 });
+        return el[0].attributes['aria-valuenow'].value === '125';
+      }), { timeout: 10000 });
       cy.get('[data-id="slider-wrapper"]').trigger('mousedown', { button: 0, pageX: 200 });
       cy.get('[data-id="slider-wrapper"]').trigger('mouseup');
       cy.get('[data-id="slider-test"]').should('have.attr', 'aria-valuenow', '109')
