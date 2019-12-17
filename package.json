@@ -57,7 +57,6 @@
     "css-loader": "^0.28.11",
     "cypress": "^3.4.1",
     "cypress-plugin-tab": "^1.0.1",
-    "cypress-wait-until": "^1.6.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.3",
