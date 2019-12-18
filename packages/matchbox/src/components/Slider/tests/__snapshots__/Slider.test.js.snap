@@ -2,7 +2,6 @@
 
 exports[`Slider component should render default state correctly 1`] = `
 <Slider
-  defaultValue={0}
   max={100}
   min={0}
   precision={0}

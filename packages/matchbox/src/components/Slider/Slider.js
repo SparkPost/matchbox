@@ -12,7 +12,7 @@ function Slider(props) {
   const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, ticks, value } = props;
 
   const windowSize = useWindowSize(50);
-  const [sliderValue, setSliderValue] = React.useState(value || defaultValue || min);
+  const [sliderValue, setSliderValue] = React.useState(value || defaultValue != null ? defaultValue : min);
   const [sliderLocation, setSliderLocation] = React.useState(0);
   const [rect, setRect] = React.useState({});
   const [moving, setMoving] = React.useState();
@@ -206,7 +206,6 @@ function Slider(props) {
 }
 
 Slider.defaultProps = {
-  defaultValue: 0,
   min: 0,
   max: 100,
   precision: 0

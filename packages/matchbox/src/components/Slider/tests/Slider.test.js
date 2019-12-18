@@ -35,7 +35,7 @@ describe('Slider component', () => {
     expect(slider.find('.Handle')).toHaveAttributeValue('id', 'test-id');
   });
 
-  it('should use min value as a default', () => {
+  it('should use min value as a default if defaultValue is not set', () => {
     const slider = subject({ min: 50 });
     expect(slider.find('.Handle')).toHaveAttributeValue('aria-valuenow', '50');
   });
