@@ -33,7 +33,11 @@ const Content = ({
     <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: 0 }}>
       {(state) => (
         <div className={wrapperClasses} ref={popoverRef}>
-          <div className={classnames(popoverClasses, state && styles[state])} {...rest}>
+          <div
+            className={classnames(popoverClasses, state && styles[state])}
+            data-id='popover-content'
+            {...rest}
+          >
             <span className={styles.Tip} style={tipStyle} />
             <div className={styles.Content}>
               {children}

@@ -38,7 +38,7 @@ class ControlledPopover extends React.Component {
           open={this.state.open}
           trigger={<Button onClick={this.open}>Open Me</Button>}>
             <p>I am controlled</p>
-          <Button onClick={this.close}>Close me</Button>
+          <Button data-id='close-button' onClick={this.close}>Close me</Button>
         </Popover>
       </React.Fragment>
     )
