@@ -47,4 +47,4 @@ describe('The Expandable Component', () => {
     cy.get('[data-id="expandable-toggle"]').click();
     cy.get('[data-id="expandable-toggle"]').should('have.attr', 'aria-expanded', 'false');
   });
-})
+});
