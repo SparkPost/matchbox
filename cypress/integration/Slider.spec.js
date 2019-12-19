@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-/* eslint-disable no-undef */
 describe('The Slider component', () => {
 
   beforeEach(() => {
@@ -13,6 +12,8 @@ describe('The Slider component', () => {
       cy.visit('/iframe.html?selectedKind=Form%7CSlider&selectedStory=basic%20slider');
     });
 
+    // Test relies on timing for layout side effects
+    // Remove if flakey
     it('should update the sliders value when clicking on the track', () => {
       cy.wait(200); // Gives slider some time for calculations
 
