@@ -70,6 +70,7 @@ function Expandable(props) {
         ref={header}
         role='button'
         tabIndex='1'
+        data-id="expandable-toggle"
       >
         {iconMarkup}
         <div className={styles.HeaderContent}>
@@ -84,6 +85,7 @@ function Expandable(props) {
         aria-hidden={!isOpen}
         className={contentClasses}
         id={id}
+        data-id="expandable-content"
       >
         {contentSpacer}
         <div className={styles.Content}>

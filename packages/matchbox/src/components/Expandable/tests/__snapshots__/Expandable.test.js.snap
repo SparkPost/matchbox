@@ -13,6 +13,7 @@ exports[`Expandable component should render default state with title and id corr
       aria-controls="test-id"
       aria-expanded={false}
       className="Header"
+      data-id="expandable-toggle"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -68,6 +69,7 @@ exports[`Expandable component should render default state with title and id corr
     <div
       aria-hidden={true}
       className="ContentWrapper"
+      data-id="expandable-content"
       id="test-id"
     >
       <div
@@ -96,6 +98,7 @@ exports[`Expandable component should render provided default state with an icon 
       aria-controls="test-id"
       aria-expanded={true}
       className="Header"
+      data-id="expandable-toggle"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -158,6 +161,7 @@ exports[`Expandable component should render provided default state with an icon 
     <div
       aria-hidden={false}
       className="ContentWrapper Open"
+      data-id="expandable-content"
       id="test-id"
     >
       <div
