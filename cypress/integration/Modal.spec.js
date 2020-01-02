@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-/* eslint-disable no-undef */
 describe('The Modal component', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?selectedKind=Overlays%7CModal&selectedStory=Toggle%20Example&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel');

@@ -49,6 +49,7 @@ exports[`Popover popover render should use correct classnames 1`] = `
 >
   <div
     className="Popover sectioned"
+    data-id="popover-content"
     portalId="portal"
   >
     <span
