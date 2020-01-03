@@ -14,35 +14,35 @@ export default {
 
 export const Spacing = withInfo({ propTablesExclude: [Box] })(() => (
   <div>
-    <Box border='0' m='500' width='100px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='100px' bg='green.200'>
       <Stack space='0'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='100px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='100px' bg='green.200'>
       <Stack space='200'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='100px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='100px' bg='green.200'>
       <Stack space='400'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='100px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='100px' bg='green.200'>
       <Stack space='600'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='100px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='100px' bg='green.200'>
       <Stack space='800'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
@@ -54,28 +54,28 @@ export const Spacing = withInfo({ propTablesExclude: [Box] })(() => (
 
 export const Alignment = withInfo({ propTablesExclude: [Box] })(() => (
   <div>
-    <Box border='0' m='500' width='150px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='150px' bg='green.200'>
       <Stack align='right'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='150px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='150px' bg='green.200'>
       <Stack align='center'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='150px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='150px' bg='green.200'>
       <Stack align='left'>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
         <Box bg='blue.400' p='200'>Baz</Box>
       </Stack>
     </Box>
-    <Box border='0' m='500' width='150px' bg='green.200'>
+    <Box display='inline-block' verticalAlign='top' m='500' width='150px' bg='green.200'>
       <Stack>
         <Box bg='blue.400' p='200'>Foo</Box>
         <Box bg='blue.400' p='200'>Bar</Box>
@@ -87,7 +87,7 @@ export const Alignment = withInfo({ propTablesExclude: [Box] })(() => (
 
 export const ResponsiveProps = withInfo({ propTablesExclude: [Box] })(() => (
   <div>
-    <Box border='0' m='500' bg='green.200'>
+    <Box m='500' bg='green.200'>
       <Stack
         align={[null, 'right', 'center', 'left', 'center']}
         space={['100', '300', '500', '700']}
