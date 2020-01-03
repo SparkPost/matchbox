@@ -9,7 +9,7 @@ exports[`Stack it should render defaults correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-bottom: 400;
+  padding-bottom: 1rem;
 }
 
 .c1 {
@@ -55,7 +55,7 @@ exports[`Stack it should render with align and space props 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  padding-bottom: 500;
+  padding-bottom: 1.5rem;
 }
 
 .c1 {

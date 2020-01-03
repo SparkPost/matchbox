@@ -11,6 +11,10 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
   lineHeights: {
     400: "1.5rem"
   },
+  space: {
+    400: "1rem",
+    500: "1.5rem"
+  }
 }));
 
 // jest-styled-components@6.3.3 has some issues:
