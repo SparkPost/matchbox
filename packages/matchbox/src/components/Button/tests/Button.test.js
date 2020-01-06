@@ -46,10 +46,4 @@ describe('Button', () => {
     { name: 'onBlur', event: 'blur' },
     { name: 'onFocus', event: 'focus' }
   ]);
-
-  it('should handle mouse up', () => {
-    const e = { currentTarget: { blur: jest.fn() }};
-    wrapper.simulate('mouseUp', e);
-    expect(e.currentTarget.blur).toHaveBeenCalled();
-  });
 });

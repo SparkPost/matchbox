@@ -32,10 +32,6 @@ class Button extends Component {
     size: 'default'
   }
 
-  handleMouseUp({ currentTarget }) {
-    currentTarget.blur();
-  }
-
   render() {
     const {
       children,
@@ -95,7 +91,6 @@ class Button extends Component {
           onBlur={onBlur}
           className={classname}
           disabled={disabled}
-          onMouseUp={this.handleMouseUp}
           {...rest}
         >
           {children}
@@ -112,7 +107,6 @@ class Button extends Component {
           onBlur={onBlur}
           className={classname}
           disabled={disabled}
-          onMouseUp={this.handleMouseUp}
           {...rest}
         >
           {children}
@@ -128,7 +122,6 @@ class Button extends Component {
         onBlur={onBlur}
         className={classname}
         disabled={disabled}
-        onMouseUp={this.handleMouseUp}
         {...rest}
       >
         {children}
