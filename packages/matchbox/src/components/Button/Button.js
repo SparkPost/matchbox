@@ -1,133 +1,144 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import { deprecate } from '../../helpers/propTypes';
+import styled from 'styled-components';
+import { Box } from '../Box';
 
 import Group from './Group';
-import styles from './Button.module.scss';
+import { base, size, colorVariant, disabled, fullWidth, group } from './styles';
 
-class Button extends Component {
-  static displayName = 'Button';
+const StyledBox = styled(Box)`
+  ${base}
+  ${size}
+  ${colorVariant}
+  ${disabled}
+  ${fullWidth}
+`;
 
-  static Group = Group;
+const StyledGroup = styled(Group)`
+  ${group(StyledBox)}
+`;
 
-  static propTypes = {
-    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
-    disabled: PropTypes.bool,
-    destructive: PropTypes.bool,
-    flat: PropTypes.bool,
-    outline: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'large', 'default']),
-    fullWidth: PropTypes.bool,
-    submit: PropTypes.bool,
-    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    external: PropTypes.bool,
-    component: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
-    children: PropTypes.node
-  }
+function Button(props) {
+  const {
+    children,
 
-  static defaultProps = {
-    size: 'default'
-  }
+    // Styles
+    primary, // Deprecate in favor of color
+    color,
+    disabled,
+    destructive,
+    plain, // Deprecate in favor of flat
+    flat,
+    outline,
 
-  render() {
-    const {
-      children,
+    // Options
+    size,
+    fullWidth,
+    submit,
 
-      // Styles
-      primary, // Deprecate in favor of color
-      color,
-      disabled,
-      destructive,
-      plain, // Deprecate in favor of flat
-      flat,
-      outline,
+    to,
+    Component,
+    component,
+    external,
 
-      // Options
-      size,
-      fullWidth,
-      submit,
+    // Events
+    onClick,
+    onFocus,
+    onBlur,
 
-      to,
-      Component,
-      component,
-      external,
+    className = '',
+    ...rest
+  } = props;
 
-      // Events
-      onClick,
-      onFocus,
-      onBlur,
+  // Polyfills deprecrated 'Component' prop
+  const WrapperComponent = component || Component;
 
-      className = '',
-      ...rest
-    } = this.props;
+  // Polyfills to be deprecrated 'primary' and 'destructive' prop
+  const buttonColor = primary ? 'orange' : destructive ? 'red' : color;
 
-    const WrapperComponent = component || Component;
-
-    const buttonColor = primary ? 'orange' : color;
-
-    const classname = classnames(
-      styles.Button,
-      buttonColor && styles[`color-${buttonColor}`],
-      disabled && styles.disabled,
-      destructive && styles.destructive,
-      (flat || plain) && styles.flat,
-      outline && styles.outline,
-      fullWidth && styles.fullWidth,
-      (size && size !== 'default') && styles[`${size}`],
-      className
-    );
-
-    if (to && !WrapperComponent) {
-      return (
-        <a
-          href={to}
-          target={external ? '_blank' : ''}
-          rel={external ? 'noopener noreferrer' : ''}
-          onClick={onClick}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          className={classname}
-          disabled={disabled}
-          {...rest}
-        >
-          {children}
-        </a>
-      );
+  // Experimenting with a weight prop to replace outline, plain, and flat in the future
+  const visualWeight = React.useMemo(() => {
+    if (outline) {
+      return 'normal';
     }
 
-    if (to && WrapperComponent) {
-      return (
-        <WrapperComponent
-          to={to}
-          onClick={onClick}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          className={classname}
-          disabled={disabled}
-          {...rest}
-        >
-          {children}
-        </WrapperComponent>
-      );
+    if (plain || flat) {
+      return 'weak';
     }
 
+    return 'strong';
+  }, [outline, plain, flat]);
+
+  const sharedProps = {
+    className, disabled, fullWidth, onClick, onFocus, onBlur, size, visualWeight, buttonColor, ...rest
+  };
+
+  if (to && !WrapperComponent) {
     return (
-      <button
-        type={submit ? 'submit' : 'button'}
-        onClick={onClick}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        className={classname}
-        disabled={disabled}
-        {...rest}
+      <StyledBox
+        as='a'
+        href={to}
+        target={external ? '_blank' : ''}
+        rel={external ? 'noopener noreferrer' : ''}
+        {...sharedProps}
       >
         {children}
-      </button>
+      </StyledBox>
     );
   }
+
+  if (to && WrapperComponent) {
+    return (
+      <StyledBox
+        as={WrapperComponent}
+        to={to}
+        {...sharedProps}
+      >
+        {children}
+      </StyledBox>
+    );
+  }
+
+  return (
+    <StyledBox
+      as='button'
+      type={submit ? 'submit' : 'button'}
+      {...sharedProps}
+    >
+      {children}
+    </StyledBox>
+  );
 }
+
+Button.displayName = 'Button';
+Button.Group = StyledGroup;
+Button.propTypes = {
+  color: PropTypes.oneOf(['gray', 'blue', 'red']),
+  disabled: PropTypes.bool,
+  destructive: PropTypes.bool,
+  flat: PropTypes.bool,
+  plain: deprecate(PropTypes.bool, 'Use `flat` instead'),
+  outline: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'large', 'default']),
+  fullWidth: PropTypes.bool,
+  submit: PropTypes.bool,
+  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  external: PropTypes.bool,
+  component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.element
+  ]),
+  Component: deprecate(PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.element
+  ]), 'Use `component` instead'),
+  children: PropTypes.node,
+  primary: deprecate(PropTypes.bool, 'Use `color` prop instead')
+};
+
+Button.defaultProps = {
+  size: 'default'
+};
 
 export default Button;

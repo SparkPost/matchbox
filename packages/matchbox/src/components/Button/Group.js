@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import styles from './Button.module.scss';
 
 const Group = ({ children, className = '' }) => (
-  <div className={classnames(styles.Group, className)}>
+  <div className={className}>
     {children}
   </div>
 );
