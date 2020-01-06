@@ -16,7 +16,6 @@ describe('Button', () => {
     { name: 'flat', props: { flat: true }},
     { name: 'flat with color', props: { flat: true, color: 'red' }},
     { name: 'flat with color and disabled', props: { flat: true, color: 'red', disabled: true }},
-    { name: 'color navy', props: { color: 'navy' }},
     { name: 'outline enabled', props: { outline: true }},
     { name: 'fullWidth', props: { fullWidth: true }},
     { name: 'submit', props: { submit: true }},

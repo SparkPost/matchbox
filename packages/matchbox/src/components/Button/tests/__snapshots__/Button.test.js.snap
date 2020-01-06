@@ -1,168 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders button states color navy 1`] = `
-<button
-  className="Button color-navy"
-  onMouseUp={[Function]}
-  type="button"
->
-  Hola!
-</button>
-`;
-
 exports[`Button renders button states deprecated prop - primary 1`] = `
-<button
-  className="Button color-orange"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  buttonColor="orange"
+  className=""
+  size="default"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states destructive 1`] = `
-<button
-  className="Button destructive"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  buttonColor="red"
+  className=""
+  size="default"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states disabled 1`] = `
-<button
-  className="Button disabled"
+<Styled(Box)
+  as="button"
+  className=""
   disabled={true}
-  onMouseUp={[Function]}
+  size="default"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states external button 1`] = `
-<button
-  className="Button"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  size="default"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states external to without component 1`] = `
-<a
-  className="Button"
+<Styled(Box)
+  as="a"
+  className=""
   href="/nocomp"
-  onMouseUp={[Function]}
   rel="noopener noreferrer"
+  size="default"
   target="_blank"
+  visualWeight="strong"
 >
   Hola!
-</a>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states flat 1`] = `
-<button
-  className="Button flat"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  size="default"
   type="button"
+  visualWeight="weak"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states flat with color 1`] = `
-<button
-  className="Button color-red flat"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  buttonColor="red"
+  className=""
+  size="default"
   type="button"
+  visualWeight="weak"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states flat with color and disabled 1`] = `
-<button
-  className="Button color-red disabled flat"
+<Styled(Box)
+  as="button"
+  buttonColor="red"
+  className=""
   disabled={true}
-  onMouseUp={[Function]}
+  size="default"
   type="button"
+  visualWeight="weak"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states fullWidth 1`] = `
-<button
-  className="Button fullWidth"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  fullWidth={true}
+  size="default"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states large size 1`] = `
-<button
-  className="Button large"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  size="large"
   type="button"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states outline enabled 1`] = `
-<button
-  className="Button outline"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  size="default"
   type="button"
+  visualWeight="normal"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states submit 1`] = `
-<button
-  className="Button"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as="button"
+  className=""
+  size="default"
   type="submit"
+  visualWeight="strong"
 >
   Hola!
-</button>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states to while disabled 1`] = `
-<bound fn
-  className="Button disabled"
+<Styled(Box)
+  as={[Function]}
+  className=""
   disabled={true}
-  onMouseUp={[Function]}
+  size="default"
   to="/withcomp"
+  visualWeight="strong"
 >
   Hola!
-</bound fn>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states to with component 1`] = `
-<bound fn
-  className="Button"
-  onMouseUp={[Function]}
+<Styled(Box)
+  as={[Function]}
+  className=""
+  size="default"
   to="/withcomp"
+  visualWeight="strong"
 >
   Hola!
-</bound fn>
+</Styled(Box)>
 `;
 
 exports[`Button renders button states to without component 1`] = `
-<a
-  className="Button"
+<Styled(Box)
+  as="a"
+  className=""
   href="/nocomp"
-  onMouseUp={[Function]}
   rel=""
+  size="default"
   target=""
+  visualWeight="strong"
 >
   Hola!
-</a>
+</Styled(Box)>
 `;
