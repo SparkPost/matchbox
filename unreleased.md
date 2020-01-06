@@ -12,3 +12,5 @@
 - #280 - Adds a custom deprecate prop type
 - #308 - Adds layout Stack component
 - #316 - Adds layout Inline component
+- #309 - Restyles the Button and Button.Group components with styled-components
+- #309 - Buttons no longer automatically blur on click
