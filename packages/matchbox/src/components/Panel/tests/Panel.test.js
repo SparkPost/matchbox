@@ -1,12 +1,12 @@
 import React from 'react';
 import Panel from '../Panel';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('Panel', () => {
   let wrapper;
 
   it('renders correctly', () => {
-    wrapper = mount(
+    wrapper = shallow(
       <Panel accent sectioned title='title' actions={[{ content: 'Action' }]}>
         Foo
       </Panel>
@@ -15,20 +15,23 @@ describe('Panel', () => {
   });
 
   it('renders correctly with sections', () => {
-    expect(mount(
+    wrapper = shallow(
       <Panel title='title'>
         <Panel.Section actions={[{ content: 'Action' }]}>Foo</Panel.Section>
         <Panel.Section>Bar</Panel.Section>
       </Panel>
-    )).toMatchSnapshot();
+    );
+    expect(wrapper.find('Header').dive()).toMatchSnapshot();
+    expect(wrapper.find(Panel.Section).at(0).dive()).toMatchSnapshot();
+    expect(wrapper.find(Panel.Section).at(1).dive()).toMatchSnapshot();
   });
 
   it('renders correctly with footer', () => {
-    expect(mount(
+    expect(shallow(
       <div>
         <Panel accent='red' />
         <Panel.Footer left={<span>left</span>} right='right' />
       </div>
-    )).toMatchSnapshot();
+    ).find(Panel.Footer).dive()).toMatchSnapshot();
   });
 });

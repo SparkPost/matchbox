@@ -20,7 +20,7 @@ exports[`EmptyState renders with actions 1`] = `
     className="Actions"
   >
     <Button
-      color="orange"
+      color="blue"
       onClick={[MockFunction]}
       size="large"
     >
@@ -89,7 +89,7 @@ exports[`EmptyState renders with primary action 1`] = `
     className="Actions"
   >
     <Button
-      color="orange"
+      color="blue"
       onClick={[MockFunction]}
       size="large"
     >
