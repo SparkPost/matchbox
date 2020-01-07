@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Page from '../Page';
+import { ThemeProvider } from '../../ThemeProvider';
 
 describe('Page', () => {
   let props;
@@ -13,7 +14,12 @@ describe('Page', () => {
       primaryAction: { content: 'Primary' }
     };
 
-    wrapper = shallow(<Page {...props}><h1>Test Example</h1></Page>);
+    // Replace with global.renderStyled or RTL if brittle
+    wrapper = shallow(
+      <ThemeProvider>
+        <Page {...props}><h1>Test Example</h1></Page>
+      </ThemeProvider>
+    ).dive().dive('Component').dive('Page').dive();
   });
 
   it('renders page with children', () => {

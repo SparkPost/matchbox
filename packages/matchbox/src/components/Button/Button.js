@@ -112,6 +112,7 @@ function Button(props) {
 }
 
 Button.displayName = 'Button';
+StyledGroup.displayName = 'Button.Group';
 Button.Group = StyledGroup;
 Button.propTypes = {
   color: PropTypes.oneOf(['gray', 'blue', 'red']),
