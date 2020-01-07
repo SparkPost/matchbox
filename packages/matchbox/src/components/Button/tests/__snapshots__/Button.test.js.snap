@@ -46,7 +46,7 @@ exports[`Button renders base CSS and HTML attributes correctly 1`] = `
 exports[`Button renders button states deprecated prop - primary 1`] = `
 <Styled(Box)
   as="button"
-  buttonColor="orange"
+  buttonColor="blue"
   className=""
   type="button"
   visualSize="default"

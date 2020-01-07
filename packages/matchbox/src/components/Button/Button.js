@@ -59,7 +59,7 @@ function Button(props) {
   const WrapperComponent = component || Component;
 
   // Polyfills to be deprecrated 'primary' and 'destructive' prop
-  const buttonColor = primary ? 'orange' : destructive ? 'red' : color;
+  const buttonColor = primary ? 'blue' : destructive ? 'red' : color;
 
   // Experimenting with a weight prop to replace outline, plain, and flat in the future
   const visualWeight = React.useMemo(() => {
