@@ -15,7 +15,7 @@ export const base = (props) => `
   `;
 
 export const size = (props) => {
-  switch (props.size) {
+  switch (props.visualSize) {
     case 'large':
       return `
         line-height: calc(3.5rem - 2px);

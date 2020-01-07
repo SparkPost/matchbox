@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
+import 'jest-styled-components';
 
 describe('Button', () => {
   let wrapper;
@@ -45,4 +46,8 @@ describe('Button', () => {
     { name: 'onBlur', event: 'blur' },
     { name: 'onFocus', event: 'focus' }
   ]);
+
+  it('renders base CSS and HTML attributes correctly', () => {
+    expect(global.renderStyled(<Button>Test</Button>)).toMatchSnapshot();
+  });
 });

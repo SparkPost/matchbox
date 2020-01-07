@@ -1,12 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button renders base CSS and HTML attributes correctly 1`] = `
+.c0 {
+  display: inline-block;
+  border: none;
+  border-radius: 1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 500;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-transition-property: background,color,border,outline;
+  transition-property: background,color,border,outline;
+  -webkit-transition-duration: .15s;
+  transition-duration: .15s;
+  border: 1px solid transparent;
+  line-height: calc(2.5rem - 2px);
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+.c0,
+.c0:visited {
+  background: #39444d;
+  color: #ffffff;
+}
+
+.c0:not([disabled]):hover,
+.c0:visited:not([disabled]):hover {
+  background: #2c353d;
+  color: #ffffff;
+}
+
+<button
+  class="c0"
+  type="button"
+>
+  Test
+</button>
+`;
+
 exports[`Button renders button states deprecated prop - primary 1`] = `
 <Styled(Box)
   as="button"
   buttonColor="orange"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -18,8 +62,8 @@ exports[`Button renders button states destructive 1`] = `
   as="button"
   buttonColor="red"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -31,8 +75,8 @@ exports[`Button renders button states disabled 1`] = `
   as="button"
   className=""
   disabled={true}
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -43,8 +87,8 @@ exports[`Button renders button states external button 1`] = `
 <Styled(Box)
   as="button"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -57,8 +101,8 @@ exports[`Button renders button states external to without component 1`] = `
   className=""
   href="/nocomp"
   rel="noopener noreferrer"
-  size="default"
   target="_blank"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -69,8 +113,8 @@ exports[`Button renders button states flat 1`] = `
 <Styled(Box)
   as="button"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="weak"
 >
   Hola!
@@ -82,8 +126,8 @@ exports[`Button renders button states flat with color 1`] = `
   as="button"
   buttonColor="red"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="weak"
 >
   Hola!
@@ -96,8 +140,8 @@ exports[`Button renders button states flat with color and disabled 1`] = `
   buttonColor="red"
   className=""
   disabled={true}
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="weak"
 >
   Hola!
@@ -109,8 +153,8 @@ exports[`Button renders button states fullWidth 1`] = `
   as="button"
   className=""
   fullWidth={true}
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -121,8 +165,8 @@ exports[`Button renders button states large size 1`] = `
 <Styled(Box)
   as="button"
   className=""
-  size="large"
   type="button"
+  visualSize="large"
   visualWeight="strong"
 >
   Hola!
@@ -133,8 +177,8 @@ exports[`Button renders button states outline enabled 1`] = `
 <Styled(Box)
   as="button"
   className=""
-  size="default"
   type="button"
+  visualSize="default"
   visualWeight="normal"
 >
   Hola!
@@ -145,8 +189,8 @@ exports[`Button renders button states submit 1`] = `
 <Styled(Box)
   as="button"
   className=""
-  size="default"
   type="submit"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -158,8 +202,8 @@ exports[`Button renders button states to while disabled 1`] = `
   as={[Function]}
   className=""
   disabled={true}
-  size="default"
   to="/withcomp"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -170,8 +214,8 @@ exports[`Button renders button states to with component 1`] = `
 <Styled(Box)
   as={[Function]}
   className=""
-  size="default"
   to="/withcomp"
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!
@@ -184,8 +228,8 @@ exports[`Button renders button states to without component 1`] = `
   className=""
   href="/nocomp"
   rel=""
-  size="default"
   target=""
+  visualSize="default"
   visualWeight="strong"
 >
   Hola!

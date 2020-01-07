@@ -33,7 +33,9 @@ function Button(props) {
     outline,
 
     // Options
-    size,
+    // Renaming to prevent `width` and `height` pass through
+    // Size is a valid styled-system prop
+    size: visualSize,
     fullWidth,
     submit,
 
@@ -71,7 +73,7 @@ function Button(props) {
   }, [outline, plain, flat]);
 
   const sharedProps = {
-    className, disabled, fullWidth, onClick, onFocus, onBlur, size, visualWeight, buttonColor, ...rest
+    className, disabled, fullWidth, onClick, onFocus, onBlur, visualSize, visualWeight, buttonColor, ...rest
   };
 
   if (to && !WrapperComponent) {
@@ -114,6 +116,7 @@ function Button(props) {
 Button.displayName = 'Button';
 StyledGroup.displayName = 'Button.Group';
 Button.Group = StyledGroup;
+
 Button.propTypes = {
   color: PropTypes.oneOf(['gray', 'blue', 'red']),
   disabled: PropTypes.bool,
