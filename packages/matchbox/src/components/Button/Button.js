@@ -27,7 +27,9 @@ function Button(props) {
     primary, // Deprecate in favor of color
     color,
     disabled,
-    destructive,
+    destructive, // Deprecate in favor of color
+
+    // Below 3 props to be deprecated for a 'weight' prop
     plain, // Deprecate in favor of flat
     flat,
     outline,
@@ -40,7 +42,7 @@ function Button(props) {
     submit,
 
     to,
-    Component,
+    Component, // Deprecate in favor of component
     component,
     external,
 
@@ -50,7 +52,7 @@ function Button(props) {
     onBlur,
 
     className = '',
-    ...rest
+    ...rest // TODO remove spreading of unknown props
   } = props;
 
   // Polyfills deprecrated 'Component' prop
@@ -129,14 +131,8 @@ Button.propTypes = {
   submit: PropTypes.bool,
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   external: PropTypes.bool,
-  component: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.element
-  ]),
-  Component: deprecate(PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.element
-  ]), 'Use `component` instead'),
+  component: PropTypes.elementType,
+  Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
   children: PropTypes.node,
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead')
 };

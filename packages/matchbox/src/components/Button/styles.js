@@ -2,7 +2,6 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const base = (props) => `
     display: inline-block;
-    border: none;
     border-radius: ${tokens.borderRadius_100};
     user-select: none;
     font-weight: ${tokens.fontWeight_medium};
@@ -60,43 +59,43 @@ export const colorVariant = (props) => {
       break;
   }
 
-  if (props.visualWeight === 'strong') {
-    return `
-    &, &:visited {
-      background: ${color};
-      color: ${tokens.color_white};
-
-      :not([disabled]):hover {
-        background: ${hoverColor};
-        color: ${tokens.color_white};
-      }
-    }
-    `;
+  switch (props.visualWeight) {
+    case 'strong':
+      return `
+        &, &:visited {
+          background: ${color};
+          color: ${tokens.color_white};
+    
+          :not([disabled]):hover {
+            background: ${hoverColor};
+            color: ${tokens.color_white};
+          }
+        }
+      `;
+    case 'weak':
+      return `
+        &, &:visited {
+          background: transparent;
+          color: ${color};
+          &:not([disabled]):hover {
+            color: ${color};
+            background: ${tokens.color_gray_200};
+          }
+        }
+      `;
+    case 'normal':
+    default:
+      return `
+        &, &:visited {
+          border: 1px solid ${color};
+          color: ${color};
+          &:not([disabled]):hover {
+            background: ${tokens.color_gray_200};
+            color: ${color};
+          }
+        }
+      `;
   }
-
-  if (props.visualWeight === 'weak') {
-    return `
-    &, &:visited {
-      background: transparent;
-      color: ${color};
-      &:not([disabled]):hover {
-        color: ${color};
-        background: ${tokens.color_gray_200};
-      }
-    }
-    `;
-  }
-
-  return `
-    &, &:visited {
-      border: 1px solid ${color};
-      color: ${color};
-      &:not([disabled]):hover {
-        background: ${tokens.color_gray_200};
-        color: ${color};
-      }
-    }
-  `;
 };
 
 export const disabled = (props) => {
@@ -121,17 +120,17 @@ export const fullWidth = (props) => {
 };
 
 export const group = (buttonSelector) => () => `
-    & > ${buttonSelector} {
-      border-radius: 0;
-      margin-right: -1px;
+  & > ${buttonSelector} {
+    border-radius: 0;
+    margin-right: -1px;
 
-      &:first-child {
-        border-top-left-radius: ${tokens.borderRadius_100};
-        border-bottom-left-radius: ${tokens.borderRadius_100};
-      }
-      &:last-child {
-        border-top-right-radius: ${tokens.borderRadius_100};
-        border-bottom-right-radius: ${tokens.borderRadius_100};
-      }
+    &:first-child {
+      border-top-left-radius: ${tokens.borderRadius_100};
+      border-bottom-left-radius: ${tokens.borderRadius_100};
     }
-  `;
+    &:last-child {
+      border-top-right-radius: ${tokens.borderRadius_100};
+      border-bottom-right-radius: ${tokens.borderRadius_100};
+    }
+  }
+`;

@@ -14,9 +14,7 @@ describe('Page', () => {
     };
 
     // Replace with global.renderStyled or RTL if brittle
-    wrapper = shallow(
-      <Page {...props}><h1>Test Example</h1></Page>
-    );
+    wrapper = shallow(<Page {...props}><h1>Test Example</h1></Page>);
   });
 
   it('renders page with children', () => {

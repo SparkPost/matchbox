@@ -3,7 +3,6 @@
 exports[`Button renders base CSS and HTML attributes correctly 1`] = `
 .c0 {
   display: inline-block;
-  border: none;
   border-radius: 1px;
   -webkit-user-select: none;
   -moz-user-select: none;
