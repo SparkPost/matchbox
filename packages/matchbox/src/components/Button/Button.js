@@ -7,7 +7,7 @@ import { Box } from '../Box';
 import Group from './Group';
 import { base, size, colorVariant, disabled, fullWidth, group } from './styles';
 
-const StyledBox = styled(Box)`
+const StyledButton = styled(Box)`
   ${base}
   ${size}
   ${colorVariant}
@@ -15,8 +15,9 @@ const StyledBox = styled(Box)`
   ${fullWidth}
 `;
 
+// Button.Group is styled here to access a classname reference to StyledButton
 const StyledGroup = styled(Group)`
-  ${group(StyledBox)}
+  ${group(StyledButton)}
 `;
 
 function Button(props) {
@@ -80,7 +81,7 @@ function Button(props) {
 
   if (to && !WrapperComponent) {
     return (
-      <StyledBox
+      <StyledButton
         as='a'
         href={to}
         target={external ? '_blank' : ''}
@@ -88,35 +89,36 @@ function Button(props) {
         {...sharedProps}
       >
         {children}
-      </StyledBox>
+      </StyledButton>
     );
   }
 
   if (to && WrapperComponent) {
     return (
-      <StyledBox
+      <StyledButton
         as={WrapperComponent}
         to={to}
         {...sharedProps}
       >
         {children}
-      </StyledBox>
+      </StyledButton>
     );
   }
 
   return (
-    <StyledBox
+    <StyledButton
       as='button'
       type={submit ? 'submit' : 'button'}
       {...sharedProps}
     >
       {children}
-    </StyledBox>
+    </StyledButton>
   );
 }
 
 Button.displayName = 'Button';
-StyledGroup.displayName = 'Button.Group';
+StyledGroup.displayName = Group.displayName;
+StyledGroup.propTypes = Group.propTypes;
 Button.Group = StyledGroup;
 
 Button.propTypes = {
