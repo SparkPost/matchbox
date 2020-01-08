@@ -3,8 +3,8 @@
 .Header {
   display: flex;
   align-items: baseline;
-  margin-bottom: 1rem;
-  padding: 3rem 0;
+  margin-bottom: spacing(700);
+  padding: spacing(800) 0;
 }
 
 .Title {
@@ -14,7 +14,8 @@
 }
 
 .TitleText {
-  font-size: 24px;
+  font-size: font-size(500);
+  font-weight: font-weight(semibold);
   margin: 0;
 }
 

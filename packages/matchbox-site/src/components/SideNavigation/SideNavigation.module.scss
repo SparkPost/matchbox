@@ -4,17 +4,18 @@
 }
 
 .List {
-  margin: 0 0 2rem;
+  margin: 0 0 spacing(600);
   padding: 0;
 }
 
 .ListItem {
   display: block;
+  margin: 0 0 spacing(300) 0;
   position: relative;
   list-style-type: none;
 
   &.Selected .Link {
-    color: color(gray, 900);
+    color: color(blue, 700);
 
     &:after {
       content: '';
@@ -24,7 +25,7 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: color(gray, 900);
+      background: color(blue, 700);
     }
   }
 }
@@ -32,18 +33,18 @@
 .Link, .Link:visited {
   position: relative;
   display: inline-block;
-  padding: spacing(200) 0;
+  padding: spacing(100) 0;
 
   text-decoration: none;
   color: color(gray, 900);
-  font-size: 18px;
+  font-size: font-size(400);
+  line-height: line-height(400);
   font-weight: 500;
 }
 
 .SectionLabel {
-  margin: 0 0 spacing(0);
-  font-size: 14px;
-  letter-spacing: 0.03em;
+  margin: spacing(700) 0 spacing(300);
+  font-size: font-size(300);
   font-weight: 500;
   color: color(gray, 500);
 }

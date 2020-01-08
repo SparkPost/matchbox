@@ -159,6 +159,7 @@ main {
   a:visited {
     color: color(blue, 700);
     font-weight: 500;
+    text-decoration: underline;
 
     &:hover {
       color: color(blue, 700);
