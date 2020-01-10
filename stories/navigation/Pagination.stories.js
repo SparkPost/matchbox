@@ -8,7 +8,7 @@ import { Pagination } from '@sparkpost/matchbox';
 
 export default storiesOf('Navigation|Pagination', module)
   .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
+    <StoryContainer>{getStory()}</StoryContainer>
   ))
 
   .add('with no margins', withInfo()(() => (
@@ -24,7 +24,7 @@ export default storiesOf('Navigation|Pagination', module)
     <Pagination
       flat
       pages={30}
-      pageRange={7}
+      pageRange={3}
       selectedColor='navy'
       onChange={action('Page Changed')}
     />
