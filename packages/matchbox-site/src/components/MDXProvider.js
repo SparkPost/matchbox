@@ -5,10 +5,11 @@ import { PropsTable } from './PropsTable';
 import TokenTable from './tokens/TokenTable';
 import Token from './tokens/Token';
 import Heading from './Heading';
+import ExternalLink from './ExternalLink';
 
 const components = {
   a: (props) => <Link to={props.href}>{props.children}</Link>,
-  ExternalLink: (props) => <a href={props.to} target="_blank" rel="noopener norefferer">{props.children}</a>,
+  ExternalLink,
   PropsTable,
   TokenTable,
   Token,
