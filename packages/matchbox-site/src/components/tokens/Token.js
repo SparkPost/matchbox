@@ -1,6 +1,6 @@
 import React from 'react';
 import { meta } from '@sparkpost/design-tokens';
-import { Tooltip } from '@sparkpost/matchbox';
+import { Tooltip, Box } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import copy from 'copy-to-clipboard';
 import styles from './Token.module.scss';
@@ -13,6 +13,8 @@ function Token(props) {
   if (!token) {
     return <span className={styles.Token}>Token Not Found</span>;
   }
+
+  const isWhite = React.useMemo(() => name === 'color-white', [name]);
 
   function handleClick() {
     copy(token.value);
@@ -34,29 +36,38 @@ function Token(props) {
 
   function getPrefix() {
     switch (token.type) {
-      case 'font-size':
-        return <span className={styles.Size}>Aa</span>;
-      case 'line-height':
-        return <span className={styles.Height}>Aa</span>;
-      case 'font-family':
-        return <span className={styles.Family}>Aa</span>;
+      // case 'font-size':
+      //   return <span className={styles.Size}>Aa</span>;
+      // case 'line-height':
+      //   return <span className={styles.Height}>Aa</span>;
+      // case 'font-family':
+      //   return <span className={styles.Family}>Aa</span>;
       case 'color':
         return (
-          <span
+          <Box
+            border={isWhite ? '400' : 'none'}
+            bg={token.value}
+            as='span'
             className={styles.Color}
-            style={{ background: token.value }}
-          ></span>
+          ></Box>
         );
       default:
         return '';
     }
   }
 
+  const friendly = React.useMemo(() => {
+    if (token.friendly.includes('Color')) {
+      return token.friendly.replace('Color ', '');
+    }
+    return token.friendly;
+  }, [token.friendly]);
+
   return (
     <Tooltip dark width='auto' content={clicked ? 'Copied' : token.value}>
       <span className={styles.Token} onClick={handleClick}>
         {getPrefix()}
-        {token.friendly}
+        {friendly}
       </span>
     </Tooltip>
   );

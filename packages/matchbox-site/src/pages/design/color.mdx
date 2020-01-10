@@ -1,33 +1,115 @@
 import ColorDescription from '../../components/Color/ColorDescription';
-import Palettes from '../../components/Color/Palettes';
-
+import ColorDescriptionGrid from '../../components/Color/ColorDescriptionGrid';
+import Palette from '../../components/Color/Palette';
+import ContrastChecker from '../../components/Color/ContrastChecker';
 
 # Color
 Matchbox uses colors to visually describe how things function in a UI. By giving meaning to colors, we create consistent visual patterns that help make interactions more predictable.
 
+- [SparkPost Brand Colors](/design/color/#sparkpost-brand)
+- [Core Product Colors](/design/color/#core-product)
+- [Full Color Palettes](/design/color/#color-palettes)
+- [Accessibility Checker](/design/color/#accessibility)
+
 ---
 
-### Core Colors
-<ColorDescription name='color-green-base' alternative='color-green-dark'>
-  Use <Token name='color-green-base' /> to indicate progression or a successful interaction. Examples include primary actions in a create or update form, or an alert following a positive interaction.
-</ColorDescription>
+### SparkPost Brand
 
-<ColorDescription name='color-blue-base' alternative='color-blue-dark'>
-  <Token name='color-blue-base' />  is used for unstyled text links or to draw attention to information that does not require any immediate action.
-</ColorDescription>
+<ColorDescriptionGrid>
+  <ColorDescription name='color-brand-orange'>
+  </ColorDescription>
 
-<ColorDescription name='color-red-base'>
-  Use <Token name='color-red-base' /> to draw attention to destructive or unsuccessful interactions, or information that requires immediate action.
-</ColorDescription>
+  <ColorDescription name='color-brand-blue'>
+  </ColorDescription>
+
+  <ColorDescription name='color-brand-gray'>
+  </ColorDescription>
+</ColorDescriptionGrid>
+
+---
+
+### Core Product
+
+
+##### Actions
+
+<ColorDescriptionGrid>
+  <ColorDescription name='color-blue-700' title='Primary Actions'>
+    Primary color for interactive elements and call to actions such as buttons and links. Used to indicate creation, progression or importance.
+  </ColorDescription>
+  <ColorDescription name='color-blue-800' title='Primary Actions – Alternative'>
+    Alternative to the primary blue for use in high contrast situations.
+  </ColorDescription>
+
+  <ColorDescription name='color-green-700' title='Success'>
+    Represents a positive or congratulatory tone.
+  </ColorDescription>
+
+  <ColorDescription name='color-green-800' title='Success – Alternative'>
+    Alternative to the primary green for use in high contrast situations.
+  </ColorDescription>
+
+  <ColorDescription name='color-red-700' title='Destructive'>
+    Represents a negative or destructive tone.
+  </ColorDescription>
+
+  <ColorDescription name='color-yellow-400' title='Warning'>
+    Represents a warning or cautionary tone.
+  </ColorDescription>
+</ColorDescriptionGrid>
+
+##### Common UI
+
+<ColorDescriptionGrid>
+  <ColorDescription name='color-white' title='Application Background'>
+  </ColorDescription>
+
+  <ColorDescription name='color-gray-400' title='Container Borders'>
+  </ColorDescription>
+
+  <ColorDescription name='color-gray-900' title='Body Text'>
+  </ColorDescription>
+</ColorDescriptionGrid>
+
+---
+
+### Color Palettes
+
+##### Gray
+<Palette colors='grayscale' />
+
+##### Blue
+<Palette colors='blue' />
+
+##### Magenta
+<Palette colors='teal' />
+
+##### Green
+<Palette colors='green' />
+
+##### Yellow
+<Palette colors='yellow' />
+
+##### Red
+<Palette colors='red' />
+
+##### Magenta
+<Palette colors='magenta' />
+
+##### Purple
+<Palette colors='purple' />
+
+##### Brand
+<Palette colors='brand' />
 
 ---
 
 ### Accessibility
 
-_Coming soon_
+Use this contrast checker to find accessible text and background pairings. See [1.4.3 Minimum (AA) Requirements](https://www.w3.org/TR/WCAG21/#contrast-minimum) and [1.4.6 Enhanced (AAA) Requirements](https://www.w3.org/TR/WCAG21/#contrast-enhanced) for details.
 
----
+- Contrast ratio must be at least **4.5** for normal text
+- Contrast ratio must be at least **3.0** for large text _(18px, or <Token name='font-size-300' />)_
 
-<Palettes />
 
----
+<ContrastChecker />

@@ -1,6 +1,23 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
-import styles from './TokenUsage.module.scss';
+import { Box } from '@sparkpost/matchbox';
+import { tokens } from '@sparkpost/design-tokens';
+import styled from 'styled-components';
+
+const StyledUsage = styled(Box)`
+  display: inline-block;
+  color: ${tokens.color_gray_800};
+  background: ${tokens.color_gray_200};
+  padding: ${tokens.spacing_100} ${tokens.spacing_200};
+  border-radius: ${tokens.borderRadius_200};
+  transition: 0.15s;
+
+  &:hover {
+    cursor: pointer;
+    background: ${tokens.color_gray_300};
+    color: ${tokens.color_gray_1000};
+  }
+`;
 
 function TokenUsage(props) {
   const [clicked, setClicked] = React.useState(false);
@@ -24,9 +41,9 @@ function TokenUsage(props) {
   }, [clicked]);
 
   return (
-    <span className={styles.TokenUsage} onClick={handleClick}>
-      <code>{clicked ? 'Copied' : props.usage}</code>
-    </span>
+    <StyledUsage onClick={handleClick}>
+      <code>{clicked ? 'Copied!' : props.usage}</code>
+    </StyledUsage>
   );
 }
 

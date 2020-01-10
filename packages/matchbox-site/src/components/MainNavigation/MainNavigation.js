@@ -4,25 +4,28 @@ import { Link } from 'gatsby';
 import styles from './MainNavigation.module.scss';
 
 function MainNavigation(props) {
-  const { navItems = []} = props;
+  const navItems = React.useMemo(() => {
+    const list = props.navItems.filter(({ disabled }) => !disabled);
 
-  const items = navItems.map((item) => (
-    <li
-      key={item.path}
-      className={classnames(styles.ListItem, item.selected && styles.Selected)}
-    >
-      <Link
-        to={item.path}
-        className={classnames(styles.Link, item.disabled && styles.Disabled)}
+    return list.map((item) => (
+      <li
+        key={item.path}
+        className={classnames(styles.ListItem, item.selected && styles.Selected)}
       >
-        {item.label}
-      </Link>
-    </li>
-  ));
+        <Link
+          to={item.path}
+          className={classnames(styles.Link, item.disabled && styles.Disabled)}
+        >
+          {item.label}
+        </Link>
+      </li>
+    ));
+  }, [props.navItems]);
+
 
   return (
     <nav className={styles.Navigation}>
-      <ul className={styles.List}>{items}</ul>
+      <ul className={styles.List}>{navItems}</ul>
     </nav>
   );
 }

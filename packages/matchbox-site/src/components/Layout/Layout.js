@@ -7,6 +7,7 @@ import SEO from '../seo';
 import styles from './Layout.module.scss';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import '../../styles/global.scss';
+import { ThemeProvider } from '@sparkpost/matchbox';
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -75,20 +76,22 @@ function Layout(props) {
   }, [allRoutes, pathname]);
 
   return (
-    <div className={styles.Container}>
-      <SEO title={pageTitle} />
-      <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
-      <div className={styles.Content}>
-        {Boolean(sideItems.length) && (
-          <aside className={styles.Aside}>
-            <SideNavigation navItems={sideItems} />
-          </aside>
-        )}
-        <main className={styles.Main}>
-          <MDXProvider>{props.children}</MDXProvider>
-        </main>
+    <ThemeProvider>
+      <div className={styles.Container}>
+        <SEO title={pageTitle} />
+        <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
+        <div className={styles.Content}>
+          {Boolean(sideItems.length) && (
+            <aside className={styles.Aside}>
+              <SideNavigation navItems={sideItems} />
+            </aside>
+          )}
+          <main className={styles.Main}>
+            <MDXProvider>{props.children}</MDXProvider>
+          </main>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
