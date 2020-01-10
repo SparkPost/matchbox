@@ -3,29 +3,40 @@ import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import styles from './TypographyExplorer.module.scss';
 import TokenTable from '../tokens/TokenTable';
+import { Box } from '@sparkpost/matchbox';
 
 // Omit base tokens because they are only used to indicate defaults in scss map formats
 const omitBaseTokens = _.filter(meta, ({ name }) => !name.includes('base'));
 const SIZES = _.filter(omitBaseTokens, (size) => size.category === 'font-size' && !size.name.includes('base')).reverse();
 const LINE_HEIGHTS = _.filter(omitBaseTokens, (size) => size.category === 'line-height').reverse();
+const WEIGHTS = _.filter(omitBaseTokens, (size) => size.category === 'font-weight');
 
-const WEIGHTS = [
-  { value: '300', name: 'Light' },
-  { value: '400', name: 'Normal' },
-  { value: '500', name: 'Medium' },
-  { value: '600', name: 'Semi Bold' }
-];
+function TemporaryButton(props) {
+  return (
+    <Box
+      as='button'
+      bg={props.disabled ? 'blue.700' : 'white'}
+      color={props.disabled ? 'white' : 'gray.700'}
+      border={!props.disabled ? '400' : '1px solid transparent'}
+      mr='-1px'
+      fontSize='200'
+      py='100'
+      px='400'
+      {...props}
+    />
+  );
+}
 
 function Group(props) {
   const { items, selected, onSelect } = props;
 
   return items.map((item) => (
-    <button
+    <TemporaryButton
       disabled={selected === item.pixel_value || selected === item.value}
       key={item.name}
       onClick={() => onSelect(item)}>
       {item.pixel_value || item.value}
-    </button>
+    </TemporaryButton>
   ));
 }
 
@@ -37,6 +48,7 @@ function TypographyExplorer() {
 
   const selectedSize = _.find(SIZES, ['pixel_value', size]);
   const selectedHeight = _.find(LINE_HEIGHTS, ['pixel_value', lh]);
+  const selectedWeight = _.find(WEIGHTS, ['value', weight]);
 
   function selectSizeAndHeight(item) {
     setSize(item.pixel_value);
@@ -55,10 +67,7 @@ function TypographyExplorer() {
 
   const tokensToRender = [
     selectedSize, selectedHeight,
-    {
-      friendly: 'Font Weight',
-      value: weight
-    }
+    selectedWeight
   ];
 
   return (
