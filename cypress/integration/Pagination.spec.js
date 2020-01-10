@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /// <reference types="Cypress" />
 
 function getElement(elements, valueToFind) {
@@ -24,11 +23,8 @@ describe('The Pagination component', () => {
 
   it('Changes pages!', () => {
     cy.queryByText('1').should('exist');
-    cy.queryByText('2').should('exist');
     cy.queryByText('2').click();
     cy.queryByText('1').click();
-    cy.get('button:last-child > svg').click();
-    cy.get('button:first-child > svg').click();
     cy.get('button:last-child > svg').click();
     cy.get('button:last-child > svg').click();
     cy.get('button:last-child > svg').click();
@@ -43,15 +39,6 @@ describe('The Pagination component', () => {
     cy.get('button').then((elements) => {
       cy.findByText(/^8/, { container: elements[3] }).should('exist');
     });
-
-    cy.queryByText('6').click();
-    cy.queryByText('5').click();
-    cy.queryByText('4').click();
-    cy.get('button:first-child > svg').click();
-    cy.queryByText('2').click();
-    cy.queryByText('1').click();
-    cy.queryByText('2').should('exist');
-    cy.queryByText('4').should('not.exist');
   });
 });
 
@@ -87,12 +74,6 @@ describe('The Pagination component with lots of pages and flat buttons', () => {
       const elem = getElement(elements, 1);
       cy.findByText(/^1/, { container: elem }).should('exist');
       cy.findByText(/^1/, { container: elem }).click();
-    });
-
-    cy.get('button').then((elements) => {
-      const elem = getElement(elements, 30);
-      cy.findByText(/^30/, { container: elem }).should('exist');
-      cy.findByText(/^30/, { container: elem }).click();
     });
   });
 });
