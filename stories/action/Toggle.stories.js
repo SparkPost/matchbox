@@ -1,28 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import StoryContainer from '../storyHelpers/StoryContainer';
 
-import { Toggle, Checkbox } from '@sparkpost/matchbox';
+import { Toggle } from '@sparkpost/matchbox';
 
 export default storiesOf('Action|Toggle', module)
   .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
+    <StoryContainer bg='white'>{getStory()}</StoryContainer>
   ))
 
   .add('basic toggle', withInfo()(() => (
-    <Toggle id='id' />
+    <Toggle id='id' data-id="toggle-input" />
   )))
 
   .add('disabled toggle', withInfo()(() => (
-    <Toggle id='id' disabled />
+    <Toggle id='id' data-id="toggle-input" disabled />
   )))
 
   .add('compact toggle', withInfo()(() => (
-    <Toggle id='id' compact />
+    <Toggle id='id' data-id="toggle-input" compact />
   )))
 
   .add('compact and disabled toggle', withInfo()(() => (
-    <Toggle id='id' checked compact disabled />
+    <Toggle id='id' data-id="toggle-input" checked compact disabled />
   )));
