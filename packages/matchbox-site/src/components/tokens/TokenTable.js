@@ -27,7 +27,7 @@ function TokenTable(props) {
   return (
     <div>
       <div className={styles.Header}>
-        <h4>Tokens</h4>
+        <h4>{props.title || 'Tokens'}</h4>
         <div>
           <select onChange={handleTypeSelect} value={usageType}>
             <option value='javascript'>Javascript</option>

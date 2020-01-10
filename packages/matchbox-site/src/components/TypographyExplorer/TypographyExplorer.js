@@ -78,21 +78,22 @@ function TypographyExplorer() {
         style={{
           fontSize: size,
           lineHeight: lh,
-          fontWeight: weight
+          fontWeight: weight,
+          marginBottom: '1rem'
         }}
       />
 
-      <h4>Weight</h4>
+      <strong>Weight</strong>
       <p>
         <Group items={WEIGHTS} onSelect={selectWeight} selected={weight} />
       </p>
 
-      <h4>Sizes</h4>
+      <strong>Sizes</strong>
       <p>
         <Group items={SIZES} onSelect={selectSizeAndHeight} selected={size} />
       </p>
 
-      <h4>Line Height</h4>
+      <strong>Line Height</strong>
       <p>
         <Group items={LINE_HEIGHTS} onSelect={selectLineHeight} selected={lh} />
       </p>

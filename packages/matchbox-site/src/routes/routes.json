@@ -36,16 +36,21 @@
       {
         "path": "/design/elevation",
         "label": "Elevation",
-        "disabled": false
+        "disabled": true
       },
       {
         "path": "/design/motion",
         "label": "Motion",
-        "disabled": false
+        "disabled": true
       },
       {
         "path": "/design/datavisualization",
         "label": "Data Visualization",
+        "disabled": true
+      },
+      {
+        "path": "/design/tokenreference",
+        "label": "Token API Reference",
         "disabled": false
       }
     ]

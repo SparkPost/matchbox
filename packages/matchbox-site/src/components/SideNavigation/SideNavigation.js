@@ -6,8 +6,9 @@ import _ from 'lodash';
 
 function SideNavigation(props) {
   const { navItems = []} = props;
-  const rootItems = navItems.filter(({ section }) => !section);
-  const sectionedItems = navItems.filter(({ section }) => !!section);
+  const onlyActive = navItems.filter(({ disabled }) => !disabled);
+  const rootItems = onlyActive.filter(({ section }) => !section);
+  const sectionedItems = onlyActive.filter(({ section }) => !!section);
   const sections = _.uniq(sectionedItems.map(({ section }) => section || 'rootList'));
 
   function renderList(list) {
