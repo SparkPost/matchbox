@@ -22,7 +22,7 @@ function Td({ c, selected, onSelect, ...rest }) {
       {...rest}
     >
       <Text
-        as='span'
+        as='div'
         fontSize='100'
         fontWeight='medium'
         color={color(c.value).isDark() ? 'white' : 'gray.900'}
@@ -30,14 +30,42 @@ function Td({ c, selected, onSelect, ...rest }) {
       >
         {contrast}
       </Text>
+      <Box
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+        fontSize='100'
+        fontWeight='semibold'
+        color={color(c.value).isDark() ? 'white' : 'gray.900'}
+      >
+        {c.name ? c.name.split('-').pop() : 'White'}
+      </Box>
     </Box>
   );
 }
 
 const StyledTd = styled(Td)`
+  position: relative;
   
+  & > div:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
   &:hover {
-    cursor: pointer
+    cursor: pointer;
+    
+    & > div:first-child {
+      opacity: 0;
+    }
+
+    & > div:last-child {
+      opacity: 1;
+    }
   }
 `;
 
