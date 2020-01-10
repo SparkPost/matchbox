@@ -20,6 +20,9 @@
     "watch": "rollup -cw"
   },
   "sideEffects": false,
+  "peerDependencies": {
+    "styled-components": "^4.4.1"
+  },
   "dependencies": {
     "@sparkpost/design-tokens": "^1.0.0-beta.14",
     "@sparkpost/matchbox-icons": "^1.2.1",
@@ -30,7 +33,6 @@
     "react-dom": "^16.8.6",
     "react-focus-lock": "^2.0.5",
     "react-transition-group": "^2.3.0",
-    "styled-components": "^4.4.0",
     "styled-system": "^5.1.2"
   },
   "peerDependencies": {
