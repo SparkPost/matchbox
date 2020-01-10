@@ -56,7 +56,6 @@ class Toggle extends Component {
           onFocus={onFocus}
           onBlur={onBlur}
           type='checkbox'
-          data-id="toggle-input"
           {...rest} />
         <span className={styles.Outline}></span>
         {labelMarkup}

@@ -11,17 +11,17 @@ export default storiesOf('Action|Toggle', module)
   ))
 
   .add('basic toggle', withInfo()(() => (
-    <Toggle id='id' />
+    <Toggle id='id' data-id="toggle-input" />
   )))
 
   .add('disabled toggle', withInfo()(() => (
-    <Toggle id='id' disabled />
+    <Toggle id='id' data-id="toggle-input" disabled />
   )))
 
   .add('compact toggle', withInfo()(() => (
-    <Toggle id='id' compact />
+    <Toggle id='id' data-id="toggle-input" compact />
   )))
 
   .add('compact and disabled toggle', withInfo()(() => (
-    <Toggle id='id' checked compact disabled />
+    <Toggle id='id' data-id="toggle-input" checked compact disabled />
   )));
