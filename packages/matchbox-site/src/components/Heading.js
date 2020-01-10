@@ -28,9 +28,18 @@ function Heading(props) {
     return null;
   }
 
+  // Gastby deploys break without this
+  const [pathname, setPathname] = React.useState('');
+
+  React.useEffect(() => {
+    if (typeof window !== undefined) {
+      setPathname(`${window.location.pathname}#${toKebab(props.children)}`);
+    }
+  }, [props.children]);
+
   return (
-    <StyledLink to={`${window.location.pathname}#${toKebab(props.children)}`}>
-      <Text as={props.as} id={`${toKebab(props.children)}`}>
+    <StyledLink to={pathname}>
+      <Text as={props.as} id={toKebab(props.children)}>
         {props.children}
         <span> #</span>
       </Text>
