@@ -9,7 +9,7 @@
     "prebuild": "lerna bootstrap",
     "build": "lerna run build --ignore @sparkpost/matchbox-site",
     "build:tokens": "lerna bootstrap && lerna run build --scope @sparkpost/design-tokens",
-    "build:site": "cd packages/matchbox-site && npm run build",
+    "build:site": "npm run build && cd packages/matchbox-site && npm run build",
     "clean": "lerna clean --yes",
     "pretest": "npm run clean && lerna link",
     "pretest:ci": "npm run build && npm run clean && lerna link",
