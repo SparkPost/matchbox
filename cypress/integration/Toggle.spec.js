@@ -1,14 +1,10 @@
 /// <reference types="Cypress" />
 
-/* eslint-disable no-undef */
 describe('The Toggle component', () => {
   beforeEach(() => {
     cy.visit(
       '/iframe.html?selectedKind=Action%7CToggle&selectedStory=basic%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
     );
-
-    // Add data-id attribute
-    cy.get('label > input').invoke('attr', 'data-id', 'toggle-input');
   });
 
   it('Toggles!', () => {
@@ -24,15 +20,11 @@ describe('The Toggle component', () => {
   });
 });
 
-/* eslint-disable no-undef */
 describe('Cannot Toggle component (disabled)', () => {
   beforeEach(() => {
     cy.visit(
       '/iframe.html?selectedKind=Action%7CToggle&selectedStory=disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
     );
-
-    // Add data-id attribute
-    cy.get('label > input').invoke('attr', 'data-id', 'toggle-input');
   });
 
   it('Doesnt Toggle!', () => {
@@ -45,15 +37,11 @@ describe('Cannot Toggle component (disabled)', () => {
   });
 });
 
-/* eslint-disable no-undef */
 describe('Compact Toggle component', () => {
   beforeEach(() => {
     cy.visit(
       '/iframe.html?selectedKind=Action%7CToggle&selectedStory=compact%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
     );
-
-    // Add data-id attribute
-    cy.get('label > input').invoke('attr', 'data-id', 'toggle-input');
   });
 
   it('Toggles!', () => {
@@ -66,15 +54,11 @@ describe('Compact Toggle component', () => {
   });
 });
 
-/* eslint-disable no-undef */
 describe('Compact Toggle component (disabled)', () => {
   beforeEach(() => {
     cy.visit(
       '/iframe.html?selectedKind=Action%7CToggle&selectedStory=compact%20and%20disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
     );
-
-    // Add data-id attribute
-    cy.get('label > input').invoke('attr', 'data-id', 'toggle-input');
   });
 
   it('Doesnt Toggle!', () => {
