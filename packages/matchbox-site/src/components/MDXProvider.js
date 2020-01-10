@@ -8,6 +8,7 @@ import Heading from './Heading';
 
 const components = {
   a: (props) => <Link to={props.href}>{props.children}</Link>,
+  ExternalLink: (props) => <a href={props.to} target="_blank" rel="noopener norefferer">{props.children}</a>,
   PropsTable,
   TokenTable,
   Token,
