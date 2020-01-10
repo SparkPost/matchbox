@@ -31,7 +31,7 @@ function ColorDescription(props) {
           {color(c.value).rgb().string()}, {c.value}
         </Box>
       </Box>
-      {props.title && (
+      {props.title ? (
         <Text
           fontSize='300'
           lineHeight='300'
@@ -39,10 +39,13 @@ function ColorDescription(props) {
           fontWeight='medium'
           color='gray.900'
         >
-          {props.title} <Box display='inline-block' fontSize='200' ml='200'><Token name={c.name} /></Box>
+          <div>
+            {props.title} <Box as='span' display='inline-block' fontSize='200' ml='200'><Token name={c.name} /></Box>
+          </div>
         </Text>
-      )}
-      {!props.title && <Token name={c.name} />}
+      ) : null}
+      {!props.title ? <Token name={c.name} /> : null}
+
       {props.children && (
         <Box mt='100' fontSize='200' lineHeight='200' color='gray.700'>
           {props.children}
