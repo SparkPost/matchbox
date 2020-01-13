@@ -67,8 +67,8 @@ export const colorVariant = (props) => {
           background: ${color};
           color: ${tokens.color_white};
     
-          :not([disabled]):hover {
-            background: ${hoverColor};
+          &:hover {
+            ${!props.disabled ? `background: ${hoverColor};` : ''}
             color: ${tokens.color_white};
           }
         }
@@ -78,9 +78,9 @@ export const colorVariant = (props) => {
         &, &:visited {
           background: transparent;
           color: ${color};
-          &:not([disabled]):hover {
+          &:hover {
+            ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
             color: ${color};
-            background: ${tokens.color_gray_200};
           }
         }
       `;
@@ -90,8 +90,8 @@ export const colorVariant = (props) => {
         &, &:visited {
           border: 1px solid ${color};
           color: ${color};
-          &:not([disabled]):hover {
-            background: ${tokens.color_gray_200};
+          &:hover {
+            ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
             color: ${color};
           }
         }
