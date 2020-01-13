@@ -12,20 +12,24 @@ export default storiesOf('Navigation|Pagination', module)
   ))
 
   .add('with no margins', withInfo()(() => (
-    <Pagination
-      pages={8}
-      pageRange={3}
-      marginsHidden
-      onChange={action('Page Changed')}
-    />
+    <div data-id="pagination-no-margin">
+      <Pagination
+        pages={8}
+        pageRange={3}
+        marginsHidden
+        onChange={action('Page Changed')}
+      />
+    </div>
   )))
 
   .add('with lots of pages and flat buttons', withInfo()(() => (
-    <Pagination
-      flat
-      pages={30}
-      pageRange={3}
-      selectedColor='navy'
-      onChange={action('Page Changed')}
-    />
+    <div data-id="pagination-flat">
+      <Pagination
+        flat
+        pages={30}
+        pageRange={3}
+        selectedColor='navy'
+        onChange={action('Page Changed')}
+      />
+    </div>
   )));
