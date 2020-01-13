@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 
 import Group from './Group';
-import { base, size, colorVariant, disabled, fullWidth, group } from './styles';
+import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
 
 const StyledButton = styled(Box)`
   ${base}
-  ${size}
+  ${visualSize}
   ${colorVariant}
   ${disabled}
   ${fullWidth}
@@ -38,7 +38,7 @@ function Button(props) {
     // Options
     // Renaming to prevent `width` and `height` pass through
     // Size is a valid styled-system prop
-    size: visualSize,
+    size: buttonSize,
     fullWidth,
     submit,
 
@@ -76,7 +76,7 @@ function Button(props) {
   }, [outline, plain, flat]);
 
   const sharedProps = {
-    className, disabled, fullWidth, onClick, onFocus, onBlur, visualSize, visualWeight, buttonColor, ...rest
+    className, disabled, fullWidth, onClick, onFocus, onBlur, buttonSize, visualWeight, buttonColor, ...rest
   };
 
   if (to && !WrapperComponent) {

@@ -13,8 +13,8 @@ export const base = (props) => `
     border: 1px solid transparent;
   `;
 
-export const size = (props) => {
-  switch (props.visualSize) {
+export const visualSize = (props) => {
+  switch (props.buttonSize) {
     case 'large':
       return `
         line-height: calc(3.5rem - 2px);
