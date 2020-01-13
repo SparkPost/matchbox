@@ -122,7 +122,7 @@ StyledGroup.propTypes = Group.propTypes;
 Button.Group = StyledGroup;
 
 Button.propTypes = {
-  color: PropTypes.oneOf(['gray', 'blue', 'red']),
+  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),
   disabled: PropTypes.bool,
   destructive: PropTypes.bool,
   flat: PropTypes.bool,

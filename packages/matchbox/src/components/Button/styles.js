@@ -42,6 +42,7 @@ export const colorVariant = (props) => {
   let hoverColor;
 
   switch (props.buttonColor) {
+    case 'orange': // To be deprecated
     case 'blue':
       color = tokens.color_blue_700;
       hoverColor = tokens.color_blue_800;
