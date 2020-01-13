@@ -7,11 +7,11 @@ describe('Button', () => {
 
   const styleCases = [
     { name: 'default button', props: { }, assert: [
-      ['line-height', 'calc(2.5rem - 2px)'],
+      ['height', '2.5rem'],
       ['color', '#ffffff'],
       ['background', '#39444d']
     ]},
-    { name: 'large size', props: { size: 'large' }, assert: ['line-height', 'calc(3.5rem - 2px)']},
+    { name: 'large size', props: { size: 'large' }, assert: ['height', '3.5rem']},
     { name: 'disabled', props: { disabled: true }, assert: ['opacity', '0.6' ]},
     { name: 'destructive', props: { destructive: true }, assert: ['background', '#d9363e' ]},
     { name: 'flat', props: { flat: true }, assert: ['background', 'transparent']},

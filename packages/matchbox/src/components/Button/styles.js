@@ -1,13 +1,13 @@
 import { tokens } from '@sparkpost/design-tokens';
 
 export const base = (props) => `
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border-radius: ${tokens.borderRadius_100};
     user-select: none;
     font-weight: ${tokens.fontWeight_medium};
     text-decoration: none;
     white-space: nowrap;
-    vertical-align: middle;
     transition-property: background, color, border, outline;
     transition-duration: .15s;
     border: 1px solid transparent;
@@ -17,20 +17,20 @@ export const visualSize = (props) => {
   switch (props.buttonSize) {
     case 'large':
       return `
-        line-height: calc(3.5rem - 2px);
+        height: 3.5rem;
         font-size: ${tokens.fontSize_300};
         padding: 0 ${tokens.spacing_500};
       `;
     case 'small':
       return `
-        line-height: calc(${tokens.spacing_600} - 2px);
+        height: 2rem;
         font-size: ${tokens.fontSize_200};
         padding: 0 ${tokens.spacing_400};
       `;
     case 'default':
     default:
       return `
-        line-height: calc(2.5rem - 2px);
+        height: 2.5rem;
         font-size: ${tokens.fontSize_200};
         padding: 0 ${tokens.spacing_400};
       `;
