@@ -1,53 +1,75 @@
 import React from 'react';
 import Button from '../Button';
-import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
 import 'jest-styled-components';
 
 describe('Button', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<Button>Hola!</Button>);
-  });
 
-  const testCases = [
-    { name: 'large size', props: { size: 'large' }},
-    { name: 'disabled', props: { disabled: true }},
-    { name: 'destructive', props: { destructive: true }},
-    { name: 'flat', props: { flat: true }},
-    { name: 'flat with color', props: { flat: true, color: 'red' }},
-    { name: 'flat with color and disabled', props: { flat: true, color: 'red', disabled: true }},
-    { name: 'outline enabled', props: { outline: true }},
-    { name: 'fullWidth', props: { fullWidth: true }},
-    { name: 'submit', props: { submit: true }},
-    { name: 'external button', props: { external: true }},
-    { name: 'to without component', props: { to: '/nocomp' }},
-    { name: 'external to without component', props: { to: '/nocomp', external: true }},
-    { name: 'to with component', props: { to: '/withcomp', component: jest.fn }},
-    { name: 'to while disabled', props: { to: '/withcomp', component: jest.fn, disabled: true }},
-    { name: 'deprecated prop - primary', props: { primary: true }}
+  const styleCases = [
+    { name: 'default button', props: { }, assert: [
+      ['line-height', 'calc(2.5rem - 2px)'],
+      ['color', '#ffffff'],
+      ['background', '#39444d']
+    ]},
+    { name: 'large size', props: { size: 'large' }, assert: ['line-height', 'calc(3.5rem - 2px)']},
+    { name: 'disabled', props: { disabled: true }, assert: ['opacity', '0.6' ]},
+    { name: 'destructive', props: { destructive: true }, assert: ['background', '#d9363e' ]},
+    { name: 'flat', props: { flat: true }, assert: ['background', 'transparent']},
+    { name: 'flat with color', props: { flat: true, color: 'blue' }, assert: [
+      ['background', 'transparent'],
+      ['color', '#0578ff']
+    ]},
+    { name: 'flat with color and disabled', props: { flat: true, color: 'red', disabled: true }, assert: [
+      ['background', 'transparent'],
+      ['color', '#d9363e'],
+      ['opacity', '0.6']
+    ]},
+    { name: 'outline enabled', props: { outline: true }, assert: ['border', '1px solid #39444d' ]},
+    { name: 'fullWidth', props: { fullWidth: true }, assert: ['width', '100%']},
+    { name: 'deprecated prop - primary', props: { primary: true }, assert: ['background', '#0578ff']}
   ];
 
-  cases('renders button states', (opts) => {
-    wrapper.setProps(opts.props);
-    expect(wrapper).toMatchSnapshot();
-  }, testCases);
+  cases('renders button styles', ({ props, assert }) => {
+    const wrapper = global.mountStyled(<Button {...props}>Hola!</Button>);
 
-  cases('invokes event', (opts) => {
-    const fn = jest.fn();
-    const newProps = {};
-    newProps[opts.name] = fn;
-    wrapper.setProps(newProps);
+    if (!Array.isArray(assert[0])) {
+      expect(wrapper).toHaveStyleRule(assert[0], assert[1]);
+    } else {
+      for (const assertion of assert) {
+        expect(wrapper).toHaveStyleRule(assertion[0], assertion[1]);
+      }
+    }
+  }, styleCases);
 
-    wrapper.simulate(opts.event);
-    expect(fn).toHaveBeenCalledTimes(1);
-  }, [
-    { name: 'onClick', event: 'click' },
-    { name: 'onBlur', event: 'blur' },
-    { name: 'onFocus', event: 'focus' }
-  ]);
+  const attrCases = [
+    { name: 'as button type', props: { }, assert: ['type', 'button']},
+    { name: 'as submit type', props: { submit: true }, assert: ['type', 'submit']},
+    { name: 'external button', props: { to: 'www.test.com', external: true }, assert: [
+      ['title', 'Opens in a new tab'],
+      ['rel', 'noopener noreferrer'],
+      ['target', '_blank'],
+      ['href', 'www.test.com']
+    ]},
+    { name: 'to with component', props: { to: '/withcomp', component: () => <div/> }, assert: ['href', null]}
+  ];
 
-  it('renders base CSS and HTML attributes correctly', () => {
-    expect(global.renderStyled(<Button>Test</Button>)).toMatchSnapshot();
+  cases('renders button attributes', ({ props, assert }) => {
+    const wrapper = global.mountStyled(<Button {...props}>Hola!</Button>);
+
+    if (!Array.isArray(assert[0])) {
+      expect(wrapper).toHaveAttributeValue(assert[0], assert[1]);
+    } else {
+      for (const assertion of assert) {
+        expect(wrapper).toHaveAttributeValue(assertion[0], assertion[1]);
+      }
+    }
+  }, attrCases);
+});
+
+describe('wrappers', () => {
+  it('should render a custom wrapper', () => {
+    const wrapper = global.mountStyled(<Button to='/test' component='span'>Hola!</Button>);
+    expect(wrapper.find('span')).toExist();
+    expect(wrapper.find('span')).toHaveAttributeValue('to', '/test');
   });
 });
