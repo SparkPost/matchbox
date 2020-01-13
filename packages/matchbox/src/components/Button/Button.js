@@ -86,6 +86,7 @@ function Button(props) {
         href={to}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
+        title={external ? 'Opens in a new tab' : ''}
         {...sharedProps}
       >
         {children}
