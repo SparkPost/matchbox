@@ -1,37 +1,41 @@
 import React from 'react';
 import Panel from '../Panel';
-import { shallow } from 'enzyme';
 
 describe('Panel', () => {
   let wrapper;
 
-  it('renders correctly', () => {
-    wrapper = shallow(
-      <Panel accent sectioned title='title' actions={[{ content: 'Action' }]}>
+  it('renders accent title and header action correctly', () => {
+    wrapper = global.mountStyled(
+      <Panel accent sectioned title='test title' actions={[{ content: 'Action' }]}>
         Foo
       </Panel>
     );
-    expect(wrapper).toMatchSnapshot();
+    const PanelWrapper = wrapper;
+    expect(PanelWrapper.find('.HeaderText').text()).toEqual('test title');
+    expect(PanelWrapper.find('.Accent.accent-orange')).toExist();
+    expect(PanelWrapper.find('Button').text()).toEqual('Action');
   });
 
   it('renders correctly with sections', () => {
-    wrapper = shallow(
-      <Panel title='title'>
+    wrapper = global.mountStyled(
+      <Panel>
         <Panel.Section actions={[{ content: 'Action' }]}>Foo</Panel.Section>
         <Panel.Section>Bar</Panel.Section>
       </Panel>
     );
-    expect(wrapper.find('Header').dive()).toMatchSnapshot();
-    expect(wrapper.find(Panel.Section).at(0).dive()).toMatchSnapshot();
-    expect(wrapper.find(Panel.Section).at(1).dive()).toMatchSnapshot();
+    expect(wrapper.find(Panel.Section).at(0).find('.SectionContent').text()).toEqual('Foo');
+    expect(wrapper.find(Panel.Section).at(0).find('Button').text()).toEqual('Action');
+    expect(wrapper.find(Panel.Section).at(1).find('.SectionContent').text()).toEqual('Bar');
   });
 
   it('renders correctly with footer', () => {
-    expect(shallow(
+    wrapper = global.mountStyled(
       <div>
-        <Panel accent='red' />
+        <Panel />
         <Panel.Footer left={<span>left</span>} right='right' />
       </div>
-    ).find(Panel.Footer).dive()).toMatchSnapshot();
+    );
+    expect(wrapper.find('.Left').children().html()).toEqual('<span>left</span>');
+    expect(wrapper.find('.Right').text()).toEqual('right');
   });
 });
