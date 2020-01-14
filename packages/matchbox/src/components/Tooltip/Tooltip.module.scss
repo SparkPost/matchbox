@@ -7,6 +7,9 @@ $arrow-margin: 10px;
 }
 
 .hover {
+  .Content {
+    visibility: visible;
+  }
   .Tooltip {
     opacity: 1;
     transform: translate(0, 0) scale(1);
@@ -14,7 +17,8 @@ $arrow-margin: 10px;
 }
 
 .dark {
-  .Tip, .Tooltip {
+  .Tip,
+  .Tooltip {
     background: color(gray, 1);
     border: none !important;
   }
@@ -97,6 +101,7 @@ $arrow-margin: 10px;
 }
 
 .Content {
+  visibility: hidden;
   position: relative;
   z-index: 1;
   border-radius: border-radius(large);
