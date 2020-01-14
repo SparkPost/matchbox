@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "phantomjs": true
+  },
+  "rules": {
+    "no-undef": ["off"]
+  }
+}
