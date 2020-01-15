@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeProvider should use a provided theme 1`] = `
+Object {
+  "breakpoints": Array [
+    "400px",
+    "800px",
+  ],
+  "fontSizes": Object {
+    "400": "1rem",
+  },
+  "lineHeights": Object {
+    "400": "1.5rem",
+  },
+  "mock-theme-key": "mock-theme-value",
+  "space": Object {
+    "400": "1rem",
+    "500": "1.5rem",
+  },
+}
+`;
