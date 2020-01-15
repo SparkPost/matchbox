@@ -29,7 +29,7 @@ export function negativeMargin(value, direction) {
     for (const i in value) {
       const themeValue = themeValueOrString(value[i], props);
 
-      if (i === 0) {
+      if (i === '0') {
         css = `
           margin-${direction}: ${subtractPixel(themeValue, direction)};
         `;
