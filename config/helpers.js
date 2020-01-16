@@ -1,7 +1,6 @@
 import React from 'react';
 import ThemeProvider from '../packages/matchbox/src/components/ThemeProvider/ThemeProvider';
-import { render } from 'enzyme';
-import theme from '../packages/matchbox/src/components/ThemeProvider/theme';
+import { render, mount } from 'enzyme';
 
 jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
   "mock-theme-key": "mock-theme-value",
@@ -14,7 +13,11 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
   space: {
     400: "1rem",
     500: "1.5rem"
-  }
+  },
+  breakpoints: [
+    '400px',
+    '800px'
+  ]
 }));
 
 // jest-styled-components@6.3.3 has some issues:
@@ -24,4 +27,8 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
 
 global.renderStyled = (node) => {
   return render(<ThemeProvider>{node}</ThemeProvider>);
+};
+
+global.mountStyled = (node) => {
+  return mount(<ThemeProvider>{node}</ThemeProvider>);
 };
