@@ -31,9 +31,7 @@
   },
   "dependencies": {
     "@sparkpost/design-tokens": "^1.0.0-beta.13",
-    "@styled-system/css": "^5.1.4",
     "@styled-system/prop-types": "^5.1.2",
-    "@styled-system/theme-get": "^5.1.2",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.7.2",
