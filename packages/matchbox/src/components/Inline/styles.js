@@ -26,10 +26,10 @@ export function negativeMargin(value, direction) {
     // For responsive prop arrays
     let css = '';
 
-    for (const i in value) {
-      const themeValue = themeValueOrString(value[i], props);
+    value.forEach((v, i) => {
+      const themeValue = themeValueOrString(v, props);
 
-      if (i === '0') {
+      if (i === 0) {
         css = `
           margin-${direction}: ${subtractPixel(themeValue, direction)};
         `;
@@ -40,7 +40,7 @@ export function negativeMargin(value, direction) {
           }
         `;
       }
-    }
+    });
 
     return css;
   };
