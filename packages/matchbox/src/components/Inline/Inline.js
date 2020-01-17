@@ -42,7 +42,7 @@ function Inline(props) {
     <OuterWrapper childMargin={space}>
       <InnerWrapper childMargin={space} alignProps={alignProps}>
         {items.map((child, i) => (
-          <Box key={i} display="inline-flex" pt={space} pl={space}>
+          <Box key={i} pt={space} pl={space}>
             {child}
           </Box>
         ))}

@@ -13,7 +13,6 @@ describe('Inline', () => {
 
   it('should render spacing default and base styles correctly', () => {
     const wrapper = subject();
-    expect(wrapper.find('Box').at(1)).toHaveStyleRule('display', 'inline-flex');
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-top', '1rem');
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-left', '1rem');
     expect(wrapper.find('div').at(1)).not.toHaveStyleRule('justify-content');
