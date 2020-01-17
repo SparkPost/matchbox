@@ -50,6 +50,9 @@ describe('Button', () => {
       ['target', '_blank'],
       ['href', 'www.test.com']
     ]},
+    { name: 'external button with title', props: { to: 'www.test.com', external: true, title: 'test-title' }, assert: [
+      ['title', 'test-title']
+    ]},
     { name: 'to with component', props: { to: '/withcomp', component: () => <div/> }, assert: ['href', null]}
   ];
 

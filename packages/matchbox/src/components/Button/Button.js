@@ -46,6 +46,7 @@ function Button(props) {
     Component, // Deprecate in favor of component
     component,
     external,
+    title,
 
     // Events
     onClick,
@@ -86,7 +87,7 @@ function Button(props) {
         href={to}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
-        title={external ? 'Opens in a new tab' : ''}
+        title={external && !title ? 'Opens in a new tab' : title}
         {...sharedProps}
       >
         {children}
@@ -133,6 +134,7 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   submit: PropTypes.bool,
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  title: PropTypes.string,
   external: PropTypes.bool,
   component: PropTypes.elementType,
   Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
