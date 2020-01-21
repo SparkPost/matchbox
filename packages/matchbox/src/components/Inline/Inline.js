@@ -5,6 +5,8 @@ import propTypes from '@styled-system/prop-types';
 import { negativeTop, negativeLeft, alignChildren } from './styles';
 
 // Negates children padding top
+// Overflow: auto is set here to prevent margin collapse
+// If this becomes flakey, padding-top: 1px is also an option
 const OuterWrapper = styled('div')`
   overflow: auto;
   &:before {
