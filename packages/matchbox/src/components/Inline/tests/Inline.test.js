@@ -25,7 +25,7 @@ describe('Inline', () => {
 
   it('should render negative margins around wrappers', () => {
     const wrapper = subject({ spacing: '20px' });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', 'calc(-1rem - 1px)', { modifier: ':before' });
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', '-1rem', { modifier: ':before' });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', '-1rem');
   });
 
@@ -33,7 +33,7 @@ describe('Inline', () => {
     const wrapper = subject({ space: '20px' });
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-top', '20px');
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-left', '20px');
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', 'calc(-20px - 1px)', { modifier: ':before' });
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', '-20px', { modifier: ':before' });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', '-20px');
   });
 
@@ -41,7 +41,7 @@ describe('Inline', () => {
     const wrapper = subject({ space: ['50px', '100px'], align: ['center', 'left']});
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-top', '50px');
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-left', '50px');
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', 'calc(-50px - 1px)', { modifier: ':before' });
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', '-50px', { modifier: ':before' });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', '-50px');
     expect(wrapper.find('div').at(1)).toHaveStyleRule('justify-content', 'center');
 
@@ -49,7 +49,7 @@ describe('Inline', () => {
     const media = 'screen and (min-width:400px)';
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-top', '100px', { media });
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('padding-left', '100px', { media });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', 'calc(-100px - 1px)', { media, modifier: ':before' });
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-top', '-100px', { media, modifier: ':before' });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', '-100px', { media });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('justify-content', 'flex-start', { media });
   });

@@ -6,7 +6,7 @@ import { negativeTop, negativeLeft, alignChildren } from './styles';
 
 // Negates children padding top
 const OuterWrapper = styled('div')`
-  padding-top: 1px;
+  overflow: auto;
   &:before {
     display: block;
     content: "";
@@ -25,10 +25,6 @@ const InnerWrapper = styled('div')`
 function Inline(props) {
   const { children, align, space = '400' } = props;
   const items = React.Children.toArray(children);
-
-  if (items.lengh <= 1 && !align) {
-    return <>{items}</>;
-  }
 
   return (
     <OuterWrapper gutter={space}>
