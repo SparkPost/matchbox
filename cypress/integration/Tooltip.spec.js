@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-/* eslint-disable no-undef */
 describe('The Tooltip component', () => {
   beforeEach(() => {
     cy.visit(
@@ -9,18 +8,28 @@ describe('The Tooltip component', () => {
   });
 
   it('should open when a mouse over event triggers.', () => {
-    cy.queryAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+
     cy.get('button')
       .first()
       .trigger('mouseover');
-    cy.queryAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
+
+    cy.findAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
+
+    cy.get('button')
+      .first()
+      .trigger('mouseout');
+
+    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
   });
 
   it('should open when clicking', () => {
-    cy.queryAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+
     cy.get('button')
       .first()
       .click();
-    cy.queryAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
+
+    cy.findAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
   });
 });

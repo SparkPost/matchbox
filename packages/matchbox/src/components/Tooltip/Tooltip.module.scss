@@ -10,7 +10,9 @@ $arrow-margin: 10px;
   .Content {
     visibility: visible;
   }
+
   .Tooltip {
+    visibility: visible;
     opacity: 1;
     transform: translate(0, 0) scale(1);
   }
@@ -80,6 +82,7 @@ $arrow-margin: 10px;
 }
 
 .Tooltip {
+  visibility: hidden;
   display: block;
   position: absolute;
   z-index: 1;
