@@ -11,3 +11,4 @@
 - #278 - Adds @sparkpost/design-tokens to the Matchbox monorepo
 - #280 - Adds a custom deprecate prop type
 - #308 - Adds layout Stack component
+- #316 - Adds layout Inline component

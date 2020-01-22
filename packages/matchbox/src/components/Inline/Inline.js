@@ -11,7 +11,7 @@ const OuterWrapper = styled('div')`
   overflow: auto;
   &:before {
     display: block;
-    content: "";
+    content: '';
     ${negativeTop}
   }
 `;
@@ -52,7 +52,7 @@ Inline.propTypes = {
    * Accepts 'center', 'left', 'right', null.
    * Styled-system responsive arrays work here.
    */
-  align: propTypes.flexbox.justifyContent
+  align: propTypes.flexbox.justifyContent,
 };
 
 Inline.displayName = 'Inline';

@@ -34,25 +34,6 @@
     "lodash/prefer-times": "off",
     "no-unused-vars": [
       "error",
-<<<<<<< HEAD
-=======
-      "always"
-    ],
-    "complexity": "off",
-    "react/jsx-no-bind": "off",
-    "max-lines": [
-      "error",
-      {
-        "max": 150,
-        "skipComments": true,
-        "skipBlankLines": true
-      }
-    ],
-    "max-params": ["error", 4],
-    "object-curly-spacing": [
-      "error",
-      "always",
->>>>>>> bb00cc2... Custom Deprecate Prop Type (#280)
       {
         "varsIgnorePattern": "^_",
         "ignoreRestSiblings": true
