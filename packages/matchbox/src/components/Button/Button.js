@@ -7,7 +7,7 @@ import { Box } from '../Box';
 import Group from './Group';
 import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
 
-const StyledButton = styled(Box)`
+export const StyledButton = styled(Box)`
   ${base}
   ${visualSize}
   ${colorVariant}
@@ -77,13 +77,22 @@ function Button(props) {
   }, [outline, plain, flat]);
 
   const sharedProps = {
-    className, disabled, fullWidth, onClick, onFocus, onBlur, buttonSize, visualWeight, buttonColor, ...rest
+    className,
+    disabled,
+    fullWidth,
+    onClick,
+    onFocus,
+    onBlur,
+    buttonSize,
+    visualWeight,
+    buttonColor,
+    ...rest,
   };
 
   if (to && !WrapperComponent) {
     return (
       <StyledButton
-        as='a'
+        as="a"
         href={to}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
@@ -97,22 +106,14 @@ function Button(props) {
 
   if (to && WrapperComponent) {
     return (
-      <StyledButton
-        as={WrapperComponent}
-        to={to}
-        {...sharedProps}
-      >
+      <StyledButton as={WrapperComponent} to={to} {...sharedProps}>
         {children}
       </StyledButton>
     );
   }
 
   return (
-    <StyledButton
-      as='button'
-      type={submit ? 'submit' : 'button'}
-      {...sharedProps}
-    >
+    <StyledButton as="button" type={submit ? 'submit' : 'button'} {...sharedProps}>
       {children}
     </StyledButton>
   );
@@ -139,11 +140,11 @@ Button.propTypes = {
   component: PropTypes.elementType,
   Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
   children: PropTypes.node,
-  primary: deprecate(PropTypes.bool, 'Use `color` prop instead')
+  primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
 };
 
 Button.defaultProps = {
-  size: 'default'
+  size: 'default',
 };
 
 export default Button;

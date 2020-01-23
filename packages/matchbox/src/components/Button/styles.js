@@ -123,16 +123,6 @@ export const fullWidth = props => {
 
 export const group = buttonSelector => () => `
   & > ${buttonSelector} {
-    border-radius: 0;
     margin-right: -1px;
-
-    &:first-child {
-      border-top-left-radius: ${tokens.borderRadius_100};
-      border-bottom-left-radius: ${tokens.borderRadius_100};
-    }
-    &:last-child {
-      border-top-right-radius: ${tokens.borderRadius_100};
-      border-bottom-right-radius: ${tokens.borderRadius_100};
-    }
   }
 `;
