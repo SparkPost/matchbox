@@ -1,6 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const base = (props) => `
+export const base = () => `
     display: inline-flex;
     align-items: center;
     border-radius: ${tokens.borderRadius_100};
@@ -13,7 +13,7 @@ export const base = (props) => `
     border: 1px solid transparent;
   `;
 
-export const visualSize = (props) => {
+export const visualSize = props => {
   switch (props.buttonSize) {
     case 'large':
       return `
@@ -37,7 +37,7 @@ export const visualSize = (props) => {
   }
 };
 
-export const colorVariant = (props) => {
+export const colorVariant = props => {
   let color;
   let hoverColor;
 
@@ -89,6 +89,7 @@ export const colorVariant = (props) => {
       return `
         &, &:visited {
           border: 1px solid ${color};
+          background: transparent;
           color: ${color};
           &:hover {
             ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
@@ -99,7 +100,7 @@ export const colorVariant = (props) => {
   }
 };
 
-export const disabled = (props) => {
+export const disabled = props => {
   if (props.disabled) {
     return `
       opacity: 0.6;
@@ -110,7 +111,7 @@ export const disabled = (props) => {
   }
 };
 
-export const fullWidth = (props) => {
+export const fullWidth = props => {
   if (props.fullWidth) {
     return `
       display: block;
@@ -120,7 +121,7 @@ export const fullWidth = (props) => {
   }
 };
 
-export const group = (buttonSelector) => () => `
+export const group = buttonSelector => () => `
   & > ${buttonSelector} {
     border-radius: 0;
     margin-right: -1px;
