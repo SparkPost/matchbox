@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-import { Button, Box } from '@sparkpost/matchbox';
+import { Button, Inline } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => (
   <ThemeProvider>
@@ -16,82 +16,72 @@ export default {
 };
 
 export const Sizing = withInfo()(() => (
-  <div>
-    <Button size="small">Small Button</Button> &nbsp;
-    <Button>Default Button</Button> &nbsp;
+  <Inline>
+    <Button size="small">Small Button</Button>
+    <Button>Default Button</Button>
     <Button size="large">Large Button</Button>
-  </div>
+  </Inline>
 ));
 
 export const Colors = withInfo({ propTables: [Button] })(() => (
-  <div>
-    <Box mb="400">
-      <Button>Button</Button> &nbsp;
-      <Button disabled>Disabled</Button> &nbsp;
-      <Button flat>Flat</Button> &nbsp;
+  <>
+    <Inline>
+      <Button>Button</Button>
+      <Button disabled>Disabled</Button>
+      <Button flat>Flat</Button>
       <Button flat disabled>
         Flat Disabled
-      </Button>{' '}
-      &nbsp;
-      <Button outline>Outline</Button> &nbsp;
-    </Box>
-    <Box mb="400">
-      <Button color="red">Button</Button> &nbsp;
+      </Button>
+      <Button outline>Outline</Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button color="red">Button</Button>
       <Button color="red" disabled>
         Disabled
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="red" flat>
         Flat
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="red" flat disabled>
         Flat Disabled
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="red" outline>
         Outline
-      </Button>{' '}
-      &nbsp;
-    </Box>
-    <Box mb="400">
-      <Button color="blue">Button</Button> &nbsp;
+      </Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button color="blue">Button</Button>
       <Button color="blue" disabled>
         Disabled
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="blue" flat>
         Flat
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="blue" flat disabled>
         Flat Disabled
-      </Button>{' '}
-      &nbsp;
+      </Button>
       <Button color="blue" outline>
         Outline
-      </Button>{' '}
-      &nbsp;
-    </Box>
-  </div>
+      </Button>
+    </Inline>
+  </>
 ));
 
 export const Destructive = withInfo()(() => (
-  <div>
+  <Inline>
     <Button destructive size="small">
       Delete domain
-    </Button>{' '}
-    &nbsp;
-    <Button destructive>Delete domain</Button> &nbsp;
+    </Button>
+    <Button destructive>Delete domain</Button>
     <Button destructive size="large">
       Delete domain
-    </Button>{' '}
-    &nbsp;
+    </Button>
     <Button destructive disabled>
       Delete domain
-    </Button>{' '}
-    &nbsp;
-  </div>
+    </Button>
+  </Inline>
 ));
 
 export const External = withInfo()(() => <Button to="http://google.com">Google</Button>);
