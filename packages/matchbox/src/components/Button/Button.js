@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
-import { layout, space, compose } from 'styled-system';
+import { margin, width, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 
 import Group from './Group';
 import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
 
 // TODO Categorize system props and abstract
-const system = compose(space.margin, layout.width);
+const system = compose(margin, width);
 
 export const StyledButton = styled(Box)`
   ${base}
@@ -146,6 +147,12 @@ Button.propTypes = {
   Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
   children: PropTypes.node,
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
+
+  // Undocumented helper function
+  // https://github.com/styled-system/styled-system/issues/618
+  // TODO Abstract when system props are grouped
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(width.propNames),
 };
 
 Button.defaultProps = {
