@@ -23,7 +23,7 @@ exports[`Page renders page with breadcrumb 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -68,7 +68,7 @@ exports[`Page renders page with children 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -115,7 +115,7 @@ exports[`Page renders page with secondary actions 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -200,7 +200,7 @@ exports[`Page renders subtitle node 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -239,7 +239,7 @@ exports[`Page renders subtitle string 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -275,7 +275,7 @@ exports[`Page renders title as a node 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
@@ -304,7 +304,7 @@ exports[`Page renders w/o title 1`] = `
         className="PrimaryAction"
       >
         <Button
-          color="orange"
+          color="blue"
           size="large"
         >
           Primary
