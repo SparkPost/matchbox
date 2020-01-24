@@ -54,7 +54,7 @@ class EmptyState extends Component {
     const primaryActionMarkup = primaryAction
       ? buttonFrom(primaryAction, {
         size: 'large',
-        ...(!primaryAction.color ? { color: 'orange' } : {})
+        ...(!primaryAction.color ? { color: 'blue' } : {})
       })
       : null;
 

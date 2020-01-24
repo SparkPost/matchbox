@@ -2,7 +2,7 @@
 
 exports[`Group renders children correctly 1`] = `
 <div
-  className="Group"
+  className=""
 >
   <button>
     Button 1
@@ -15,7 +15,7 @@ exports[`Group renders children correctly 1`] = `
 
 exports[`Group sets classname if passed 1`] = `
 <div
-  className="Group group-of-buttons"
+  className="group-of-buttons"
 >
   <button>
     Button 1

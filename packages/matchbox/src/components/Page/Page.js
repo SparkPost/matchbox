@@ -104,7 +104,7 @@ class Page extends Component {
     }
 
     if (primaryAction) {
-      primaryActionMarkup = buttonFrom(primaryAction, { size: 'large', ...(!primaryAction.color ? { color: 'orange' } : {}) });
+      primaryActionMarkup = buttonFrom(primaryAction, { size: 'large', ...(!primaryAction.color ? { color: 'blue' } : {}) });
     }
 
     if (primaryArea) {
