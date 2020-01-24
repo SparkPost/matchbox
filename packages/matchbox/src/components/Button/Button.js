@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
+import { layout, space, compose } from 'styled-system';
 import { Box } from '../Box';
 
 import Group from './Group';
 import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
+
+// TODO Categorize system props and abstract
+const system = compose(space.margin, layout.width);
 
 export const StyledButton = styled(Box)`
   ${base}
@@ -13,6 +17,7 @@ export const StyledButton = styled(Box)`
   ${colorVariant}
   ${disabled}
   ${fullWidth}
+  ${system}
 `;
 
 // Button.Group is styled here to access a classname reference to StyledButton

@@ -6,6 +6,7 @@ export const base = () => `
     border-radius: ${tokens.borderRadius_100};
     user-select: none;
     font-weight: ${tokens.fontWeight_medium};
+    justify-content: center;
     text-decoration: none;
     white-space: nowrap;
     transition-property: background, color, border, outline;
@@ -116,7 +117,6 @@ export const fullWidth = props => {
     return `
       display: block;
       width: 100%;
-      text-align: center;
     `;
   }
 };

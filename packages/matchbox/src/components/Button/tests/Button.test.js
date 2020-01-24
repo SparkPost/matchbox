@@ -44,6 +44,15 @@ describe('Button', () => {
       ],
     },
     { name: 'fullWidth', props: { fullWidth: true }, assert: ['width', '100%'] },
+    { name: 'system width', props: { width: 1 / 2 }, assert: ['width', '50%'] },
+    {
+      name: 'system margin',
+      props: { mx: '400', mt: '500' },
+      assert: [
+        ['margin-left', '1rem'],
+        ['margin-top', '1.5rem'],
+      ],
+    },
     {
       name: 'deprecated prop - primary',
       props: { primary: true },

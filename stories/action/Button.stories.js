@@ -95,3 +95,17 @@ export const Group = withInfo()(() => (
     </Button>
   </Button.Group>
 ));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Button mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
+      Submit
+    </Button>
+    <Button mb="200" mr="200" width={['100%', 1 / 5, 1 / 6]} outline>
+      Cancel
+    </Button>
+    <Button mb="200" width={['100%', 1 / 6, 'auto']} flat>
+      Reset
+    </Button>
+  </>
+));
