@@ -70,6 +70,8 @@ export const colorVariant = props => {
     
           &:hover {
             ${!props.disabled ? `background: ${hoverColor};` : ''}
+          }
+          &:focus, &:hover {
             color: ${tokens.color_white};
           }
         }
@@ -81,6 +83,8 @@ export const colorVariant = props => {
           color: ${color};
           &:hover {
             ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
+          }
+          &:focus, &:hover {
             color: ${color};
           }
         }
@@ -94,6 +98,8 @@ export const colorVariant = props => {
           color: ${color};
           &:hover {
             ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
+          }
+          &:focus, &:hover {
             color: ${color};
           }
         }
