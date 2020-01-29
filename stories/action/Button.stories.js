@@ -1,164 +1,111 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
+import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
+import { Button, Inline } from '@sparkpost/matchbox';
 
-import { Button } from '@sparkpost/matchbox';
+addDecorator(storyFn => (
+  <ThemeProvider>
+    <StoryContainer bg="white">{storyFn()}</StoryContainer>
+  </ThemeProvider>
+));
 
-storiesOf('Action|Button', module)
-  .addDecorator(getStory => <StoryContainer bg="white">{getStory()}</StoryContainer>)
+export default {
+  title: 'Action|Button',
+};
 
-  .add(
-    'Sizing',
-    withInfo()(() => (
-      <div>
-        <Button size="small">Small Button</Button> &nbsp;
-        <Button>Default Button</Button> &nbsp;
-        <Button size="large">Large Button</Button>
-      </div>
-    )),
-  )
+export const Sizing = withInfo()(() => (
+  <Inline>
+    <Button size="small">Small Button</Button>
+    <Button>Default Button</Button>
+    <Button size="large">Large Button</Button>
+  </Inline>
+));
 
-  .add(
-    'Colors',
-    withInfo()(() => (
-      <div>
-        <p>
-          <Button>Button</Button> &nbsp;
-          <Button disabled>Disabled</Button> &nbsp;
-          <Button flat>Flat</Button> &nbsp;
-          <Button flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-        <p>
-          <Button color="red">Button</Button> &nbsp;
-          <Button color="red" disabled>
-            Disabled
-          </Button>{' '}
-          &nbsp;
-          <Button color="red" flat>
-            Flat
-          </Button>{' '}
-          &nbsp;
-          <Button color="red" flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-        <p>
-          <Button color="orange">Button</Button> &nbsp;
-          <Button color="orange" disabled>
-            Disabled
-          </Button>{' '}
-          &nbsp;
-          <Button color="orange" flat>
-            Flat
-          </Button>{' '}
-          &nbsp;
-          <Button color="orange" flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-        <p>
-          <Button color="blue">Button</Button> &nbsp;
-          <Button color="blue" disabled>
-            Disabled
-          </Button>{' '}
-          &nbsp;
-          <Button color="blue" flat>
-            Flat
-          </Button>{' '}
-          &nbsp;
-          <Button color="blue" flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-        <p>
-          <Button color="navy">Button</Button> &nbsp;
-          <Button color="navy" disabled>
-            Disabled
-          </Button>{' '}
-          &nbsp;
-          <Button color="navy" flat>
-            Flat
-          </Button>{' '}
-          &nbsp;
-          <Button color="navy" flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-        <p>
-          <Button color="purple">Button</Button> &nbsp;
-          <Button color="purple" disabled>
-            Disabled
-          </Button>{' '}
-          &nbsp;
-          <Button color="purple" flat>
-            Flat
-          </Button>{' '}
-          &nbsp;
-          <Button color="purple" flat disabled>
-            Flat Disabled
-          </Button>
-        </p>
-      </div>
-    )),
-  )
+export const Colors = withInfo({ propTables: [Button] })(() => (
+  <>
+    <Inline>
+      <Button>Button</Button>
+      <Button disabled>Disabled</Button>
+      <Button flat>Flat</Button>
+      <Button flat disabled>
+        Flat Disabled
+      </Button>
+      <Button outline>Outline</Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button color="red">Button</Button>
+      <Button color="red" disabled>
+        Disabled
+      </Button>
+      <Button color="red" flat>
+        Flat
+      </Button>
+      <Button color="red" flat disabled>
+        Flat Disabled
+      </Button>
+      <Button color="red" outline>
+        Outline
+      </Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button color="blue">Button</Button>
+      <Button color="blue" disabled>
+        Disabled
+      </Button>
+      <Button color="blue" flat>
+        Flat
+      </Button>
+      <Button color="blue" flat disabled>
+        Flat Disabled
+      </Button>
+      <Button color="blue" outline>
+        Outline
+      </Button>
+    </Inline>
+  </>
+));
 
-  .add(
-    'Destructive',
-    withInfo()(() => (
-      <div>
-        <Button destructive size="small">
-          Delete domain
-        </Button>{' '}
-        &nbsp;
-        <Button destructive>Delete domain</Button> &nbsp;
-        <Button destructive size="large">
-          Delete domain
-        </Button>{' '}
-        &nbsp;
-        <Button destructive disabled>
-          Delete domain
-        </Button>{' '}
-        &nbsp;
-      </div>
-    )),
-  )
+export const Destructive = withInfo()(() => (
+  <Inline>
+    <Button destructive size="small">
+      Delete domain
+    </Button>
+    <Button destructive>Delete domain</Button>
+    <Button destructive size="large">
+      Delete domain
+    </Button>
+    <Button destructive disabled>
+      Delete domain
+    </Button>
+  </Inline>
+));
 
-  .add(
-    'Outline',
-    withInfo()(() => (
-      <div>
-        <Button outline size="small">
-          Manage IPs
-        </Button>{' '}
-        &nbsp;
-        <Button outline>Manage IPs</Button> &nbsp;
-        <Button outline size="large">
-          Manage IPs
-        </Button>{' '}
-        &nbsp;
-        <Button outline disabled>
-          Manage IPs
-        </Button>{' '}
-        &nbsp;
-      </div>
-    )),
-  )
+export const External = withInfo()(() => <Button to="http://google.com">Google</Button>);
 
-  .add(
-    'External',
-    withInfo()(() => <Button to="http://google.com">Google</Button>),
-  )
+export const Group = withInfo()(() => (
+  <Button.Group>
+    <Button>Linear</Button>
+    <Button outline>Log</Button>
+    <Button outline disabled>
+      Sq Rt
+    </Button>
+  </Button.Group>
+));
 
-  .add(
-    'Group',
-    withInfo()(() => (
-      <Button.Group>
-        <Button>Linear</Button>
-        <Button>Log</Button>
-        <Button disabled>Sq Rt</Button>
-      </Button.Group>
-    )),
-  );
+export const SystemProps = withInfo()(() => (
+  <>
+    <Button mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
+      Submit
+    </Button>
+    <Button mb="200" mr="200" width={['100%', 1 / 5, 1 / 6]} outline>
+      Cancel
+    </Button>
+    <Button mb="200" width={['100%', 1 / 6, 'auto']} flat>
+      Reset
+    </Button>
+  </>
+));

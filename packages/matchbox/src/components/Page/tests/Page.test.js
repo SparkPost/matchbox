@@ -13,6 +13,7 @@ describe('Page', () => {
       primaryAction: { content: 'Primary' }
     };
 
+    // Replace with global.renderStyled or RTL if brittle
     wrapper = shallow(<Page {...props}><h1>Test Example</h1></Page>);
   });
 
