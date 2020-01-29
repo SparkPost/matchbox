@@ -3,14 +3,26 @@
 .ProgressBar {
   position: relative;
   margin-bottom: rem(18);
-  height: rem(21);
   background: color(gray, 8);
   border-bottom: 1px solid color(gray, 7);
   border-radius: border-radius();
 }
 
+.normal {
+  height: rem(12);
+  .Progress {
+    height: rem(12);
+  }
+}
+
+.small {
+  height: rem(4);
+  .Progress {
+    height: rem(4);
+  }
+}
+
 .Progress {
-  height: rem(21);
   border-radius: border-radius();
   box-shadow: shadow();
 
