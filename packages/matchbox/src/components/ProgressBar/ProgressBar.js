@@ -1,26 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
-import classnames from 'classnames';
-import styles from './ProgressBar.module.scss';
+import styled from 'styled-components';
+import { margin, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { Box } from '../Box';
+
+import { outerBase, innerBase, visualSize, calculatedWidth } from './styles.js';
+
+const system = compose(margin);
+
+export const StyledProgressBarOuter = styled(Box)`
+  ${outerBase}
+  ${visualSize}
+  ${system}
+`;
+
+export const StyledProgressBarInner = styled(Box)`
+  ${innerBase}
+  ${visualSize}
+  ${calculatedWidth}
+`;
 
 function ProgressBar(props) {
   const { completed = 0, size } = props;
 
-  let percentage = completed;
-
-  if (percentage > 100) {
-    percentage = 100;
-  } else if (percentage < 1) {
-    percentage = 0;
-  }
-
-  const classname = classnames(styles.ProgressBar, styles['blue'], styles[size]);
-
   return (
-    <div className={classname}>
-      <div className={styles.Progress} style={{ width: `${percentage}%` }} />
-    </div>
+    <StyledProgressBarOuter as="div" size={size}>
+      <StyledProgressBarInner as="div" completed={completed} size={size} />
+    </StyledProgressBarOuter>
   );
 }
 
@@ -33,6 +41,7 @@ ProgressBar.propTypes = {
     'Color is always blue for now. This may be updated in the future.',
   ),
   size: PropTypes.oneOf(['normal', 'small']),
+  ...createPropTypes(margin.propNames),
 };
 
 ProgressBar.defaultProps = {
