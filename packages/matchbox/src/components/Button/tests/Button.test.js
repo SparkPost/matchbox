@@ -23,7 +23,7 @@ describe('Button', () => {
       props: { flat: true, color: 'blue' },
       assert: [
         ['background', 'transparent'],
-        ['color', '#0578ff'],
+        ['color', '#1273E6'],
       ],
     },
     {
