@@ -30,17 +30,6 @@ const styleCases = [
     },
     assert: [['height', '0.25rem']],
   },
-  {
-    name: 'margins',
-    props: {
-      completed: 80,
-      margin: 20,
-    },
-    assert: [
-      ['height', '0.75rem'],
-      ['margin-top', '20px'],
-    ],
-  },
 ];
 
 cases(
