@@ -23,7 +23,7 @@ describe('Button', () => {
       props: { flat: true, color: 'blue' },
       assert: [
         ['background', 'transparent'],
-        ['color', '#1273E6'],
+        ['color', '#1273e6'],
       ],
     },
     {
@@ -56,7 +56,7 @@ describe('Button', () => {
     {
       name: 'deprecated prop - primary',
       props: { primary: true },
-      assert: ['background', '#0578ff'],
+      assert: ['background', '#1273e6'],
     },
   ];
 
