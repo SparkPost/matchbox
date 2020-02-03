@@ -10,14 +10,14 @@ module.exports = async ({ config, mode }) => {
         loader: 'css-loader',
         options: {
           modules: true,
-          importLoaders: 2
-        }
+          importLoaders: 2,
+        },
       },
       {
         loader: 'postcss-loader',
-        options: { plugins: () => [autoprefixer()]}
+        options: { plugins: () => [autoprefixer()] },
       },
-      'sass-loader'
+      'sass-loader',
     ],
     include: path.resolve(__dirname, '../'),
   });
@@ -25,10 +25,11 @@ module.exports = async ({ config, mode }) => {
   config.resolve = {
     alias: {
       '@sparkpost/matchbox-icons': path.resolve(__dirname, '../packages/matchbox-icons/src'),
-      '@sparkpost/matchbox': path.resolve(__dirname, '../packages/matchbox/src')
+      '@sparkpost/matchbox': path.resolve(__dirname, '../packages/matchbox/src'),
+      '@sparkpost/design-tokens': path.resolve(__dirname, '../packages/design-tokens'),
     },
-    modules: [path.join(__dirname, '../node_modules')]
-  }
+    modules: [path.join(__dirname, '../node_modules')],
+  };
 
   return config;
 };

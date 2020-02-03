@@ -3,6 +3,6 @@ global:
   type: border-width
 props:
   - name: border-width-0
-    value: "0"
+    value: '0'
   - name: border-width-100
-    value: "1px"
+    value: '1px'
