@@ -3,7 +3,7 @@ global:
   type: font-size
 aliases:
   DEFAULT_BASE:
-    value: "16"
+    value: '16'
 props:
   - name: font-size-800
     value: 3.5rem

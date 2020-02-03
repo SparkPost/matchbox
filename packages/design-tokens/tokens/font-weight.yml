@@ -3,10 +3,10 @@ global:
   type: font-weight
 props:
   - name: font-weight-light
-    value: "300"
+    value: '300'
   - name: font-weight-normal
-    value: "400"
+    value: '400'
   - name: font-weight-medium
-    value: "500"
+    value: '500'
   - name: font-weight-semibold
-    value: "600"
+    value: '600'

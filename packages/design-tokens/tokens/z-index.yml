@@ -3,10 +3,10 @@ global:
   type: z-index
 props:
   - name: z-index-auto
-    value: "auto"
+    value: 'auto'
   - name: z-index-below
-    value: "-1"
+    value: '-1'
   - name: z-index-default
-    value: "1"
+    value: '1'
   - name: z-index-overlay
-    value: "1000"
+    value: '1000'
