@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, ScreenReaderOnly } from '../';
+import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { onKey } from '../../helpers/keyEvents';
 import styled from 'styled-components';
 import { Close } from '@sparkpost/matchbox-icons';
