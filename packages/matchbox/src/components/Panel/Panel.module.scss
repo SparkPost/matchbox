@@ -4,13 +4,15 @@
   position: relative;
   margin-bottom: rem(18);
   background: color(gray, 10);
-  box-shadow: shadow(shallow);
-  border-radius: border-radius(large);
+  border: 1px solid color(gray, 8);
+}
+
+.PanelInner {
+  padding: rem(24);
 }
 
 .Accent {
   height: 3px;
-  border-radius: border-radius(large) border-radius(large) 0 0;
 }
 
 .accent-blue { background: color(blue); }
@@ -24,8 +26,6 @@
 
 .Header, .Body {
   display: flex;
-  padding: rem(18);
-  border-bottom: 1px solid color(gray, 9);
 }
 
 .Header {
@@ -33,10 +33,10 @@
 }
 
 .HeaderText {
-  @include text-style-small-heading;
+  @include text-style-smaller-heading;
   color: color(gray, 1);
-  line-height: rem(30);
   margin: 0;
+  margin-bottom: rem(12);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

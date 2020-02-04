@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -7,76 +7,67 @@ import Footer from './Footer';
 import Header from './Header';
 import styles from './Panel.module.scss';
 
-class Panel extends Component {
-  static Section = Section;
-  static Footer = Footer;
+function Panel(props) {
+  const {
+    // panel heading title
+    title,
 
-  static displayName = 'Panel';
+    // Shows an accent bar, defaults to blue if boolean
+    accent,
 
-  static propTypes = {
-    /**
-     * The panel heading title
-     */
-    title: PropTypes.node,
-    /**
-      * Shows an accent bar, defaults to orange if boolean
-      */
-    accent: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow', 'green', 'gray'])
-    ]),
-    /**
-      * Adds a padded section automatically
-      */
-    sectioned: PropTypes.bool,
-    /**
-      * Actions that build buttons. Most button props will work in here.
-      * e.g. { content: 'button label', onClick: callback() }
-      */
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.node.isRequired
-    })),
-    /**
-      * Panel Content
-      */
-    children: PropTypes.node
-  };
+    // Adds a padded section automatically
+    sectioned,
 
-  render() {
-    const {
-      children,
-      title,
-      accent,
-      sectioned,
-      actions,
-      className,
-      ...rest
-    } = this.props;
+    // Actions that build buttons. Most button props will work in here.
+    // e.g. { content: 'button label', onClick: callback() }
+    actions,
 
-    const accentColor = accent === true ? 'orange' : accent;
+    // Panel Content
+    children,
+    className,
+    ...rest
+  } = props;
 
-    const headerMarkup = title
-      ? <Header title={title} actions={actions} />
-      : null;
+  const accentColor = accent === true ? 'blue' : accent;
 
-    const contentMarkup = sectioned
-      ? <Section>{children}</Section>
-      : children;
+  const headerMarkup = title ? <Header title={title} actions={actions} /> : null;
 
-    const accentMarkup = accentColor
-      ? <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
-      : null;
+  const contentMarkup = sectioned ? <Section>{children}</Section> : children;
 
-    const panelStyles = classnames(styles.Panel, className);
+  const accentMarkup = accentColor ? (
+    <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
+  ) : null;
 
-    return (
-      <div className={panelStyles} {...rest}>
-        {accentMarkup}
+  const panelStyles = classnames(styles.Panel, className);
+
+  return (
+    <div className={panelStyles} {...rest}>
+      {accentMarkup}
+      <div className={styles.PanelInner}>
         {headerMarkup}
         {contentMarkup}
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+Panel.displayName = 'Panel';
+Panel.Section = Section;
+Panel.Footer = Footer;
+
+Panel.propTypes = {
+  title: PropTypes.node,
+  accent: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow', 'green', 'gray']),
+  ]),
+  sectioned: PropTypes.bool,
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.node.isRequired,
+    }),
+  ),
+  children: PropTypes.node,
+};
 
 export default Panel;
