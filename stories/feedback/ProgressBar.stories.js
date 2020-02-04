@@ -11,7 +11,7 @@ storiesOf('Feedback|ProgressBar', module)
     'Default',
     withInfo()(() => (
       <div>
-        <ProgressBar completed={54} color="purple" />
+        <ProgressBar mb={800} completed={54} />
         <ProgressBar completed={82} size="small" />
       </div>
     )),

@@ -51,9 +51,21 @@ cases(
 describe('renders progress bar inner styles', () => {
   const progressBar = props => global.mountStyled(<ProgressBar {...props} />);
 
-  it('should render progress bar width based on completed percent', () => {
+  it('renders progress bar width based on completed percent', () => {
     const wrapper = progressBar({ completed: 24 });
 
     expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '24%');
+  });
+
+  it('renders at 100% progress if given a value over 100', () => {
+    const wrapper = progressBar({ completed: 110 });
+
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '100%');
+  });
+
+  it('renders at 0% progress if given a negative value', () => {
+    const wrapper = progressBar({ completed: -10 });
+
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '0%');
   });
 });

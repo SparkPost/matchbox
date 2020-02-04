@@ -5,11 +5,9 @@ export const outerBase = () => `
   background-color: ${tokens.color_gray_300};
   border-radius: ${tokens.borderRadius_100};
   width: 100%;
-  margin-bottom: 0.75rem;
 `;
 
 export const innerBase = () => `
-  width: 100px;
   background-color: ${tokens.color_blue_700};
   border-radius: ${tokens.borderRadius_100} ${tokens.borderRadius_0} ${tokens.borderRadius_0} ${tokens.borderRadius_100}
 `;
