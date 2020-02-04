@@ -59,7 +59,10 @@ module.exports = {
       options: {
         alias: {
           '@sparkpost/matchbox': path.resolve(__dirname, '../matchbox/src'),
-          '@sparkpost/matchbox-icons': path.resolve(__dirname, '../matchbox-icons/src')
+          '@sparkpost/matchbox-icons': path.resolve(
+            __dirname,
+            '../matchbox-icons/src'
+          )
         },
         extensions: []
       }
