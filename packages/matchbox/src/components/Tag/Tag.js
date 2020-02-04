@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { onKey } from '../../helpers/keyEvents';
 import styled from 'styled-components';
 import { Close } from '@sparkpost/matchbox-icons';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -27,12 +26,8 @@ const StyledContent = styled('div')`
 function Tag(props) {
   const { color, children, onRemove, className, ...rest } = props;
 
-  function handleKeydown(e) {
-    onKey('space', () => onRemove())(e);
-  }
-
   const closeMarkup = onRemove ? (
-    <StyledClose onClick={onRemove} onKeyDown={handleKeydown} tagColor={color}>
+    <StyledClose onClick={onRemove} tagColor={color}>
       <Close size={16} />
       <ScreenReaderOnly>Close</ScreenReaderOnly>
     </StyledClose>

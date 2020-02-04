@@ -17,10 +17,10 @@ describe('Tag', () => {
     expect(wrapper.find('button').text()).toEqual('Close');
   });
 
-  it('should handle remove', () => {
+  it('should handle remove on click', () => {
     const remove = jest.fn();
     const wrapper = global.mountStyled(<Tag onRemove={remove}>Hola!</Tag>);
-    wrapper.find('button').simulate('keyDown', { key: ' ', keyCode: 32, shiftKey: false });
+    wrapper.find('button').simulate('click');
     expect(remove).toHaveBeenCalled();
   });
 });

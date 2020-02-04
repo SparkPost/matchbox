@@ -12,6 +12,8 @@ export const tagBase = props => `
   font-weight: ${tokens.fontWeight_normal};
 `;
 
+// Includes button reset styles
+// Key events (space, enter) inherit the onClick handler through <button>
 export const closeBase = () => `
   border: none;
   background: none;
