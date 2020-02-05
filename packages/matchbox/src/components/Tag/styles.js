@@ -4,10 +4,10 @@ export const tagBase = props => `
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding: 1px ${tokens.spacing_300};
+  padding: 0 ${tokens.spacing_300};
   padding-right: ${props.hasRemove ? '1px' : tokens.spacing_300};
   border-radius: ${tokens.borderRadius_pill};
-  line-height: ${tokens.lineHeight_200};
+  height: 1.5rem;
   font-size: ${tokens.fontSize_200};
   font-weight: ${tokens.fontWeight_normal};
 `;
@@ -34,6 +34,8 @@ export const closeBase = () => `
 // strings inside, then the sibling combinator could be used (i.e., `> * + svg { margin-left: 2px; }`),
 // however, that's not possible as bare strings do not count as sibling elements.
 export const content = () => `
+  display: inline-flex;
+  align-items: center;
   & > svg {
     margin: 0 2px;
   }
@@ -55,7 +57,7 @@ export const tagColor = props => {
     case 'green':
       bg = tokens.color_green_300;
       border = tokens.color_green_500;
-      color = tokens.color_green_800;
+      color = tokens.color_green_900;
       break;
     case 'yellow':
       bg = tokens.color_yellow_200;
@@ -110,7 +112,7 @@ export const closeColor = props => {
       break;
     case 'green':
       bg = tokens.color_green_500;
-      color = tokens.color_green_800;
+      color = tokens.color_green_900;
       break;
     case 'yellow':
       bg = tokens.color_yellow_400;

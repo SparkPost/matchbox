@@ -10,6 +10,7 @@ describe('Tag', () => {
     const wrapper = global.mountStyled(<Tag>Hola!</Tag>);
     expect(wrapper).toHaveStyleRule('background', '#d9e0e6');
     expect(wrapper).toHaveStyleRule('color', '#39444d');
+    expect(wrapper.find('button')).not.toExist();
   });
 
   it('should render a remove button', () => {

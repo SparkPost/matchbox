@@ -19,7 +19,7 @@ const StyledClose = styled('button')`
   ${closeColor}
 `;
 
-const StyledContent = styled('div')`
+const StyledContent = styled('span')`
   ${content}
 `;
 
@@ -44,7 +44,7 @@ function Tag(props) {
 Tag.displayName = 'Tag';
 Tag.propTypes = {
   /**
-   * 'orange' | 'blue' | 'yellow' | 'red'
+   * 'orange' | 'blue' | 'yellow' | 'red' | 'navy' | 'purple' | 'green' | 'magenta' | 'teal' | 'gray'
    */
   color: PropTypes.oneOf([
     'orange',
