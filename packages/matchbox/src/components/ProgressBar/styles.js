@@ -13,14 +13,15 @@ export const innerBase = () => `
 `;
 
 export const visualSize = props => {
-  switch (props.size) {
-    case 'normal':
-      return `
-        height: 0.75rem;
-      `;
+  switch (props.visualSize) {
     case 'small':
       return `
         height: 0.25rem;
+      `;
+    case 'normal':
+    default:
+      return `
+        height: 0.75rem;
       `;
   }
 };

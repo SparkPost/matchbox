@@ -23,11 +23,11 @@ export const StyledProgressBarInner = styled(Box)`
 `;
 
 function ProgressBar(props) {
-  const { completed = 0, size } = props;
+  const { completed = 0, size, ...rest } = props;
 
   return (
-    <StyledProgressBarOuter as="div" size={size}>
-      <StyledProgressBarInner as="div" completed={completed} size={size} />
+    <StyledProgressBarOuter as="div" visualSize={size} {...rest}>
+      <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
     </StyledProgressBarOuter>
   );
 }
