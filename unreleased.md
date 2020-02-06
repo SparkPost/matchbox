@@ -1,6 +1,5 @@
 ### Unreleased Changes
 
-- #363 - `<Label/>` returns `null` when no `label` prop is passed in
 - #262 - Resolve issue #261 by removing padding right styles from Panel.Section content
 
 [4.0.0]
@@ -16,3 +15,6 @@
 - #309 - Restyles the Button and Button.Group components with styled-components
 - #309 - Buttons no longer automatically blur on click
 - #309 - External buttons now add a default title, and allow custom titles through a new title prop
+- #324 - Restyles the Tag component
+- #324 - Tag component close button is now a button, and handles both space and enter events
+- #363 - `<Label/>` returns `null` when no `label` prop is passed in
