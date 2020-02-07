@@ -1,11 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import styled from 'styled-components';
+import { panel, panelInner } from './styles';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
 import styles from './Panel.module.scss';
+
+const PanelOuter = styled('div')`
+  ${panel}
+`;
+
+const PanelInner = styled('div')`
+  ${panelInner}
+`;
 
 function Panel(props) {
   const {
@@ -38,16 +48,14 @@ function Panel(props) {
     <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
   ) : null;
 
-  const panelStyles = classnames(styles.Panel, className);
-
   return (
-    <div className={panelStyles} {...rest}>
+    <PanelOuter {...rest}>
       {accentMarkup}
-      <div className={styles.PanelInner}>
+      <PanelInner>
         {headerMarkup}
         {contentMarkup}
-      </div>
-    </div>
+      </PanelInner>
+    </PanelOuter>
   );
 }
 

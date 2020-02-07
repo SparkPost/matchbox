@@ -4,11 +4,12 @@
   position: relative;
   margin-bottom: rem(18);
   background: color(gray, 10);
-  border: 1px solid color(gray, 8);
 }
 
 .PanelInner {
   padding: rem(24);
+  border: 1px solid color(gray, 8);
+  border-top-color: none;
 }
 
 .Accent {

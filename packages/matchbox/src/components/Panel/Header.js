@@ -1,21 +1,31 @@
 import React from 'react';
 import { buttonsFrom } from '../Button';
-import styles from './Panel.module.scss';
+import styled from 'styled-components';
+import { actions, header, headerText } from './styles';
+
+const HeaderOuter = styled('div')`
+  ${header}
+`;
+
+const HeaderText = styled('div')`
+  ${headerText}
+`;
+
+const Actions = styled('div')`
+  ${actions}
+`;
 
 const actionOverrides = { flat: true, size: 'small' };
 
 const Header = ({ title, actions }) => {
-  const actionMarkup = actions && actions.length
-    ? <div className={styles.Actions}>{buttonsFrom(actions, actionOverrides)}</div>
-    : null;
+  const actionMarkup =
+    actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
 
   return (
-    <div className={styles.Header}>
-      <div className={styles.HeaderText}>
-        {title}
-      </div>
+    <HeaderOuter>
+      <HeaderText>{title}</HeaderText>
       {actionMarkup}
-    </div>
+    </HeaderOuter>
   );
 };
 

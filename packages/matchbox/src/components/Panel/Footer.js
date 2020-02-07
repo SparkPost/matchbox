@@ -1,7 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '../Grid';
-import styles from './Panel.module.scss';
+import styled from 'styled-components';
+import { footer, left, right } from './styles';
+
+const OuterWrapper = styled('div')`
+  ${footer}
+`;
+
+const LeftColumn = styled('div')`
+  ${left}
+`;
+
+const RightColumn = styled('div')`
+  ${right}
+`;
 
 function Footer(props) {
   const {
@@ -13,16 +26,16 @@ function Footer(props) {
   } = props;
 
   return (
-    <div className={styles.Footer} {...rest}>
+    <OuterWrapper {...rest}>
       <Grid>
         <Grid.Column xs={6}>
-          <div className={styles.Left}>{left}</div>
+          <LeftColumn>{left}</LeftColumn>
         </Grid.Column>
         <Grid.Column xs={6}>
-          <div className={styles.Right}>{right}</div>
+          <RightColumn>{right}</RightColumn>
         </Grid.Column>
       </Grid>
-    </div>
+    </OuterWrapper>
   );
 }
 
