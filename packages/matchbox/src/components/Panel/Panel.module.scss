@@ -29,6 +29,17 @@
   display: flex;
 }
 
+.Body {
+  padding: rem(18) 0;
+  border-bottom: 1px solid color(gray, 8);
+  &:first-of-type {
+    padding-top: 0;
+  }
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+}
+
 .Header {
   font-weight: 600;
 }

@@ -24,7 +24,7 @@ storiesOf('Layout|Panel', module)
         <Panel accent sectioned>
           This is a highlighted panel with a title
         </Panel>
-        <Panel accent="navy" sectioned>
+        <Panel accent="orange" sectioned>
           This is a highlighted panel with a title
         </Panel>
       </Fragment>

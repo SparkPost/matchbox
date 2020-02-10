@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import styled from 'styled-components';
-import { panel, panelInner } from './styles';
+import { margin, padding, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { panel, panelInner, accent } from './styles';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
-import styles from './Panel.module.scss';
+
+const system = compose(margin, padding);
 
 const PanelOuter = styled('div')`
   ${panel}
+  ${system}
 `;
 
 const PanelInner = styled('div')`
   ${panelInner}
+`;
+
+const Accent = styled('div')`
+  ${accent}
 `;
 
 function Panel(props) {
@@ -44,14 +51,12 @@ function Panel(props) {
 
   const contentMarkup = sectioned ? <Section>{children}</Section> : children;
 
-  const accentMarkup = accentColor ? (
-    <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
-  ) : null;
+  const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
   return (
     <PanelOuter {...rest}>
       {accentMarkup}
-      <PanelInner>
+      <PanelInner accent={accent}>
         {headerMarkup}
         {contentMarkup}
       </PanelInner>
@@ -67,7 +72,7 @@ Panel.propTypes = {
   title: PropTypes.node,
   accent: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow', 'green', 'gray']),
+    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
   ]),
   sectioned: PropTypes.bool,
   actions: PropTypes.arrayOf(
@@ -76,6 +81,8 @@ Panel.propTypes = {
     }),
   ),
   children: PropTypes.node,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(padding.propNames),
 };
 
 export default Panel;

@@ -1,10 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const actions = () => `
-  flex: 0;
-  white-space: nowrap;
-`;
-
 export const header = () => `
   display: flex;
   font-weight: ${tokens.fontWeight_semibold};
@@ -12,13 +7,13 @@ export const header = () => `
 
 export const headerText = () => `
   flex: 1 0 0;
+  padding: ${tokens.spacing_500} 0 0 ${tokens.spacing_500};
   padding-right: ${tokens.spacing_100};
   font-size: ${tokens.fontSize_400};
   font-weight: ${tokens.fontWeight_semibold};
   line-height: ${tokens.lineHeight_300};
   color: ${tokens.color_gray_900};
   margin: 0;
-  margin-bottom: ${tokens.spacing_300};
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,11 +26,12 @@ export const panel = () => `
   background: ${tokens.color_white};
 `;
 
-export const panelInner = () => `
-  padding: ${tokens.spacing_500};
-  border: ${tokens.borderWidth_100} solid ${tokens.color_gray_200};
-  border-top-color: none;
-`;
+export const panelInner = props => {
+  return `
+    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+    border-top-width: ${props.accent ? '0' : '1px'};
+  `;
+};
 
 export const left = () => `
   text-align: left;
@@ -46,5 +42,56 @@ export const right = () => `
 `;
 
 export const footer = () => `
-    margin-top: -0.6875rem;
+  margin-top: -0.6875rem;
+`;
+
+export const accent = props => {
+  let color;
+
+  switch (props.accentColor) {
+    case 'orange':
+      color = tokens.color_brand_orange;
+      break;
+    case 'green':
+      color = tokens.color_green_700;
+      break;
+    case 'yellow':
+      color = tokens.color_yellow_700;
+      break;
+    case 'red':
+      color = tokens.color_red_700;
+      break;
+    case 'gray':
+      color = tokens.color_brand_gray;
+      break;
+    case 'blue':
+    default:
+      color = tokens.color_brand_blue;
+  }
+
+  return `
+    height: 3px;
+    background-color: ${color};
   `;
+};
+
+export const body = () => `
+  display: flex;
+  padding: 18px ${tokens.spacing_500};
+  border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+  &:last-of-type {
+    border-bottom: none;
+  }
+`;
+
+export const sectionContent = () => `
+  flex: 1 0 0;
+  > *:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const actions = () => `
+  flex: 0;
+  white-space: nowrap;
+`;
