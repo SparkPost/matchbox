@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { Button, buttonsFrom } from '../Button';
-import { MoreHoriz, ArrowBack, ArrowForward } from '@sparkpost/matchbox-icons';
+import { Pager } from '../Pager';
+import { MoreHoriz } from '@sparkpost/matchbox-icons';
 import styles from './Pagination.module.scss';
 
 class Pagination extends Component {
   static displayName = 'Pagination';
 
   static propTypes = {
-
     /**
      * Sets the current page number
      */
@@ -44,18 +44,18 @@ class Pagination extends Component {
     /**
      * Selected page color
      */
-    selectedColor: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
+    selectedColor: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
   };
 
   static defaultProps = {
     currentPage: 1,
-    selectedColor: 'orange'
+    selectedColor: 'orange',
   };
 
   state = {
     index: 0,
     hasPrevious: false,
-    hasNext: true
+    hasNext: true,
   };
 
   componentDidMount() {
@@ -64,7 +64,11 @@ class Pagination extends Component {
 
   componentDidUpdate(prevProps) {
     const { pages, pageRange, currentPage } = this.props;
-    if (pages !== prevProps.pages || pageRange !== prevProps.pageRange || currentPage !== prevProps.currentPage) {
+    if (
+      pages !== prevProps.pages ||
+      pageRange !== prevProps.pageRange ||
+      currentPage !== prevProps.currentPage
+    ) {
       this.handlePageChange(currentPage - 1);
     }
   }
@@ -73,7 +77,7 @@ class Pagination extends Component {
     this.setState({
       index,
       hasPrevious: index > 0,
-      hasNext: index < this.props.pages - 1
+      hasNext: index < this.props.pages - 1,
     });
 
     this.props.onChange && this.props.onChange(index);
@@ -81,11 +85,11 @@ class Pagination extends Component {
 
   handleNext = () => {
     this.handlePageChange(this.state.index + 1);
-  }
+  };
 
   handlePrevious = () => {
     this.handlePageChange(this.state.index - 1);
-  }
+  };
 
   _createButtons(start, end) {
     const buttons = [];
@@ -98,8 +102,8 @@ class Pagination extends Component {
         className: classnames(
           styles.Page,
           index === this.state.index && styles.Selected,
-          index === this.state.index && styles[`color-${this.props.selectedColor}`]
-        )
+          index === this.state.index && styles[`color-${this.props.selectedColor}`],
+        ),
       });
     }
 
@@ -125,18 +129,9 @@ class Pagination extends Component {
   }
 
   render() {
-    const {
-      pages,
-      pageRange,
-      marginsHidden,
-      flat,
-      className
-    } = this.props;
+    const { pages, pageRange, marginsHidden, flat, className } = this.props;
 
-    const {
-      hasPrevious,
-      hasNext
-    } = this.state;
+    const { hasPrevious, hasNext } = this.state;
 
     const start = this._getStart();
 
@@ -148,45 +143,37 @@ class Pagination extends Component {
       }
     };
 
-    const firstButton = !marginsHidden && start > 1
-      ? <span>
-        <Button flat={flat}
-          className={styles.Start}
-          onClick={() => this.handlePageChange(0)} >
+    const firstButton =
+      !marginsHidden && start > 1 ? (
+        <span>
+          <Button flat={flat} className={styles.Start} onClick={() => this.handlePageChange(0)}>
             1
-        </Button>
-        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
-      </span>
-      : null;
+          </Button>
+          <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }} />
+        </span>
+      ) : null;
 
-    const lastButton = !marginsHidden && start + pageRange < pages
-      ? <span>
-        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
-        <Button flat={flat}
-          className={styles.End}
-          onClick={() => this.handlePageChange(pages - 1)} >
-          {pages}
-        </Button>
-      </span>
-      : null;
+    const lastButton =
+      !marginsHidden && start + pageRange < pages ? (
+        <span>
+          <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }} />
+          <Button
+            flat={flat}
+            className={styles.End}
+            onClick={() => this.handlePageChange(pages - 1)}
+          >
+            {pages}
+          </Button>
+        </span>
+      ) : null;
 
     return (
       <div className={classnames(styles.Pagination, className)}>
-        <Button flat={flat}
-          className={styles.Back}
-          onClick={this.handlePrevious}
-          disabled={!hasPrevious} >
-          <ArrowBack size={16} style={{ marginTop: '-0.2em' }}/>
-        </Button>
+        <Pager.Previous flat={flat} onClick={this.handlePrevious} disabled={!hasPrevious} />
         {firstButton}
         <span className={styles.Pages}>{buttonMarkup()}</span>
         {lastButton}
-        <Button flat={flat}
-          className={styles.Next}
-          onClick={this.handleNext}
-          disabled={!hasNext} >
-          <ArrowForward size={16} style={{ marginTop: '-0.2em' }}/>
-        </Button>
+        <Pager.Next flat={flat} onClick={this.handleNext} disabled={!hasNext} />
       </div>
     );
   }

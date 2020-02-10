@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "start:site": "lerna exec --scope @sparkpost/matchbox-site -- npm run develop",
-    "start:storybook": "start-storybook -p 9001 -c .storybook",
-    "start:storybook:static": "build-storybook && http-server ./storybook-static -p 9001 --silent",
+    "start:storybook": "npm run build:tokens && start-storybook -p 9001 -c .storybook",
+    "start:storybook:static": "npm run build:tokens && build-storybook && http-server ./storybook-static -p 9001 --silent",
     "start:tokens": "lerna exec --scope @sparkpost/design-tokens npm run start",
     "prebuild": "lerna bootstrap",
     "build": "lerna run build --ignore @sparkpost/matchbox-site",
+    "build:tokens": "lerna bootstrap && lerna run build --scope @sparkpost/design-tokens",
     "build:site": "npm run bootstrap && lerna exec --scope @sparkpost/matchbox-site -- npm run build",
     "clean": "lerna clean --yes",
     "pretest": "npm run clean && lerna link",
@@ -31,7 +32,6 @@
     ]
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "^1.0.0-beta.13",
     "@styled-system/prop-types": "^5.1.2",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
