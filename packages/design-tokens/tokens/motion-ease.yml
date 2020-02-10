@@ -1,0 +1,10 @@
+global:
+  category: motion-ease
+  type: motion-ease
+props:
+  - name: motion-ease-in
+    value: 'cubic-bezier(.35, 0, .7, .2)'
+  - name: motion-ease-out
+    value: 'cubic-bezier(0, 0, .3, 1)'
+  - name: motion-ease-inout
+    value: 'cubic-bezier(.4, 0, .3, 1)'
