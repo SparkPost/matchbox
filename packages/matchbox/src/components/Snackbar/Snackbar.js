@@ -44,7 +44,7 @@ function Snackbar(props) {
 Snackbar.displayName = 'Snackbar';
 Snackbar.defaultProps = {
   status: 'default',
-  maxWidth: '380',
+  maxWidth: 380,
 };
 Snackbar.propTypes = {
   /**
