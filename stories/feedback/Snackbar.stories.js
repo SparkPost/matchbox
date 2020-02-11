@@ -12,26 +12,19 @@ export default {
   title: 'Feedback|Snackbar',
 };
 
-export const Default = withInfo()(() => (
-  <Snackbar onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-));
-
-export const Success = withInfo()(() => (
-  <Snackbar status="success" onDismiss={action('Dismissed')}>
-    Template deleted
-  </Snackbar>
-));
-
-export const DangerOrError = withInfo()(() => (
-  <Snackbar status="danger" onDismiss={action('Dismissed')}>
-    Something went wrong
-  </Snackbar>
-));
-
-export const Warning = withInfo()(() => (
-  <Snackbar status="warning" onDismiss={action('Dismissed')}>
-    Yer suspended
-  </Snackbar>
+export const Statuses = withInfo({ propTables: [Snackbar] })(() => (
+  <Inline space="600">
+    <Snackbar onDismiss={action('Dismissed')}>Snakz</Snackbar>
+    <Snackbar status="success" onDismiss={action('Dismissed')}>
+      Snakz good
+    </Snackbar>
+    <Snackbar status="warning" onDismiss={action('Dismissed')}>
+      Yer suspended
+    </Snackbar>
+    <Snackbar status="danger" onDismiss={action('Dismissed')}>
+      Something went wrong
+    </Snackbar>
+  </Inline>
 ));
 
 export const Large = withInfo()(() => (
