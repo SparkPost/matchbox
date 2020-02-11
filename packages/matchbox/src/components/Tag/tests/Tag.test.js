@@ -1,28 +1,27 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 import Tag from '../Tag';
 
+// Feels unecessary to test color variations here /shrug
+
 describe('Tag', () => {
-  let wrapper;
-  beforeEach(() => {
-    const props = {
-      color: 'red'
-    };
-
-    wrapper = shallow(<Tag {...props}><span>Tag 1</span></Tag>);
+  it('should render a default tag', () => {
+    const wrapper = global.mountStyled(<Tag>Hola!</Tag>);
+    expect(wrapper).toHaveStyleRule('background', '#d9e0e6');
+    expect(wrapper).toHaveStyleRule('color', '#39444d');
+    expect(wrapper.find('button')).not.toExist();
   });
 
-  it('renders without close button', () => {
-    expect(wrapper).toMatchSnapshot();
+  it('should render a remove button', () => {
+    const wrapper = global.mountStyled(<Tag onRemove={jest.fn()}>Hola!</Tag>);
+    expect(wrapper.find('button').text()).toEqual('Close');
   });
 
-  it('renders with close button', () => {
-    const fn = jest.fn();
-    wrapper.setProps({ onRemove: fn, color: 'purple' });
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find('UnstyledLink').simulate('click');
-    wrapper.find('UnstyledLink').simulate('keydown', { keyCode: 32, shiftKey: false }); // Simulating spacebar, note that the `onKey` helper requires that the `shiftKey` value be explicitly defined
-    expect(fn).toHaveBeenCalledTimes(2);
+  it('should handle remove on click', () => {
+    const remove = jest.fn();
+    const wrapper = global.mountStyled(<Tag onRemove={remove}>Hola!</Tag>);
+    wrapper.find('button').simulate('click');
+    expect(remove).toHaveBeenCalled();
   });
 });
