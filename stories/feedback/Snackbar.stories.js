@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-import { Snackbar } from '@sparkpost/matchbox';
+import { Snackbar, Inline } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
@@ -24,7 +24,7 @@ export const Success = withInfo()(() => (
 
 export const DangerOrError = withInfo()(() => (
   <Snackbar status="danger" onDismiss={action('Dismissed')}>
-    Template deleted
+    Something went wrong
   </Snackbar>
 ));
 
@@ -40,4 +40,20 @@ export const Large = withInfo()(() => (
     capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong
     landjaeger salami ham spare ribs flank cupim porchetta leberkas.
   </Snackbar>
+));
+
+export const ResponsiveSystemProps = withInfo({ propTables: [Snackbar] })(() => (
+  <Inline>
+    <Snackbar
+      status="warning"
+      onDismiss={action('Dismissed')}
+      my={['200', '700', '300', '800']}
+      mx="400"
+    >
+      Yer suspended
+    </Snackbar>
+    <Snackbar status="success" onDismiss={action('Dismissed')} mx={['200', '700', '300', '800']}>
+      Template deleted
+    </Snackbar>
+  </Inline>
 ));

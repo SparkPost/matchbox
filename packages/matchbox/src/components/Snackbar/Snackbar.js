@@ -2,14 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box } from '../';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-
 import PropTypes from 'prop-types';
+import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
+import { margin } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
 
 const StyledBox = styled(Box)`
   ${base}
   ${status}
+  ${margin}
 `;
 
 const StyledClose = styled(Box)`
@@ -64,6 +66,7 @@ Snackbar.propTypes = {
    * Snackbar Content
    */
   children: PropTypes.node,
+  ...createPropTypes(margin.propNames),
 };
 
 export default Snackbar;
