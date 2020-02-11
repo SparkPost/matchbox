@@ -3,11 +3,11 @@ import { tokens } from '@sparkpost/design-tokens';
 export const header = () => `
   display: flex;
   font-weight: ${tokens.fontWeight_semibold};
+  padding: ${tokens.spacing_500} ${tokens.spacing_500} 0 ${tokens.spacing_500};
 `;
 
 export const headerText = () => `
   flex: 1 0 0;
-  padding: ${tokens.spacing_500} 0 0 ${tokens.spacing_500};
   padding-right: ${tokens.spacing_100};
   font-size: ${tokens.fontSize_400};
   font-weight: ${tokens.fontWeight_semibold};
@@ -42,7 +42,7 @@ export const right = () => `
 `;
 
 export const footer = () => `
-  margin-top: -0.6875rem;
+  margin-top: -${tokens.spacing_300};
 `;
 
 export const accent = props => {
@@ -56,17 +56,17 @@ export const accent = props => {
       color = tokens.color_green_700;
       break;
     case 'yellow':
-      color = tokens.color_yellow_700;
+      color = tokens.color_yellow_400;
       break;
     case 'red':
       color = tokens.color_red_700;
       break;
     case 'gray':
-      color = tokens.color_brand_gray;
+      color = tokens.color_gray_600;
       break;
     case 'blue':
     default:
-      color = tokens.color_brand_blue;
+      color = tokens.color_blue_700;
   }
 
   return `

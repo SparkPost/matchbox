@@ -1,5 +1,6 @@
 import React from 'react';
 import Panel from '../Panel';
+import { tokens } from '@sparkpost/design-tokens';
 import 'jest-styled-components';
 
 describe('Panel', () => {
@@ -12,8 +13,16 @@ describe('Panel', () => {
       </Panel>,
     );
     const PanelWrapper = wrapper;
-    expect(PanelWrapper.find('.HeaderText').text()).toEqual('test title');
-    expect(PanelWrapper.find('.Accent.accent-orange')).toExist();
+    expect(
+      PanelWrapper.find(Panel.Header)
+        .find('div')
+        .at(1)
+        .text(),
+    ).toEqual('test title');
+    expect(PanelWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_blue_700,
+    );
     expect(PanelWrapper.find('Button').text()).toEqual('Action');
   });
 
@@ -28,7 +37,8 @@ describe('Panel', () => {
       wrapper
         .find(Panel.Section)
         .at(0)
-        .find('.SectionContent')
+        .find('div')
+        .at(1)
         .text(),
     ).toEqual('Foo');
     expect(
@@ -42,7 +52,8 @@ describe('Panel', () => {
       wrapper
         .find(Panel.Section)
         .at(1)
-        .find('.SectionContent')
+        .find('div')
+        .at(1)
         .text(),
     ).toEqual('Bar');
   });
@@ -56,10 +67,18 @@ describe('Panel', () => {
     );
     expect(
       wrapper
-        .find('.Left')
+        .find(Panel.Footer)
+        .find('div')
+        .at(3)
         .children()
         .html(),
     ).toEqual('<span>left</span>');
-    expect(wrapper.find('.Right').text()).toEqual('right');
+    expect(
+      wrapper
+        .find(Panel.Footer)
+        .find('div')
+        .at(5)
+        .text(),
+    ).toEqual('right');
   });
 });

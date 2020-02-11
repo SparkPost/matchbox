@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
 import { actions, header, headerText } from './styles';
@@ -7,7 +8,7 @@ const HeaderOuter = styled('div')`
   ${header}
 `;
 
-const HeaderText = styled('div')`
+export const HeaderText = styled('div')`
   ${headerText}
 `;
 
@@ -27,6 +28,15 @@ const Header = ({ title, actions }) => {
       {actionMarkup}
     </HeaderOuter>
   );
+};
+
+Header.displayName = 'Panel.Header';
+Header.propTypes = {
+  title: PropTypes.node,
+  accent: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
+  ]),
 };
 
 export default Header;

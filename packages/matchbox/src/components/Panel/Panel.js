@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { panel, panelInner, accent } from './styles';
+import { panel, panelInner } from './styles';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
+import Accent from './Accent';
 
 const system = compose(margin, padding);
 
@@ -18,10 +19,6 @@ const PanelOuter = styled('div')`
 
 const PanelInner = styled('div')`
   ${panelInner}
-`;
-
-const Accent = styled('div')`
-  ${accent}
 `;
 
 function Panel(props) {
@@ -65,8 +62,10 @@ function Panel(props) {
 }
 
 Panel.displayName = 'Panel';
+Panel.Header = Header;
 Panel.Section = Section;
 Panel.Footer = Footer;
+Panel.Accent = Accent;
 
 Panel.propTypes = {
   title: PropTypes.node,
