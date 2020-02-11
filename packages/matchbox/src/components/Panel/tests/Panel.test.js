@@ -59,6 +59,22 @@ describe('Panel', () => {
     expect(wrapper.find(Panel.Footer)).toHaveStyleRule('margin-top', `-${tokens.spacing_300}`);
   });
 
+  it('renders accent colors', () => {
+    let orangeWrapper = global.mountStyled(<Panel accent="orange" />);
+    let greenWrapper = global.mountStyled(<Panel accent="green" />);
+    let yellowWrapper = global.mountStyled(<Panel accent="yellow" />);
+    let redWrapper = global.mountStyled(<Panel accent="red" />);
+    let grayWrapper = global.mountStyled(<Panel accent="gray" />);
+    let blueWrapper = global.mountStyled(<Panel accent="blue" />);
+
+    expect(orangeWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_brand_orange);
+    expect(greenWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_green_700);
+    expect(yellowWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_yellow_400);
+    expect(redWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_red_700);
+    expect(grayWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_gray_600);
+    expect(blueWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_blue_700);
+  });
+
   it('renders accent title and header action correctly', () => {
     wrapper = global.mountStyled(
       <Panel accent sectioned title="test title" actions={[{ content: 'Action' }]}>
