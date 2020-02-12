@@ -1,18 +1,24 @@
+function replacePrefix(name, prefix) {
+  return name.replace(`${prefix}-`, '');
+}
+
 function getName(name, prefix) {
-  const noPrefix = name.replace(`${prefix}-`, '').split('-');
+  const noPrefix = replacePrefix(name, prefix).split('-');
   return noPrefix.pop();
 }
 
 function getPalette(name, prefix) {
-  return name.replace(`${prefix}-`, '').split('-').shift();
+  return name
+    .replace(`${prefix}-`, '')
+    .split('-')
+    .shift();
 }
 
 function groupByPalette(props, prefix) {
-  const withPalette = props.map((prop) => ({
+  const withPalette = props.map(prop => ({
     ...prop,
-    palette: getPalette(prop.name, prefix)
-  }
-  ));
+    palette: getPalette(prop.name, prefix),
+  }));
 
   const groupedByPalette = withPalette.reduce((acc, prop) => {
     if (!acc[prop.palette]) {
@@ -28,11 +34,11 @@ function groupByPalette(props, prefix) {
 }
 
 function kebabToCamel(str) {
-  return str.replace(/-([a-z|0-9])/g, (g) => g[1].toUpperCase());
+  return str.replace(/-([a-z|0-9])/g, g => g[1].toUpperCase());
 }
 
 function kebabToFriendly(str) {
-  const r = str.replace(/-([a-z|0-9])/g, (g) => ` ${g[1].toUpperCase()}`);
+  const r = str.replace(/-([a-z|0-9])/g, g => ` ${g[1].toUpperCase()}`);
   return r.charAt(0).toUpperCase() + r.slice(1);
 }
 /**
@@ -47,7 +53,7 @@ function getCommonJsName(str, type) {
   const parts = variantOrPalette.split('-');
 
   const prefix = kebabToCamel(type);
-  const getVariant = (str) => str === 'base' ? '' : `_${str}`;
+  const getVariant = str => (str === 'base' ? '' : `_${str}`);
 
   if (parts.length === 1) {
     return `${prefix}${getVariant(parts.pop())}`;
@@ -62,5 +68,6 @@ module.exports = {
   getCommonJsName,
   groupByPalette,
   kebabToCamel,
-  kebabToFriendly
+  kebabToFriendly,
+  replacePrefix,
 };

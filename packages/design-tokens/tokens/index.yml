@@ -8,5 +8,7 @@ imports:
   - ./font-weight.yml
   - ./line-height.yml
   - ./media-query.yml
+  - ./motion-duration.yml
+  - ./motion-ease.yml
   - ./spacing.yml
   - ./z-index.yml

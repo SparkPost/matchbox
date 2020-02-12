@@ -1,11 +1,11 @@
-const { getPalette, getName, kebabToFriendly, getCommonJsName } = require('./utils');
+const { getPalette, getName, kebabToFriendly, getCommonJsName, replacePrefix } = require('./utils');
 
 function map(result) {
   const { props, aliases } = result.toJS();
   const baseline = Number(aliases.DEFAULT_BASE.value.replace('px', ''));
 
   function renderProp(prop) {
-    let scssMapGet = `${prop.type}(${getName(prop.name)})`;
+    let scssMapGet = `${prop.type}(${replacePrefix(prop.name, prop.type)})`;
     const friendly = kebabToFriendly(prop.name);
 
     // Hides 'base' from function arguments on nested maps
@@ -26,7 +26,7 @@ function map(result) {
       return `"pixel_value": "${value}px", "pixel_value_unitless": "${value}"`;
     }
 
-    return (`{
+    return `{
       "category": "${prop.category}",
       "css": "--${prop.name}",
       "friendly": "${friendly}",
@@ -36,7 +36,7 @@ function map(result) {
       "type": "${prop.type}",
       "value": "${prop.value}",
       ${declarePixelValues()}
-    }`);
+    }`;
   }
 
   return `module.exports = [${props.map(renderProp)}]`;
