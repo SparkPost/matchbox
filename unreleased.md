@@ -15,6 +15,7 @@
 - #309 - Restyles the Button and Button.Group components with styled-components
 - #309 - Buttons no longer automatically blur on click
 - #309 - External buttons now add a default title, and allow custom titles through a new title prop
+- #323 - Progress Bar Updates, default props changed and added size: 'normal'
 - #325 - Pagination next and previous buttons are now screen reader accessible with screen reader
   only content
 - #324 - Restyles the Tag component
