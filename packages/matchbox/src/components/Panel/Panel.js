@@ -42,8 +42,6 @@ function Panel(props) {
     ...rest
   } = props;
 
-  console.log(props);
-
   const accentColor = accent === true ? 'blue' : accent;
 
   const headerMarkup = title ? <Header title={title} actions={actions} {...rest} pb={0} /> : null;

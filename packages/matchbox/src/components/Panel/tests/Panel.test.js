@@ -17,10 +17,6 @@ describe('Panel', () => {
   it('renders header styles', () => {
     expect(wrapper.find(Panel.Header)).toHaveStyleRule('display', 'flex');
     expect(wrapper.find(Panel.Header)).toHaveStyleRule('font-weight', tokens.fontWeight_semibold);
-    expect(wrapper.find(Panel.Header)).toHaveStyleRule(
-      'padding',
-      `${tokens.spacing_500} ${tokens.spacing_500} 0 ${tokens.spacing_500}`,
-    );
   });
 
   it('renders section styles', () => {
@@ -32,10 +28,6 @@ describe('Panel', () => {
     );
 
     expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule('display', 'flex');
-    expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule(
-      'padding',
-      `18px ${tokens.spacing_500}`,
-    );
     expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule(
       'border-bottom',
       `${tokens.borderWidth_100} solid ${tokens.color_gray_400}`,
@@ -126,7 +118,7 @@ describe('Panel', () => {
       wrapper
         .find(Panel.Footer)
         .find('div')
-        .at(3)
+        .at(2)
         .children()
         .html(),
     ).toEqual('<span>left</span>');
@@ -134,7 +126,7 @@ describe('Panel', () => {
       wrapper
         .find(Panel.Footer)
         .find('div')
-        .at(5)
+        .at(3)
         .text(),
     ).toEqual('right');
   });
