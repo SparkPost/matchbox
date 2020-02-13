@@ -8,7 +8,12 @@ import styled from 'styled-components';
 
 const colors = meta.filter(({ type }) => type === 'color');
 const palettes = {
-  grayscale: _.filter(colors, ({ name }) => name.includes('gray') && !name.includes('brand') || name.includes('white')),
+  grayscale: _.filter(
+    colors,
+    ({ name }) =>
+      name.includes('gray') &&
+      (!name.includes('brand') || name.includes('white'))
+  ),
   blue: _.filter(colors, ({ name }) => name.includes('color-blue')),
   red: _.filter(colors, ({ name }) => name.includes('color-red')),
   yellow: _.filter(colors, ({ name }) => name.includes('color-yellow')),
@@ -49,16 +54,16 @@ function Palette(props) {
   const colorInstance = color(selected.value);
 
   return (
-    <Box display='grid' gridGap='600' gridTemplateColumns='1fr 1fr' mb='600'>
+    <Box display="grid" gridGap="600" gridTemplateColumns="1fr 1fr" mb="600">
       <Box>
-        {palette.map((c) => (
+        {palette.map(c => (
           <Shade
             bg={c.value}
             key={c.name}
-            textAlign='center'
+            textAlign="center"
             color={color(c.value).isDark() ? 'white' : 'gray.900'}
             selected={c.name === selected.name}
-            role='button'
+            role="button"
             onClick={() => setSelected(c)}
           >
             {c.friendly.replace('Color ', '')}
@@ -66,33 +71,50 @@ function Palette(props) {
         ))}
       </Box>
       <Box>
-        <Box mb='300'>
-          <Box mb='100' fontWeight='medium'>Hex</Box>
-          <TokenUsage usage={selected.value}/>
+        <Box mb="300">
+          <Box mb="100" fontWeight="medium">
+            Hex
+          </Box>
+          <TokenUsage usage={selected.value} />
         </Box>
 
-        <Box mb='300'>
-          <Box mb='0' fontWeight='medium'>RGB</Box>
-          <TokenUsage usage={colorInstance.rgb().string()}/>
+        <Box mb="300">
+          <Box mb="0" fontWeight="medium">
+            RGB
+          </Box>
+          <TokenUsage usage={colorInstance.rgb().string()} />
         </Box>
 
-        <Box mb='300'>
-          <Box mb='0' fontWeight='medium'>HSL</Box>
-          <TokenUsage usage={colorInstance.hsl().round().string()}/>
+        <Box mb="300">
+          <Box mb="0" fontWeight="medium">
+            HSL
+          </Box>
+          <TokenUsage
+            usage={colorInstance
+              .hsl()
+              .round()
+              .string()}
+          />
         </Box>
 
-        <Box mb='300'>
-          <Box mb='0' fontWeight='medium'>CSS</Box>
-          <TokenUsage usage={selected.css}/>
+        <Box mb="300">
+          <Box mb="0" fontWeight="medium">
+            CSS
+          </Box>
+          <TokenUsage usage={selected.css} />
         </Box>
 
-        <Box mb='300'>
-          <Box mb='0' fontWeight='medium'>JS</Box>
-          <TokenUsage usage={selected.javascript}/>
+        <Box mb="300">
+          <Box mb="0" fontWeight="medium">
+            JS
+          </Box>
+          <TokenUsage usage={selected.javascript} />
         </Box>
-        <Box mb='300'>
-          <Box mb='0' fontWeight='medium'>Scss</Box>
-          <TokenUsage usage={selected.scss}/>
+        <Box mb="300">
+          <Box mb="0" fontWeight="medium">
+            Scss
+          </Box>
+          <TokenUsage usage={selected.scss} />
         </Box>
       </Box>
     </Box>
