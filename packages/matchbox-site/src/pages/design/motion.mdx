@@ -1,1 +1,115 @@
+import { meta } from '@sparkpost/design-tokens';
+
 # Motion
+
+Matchbox uses motion to provide guidance, clarity and focus to a UI.
+
+Consistent movement improves an experience by visually describing connections and spatial relationships between states and views, drawing attention to importance or providing appropriate feedback.
+
+- [Principles](/design/motion#principles)
+- [UI Animation Guidelines](/design/motion#ui-animation-guidelines)
+- [UI Animation Examples](/design/motion#ui-animation-examples)
+- [Motion Design Tokens](/design/motion#tokens)
+- [Resources](/design/motion#resources)
+
+---
+
+### Principles
+
+##### Intentional
+
+Motion serves a purpose. Motion helps users reach their goals by guiding them through the complexity of an experience.
+
+##### Intuitive
+
+Motion should feel familiar and expected. Fluid, seamless motion make the experience feel natural, and mirrors objects in motion in the real world.
+
+##### Contextual
+
+Motion should tie back to the user's interaction. It provides appropriate feedback by aligning to the way an experience is used or manipulated.
+
+---
+
+### UI Animation Guidelines
+
+#### Easing
+
+**Describes changes in an object's velocity over time as it travels**
+
+Easing reinforces movement by contributing to the naturalism and seamlessness of an experience. Objects move in a manner that is intuitive and behave as users expect them to.
+
+###### Ease In
+
+Starts slow and ends fast. Imagine dropping a ball to the ground. This easing curve is typically used to remove objects from view.
+
+[example]
+
+###### Ease Out
+
+Starts fast and ends slow. Think of throwing a ball in the air and slowing down as it reaches its peak. This function is typically used to introduce objects to the view.
+
+[example]
+
+###### Ease In Out
+
+Starts slow, speeds up, then ends slow. Think of a car accelerating and coming to a stop. This curve is typically used to move objects from one location to another.
+
+[example]
+
+#### Speed
+
+**The amount of time it takes for a transition to take place**
+
+Animation duration is closely related to how large the object in motion is, the distance it travels, and whether the object is entering, exiting, or transitioning.
+
+###### Fast / Near / Exit
+
+Use for objects that do not move, move a distance of less than 25% of the view, or are exiting the view.
+
+[example]
+
+###### Medium / Enter
+
+Use for objects move a distance of less than 50% of the view, or are entering the view.
+
+[example]
+
+###### Slow / Far
+
+Use for objects move a distance of more than 50% of the view, or are large in size.
+
+[example]
+
+---
+
+### UI Animation Examples
+
+##### Fast Fade In
+
+[example]
+
+##### Medium Fade In
+
+[example]
+
+##### Slow Fade In
+
+[example]
+
+---
+
+<TokenTable
+  columns={['friendly', 'value', 'usage']}
+  tokens={meta.filter(({ category }) =>
+    ['motion-ease', 'motion-duration'].includes(category)
+  )}
+/>
+
+---
+
+### Resources
+
+- [Creating Usability with Motion: The UX in Motion Manifesto](https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc)
+- [cubic-bezier.com](https://cubic-bezier.com)
+- [easings.net](https://easings.net/en)
+- [CSS Triggers](https://csstriggers.com/)

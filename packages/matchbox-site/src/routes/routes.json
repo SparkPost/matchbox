@@ -36,12 +36,12 @@
       {
         "path": "/design/elevation",
         "label": "Elevation",
-        "disabled": true
+        "disabled": false
       },
       {
         "path": "/design/motion",
         "label": "Motion",
-        "disabled": true
+        "disabled": false
       },
       {
         "path": "/design/datavisualization",

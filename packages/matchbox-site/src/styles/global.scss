@@ -3,67 +3,67 @@
 @import '~@sparkpost/matchbox/styles/global.scss';
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-Light.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-Light.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-LightItalic.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-LightItalic.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-Italic.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-Italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-Italic.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-Medium.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-Medium.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-MediumItalic.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-MediumItalic.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-SemiBold.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-SemiBold.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Calibre';
-    src: url('/fonts/calibre/Calibre-SemiBoldItalic.woff2') format('woff2'),
-        url('/fonts/calibre/Calibre-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
+  font-family: 'Calibre';
+  src: url('/fonts/calibre/Calibre-SemiBoldItalic.woff2') format('woff2'),
+    url('/fonts/calibre/Calibre-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
 }
 
 /* @font-face {
@@ -104,20 +104,26 @@ h6 {
   color: color(gray, 900);
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: font-size(800);
   line-height: line-height(800);
 }
 
-h3, h4 {
+h3,
+h4 {
   font-size: font-size(600);
   line-height: line-height(600);
 }
 
-h5,
-h6 {
+h5 {
   font-size: font-size(500);
   line-height: line-height(500);
+}
+
+h6 {
+  font-size: font-size(400);
+  line-height: line-height(400);
 }
 
 p {
@@ -134,7 +140,8 @@ li {
   line-height: line-height(400);
 }
 
-ul, ol {
+ul,
+ol {
   margin-bottom: spacing(500);
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Text } from '@sparkpost/matchbox';
+import { Link as LinkIcon } from '@sparkpost/matchbox-icons';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 
@@ -8,7 +9,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   span {
     opacity: 0;
-    color: ${tokens.color_gray_400};
+    color: ${tokens.color_blue_700};
     transition: 0.15s;
   }
   &:hover {
@@ -39,9 +40,16 @@ function Heading(props) {
 
   return (
     <StyledLink to={pathname}>
-      <Text as={props.as} id={toKebab(props.children)}>
+      <Text as={props.as} id={toKebab(props.children)} position="relative">
         {props.children}
-        <span> #</span>
+        <span>
+          {' '}
+          <LinkIcon
+            height="0.9em"
+            width="0.9em"
+            style={{ marginTop: '-0.1em' }}
+          />
+        </span>
       </Text>
     </StyledLink>
   );
