@@ -62,6 +62,10 @@ module.exports = {
           '@sparkpost/matchbox-icons': path.resolve(
             __dirname,
             '../matchbox-icons/src'
+          ),
+          '@sparkpost/design-tokens': path.resolve(
+            __dirname,
+            '../design-tokens'
           )
         },
         extensions: []
