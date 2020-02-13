@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
 import { body, sectionContent, actions } from './styles';
+import { padding } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 
 const SectionOuter = styled('div')`
   ${body}
+  ${padding}
 `;
 
 const SectionContent = styled('div')`
@@ -47,6 +50,7 @@ Section.propTypes = {
    * Panel Content
    */
   children: PropTypes.node,
+  ...createPropTypes(padding.propNames),
 };
 
 export default Section;

@@ -14,7 +14,16 @@ const Accent = ({ accentColor }) => {
 
 Accent.displayName = 'Panel.Accent';
 Accent.propTypes = {
-  accentColor: PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
+  accentColor: PropTypes.oneOf([
+    'orange',
+    'blue',
+    'red',
+    'yellow',
+    'green',
+    'purple',
+    'navy',
+    'gray',
+  ]),
 };
 
 export default Accent;

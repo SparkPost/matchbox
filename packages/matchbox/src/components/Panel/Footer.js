@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from '../Grid';
+import { Box } from '../Box';
 import styled from 'styled-components';
-import { footer, left, right } from './styles';
+import { margin } from 'styled-system';
 
 const OuterWrapper = styled('div')`
-  ${footer}
-`;
-
-const LeftColumn = styled('div')`
-  ${left}
-`;
-
-const RightColumn = styled('div')`
-  ${right}
+  ${margin}
 `;
 
 function Footer(props) {
@@ -27,14 +19,14 @@ function Footer(props) {
 
   return (
     <OuterWrapper {...rest}>
-      <Grid>
-        <Grid.Column xs={6}>
-          <LeftColumn>{left}</LeftColumn>
-        </Grid.Column>
-        <Grid.Column xs={6}>
-          <RightColumn>{right}</RightColumn>
-        </Grid.Column>
-      </Grid>
+      <Box display="flex" justifyContent="space-between">
+        <Box flex="1" textAlign="left">
+          {left}
+        </Box>
+        <Box flex="1" textAlign="right">
+          {right}
+        </Box>
+      </Box>
     </OuterWrapper>
   );
 }

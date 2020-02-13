@@ -13,8 +13,8 @@ import Accent from './Accent';
 const system = compose(margin, padding);
 
 const PanelOuter = styled('div')`
-  ${panel}
   ${system}
+  ${panel}
 `;
 
 const PanelInner = styled('div')`
@@ -42,11 +42,13 @@ function Panel(props) {
     ...rest
   } = props;
 
+  console.log(props);
+
   const accentColor = accent === true ? 'blue' : accent;
 
-  const headerMarkup = title ? <Header title={title} actions={actions} /> : null;
+  const headerMarkup = title ? <Header title={title} actions={actions} {...rest} pb={0} /> : null;
 
-  const contentMarkup = sectioned ? <Section>{children}</Section> : children;
+  const contentMarkup = sectioned ? <Section {...rest}>{children}</Section> : children;
 
   const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
@@ -71,7 +73,7 @@ Panel.propTypes = {
   title: PropTypes.node,
   accent: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
+    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
   ]),
   sectioned: PropTypes.bool,
   actions: PropTypes.arrayOf(

@@ -18,17 +18,17 @@ export default {
 };
 
 export const WithATitle = withInfo()(() => (
-  <Panel title="Title" sectioned>
+  <Panel p={400} title="Title" sectioned>
     This is a panel with a title
   </Panel>
 ));
 
 export const WithAnAccent = withInfo()(() => (
   <>
-    <Panel accent sectioned>
+    <Panel p={400} mb={300} accent sectioned>
       This is a highlighted panel with a title
     </Panel>
-    <Panel accent="orange" sectioned>
+    <Panel p={400} mb={300} accent="orange" sectioned>
       This is a highlighted panel with a title
     </Panel>
   </>
@@ -36,18 +36,23 @@ export const WithAnAccent = withInfo()(() => (
 
 export const WithAFooter = withInfo()(() => (
   <>
-    <Panel title="Title" accent sectioned>
+    <Panel p={400} title="Title" accent sectioned>
       This is a panel
     </Panel>
-    <Panel.Footer left="Left aligned" right="Right aligned"></Panel.Footer>
+    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
+
+    <Panel p={400} title="Title" accent sectioned>
+      This is a panel
+    </Panel>
+    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
   </>
 ));
 
 export const WithMultipleSections = withInfo()(() => (
   <Panel>
-    <Panel.Section>This is a panel with sections</Panel.Section>
-    <Panel.Section>This is a panel with sections</Panel.Section>
-    <Panel.Section>This is a panel with sections</Panel.Section>
+    <Panel.Section p={400}>This is a panel with sections</Panel.Section>
+    <Panel.Section p={400}>This is a panel with sections</Panel.Section>
+    <Panel.Section p={400}>This is a panel with sections</Panel.Section>
   </Panel>
 ));
 
@@ -80,8 +85,8 @@ export const WithActions = withInfo()(() => {
     },
   ];
   return (
-    <Panel actions={actions} accent="red" title="Panel with Actions">
-      <Panel.Section actions={sectionActions}>
+    <Panel p={400} actions={actions} accent="red" title="Panel with Actions">
+      <Panel.Section p={400} actions={sectionActions}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
           reprehenderit, odio temporibus culpa beatae iure!
