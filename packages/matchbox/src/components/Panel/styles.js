@@ -12,7 +12,7 @@ export const headerText = () => `
   font-weight: ${tokens.fontWeight_semibold};
   line-height: ${tokens.lineHeight_300};
   color: ${tokens.color_gray_900};
-  margin: 0;
+  margin: ${tokens.spacing_0};
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -83,7 +83,7 @@ export const body = () => `
 export const sectionContent = () => `
   flex: 1 0 0;
   > *:last-child {
-    margin-bottom: 0;
+    margin-bottom: ${tokens.spacing_0};
   }
 `;
 
