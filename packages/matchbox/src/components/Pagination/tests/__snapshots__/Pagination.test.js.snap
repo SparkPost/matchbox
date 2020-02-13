@@ -4,21 +4,10 @@ exports[`Pagination renders pagination 1`] = `
 <div
   className="Pagination"
 >
-  <Button
-    className="Back"
+  <Pager.Previous
     disabled={true}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowBack
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
   <span
     className="Pages"
   >
@@ -66,21 +55,10 @@ exports[`Pagination renders pagination 1`] = `
       10
     </Button>
   </span>
-  <Button
-    className="Next"
+  <Pager.Next
     disabled={false}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowForward
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
 </div>
 `;
 
@@ -88,22 +66,11 @@ exports[`Pagination renders pagination with flat buttons 1`] = `
 <div
   className="Pagination"
 >
-  <Button
-    className="Back"
+  <Pager.Previous
     disabled={true}
     flat={true}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowBack
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
   <span
     className="Pages"
   >
@@ -155,22 +122,11 @@ exports[`Pagination renders pagination with flat buttons 1`] = `
       10
     </Button>
   </span>
-  <Button
-    className="Next"
+  <Pager.Next
     disabled={false}
     flat={true}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowForward
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
 </div>
 `;
 
@@ -178,21 +134,10 @@ exports[`Pagination renders pagination with marginsHidden true 1`] = `
 <div
   className="Pagination"
 >
-  <Button
-    className="Back"
+  <Pager.Previous
     disabled={true}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowBack
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
   <span
     className="Pages"
   >
@@ -223,20 +168,9 @@ exports[`Pagination renders pagination with marginsHidden true 1`] = `
       </Button>
     </Button.Group>
   </span>
-  <Button
-    className="Next"
+  <Pager.Next
     disabled={false}
     onClick={[Function]}
-    size="default"
-  >
-    <ArrowForward
-      size={16}
-      style={
-        Object {
-          "marginTop": "-0.2em",
-        }
-      }
-    />
-  </Button>
+  />
 </div>
 `;

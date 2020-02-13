@@ -1,22 +1,18 @@
 @import '../../styles/config';
 
 .Pagination {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: spacing();
-}
-
-.Back {
-  margin-right: spacing(small);
-}
-
-.Next {
-  margin-left: spacing(small);
 }
 
 .Pages {
   display: inline-block;
 }
 
-.Page, .Start, .End {
+.Page,
+.Start,
+.End {
   color: color(gray, 3);
   min-width: rem(42);
 }
