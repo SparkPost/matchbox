@@ -57,18 +57,19 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
-        alias: {
-          '@sparkpost/matchbox': path.resolve(__dirname, '../matchbox/src'),
-          '@sparkpost/matchbox-icons': path.resolve(
-            __dirname,
-            '../matchbox-icons/src'
-          ),
-          '@sparkpost/design-tokens': path.resolve(
-            __dirname,
-            '../design-tokens'
-          )
-        },
-        extensions: []
+        // Uncomment these aliases if you want to reference local matchbox packages
+        // alias: {
+        //   '@sparkpost/matchbox': path.resolve(__dirname, '../matchbox/src'),
+        //   '@sparkpost/matchbox-icons': path.resolve(
+        //     __dirname,
+        //     '../matchbox-icons/src'
+        //   ),
+        //   '@sparkpost/design-tokens': path.resolve(
+        //     __dirname,
+        //     '../design-tokens'
+        //   )
+        // },
+        // extensions: []
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
