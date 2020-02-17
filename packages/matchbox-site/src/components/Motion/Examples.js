@@ -8,6 +8,7 @@ const EnterExitAnimator = styled(Box)`
   flex: 33% 0 0;
   transition: 0s;
   opacity: 0;
+  transform: translateX(-1rem);
 
   ${props => {
     if (props.stage === 'stop') {
@@ -43,7 +44,7 @@ const EnterExitAnimator = styled(Box)`
 `;
 
 function EnterExit() {
-  const [playing, setPlaying] = React.useState(false);
+  const [playing, setPlaying] = React.useState(true);
   const [stage, setStage] = React.useState('stop');
 
   React.useLayoutEffect(() => {
@@ -104,7 +105,7 @@ function EnterExit() {
         p="400"
         height="15rem"
       >
-        <EnterExitAnimator playing={playing} stage={stage}>
+        <EnterExitAnimator playing={playing} stage={stage} opacity="0">
           <Box
             bg="green.700"
             padding="400"
@@ -147,6 +148,9 @@ function FastInPlace() {
 }
 
 const StackAnimator = styled(Box)`
+  transform: translateY(1.5rem);
+  opacity: 0;
+
   ${props => {
     if (props.stage === 'stop') {
       return `
@@ -181,7 +185,7 @@ const StackAnimator = styled(Box)`
 `;
 
 function Large() {
-  const [playing, setPlaying] = React.useState(false);
+  const [playing, setPlaying] = React.useState(true);
   const [stage, setStage] = React.useState('stop');
 
   React.useLayoutEffect(() => {
