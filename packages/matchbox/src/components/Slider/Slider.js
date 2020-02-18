@@ -1,18 +1,62 @@
-/* eslint max-lines: ["error", 260] */
+/* eslint max-lines: ["error", 301] */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { margin, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import styles from './Slider.module.scss';
+import { slider, rail, track, tick, handle, handleShadow } from './styles';
+
+const system = compose(margin);
+
+export const StyledSlider = styled('div')`
+  ${slider}
+  ${system}
+`;
+
+const StyledRail = styled('div')`
+  ${rail}
+`;
+
+const StyledTrack = styled('div')`
+  ${track}
+`;
+
+const StyledTick = styled('div')`
+  ${tick}
+`;
+
+const StyledHandle = styled('div')`
+  ${handle}
+`;
+
+const StyledHandleShadow = styled('div')`
+  ${handleShadow}
+`;
 
 function Slider(props) {
-  const { defaultValue, disabled, id, max, min, onBlur, onFocus, onChange, precision, ticks, value } = props;
+  const {
+    defaultValue,
+    disabled,
+    id,
+    max,
+    min,
+    onBlur,
+    onFocus,
+    onChange,
+    precision,
+    ticks,
+    value,
+  } = props;
 
   const windowSize = useWindowSize(50);
-  const [sliderValue, setSliderValue] = React.useState(value || defaultValue != null ? defaultValue : min);
+  const [sliderValue, setSliderValue] = React.useState(
+    value || defaultValue != null ? defaultValue : min,
+  );
   const [sliderLocation, setSliderLocation] = React.useState(0);
   const [rect, setRect] = React.useState({});
   const [moving, setMoving] = React.useState();
@@ -52,7 +96,6 @@ function Slider(props) {
 
   // Updates tick locations when ticks or window size change
   const tickLocations = React.useMemo(() => {
-
     if (!ticks || !rect.width) {
       return {};
     }
@@ -63,11 +106,10 @@ function Slider(props) {
         ...acc,
         [number]: {
           position: lerp(0, rect.width, absoluteProportion),
-          label: ticks[number]
-        }
+          label: ticks[number],
+        },
       };
     }, {});
-
   }, [ticks, rect.width]);
 
   // Event handlers
@@ -102,7 +144,7 @@ function Slider(props) {
     setPositions(position);
   }
 
-  function handleEnd(e) {
+  function handleEnd() {
     setMoving(null);
   }
 
@@ -141,7 +183,7 @@ function Slider(props) {
       window.addEventListener('touchend', handleEnd);
     }
 
-    return (() => {
+    return () => {
       if (moving === 'mouse') {
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('mouseup', handleEnd);
@@ -151,64 +193,60 @@ function Slider(props) {
         window.removeEventListener('touchmove', handleTouchMove);
         window.removeEventListener('touchend', handleEnd);
       }
-    });
+    };
   }, [moving]);
 
-  const sliderClasses = classnames(
-    styles.Slider,
-    disabled && styles.Disabled
-  );
-
-  const tickMarkup = Object.keys(tickLocations).map((tick) => {
+  const tickMarkup = Object.keys(tickLocations).map(tick => {
     const { label, position } = tickLocations[tick];
     return (
-      <div
+      <StyledTick
         key={tick}
         style={{ left: position }}
-        className={classnames(styles.Tick, tick < sliderValue && styles.Included)}>
+        disabled={disabled}
+        included={tick < sliderValue}
+      >
         <div className={styles.TickLabel}>{label}</div>
-      </div>
+      </StyledTick>
     );
   });
 
   return (
-    <div
-      className={sliderClasses}
-      data-id='slider-wrapper'
+    <StyledSlider
+      disabled={disabled}
+      data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
       ref={sliderRef}
     >
-      <div className={styles.Rail} />
+      <StyledRail />
       {tickMarkup}
-      <div
-        className={styles.Track}
-        style={{ width: sliderLocation }}
-      />
-      <div
+      <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
+      <StyledHandle
         id={id}
         aria-controls={props['aria-controls']}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={sliderValue}
         aria-disabled={disabled}
-        className={styles.Handle}
         data-id={props['data-id']}
         onBlur={onBlur}
         onFocus={onFocus}
         onKeyDown={disabled ? noop : handleKeyDown}
-        role='slider'
+        role="slider"
+        disabled={disabled}
         style={{ left: sliderLocation }}
-        tabIndex='0'
-      />
-    </div>
+        tabIndex="0"
+      >
+        <StyledHandleShadow disabled={disabled} />
+      </StyledHandle>
+    </StyledSlider>
   );
 }
 
 Slider.defaultProps = {
   min: 0,
   max: 100,
-  precision: 0
+  precision: 0,
 };
 
 Slider.propTypes = {
@@ -251,7 +289,11 @@ Slider.propTypes = {
   /**
    * Identifier passed to the handle for testing or tracking purposes
    */
-  'data-id': PropTypes.string
+  'data-id': PropTypes.string,
+  /**
+   * System props for margin
+   */
+  ...createPropTypes(margin.propNames),
 };
 
 export default Slider;

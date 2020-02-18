@@ -9,7 +9,7 @@ global.addEventListener = jest.fn((event, cb) => {
   windowEvents[event] = cb;
 });
 
-global.removeEventListener = jest.fn((event, cb) => {
+global.removeEventListener = jest.fn(event => {
   delete windowEvents[event];
 });
 
@@ -19,10 +19,12 @@ describe('Slider component', () => {
   beforeEach(() => {
     onChange = jest.fn();
     geometry.getRectFor = jest.fn(() => ({
-      left: 0, right: 0, width: 200
+      left: 0,
+      right: 0,
+      width: 200,
     }));
   });
-  const subject = (props = {}) => mount(<Slider {...props}/>);
+  const subject = (props = {}) => mount(<Slider {...props} />);
 
   it('should render default state correctly', () => {
     expect(subject()).toMatchSnapshot();
@@ -64,7 +66,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     slider.find('.Slider').simulate('mouseDown', {
       pageX: 25,
-      button: 0
+      button: 0,
     });
     expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '26px' });
     expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '26px' });
@@ -96,7 +98,7 @@ describe('Slider component', () => {
   it('should handle a touch start', () => {
     const slider = subject({ value: 50, onChange });
     slider.find('.Slider').simulate('touchStart', {
-      touches: [{ pageX: 25 }]
+      touches: [{ pageX: 25 }],
     });
     expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '26px' });
     expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '26px' });
@@ -104,12 +106,11 @@ describe('Slider component', () => {
   });
 
   describe('key events', () => {
-
     it('should handle a increment', () => {
       const slider = subject({ value: 50, onChange });
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowUp',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '102px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '102px' });
@@ -117,7 +118,7 @@ describe('Slider component', () => {
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowRight',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '104px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '104px' });
@@ -128,7 +129,7 @@ describe('Slider component', () => {
       const slider = subject({ value: 50, onChange, precision: 1 });
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowDown',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '99.8px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '99.8px' });
@@ -136,7 +137,7 @@ describe('Slider component', () => {
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'ArrowLeft',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '99.6px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '99.6px' });
@@ -147,7 +148,7 @@ describe('Slider component', () => {
       const slider = subject({ value: 50, onChange });
       slider.find('.Handle').simulate('keyDown', {
         key: 'Home',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '0px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '0px' });
@@ -155,7 +156,7 @@ describe('Slider component', () => {
 
       slider.find('.Handle').simulate('keyDown', {
         key: 'End',
-        shiftKey: false
+        shiftKey: false,
       });
       expect(slider.find('.Track')).toHaveAttributeValue('style', { width: '200px' });
       expect(slider.find('.Handle')).toHaveAttributeValue('style', { left: '200px' });
@@ -173,7 +174,7 @@ describe('Slider component', () => {
     it('should not move when disabled', () => {
       const slider = subject({ value: 50, onChange, disabled: true });
       slider.find('.Handle').simulate('keyDown', { key: 'Home', shiftKey: false });
-      slider.find('.Slider').simulate('touchStart', { touches: [{ pageX: 25 }]});
+      slider.find('.Slider').simulate('touchStart', { touches: [{ pageX: 25 }] });
       slider.find('.Slider').simulate('mouseDown', { pageX: 25, button: 0 });
       expect(onChange).toHaveBeenCalledTimes(1);
     });
@@ -181,7 +182,7 @@ describe('Slider component', () => {
 
   describe('ticks', () => {
     it('should render ticks', () => {
-      const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' }});
+      const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' } });
       expect(slider.find('.Tick')).toMatchSnapshot();
     });
   });
