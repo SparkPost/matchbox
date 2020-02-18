@@ -1,72 +1,87 @@
 import React from 'react';
 import Banner from '../Banner';
-import { shallow } from 'enzyme';
-import styles from '../Banner.module.scss';
+
+import 'jest-styled-components';
 
 describe('Banner', () => {
-  let wrapper;
-  let props;
-  beforeEach(() => {
-    props = {
-      title: 'Test Banner',
-      onDismiss: jest.fn(),
-      action: null,
-      actions: null
+  const props = {
+    title: 'Test Banner',
+    onDismiss: jest.fn(),
+    action: null,
+    actions: null,
+  };
 
-    };
-    wrapper = shallow(<Banner {...props}><p>You know this is a banner</p></Banner>);
-  });
+  const subject = newProps =>
+    global.mountStyled(
+      <Banner {...props} {...newProps}>
+        <p>You know this is a banner</p>
+      </Banner>,
+    );
 
   it('renders correctly with default props', () => {
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('IconSection').dive().html()).toEqual(null);
+    const wrapper = subject();
+    expect(wrapper.find('[aria-label="Info"]')).toExist();
+    expect(wrapper.find('h5').text()).toEqual('Test Banner');
+    expect(wrapper.find('p').text()).toEqual('You know this is a banner');
+    expect(wrapper.find('button')).toHaveLength(1);
+    expect(wrapper.find('[aria-label="Dismiss"]')).toExist();
+    expect(wrapper).toHaveStyleRule('background', '#f2f8ff');
   });
 
-  it('renders status', () => {
-    wrapper.setProps({ status: 'success' });
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+  it('renders status icons and background colors', () => {
+    let wrapper = subject({ status: 'success' });
+    expect(wrapper.find('[aria-label="Success"]')).toExist();
+    expect(wrapper).toHaveStyleRule('background', '#e8fff7');
 
-    wrapper.setProps({ status: 'danger' });
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+    wrapper = subject({ status: 'danger' });
+    expect(wrapper.find('[aria-label="Error"]')).toExist();
+    expect(wrapper).toHaveStyleRule('background', '#fff2f3');
 
-    wrapper.setProps({ status: 'warning' });
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+    wrapper = subject({ status: 'warning' });
+    expect(wrapper.find('[aria-label="Warning"]')).toExist();
+    expect(wrapper).toHaveStyleRule('background', '#fffadb');
 
-    wrapper.setProps({ status: 'info' });
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('IconSection').dive()).toMatchSnapshot();
+    wrapper = subject({ status: 'info' });
+    expect(wrapper.find('[aria-label="Info"]')).toExist();
+    expect(wrapper).toHaveStyleRule('background', '#f2f8ff');
   });
 
   it('dismisses banner correctly upon clicking dismiss icon', () => {
-    const elem = `a.${styles.Dismiss}`;
-    wrapper.find(elem).simulate('click');
+    let wrapper = subject();
+    wrapper.find('button').simulate('click');
     expect(props.onDismiss).toHaveBeenCalledTimes(1);
   });
 
-
-  it('invokes onClick func of action', () => {
+  it('creats a clickable primary action', () => {
     const action = { content: 'Click me', onClick: jest.fn() };
-    wrapper.setProps({ action });
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find(`.${styles.Actions}`).find('Button').simulate('click');
+    const wrapper = subject({ action });
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
     expect(action.onClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', '#39444d');
   });
 
   it('renders multiple banner actions', () => {
     const actions = [
       { content: 'Click Me 1', onClick: jest.fn() },
-      { content: 'Click Me 2', onClick: jest.fn() }
+      { content: 'Click Me 2', onClick: jest.fn() },
     ];
 
-    wrapper.setProps({ actions });
-    expect(wrapper).toMatchSnapshot();
-    wrapper.find(`.${styles.Actions}`).find('Button').at(0).simulate('click');
+    const wrapper = subject({ actions });
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
     expect(actions[0].onClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', '#39444d');
 
-    wrapper.find(`.${styles.Actions}`).find('Button').at(1).simulate('click');
+    wrapper
+      .find('button')
+      .at(1)
+      .simulate('click');
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'transparent');
   });
 });

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Inline } from '../Inline';
 import styled from 'styled-components';
 import { container, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { buttonFrom } from '../Button';
+import { margin } from 'styled-system';
 
 function IconSection({ status }) {
   const statusIcon = React.useMemo(() => {
@@ -46,6 +46,7 @@ function IconSection({ status }) {
 
 const StyledContainer = styled(Box)`
   ${container}
+  ${margin}
 `;
 
 const StyledDismiss = styled(Box)`
@@ -82,8 +83,7 @@ function Banner(props) {
   const dismissMarkup = onDismiss ? (
     <Box flex="0">
       <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800">
-        <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
-        <Close size={24} />
+        <Close size={24} label="Dismiss" />
       </StyledDismiss>
     </Box>
   ) : null;
@@ -138,6 +138,8 @@ Banner.propTypes = {
    * Banner Content
    */
   children: PropTypes.node,
+
+  ...createPropTypes(margin.propNames),
 };
 
 Banner.defaultProps = {
