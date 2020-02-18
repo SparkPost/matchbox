@@ -81,3 +81,14 @@ export const DangerBanner = withInfo()(() => (
     <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
   </Banner>
 ));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Banner title="Responsive Margin-Y" status="warning" my={['400', '600', '800', '300']}>
+      Set margin with system props
+    </Banner>
+    <Banner title="Responsive Margin-X" mx={['600', '500', '900', '300']}>
+      Set margin with system props
+    </Banner>
+  </>
+));
