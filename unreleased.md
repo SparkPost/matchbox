@@ -20,3 +20,4 @@
   only content
 - #324 - Restyles the Tag component
 - #324 - Tag component close button is now a button, and handles both space and enter events
+- #328 - Snackbar dismiss button is now a button, and handles both space and enter events
