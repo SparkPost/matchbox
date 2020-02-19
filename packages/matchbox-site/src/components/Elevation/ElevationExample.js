@@ -1,6 +1,15 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box, Stack } from '@sparkpost/matchbox';
+import styled from 'styled-components';
+
+const HoverShadow = styled(Box)`
+  transition: ${tokens.motionDuration_medium} ${tokens.motionEase_in_out};
+  &:hover {
+    box-shadow: ${tokens.boxShadow_0};
+    cursor: pointer;
+  }
+`;
 
 export function ElevationExample() {
   return (
@@ -37,7 +46,7 @@ export function ElevationExample() {
           </Box>
         </Box>
 
-        <Box
+        <HoverShadow
           border="400"
           p="500"
           mx={['200', '400', '800']}
@@ -48,9 +57,9 @@ export function ElevationExample() {
             <Box flex="1">Box Shadow 100</Box>
             <Box color="gray.700">{tokens.boxShadow_100}</Box>
           </Box>
-        </Box>
+        </HoverShadow>
 
-        <Box
+        <HoverShadow
           border="400"
           p="500"
           mx={['200', '400', '800']}
@@ -61,9 +70,9 @@ export function ElevationExample() {
             <Box flex="1">Box Shadow 200</Box>
             <Box color="gray.700">{tokens.boxShadow_200}</Box>
           </Box>
-        </Box>
+        </HoverShadow>
 
-        <Box
+        <HoverShadow
           border="400"
           p="500"
           mx={['200', '400', '800']}
@@ -74,9 +83,9 @@ export function ElevationExample() {
             <Box flex="1">Box Shadow 300</Box>
             <Box color="gray.700">{tokens.boxShadow_300}</Box>
           </Box>
-        </Box>
+        </HoverShadow>
 
-        <Box
+        <HoverShadow
           border="400"
           p="500"
           mx={['200', '400', '800']}
@@ -88,7 +97,7 @@ export function ElevationExample() {
             <Box flex="1">Box Shadow 400</Box>
             <Box color="gray.700">{tokens.boxShadow_400}</Box>
           </Box>
-        </Box>
+        </HoverShadow>
       </Stack>
 
       <Box
