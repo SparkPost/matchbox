@@ -2,7 +2,6 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const header = () => `
   display: flex;
-  font-weight: ${tokens.fontWeight_semibold};
 `;
 
 export const headerText = () => `
@@ -10,9 +9,8 @@ export const headerText = () => `
   padding-right: ${tokens.spacing_100};
   font-size: ${tokens.fontSize_400};
   font-weight: ${tokens.fontWeight_semibold};
-  line-height: ${tokens.lineHeight_300};
+  line-height: ${tokens.lineHeight_400};
   color: ${tokens.color_gray_900};
-  margin: ${tokens.spacing_0};
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -82,9 +80,6 @@ export const body = () => `
 
 export const sectionContent = () => `
   flex: 1 0 0;
-  > *:last-child {
-    margin-bottom: ${tokens.spacing_0};
-  }
 `;
 
 export const actions = () => `
