@@ -1,1 +1,26 @@
+import { meta } from '@sparkpost/design-tokens';
+import { ElevationExample } from '../../components/Elevation';
+
 # Elevation
+
+Elevation is the distance between objects along the z-axis.
+
+It is used by Matchbox to provide visual heirarchy and spatial contrast. Users percieve elevation through shadows, which bring elements on the page forward and helps convey importance and areas of focus.
+
+Shadows should be used infrequently on static, non-interactive UI elements. They should be used when interacting with elements that are focusable, hoverable and clickable, or are overlay elements such as modals, drawers and trays.
+
+---
+
+### Example
+
+<ElevationExample />
+
+---
+
+<TokenTable
+  title="Box Shadow Tokens"
+  columns={['friendly', 'value', 'usage']}
+  tokens={meta.filter(({ category }) => ['box-shadow'].includes(category))}
+/>
+
+---
