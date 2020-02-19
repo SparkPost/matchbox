@@ -112,7 +112,7 @@ export function ElevationExample() {
         lineHeight="200"
       >
         <Box>
-          <strong>High Contrast Elements</strong>
+          <strong>High Contrast Overlays</strong>
         </Box>
         <Box display="flex" color="gray.300">
           <Box flex="1" pr="800">
