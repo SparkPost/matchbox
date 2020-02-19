@@ -3,7 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 export const base = () => `
   display: inline-flex;
   align-items: flex-start;
-  color: white;
+  color: ${tokens.color_white};
 `;
 
 export const status = props => {
@@ -28,7 +28,7 @@ export const dismiss = () => `
   display: inline-flex;
   border: none;
   background: transparent;
-  transition: background ${tokens.motion_duration_fast};
+  transition: background ${tokens.motionDuration_fast};
 `;
 
 export const dismissStatus = props => {
