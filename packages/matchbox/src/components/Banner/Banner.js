@@ -5,6 +5,7 @@ import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Inline } from '../Inline';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import styled from 'styled-components';
 import { container, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
@@ -27,6 +28,7 @@ function IconSection({ status }) {
       width="3rem"
       height="3rem"
       mr="500"
+      mt="100"
     >
       <Box
         position="absolute"
@@ -68,13 +70,7 @@ function Banner(props) {
     let result = action ? <div>{buttonFrom(action)}</div> : null;
 
     if (actions) {
-      result = (
-        <Inline>
-          {actions.map((action, i) =>
-            buttonFrom(action, i === 0 ? { outline: false } : { outline: true }, i),
-          )}
-        </Inline>
-      );
+      result = <Inline>{actions.map((action, i) => buttonFrom(action, {}, i))}</Inline>;
     }
 
     return result;
@@ -83,7 +79,8 @@ function Banner(props) {
   const dismissMarkup = onDismiss ? (
     <Box flex="0">
       <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800">
-        <Close size={24} label="Dismiss" />
+        <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
+        <Close size={24} />
       </StyledDismiss>
     </Box>
   ) : null;

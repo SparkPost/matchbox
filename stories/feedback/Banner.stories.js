@@ -14,7 +14,7 @@ export default {
 export const DefaultBanner = withInfo()(() => (
   <Banner title="Heads up!" onDismiss={action('Dismiss Clicked')}>
     If you're importing recipients from a previous provider, be sure to also{' '}
-    <a>import your suppressions</a> later.
+    <a href="https://design.sparkpost.com">import your suppressions</a> later.
   </Banner>
 ));
 
@@ -71,6 +71,7 @@ export const DangerBanner = withInfo()(() => (
       {
         content: 'Close',
         onClick: action('Close Clicked'),
+        outline: true,
       },
     ]}
   >
