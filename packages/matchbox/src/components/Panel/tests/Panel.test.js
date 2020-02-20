@@ -16,7 +16,6 @@ describe('Panel', () => {
 
   it('renders header styles', () => {
     expect(wrapper.find(Panel.Header)).toHaveStyleRule('display', 'flex');
-    expect(wrapper.find(Panel.Header)).toHaveStyleRule('font-weight', tokens.fontWeight_semibold);
   });
 
   it('renders section styles', () => {
@@ -129,5 +128,37 @@ describe('Panel', () => {
         .at(3)
         .text(),
     ).toEqual('right');
+  });
+
+  it('renders default padding context correctly', () => {
+    wrapper = global.mountStyled(<Panel sectioned>test</Panel>);
+    expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1rem');
+  });
+
+  it('renders default padding context correctly on sections', () => {
+    wrapper = global.mountStyled(
+      <Panel>
+        <Panel.Section>1</Panel.Section>
+        <Panel.Section>2</Panel.Section>
+      </Panel>,
+    );
+    // Spacing theme values are mocked in jest, these are not representative of tokens
+    expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule('padding', '1rem');
+    expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding', '1rem');
+  });
+
+  it('renders default contextual padding and a section with padding overide', () => {
+    wrapper = global.mountStyled(
+      <Panel p="600">
+        <Panel.Section>1</Panel.Section>
+        <Panel.Section px="300" py="500">
+          2
+        </Panel.Section>
+      </Panel>,
+    );
+    // Spacing theme values are mocked in jest, these are not representative of tokens
+    expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule('padding', '2rem');
+    expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding-left', '0.5rem');
+    expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding-top', '1.5rem');
   });
 });

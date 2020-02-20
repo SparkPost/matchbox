@@ -4,6 +4,7 @@ import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
 import { actions, header, headerText } from './styles';
 import { padding } from 'styled-system';
+import { PanelPaddingContext } from './Panel';
 import { createPropTypes } from '@styled-system/prop-types';
 
 const HeaderOuter = styled('div')`
@@ -21,12 +22,14 @@ const Actions = styled('div')`
 
 const actionOverrides = { flat: true, size: 'small' };
 
-const Header = ({ title, actions, ...rest }) => {
+const Header = ({ title, actions, p, ...rest }) => {
+  const paddingContext = React.useContext(PanelPaddingContext);
+
   const actionMarkup =
     actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
 
   return (
-    <HeaderOuter {...rest}>
+    <HeaderOuter {...paddingContext} {...rest} pb="0">
       <HeaderText>{title}</HeaderText>
       {actionMarkup}
     </HeaderOuter>
@@ -36,10 +39,6 @@ const Header = ({ title, actions, ...rest }) => {
 Header.displayName = 'Panel.Header';
 Header.propTypes = {
   title: PropTypes.node,
-  accent: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
-  ]),
   ...createPropTypes(padding.propNames),
 };
 
