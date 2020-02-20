@@ -1,77 +1,438 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider component should render default state correctly 1`] = `
-<Slider
-  max={100}
-  min={0}
-  precision={0}
->
-  <div
-    className="Slider"
-    data-id="slider-wrapper"
-    onMouseDown={[Function]}
-    onTouchStart={[Function]}
+.c1 {
+  padding: 2rem 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.c2 {
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  height: 0.25rem;
+  background: #d9e0e6;
+  border-radius: 2px;
+  -webkit-transition: 0.3s background;
+  transition: 0.3s background;
+}
+
+.c0:hover .c2 {
+  background: #c5ced6;
+}
+
+.c3 {
+  position: absolute;
+  left: 0rem;
+  height: 0.25rem;
+  background: #1273e6;
+  border-radius: 2px;
+}
+
+.c4 {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  outline: none;
+  -webkit-transform: translate(-7px,-5px);
+  -ms-transform: translate(-7px,-5px);
+  transform: translate(-7px,-5px);
+  border: 3px solid #1273e6;
+  background: #ffffff;
+}
+
+.c4:focus > div,
+.c4:active > div,
+.c4:hover > div {
+  opacity: 0.3;
+  -webkit-transition: 0.15s opacity;
+  transition: 0.15s opacity;
+}
+
+.c5 {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  outline: none;
+  -webkit-transform: translate(-3px,-3px);
+  -ms-transform: translate(-3px,-3px);
+  transform: translate(-3px,-3px);
+  border: 3px solid transparent;
+  background: transparent;
+  box-shadow: 0 0 0 5px #1273e6;
+  -webkit-transition: 0.15s opacity;
+  transition: 0.15s opacity;
+  opacity: 0;
+}
+
+<Theme>
+  <ThemeProvider
+    theme={
+      Object {
+        "breakpoints": Array [
+          "400px",
+          "800px",
+        ],
+        "fontSizes": Object {
+          "400": "1rem",
+        },
+        "lineHeights": Object {
+          "400": "1.5rem",
+        },
+        "mock-theme-key": "mock-theme-value",
+        "space": Object {
+          "400": "1rem",
+          "500": "1.5rem",
+        },
+      }
+    }
   >
-    <div
-      className="Rail"
-    />
-    <div
-      className="Track"
-      style={
-        Object {
-          "width": 0,
-        }
-      }
-    />
-    <div
-      aria-valuemax={100}
-      aria-valuemin={0}
-      aria-valuenow={0}
-      className="Handle"
-      onKeyDown={[Function]}
-      role="slider"
-      style={
-        Object {
-          "left": 0,
-        }
-      }
-      tabIndex="0"
-    />
-  </div>
-</Slider>
+    <Slider
+      max={100}
+      min={0}
+      precision={0}
+    >
+      <styled.div
+        data-id="slider-wrapper"
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+      >
+        <StyledComponent
+          data-id="slider-wrapper"
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "c0",
+                "isStatic": false,
+                "lastClassName": "c1",
+                "rules": Array [
+                  "
+  ",
+                  [Function],
+                  "
+  ",
+                  [Function],
+                  "
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "c0",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={
+            Object {
+              "current": .c1 {
+  padding: 2rem 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.c2 {
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  height: 0.25rem;
+  background: #d9e0e6;
+  border-radius: 2px;
+  -webkit-transition: 0.3s background;
+  transition: 0.3s background;
+}
+
+.c0:hover .c2 {
+  background: #c5ced6;
+}
+
+.c3 {
+  position: absolute;
+  left: 0rem;
+  height: 0.25rem;
+  background: #1273e6;
+  border-radius: 2px;
+}
+
+.c4 {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  outline: none;
+  -webkit-transform: translate(-7px,-5px);
+  -ms-transform: translate(-7px,-5px);
+  transform: translate(-7px,-5px);
+  border: 3px solid #1273e6;
+  background: #ffffff;
+}
+
+.c4:focus > div,
+.c4:active > div,
+.c4:hover > div {
+  opacity: 0.3;
+  -webkit-transition: 0.15s opacity;
+  transition: 0.15s opacity;
+}
+
+.c5 {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  outline: none;
+  -webkit-transform: translate(-3px,-3px);
+  -ms-transform: translate(-3px,-3px);
+  transform: translate(-3px,-3px);
+  border: 3px solid transparent;
+  background: transparent;
+  box-shadow: 0 0 0 5px #1273e6;
+  -webkit-transition: 0.15s opacity;
+  transition: 0.15s opacity;
+  opacity: 0;
+}
+
+<div
+                class="c0 c1"
+                data-id="slider-wrapper"
+              >
+                <div
+                  class="c2"
+                />
+                <div
+                  class="c3"
+                  style="width: 0px;"
+                />
+                <div
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="0"
+                  class="c4"
+                  role="slider"
+                  style="left: 0px;"
+                  tabindex="0"
+                >
+                  <div
+                    class="c5"
+                  />
+                </div>
+              </div>,
+            }
+          }
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="c0 c1"
+            data-id="slider-wrapper"
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+          >
+            <styled.div>
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bwzfXH",
+                      "isStatic": false,
+                      "lastClassName": "c2",
+                      "rules": Array [
+                        "
+  ",
+                        [Function],
+                        "
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bwzfXH",
+                    "target": "div",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <div
+                  className="c2"
+                />
+              </StyledComponent>
+            </styled.div>
+            <styled.div
+              style={
+                Object {
+                  "width": 0,
+                }
+              }
+            >
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-htpNat",
+                      "isStatic": false,
+                      "lastClassName": "c3",
+                      "rules": Array [
+                        "
+  ",
+                        [Function],
+                        "
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-htpNat",
+                    "target": "div",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+                style={
+                  Object {
+                    "width": 0,
+                  }
+                }
+              >
+                <div
+                  className="c3"
+                  style={
+                    Object {
+                      "width": 0,
+                    }
+                  }
+                />
+              </StyledComponent>
+            </styled.div>
+            <styled.div
+              aria-valuemax={100}
+              aria-valuemin={0}
+              aria-valuenow={0}
+              onKeyDown={[Function]}
+              role="slider"
+              style={
+                Object {
+                  "left": 0,
+                }
+              }
+              tabIndex="0"
+            >
+              <StyledComponent
+                aria-valuemax={100}
+                aria-valuemin={0}
+                aria-valuenow={0}
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-ifAKCX",
+                      "isStatic": false,
+                      "lastClassName": "c4",
+                      "rules": Array [
+                        "
+  ",
+                        [Function],
+                        "
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-ifAKCX",
+                    "target": "div",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+                onKeyDown={[Function]}
+                role="slider"
+                style={
+                  Object {
+                    "left": 0,
+                  }
+                }
+                tabIndex="0"
+              >
+                <div
+                  aria-valuemax={100}
+                  aria-valuemin={0}
+                  aria-valuenow={0}
+                  className="c4"
+                  onKeyDown={[Function]}
+                  role="slider"
+                  style={
+                    Object {
+                      "left": 0,
+                    }
+                  }
+                  tabIndex="0"
+                >
+                  <styled.div>
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-EHOje",
+                            "isStatic": false,
+                            "lastClassName": "c5",
+                            "rules": Array [
+                              "
+  ",
+                              [Function],
+                              "
+",
+                            ],
+                          },
+                          "displayName": "styled.div",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-EHOje",
+                          "target": "div",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                    >
+                      <div
+                        className="c5"
+                      />
+                    </StyledComponent>
+                  </styled.div>
+                </div>
+              </StyledComponent>
+            </styled.div>
+          </div>
+        </StyledComponent>
+      </styled.div>
+    </Slider>
+  </ThemeProvider>
+</Theme>
 `;
 
-exports[`Slider component ticks should render ticks 1`] = `
-Array [
-  <div
-    className="Tick Included"
-    key="25"
-    style={
-      Object {
-        "left": 50,
-      }
-    }
-  >
-    <div
-      className="TickLabel"
-    >
-      test tick
-    </div>
-  </div>,
-  <div
-    className="Tick"
-    key="55"
-    style={
-      Object {
-        "left": 110.00000000000001,
-      }
-    }
-  >
-    <div
-      className="TickLabel"
-    >
-      not included tick
-    </div>
-  </div>,
-]
-`;
+exports[`Slider component ticks should render ticks 1`] = `null`;
