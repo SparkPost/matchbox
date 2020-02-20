@@ -28,7 +28,6 @@ function IconSection({ status }) {
       width="3rem"
       height="3rem"
       mr="500"
-      mt="100"
     >
       <Box
         position="absolute"
@@ -61,9 +60,11 @@ function Banner(props) {
   const { children, title, status, action, actions, onDismiss, ...rest } = props;
 
   const titleMarkup = title ? (
-    <Text fontSize="500" lineHeight="500" as="h5">
-      {title}
-    </Text>
+    <Box pt="200" mb="200">
+      <Text fontSize="500" lineHeight="500" as="h5">
+        {title}
+      </Text>
+    </Box>
   ) : null;
 
   const actionMarkup = React.useMemo(() => {
