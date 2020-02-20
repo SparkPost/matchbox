@@ -4,6 +4,7 @@ import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
 import { body, sectionContent, actions } from './styles';
 import { padding } from 'styled-system';
+import { PanelPaddingContext } from './Panel';
 import { createPropTypes } from '@styled-system/prop-types';
 
 const SectionOuter = styled('div')`
@@ -24,11 +25,13 @@ const actionOverrides = { flat: true, size: 'small' };
 function Section(props) {
   const { actions, children, className, ...rest } = props;
 
+  const paddingContext = React.useContext(PanelPaddingContext);
+
   const actionMarkup =
     actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
 
   return (
-    <SectionOuter {...rest}>
+    <SectionOuter {...paddingContext} {...rest}>
       <SectionContent>{children}</SectionContent>
       {actionMarkup}
     </SectionOuter>

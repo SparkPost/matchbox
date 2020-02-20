@@ -4,11 +4,18 @@ import styled from 'styled-components';
 import { margin, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { panel, panelInner } from './styles';
+import { pick } from '@styled-system/props';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
 import Accent from './Accent';
+
+/**
+ * Context is created here to pass system prop padding
+ * to Panel.Header and Panel.Section
+ */
+export const PanelPaddingContext = React.createContext({});
 
 const system = compose(margin, padding);
 
@@ -44,18 +51,24 @@ function Panel(props) {
 
   const accentColor = accent === true ? 'blue' : accent;
 
-  const headerMarkup = title ? <Header title={title} actions={actions} {...rest} pb={0} /> : null;
+  const headerMarkup = title ? <Header title={title} actions={actions} /> : null;
 
-  const contentMarkup = sectioned ? <Section {...rest}>{children}</Section> : children;
+  const contentMarkup = sectioned ? <Section>{children}</Section> : children;
 
   const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
+
+  // Pick out `p` and `padding` so we only pass one value down
+  // `context` is passed to handle directional padding values like `px` or `pr`
+  const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
 
   return (
     <PanelOuter {...rest}>
       {accentMarkup}
       <PanelInner accent={accent}>
-        {headerMarkup}
-        {contentMarkup}
+        <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
+          {headerMarkup}
+          {contentMarkup}
+        </PanelPaddingContext.Provider>
       </PanelInner>
     </PanelOuter>
   );
