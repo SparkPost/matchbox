@@ -7,7 +7,7 @@ import { Text } from '../Text';
 import { Inline } from '../Inline';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import styled from 'styled-components';
-import { container, statusIcons, dismissBase, dismissColor } from './styles';
+import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { buttonFrom } from '../Button';
 import { margin } from 'styled-system';
@@ -22,7 +22,8 @@ function IconSection({ status }) {
   return (
     <Box
       position="relative"
-      display="flex"
+      // IconSection do not render under the first breakpoint
+      display={['none', 'none', 'flex']}
       alignItems="center"
       justifyContent="center"
       width="3rem"
@@ -48,6 +49,7 @@ function IconSection({ status }) {
 const StyledContainer = styled(Box)`
   ${container}
   ${margin}
+  ${childLinks}
 `;
 
 const StyledDismiss = styled(Box)`
@@ -60,7 +62,9 @@ function Banner(props) {
   const { children, title, status, action, actions, onDismiss, ...rest } = props;
 
   const titleMarkup = title ? (
-    <Box pt="200" mb="200">
+    // IconSection does not render under first breakpoint
+    // `pt` here is used to vertically align the title with the icon
+    <Box pt={['0', '0', '200']} mb="200">
       <Text fontSize="500" lineHeight="500" as="h5">
         {title}
       </Text>
