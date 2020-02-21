@@ -1,9 +1,10 @@
 export const buttonReset = `
   border: none;
-  background: transparent;
   margin: 0;
   padding: 0;
-  display: inline-flex;
+  overflow: visible;
+  width: auto;
+  background: transparent;
   color: inherit;
   font: inherit;
   line-height: normal;
