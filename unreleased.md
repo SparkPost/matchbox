@@ -26,3 +26,5 @@
 - #334 - Banner component dismiss button is now a button, and handles both space and enter events
 - #334 - Banner component dismiss button is now screen reader accessible
 - #334 - Banner with a status of 'default' now defaults to 'info'
+- #334 - Links within the Banner component overwrite color and hover color to be accessible
+- #334 - Banner status icons no longer render on small screen sizes
