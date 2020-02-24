@@ -70,6 +70,16 @@ export const tick = props => {
   `;
 };
 
+export const tickLabel = () => `
+  position: absolute;
+  top: ${tokens.spacing_400};
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  color: ${tokens.color_gray_300};
+  font-size: ${tokens.fontSize_100};
+`;
+
 const sharedStyles = `
   position: absolute;
   width: ${tokens.spacing_400};

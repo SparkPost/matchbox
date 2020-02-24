@@ -35,10 +35,6 @@ describe('Slider component', () => {
 
   const subject = (props = {}) => global.mountStyled(<Slider {...props} />);
 
-  it('should render default state correctly', () => {
-    expect(subject()).toMatchSnapshot();
-  });
-
   it('should render a default value and id', () => {
     const slider = subject({ defaultValue: 50, id: 'test-id' });
     expect(Track(slider)).toHaveAttributeValue('style', { width: '100px' });
@@ -207,7 +203,19 @@ describe('Slider component', () => {
   describe('ticks', () => {
     it('should render ticks', () => {
       const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' } });
-      expect(slider.find('.Tick')).toMatchSnapshot();
+      expect(slider.find('div').at(2)).toHaveAttributeValue('style', { left: '50px' });
+      expect(
+        slider
+          .find('div')
+          .at(3)
+          .text(),
+      ).toEqual('test tick');
+      expect(
+        slider
+          .find('div')
+          .at(5)
+          .text(),
+      ).toEqual('not included tick');
     });
   });
 });

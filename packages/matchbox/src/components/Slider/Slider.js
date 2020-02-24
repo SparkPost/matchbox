@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 301] */
+/* eslint max-lines: ["error", 303] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -8,8 +8,7 @@ import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
-import styles from './Slider.module.scss';
-import { slider, rail, track, tick, handle, handleShadow } from './styles';
+import { slider, rail, track, tick, tickLabel, handle, handleShadow } from './styles';
 
 const system = compose(margin);
 
@@ -28,6 +27,10 @@ const StyledTrack = styled('div')`
 
 const StyledTick = styled('div')`
   ${tick}
+`;
+
+const StyledTickLabel = styled('div')`
+  ${tickLabel}
 `;
 
 const StyledHandle = styled('div')`
@@ -205,7 +208,7 @@ function Slider(props) {
         disabled={disabled}
         included={tick < sliderValue}
       >
-        <div className={styles.TickLabel}>{label}</div>
+        <StyledTickLabel>{label}</StyledTickLabel>
       </StyledTick>
     );
   });
