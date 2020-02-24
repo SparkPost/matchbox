@@ -39,7 +39,7 @@ exports[`Modal should render contents when open 1`] = `
 `;
 
 exports[`Modal should render contents when open 2`] = `
-<FocusLockCombination
+<ForwardRef
   disabled={false}
 >
   <Transition
@@ -64,7 +64,7 @@ exports[`Modal should render contents when open 2`] = `
   >
     <Component />
   </Transition>
-</FocusLockCombination>
+</ForwardRef>
 `;
 
 exports[`Modal should render contents when open 3`] = `

@@ -17,10 +17,8 @@ export default {
   title: 'Navigation|UnstyledLink',
 };
 
-class DemoWrapper extends React.Component {
-  render() {
-    return <a>{this.props.children}</a>;
-  }
+function DemoWrapper(props) {
+  return <a>{props.children}</a>;
 }
 
 export const WithAnOnClickAction = withInfo()(() => (
