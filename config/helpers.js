@@ -3,21 +3,20 @@ import ThemeProvider from '../packages/matchbox/src/components/ThemeProvider/The
 import { render, mount } from 'enzyme';
 
 jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
-  "mock-theme-key": "mock-theme-value",
+  'mock-theme-key': 'mock-theme-value',
   fontSizes: {
-    400: "1rem"
+    400: '1rem',
   },
   lineHeights: {
-    400: "1.5rem"
+    400: '1.5rem',
   },
   space: {
-    400: "1rem",
-    500: "1.5rem"
+    300: '0.5rem',
+    400: '1rem',
+    500: '1.5rem',
+    600: '2rem',
   },
-  breakpoints: [
-    '400px',
-    '800px'
-  ]
+  breakpoints: ['400px', '800px'],
 }));
 
 // jest-styled-components@6.3.3 has some issues:
@@ -25,10 +24,10 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
 // - does not work when globally installed in jest setup
 // - https://github.com/styled-components/jest-styled-components/issues/266
 
-global.renderStyled = (node) => {
+global.renderStyled = node => {
   return render(<ThemeProvider>{node}</ThemeProvider>);
 };
 
-global.mountStyled = (node) => {
+global.mountStyled = node => {
   return mount(<ThemeProvider>{node}</ThemeProvider>);
 };

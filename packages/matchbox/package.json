@@ -24,6 +24,7 @@
     "@sparkpost/design-tokens": "^1.0.0-beta.16",
     "@sparkpost/matchbox-icons": "^1.2.1",
     "@styled-system/prop-types": "^5.1.2",
+    "@styled-system/props": "^5.1.5",
     "classnames": "^2.2.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

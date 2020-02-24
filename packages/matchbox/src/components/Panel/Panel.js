@@ -1,82 +1,100 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { margin, padding, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { panel, panelInner } from './styles';
+import { pick } from '@styled-system/props';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
-import styles from './Panel.module.scss';
+import Accent from './Accent';
 
-class Panel extends Component {
-  static Section = Section;
-  static Footer = Footer;
+/**
+ * Context is created here to pass system prop padding
+ * to Panel.Header and Panel.Section
+ */
+export const PanelPaddingContext = React.createContext({});
 
-  static displayName = 'Panel';
+const system = compose(margin, padding);
 
-  static propTypes = {
-    /**
-     * The panel heading title
-     */
-    title: PropTypes.node,
-    /**
-      * Shows an accent bar, defaults to orange if boolean
-      */
-    accent: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red', 'yellow', 'green', 'gray'])
-    ]),
-    /**
-      * Adds a padded section automatically
-      */
-    sectioned: PropTypes.bool,
-    /**
-      * Actions that build buttons. Most button props will work in here.
-      * e.g. { content: 'button label', onClick: callback() }
-      */
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.node.isRequired
-    })),
-    /**
-      * Panel Content
-      */
-    children: PropTypes.node
-  };
+const PanelOuter = styled('div')`
+  ${system}
+  ${panel}
+`;
 
-  render() {
-    const {
-      children,
-      title,
-      accent,
-      sectioned,
-      actions,
-      className,
-      ...rest
-    } = this.props;
+const PanelInner = styled('div')`
+  ${panelInner}
+`;
 
-    const accentColor = accent === true ? 'orange' : accent;
+function Panel(props) {
+  const {
+    // panel heading title
+    title,
 
-    const headerMarkup = title
-      ? <Header title={title} actions={actions} />
-      : null;
+    // Shows an accent bar, defaults to blue if boolean
+    accent,
 
-    const contentMarkup = sectioned
-      ? <Section>{children}</Section>
-      : children;
+    // Adds a padded section automatically
+    sectioned,
 
-    const accentMarkup = accentColor
-      ? <div className={classnames(styles.Accent, styles[`accent-${accentColor}`])} />
-      : null;
+    // Actions that build buttons. Most button props will work in here.
+    // e.g. { content: 'button label', onClick: callback() }
+    actions,
 
-    const panelStyles = classnames(styles.Panel, className);
+    // Panel Content
+    children,
+    className,
+    ...rest
+  } = props;
 
-    return (
-      <div className={panelStyles} {...rest}>
-        {accentMarkup}
-        {headerMarkup}
-        {contentMarkup}
-      </div>
-    );
-  }
+  const accentColor = accent === true ? 'blue' : accent;
+
+  const headerMarkup = title ? <Header title={title} actions={actions} /> : null;
+
+  const contentMarkup = sectioned ? <Section>{children}</Section> : children;
+
+  const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
+
+  // Pick out `p` and `padding` so we only pass one value down
+  // `context` is passed to handle directional padding values like `px` or `pr`
+  const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
+
+  return (
+    <PanelOuter {...rest}>
+      {accentMarkup}
+      <PanelInner accent={accent}>
+        <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
+          {headerMarkup}
+          {contentMarkup}
+        </PanelPaddingContext.Provider>
+      </PanelInner>
+    </PanelOuter>
+  );
 }
+
+Panel.displayName = 'Panel';
+Panel.Header = Header;
+Panel.Section = Section;
+Panel.Footer = Footer;
+Panel.Accent = Accent;
+
+Panel.propTypes = {
+  title: PropTypes.node,
+  accent: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
+  ]),
+  sectioned: PropTypes.bool,
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.node.isRequired,
+    }),
+  ),
+  children: PropTypes.node,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(padding.propNames),
+};
 
 export default Panel;

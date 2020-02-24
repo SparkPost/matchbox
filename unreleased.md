@@ -20,8 +20,6 @@
   only content
 - #324 - Restyles the Tag component <<<<<<< HEAD <<<<<<< HEAD
 - #324 - Tag component close button is now a button, and handles both space and enter events
-<<<<<<< HEAD
 - #363 - `<Label/>` returns `null` when no `label` prop is passed in
-=======
 - #328 - Snackbar dismiss button is now a button, and handles both space and enter events
->>>>>>> FE-795 Update Snackbar (#328)
+- #329 - Restyle the Panel Component
