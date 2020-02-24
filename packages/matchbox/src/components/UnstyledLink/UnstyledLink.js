@@ -1,48 +1,60 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
+import styled from 'styled-components';
+import { text } from './styles';
 
-class UnstyledLink extends Component {
-  static displayName = 'UnstyledLink';
+import { Text } from '../Text';
 
-  static propTypes = {
-    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    external: PropTypes.bool,
-    component: PropTypes.elementType,
-    Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
-    children: PropTypes.node
+const StyledText = styled(Text)`
+  ${text}
+`;
+
+function UnstyledLink(props) {
+  const { children, to, title, Component, component, external, ...rest } = props;
+
+  const WrapperComponent = component || Component;
+  const LinkTitle = external && !title ? 'Opens in a new tab' : title;
+
+  if (to && !WrapperComponent) {
+    return (
+      <StyledText
+        as="a"
+        href={to}
+        target={external ? '_blank' : ''}
+        rel={external ? 'noopener noreferrer' : ''}
+        title={LinkTitle}
+        {...rest}
+      >
+        {children}
+      </StyledText>
+    );
   }
 
-  render() {
-    const {
-      children,
-      to,
-      Component,
-      component,
-      external,
-      ...rest
-    } = this.props;
-
-    const WrapperComponent = component || Component;
-
-    if (to && !WrapperComponent) {
-      return (
-        <a
-          href={to}
-          target={external ? '_blank' : ''}
-          rel={external ? 'noopener noreferrer' : ''}
-          {...rest}>
-          {children}
-        </a>
-      );
-    }
-
-    if (WrapperComponent) {
-      return <WrapperComponent to={to} {...rest} >{children}</WrapperComponent>;
-    }
-
-    return <a {...rest}>{children}</a>;
+  if (WrapperComponent) {
+    return (
+      <StyledText as={WrapperComponent} to={to} title={LinkTitle} {...rest}>
+        {children}
+      </StyledText>
+    );
   }
+
+  return (
+    <StyledText as="a" title={LinkTitle} {...rest}>
+      {children}
+    </StyledText>
+  );
 }
+
+UnstyledLink.displayName = 'UnstyledLink';
+
+UnstyledLink.propTypes = {
+  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  title: PropTypes.string,
+  external: PropTypes.bool,
+  component: PropTypes.elementType,
+  Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
+  children: PropTypes.node,
+};
 
 export default UnstyledLink;
