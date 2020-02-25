@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBoxMenu should render items correctly 1`] = `
+<ComboBoxMenu
+  items={
+    Array [
+      Object {
+        "content": "foo",
+      },
+      Object {
+        "content": <div>
+          bar
+        </div>,
+      },
+    ]
+  }
+>
+  <div
+    className="List"
+  >
+    <ActionList
+      actions={
+        Array [
+          Object {
+            "content": "foo",
+          },
+          Object {
+            "content": <div>
+              bar
+            </div>,
+          },
+        ]
+      }
+      groupByKey="section"
+    >
+      <div
+        className="ActionList"
+        style={
+          Object {
+            "maxHeight": "none",
+          }
+        }
+      >
+        <Section
+          key="0"
+          section={
+            Array [
+              Object {
+                "content": "foo",
+              },
+              Object {
+                "content": <div>
+                  bar
+                </div>,
+              },
+            ]
+          }
+        >
+          <div
+            className="Section"
+          >
+            <UnstyledLink
+              className="Action"
+              key="0"
+            >
+              <Styled(Text)
+                as="a"
+                className="Action"
+              >
+                <StyledComponent
+                  as="a"
+                  className="Action"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "_foldedDefaultProps": Object {
+                        "as": "p",
+                      },
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "eQQZRc",
+                        "rules": Array [
+                          "
+  ",
+                          [Function],
+                          "
+  ",
+                          [Function],
+                          "
+  ",
+                          [Function],
+                          "
+",
+                          "
+  ",
+                          [Function],
+                          "
+",
+                        ],
+                      },
+                      "displayName": "Styled(Text)",
+                      "foldedComponentIds": Array [
+                        "sc-bdVaJa",
+                      ],
+                      "propTypes": Object {
+                        "as": [Function],
+                        "children": [Function],
+                        "crop": [Function],
+                      },
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "p",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <a
+                    className="sc-bdVaJa sc-bwzfXH eQQZRc Action"
+                  >
+                    foo
+                  </a>
+                </StyledComponent>
+              </Styled(Text)>
+            </UnstyledLink>
+            <UnstyledLink
+              className="Action"
+              key="1"
+            >
+              <Styled(Text)
+                as="a"
+                className="Action"
+              >
+                <StyledComponent
+                  as="a"
+                  className="Action"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "_foldedDefaultProps": Object {
+                        "as": "p",
+                      },
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "eQQZRc",
+                        "rules": Array [
+                          "
+  ",
+                          [Function],
+                          "
+  ",
+                          [Function],
+                          "
+  ",
+                          [Function],
+                          "
+",
+                          "
+  ",
+                          [Function],
+                          "
+",
+                        ],
+                      },
+                      "displayName": "Styled(Text)",
+                      "foldedComponentIds": Array [
+                        "sc-bdVaJa",
+                      ],
+                      "propTypes": Object {
+                        "as": [Function],
+                        "children": [Function],
+                        "crop": [Function],
+                      },
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "p",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <a
+                    className="sc-bdVaJa sc-bwzfXH eQQZRc Action"
+                  >
+                    <div>
+                      bar
+                    </div>
+                  </a>
+                </StyledComponent>
+              </Styled(Text)>
+            </UnstyledLink>
+          </div>
+        </Section>
+      </div>
+    </ActionList>
+  </div>
+</ComboBoxMenu>
+`;
