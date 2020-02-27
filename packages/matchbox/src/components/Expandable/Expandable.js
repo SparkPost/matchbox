@@ -1,9 +1,76 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowRight } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
-import styles from './Expandable.module.scss';
+import { expandable, header, title, subtitle, arrow, contentWrapper } from './styles';
+
+import Accent from './Accent';
+import { Box } from '../Box';
+
+const StyledExpandable = styled('div')`
+  ${expandable}
+  ${margin}
+`;
+
+export const StyledHeader = styled(Box)`
+  ${header}
+`;
+
+export const StyledArrow = styled('div')`
+  ${arrow}
+`;
+
+export const StyledTitle = styled('h3')`
+  ${title}
+`;
+
+const StyledSubtitle = styled('h6')`
+  ${subtitle}
+`;
+
+const StyledContentWrapper = styled('div')`
+  ${contentWrapper}
+`;
+
+function Icon({ icon }) {
+  return icon ? (
+    <Box flex="0" minWidth="40px" maxWidth="40px" mr="500">
+      {icon}
+    </Box>
+  ) : null;
+}
+
+function Title({ title }) {
+  return <StyledTitle>{title}</StyledTitle>;
+}
+
+function Subtitle({ subtitle }) {
+  return <StyledSubtitle>{subtitle}</StyledSubtitle>;
+}
+
+function ContentWrapper({ isOpen, id, children }) {
+  return (
+    <StyledContentWrapper
+      aria-hidden={!isOpen}
+      isOpen={isOpen}
+      id={id}
+      data-id="expandable-content"
+    >
+      {children}
+    </StyledContentWrapper>
+  );
+}
+
+function Arrow({ isOpen }) {
+  return (
+    <StyledArrow isOpen={isOpen}>
+      <KeyboardArrowRight size={26} />
+    </StyledArrow>
+  );
+}
 
 function Expandable(props) {
   const {
@@ -14,7 +81,9 @@ function Expandable(props) {
     open,
     onToggle,
     subtitle,
-    title
+    title,
+    accent,
+    ...rest
   } = props;
 
   const header = React.useRef();
@@ -48,56 +117,55 @@ function Expandable(props) {
     })(e);
   }
 
-  const iconMarkup = icon
-    ? <div className={styles.Icon}>{icon}</div>
-    : null;
+  const accentColor = accent === true ? 'blue' : accent;
 
-  const contentSpacer = icon
-    ? <div className={styles.ContentSpacer} />
-    : null;
+  const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
-  const contentClasses = classnames(styles.ContentWrapper, isOpen && styles.Open);
-  const arrowClasses = classnames(styles.Arrow, isOpen && styles.Open);
+  const contentSpacer = icon ? <Box flex="0" minWidth="40px" maxWidth="40px" mr="500" /> : null;
 
   return (
-    <div className={styles.Expandable}>
-      <div
-        aria-controls={id}
-        aria-expanded={isOpen}
-        className={styles.Header}
-        onClick={handleClick}
-        onKeyDown={handleKeyDown}
-        ref={header}
-        role='button'
-        tabIndex='1'
-        data-id="expandable-toggle"
-      >
-        {iconMarkup}
-        <div className={styles.HeaderContent}>
-          <h3 className={styles.Title}>{title}</h3>
-          <h6 className={styles.Subtitle}>{subtitle}</h6>
-        </div>
-        <div className={styles.HeaderArrow}>
-          <KeyboardArrowRight size={36} className={arrowClasses} />
-        </div>
-      </div>
-      <div
-        aria-hidden={!isOpen}
-        className={contentClasses}
-        id={id}
-        data-id="expandable-content"
-      >
-        {contentSpacer}
-        <div className={styles.Content}>
-          {children}
-        </div>
-      </div>
-    </div>
+    <Box {...rest}>
+      {accentMarkup}
+      <StyledExpandable accent={accent}>
+        <StyledHeader
+          display="flex"
+          alignItems="center"
+          aria-controls={id}
+          aria-expanded={isOpen}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+          ref={header}
+          role="button"
+          tabIndex="1"
+          data-id="expandable-toggle"
+        >
+          <Icon icon={icon} />
+          <Box flex="1">
+            <Title title={title} />
+            <Subtitle subtitle={subtitle} />
+          </Box>
+          <Box flex="0">
+            <Arrow isOpen={isOpen} />
+          </Box>
+        </StyledHeader>
+        <ContentWrapper isOpen={isOpen} id={id}>
+          {contentSpacer}
+          <Box flex="1">{children}</Box>
+        </ContentWrapper>
+      </StyledExpandable>
+    </Box>
   );
 }
 
+Expandable.Accent = Accent;
+Expandable.Icon = Icon;
+Expandable.Title = Title;
+Expandable.Subtitle = Subtitle;
+Expandable.ContentWrapper = ContentWrapper;
+Expandable.Arrow = Arrow;
+
 Expandable.defaultProps = {
-  defaultOpen: false
+  defaultOpen: false,
 };
 
 Expandable.propTypes = {
@@ -128,7 +196,18 @@ Expandable.propTypes = {
   /**
    * Main header title content
    */
-  title: Proptypes.node.isRequired
+  title: Proptypes.node.isRequired,
+  /**
+   * Optional accent color or boolean to default to blue
+   */
+  accent: Proptypes.oneOfType([
+    Proptypes.bool,
+    Proptypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
+  ]),
+  /**
+   * Margin props
+   */
+  ...createPropTypes(margin.propNames),
 };
 
 export default Expandable;
