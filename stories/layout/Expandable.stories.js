@@ -73,16 +73,24 @@ export const ControlledOpenState = withInfo()(() => {
   );
 });
 
-export const WithAccent = withInfo()(() => (
+export const WithAnAccent = withInfo()(() => (
   <Panel sectioned>
-    <Expandable
-      accent="green"
-      defaultOpen={true}
-      icon={<Slack />}
-      title="Slack"
-      id="example"
-      subtitle="Integrate alerts into your team's Slack channels"
-    >
+    <Expandable mb={400} title="Orange" id="orange" accent="orange">
+      Content here
+    </Expandable>
+    <Expandable mb={400} title="Green" id="green" accent="green">
+      Content here
+    </Expandable>
+    <Expandable mb={400} title="Yellow" id="yellow" accent="yellow">
+      Content here
+    </Expandable>
+    <Expandable mb={400} title="Red" id="red" accent="red">
+      Content here
+    </Expandable>
+    <Expandable mb={400} title="Gray" id="gray" accent="gray">
+      Content here
+    </Expandable>
+    <Expandable mb={400} title="Blue" id="blue" accent="blue">
       Content here
     </Expandable>
   </Panel>
