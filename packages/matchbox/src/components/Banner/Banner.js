@@ -22,8 +22,8 @@ function IconSection({ status }) {
   return (
     <Box
       position="relative"
-      // IconSection do not render under the first breakpoint
-      display={['none', 'none', 'flex']}
+      display="flex"
+      flexShrink="0"
       alignItems="center"
       justifyContent="center"
       width="3rem"
@@ -62,10 +62,8 @@ function Banner(props) {
   const { children, title, status, action, actions, onDismiss, ...rest } = props;
 
   const titleMarkup = title ? (
-    // IconSection does not render under first breakpoint
-    // `pt` here is used to vertically align the title with the icon
-    <Box pt={['0', '0', '200']} mb="200">
-      <Text fontSize="500" lineHeight="500" as="h5">
+    <Box pt={['300', null, '200']} mb="200">
+      <Text fontSize={['400', null, '500']} lineHeight={['400', null, '500']} as="h5">
         {title}
       </Text>
     </Box>
@@ -82,7 +80,7 @@ function Banner(props) {
   }, [action, actions]);
 
   const dismissMarkup = onDismiss ? (
-    <Box flex="0">
+    <Box flex={['1', null, '0']} textAlign="right">
       <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800">
         <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
         <Close size={24} />
@@ -91,9 +89,16 @@ function Banner(props) {
   ) : null;
 
   return (
-    <StyledContainer display="flex" p="500" borderRadius="100" status={status} {...rest}>
+    <StyledContainer
+      display="flex"
+      flexWrap={['wrap', null, 'nowrap']}
+      p="500"
+      borderRadius="100"
+      status={status}
+      {...rest}
+    >
       <IconSection status={status} />
-      <Box flex="1">
+      <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box mb={actionMarkup ? '500' : '0'}>{children}</Box>
         {actionMarkup}
