@@ -11,7 +11,7 @@ describe('Expandable component', () => {
   });
 
   const testOpen = (wrapper, open) => {
-    expect(wrapper.find('div').at(2)).toHaveAttributeValue(
+    expect(wrapper.find(Expandable.Header)).toHaveAttributeValue(
       'aria-expanded',
       open ? 'true' : 'false',
     );
@@ -63,25 +63,16 @@ describe('Expandable component', () => {
 
     it('should toggle open when clicking on header', () => {
       const wrapper = subject();
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('click');
+      wrapper.find(Expandable.Header).simulate('click');
       testOpen(wrapper, true);
     });
 
     it('should toggle when hitting enter or space', () => {
       const wrapper = subject({ onToggle });
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('keyDown', { key: 'Enter', shiftKey: false });
+      wrapper.find(Expandable.Header).simulate('keyDown', { key: 'Enter', shiftKey: false });
       testOpen(wrapper, true);
 
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('keyDown', { key: ' ', shiftKey: false });
+      wrapper.find(Expandable.Header).simulate('keyDown', { key: ' ', shiftKey: false });
       testOpen(wrapper, false);
     });
   });
@@ -94,23 +85,14 @@ describe('Expandable component', () => {
 
     it('should handle toggle when clicking on header', () => {
       const wrapper = subject({ open: true, onToggle });
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('click');
+      wrapper.find(Expandable.Header).simulate('click');
       expect(onToggle).toHaveBeenCalled();
     });
 
     it('should handle toggle when hitting enter or space', () => {
       const wrapper = subject({ open: true, onToggle });
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('keyDown', { key: 'Enter', shiftKey: false });
-      wrapper
-        .find('div')
-        .at(2)
-        .simulate('keyDown', { key: ' ', shiftKey: false });
+      wrapper.find(Expandable.Header).simulate('keyDown', { key: 'Enter', shiftKey: false });
+      wrapper.find(Expandable.Header).simulate('keyDown', { key: ' ', shiftKey: false });
       expect(onToggle).toHaveBeenCalledTimes(2);
     });
   });

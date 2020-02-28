@@ -12,7 +12,7 @@ const Accent = ({ accentColor }) => {
   return <AccentOuter accentColor={accentColor} />;
 };
 
-Accent.displayName = 'Panel.Accent';
+Accent.displayName = 'Expandable.Accent';
 Accent.propTypes = {
   accentColor: PropTypes.oneOf([
     'orange',

@@ -16,12 +16,10 @@ export const expandable = props => {
 };
 
 export const header = () => `
-  padding: 12px;
-
   user-select: none;
   outline: none;
 
-  transition: background ${tokens.motionDuration_fast};
+  transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 
   &:hover {
     cursor: pointer;
@@ -70,13 +68,11 @@ export const contentWrapper = props => {
 };
 
 export const title = () => `
-  margin-bottom: 0;
   font-size: ${tokens.fontSize_400};
   font-weight: ${tokens.fontWeight_semibold};
 `;
 
 export const subtitle = () => `
-  margin-bottom: 0;
   font-weight: ${tokens.fontWeight_normal};
 `;
 

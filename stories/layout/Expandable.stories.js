@@ -49,7 +49,6 @@ export const WithImageTitleAndSubtitle = withInfo()(() => (
 export const ControlledOpenState = withInfo()(() => {
   function ControlledExample({ title }) {
     const [open, setOpen] = React.useState(false);
-    action('test');
     function onToggle() {
       setOpen(!open);
       action('Controlling open state:')(open);

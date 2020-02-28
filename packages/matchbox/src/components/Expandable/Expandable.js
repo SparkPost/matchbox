@@ -35,42 +35,7 @@ const StyledContentWrapper = styled('div')`
   ${contentWrapper}
 `;
 
-function Icon({ icon }) {
-  return icon ? (
-    <Box flex="0" minWidth="40px" maxWidth="40px" mr="500">
-      {icon}
-    </Box>
-  ) : null;
-}
-
-function Title({ title }) {
-  return <StyledTitle>{title}</StyledTitle>;
-}
-
-function Subtitle({ subtitle }) {
-  return <StyledSubtitle>{subtitle}</StyledSubtitle>;
-}
-
-function ContentWrapper({ isOpen, id, children }) {
-  return (
-    <StyledContentWrapper
-      aria-hidden={!isOpen}
-      isOpen={isOpen}
-      id={id}
-      data-id="expandable-content"
-    >
-      {children}
-    </StyledContentWrapper>
-  );
-}
-
-function Arrow({ isOpen }) {
-  return (
-    <StyledArrow isOpen={isOpen}>
-      <KeyboardArrowRight size={26} />
-    </StyledArrow>
-  );
-}
+const StyledIcon = styled(Box)``;
 
 function Expandable(props) {
   const {
@@ -121,6 +86,14 @@ function Expandable(props) {
 
   const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
+  const iconMarkup = icon ? (
+    <StyledIcon flex="0" minWidth="40px" maxWidth="40px" mr="500">
+      {icon}
+    </StyledIcon>
+  ) : null;
+
+  const subtitleMarkup = subtitle ? <StyledSubtitle>{subtitle}</StyledSubtitle> : null;
+
   const contentSpacer = icon ? <Box flex="0" minWidth="40px" maxWidth="40px" mr="500" /> : null;
 
   return (
@@ -128,6 +101,7 @@ function Expandable(props) {
       {accentMarkup}
       <StyledExpandable accent={accent}>
         <StyledHeader
+          padding="300"
           display="flex"
           alignItems="center"
           aria-controls={id}
@@ -136,33 +110,41 @@ function Expandable(props) {
           onKeyDown={handleKeyDown}
           ref={header}
           role="button"
-          tabIndex="1"
+          tabIndex="0"
           data-id="expandable-toggle"
         >
-          <Icon icon={icon} />
+          {iconMarkup}
           <Box flex="1">
-            <Title title={title} />
-            <Subtitle subtitle={subtitle} />
+            <StyledTitle>{title}</StyledTitle>
+            {subtitleMarkup}
           </Box>
           <Box flex="0">
-            <Arrow isOpen={isOpen} />
+            <StyledArrow isOpen={isOpen}>
+              <KeyboardArrowRight size={26} />
+            </StyledArrow>
           </Box>
         </StyledHeader>
-        <ContentWrapper isOpen={isOpen} id={id}>
+        <StyledContentWrapper
+          aria-hidden={!isOpen}
+          isOpen={isOpen}
+          id={id}
+          data-id="expandable-content"
+        >
           {contentSpacer}
           <Box flex="1">{children}</Box>
-        </ContentWrapper>
+        </StyledContentWrapper>
       </StyledExpandable>
     </Box>
   );
 }
 
 Expandable.Accent = Accent;
-Expandable.Icon = Icon;
-Expandable.Title = Title;
-Expandable.Subtitle = Subtitle;
-Expandable.ContentWrapper = ContentWrapper;
-Expandable.Arrow = Arrow;
+Expandable.Icon = StyledIcon;
+Expandable.Title = StyledTitle;
+Expandable.Subtitle = StyledSubtitle;
+Expandable.ContentWrapper = StyledContentWrapper;
+Expandable.Arrow = StyledArrow;
+Expandable.Header = StyledHeader;
 
 Expandable.defaultProps = {
   defaultOpen: false,
