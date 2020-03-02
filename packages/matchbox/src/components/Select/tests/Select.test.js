@@ -47,9 +47,47 @@ describe('Select', () => {
     expect(wrapper.find('label').text()).toEqual('test-labeltest-error');
   });
 
-  it('should render options', () => {
+  it('should render string options', () => {
     const wrapper = subject({ options: ['1', '2'] });
     expect(wrapper.find('option')).toHaveLength(2);
+    expect(
+      wrapper
+        .find('option')
+        .first()
+        .text(),
+    ).toEqual('1');
+  });
+
+  it('should render object options', () => {
+    const wrapper = subject({
+      options: [
+        { value: '1', label: 'one' },
+        { value: '2', label: 'two' },
+      ],
+    });
+    expect(wrapper.find('option')).toHaveLength(2);
+    expect(
+      wrapper
+        .find('option')
+        .first()
+        .text(),
+    ).toEqual('one');
+  });
+
+  it('should render placeholder option', () => {
+    const wrapper = subject({ placeholder: 'placeholder', placeholderValue: '1' });
+    expect(wrapper.find('option')).toHaveLength(2);
+    expect(
+      wrapper
+        .find('option')
+        .first()
+        .text(),
+    ).toEqual('placeholder');
+  });
+
+  it('should render no options', () => {
+    const wrapper = subject({ options: [] });
+    expect(wrapper.find('option')).toHaveLength(0);
   });
 
   it('should invoke events', () => {
