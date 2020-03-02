@@ -9,7 +9,7 @@ function Error(props) {
     <Box as={WrapperComponent} className={className}>
       <Box as="span" display="inline-flex" color="red.700">
         <Box as="span" flex="0" mr="100" display="flex" alignItems="center">
-          <ErrorIcon size={14} />
+          <ErrorIcon size={14} label="Error" />
         </Box>
         <Box as="span" flex="1" fontSize="200" lineHeight="200">
           {error}
