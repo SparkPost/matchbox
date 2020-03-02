@@ -2,8 +2,6 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const select = props => `
   appearance: none;
-
-  
   &:hover {
     cursor: ${props.disabled ? 'not-allowed;' : 'pointer;'}
   }
@@ -16,5 +14,5 @@ export const chevron = props => `
   fill: ${tokens.color_blue_700};
   user-select: none;
   pointer-events: none;
-  ${props.disabled ? 'display: none' : null}
+  ${props.disabled ? 'display: none' : ''}
 `;

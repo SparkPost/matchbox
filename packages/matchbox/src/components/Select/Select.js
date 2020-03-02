@@ -46,6 +46,7 @@ const SelectBox = props => {
   return (
     <Box
       as="select"
+      disabled={props.disabled}
       width="100%"
       border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
       borderRadius="100"
