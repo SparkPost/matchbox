@@ -66,3 +66,10 @@ export const Disabled = withInfo()(() => (
 export const LabelHidden = withInfo()(() => (
   <Select id="id" labelHidden label="Select an option" disabled options={options} />
 ));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Select id="id" label="Select an option" options={options} my={['200', '400', '600', '800']} />
+    <Select id="id" label="Select an option" options={options} mx={['200', '400', '600', '800']} />
+  </>
+));

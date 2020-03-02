@@ -8,6 +8,9 @@ import styled from 'styled-components';
 import { select, chevron } from './styles';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { pick, omit } from '@styled-system/props';
 
 const Option = ({ option }) => {
   if (typeof option === 'object') {
@@ -69,6 +72,10 @@ const StyledChevron = styled(KeyboardArrowDown)`
   ${chevron}
 `;
 
+const StyledWrapper = styled(Box)`
+  {margin}
+`;
+
 function Select(props) {
   const {
     id,
@@ -84,6 +91,8 @@ function Select(props) {
     labelHidden,
     ...rest
   } = props;
+  const systemProps = pick(rest);
+  const componentProps = omit(rest);
 
   const requiredIndicator = required ? ' *' : '';
 
@@ -96,10 +105,10 @@ function Select(props) {
   const helpMarkup = helpText ? <HelpText>{helpText}</HelpText> : null;
 
   return (
-    <Box>
+    <StyledWrapper {...systemProps}>
       {label && labelMarkup}
       <Box position="relative">
-        <StyledSelect id={id} disabled={disabled} {...rest} hasError={!!error}>
+        <StyledSelect id={id} disabled={disabled} {...componentProps} hasError={!!error}>
           <Options
             options={options}
             placeholder={placeholder}
@@ -110,7 +119,7 @@ function Select(props) {
       </Box>
       {error && !errorInLabel && <Error error={error} />}
       {helpMarkup}
-    </Box>
+    </StyledWrapper>
   );
 }
 
@@ -141,6 +150,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  ...createPropTypes(margin.propNames),
 };
 
 export default Select;
