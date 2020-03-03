@@ -84,12 +84,16 @@ export const tagColor = props => {
       border = tokens.color_teal_500;
       color = tokens.color_teal_800;
       break;
-    case 'gray':
-    default:
+    case 'darkGray':
       bg = tokens.color_gray_300;
       border = tokens.color_gray_500;
       color = tokens.color_gray_900;
       break;
+    case 'lightGray':
+    default:
+      bg = tokens.color_gray_100;
+      border = tokens.color_gray_400;
+      color = tokens.color_gray_900;
   }
 
   return `
@@ -134,9 +138,13 @@ export const closeColor = props => {
       bg = tokens.color_teal_500;
       color = tokens.color_teal_800;
       break;
-    case 'gray':
-    default:
+    case 'darkGray':
       bg = tokens.color_gray_500;
+      color = tokens.color_gray_900;
+      break;
+    case 'lightGray':
+    default:
+      bg = tokens.color_gray_300;
       color = tokens.color_gray_900;
       break;
   }
