@@ -35,7 +35,7 @@ export const Placeholder = withInfo()(() => (
 ));
 
 export const WithError = withInfo()(() => (
-  <Select id="id" label="Select an option" options={options} error="Your forgot to select" />
+  <Select id="id" label="Select an option" options={options} error="You forgot to select" />
 ));
 
 export const WithHelpTextAndError = withInfo()(() => (

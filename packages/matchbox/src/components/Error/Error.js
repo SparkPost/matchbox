@@ -7,13 +7,11 @@ function Error(props) {
 
   return (
     <Box as={WrapperComponent} className={className}>
-      <Box as="span" display="inline-flex" color="red.700">
-        <Box as="span" flex="0" mr="100" display="flex" alignItems="center">
+      <Box as="span" color="red.700" fontSize="200" lineHeight="200">
+        <Box as="span" display="inline-block" mr="100">
           <ErrorIcon size={14} label="Error" />
         </Box>
-        <Box as="span" flex="1" fontSize="200" lineHeight="200">
-          {error}
-        </Box>
+        <span>{error}</span>
       </Box>
     </Box>
   );

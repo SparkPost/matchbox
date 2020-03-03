@@ -18,19 +18,18 @@ function Label(props) {
 
   return (
     <Box
-      display="flex"
+      display="block"
       as="label"
       id={id && `${id}Label`}
       htmlFor={id}
       fontWeight="500"
       className={className}
+      mb="100"
     >
-      <Box as="span" pr="200" lineHeight="300">
+      <Box as="span" pr="200" lineHeight="200" fontSize="200">
         {label}
       </Box>
-      <Box as="span" pr="200" fontWeight="400" mb="-2px">
-        {children}
-      </Box>
+      <span>{children}</span>
     </Box>
   );
 }

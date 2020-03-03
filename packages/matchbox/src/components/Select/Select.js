@@ -98,7 +98,7 @@ function Select(props) {
 
   const labelMarkup = (
     <Label id={id} label={`${label}${requiredIndicator}`} labelHidden={labelHidden}>
-      {error && errorInLabel && <Error wrapper="span" error={error} />}
+      {error && errorInLabel && <Box as={Error} wrapper="span" error={error} fontWeight="400" />}
     </Label>
   );
 

@@ -6,14 +6,14 @@ import 'jest-styled-components';
 describe('Label', () => {
   it('renders correctly', () => {
     const wrapper = global.mountStyled(
-      <Label id="label1" label="Label text" className="form-field">
+      <Label id="label1" label="Label text" className="test-class">
         <span>Select one!</span>
       </Label>,
     );
     expect(wrapper).toHaveAttributeValue('id', 'label1Label');
     expect(wrapper).toHaveAttributeValue('for', 'label1');
     expect(wrapper.text()).toEqual('Label textSelect one!');
-    expect(wrapper.find('label').prop('className')).toContain('form-field');
+    expect(wrapper.find('label').prop('className')).toContain('test-class');
   });
 
   it('renders hidden correctly', () => {
