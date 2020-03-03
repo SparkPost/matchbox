@@ -2,10 +2,9 @@ import React from 'react';
 import { ArrowForward } from '@sparkpost/matchbox-icons';
 import { Button } from '../Button';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import styles from './Pager.module.scss';
 
-const Next = (props) => (
-  <Button {...props} className={styles.Next}>
+const Next = props => (
+  <Button {...props} ml={200}>
     <ArrowForward size={16} />
 
     <ScreenReaderOnly>Next</ScreenReaderOnly>

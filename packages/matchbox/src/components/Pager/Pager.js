@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Next from './Next';
 import Previous from './Previous';
-import styles from './Pager.module.scss';
+import { margin } from 'styled-system';
+import styled from 'styled-components';
 
-class Pager extends Component {
-  static displayName = 'Pager';
+import { Box } from '../Box';
 
-  static Next = Next
-  static Previous = Previous
+const StyledPager = styled(Box)`
+  ${margin}
+`;
 
-  render() {
-    return (
-      <div className={styles.Pager}>
-        {this.props.children}
-      </div>
-    );
-  }
+function Pager(props) {
+  const { children } = props;
+
+  return (
+    <StyledPager display="inline-block" mb={400}>
+      {children}
+    </StyledPager>
+  );
 }
+
+Pager.Next = Next;
+Pager.Previous = Previous;
+Pager.displayName = 'Pager';
 
 export default Pager;
