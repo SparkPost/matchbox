@@ -27,3 +27,4 @@
 - #334 - Banner component dismiss button is now screen reader accessible
 - #334 - Banner with a status of 'default' now defaults to 'info'
 - #334 - Links within the Banner component overwrite color and hover color to be accessible
+- #342 - Restyles the Table component and adds configurable padding
