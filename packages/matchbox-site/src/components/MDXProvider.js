@@ -18,7 +18,8 @@ const components = {
   h2: props => <Heading as="h2" {...props} />,
   h3: props => <Heading as="h3" {...props} />,
   h4: props => <Heading as="h4" {...props} />,
-  h5: props => <Heading as="h5" {...props} />
+  h5: props => <Heading as="h5" {...props} />,
+  Link
 };
 
 export default ({ children }) => (

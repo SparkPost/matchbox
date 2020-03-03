@@ -65,82 +65,8 @@
         "disabled": false
       },
       {
-        "path": "/components/actionlist",
-        "label": "ActionList",
-        "disabled": false,
-        "section": "Action"
-      },
-      {
-        "path": "/components/button",
-        "label": "Button",
-        "disabled": false,
-        "section": "Action"
-      },
-      {
-        "path": "/components/toggle",
-        "label": "Toggle",
-        "disabled": false,
-        "section": "Action"
-      },
-      {
-        "path": "/components/banner",
-        "label": "Banner",
-        "disabled": false,
-        "section": "Feedback"
-      },
-      {
-        "path": "/components/snackbar",
-        "label": "Snackbar",
-        "disabled": false,
-        "section": "Feedback"
-      },
-      {
-        "path": "/components/tag",
-        "label": "Tag",
-        "disabled": false,
-        "section": "Feedback"
-      },
-      {
-        "path": "/components/combobox",
-        "label": "ComboBox",
-        "disabled": false,
-        "section": "Form"
-      },
-      {
-        "path": "/components/select",
-        "label": "Select",
-        "disabled": false,
-        "section": "Form"
-      },
-      {
-        "path": "/components/slider",
-        "label": "Slider",
-        "disabled": false,
-        "section": "Form"
-      },
-      {
-        "path": "/components/textfield",
-        "label": "TextField",
-        "disabled": false,
-        "section": "Form"
-      },
-      {
-        "path": "/components/emptystate",
-        "label": "EmptyState",
-        "disabled": false,
-        "section": "Layout"
-      },
-      {
-        "path": "/components/expandable",
-        "label": "Expandable",
-        "disabled": false,
-        "section": "Layout"
-      },
-      {
-        "path": "/components/page",
-        "label": "Page",
-        "disabled": false,
-        "section": "Layout"
+        "path": "/components/system-props",
+        "label": "System Props"
       },
       {
         "path": "/components/panel",
