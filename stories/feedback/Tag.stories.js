@@ -52,7 +52,7 @@ export const Colors = withInfo()(() => (
     <Tag onRemove={action('Tag Remove')} color="teal">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="gray">
+    <Tag onRemove={action('Tag Remove')} color="darkGray">
       domain.com
     </Tag>
     <Tag>domain.com</Tag>
