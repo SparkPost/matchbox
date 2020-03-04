@@ -242,7 +242,6 @@ function Large() {
         position="relative"
         bg="gray.200"
         height="30rem"
-        position="relative"
         px="800"
         py="700"
       >
