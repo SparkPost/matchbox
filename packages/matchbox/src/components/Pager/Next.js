@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 
 const Next = props => (
-  <Button {...props} ml={200}>
+  <Button {...props} ml={props.ml || props.marginRight || 200}>
     <ArrowForward size={16} />
 
     <ScreenReaderOnly>Next</ScreenReaderOnly>
