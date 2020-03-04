@@ -1,4 +1,3 @@
-/* eslint max-lines: ["error", 303] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -9,6 +8,8 @@ import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import { slider, rail, track, tick, tickLabel, handle, handleShadow } from './styles';
+
+import { Box } from '../Box';
 
 const system = compose(margin);
 
@@ -54,6 +55,7 @@ function Slider(props) {
     precision,
     ticks,
     value,
+    ...rest
   } = props;
 
   const windowSize = useWindowSize(50);
@@ -214,35 +216,38 @@ function Slider(props) {
   });
 
   return (
-    <StyledSlider
-      disabled={disabled}
-      data-id="slider-wrapper"
-      onTouchStart={disabled ? noop : handleTouchStart}
-      onMouseDown={disabled ? noop : handleMouseDown}
-      ref={sliderRef}
-    >
-      <StyledRail />
-      {tickMarkup}
-      <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
-      <StyledHandle
-        id={id}
-        aria-controls={props['aria-controls']}
-        aria-valuemin={min}
-        aria-valuemax={max}
-        aria-valuenow={sliderValue}
-        aria-disabled={disabled}
-        data-id={props['data-id']}
-        onBlur={onBlur}
-        onFocus={onFocus}
-        onKeyDown={disabled ? noop : handleKeyDown}
-        role="slider"
+    <Box pb={400}>
+      <StyledSlider
         disabled={disabled}
-        style={{ left: sliderLocation }}
-        tabIndex="0"
+        data-id="slider-wrapper"
+        onTouchStart={disabled ? noop : handleTouchStart}
+        onMouseDown={disabled ? noop : handleMouseDown}
+        ref={sliderRef}
+        {...rest}
       >
-        <StyledHandleShadow disabled={disabled} />
-      </StyledHandle>
-    </StyledSlider>
+        <StyledRail disabled={disabled} />
+        {tickMarkup}
+        <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
+        <StyledHandle
+          id={id}
+          aria-controls={props['aria-controls']}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={sliderValue}
+          aria-disabled={disabled}
+          data-id={props['data-id']}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          onKeyDown={disabled ? noop : handleKeyDown}
+          role="slider"
+          disabled={disabled}
+          style={{ left: sliderLocation }}
+          tabIndex="0"
+        >
+          <StyledHandleShadow disabled={disabled} />
+        </StyledHandle>
+      </StyledSlider>
+    </Box>
   );
 }
 

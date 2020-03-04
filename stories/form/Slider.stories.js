@@ -27,6 +27,7 @@ export const DisabledSlider = withInfo()(() => (
 export const SliderWithTicks = withInfo()(() => (
   <div>
     <Slider
+      mb={400}
       value={75}
       ticks={{
         0: '0',
@@ -62,3 +63,30 @@ export const ValueControlledSlider = withInfo()(() => {
     </Fragment>
   );
 });
+
+export const SliderWithSystemProps = withInfo()(() => (
+  <div>
+    <Slider
+      mb={400}
+      mr={800}
+      ml={800}
+      value={75}
+      ticks={{
+        0: '0',
+        50: '50',
+        25: 'Recommended',
+        100: '100',
+      }}
+    />
+    <Slider
+      mt={400}
+      value={75}
+      ticks={{
+        0: '0',
+        50: '50',
+        25: 'Recommended',
+        100: '100',
+      }}
+    />
+  </div>
+));

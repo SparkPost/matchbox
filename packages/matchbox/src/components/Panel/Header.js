@@ -1,22 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buttonsFrom } from '../Button';
-import styles from './Panel.module.scss';
+import styled from 'styled-components';
+import { actions, header, headerText } from './styles';
+import { padding } from 'styled-system';
+import { PanelPaddingContext } from './Panel';
+import { createPropTypes } from '@styled-system/prop-types';
+
+const HeaderOuter = styled('div')`
+  ${header}
+  ${padding}
+`;
+
+export const HeaderText = styled('div')`
+  ${headerText}
+`;
+
+const Actions = styled('div')`
+  ${actions}
+`;
 
 const actionOverrides = { flat: true, size: 'small' };
 
-const Header = ({ title, actions }) => {
-  const actionMarkup = actions && actions.length
-    ? <div className={styles.Actions}>{buttonsFrom(actions, actionOverrides)}</div>
-    : null;
+const Header = ({ title, actions, p, ...rest }) => {
+  const paddingContext = React.useContext(PanelPaddingContext);
+
+  const actionMarkup =
+    actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
 
   return (
-    <div className={styles.Header}>
-      <div className={styles.HeaderText}>
-        {title}
-      </div>
+    <HeaderOuter {...paddingContext} {...rest} pb="0">
+      <HeaderText>{title}</HeaderText>
       {actionMarkup}
-    </div>
+    </HeaderOuter>
   );
+};
+
+Header.displayName = 'Panel.Header';
+Header.propTypes = {
+  title: PropTypes.node,
+  ...createPropTypes(padding.propNames),
 };
 
 export default Header;

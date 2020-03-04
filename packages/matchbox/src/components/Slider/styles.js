@@ -9,25 +9,27 @@ export const slider = props => {
   }
 
   return `
-    padding: ${tokens.spacing_600} 0;
+    padding: ${tokens.spacing_400} 0;
     position: relative;
     cursor: ${cursor};
   `;
 };
 
-export const rail = () => `
-  position: absolute;
-  left: ${tokens.spacing_0};
-  right: ${tokens.spacing_0};
+export const rail = props => {
+  return `
+    position: absolute;
+    left: ${tokens.spacing_0};
+    right: ${tokens.spacing_0};
 
-  height: ${tokens.spacing_100};
-  background: ${tokens.color_gray_300};
-  border-radius: ${tokens.borderRadius_200};
-  transition: ${tokens.motionDuration_medium} background;
-  ${StyledSlider}:hover & {
-    background: ${tokens.color_gray_400};
-  }
-`;
+    height: ${tokens.spacing_100};
+    background: ${tokens.color_gray_300};
+    border-radius: ${tokens.borderRadius_200};
+    transition: ${tokens.motionDuration_medium} background;
+    ${StyledSlider}:hover & {
+      background: ${props.disabled ? tokens.color_gray_300 : tokens.color_gray_400};
+    }
+  `;
+};
 
 export const track = props => {
   let background = tokens.color_blue_700;
@@ -67,6 +69,9 @@ export const tick = props => {
     transition: ${tokens.motionDuration_medium} background;
 
     user-select: none;
+    ${StyledSlider}:hover & {
+      ${!props.disabled && !props.included ? `background: ${tokens.color_gray_400};` : ''};
+    }
   `;
 };
 
@@ -76,7 +81,7 @@ export const tickLabel = () => `
   left: 50%;
   transform: translate(-50%, 0);
 
-  color: ${tokens.color_gray_300};
+  color: ${tokens.color_gray_700};
   font-size: ${tokens.fontSize_100};
 `;
 

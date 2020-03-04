@@ -21,4 +21,11 @@
 - #324 - Restyles the Tag component
 - #324 - Tag component close button is now a button, and handles both space and enter events
 - #328 - Snackbar dismiss button is now a button, and handles both space and enter events
+- #329 - Restyle the Panel Component
+- #334 - Restyles the Banner component
+- #334 - Banner component dismiss button is now a button, and handles both space and enter events
+- #334 - Banner component dismiss button is now screen reader accessible
+- #334 - Banner with a status of 'default' now defaults to 'info'
+- #334 - Links within the Banner component overwrite color and hover color to be accessible
 - #337 - Restyles the Slider component
+- #341 - Adds a lightGray and darkGray variant to Tag component
