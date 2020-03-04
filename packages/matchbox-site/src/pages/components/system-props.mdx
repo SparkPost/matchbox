@@ -32,16 +32,13 @@ Theme Reference:
     <Link to="/components/system-props#space">Space</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#sizes">Sizes</Link>
-  </Box>
-  <Box as="li">
     <Link to="/components/system-props#radii">Radii</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#borders">Borders</Link>
+    <Link to="/components/system-props#border">Borders</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#borderwidths">Border Widths</Link>
+    <Link to="/components/system-props#border-widths">Border Widths</Link>
   </Box>
   <Box as="li">
     <Link to="/components/system-props#shadows">Shadows</Link>
@@ -50,13 +47,13 @@ Theme Reference:
     <Link to="/components/system-props#fonts">Fonts</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#fontsizes">Font Sizes</Link>
+    <Link to="/components/system-props#font-sizes">Font Sizes</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#lineheights">Line Heights</Link>
+    <Link to="/components/system-props#line-heights">Line Heights</Link>
   </Box>
   <Box as="li">
-    <Link to="/components/system-props#fontweights">Font Weights</Link>
+    <Link to="/components/system-props#font-weights">Font Weights</Link>
   </Box>
   <Box as="li">
     <Link to="/components/system-props#breakpoints">Breakpoints</Link>
@@ -65,4 +62,102 @@ Theme Reference:
 
 <Box my="800"></Box>
 
-<Table />
+##### Colors
+
+```
+// Example
+<Box bg="blue.100" color="gray.1000" />
+```
+
+<Table theme="colors" />
+
+##### Space
+
+```
+// Example
+<Box my="400" p={["200", null, "400"]} />
+```
+
+<Table theme="space" />
+
+##### Borders
+
+```
+// Example
+<Box borderBottom="400" />
+```
+
+<Table theme="borders" />
+
+##### Radii
+
+```
+// Example
+<Box borderRadius="pill" />
+```
+
+<Table theme="radii" />
+
+##### Border Widths
+
+```
+// Example
+<Box borderWidth="100" />
+```
+
+<Table theme="borderWidths" />
+
+##### Shadows
+
+```
+// Example
+<Box boxShadow="400" />
+```
+
+<Table theme="shadows" />
+
+##### Fonts
+
+```
+// Example
+<Text fontFamily="monospace" />
+```
+
+<Table theme="fonts" />
+
+##### Font Weights
+
+```
+// Example
+<Text fontWeight="medium" />
+```
+
+<Table theme="fontWeights" />
+
+##### Font Sizes
+
+```
+// Example
+<Text fontSize="600" />
+```
+
+<Table theme="fontSizes" />
+
+##### Line Heights
+
+```
+// Example
+<Text lineHeight="600" />
+```
+
+<Table theme="lineHeights" />
+
+##### Breakpoints
+
+```
+// Example
+// Applies 100% up to the first breakpoint, 50% to the second, 33% to the third
+<Box width={["100%", 1/2, 1/3]} />
+```
+
+<Table theme="breakpoints" />
