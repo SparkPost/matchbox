@@ -49,6 +49,9 @@ function IconSection({ status }) {
 const StyledContainer = styled(Box)`
   ${container}
   ${margin}
+`;
+
+const StyledChildren = styled('div')`
   ${childLinks}
 `;
 
@@ -100,7 +103,9 @@ function Banner(props) {
       <IconSection status={status} />
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
-        <Box mb={actionMarkup ? '500' : '0'}>{children}</Box>
+        <Box mb={actionMarkup ? '500' : '0'}>
+          <StyledChildren>{children}</StyledChildren>
+        </Box>
         {actionMarkup}
       </Box>
       {dismissMarkup}
