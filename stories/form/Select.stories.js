@@ -63,9 +63,10 @@ export const Disabled = withInfo()(() => (
   <Select id="id" label="Select an option" disabled options={options} />
 ));
 
-export const LabelHidden = withInfo()(() => (
-  <Select id="id" labelHidden label="Select an option" disabled options={options} />
-));
+// TODO Add this back in after hibana cutover
+// export const LabelHidden = withInfo()(() => (
+//   <Select id="id" labelHidden label="Select an option" disabled options={options} />
+// ));
 
 export const SystemProps = withInfo()(() => (
   <>

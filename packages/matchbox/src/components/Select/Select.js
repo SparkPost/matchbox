@@ -88,7 +88,7 @@ function Select(props) {
     required,
     error,
     errorInLabel,
-    labelHidden,
+    // labelHidden, TODO add this back in later after hibana cutover
     ...rest
   } = props;
   const systemProps = pick(rest);
@@ -114,7 +114,11 @@ function Select(props) {
   ) : null;
 
   const labelMarkup = (
-    <Label id={id} label={label} labelHidden={labelHidden}>
+    <Label
+      id={id}
+      label={label}
+      // labelHidden={labelHidden} TODO Add this back in after hibana cutover
+    >
       {requiredIndicator}
       {error && errorInLabel && (
         <Box
@@ -178,7 +182,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   label: PropTypes.string,
-  labelHidden: PropTypes.bool,
+  // labelHidden: PropTypes.bool, TODO Add this back in after hibana cutover
   helpText: PropTypes.node,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
