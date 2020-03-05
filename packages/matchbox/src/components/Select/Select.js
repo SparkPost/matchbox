@@ -94,21 +94,56 @@ function Select(props) {
   const systemProps = pick(rest);
   const componentProps = omit(rest);
 
-  const requiredIndicator = required ? ' *' : '';
+  // Generates an aria-describedby attribute for
+  // HelpText and Error if props.id is present
+  const describedBy = React.useMemo(() => {
+    let ids = '';
+    if (id && error) {
+      ids = `${id}-error`;
+    }
+    if (id && helpText) {
+      ids = `${id}-helptext ${ids}`;
+    }
+    return ids.length ? { 'aria-describedby': ids.trim() } : {};
+  }, [error, helpText, id]);
+
+  const requiredIndicator = required ? (
+    <Box as="span" pr="200" aria-hidden="true">
+      *
+    </Box>
+  ) : null;
 
   const labelMarkup = (
-    <Label id={id} label={`${label}${requiredIndicator}`} labelHidden={labelHidden}>
-      {error && errorInLabel && <Box as={Error} wrapper="span" error={error} fontWeight="400" />}
+    <Label id={id} label={label} labelHidden={labelHidden}>
+      {requiredIndicator}
+      {error && errorInLabel && (
+        <Box
+          as={Error}
+          id={id ? `${id}-error` : null}
+          wrapper="span"
+          error={error}
+          fontWeight="400"
+        />
+      )}
     </Label>
   );
 
-  const helpMarkup = helpText ? <HelpText>{helpText}</HelpText> : null;
+  const helpMarkup = helpText ? (
+    <HelpText id={id ? `${id}-helptext` : null}>{helpText}</HelpText>
+  ) : null;
 
   return (
     <StyledWrapper {...systemProps}>
       {label && labelMarkup}
       <Box position="relative">
-        <StyledSelect id={id} disabled={disabled} {...componentProps} hasError={!!error}>
+        <StyledSelect
+          id={id}
+          disabled={disabled}
+          required={required}
+          hasError={!!error}
+          {...componentProps}
+          {...describedBy}
+        >
           <Options
             options={options}
             placeholder={placeholder}
@@ -117,7 +152,7 @@ function Select(props) {
         </StyledSelect>
         <StyledChevron size={24} disabled={disabled} />
       </Box>
-      {error && !errorInLabel && <Error error={error} />}
+      {error && !errorInLabel && <Error id={id ? `${id}-error` : null} error={error} />}
       {helpMarkup}
     </StyledWrapper>
   );

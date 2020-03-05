@@ -29,6 +29,7 @@ function Label(props) {
       <Box as="span" pr="200" lineHeight="200" fontSize="200">
         {label}
       </Box>
+      {/* Certain form components append <Error /> or requred indicators here */}
       <span>{children}</span>
     </Box>
   );
