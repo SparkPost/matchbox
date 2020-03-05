@@ -30,4 +30,5 @@
 - #339 - Restyle the Expandable Component
 - #341 - Adds a lightGray and darkGray variant to Tag component
 - #340 - Restyles Select component
-- #340 - Select component labelHidden prop now properly hides a screen reader accessible form label
+- #340 - Label component with labelHidden prop now properly hides a screen reader accessible label
+- #340 - Select now properly uses aria-describedby to link to its helptext and error
