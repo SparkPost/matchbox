@@ -5,7 +5,7 @@ import 'jest-styled-components';
 
 describe('Pager', () => {
   const wrapper = global.mountStyled(
-    <Pager>
+    <Pager mb="400">
       <Pager.Previous />
       <Pager.Next />
     </Pager>,
