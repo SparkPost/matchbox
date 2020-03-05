@@ -18,6 +18,11 @@ export const expandable = props => {
 export const header = () => `
   user-select: none;
   outline: none;
+  padding: ${tokens.spacing_300};
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 100%;
 
   transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 

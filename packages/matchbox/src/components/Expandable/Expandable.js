@@ -5,6 +5,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowRight } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
+import { buttonReset } from '../../styles/helpers';
 import { expandable, header, title, subtitle, arrow, contentWrapper } from './styles';
 
 import Accent from './Accent';
@@ -15,7 +16,8 @@ const StyledExpandable = styled('div')`
   ${margin}
 `;
 
-export const StyledHeader = styled(Box)`
+export const StyledHeader = styled('button')`
+  ${buttonReset}
   ${header}
 `;
 
@@ -101,9 +103,6 @@ function Expandable(props) {
       {accentMarkup}
       <StyledExpandable accent={accent}>
         <StyledHeader
-          padding="300"
-          display="flex"
-          alignItems="center"
           aria-controls={id}
           aria-expanded={isOpen}
           onClick={handleClick}
@@ -114,11 +113,11 @@ function Expandable(props) {
           data-id="expandable-toggle"
         >
           {iconMarkup}
-          <Box flex="1">
+          <Box display="inline-block" flex="1">
             <StyledTitle>{title}</StyledTitle>
             {subtitleMarkup}
           </Box>
-          <Box flex="0">
+          <Box display="inline-block" flex="0">
             <StyledArrow isOpen={isOpen}>
               <KeyboardArrowRight size={26} />
             </StyledArrow>
