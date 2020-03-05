@@ -108,8 +108,6 @@ function Expandable(props) {
           onClick={handleClick}
           onKeyDown={handleKeyDown}
           ref={header}
-          role="button"
-          tabIndex="0"
           data-id="expandable-toggle"
         >
           {iconMarkup}
