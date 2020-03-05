@@ -28,4 +28,5 @@
 - #334 - Banner component dismiss button is now screen reader accessible
 - #334 - Banner with a status of 'default' now defaults to 'info'
 - #334 - Links within the Banner component overwrite color and hover color to be accessible
+- #339 - Restyle the Expandable Component
 - #341 - Adds a lightGray and darkGray variant to Tag component
