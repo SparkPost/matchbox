@@ -44,7 +44,7 @@ function Tag(props) {
 Tag.displayName = 'Tag';
 Tag.propTypes = {
   /**
-   * 'orange' | 'blue' | 'yellow' | 'red' | 'navy' | 'purple' | 'green' | 'magenta' | 'teal' | 'gray'
+   * 'orange' | 'blue' | 'yellow' | 'red' | 'navy' | 'purple' | 'green' | 'magenta' | 'teal' | 'lightGray' | 'darkGray'
    */
   color: PropTypes.oneOf([
     'orange',
@@ -56,7 +56,8 @@ Tag.propTypes = {
     'green',
     'magenta',
     'teal',
-    'gray',
+    'lightGray',
+    'darkGray',
   ]),
   /**
    * Close button is hidden unless this is provided
