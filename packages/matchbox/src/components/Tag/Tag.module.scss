@@ -3,7 +3,6 @@
 .Tag {
   display: inline-flex;
   white-space: nowrap;
-  align-items: center;
 }
 
 .hasRemove {
@@ -134,7 +133,8 @@
 }
 
 .Close, a.Close {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   padding: 0 rem(6);
   border-radius: 0 border-radius(large) border-radius(large) 0;
   background: color(gray, 8);
@@ -148,9 +148,5 @@
   &:active {
     color: color(gray, 1);
     background: color(gray, 7);
-  }
-
-  & > * {
-    margin-top: -0.2em;
   }
 }
