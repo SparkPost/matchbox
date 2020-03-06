@@ -21,8 +21,6 @@
 }
 
 .Input {
-  flex: 1;
-  display: inline-block;
   outline: none;
   border: none;
   background: transparent;
@@ -31,7 +29,8 @@
   font-weight: 400;
   font-size: font-size(400);
   line-height: rem(24);
-  padding: rem(3) rem(3);
+
+  width: 100%; // fill remaining space
 
   &:disabled {
     background: color(gray, 9);
@@ -47,7 +46,7 @@
   flex-wrap: wrap;
   align-items: center;
 
-  padding: rem(2) rem(6);
+  padding: rem(6) 0 0 rem(6);
 
   outline: none;
   border: 1px solid color(gray, 7);
@@ -74,11 +73,13 @@
   &:hover:not(.Disabled) {
     cursor: text;
   }
+}
 
-  // Targets tags
-  & > div {
-    display: inline-block;
-    margin: 0 3px 0 0;
+.WrapperItem {
+  margin: 0 rem(6) rem(6) 0;
+
+  &.Grow {
+    flex: 1;
   }
 }
 

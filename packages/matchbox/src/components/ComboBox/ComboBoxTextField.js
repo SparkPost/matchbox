@@ -38,31 +38,25 @@ function ComboBoxTextField(props) {
   const setWrapperClasses = classnames(
     styles.Wrapper,
     error && styles.Error,
-    disabled && styles.Disabled
+    disabled && styles.Disabled,
   );
 
   const labelMarkup = (
     <Label id={id} label={label}>
-      {error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} />}
+      {error && errorInLabel && (
+        <Error className={styles.InlineError} wrapper="span" error={error} />
+      )}
     </Label>
   );
 
-  const helpMarkup = helpText
-    ? <div className={styles.HelpText}>{helpText}</div>
-    : null;
+  const helpMarkup = helpText ? <div className={styles.HelpText}>{helpText}</div> : null;
 
   const selectedMarkup = selectedItems.length
     ? selectedItems.map((item, i) => (
-      <Tag
-        key={i}
-        onRemove={!disabled
-          ? () => removeItem(item)
-          : null
-        }
-      >
-        {itemToString(item)}
-      </Tag>
-    ))
+        <div className={styles.WrapperItem} key={i}>
+          <Tag onRemove={!disabled ? () => removeItem(item) : null}>{itemToString(item)}</Tag>
+        </div>
+      ))
     : null;
 
   // Auto focuses the input
@@ -88,23 +82,25 @@ function ComboBoxTextField(props) {
       {label && !labelHidden && labelMarkup}
       <div className={setWrapperClasses} onClick={handleClick}>
         {selectedMarkup}
-        <input
-          {...rest}
-          autoFocus={autoFocus}
-          className={styles.Input}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onChange={onChange}
-          onKeyDown={handleKeyDown}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          ref={inputRef}
-          style={style}
-          value={value}
-        />
+        <div className={classnames(styles.WrapperItem, styles.Grow)} key="input">
+          <input
+            {...rest}
+            autoFocus={autoFocus}
+            className={styles.Input}
+            disabled={disabled}
+            id={id}
+            name={name}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            ref={inputRef}
+            style={style}
+            value={value}
+          />
+        </div>
       </div>
       {error && !errorInLabel && <Error error={error} />}
       {helpMarkup}
@@ -129,13 +125,13 @@ ComboBoxTextField.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   removeItem: PropTypes.func,
-  selectedItems: PropTypes.array
+  selectedItems: PropTypes.array,
 };
 
 ComboBoxTextField.defaultProps = {
   selectedItems: [],
   itemToString: identity,
-  removeItem: noop
+  removeItem: noop,
 };
 
 export default ComboBoxTextField;
