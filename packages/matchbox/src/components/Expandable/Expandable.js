@@ -5,8 +5,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowRight } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
-import { buttonReset } from '../../styles/helpers';
-import { expandable, header, title, subtitle, arrow, contentWrapper } from './styles';
+import { StyledHeader, expandable, title, subtitle, arrow, contentWrapper } from './styles';
 
 import Accent from './Accent';
 import { Box } from '../Box';
@@ -16,16 +15,11 @@ const StyledExpandable = styled('div')`
   ${margin}
 `;
 
-export const StyledHeader = styled('button')`
-  ${buttonReset}
-  ${header}
-`;
-
-export const StyledArrow = styled('div')`
+const StyledArrow = styled('div')`
   ${arrow}
 `;
 
-export const StyledTitle = styled('h3')`
+const StyledTitle = styled('h3')`
   ${title}
 `;
 
