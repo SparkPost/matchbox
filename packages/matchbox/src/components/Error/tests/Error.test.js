@@ -1,21 +1,19 @@
 import React from 'react';
 import Error from '../Error';
-import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 describe('Error', () => {
-  let wrapper;
-  let props;
-  beforeEach(() => {
-    props = {
-      error: 'Something terrible happened!'
-    };
-
-    wrapper = shallow(<Error {...props}/>);
-  });
-
   it('renders error message', () => {
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = global.mountStyled(
+      <Error error="Something terrible happened!" className="test-class" />,
+    );
+    expect(wrapper.text()).toEqual('Something terrible happened!');
+    expect(wrapper.find('svg')).toHaveAttributeValue('aria-label', 'Error');
+    expect(
+      wrapper
+        .find('Box')
+        .first()
+        .prop('className'),
+    ).toContain('test-class');
   });
-
-
 });
