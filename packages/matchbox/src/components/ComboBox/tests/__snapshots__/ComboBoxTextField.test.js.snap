@@ -3,13 +3,11 @@
 exports[`ComboBoxTextField selected items should render selected items correctly 1`] = `
 Array [
   <Tag
-    key="0"
     onRemove={[Function]}
   >
     foo
   </Tag>,
   <Tag
-    key="1"
     onRemove={[Function]}
   >
     bar
@@ -29,23 +27,36 @@ exports[`ComboBoxTextField should render the full fieldset with label, id, error
     className="Wrapper Error"
     onClick={[Function]}
   >
-    <Tag
+    <div
+      className="WrapperItem"
       key="0"
-      onRemove={[Function]}
     >
-      foo
-    </Tag>
-    <Tag
+      <Tag
+        onRemove={[Function]}
+      >
+        foo
+      </Tag>
+    </div>
+    <div
+      className="WrapperItem"
       key="1"
-      onRemove={[Function]}
     >
-      bar
-    </Tag>
-    <input
-      className="Input"
-      id="test-id"
-      onKeyDown={[Function]}
-    />
+      <Tag
+        onRemove={[Function]}
+      >
+        bar
+      </Tag>
+    </div>
+    <div
+      className="WrapperItem Grow"
+      key="input"
+    >
+      <input
+        className="Input"
+        id="test-id"
+        onKeyDown={[Function]}
+      />
+    </div>
   </div>
   <Error
     error="error"
