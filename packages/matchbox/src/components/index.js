@@ -9,6 +9,7 @@ export * from './EmptyState';
 export * from './Error';
 export * from './Expandable';
 export * from './Grid';
+export * from './HelpText';
 export * from './Inline';
 export * from './Label';
 export * from './Modal';
