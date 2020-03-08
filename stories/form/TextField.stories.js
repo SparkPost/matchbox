@@ -11,7 +11,7 @@ export default {
 };
 
 export const BasicTextfield = withInfo()(() => (
-  <TextField id="id" label="Name" placeholder="Leslie Knope" />
+  <TextField label="Name" placeholder="Leslie Knope" />
 ));
 
 export const WithAnError = withInfo()(() => (
@@ -24,12 +24,13 @@ export const RequiredAndErrorInLabel = withInfo()(() => (
 
 export const HelpTextAndError = withInfo()(() => (
   <TextField
-    id="id"
     error="You forgot an ID!"
     label="Template ID"
     helpText="A unique ID for your template."
   />
 ));
+
+export const HiddenLabel = withInfo()(() => <TextField id="id" labelHidden label="Template ID" />);
 
 export const Disabled = withInfo()(() => (
   <TextField id="id" label="Template ID" value="template-12" disabled />

@@ -6,6 +6,7 @@ import { Connect } from '../Connect';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
 import { getRectFor, roundToBaseline } from '../../helpers/geometry';
+import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { tokens } from '@sparkpost/design-tokens';
 
 const FieldBox = props => {
@@ -72,7 +73,7 @@ function TextField(props) {
     prefixClassname,
     readOnly,
     required,
-    resize,
+    resize = 'both',
     type,
     suffix,
     suffixClassname,
@@ -84,6 +85,7 @@ function TextField(props) {
   const suffixRef = React.useRef(null);
   const [prefixPadding, setPrefixPadding] = React.useState('400');
   const [suffixPadding, setSuffixPadding] = React.useState('400');
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({ id, helpText, error });
 
   React.useLayoutEffect(() => {
     if (prefixRef.current) {
@@ -94,9 +96,7 @@ function TextField(props) {
     }
   }, [prefix, suffix, prefixRef, suffixRef]);
 
-  const helpMarkup = helpText ? (
-    <HelpText id={id ? `${id}-helptext` : null}>{helpText}</HelpText>
-  ) : null;
+  const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
 
   const requiredIndicator = required ? (
     <Box as="span" pr="200" aria-hidden="true">
@@ -108,13 +108,7 @@ function TextField(props) {
     <Label id={id} label={label} labelHidden={labelHidden}>
       {requiredIndicator}
       {error && errorInLabel && (
-        <Box
-          as={Error}
-          id={id ? `${id}-error` : null}
-          wrapper="span"
-          error={error}
-          fontWeight="400"
-        />
+        <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
       )}
     </Label>
   );
@@ -136,8 +130,9 @@ function TextField(props) {
     pl: prefixPadding,
     pr: suffixPadding,
     textAlign: align,
+    ...describedBy,
     style: {
-      resize,
+      ...(multiline ? { resize } : {}),
       ...style,
     },
   };
@@ -162,8 +157,7 @@ function TextField(props) {
           />
         </Box>
       </Connect>
-
-      {error && !errorInLabel && <Error id={id ? `${id}-error` : null} error={error} />}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
     </Box>
   );
@@ -205,7 +199,6 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
-  resize: 'both',
   type: 'text',
 };
 
