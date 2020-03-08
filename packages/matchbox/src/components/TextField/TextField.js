@@ -96,8 +96,6 @@ function TextField(props) {
     }
   }, [prefix, suffix, prefixRef, suffixRef]);
 
-  const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
-
   const requiredIndicator = required ? (
     <Box as="span" pr="200" aria-hidden="true">
       *
@@ -158,7 +156,7 @@ function TextField(props) {
         </Box>
       </Connect>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
-      {helpMarkup}
+      {helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null}
     </Box>
   );
 }
@@ -201,50 +199,5 @@ TextField.propTypes = {
 TextField.defaultProps = {
   type: 'text',
 };
-
-// class TextField extends Component {
-
-//     const input = React.createElement(multiline ? 'textarea' : 'input', {
-//       ...rest,
-//       name,
-//       id,
-//       type,
-//       disabled,
-//       readOnly,
-//       autoFocus,
-//       placeholder,
-//       onFocus,
-//       onBlur,
-//       onChange,
-//       className: setInputClasses,
-//       style: {
-//         textAlign: align,
-//         paddingLeft,
-//         paddingRight,
-//         resize,
-//         ...style
-//       }
-//     });
-
-//     const inputMarkup = prefix || suffix
-//       ? <div className={styles.InputWrapper}>
-//         {prefixMarkup}
-//         {input}
-//         {suffixMarkup}
-//       </div>
-//       : input;
-
-//     return (
-//       <fieldset className={styles.TextField}>
-//         {label && !labelHidden && labelMarkup}
-//         <Connect left={connectLeft} right={connectRight}>
-//           {inputMarkup}
-//         </Connect>
-//         {error && !errorInLabel && <Error error={error} />}
-//         {helpMarkup}
-//       </fieldset>
-//     );
-//   }
-// }
 
 export default TextField;
