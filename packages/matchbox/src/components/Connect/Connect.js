@@ -1,46 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Connect.module.scss';
-import classnames from 'classnames';
+import { Box } from '../Box';
+import styled from 'styled-components';
 
-class Connect extends Component {
-  static displayName = 'Connect';
-
-  static propTypes = {
-    left: PropTypes.node,
-    right: PropTypes.node,
-    children: PropTypes.node
-  };
-
-  render() {
-    const {
-      left,
-      right,
-      children
-    } = this.props;
-
-    const leftMarkup = left
-      ? <div className={styles.Left}>{left}</div>
-      : null;
-
-    const rightMarkup = right
-      ? <div className={styles.Right}>{right}</div>
-      : null;
-
-    const primaryClasses = classnames(
-      styles.Primary,
-      left && styles.hasLeft,
-      right && styles.hasRight,
-    );
-
-    return (
-      <div className={styles.Connect}>
-        {leftMarkup}
-        <div className={primaryClasses}>{children}</div>
-        {rightMarkup}
-      </div>
-    );
+const FocusBox = styled(Box)`
+  *:focus {
+    position: relative;
+    z-index: 1;
   }
+`;
+
+function Connect(props) {
+  const { left, right, children } = props;
+
+  const leftMarkup = left ? (
+    <FocusBox flex="0 0 auto" mr="-1px">
+      {left}
+    </FocusBox>
+  ) : null;
+
+  const rightMarkup = right ? (
+    <FocusBox flex="0 0 auto" ml="-1px">
+      {right}
+    </FocusBox>
+  ) : null;
+
+  return (
+    <Box display="flex">
+      {leftMarkup}
+      <FocusBox flex="1">{children}</FocusBox>
+      {rightMarkup}
+    </Box>
+  );
 }
+
+Connect.displayName = 'Connect';
+Connect.propTypes = {
+  left: PropTypes.node,
+  right: PropTypes.node,
+  children: PropTypes.node,
+};
 
 export default Connect;

@@ -1,102 +1,73 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { TextField, Button, Select, Tooltip } from '@sparkpost/matchbox';
+import { TextField, Button, ThemeProvider, Tooltip, Stack, Select } from '@sparkpost/matchbox';
 
-storiesOf('Form|TextField', module)
-  .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
-  ))
-  .add('Basic TextField', withInfo()(() => (
-    <TextField
-      id='id'
-      label='Name'
-      placeholder='Leslie Knope'
-    />
-  )))
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
-  .add('with an error', withInfo()(() => (
-    <TextField
-      id='id'
-      label='Name'
-      error='You forgot your name!'
-    />
-  )))
+export default {
+  title: 'Form|TextField',
+};
 
-  .add('with the error in label', withInfo()(() => (
-    <TextField
-      id='id'
-      label='Name'
-      errorInLabel
-      error='You forgot my name!'
-    />
-  )))
+export const BasicTextfield = withInfo()(() => (
+  <TextField id="id" label="Name" placeholder="Leslie Knope" />
+));
 
-  .add('multiline', withInfo()(() => (
-    <TextField
-      id='id'
-      label='Your Message'
-      multiline
-    />
-  )))
+export const WithAnError = withInfo()(() => (
+  <TextField id="id" error="You forgot an ID!" label="Template ID" />
+));
 
-  .add('disabled', withInfo()(() => (
-    <TextField
-      id='id'
-      label='Template ID'
-      value='template-12'
-      disabled
-    />
-  )))
+export const RequiredAndErrorInLabel = withInfo()(() => (
+  <TextField id="id" error="You forgot an ID!" label="Template ID" errorInLabel required />
+));
 
-  .add('with help text', withInfo()(() => (
-      <TextField
-        id='id'
-        label='Template ID'
-        helpText='A unique ID for your template.'
-      />
-  )))
+export const HelpTextAndError = withInfo()(() => (
+  <TextField
+    id="id"
+    error="You forgot an ID!"
+    label="Template ID"
+    helpText="A unique ID for your template."
+  />
+));
 
-  .add('with connected components', withInfo()(() => (
-      <TextField
-        id='id'
-        label='Date Range'
-        value='July 21, 2017 - July 28, 2017'
-        connectLeft={<Tooltip content='Hey'><Button>Injection Time</Button></Tooltip>}
-        connectRight={<Select options={
-          ['Last 24 Hours', 'Last Week']
-        }/>}
-      />
-  )))
+export const Disabled = withInfo()(() => (
+  <TextField id="id" label="Template ID" value="template-12" disabled />
+));
 
-  .add('with prefix and suffix', withInfo()(() => (
-      <TextField
-        id='id'
-        prefix='$'
-        suffix={<Autorenew />}
-        suffixClassname='test'
-      />
-  )))
+export const WithTextAlignment = withInfo()(() => (
+  <Stack>
+    <TextField label="Right" value={500} align="right" suffix="emails" />
+    <TextField label="Centered" value="What a weird input" align="center" />
+  </Stack>
+));
 
-  .add('with connected component and suffix', withInfo()(() => (
-      <TextField
-        id='id'
-        label='Date Range'
-        value='July 21, 2017 - July 28, 2017'
-        connectLeft={<Select options={
-          ['Last 24 Hours', 'Last Week']
-        }/>}
-        suffix={<Search />}
-      />
-  )))
+export const ConnectedComponents = withInfo()(() => (
+  <TextField
+    id="id"
+    label="Date Range"
+    value="July 21, 2017 - July 28, 2017"
+    connectLeft={
+      <Tooltip content="Hey">
+        <Button outline>Injection Time</Button>
+      </Tooltip>
+    }
+    connectRight={<Select options={['Last Week', 'Last 24 Hours']} />}
+  />
+));
 
-  .add('aligned to the right', withInfo()(() => (
-      <TextField
-        value={500}
-        align='right'
-        suffix='emails'
-      />
-  )));
+export const PrefixAndSuffix = withInfo()(() => (
+  <TextField id="id" prefix="$" suffix={<Autorenew />} suffixClassname="test" />
+));
+
+export const ConnectedComponentsWithSuffix = withInfo()(() => (
+  <TextField
+    id="id"
+    label="Date Range"
+    value="July 21, 2017 - July 28, 2017"
+    connectLeft={<Select options={['Last Week', 'Last 24 Hours']} />}
+    suffix={<Search />}
+  />
+));
+
+export const Multiline = withInfo()(() => <TextField id="id" label="Message" rows="5" multiline />);
