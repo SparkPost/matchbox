@@ -8,7 +8,15 @@ import { HelpText } from '../HelpText';
 import { getRectFor, roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { tokens } from '@sparkpost/design-tokens';
+import { margin } from 'styled-system';
+import styled from 'styled-components';
+import { pick, omit } from '@styled-system/props';
 
+const StyledWrapper = styled('div')`
+  ${margin}
+`;
+
+// TODO Make this reusable and shared with Select
 const FieldBox = props => {
   return (
     <Box
@@ -81,6 +89,8 @@ function TextField(props) {
     ...rest
   } = props;
 
+  const componentProps = omit(rest);
+  const systemProps = pick(rest);
   const prefixRef = React.useRef(null);
   const suffixRef = React.useRef(null);
   const [prefixPadding, setPrefixPadding] = React.useState('400');
@@ -96,23 +106,8 @@ function TextField(props) {
     }
   }, [prefix, suffix, prefixRef, suffixRef]);
 
-  const requiredIndicator = required ? (
-    <Box as="span" pr="200" aria-hidden="true">
-      *
-    </Box>
-  ) : null;
-
-  const labelMarkup = (
-    <Label id={id} label={label} labelHidden={labelHidden}>
-      {requiredIndicator}
-      {error && errorInLabel && (
-        <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
-      )}
-    </Label>
-  );
-
   const inputProps = {
-    ...rest,
+    ...componentProps,
     as: multiline ? 'textarea' : 'input',
     height: multiline ? 'auto' : '2.5rem',
     name,
@@ -136,8 +131,17 @@ function TextField(props) {
   };
 
   return (
-    <Box>
-      {labelMarkup}
+    <StyledWrapper {...systemProps}>
+      <Label id={id} label={label} labelHidden={labelHidden}>
+        {required && (
+          <Box as="span" pr="200" aria-hidden="true">
+            *
+          </Box>
+        )}
+        {error && errorInLabel && (
+          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+        )}
+      </Label>
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
           <PrefixOrSuffix
@@ -157,7 +161,7 @@ function TextField(props) {
       </Connect>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null}
-    </Box>
+    </StyledWrapper>
   );
 }
 
