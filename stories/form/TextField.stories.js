@@ -72,3 +72,14 @@ export const ConnectedComponentsWithSuffix = withInfo()(() => (
 ));
 
 export const Multiline = withInfo()(() => <TextField id="id" label="Message" rows="5" multiline />);
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <TextField label="Name" placeholder="Leslie Knope" my={['200', '400', null, '700']} />
+    <TextField
+      label="Email"
+      placeholder="leslie.knope@pawnee.in.gov"
+      mx={['200', '400', null, '700']}
+    />
+  </>
+));

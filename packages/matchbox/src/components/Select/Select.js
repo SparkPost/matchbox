@@ -73,8 +73,8 @@ const StyledChevron = styled(KeyboardArrowDown)`
   ${chevron}
 `;
 
-const StyledWrapper = styled(Box)`
-  {margin}
+const StyledWrapper = styled('div')`
+  ${margin}
 `;
 
 function Select(props) {
