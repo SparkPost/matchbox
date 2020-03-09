@@ -8,6 +8,7 @@ import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import { slider, rail, track, tick, tickLabel, handle, handleShadow } from './styles';
+import { pick } from '@styled-system/props';
 
 const system = compose(margin);
 
@@ -55,6 +56,8 @@ function Slider(props) {
     value,
     ...rest
   } = props;
+
+  const systemProps = pick(rest);
 
   const windowSize = useWindowSize(50);
   const [sliderValue, setSliderValue] = React.useState(
@@ -217,10 +220,11 @@ function Slider(props) {
     <StyledSlider
       hasTicks={ticks}
       disabled={disabled}
+      data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
       ref={sliderRef}
-      {...rest}
+      {...systemProps}
     >
       <StyledRail disabled={disabled} />
       {tickMarkup}
