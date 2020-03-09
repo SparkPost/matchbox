@@ -33,8 +33,18 @@ export const WithAnExternalLink = withInfo()(() => (
 
 export const WithWrapperComponents = withInfo()(() => (
   <>
-    <UnstyledLink component="button">Any valid HTML tag</UnstyledLink>
     <UnstyledLink component={({ children }) => <a>{children}</a>}>A Function</UnstyledLink>
     <UnstyledLink component={DemoWrapper}>A Component</UnstyledLink>
+  </>
+));
+
+export const WithTextProps = withInfo()(() => (
+  <>
+    <UnstyledLink mr={400} color="purple.600" to="https://google.com" external>
+      A link
+    </UnstyledLink>
+    <UnstyledLink mr={400} color="green.700">
+      A link
+    </UnstyledLink>
   </>
 ));

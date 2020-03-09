@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
-import styled from 'styled-components';
-import { text } from './styles';
 
 import { Text } from '../Text';
-
-const StyledText = styled(Text)`
-  ${text}
-`;
 
 function UnstyledLink(props) {
   const { children, to, title, Component, component, external, ...rest } = props;
@@ -18,7 +12,7 @@ function UnstyledLink(props) {
 
   if (to && !WrapperComponent) {
     return (
-      <StyledText
+      <Text
         as="a"
         href={to}
         target={external ? '_blank' : ''}
@@ -27,22 +21,22 @@ function UnstyledLink(props) {
         {...rest}
       >
         {children}
-      </StyledText>
+      </Text>
     );
   }
 
   if (WrapperComponent) {
     return (
-      <StyledText as={WrapperComponent} to={to} title={LinkTitle} {...rest}>
+      <Text as={WrapperComponent} to={to} title={LinkTitle} {...rest}>
         {children}
-      </StyledText>
+      </Text>
     );
   }
 
   return (
-    <StyledText as="a" title={LinkTitle} {...rest}>
+    <Text as="a" title={LinkTitle} {...rest}>
       {children}
-    </StyledText>
+    </Text>
   );
 }
 

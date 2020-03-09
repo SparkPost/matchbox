@@ -108,6 +108,7 @@ hr {
 
 a, a:visited {
   color: color(blue, 700);
+  text-decoration: underline;
 
   &:hover, &:active, &:focus {
     color: color(blue, 800);
