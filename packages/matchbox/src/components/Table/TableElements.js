@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { cell, row } from './styles';
+import { cell, row, headerCell } from './styles';
 import { TablePaddingContext } from './Table';
 import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -12,6 +12,7 @@ const StyledCell = styled('td')`
 `;
 
 const StyledHeaderCell = styled('th')`
+  ${headerCell}
   ${padding}
 `;
 

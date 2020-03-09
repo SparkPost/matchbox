@@ -34,7 +34,7 @@ function Table(props) {
   const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
 
   return (
-    <StyledTable>
+    <StyledTable {...rest}>
       <TablePaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
         {dataMarkup}
       </TablePaddingContext.Provider>
