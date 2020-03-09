@@ -21,7 +21,12 @@ const GlobalStyle = createGlobalStyle`
 function Theme(props) {
   return (
     <ThemeProvider theme={{ ...theme, ...props.theme }}>
-      <GlobalStyle />
+      {/* 
+        FE-913: `skipGlobalStyles` is to exclude global styles from unit tests
+        The custom matcher `toHaveAttributeValue` fails with this turned on
+        `TypeError: received.getDOMNode(...).getAttribute is not a function`
+      */}
+      {!props.skipGlobalStyles && <GlobalStyle />}
       {props.children}
     </ThemeProvider>
   );
