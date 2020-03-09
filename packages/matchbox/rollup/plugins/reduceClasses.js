@@ -7,10 +7,10 @@ const createUniqueIdGenerator = () => {
 
   // Removed "d" letter to avoid accidental "ad" construct - for ad blockers
   const generateNextId = incstr.idGenerator({
-    alphabet: 'ABCEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz0123456789'
+    alphabet: 'ABCEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz0123456789',
   });
 
-  return (name) => {
+  return name => {
     if (index[name]) {
       return index[name];
     }
@@ -31,5 +31,5 @@ const createUniqueIdGenerator = () => {
 const uniqueIdGenerator = createUniqueIdGenerator();
 
 export default function(localName, filePath) {
-  return uniqueIdGenerator(filePath) + '_' + uniqueIdGenerator(localName);
+  return 'hibana_' + uniqueIdGenerator(filePath) + '_' + uniqueIdGenerator(localName);
 }

@@ -45,13 +45,31 @@ describe('Panel', () => {
     let blueWrapper = global.mountStyled(<Panel accent="blue" />);
     let purpleWrapper = global.mountStyled(<Panel accent="purple" />);
 
-    expect(orangeWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_brand_orange);
-    expect(greenWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_green_700);
-    expect(yellowWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_yellow_400);
-    expect(redWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_red_700);
-    expect(grayWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_gray_600);
-    expect(blueWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_blue_700);
-    expect(purpleWrapper.find(Panel.Accent)).toHaveStyleRule(tokens.color_purple_700);
+    expect(orangeWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_brand_orange,
+    );
+    expect(greenWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_green_700,
+    );
+    expect(yellowWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_yellow_400,
+    );
+    expect(redWrapper.find(Panel.Accent)).toHaveStyleRule('background-color', tokens.color_red_700);
+    expect(grayWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_gray_600,
+    );
+    expect(blueWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_blue_700,
+    );
+    expect(purpleWrapper.find(Panel.Accent)).toHaveStyleRule(
+      'background-color',
+      tokens.color_blue_700,
+    );
   });
 
   it('renders accent title and header action correctly', () => {
