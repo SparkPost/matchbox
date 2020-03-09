@@ -3,12 +3,13 @@ import Stack from '../Stack';
 import 'jest-styled-components';
 
 describe('Stack', () => {
-  const subject = (props) => global.mountStyled(
-    <Stack {...props}>
-      <span id='child-1'>1</span>
-      <span id='child-2'>2</span>
-    </Stack>
-  );
+  const subject = props =>
+    global.mountStyled(
+      <Stack {...props}>
+        <span id="child-1">1</span>
+        <span id="child-2">2</span>
+      </Stack>,
+    );
 
   it('should render children correctly', () => {
     const wrapper = subject();
@@ -37,7 +38,7 @@ describe('Stack', () => {
   });
 
   it('should render responsive spacing and alignment', () => {
-    const wrapper = subject({ space: ['400', '50px'], align: ['right', 'center']});
+    const wrapper = subject({ space: ['400', '50px'], align: ['right', 'center'] });
 
     // Min
     expect(wrapper.find('div').at(0)).toHaveStyleRule('padding-bottom', '1rem');
