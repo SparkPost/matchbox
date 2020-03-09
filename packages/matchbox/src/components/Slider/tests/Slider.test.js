@@ -19,7 +19,7 @@ function Track(wrapper) {
 }
 
 function Handle(wrapper) {
-  return wrapper.find('div').at(4);
+  return wrapper.find('div').at(3);
 }
 
 describe('Slider component', () => {
