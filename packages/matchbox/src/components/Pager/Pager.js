@@ -6,9 +6,8 @@ import styled from 'styled-components';
 
 import Next from './Next';
 import Previous from './Previous';
-import { Box } from '../Box';
 
-const StyledPager = styled(Box)`
+const StyledPager = styled('div')`
   ${margin}
 `;
 
