@@ -215,6 +215,7 @@ function Slider(props) {
 
   return (
     <StyledSlider
+      hasTicks={ticks}
       disabled={disabled}
       data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}

@@ -10,6 +10,7 @@ export const slider = props => {
 
   return `
     padding: 1.25rem 0;
+    padding-bottom: ${props.hasTicks ? '2rem' : '1.25rem'};
     position: relative;
     cursor: ${cursor};
   `;
