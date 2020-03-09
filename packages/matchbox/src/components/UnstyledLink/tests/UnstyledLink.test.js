@@ -5,11 +5,6 @@ import 'jest-styled-components';
 describe('UnstyledLink', () => {
   const subject = props => global.mountStyled(<UnstyledLink {...props}>Hola!</UnstyledLink>);
 
-  it('renders correct styles', () => {
-    let wrapper = subject();
-    expect(wrapper).toHaveStyleRule('text-decoration', 'underline');
-  });
-
   it('renders an external link', () => {
     let wrapper = subject({ to: '/external', external: true });
     expect(wrapper).toHaveAttributeValue('target', '_blank');
