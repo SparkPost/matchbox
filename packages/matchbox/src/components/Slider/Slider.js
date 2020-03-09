@@ -9,8 +9,6 @@ import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import { slider, rail, track, tick, tickLabel, handle, handleShadow } from './styles';
 
-import { Box } from '../Box';
-
 const system = compose(margin);
 
 export const StyledSlider = styled('div')`
@@ -216,38 +214,36 @@ function Slider(props) {
   });
 
   return (
-    <Box pb={400}>
-      <StyledSlider
+    <StyledSlider
+      disabled={disabled}
+      data-id="slider-wrapper"
+      onTouchStart={disabled ? noop : handleTouchStart}
+      onMouseDown={disabled ? noop : handleMouseDown}
+      ref={sliderRef}
+      {...rest}
+    >
+      <StyledRail disabled={disabled} />
+      {tickMarkup}
+      <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
+      <StyledHandle
+        id={id}
+        aria-controls={props['aria-controls']}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={sliderValue}
+        aria-disabled={disabled}
+        data-id={props['data-id']}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onKeyDown={disabled ? noop : handleKeyDown}
+        role="slider"
         disabled={disabled}
-        data-id="slider-wrapper"
-        onTouchStart={disabled ? noop : handleTouchStart}
-        onMouseDown={disabled ? noop : handleMouseDown}
-        ref={sliderRef}
-        {...rest}
+        style={{ left: sliderLocation }}
+        tabIndex="0"
       >
-        <StyledRail disabled={disabled} />
-        {tickMarkup}
-        <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
-        <StyledHandle
-          id={id}
-          aria-controls={props['aria-controls']}
-          aria-valuemin={min}
-          aria-valuemax={max}
-          aria-valuenow={sliderValue}
-          aria-disabled={disabled}
-          data-id={props['data-id']}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          onKeyDown={disabled ? noop : handleKeyDown}
-          role="slider"
-          disabled={disabled}
-          style={{ left: sliderLocation }}
-          tabIndex="0"
-        >
-          <StyledHandleShadow disabled={disabled} />
-        </StyledHandle>
-      </StyledSlider>
-    </Box>
+        <StyledHandleShadow disabled={disabled} />
+      </StyledHandle>
+    </StyledSlider>
   );
 }
 

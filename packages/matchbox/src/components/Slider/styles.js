@@ -9,7 +9,7 @@ export const slider = props => {
   }
 
   return `
-    padding: ${tokens.spacing_400} 0;
+    padding: 1.25rem 0;
     position: relative;
     cursor: ${cursor};
   `;

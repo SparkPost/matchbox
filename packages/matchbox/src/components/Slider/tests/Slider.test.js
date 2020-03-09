@@ -15,7 +15,7 @@ global.removeEventListener = jest.fn(event => {
 });
 
 function Track(wrapper) {
-  return wrapper.find('div').at(3);
+  return wrapper.find('div').at(2);
 }
 
 function Handle(wrapper) {
@@ -72,7 +72,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     slider
       .find('div')
-      .at(1)
+      .at(0)
       .simulate('mouseDown', {
         pageX: 25,
         button: 0,
@@ -86,7 +86,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     slider
       .find('div')
-      .at(1)
+      .at(0)
       .simulate('mouseDown', { pageX: 0, button: 0 });
 
     act(() => {
@@ -111,7 +111,7 @@ describe('Slider component', () => {
     const slider = subject({ value: 50, onChange });
     slider
       .find('div')
-      .at(1)
+      .at(0)
       .simulate('touchStart', {
         touches: [{ pageX: 25 }],
       });
@@ -182,7 +182,7 @@ describe('Slider component', () => {
   describe('disabled', () => {
     it('should render disabled', () => {
       const slider = subject({ value: 50, disabled: true });
-      expect(slider.find('div').at(1)).toHaveStyleRule('cursor', 'not-allowed');
+      expect(slider.find('div').at(0)).toHaveStyleRule('cursor', 'not-allowed');
       expect(Handle(slider)).toHaveAttributeValue('aria-disabled', 'true');
     });
 
@@ -191,11 +191,11 @@ describe('Slider component', () => {
       Handle(slider).simulate('keyDown', { key: 'Home', shiftKey: false });
       slider
         .find('div')
-        .at(1)
+        .at(0)
         .simulate('touchStart', { touches: [{ pageX: 25 }] });
       slider
         .find('div')
-        .at(1)
+        .at(0)
         .simulate('mouseDown', { pageX: 25, button: 0 });
       expect(onChange).toHaveBeenCalledTimes(1);
     });
@@ -204,21 +204,21 @@ describe('Slider component', () => {
   describe('ticks', () => {
     it('should render ticks', () => {
       const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' } });
-      expect(slider.find('div').at(3)).toHaveAttributeValue('style', { left: '50px' });
+      expect(slider.find('div').at(2)).toHaveAttributeValue('style', { left: '50px' });
       expect(
         slider
           .find('div')
-          .at(4)
+          .at(3)
           .text(),
       ).toEqual('test tick');
-      expect(slider.find('div').at(3)).toHaveStyleRule('background', tokens.color_blue_700);
+      expect(slider.find('div').at(2)).toHaveStyleRule('background', tokens.color_blue_700);
       expect(
         slider
           .find('div')
-          .at(6)
+          .at(5)
           .text(),
       ).toEqual('not included tick');
-      expect(slider.find('div').at(5)).toHaveStyleRule('background', tokens.color_gray_300);
+      expect(slider.find('div').at(4)).toHaveStyleRule('background', tokens.color_gray_300);
     });
   });
 });
