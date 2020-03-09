@@ -28,5 +28,9 @@
 - #334 - Banner with a status of 'default' now defaults to 'info'
 - #334 - Links within the Banner component overwrite color and hover color to be accessible
 - #339 - Restyle the Expandable Component
+- #340 - Restyles Select component
+- #340 - Label component with labelHidden prop now properly hides a screen reader accessible label
+- #340 - Select now properly uses aria-describedby to link to its helptext and error
+- #340 - Select with the required prop now applies the required HTML attribute to the input
 - #341 - Adds a lightGray and darkGray variant to Tag component
 - #342 - Restyles the Table component and adds configurable padding

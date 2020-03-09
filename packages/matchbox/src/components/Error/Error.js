@@ -1,21 +1,21 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Error as ErrorIcon } from '@sparkpost/matchbox-icons';
-import styles from './Error.module.scss';
+import { ErrorIcon } from '@sparkpost/matchbox-icons';
+import { Box } from '../Box';
 
-const Error = (props) => {
-  const {
-    className,
-    error,
-    wrapper: WrapperComponent = 'div'
-  } = props;
+function Error(props) {
+  const { className, error, wrapper: WrapperComponent = 'div', id } = props;
 
   return (
-    <WrapperComponent className={classNames(styles.Error, className)}>
-      <span className={styles.Message}><ErrorIcon className={styles.Icon} size={13} />{error}</span>
-    </WrapperComponent>
+    <Box id={id} as={WrapperComponent} className={className}>
+      <Box as="span" color="red.700" fontSize="200" lineHeight="200">
+        <Box as="span" display="inline-block" mr="100">
+          <ErrorIcon size={14} label="Error" />
+        </Box>
+        <span>{error}</span>
+      </Box>
+    </Box>
   );
-};
+}
 
 Error.displayName = 'Error';
 export default Error;
