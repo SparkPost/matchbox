@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Cell, Header, HeaderCell, Row } from './TableElements';
+import { Cell, HeaderCell, Row } from './TableElements';
 import styled from 'styled-components';
 import { margin, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -42,7 +42,6 @@ function Table(props) {
 }
 
 Table.Cell = Cell;
-Table.Header = Header;
 Table.HeaderCell = HeaderCell;
 Table.Row = Row;
 

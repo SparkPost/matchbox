@@ -21,13 +21,13 @@ const data = [
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
   <Panel>
     <Table p={500}>
-      <Table.Header>
-        <Table.Row>
+      <thead>
+        <Table.Row header>
           <Table.HeaderCell>Heading 1</Table.HeaderCell>
           <Table.HeaderCell>Heading 2</Table.HeaderCell>
           <Table.HeaderCell>Heading 3</Table.HeaderCell>
         </Table.Row>
-      </Table.Header>
+      </thead>
       <tbody>
         <Table.Row>
           <Table.Cell>1</Table.Cell>
@@ -53,13 +53,13 @@ export const WithSuppliedData = withInfo()(() => (
 export const SystemProps = withInfo()(() => (
   <Panel>
     <Table>
-      <Table.Header>
-        <Table.Row>
+      <thead>
+        <Table.Row header>
           <Table.HeaderCell p="300">Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
         </Table.Row>
-      </Table.Header>
+      </thead>
       <tbody>
         <Table.Row p="800">
           <Table.Cell p="800">Padding 800</Table.Cell>

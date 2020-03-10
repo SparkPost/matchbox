@@ -10,10 +10,6 @@ export const table = () => `
   -moz-osx-font-smoothing: grayscale;
 `;
 
-export const header = () => `
-  border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
-`;
-
 export const headerCell = () => `
   font-size: ${tokens.fontSize_200};
   line-height: ${tokens.lineHeight_200};
@@ -24,9 +20,12 @@ export const cell = () => `
   word-break: break-all;
 `;
 
-export const row = () => `
+export const row = props => `
   background: ${tokens.color_white};
-  &:nth-of-type(even) {
-    background: ${tokens.color_gray_100};
+  border-bottom: ${
+    props.header ? `${tokens.borderWidth_100} solid ${tokens.color_gray_400}` : 'none'
+  }
+  &:nth-of-type(odd) {
+    background: ${props.header ? tokens.color_white : tokens.color_gray_100};
   }
 `;

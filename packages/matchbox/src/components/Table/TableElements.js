@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { cell, row, header, headerCell } from './styles';
+import { cell, row, headerCell } from './styles';
 import { TablePaddingContext } from './context';
 import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -18,11 +18,6 @@ const StyledHeaderCell = styled('th')`
 
 const StyledRow = styled('tr')`
   ${row}
-  ${padding}
-`;
-
-const StyledHeader = styled('thead')`
-  ${header}
   ${padding}
 `;
 
@@ -62,9 +57,9 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ rowData, children, className, ...rest }) => {
+const Row = ({ rowData, children, className, header, ...rest }) => {
   return (
-    <StyledRow className={className} {...rest}>
+    <StyledRow header={header} className={className} {...rest}>
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledRow>
   );
@@ -77,18 +72,4 @@ Row.propTypes = {
 };
 Row.displayName = 'Table.Row';
 
-const Header = ({ children, className, ...rest }) => {
-  return (
-    <StyledHeader className={className} {...rest}>
-      {children}
-    </StyledHeader>
-  );
-};
-
-Header.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-};
-Header.displayName = 'Table.Header';
-
-export { Cell, Header, HeaderCell, Row };
+export { Cell, HeaderCell, Row };
