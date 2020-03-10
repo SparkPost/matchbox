@@ -21,12 +21,14 @@ const data = [
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
   <Panel>
     <Table p={500}>
-      <tbody>
+      <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Heading 1</Table.HeaderCell>
           <Table.HeaderCell>Heading 2</Table.HeaderCell>
           <Table.HeaderCell>Heading 3</Table.HeaderCell>
         </Table.Row>
+      </Table.Header>
+      <tbody>
         <Table.Row>
           <Table.Cell>1</Table.Cell>
           <Table.Cell>2</Table.Cell>
