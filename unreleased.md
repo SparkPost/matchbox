@@ -36,3 +36,4 @@
 - #341 - Adds a lightGray and darkGray variant to Tag component
 - #342 - Restyles the Table component and adds configurable padding
 - #342 - Add header prop type to Table Row - type bool
+- #352 - Add link styles for status styled-component
