@@ -9,16 +9,13 @@ import Previous from './Previous';
 
 const StyledPager = styled('div')`
   ${margin}
+  display: inline-block;
 `;
 
 function Pager(props) {
   const { children, ...rest } = props;
 
-  return (
-    <StyledPager {...rest} display="inline-block">
-      {children}
-    </StyledPager>
-  );
+  return <StyledPager {...rest}>{children}</StyledPager>;
 }
 
 Pager.propTypes = {
