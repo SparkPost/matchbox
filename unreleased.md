@@ -35,3 +35,4 @@
 - #340 - Select with the required prop now applies the required HTML attribute to the input
 - #341 - Adds a lightGray and darkGray variant to Tag component
 - #342 - Restyles the Table component and adds configurable padding
+- #342 - Add header prop type to Table Row - type bool

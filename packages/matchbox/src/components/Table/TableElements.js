@@ -69,6 +69,7 @@ Row.propTypes = {
   rowData: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
+  header: PropTypes.bool,
 };
 Row.displayName = 'Table.Row';
 
