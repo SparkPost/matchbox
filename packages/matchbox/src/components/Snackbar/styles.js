@@ -7,15 +7,29 @@ export const base = () => `
 `;
 
 export const status = props => {
-  const whiteLinks = `a, a:visited {color: ${tokens.color_white};}`;
-  const greyLinks = `a, a:visited {color: ${tokens.color_gray_900};}`;
+  function makeLinkColorStyles(color) {
+    return `
+      a, 
+      a:hover, 
+      a:visited { 
+        color: ${color} !important; 
+      }
+    `;
+  }
+  const whiteLinks = makeLinkColorStyles(tokens.color_white);
+  const greyLinks = makeLinkColorStyles(tokens.color_gray_900);
 
   switch (props.status) {
     case 'success':
-      return `${whiteLinks} background: ${tokens.color_green_800};`;
+      return `
+        ${whiteLinks} 
+        background: ${tokens.color_green_800};
+      `;
     case 'danger':
     case 'error':
-      return `${whiteLinks} background: ${tokens.color_red_700};`;
+      return `
+        ${whiteLinks} background: ${tokens.color_red_700};
+      `;
     case 'warning':
       return `
         ${greyLinks} 
@@ -24,7 +38,9 @@ export const status = props => {
       `;
     case 'default':
     default:
-      return `${whiteLinks} background: ${tokens.color_blue_800};`;
+      return `
+        ${whiteLinks} background: ${tokens.color_blue_800};
+      `;
   }
 };
 
