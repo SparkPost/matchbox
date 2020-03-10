@@ -10,6 +10,10 @@ export const table = () => `
   -moz-osx-font-smoothing: grayscale;
 `;
 
+export const header = () => `
+  border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+`;
+
 export const headerCell = () => `
   font-size: ${tokens.fontSize_200};
   line-height: ${tokens.lineHeight_200};

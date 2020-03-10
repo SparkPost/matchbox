@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Cell, HeaderCell, Row } from './TableElements';
+import { Cell, Header, HeaderCell, Row } from './TableElements';
 import styled from 'styled-components';
 import { margin, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { table } from './styles';
 import { pick } from '@styled-system/props';
+import { TablePaddingContext } from './context';
 
 const system = compose(margin, padding);
 
@@ -13,8 +14,6 @@ const StyledTable = styled('table')`
   ${table}
   ${system}
 `;
-
-export const TablePaddingContext = React.createContext({});
 
 function Table(props) {
   const { children, data, ...rest } = props;
@@ -43,6 +42,7 @@ function Table(props) {
 }
 
 Table.Cell = Cell;
+Table.Header = Header;
 Table.HeaderCell = HeaderCell;
 Table.Row = Row;
 
