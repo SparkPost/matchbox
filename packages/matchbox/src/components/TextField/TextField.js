@@ -95,7 +95,11 @@ function TextField(props) {
   const suffixRef = React.useRef(null);
   const [prefixPadding, setPrefixPadding] = React.useState('400');
   const [suffixPadding, setSuffixPadding] = React.useState('400');
-  const { describedBy, errorId, helpTextId } = useInputDescribedBy({ id, helpText, error });
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
+    id,
+    hasHelpText: !!helpText,
+    hasError: !!error,
+  });
 
   React.useLayoutEffect(() => {
     if (prefixRef.current) {
@@ -125,6 +129,7 @@ function TextField(props) {
     textAlign: align,
     ...describedBy,
     style: {
+      cursor: disabled ? 'not-allowed' : 'auto',
       ...(multiline ? { resize } : {}),
       ...style,
     },
@@ -160,7 +165,7 @@ function TextField(props) {
         </Box>
       </Connect>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
-      {helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null}
+      {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
     </StyledWrapper>
   );
 }

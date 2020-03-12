@@ -9,7 +9,7 @@ export const select = props => `
 
 export const chevron = props => `
   position: absolute;
-  z-index: 1;
+  z-index: ${tokens.zIndex_default};
   right: ${tokens.spacing_300};
   height: 100%;
   fill: ${tokens.color_blue_700};

@@ -6,8 +6,8 @@ import React from 'react';
  * @example
  *  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
  *    id: 'input-id',
- *    helpText: 'This is helptext',
- *    error: 'This is an error'
+ *    hasHelpText: true,
+ *    hasError: true
  *  });
  *
  * // Usage
@@ -16,16 +16,16 @@ import React from 'react';
  *  <span id={helpTextId}>This is helptext</span>
  *
  */
-function useInputDescribedBy({ id, helpText, error }) {
+function useInputDescribedBy({ id, hasHelpText, hasError }) {
   return React.useMemo(() => {
     let errorId = null;
     let helpTextId = null;
 
-    if (id && error) {
+    if (id && hasHelpText) {
       errorId = `${id}-error`;
     }
 
-    if (id && helpText) {
+    if (id && hasHelpText) {
       helpTextId = `${id}-helptext`;
     }
 
@@ -37,7 +37,7 @@ function useInputDescribedBy({ id, helpText, error }) {
       helpTextId,
       errorId,
     };
-  }, [error, helpText, id]);
+  }, [hasHelpText, hasError, id]);
 }
 
 export default useInputDescribedBy;

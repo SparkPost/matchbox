@@ -94,7 +94,11 @@ function Select(props) {
   } = props;
   const systemProps = pick(rest);
   const componentProps = omit(rest);
-  const { describedBy, errorId, helpTextId } = useInputDescribedBy({ id, helpText, error });
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
+    id,
+    hasHelpText: !!helpText,
+    hasError: !!error,
+  });
 
   const requiredIndicator = required ? (
     <Box as="span" pr="200" aria-hidden="true">

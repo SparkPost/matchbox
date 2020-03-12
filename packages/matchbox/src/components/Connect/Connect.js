@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
+import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 
 const FocusHandler = styled(Box)`
-  *:focus {
+  &:focus-within {
     position: relative;
-    z-index: 1;
+    z-index: ${tokens.zIndex_default};
   }
 `;
 
