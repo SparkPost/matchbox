@@ -1,37 +1,40 @@
 import React from 'react';
 import Toggle from '../Toggle';
-import { shallow } from 'enzyme';
-import cases from 'jest-in-case';
+import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 describe('Toggle', () => {
   let wrapper;
 
-  beforeEach(() => {
-    wrapper = shallow(<Toggle id='foo' value='bar'/>);
+  let subject = props => global.mountStyled(<Toggle data-id="toggle-input" id="id" {...props} />);
+
+  it('renders base styles', () => {
+    wrapper = subject();
+    expect(wrapper).toHaveStyleRule('height', '20px');
+    expect(wrapper).toHaveStyleRule('width', '36px');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_gray_400);
+    expect(wrapper.find('span').at(3)).toHaveStyleRule('transform', 'translate(0,0)');
   });
 
-  const testCases = [
-    { name: 'checked', props: { checked: true }},
-    { name: 'disabled', props: { disabled: true }},
-    { name: 'compact', props: { compact: true }}
-  ];
+  it('renders default checked styles', () => {
+    wrapper = subject({ checked: true });
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_green_600);
+    expect(wrapper.find('span').at(3)).toHaveStyleRule('transform', 'translate(1rem,0)');
+  });
 
-  cases('renders toggle states', (opts) => {
-    wrapper.setProps(opts.props);
-    expect(wrapper).toMatchSnapshot();
-  }, testCases);
+  it('renders default disabled styles', () => {
+    wrapper = subject({ disabled: true });
+    expect(wrapper).toHaveStyleRule('opacity', '0.9');
+  });
 
-  cases('invokes event', (opts) => {
-    const fn = jest.fn();
-    const newProps = {};
-    newProps[opts.name] = fn;
-    wrapper.setProps(newProps);
-
-    wrapper.find('input').simulate(opts.event);
-    expect(fn).toHaveBeenCalledTimes(1);
-  }, [
-    { name: 'onClick', event: 'click' },
-    { name: 'onBlur', event: 'blur' },
-    { name: 'onFocus', event: 'focus' }
-  ]);
+  it('invokes events', () => {
+    const action = { onChange: jest.fn(), onFocus: jest.fn(), onBlur: jest.fn() };
+    wrapper = subject(action);
+    wrapper.find('input').simulate('change', { target: { checked: true } });
+    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('blur');
+    expect(action.onChange).toHaveBeenCalledTimes(1);
+    expect(action.onFocus).toHaveBeenCalledTimes(1);
+    expect(action.onBlur).toHaveBeenCalledTimes(1);
+  });
 });
