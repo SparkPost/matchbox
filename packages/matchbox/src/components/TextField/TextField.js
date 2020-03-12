@@ -178,7 +178,7 @@ TextField.propTypes = {
    * 'left' | 'center' | 'right'
    */
   align: PropTypes.oneOf(['left', 'center', 'right']),
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   multiline: PropTypes.bool,
   /**
    * 'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url' | 'date'
