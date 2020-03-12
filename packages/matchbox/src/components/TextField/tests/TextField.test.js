@@ -108,7 +108,7 @@ describe('TextField', () => {
   it('renders multiline', () => {
     const wrapper = subject({ multiline: true });
     expect(textarea(wrapper)).toExist();
-    expect(textarea(wrapper).prop('style')).toEqual({ resize: 'both' });
+    expect(textarea(wrapper).prop('style').resize).toEqual('both');
   });
 
   it('renders alignment', () => {

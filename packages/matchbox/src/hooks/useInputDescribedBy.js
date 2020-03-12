@@ -21,7 +21,7 @@ function useInputDescribedBy({ id, hasHelpText, hasError }) {
     let errorId = null;
     let helpTextId = null;
 
-    if (id && hasHelpText) {
+    if (id && hasError) {
       errorId = `${id}-error`;
     }
 

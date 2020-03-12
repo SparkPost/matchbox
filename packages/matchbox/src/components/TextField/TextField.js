@@ -31,6 +31,7 @@ const FieldBox = props => {
       lineHeight="2.5rem"
       height="2.5rem"
       color="gray.900"
+      required={props.required}
       {...props}
     />
   );
@@ -93,8 +94,8 @@ function TextField(props) {
   const systemProps = pick(rest);
   const prefixRef = React.useRef(null);
   const suffixRef = React.useRef(null);
-  const [prefixPadding, setPrefixPadding] = React.useState('400');
-  const [suffixPadding, setSuffixPadding] = React.useState('400');
+  const [prefixPadding, setPrefixPadding] = React.useState('0');
+  const [suffixPadding, setSuffixPadding] = React.useState('0');
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
     hasHelpText: !!helpText,
@@ -103,10 +104,10 @@ function TextField(props) {
 
   React.useLayoutEffect(() => {
     if (prefixRef.current) {
-      setPrefixPadding(roundToBaseline(getRectFor(prefixRef.current).width + 16));
+      setPrefixPadding(roundToBaseline(getRectFor(prefixRef.current).width));
     }
     if (suffixRef.current) {
-      setSuffixPadding(roundToBaseline(getRectFor(suffixRef.current).width + 16));
+      setSuffixPadding(roundToBaseline(getRectFor(suffixRef.current).width));
     }
   }, [prefix, suffix, prefixRef, suffixRef]);
 
@@ -119,13 +120,14 @@ function TextField(props) {
     type,
     disabled,
     readOnly,
+    required,
     autoFocus,
     placeholder,
     onFocus,
     onBlur,
     onChange,
-    pl: prefixPadding,
-    pr: suffixPadding,
+    pl: `calc(${prefixPadding}px + ${tokens.spacing_400})`,
+    pr: `calc(${suffixPadding}px + ${tokens.spacing_400})`,
     textAlign: align,
     ...describedBy,
     style: {
