@@ -22,14 +22,13 @@ const FieldBox = props => {
   return (
     <Box
       as="input"
+      px="400"
       {...props}
       disabled={props.disabled}
       width="100%"
       border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
       borderRadius="100"
       bg={props.disabled ? 'gray.200' : 'white'}
-      pl="400"
-      pr="600"
       lineHeight="2.5rem"
       height="2.5rem"
       color="gray.900"
