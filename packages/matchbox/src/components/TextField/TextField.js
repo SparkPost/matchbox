@@ -10,7 +10,8 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { tokens } from '@sparkpost/design-tokens';
 import { margin } from 'styled-system';
 import styled from 'styled-components';
-import { pick, omit } from '@styled-system/props';
+import { pick } from '@styled-system/props';
+import { omit } from '../../helpers/systemProps';
 
 const StyledWrapper = styled('div')`
   ${margin}
@@ -21,6 +22,7 @@ const FieldBox = props => {
   return (
     <Box
       as="input"
+      {...props}
       disabled={props.disabled}
       width="100%"
       border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
@@ -32,7 +34,6 @@ const FieldBox = props => {
       height="2.5rem"
       color="gray.900"
       required={props.required}
-      {...props}
     />
   );
 };
@@ -90,7 +91,7 @@ function TextField(props) {
     ...rest
   } = props;
 
-  const componentProps = omit(rest);
+  const componentProps = omit(rest, margin.propNames);
   const systemProps = pick(rest);
   const prefixRef = React.useRef(null);
   const suffixRef = React.useRef(null);
