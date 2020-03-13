@@ -11,6 +11,7 @@ import { HelpText } from '../HelpText';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick, omit } from '@styled-system/props';
+import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 
 const Option = ({ option }) => {
   if (typeof option === 'object') {
@@ -72,8 +73,8 @@ const StyledChevron = styled(KeyboardArrowDown)`
   ${chevron}
 `;
 
-const StyledWrapper = styled(Box)`
-  {margin}
+const StyledWrapper = styled('div')`
+  ${margin}
 `;
 
 function Select(props) {
@@ -93,19 +94,11 @@ function Select(props) {
   } = props;
   const systemProps = pick(rest);
   const componentProps = omit(rest);
-
-  // Generates an aria-describedby attribute for
-  // HelpText and Error if props.id is present
-  const describedBy = React.useMemo(() => {
-    let ids = '';
-    if (id && error) {
-      ids = `${id}-error`;
-    }
-    if (id && helpText) {
-      ids = `${id}-helptext ${ids}`;
-    }
-    return ids.length ? { 'aria-describedby': ids.trim() } : {};
-  }, [error, helpText, id]);
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
+    id,
+    hasHelpText: !!helpText,
+    hasError: !!error,
+  });
 
   const requiredIndicator = required ? (
     <Box as="span" pr="200" aria-hidden="true">
@@ -121,20 +114,12 @@ function Select(props) {
     >
       {requiredIndicator}
       {error && errorInLabel && (
-        <Box
-          as={Error}
-          id={id ? `${id}-error` : null}
-          wrapper="span"
-          error={error}
-          fontWeight="400"
-        />
+        <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
       )}
     </Label>
   );
 
-  const helpMarkup = helpText ? (
-    <HelpText id={id ? `${id}-helptext` : null}>{helpText}</HelpText>
-  ) : null;
+  const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
 
   return (
     <StyledWrapper {...systemProps}>
@@ -156,7 +141,7 @@ function Select(props) {
         </StyledSelect>
         <StyledChevron size={24} disabled={disabled} />
       </Box>
-      {error && !errorInLabel && <Error id={id ? `${id}-error` : null} error={error} />}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
     </StyledWrapper>
   );
