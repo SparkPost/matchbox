@@ -39,4 +39,11 @@ describe('Tabs', () => {
     expect(defaultprops.onSelect).toHaveBeenCalledWith(2, 0);
     expect(defaultprops.tabs[2].onClick).toHaveBeenCalledTimes(1);
   });
+
+  it('renders system props', () => {
+    const wrapper = subject({ mx: ['400', null, '10px'] });
+    const media = 'screen and (min-width:800px)';
+    expect(wrapper).toHaveStyleRule('margin-left', '10px', { media });
+    expect(wrapper).toHaveStyleRule('margin-right', tokens.spacing_400);
+  });
 });

@@ -34,3 +34,8 @@ export const tabStyles = ({ selected, fitted }) => `
     }
   }
 `;
+
+export const wrapperStyles = () => `
+  display: flex;
+  border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+`;

@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { UnstyledLink } from '../UnstyledLink';
-import { Box } from '../Box';
 import { deprecate } from '../../helpers/propTypes';
-import { tabStyles } from './styles';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { wrapperStyles, tabStyles } from './styles';
+import { pick } from '@styled-system/props';
 
 // TODO Replace this when styled-components supports shouldForwardProps
 // See: https://github.com/styled-components/styled-components/commit/e02109e626ed117b76f220d0b9b926129655262d
@@ -15,6 +17,11 @@ function LinkWrapper({ selected, fitted, ...props }) {
 
 const StyledTab = styled(LinkWrapper)`
   ${tabStyles}
+`;
+
+const StyledTabs = styled('div')`
+  ${margin}
+  ${wrapperStyles}
 `;
 
 function Tab(props) {
@@ -41,7 +48,7 @@ function Tab(props) {
 Tab.displayName = 'Tab';
 
 function Tabs(props) {
-  const { tabs, selected, onSelect, fitted } = props;
+  const { tabs, selected, onSelect, fitted, ...rest } = props;
 
   function handleClick(event, index) {
     const { onClick } = tabs[index];
@@ -56,11 +63,11 @@ function Tabs(props) {
   }
 
   return (
-    <Box display="flex" borderBottom="400">
+    <StyledTabs {...pick(rest)}>
       {tabs.map((tab, i) => (
         <Tab key={i} index={i} fitted={fitted} selected={selected} {...tab} onClick={handleClick} />
       ))}
-    </Box>
+    </StyledTabs>
   );
 }
 
@@ -94,6 +101,7 @@ Tabs.propTypes = {
   connectBelow: deprecate(PropTypes.bool, 'Deprecated in favor of margin system props'),
 
   onSelect: PropTypes.func,
+  ...createPropTypes(margin.propNames),
 };
 
 export default Tabs;

@@ -56,3 +56,10 @@ export const ExampleWithinPanel = withInfo()(() => (
     </Panel>
   </>
 ));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Tabs selected={0} tabs={tabs} my={['400', null, '800', '100px']} />
+    <Tabs fitted selected={0} tabs={tabs} mx={['400', null, '800', '200px']} />
+  </>
+));
