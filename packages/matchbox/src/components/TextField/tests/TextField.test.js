@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import TextField from '../TextField';
 
 describe('TextField', () => {
-  const subject = props => global.mountStyled(<TextField {...props}></TextField>);
+  const subject = props => global.mountStyled(<TextField id="test-id" {...props}></TextField>);
 
   const input = wrapper => wrapper.find('input');
   const label = wrapper => wrapper.find('label');
@@ -16,6 +16,7 @@ describe('TextField', () => {
     expect(input(wrapper)).toHaveStyleRule('background-color', 'white');
     expect(input(wrapper)).toHaveAttributeValue('type', 'text');
     expect(input(wrapper)).toHaveAttributeValue('resize', null);
+    expect(input(wrapper)).toHaveAttributeValue('aria-describedby', null);
   });
 
   it('renders disabled correctly', () => {
@@ -49,31 +50,17 @@ describe('TextField', () => {
   });
 
   it('renders help text with id correctly', () => {
-    const wrapper = subject({ helpText: 'help me', id: 'test-id' });
+    const wrapper = subject({ helpText: 'help me' });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-helptext');
     expect(helptext(wrapper).text()).toEqual('help me');
     expect(helptext(wrapper)).toHaveAttributeValue('id', 'test-id-helptext');
   });
 
-  it('renders help text without id correctly', () => {
-    const wrapper = subject({ helpText: 'help me' });
-    expect(input(wrapper)).toHaveAttributeValue('aria-describedby', null);
-    expect(helptext(wrapper).text()).toEqual('help me');
-    expect(helptext(wrapper)).toHaveAttributeValue('id', null);
-  });
-
   it('renders error with id correctly', () => {
-    const wrapper = subject({ error: 'error oh no', id: 'test-id' });
+    const wrapper = subject({ error: 'error oh no' });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-error');
     expect(error(wrapper).text()).toEqual('error oh no');
     expect(error(wrapper)).toHaveAttributeValue('id', 'test-id-error');
-  });
-
-  it('renders error without id correctly', () => {
-    const wrapper = subject({ error: 'error oh no' });
-    expect(input(wrapper)).toHaveAttributeValue('aria-describedby', null);
-    expect(error(wrapper).text()).toEqual('error oh no');
-    expect(error(wrapper)).toHaveAttributeValue('id', null);
   });
 
   it('renders error in label with id correctly', () => {
@@ -81,7 +68,6 @@ describe('TextField', () => {
       error: 'error oh no',
       errorInLabel: true,
       label: 'label',
-      id: 'test-id',
     });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-error');
     expect(label(wrapper).text()).toEqual('labelerror oh no');
@@ -92,7 +78,6 @@ describe('TextField', () => {
     const wrapper = subject({
       error: 'error oh no',
       helpText: 'help me',
-      id: 'test-id',
     });
     expect(input(wrapper)).toHaveAttributeValue(
       'aria-describedby',
