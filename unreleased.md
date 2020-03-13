@@ -39,3 +39,7 @@
 - #342 - Add header prop type to Table Row - type bool
 - #343 - Update the Pager Component
 - #352 - Add link styles for the status styled-component
+- #349 - Restyles the TextField component
+- #349 - TextField now properly hides a screen reader accessible label
+- #349 - TextField now properly uses aria-describedby to link to its helptext and error
+- #349 - TextField `id` prop is now required

@@ -1,6 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { getWindowRect, getRectFor, getPreferredDirectionFor, getPositionFor, lerp, useWindowSize } from '../geometry';
+import {
+  getWindowRect,
+  getRectFor,
+  getPreferredDirectionFor,
+  getPositionFor,
+  lerp,
+  useWindowSize,
+  roundToBaseline,
+} from '../geometry';
 import * as reactDomMock from 'react-dom';
 jest.mock('react-dom');
 
@@ -21,7 +29,6 @@ describe('getWindowRect', () => {
 });
 
 describe('getRectFor', () => {
-
   afterEach(() => {
     jest.resetAllMocks();
   });
@@ -34,7 +41,9 @@ describe('getRectFor', () => {
   });
 
   it('should return node dimensions', () => {
-    reactDomMock.findDOMNode.mockImplementationOnce(() => ({ getBoundingClientRect: jest.fn(() => 'dimensions') }));
+    reactDomMock.findDOMNode.mockImplementationOnce(() => ({
+      getBoundingClientRect: jest.fn(() => 'dimensions'),
+    }));
     const result = getRectFor('test');
     expect(reactDomMock.findDOMNode).toHaveBeenCalledWith('test');
     expect(result).toMatchSnapshot();
@@ -43,14 +52,16 @@ describe('getRectFor', () => {
 
 describe('useWindowSize', () => {
   it('should return window dimensions', () => {
-    const wrapper = mount(<MockComponent/>);
+    const wrapper = mount(<MockComponent />);
     expect(wrapper).toMatchSnapshot();
   });
 });
 
 describe('getPreferredDirectionFor', () => {
   beforeEach(() => {
-    reactDomMock.findDOMNode.mockImplementation(() => ({ getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, right: 80, bottom: 700 })) }));
+    reactDomMock.findDOMNode.mockImplementation(() => ({
+      getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, right: 80, bottom: 700 })),
+    }));
   });
 
   it('should return direction', () => {
@@ -60,7 +71,9 @@ describe('getPreferredDirectionFor', () => {
 
 describe('getPositionFor', () => {
   beforeEach(() => {
-    reactDomMock.findDOMNode.mockImplementation(() => ({ getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, width: 20, height: 10 })) }));
+    reactDomMock.findDOMNode.mockImplementation(() => ({
+      getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, width: 20, height: 10 })),
+    }));
   });
 
   it('should return direction', () => {
@@ -71,7 +84,6 @@ describe('getPositionFor', () => {
     expect(getPositionFor('test', { fixed: true })).toMatchSnapshot();
   });
 });
-
 
 describe('linear interpolation', () => {
   it('should correctly interpolate between two points', () => {
@@ -84,5 +96,15 @@ describe('linear interpolation', () => {
 
   it('should clamp upper bounds', () => {
     expect(lerp(-10, 30, 1.5)).toBe(30);
+  });
+});
+
+describe('round to baseline', () => {
+  it('should round up correctly', () => {
+    expect(roundToBaseline(4.5555)).toBe(8);
+    expect(roundToBaseline(4)).toBe(4);
+    expect(roundToBaseline(15)).toBe(16);
+    expect(roundToBaseline(0)).toBe(0);
+    expect(roundToBaseline(3.5, 3)).toBe(6);
   });
 });
