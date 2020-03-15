@@ -1,19 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Label';
-import styles from './Checkbox.module.scss';
+import styled from 'styled-components';
+import { group } from './styles';
+
+const StyledGroup = styled('div')`
+  ${group}
+`;
 
 const Group = ({ children, label, required }) => (
-  <div className={styles.Group}>
-    {label && <Label className={styles.GroupLabel}>{label}{required && ' *'}</Label>}
+  <StyledGroup>
+    {label && (
+      <Label>
+        {label}
+        {required && ' *'}
+      </Label>
+    )}
     {children}
-  </div>
+  </StyledGroup>
 );
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.node,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  labelHidden: PropTypes.bool,
 };
 
 Group.displayName = 'Checkbox.Group';
