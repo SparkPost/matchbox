@@ -4,7 +4,7 @@ describe('The Toggle component', () => {
   describe('Basic', () => {
     beforeEach(() => {
       cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=basic%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
+        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=basic%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
       );
     });
 
@@ -20,7 +20,7 @@ describe('The Toggle component', () => {
   describe('Disabled', () => {
     beforeEach(() => {
       cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
+        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
       );
     });
 
@@ -29,40 +29,6 @@ describe('The Toggle component', () => {
       cy.get('[data-id="toggle-input"]').should('not.be.checked');
       cy.get('label').click();
       cy.get('[data-id="toggle-input"]').should('not.be.checked');
-    });
-  });
-
-  describe('Compact', () => {
-    beforeEach(() => {
-      cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=compact%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
-      );
-    });
-
-    it('Toggles!', () => {
-      cy.get('label').click();
-      cy.get('[data-id="toggle-input"]').should('be.checked');
-      cy.get('label').click();
-      cy.get('[data-id="toggle-input"]').should('not.be.checked');
-      cy.get('label').click();
-      cy.get('[data-id="toggle-input"]').should('be.checked');
-    });
-  });
-
-  describe('Compact disabled', () => {
-    beforeEach(() => {
-      cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=compact%20and%20disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel'
-      );
-    });
-
-    it('Doesnt Toggle!', () => {
-      cy.get('label').click();
-      cy.get('[data-id="toggle-input"]').uncheck({ force: true });
-      cy.get('[data-id="toggle-input"]').should('be.checked');
-      cy.get('label').click();
-      cy.get('[data-id="toggle-input"]').uncheck({ force: true });
-      cy.get('[data-id="toggle-input"]').should('be.checked');
     });
   });
 });
