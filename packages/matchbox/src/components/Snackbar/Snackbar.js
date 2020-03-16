@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '../';
+import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';

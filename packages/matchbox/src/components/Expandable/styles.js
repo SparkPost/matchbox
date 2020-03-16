@@ -1,21 +1,9 @@
 import { tokens } from '@sparkpost/design-tokens';
-import { StyledHeader } from './Expandable';
+import { buttonReset } from '../../styles/helpers';
+import styled from 'styled-components';
 
-export const expandable = props => {
-  let borderRadius = tokens.borderRadius_100;
-
-  if (props.accent) {
-    borderRadius = `0 0 ${tokens.borderRadius_100} ${tokens.borderRadius_100}`;
-  }
-
-  return `
-    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
-    border-radius: ${borderRadius};
-    border-top-width: ${props.accent ? tokens.borderWidth_0 : tokens.borderWidth_100}
-  `;
-};
-
-export const header = () => `
+export const StyledHeader = styled('button')`
+  ${buttonReset}
   user-select: none;
   outline: none;
   padding: ${tokens.spacing_300};
@@ -34,6 +22,20 @@ export const header = () => `
     background: ${tokens.color_gray_200};
   }
 `;
+
+export const expandable = props => {
+  let borderRadius = tokens.borderRadius_100;
+
+  if (props.accent) {
+    borderRadius = `0 0 ${tokens.borderRadius_100} ${tokens.borderRadius_100}`;
+  }
+
+  return `
+    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+    border-radius: ${borderRadius};
+    border-top-width: ${props.accent ? tokens.borderWidth_0 : tokens.borderWidth_100}
+  `;
+};
 
 export const arrow = props => {
   let rotate = 'rotate(-90deg)';

@@ -4,7 +4,7 @@ import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
 import { actions, header, headerText } from './styles';
 import { padding } from 'styled-system';
-import { PanelPaddingContext } from './Panel';
+import { PanelPaddingContext } from './context';
 import { createPropTypes } from '@styled-system/prop-types';
 
 const HeaderOuter = styled('div')`
