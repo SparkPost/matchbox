@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { KeyboardArrowRight } from '@sparkpost/matchbox-icons';
+import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
 import { buttonReset } from '../../styles/helpers';
 import { expandable, header, title, subtitle, arrow, contentWrapper } from './styles';
@@ -109,6 +109,7 @@ function Expandable(props) {
           onKeyDown={handleKeyDown}
           ref={header}
           data-id="expandable-toggle"
+          type="button"
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
@@ -117,7 +118,7 @@ function Expandable(props) {
           </Box>
           <Box display="inline-block" flex="0">
             <StyledArrow isOpen={isOpen}>
-              <KeyboardArrowRight size={26} />
+              <KeyboardArrowLeft size={26} />
             </StyledArrow>
           </Box>
         </StyledHeader>
