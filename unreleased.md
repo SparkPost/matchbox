@@ -43,3 +43,4 @@
 - #349 - TextField now properly hides a screen reader accessible label
 - #349 - TextField now properly uses aria-describedby to link to its helptext and error
 - #349 - TextField `id` prop is now required
+- #351 - ThemeProvider now injects global CSS and the exported `styles.css` should no longer be used

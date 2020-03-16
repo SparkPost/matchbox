@@ -20,6 +20,7 @@ export const inputOptions = {
     '@styled-system/props',
     'styled-components',
     'styled-system',
+    'styled-normalize',
     'lodash',
   ],
 };
