@@ -25,9 +25,9 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
 // - https://github.com/styled-components/jest-styled-components/issues/266
 
 global.renderStyled = node => {
-  return render(<ThemeProvider>{node}</ThemeProvider>);
+  return render(<ThemeProvider skipGlobalStyles>{node}</ThemeProvider>);
 };
 
 global.mountStyled = node => {
-  return mount(<ThemeProvider>{node}</ThemeProvider>);
+  return mount(<ThemeProvider skipGlobalStyles>{node}</ThemeProvider>);
 };

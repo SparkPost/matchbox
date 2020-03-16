@@ -32,6 +32,7 @@
     "react-focus-lock": "^2.0.5",
     "react-transition-group": "^2.3.0",
     "styled-components": "^4.4.0",
+    "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
   "peerDependencies": {
