@@ -36,7 +36,7 @@ export const header = () => `
 `;
 
 export const arrow = props => {
-  let rotate = 'rotate(0deg)';
+  let rotate = 'rotate(-90deg)';
 
   if (props.isOpen) {
     rotate = 'rotate(90deg)';
