@@ -1,14 +1,15 @@
 import { tokens } from '@sparkpost/design-tokens';
-import { StyledOutline, StyledIndicator } from './Toggle';
+import styled from 'styled-components';
 
 export const toggle = props => `
   display: inline-block;
   position: relative;
-  height: 20px;
-  width: 36px;
-  opacity: ${props.disabled ? '0.9' : '1'};
+  height: 1.25rem;
+  width: 2.25rem;
 
-  *:hover {
+  opacity: ${props.disabled ? '0.6' : '1'}
+
+  &:hover {
     cursor: ${props.disabled ? 'not-allowed' : 'pointer'};
   }
 `;
@@ -19,32 +20,40 @@ export const indicator = props => `
   top: 1px;
   left: 1px;
   bottom: 1px;
-  width: 18px;
+  width: calc(2.25rem / 2);
 
   background: ${tokens.color_white};
-  transition: ${tokens.motionDuration_fast};
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   transform: translate(${props.checked ? tokens.spacing_400 : '0'}, 0);
 
   border-radius: ${tokens.borderRadius_circle};
-  box-shadow: ${tokens.boxShadow_400};
+  box-shadow: ${tokens.boxShadow_100};
 `;
 
-export const outline = props => `
+export const outline = () => `
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
-  background: ${props.checked ? tokens.color_green_600 : tokens.color_gray_400};
+  background: ${tokens.color_gray_600};
   border-radius: ${tokens.borderRadius_pill};
   transition: ${tokens.motionDuration_fast};
+`;
+
+export const StyledIndicator = styled('span')`
+  ${indicator}
+`;
+
+export const StyledOutline = styled('span')`
+  ${outline}
 `;
 
 export const input = () => `
   &:focus ~ ${StyledOutline},
   &:active ~ ${StyledOutline} {
-    box-shadow: 0 0 0 1px white, 0 0 0 3px ${tokens.color_blue_500};
+    box-shadow: 0 0 0 2px white, 0 0 0 4px ${tokens.color_blue_600};
   }
 
   &:checked {

@@ -3,21 +3,15 @@ import PropTypes from 'prop-types';
 import { visuallyHidden } from '../../styles/helpers';
 import styled from 'styled-components';
 import { deprecate } from '../../helpers/propTypes';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { toggle, indicator, outline, input } from './styles';
+import { toggle, input, StyledIndicator, StyledOutline } from './styles';
+import { pick } from '@styled-system/props';
 
 const StyledToggle = styled('label')`
   ${toggle}
   ${margin}
-`;
-
-export const StyledIndicator = styled('span')`
-  ${indicator}
-`;
-
-export const StyledOutline = styled('span')`
-  ${outline}
 `;
 
 const StyledInput = styled('input')`
@@ -25,22 +19,24 @@ const StyledInput = styled('input')`
   ${input}
 `;
 
-const StyledLabels = styled('div')`
-  ${visuallyHidden}
-`;
-
 function Toggle(props) {
-  const { id, value, checked, disabled, onChange, onFocus, onBlur, ...rest } = props;
-
-  const labelMarkup = (
-    <StyledLabels>
-      <span>On</span>
-      <span>Off</span>
-    </StyledLabels>
-  );
+  const {
+    id,
+    value,
+    checked,
+    disabled,
+    onChange,
+    onFocus,
+    onBlur,
+    label,
+    required,
+    ...rest
+  } = props;
+  const systemProps = pick(rest);
 
   return (
-    <StyledToggle htmlFor={id} disabled={disabled} {...rest}>
+    <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>
+      {label && <ScreenReaderOnly>{label}</ScreenReaderOnly>}
       <StyledInput
         id={id}
         value={value}
@@ -49,11 +45,11 @@ function Toggle(props) {
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+        required={required}
         type="checkbox"
         {...rest}
       />
       <StyledOutline checked={checked} />
-      {labelMarkup}
       <StyledIndicator checked={checked} />
     </StyledToggle>
   );
@@ -61,14 +57,16 @@ function Toggle(props) {
 
 Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
-  id: PropTypes.string.isRequired,
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   compact: deprecate(PropTypes.bool, 'Compact is deprecated'),
-  value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  required: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   ...createPropTypes(margin.propNames),
 };
 

@@ -23,7 +23,7 @@ export const DisabledToggle = withInfo()(() => <Toggle id="id" data-id="toggle-i
 export const SystemProps = withInfo()(() => (
   <>
     <div>
-      <Toggle mb={400} id="id" data-id="toggle-input" />
+      <Toggle mb={400} id="id" data-id="toggle-input" label="toggle-1" />
     </div>
     <div>
       <Toggle mb={800} id="id2" data-id="toggle-input-2" disabled checked={true} />

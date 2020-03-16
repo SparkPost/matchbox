@@ -1,6 +1,7 @@
 import React from 'react';
 import Toggle from '../Toggle';
 import { tokens } from '@sparkpost/design-tokens';
+import { StyledOutline } from '../styles';
 import 'jest-styled-components';
 
 describe('Toggle', () => {
@@ -10,21 +11,23 @@ describe('Toggle', () => {
 
   it('renders base styles', () => {
     wrapper = subject();
-    expect(wrapper).toHaveStyleRule('height', '20px');
-    expect(wrapper).toHaveStyleRule('width', '36px');
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_gray_400);
-    expect(wrapper.find('span').at(3)).toHaveStyleRule('transform', 'translate(0,0)');
+    expect(wrapper).toHaveStyleRule('height', '1.25rem');
+    expect(wrapper).toHaveStyleRule('width', '2.25rem');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_gray_600);
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('transform', 'translate(0,0)');
   });
 
   it('renders default checked styles', () => {
     wrapper = subject({ checked: true });
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_green_600);
-    expect(wrapper.find('span').at(3)).toHaveStyleRule('transform', 'translate(1rem,0)');
+    expect(wrapper.find('input')).toHaveStyleRule('background', tokens.color_green_600, {
+      modifier: `:checked ~ ${StyledOutline}`,
+    });
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('transform', 'translate(1rem,0)');
   });
 
   it('renders default disabled styles', () => {
     wrapper = subject({ disabled: true });
-    expect(wrapper).toHaveStyleRule('opacity', '0.9');
+    expect(wrapper).toHaveStyleRule('opacity', '0.6');
   });
 
   it('invokes events', () => {
@@ -36,5 +39,10 @@ describe('Toggle', () => {
     expect(action.onChange).toHaveBeenCalledTimes(1);
     expect(action.onFocus).toHaveBeenCalledTimes(1);
     expect(action.onBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders label', () => {
+    wrapper = subject({ label: 'test label' });
+    expect(wrapper.text()).toEqual('test label');
   });
 });
