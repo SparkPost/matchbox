@@ -7,6 +7,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
 import { margin } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
+import { buttonReset } from '../../styles/helpers';
 
 const StyledBox = styled(Box)`
   ${base}
@@ -15,6 +16,7 @@ const StyledBox = styled(Box)`
 `;
 
 const StyledClose = styled(Box)`
+  ${buttonReset}
   ${dismiss}
   ${dismissStatus}
 `;

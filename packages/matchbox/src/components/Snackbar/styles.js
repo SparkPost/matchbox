@@ -46,8 +46,6 @@ export const status = props => {
 
 export const dismiss = () => `
   display: inline-flex;
-  border: none;
-  background: transparent;
   transition: background ${tokens.motionDuration_fast};
 `;
 
