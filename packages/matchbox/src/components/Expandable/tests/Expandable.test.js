@@ -17,7 +17,7 @@ describe('Expandable component', () => {
     );
     expect(wrapper.find(Expandable.Arrow)).toHaveStyleRule(
       'transform',
-      open ? 'rotate(90deg)' : 'rotate(0deg)',
+      open ? 'rotate(90deg)' : 'rotate(-90deg)',
     );
     expect(wrapper.find(Expandable.ContentWrapper)).toHaveStyleRule(
       'visibility',
