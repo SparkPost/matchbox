@@ -95,11 +95,6 @@ Tabs.propTypes = {
    * Index of selected tab
    */
   selected: PropTypes.number.isRequired,
-  /**
-   * Connects this component with component underneath it. Works well with Panels.
-   */
-  connectBelow: deprecate(PropTypes.bool, 'Deprecated in favor of margin system props'),
-
   onSelect: PropTypes.func,
   ...createPropTypes(margin.propNames),
 };
