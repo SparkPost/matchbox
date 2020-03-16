@@ -5,17 +5,12 @@ import { margin, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { panel, panelInner } from './styles';
 import { pick } from '@styled-system/props';
+import { PanelPaddingContext } from './context';
 
 import Section from './Section';
 import Footer from './Footer';
 import Header from './Header';
 import Accent from './Accent';
-
-/**
- * Context is created here to pass system prop padding
- * to Panel.Header and Panel.Section
- */
-export const PanelPaddingContext = React.createContext({});
 
 const system = compose(margin, padding);
 
