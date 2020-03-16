@@ -7,6 +7,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
 import { margin } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
+import { buttonReset } from '../../styles/helpers';
 
 const StyledBox = styled(Box)`
   ${base}
@@ -15,6 +16,7 @@ const StyledBox = styled(Box)`
 `;
 
 const StyledClose = styled(Box)`
+  ${buttonReset}
   ${dismiss}
   ${dismissStatus}
 `;
@@ -33,7 +35,14 @@ function Snackbar(props) {
       <Box fontSize="200" lineHeight="200" py="100" pr="400" maxWidth={maxWidth} minWidth="12.5rem">
         {children}
       </Box>
-      <StyledClose status={status} as="button" p="0.125rem" mx="100" onClick={onDismiss}>
+      <StyledClose
+        status={status}
+        as="button"
+        p="0.125rem"
+        mx="100"
+        onClick={onDismiss}
+        type="button"
+      >
         <Close size={24} />
         <ScreenReaderOnly>Close</ScreenReaderOnly>
       </StyledClose>

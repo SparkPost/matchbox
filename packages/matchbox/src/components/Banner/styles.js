@@ -71,6 +71,9 @@ export function dismissBase() {
   return `
     padding: 0.25rem;
     transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+    &:hover {
+      cursor: pointer;
+    }
   `;
 }
 
