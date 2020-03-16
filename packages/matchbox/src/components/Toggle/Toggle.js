@@ -8,6 +8,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 import { pick } from '@styled-system/props';
+import { omit } from '../../helpers/systemProps';
 
 const StyledToggle = styled('label')`
   ${toggle}
@@ -33,6 +34,7 @@ function Toggle(props) {
     ...rest
   } = props;
   const systemProps = pick(rest);
+  const componentProps = omit(rest, [margin.propNames]);
 
   return (
     <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>
@@ -47,7 +49,7 @@ function Toggle(props) {
         onBlur={onBlur}
         required={required}
         type="checkbox"
-        {...rest}
+        {...componentProps}
       />
       <StyledOutline checked={checked} />
       <StyledIndicator checked={checked} />
