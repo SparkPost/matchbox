@@ -1,71 +1,56 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-
+import styled from 'styled-components';
 import { UnstyledLink } from '../UnstyledLink';
+import { deprecate } from '../../helpers/propTypes';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { wrapperStyles, tabStyles } from './styles';
+import { pick } from '@styled-system/props';
 
-import styles from './Tabs.module.scss';
+// TODO Replace this when styled-components supports shouldForwardProps
+// See: https://github.com/styled-components/styled-components/commit/e02109e626ed117b76f220d0b9b926129655262d
+// Or when UnstyledLink is updated to use system props
+function LinkWrapper({ selected, fitted, ...props }) {
+  return <UnstyledLink {...props} />;
+}
 
-class Tab extends Component {
-  static displayName = 'Tab';
+const StyledTab = styled(LinkWrapper)`
+  ${tabStyles}
+`;
 
-  handleClick = (event) => {
-    const { index, onClick } = this.props;
+const StyledTabs = styled('div')`
+  ${margin}
+  ${wrapperStyles}
+`;
+
+function Tab(props) {
+  const { index, content, selected, fitted, ...rest } = props;
+
+  function handleClick(event) {
+    const { index, onClick } = props;
     onClick(event, index);
   }
 
-  render() {
-    const { index, content, selected, fittedTab, ...rest } = this.props;
-    const classes = classnames(
-      styles.Tab,
-      selected === index && styles.selected,
-      fittedTab && styles.fittedTab
-    );
-
-    return (
-      <UnstyledLink className={classes} {...rest} onClick={this.handleClick}>
-        {content}
-      </UnstyledLink>
-    );
-  }
+  return (
+    <StyledTab
+      component="button" // Ensures focusability
+      selected={selected === index}
+      fitted={fitted}
+      {...rest}
+      onClick={handleClick}
+    >
+      {content}
+    </StyledTab>
+  );
 }
 
-class Tabs extends Component {
-  static displayName = 'Tabs';
+Tab.displayName = 'Tab';
 
-  static propTypes = {
-    /**
-     * Tab Content
-     * Actions that build the tabs. Most button and unstyled link props will work in here.
-     * e.g. { content: 'Label', onClick: callback() }
-     */
-    tabs: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.node.isRequired
-    })),
+function Tabs(props) {
+  const { tabs, selected, onSelect, fitted, ...rest } = props;
 
-    /**
-     * Tab Color
-     */
-    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
-    /**
-      * Index of selected tab
-      */
-    selected: PropTypes.number.isRequired,
-    /**
-      * Connects this component with component underneath it. Works well with Panels.
-      */
-    connectBelow: PropTypes.bool,
-
-    onSelect: PropTypes.func
-  };
-
-  static defaultProps = {
-    connectBelow: true,
-    color: 'orange'
-  };
-
-  handleClick = (event, index) => {
-    const { onSelect, selected, tabs } = this.props;
+  function handleClick(event, index) {
     const { onClick } = tabs[index];
 
     if (onClick) {
@@ -77,26 +62,41 @@ class Tabs extends Component {
     }
   }
 
-  render() {
-    const { tabs, selected, connectBelow, color, fitted } = this.props;
-
-    const tabMarkup = tabs.map((tab, i) => (
-      <Tab key={i} index={i} fittedTab={fitted} selected={selected} {...tab} onClick={this.handleClick} />
-    ));
-
-    const tabsClasses = classnames(
-      styles.Tabs,
-      styles[`color-${color}`],
-      connectBelow && styles.connectBelow,
-      fitted && styles.fitted
-    );
-
-    return (
-      <div className={tabsClasses}>
-        {tabMarkup}
-      </div>
-    );
-  }
+  return (
+    <StyledTabs {...pick(rest)}>
+      {tabs.map((tab, i) => (
+        <Tab key={i} index={i} fitted={fitted} selected={selected} {...tab} onClick={handleClick} />
+      ))}
+    </StyledTabs>
+  );
 }
+
+Tabs.displayName = 'Tabs';
+Tabs.propTypes = {
+  /**
+   * Tab Content
+   * Actions that build the tabs. Most button and unstyled link props will work in here.
+   * e.g. { content: 'Label', onClick: callback() }
+   */
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.node.isRequired,
+    }),
+  ),
+
+  /**
+   * Tab Color
+   */
+  color: deprecate(
+    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
+    'Tab color is no longer configurable',
+  ),
+  /**
+   * Index of selected tab
+   */
+  selected: PropTypes.number.isRequired,
+  onSelect: PropTypes.func,
+  ...createPropTypes(margin.propNames),
+};
 
 export default Tabs;
