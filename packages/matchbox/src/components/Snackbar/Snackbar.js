@@ -33,7 +33,14 @@ function Snackbar(props) {
       <Box fontSize="200" lineHeight="200" py="100" pr="400" maxWidth={maxWidth} minWidth="12.5rem">
         {children}
       </Box>
-      <StyledClose status={status} as="button" p="0.125rem" mx="100" onClick={onDismiss}>
+      <StyledClose
+        status={status}
+        as="button"
+        p="0.125rem"
+        mx="100"
+        onClick={onDismiss}
+        type="button"
+      >
         <Close size={24} />
         <ScreenReaderOnly>Close</ScreenReaderOnly>
       </StyledClose>

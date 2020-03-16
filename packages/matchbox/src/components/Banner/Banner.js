@@ -84,7 +84,7 @@ function Banner(props) {
 
   const dismissMarkup = onDismiss ? (
     <Box flex={['1', null, '0']} textAlign="right">
-      <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800">
+      <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800" type="button">
         <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
         <Close size={24} />
       </StyledDismiss>
