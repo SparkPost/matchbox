@@ -60,7 +60,7 @@ function Toggle(props) {
 Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  compact: deprecate(PropTypes.bool, 'Compact is deprecated'),
+  compact: deprecate(PropTypes.bool, 'Compact prop has been removed', 'error'),
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
