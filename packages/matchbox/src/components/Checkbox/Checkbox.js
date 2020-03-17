@@ -2,37 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
+import { Box } from '../Box';
 import { Check } from '@sparkpost/matchbox-icons';
 import Group from './Group';
 import { HelpText } from '../HelpText';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
+import { pick } from '@styled-system/props';
+import { omit } from '../../helpers/systemProps';
 import { createPropTypes } from '@styled-system/prop-types';
-import { visuallyHidden } from '../../styles/helpers';
-import styled from 'styled-components';
 import { margin } from 'styled-system';
-import { checkbox, control, box, check, input } from './styles';
-
-export const StyledCheckbox = styled('fieldset')`
-  ${checkbox}
-  ${margin}
-`;
-
-export const StyledInput = styled('input')`
-  ${visuallyHidden}
-  ${input}
-`;
-
-export const StyledControl = styled('label')`
-  ${control}
-`;
-
-export const StyledBox = styled('div')`
-  ${box}
-`;
-
-export const StyledCheck = styled(Check)`
-  ${check}
-`;
+import { StyledLabel, StyledCheck, StyledBox, StyledInput, Wrapper } from './styles';
 
 function Checkbox(props) {
   const {
@@ -51,55 +30,77 @@ function Checkbox(props) {
     ...rest
   } = props;
 
+  const componentProps = omit(rest, margin.propNames);
+  const systemProps = pick(rest);
+
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
     hasHelpText: !!helpText,
     hasError: !!error,
   });
 
-  const requiredIndicator = required ? ' *' : '';
-
-  const labelMarkup =
-    label && !labelHidden ? (
-      <Label id={id}>
-        {label}
-        {requiredIndicator}
-      </Label>
-    ) : null;
-
-  const errorMarkup = error ? <Error id={errorId} error={error} /> : null;
-
-  const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
-
   return (
-    <StyledCheckbox error={error} {...rest}>
-      <StyledInput
-        id={id}
-        value={value}
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        type="checkbox"
-        {...describedBy}
-        {...rest}
-      />
-      <StyledControl htmlFor={id}>
-        <StyledBox />
-        <StyledCheck size={14} />
-      </StyledControl>
-      {labelMarkup}
-      {errorMarkup}
-      {helpMarkup}
-    </StyledCheckbox>
+    <Wrapper {...systemProps}>
+      <StyledLabel error={error} htmlFor={id} disabled={disabled}>
+        <StyledInput
+          id={id}
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          type="checkbox"
+          required={required}
+          error={error}
+          {...describedBy}
+          {...componentProps}
+        />
+        <Box
+          as="span"
+          position="relative"
+          flex="0"
+          display="flex"
+          alignItems="center"
+          height="1.5rem" // Matches height of Label
+        >
+          <StyledBox
+            as="span"
+            display="inline-block"
+            borderRadius="200"
+            size="1rem"
+            lineHeight="200"
+            error={error}
+          />
+          <StyledCheck position="absolute" width="1rem" height="1rem" as={Check} />
+        </Box>
+        <Box flex="1" pl="200">
+          <Label
+            as="span" // Outer wrapper already includes a label
+            id={id}
+            label={label}
+            labelHidden={labelHidden}
+            fontWeight="400"
+            mb="0"
+          >
+            {required && (
+              <Box as="span" pr="200" aria-hidden="true">
+                *
+              </Box>
+            )}
+          </Label>
+        </Box>
+      </StyledLabel>
+      {error && <Error id={errorId} error={error} />}
+      {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
+    </Wrapper>
   );
 }
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.Group = Group;
 Checkbox.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   label: PropTypes.node,
   labelHidden: PropTypes.bool,

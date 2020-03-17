@@ -3,7 +3,16 @@ import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 
 function Label(props) {
-  const { label, id, className, children, labelHidden } = props;
+  const {
+    label,
+    id,
+    className,
+    children,
+    labelHidden,
+    as = 'label',
+    fontWeight = '500',
+    mb = '100',
+  } = props;
 
   if (labelHidden) {
     return (
@@ -19,12 +28,12 @@ function Label(props) {
   return (
     <Box
       display="block"
-      as="label"
+      as={as}
       id={id && `${id}Label`}
       htmlFor={id}
-      fontWeight="500"
+      fontWeight={fontWeight}
       className={className}
-      mb="100"
+      mb={mb}
     >
       <Box as="span" pr="200" lineHeight="200" fontSize="200">
         {label}
