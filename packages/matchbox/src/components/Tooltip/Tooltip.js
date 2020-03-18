@@ -120,7 +120,7 @@ Tooltip.propTypes = {
    * Disables hover events
    */
   disabled: PropTypes.bool,
-  dark: deprecate(PropTypes.bool, 'Use system props to set styles'),
+  dark: deprecate(PropTypes.bool, 'Use system props to set styles', 'error'),
   active: PropTypes.bool,
   left: PropTypes.bool,
   right: PropTypes.bool,
@@ -142,7 +142,7 @@ Tooltip.propTypes = {
     right: PropTypes.bool,
   }),
 
-  portalId: PropTypes.string,
+  portalId: deprecate(PropTypes.string, 'Portals are no longer used', 'error'),
   ...createPropTypes(border.propNames),
   ...createPropTypes(color.propNames),
   ...createPropTypes(layout.propNames),
