@@ -72,11 +72,6 @@ describe('Tooltip', () => {
     expect(content(wrapper)).toHaveStyleRule('padding-right', '1.5rem');
   });
 
-  it('should overwrite bg with a dark prop', () => {
-    const wrapper = subject({ bg: 'blue', dark: true });
-    expect(content(wrapper)).toHaveStyleRule('background-color', 'gray.1000'); // Theme key not mocked in tests
-  });
-
   it('should render overlay', () => {
     const wrapper = subject();
     expect(wrapper.find('span').at(0)).toHaveStyleRule('z-index', '1000');
