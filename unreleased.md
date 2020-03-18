@@ -61,3 +61,4 @@
 - #355 - Checkbox `id` prop is now required
 - #355 - Checkbox now properly hides a screen reader accessible label
 - #355 - Checkbox now properly uses aria-describedby to link to its helptext and error
+- #355 - Checkbox.Group now properly uses a `fieldset` and `legend` elements
