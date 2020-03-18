@@ -28,30 +28,29 @@ function TooltipOverlay(props) {
   const { id, renderTooltip, renderActivator, eventDebounce, visible } = props;
 
   function handleMeasurement() {
-    if (activatorRef.current) {
-      setPosition(getPositionFor(activatorRef.current));
+    if (activatorRef.current && visible) {
+      setPosition(getPositionFor(activatorRef.current, { fixed: true }));
       setPreferredDirection(getPreferredDirectionFor(activatorRef.current));
     }
   }
 
   React.useLayoutEffect(() => {
     handleMeasurement();
-  }, [renderTooltip, renderActivator, activatorRef]);
+  }, [renderTooltip, renderActivator, activatorRef, visible]);
 
   return (
     <>
-      <WindowEvent event="resize" handler={debounce(handleMeasurement, eventDebounce)} />
       <WindowEvent event="scroll" handler={debounce(handleMeasurement, eventDebounce)} />
       {renderActivator({ activatorRef })}
       <Box
         {...(!visible ? { 'aria-hidden': true } : {})}
         as="span"
         id={id}
-        position="absolute"
         // Fixes this wrapper to the top and left of viewport
         // Handles any potential 'position: relative' on a parent
-        top={-position.top}
-        left={-position.left}
+        position="fixed"
+        top={0}
+        left={0}
         style={{
           pointerEvents: 'none',
         }}
