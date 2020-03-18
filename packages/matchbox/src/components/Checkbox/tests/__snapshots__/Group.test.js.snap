@@ -1,32 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox Group renders correctly 1`] = `
-<div
-  className="Group"
->
-  <Label
-    className="GroupLabel"
+<styled.fieldset>
+  <Box
+    as="legend"
+    fontSize="200"
+    lineHeight="200"
+    mb="100"
   >
     Checkbox Label
-  </Label>
+  </Box>
   <span>
     Checkbox Child
   </span>
-</div>
+</styled.fieldset>
 `;
 
 exports[`Checkbox Group renders correctly on required 1`] = `
-<div
-  className="Group"
->
-  <Label
-    className="GroupLabel"
+<styled.fieldset>
+  <Box
+    as="legend"
+    fontSize="200"
+    lineHeight="200"
+    mb="100"
   >
     Checkbox Label
-     *
-  </Label>
+    <Box
+      aria-hidden="true"
+      as="span"
+      pr="200"
+    >
+      *
+    </Box>
+  </Box>
   <span>
     Checkbox Child
   </span>
-</div>
+</styled.fieldset>
 `;

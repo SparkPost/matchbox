@@ -17,16 +17,16 @@ function Checkbox(props) {
   const {
     id,
     checked,
+    disabled,
+    error,
+    helpText,
     label,
     labelHidden,
-    disabled,
-    required,
-    error,
-    value,
     onChange,
     onFocus,
     onBlur,
-    helpText,
+    required,
+    value,
     ...rest
   } = props;
 
@@ -81,7 +81,7 @@ function Checkbox(props) {
             label={label}
             labelHidden={labelHidden}
             fontWeight="400"
-            mb="0"
+            mb="0" // TODO Remove once margin 0 is baked into Label
           >
             {required && (
               <Box as="span" pr="200" aria-hidden="true">
