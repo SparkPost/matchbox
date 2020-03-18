@@ -15,6 +15,8 @@ export const BasicToggle = withInfo()(() => <Toggle id="id" data-id="toggle-inpu
 
 export const DisabledToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" disabled />);
 
+export const RequiredToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" required />);
+
 export const SystemProps = withInfo()(() => (
   <>
     <div>

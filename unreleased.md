@@ -55,3 +55,5 @@
 - #346 - Tooltips no longer accept the prop `debounceEvent`
 - #353 - Restyles the Toggle component
 - #353 - Deprecates Toggle prop `compact`
+- #353 - Adds new Toggle prop `label`
+- #349 - Toggle `id` prop is now required

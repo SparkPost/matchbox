@@ -23,11 +23,13 @@ describe('Toggle', () => {
       modifier: `:checked ~ ${StyledOutline}`,
     });
     expect(wrapper.find('span').at(1)).toHaveStyleRule('transform', 'translate(1rem,0)');
+    expect(wrapper.find('input')).toHaveAttributeValue('checked', '');
   });
 
   it('renders default disabled styles', () => {
     wrapper = subject({ disabled: true });
     expect(wrapper).toHaveStyleRule('opacity', '0.6');
+    expect(wrapper.find('input')).toHaveAttributeValue('disabled', '');
   });
 
   it('invokes events', () => {

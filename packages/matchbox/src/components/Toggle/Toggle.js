@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { visuallyHidden } from '../../styles/helpers';
 import styled from 'styled-components';
-import { deprecate } from '../../helpers/propTypes';
-import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 import { pick } from '@styled-system/props';
+import { createPropTypes } from '@styled-system/prop-types';
+import { visuallyHidden } from '../../styles/helpers';
+import { deprecate } from '../../helpers/propTypes';
 import { omit } from '../../helpers/systemProps';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 
 const StyledToggle = styled('label')`
   ${toggle}
@@ -60,7 +60,7 @@ function Toggle(props) {
 Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  compact: deprecate(PropTypes.bool, 'Compact prop has been removed', 'error'),
+  compact: deprecate(PropTypes.bool, 'Compact prop has been removed'),
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
