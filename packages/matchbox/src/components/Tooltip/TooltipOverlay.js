@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { WindowEvent } from '../WindowEvent';
-import { debounce } from '../../helpers/event';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
@@ -25,12 +24,20 @@ function TooltipOverlay(props) {
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const { id, renderTooltip, renderActivator, eventDebounce, visible } = props;
+  const { id, renderTooltip, renderActivator, hideTooltip, visible } = props;
 
   function handleMeasurement() {
     if (activatorRef.current && visible) {
       setPosition(getPositionFor(activatorRef.current, { fixed: true }));
       setPreferredDirection(getPreferredDirectionFor(activatorRef.current));
+    }
+  }
+
+  // Tooltips are fixed to the window and do not reposition on scroll
+  // This hides them since scrolling does not automatically trigger `mouseOut`
+  function handleScroll() {
+    if (visible) {
+      hideTooltip();
     }
   }
 
@@ -40,7 +47,7 @@ function TooltipOverlay(props) {
 
   return (
     <>
-      <WindowEvent event="scroll" handler={debounce(handleMeasurement, eventDebounce)} />
+      <WindowEvent event="scroll" handler={handleScroll} />
       {renderActivator({ activatorRef })}
       <Box
         {...(!visible ? { 'aria-hidden': true } : {})}
@@ -65,15 +72,9 @@ function TooltipOverlay(props) {
 }
 
 TooltipOverlay.displayName = 'TooltipOverlay';
-
-TooltipOverlay.defaultProps = {
-  eventDebounce: 400,
-};
-
 TooltipOverlay.propTypes = {
   renderActivator: PropTypes.func.isRequired,
   renderTooltip: PropTypes.func.isRequired,
-  eventDebounce: PropTypes.number,
 };
 
 export default TooltipOverlay;

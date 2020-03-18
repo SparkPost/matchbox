@@ -52,3 +52,4 @@
 - #346 - Adds new `id` prop on Tooltip
 - #346 - Tooltips are now properly positioned after the trigger in the DOM, no longer use portals
   and the `portalId` prop
+- #346 - Tooltips no longer accept the prop `debounceEvent`

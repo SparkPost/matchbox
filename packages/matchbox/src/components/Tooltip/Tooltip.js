@@ -103,8 +103,8 @@ function Tooltip(props) {
 
   return (
     <TooltipOverlay
-      eventDebounce={props.eventDebounce}
       id={props.id}
+      hideTooltip={handleMouseOut}
       renderTooltip={renderTooltip}
       renderActivator={renderActivator}
       visible={!props.disabled && hover}
