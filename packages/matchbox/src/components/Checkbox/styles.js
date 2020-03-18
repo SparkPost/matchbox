@@ -9,7 +9,7 @@ export const Wrapper = styled('div')`
 `;
 
 export const StyledBox = styled(Box)`
-  border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_gray_500)};
+  border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_gray_700)};
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   transition-property: border, background;
 `;
@@ -32,7 +32,7 @@ export const StyledLabel = styled('label')`
     cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
     ${StyledBox} {
-      ${props => (!props.disabled ? `border: 2px solid ${tokens.color_gray_700};` : '')}
+      ${props => (!props.disabled ? `border: 2px solid ${tokens.color_gray_800};` : '')}
     }
   }
 `;
@@ -57,6 +57,7 @@ export const StyledInput = styled('input')`
 
   &:disabled ~ span ${StyledBox} {
     background: ${tokens.color_gray_300};
+    border: 2px solid ${tokens.color_gray_600};
   }
 
   &:disabled:checked ~ span ${StyledBox} {

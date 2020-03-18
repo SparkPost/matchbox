@@ -10,7 +10,7 @@ export default {
   title: 'Form|Checkbox',
 };
 
-export const BasicCheckout = withInfo()(() => <Checkbox id="id" label="Check Me" />);
+export const BasicCheckbox = withInfo()(() => <Checkbox id="id" label="Check Me" />);
 
 export const WithoutLabel = withInfo()(() => <Checkbox id="id" label="Check Me" labelHidden />);
 
