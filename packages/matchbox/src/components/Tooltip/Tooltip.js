@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TooltipOverlay from './TooltipOverlay';
-import { Box } from '../Box';
-
 import styled from 'styled-components';
-import { visibility } from './styles';
-import { deprecate } from '../../helpers/propTypes';
-import { border, shadow, background, padding, typography, compose } from 'styled-system';
+import { border, color, compose, layout, padding, typography, shadow } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
+import TooltipOverlay from './TooltipOverlay';
+import { Box } from '../Box';
+import { visibility } from './styles';
+import { deprecate } from '../../helpers/propTypes';
 
-const system = compose(border, shadow, background, padding, typography);
+const system = compose(border, color, layout, padding, typography, shadow);
 
 const StyledTooltipContainer = styled(Box)`
   ${visibility}
 `;
 
-const StyledContent = styled(Box)`
+const StyledContent = styled('div')`
   ${system}
 `;
 
@@ -105,14 +104,17 @@ function Tooltip(props) {
   return (
     <TooltipOverlay
       eventDebounce={props.eventDebounce}
-      portalId={props.portalId}
+      id={props.id}
       renderTooltip={renderTooltip}
       renderActivator={renderActivator}
+      visible={!props.disabled && hover}
     />
   );
 }
+
 Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
+  id: PropTypes.string,
   content: PropTypes.node,
   /**
    * Disables hover events
@@ -139,15 +141,14 @@ Tooltip.propTypes = {
     left: PropTypes.bool,
     right: PropTypes.bool,
   }),
-  /**
-   * Element ID for the portal that will house tooltips. Appends to body if not provided.
-   */
+
   portalId: PropTypes.string,
   ...createPropTypes(border.propNames),
-  ...createPropTypes(shadow.propNames),
-  ...createPropTypes(background.propNames),
+  ...createPropTypes(color.propNames),
+  ...createPropTypes(layout.propNames),
   ...createPropTypes(padding.propNames),
   ...createPropTypes(typography.propNames),
+  ...createPropTypes(shadow.propNames),
 };
 
 Tooltip.defaultProps = {

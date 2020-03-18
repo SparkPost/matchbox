@@ -12,12 +12,15 @@ export default {
 };
 
 export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
-  <Button.Group>
-    <Tooltip content="Hellow I am a Tooltip">
-      <Button onClick={action('click')}>Accepted</Button>
-    </Tooltip>
-    <Button disabled>Targeted</Button>
-  </Button.Group>
+  // Adding a Box here to test relative positioning
+  <Box position="relative">
+    <Button.Group>
+      <Tooltip content="Hellow I am a Tooltip">
+        <Button onClick={action('click')}>Accepted</Button>
+      </Tooltip>
+      <Button disabled>Targeted</Button>
+    </Button.Group>
+  </Box>
 ));
 
 export const SpecifiedWidth = withInfo({ propTables: [Tooltip] })(() => (

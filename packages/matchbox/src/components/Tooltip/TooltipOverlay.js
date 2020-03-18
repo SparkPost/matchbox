@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { debounce } from '../../helpers/event';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
@@ -26,7 +25,7 @@ function TooltipOverlay(props) {
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const { renderTooltip, renderActivator, eventDebounce, portalId } = props;
+  const { id, renderTooltip, renderActivator, eventDebounce, visible } = props;
 
   function handleMeasurement() {
     if (activatorRef.current) {
@@ -44,18 +43,24 @@ function TooltipOverlay(props) {
       <WindowEvent event="resize" handler={debounce(handleMeasurement, eventDebounce)} />
       <WindowEvent event="scroll" handler={debounce(handleMeasurement, eventDebounce)} />
       {renderActivator({ activatorRef })}
-      <Portal containerId={portalId}>
-        <Box
-          position="absolute"
-          zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
-          {...position}
-          style={{
-            pointerEvents: 'none',
-          }}
-        >
+      <Box
+        {...(!visible ? { 'aria-hidden': true } : {})}
+        as="span"
+        id={id}
+        position="absolute"
+        // Fixes this wrapper to the top and left of viewport
+        // Handles any potential 'position: relative' on a parent
+        top={-position.top}
+        left={-position.left}
+        style={{
+          pointerEvents: 'none',
+        }}
+        zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+      >
+        <Box as="span" position="absolute" {...position}>
           {renderTooltip({ preferredDirection })}
         </Box>
-      </Portal>
+      </Box>
     </>
   );
 }

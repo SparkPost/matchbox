@@ -5,13 +5,13 @@ import 'jest-styled-components';
 describe('Tooltip', () => {
   const subject = props =>
     global.mountStyled(
-      <Tooltip content="content test" {...props}>
+      <Tooltip content="content test" id="test-id" {...props}>
         <button>test</button>
       </Tooltip>,
     );
 
-  const container = wrapper => wrapper.find('div').at(2);
-  const content = wrapper => wrapper.find('div').at(3);
+  const container = wrapper => wrapper.find('div').at(1);
+  const content = wrapper => wrapper.find('div').at(2);
 
   it('should render default styles correctly', () => {
     const wrapper = subject();
@@ -79,10 +79,11 @@ describe('Tooltip', () => {
 
   it('should render overlay', () => {
     const wrapper = subject();
-    expect(wrapper.find('Portal').at(0)).toHaveStyleRule('z-index', '1000');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('z-index', '1000');
+    expect(wrapper.find('span').at(0)).toHaveAttributeValue('id', 'test-id');
     // These values are 0 but shows the positioning is working
-    expect(wrapper.find('Portal').at(0)).toHaveStyleRule('top', '0');
-    expect(wrapper.find('Portal').at(0)).toHaveStyleRule('left', '0');
-    expect(wrapper.find('Portal').at(0)).toHaveStyleRule('height', '0');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('top', '0');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('left', '0');
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('height', '0');
   });
 });
