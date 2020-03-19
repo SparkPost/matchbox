@@ -5,12 +5,13 @@ import { margin } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { ChevronLeft, MoreHoriz } from '@sparkpost/matchbox-icons';
-import { Box } from '../Box';
 import { ActionList } from '../ActionList';
-import { Popover } from '../Popover';
+import { Box } from '../Box';
 import { Button } from '../Button';
-import { UnstyledLink } from '../UnstyledLink';
 import { EmptyState } from '../EmptyState';
+import { Popover } from '../Popover';
+import { UnstyledLink } from '../UnstyledLink';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { filterByVisible } from '../../helpers/array';
 
 const Wrapper = styled('div')`
@@ -44,6 +45,7 @@ function Subtitle({ subtitle }) {
   return <div>{subtitle}</div>;
 }
 
+// TODO verify this with Popover and Actionlist tickets
 function SecondaryActions({ actions = [], hasPrimaryAction }) {
   const visibleActions = React.useMemo(() => filterByVisible(actions), [actions]);
 
@@ -51,7 +53,6 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return null;
   }
 
-  // TODO verify this with Popover and Actionlist tickets
   return (
     <Popover
       bottom
@@ -65,6 +66,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
           >
             <Box position="absolute">
               <MoreHoriz />
+              <ScreenReaderOnly>More Options</ScreenReaderOnly>
             </Box>
           </Button>
         </Box>
