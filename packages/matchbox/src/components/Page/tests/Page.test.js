@@ -69,4 +69,9 @@ describe('Page', () => {
     const wrapper = subject({ primaryArea: <div data-test="test-id">test</div> });
     expect(wrapper.find('[data-test="test-id"]').text()).toEqual('test');
   });
+
+  it('renders system props', () => {
+    const wrapper = subject({ mb: '600' });
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-bottom', '2rem');
+  });
 });

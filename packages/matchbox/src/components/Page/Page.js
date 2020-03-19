@@ -36,7 +36,12 @@ function Subtitle({ subtitle }) {
 
   if (typeof subtitle === 'string') {
     return (
-      <Box as="h2" fontSize="500" lineHeight="500" fontWeight="normal">
+      <Box
+        as="h2"
+        fontSize={['300', null, null, '500']}
+        lineHeight={['300', null, null, '500']}
+        fontWeight="normal"
+      >
         {subtitle}
       </Box>
     );
@@ -128,7 +133,12 @@ function Page(props) {
         <Box display="flex" alignItems="center">
           <Box flex="1">
             {title && (
-              <Box as="h1" fontWeight="medium">
+              <Box
+                as="h1"
+                fontWeight="medium"
+                fontSize={['500', null, '600', '700']}
+                lineHeight={['500', null, '600', '700']}
+              >
                 {title}
               </Box>
             )}

@@ -60,7 +60,7 @@ export const BasicExample = withInfo(infoOptions)(() => (
   </Page>
 ));
 
-export const WithEmbeddedEmptyState = withInfo(infoOptions)(() => (
+export const EmbeddedEmptyState = withInfo(infoOptions)(() => (
   <Page
     empty={{
       show: true,
@@ -77,7 +77,7 @@ export const WithEmbeddedEmptyState = withInfo(infoOptions)(() => (
   />
 ));
 
-export const WithAPrimaryArea = withInfo(infoOptions)(() => (
+export const PrimaryArea = withInfo(infoOptions)(() => (
   <Page
     title="Signals"
     subtitle="Health Score for test.com"
@@ -89,7 +89,7 @@ export const WithAPrimaryArea = withInfo(infoOptions)(() => (
   />
 ));
 
-export const WithASubtitleNodeAndPrimaryArea = withInfo(infoOptions)(() => (
+export const SubtitleNodeAndPrimaryArea = withInfo(infoOptions)(() => (
   <Page
     title={
       <span>
@@ -107,4 +107,10 @@ export const WithASubtitleNodeAndPrimaryArea = withInfo(infoOptions)(() => (
       </div>
     }
   />
+));
+
+export const SystemProps = withInfo(infoOptions)(() => (
+  <Page primaryAction={primaryAction} title="Template #3" mb={['200', null, '400', '700']}>
+    <Panel sectioned>Content</Panel>
+  </Page>
 ));
