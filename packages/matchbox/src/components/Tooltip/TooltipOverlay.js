@@ -1,76 +1,80 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
-import { debounce } from '../../helpers/event';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
-import styles from './TooltipOverlay.module.scss';
+import { tokens } from '@sparkpost/design-tokens';
+import { Box } from '../Box';
 
-class TooltipOverlay extends Component {
-  static displayName = 'TooltipOverlay';
+const defaultPosition = {
+  top: 0,
+  left: 0,
+  width: 0,
+  height: 0,
+};
 
-  static defaultProps = {
-    eventDebounce: 400
-  }
+const defaultDirection = {
+  top: null,
+  bottom: null,
+  left: null,
+  right: null,
+};
 
-  static propTypes = {
-    renderActivator: PropTypes.func.isRequired,
-    renderTooltip: PropTypes.func.isRequired,
-    eventDebounce: PropTypes.number
-  }
+function TooltipOverlay(props) {
+  const [position, setPosition] = React.useState(defaultPosition);
+  const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
+  const activatorRef = React.useRef(null);
 
-  state = {
-    position: {
-      top: 0,
-      left: 0,
-      width: 0,
-      height: 0
-    },
-    preferredDirection: {
-      top: null,
-      bottom: null,
-      left: null,
-      right: null
+  const { id, renderTooltip, renderActivator, hideTooltip, visible } = props;
+
+  function handleMeasurement() {
+    if (activatorRef.current && visible) {
+      setPosition(getPositionFor(activatorRef.current, { fixed: true }));
+      setPreferredDirection(getPreferredDirectionFor(activatorRef.current));
     }
   }
 
-  componentDidMount() {
-    this.handleMeasurement();
+  // Tooltips are fixed to the window and do not reposition on scroll
+  // This hides them since scrolling does not automatically trigger `mouseOut`
+  function handleScroll() {
+    if (visible) {
+      hideTooltip();
+    }
   }
 
-  componentWillReceiveProps() {
-    this.handleMeasurement();
-  }
+  React.useLayoutEffect(() => {
+    handleMeasurement();
+  }, [renderTooltip, renderActivator, activatorRef, visible]);
 
-  handleMeasurement = () => {
-    this.setState({
-      preferredDirection: getPreferredDirectionFor(this.activator),
-      position: getPositionFor(this.activator)
-    });
-  }
-
-  render() {
-    const { renderTooltip, renderActivator, eventDebounce, portalId } = this.props;
-    const { position, preferredDirection } = this.state;
-
-    const tooltipProps = { preferredDirection };
-    const activatorProps = {
-      activatorRef: (node) => this.activator = node
-    };
-
-    return (
-      <Fragment>
-        <WindowEvent event='resize' handler={debounce(this.handleMeasurement, eventDebounce)} />
-        <WindowEvent event='scroll' handler={debounce(this.handleMeasurement, eventDebounce)} />
-        {renderActivator(activatorProps)}
-        <Portal containerId={portalId}>
-          <div className={styles.TooltipOverlay} style={position}>
-            {renderTooltip(tooltipProps)}
-          </div>
-        </Portal>
-      </Fragment>
-    );
-  }
+  return (
+    <>
+      <WindowEvent event="scroll" handler={handleScroll} />
+      {renderActivator({ activatorRef })}
+      <Box
+        {...(!visible ? { 'aria-hidden': true } : {})}
+        as="span"
+        id={id}
+        // Fixes this wrapper to the top and left of viewport
+        // Handles any potential 'position: relative' on a parent
+        position="fixed"
+        top={0}
+        left={0}
+        style={{
+          pointerEvents: 'none',
+        }}
+        zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+      >
+        <Box as="span" position="absolute" {...position}>
+          {renderTooltip({ preferredDirection })}
+        </Box>
+      </Box>
+    </>
+  );
 }
+
+TooltipOverlay.displayName = 'TooltipOverlay';
+TooltipOverlay.propTypes = {
+  renderActivator: PropTypes.func.isRequired,
+  renderTooltip: PropTypes.func.isRequired,
+};
 
 export default TooltipOverlay;
