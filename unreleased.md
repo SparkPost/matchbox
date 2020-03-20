@@ -47,3 +47,9 @@
 - #354 - Adds type="button" to Snackbar, Banner, Tag, Expandable button elements
 - #356 - Restyles Page component
 - #356 - Removes the default prop `empty`
+- #346 - Restyle Tooltip component
+- #346 - Deprecates the dark prop on Tooltip
+- #346 - Adds new `id` prop on Tooltip
+- #346 - Tooltips are now properly positioned after the trigger in the DOM, no longer use portals
+  and the `portalId` prop
+- #346 - Tooltips no longer accept the prop `debounceEvent`

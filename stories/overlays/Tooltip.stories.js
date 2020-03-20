@@ -1,65 +1,86 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
 
-import { Tooltip, Button } from '@sparkpost/matchbox';
+import { ThemeProvider, Tooltip, Button, Box } from '@sparkpost/matchbox';
 
-storiesOf('Overlays|Tooltip', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-  .add('Default Style', withInfo({
-    propTablesExclude: [Button, Button.Group]
-  })(() => (
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+
+export default {
+  title: 'Overlays|Tooltip',
+};
+
+export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
+  // Adding a Box here to test relative positioning
+  <Box position="relative">
     <Button.Group>
-      <Tooltip
-        content='Messages an ISP or other remote domain accepted' >
+      <Tooltip content="Hellow I am a Tooltip">
         <Button onClick={action('click')}>Accepted</Button>
       </Tooltip>
       <Button disabled>Targeted</Button>
     </Button.Group>
-  )))
+  </Box>
+));
 
-  .add('Dark & top', withInfo({
-    propTablesExclude: [Button, Button.Group]
-  })(() => (
-    <div style={{ marginTop: 100 }}>
-      <Tooltip
-        content='Messages an ISP or other remote domain accepted'
-        dark top>
-        <Button>Accepted</Button>
-      </Tooltip>
-    </div>
-  )))
+export const SpecifiedWidth = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <Tooltip dark width="auto" content="Short">
+      <Button>Hover</Button>
+    </Tooltip>
 
-  .add('Positioned Automatically', withInfo({
-    propTablesExclude: [Button, Button.Group],
-    text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
-  })(() => (
-    <div>
-      <p><small>Tooltips are positioned automatically based on the components position.</small></p>
-      <p><small>Scroll down and hover</small></p>
-      <div style={{height:'400px'}}/>
-      <Tooltip
-        content='Messages an ISP or other remote domain accepted'>
-        <Button>Hover</Button>
-      </Tooltip>
-    </div>
-  )))
+    <Tooltip width="500px" content="Very long">
+      <Button>Hover</Button>
+    </Tooltip>
+  </div>
+));
 
-  .add('With Specified Width', withInfo({
-    propTablesExclude: [Button, Button.Group],
-    text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
-  })(() => (
-    <div>
-      <Tooltip width='auto' content='Short'>
-        <Button>Hover</Button>
-      </Tooltip>
+export const Positioning = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <p>
+      <small>
+        Tooltips are positioned automatically based on the components position within the viewport.
+      </small>
+    </p>
+    <p>
+      <small>Scroll down and hover</small>
+    </p>
+    <div style={{ height: '400px' }} />
+    <Tooltip content="Tooltips are positioned automatically based on the components position.">
+      <Button>Hover me</Button>
+    </Tooltip>
 
-      <Tooltip width='500px' content='Very long'>
-        <Button>Hover</Button>
+    <Box textAlign="right">
+      <Tooltip content="Tooltips are positioned automatically based on the components position.">
+        <Button>Hover me</Button>
       </Tooltip>
-    </div>
-  )));
+    </Box>
+  </div>
+));
+
+export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <Tooltip
+      content="Hello I am a Tooltip"
+      padding="600"
+      bg="white"
+      boxShadow="300"
+      color="purple.700"
+      border="400"
+    >
+      <Button>Hover</Button>
+    </Tooltip>
+
+    <Tooltip
+      content="Hello I am a Tooltip"
+      bg="red.700"
+      fontSize="600"
+      lineHeight="600"
+      fontWeight="semibold"
+      p="700"
+      width="30rem"
+    >
+      <Button>Hover</Button>
+    </Tooltip>
+  </div>
+));
