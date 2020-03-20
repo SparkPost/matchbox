@@ -46,3 +46,5 @@
 - #348 - Restyles the Tabs component
 - #348 - Tab `connectBelow` is removed in favor of margin system props
 - #354 - Adds type="button" to Snackbar, Banner, Tag, Expandable button elements
+- #356 - Restyles Page component
+- #356 - Removes the default prop `empty`
