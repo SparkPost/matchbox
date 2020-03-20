@@ -5,9 +5,7 @@ export const table = () => `
   text-align: left;
   width: 100%;
   padding: 0;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border-collapse: collapse;
 `;
 
 export const headerCell = () => `
@@ -20,12 +18,15 @@ export const cell = () => `
   word-break: break-all;
 `;
 
-export const row = props => `
+export const row = () => `
   background: ${tokens.color_white};
-  border-bottom: ${
-    props.header ? `${tokens.borderWidth_100} solid ${tokens.color_gray_400}` : 'none'
+  border: none;
+
+  thead & {
+    border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
   }
-  &:nth-of-type(odd) {
-    background: ${props.header ? tokens.color_white : tokens.color_gray_100};
+
+  tbody &:nth-of-type(even) {
+    background: ${tokens.color_gray_100};
   }
 `;

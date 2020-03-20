@@ -57,9 +57,9 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ rowData, children, className, header, ...rest }) => {
+const Row = ({ rowData, children, className, ...rest }) => {
   return (
-    <StyledRow header={header} className={className} {...rest}>
+    <StyledRow className={className} {...rest}>
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledRow>
   );
@@ -69,7 +69,6 @@ Row.propTypes = {
   rowData: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
-  header: PropTypes.bool,
 };
 Row.displayName = 'Table.Row';
 
