@@ -1,88 +1,98 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { createPropTypes } from '@styled-system/prop-types';
+import { margin, layout, compose } from 'styled-system';
 import { groupByValues, filterByVisible } from '../../helpers/array';
-import { linkFrom } from '../UnstyledLink';
-import { Check } from '@sparkpost/matchbox-icons';
-import styles from './ActionList.module.scss';
+import { Box } from '../Box';
+import { CheckBox } from '@sparkpost/matchbox-icons';
+import { StyledLink, StyledSection } from './styles';
 
-const Section = ({ section }) => {
-  const actions = filterByVisible(section).map(({ className, highlighted, selected, content, ...action }, index) => {
+const system = compose(margin, layout);
+const Wrapper = styled('div')`
+  ${system}
+  overflow-y: auto;
+`;
 
-    const classes = classnames(
-      styles.Action,
-      highlighted && styles.highlighted,
-      className
-    );
+function Action(props) {
+  const { selected, content, ...action } = props;
 
-    const linkContent = selected
-      ? <span>{content}<Check className={styles.Check} size={21}/></span>
-      : content;
+  const linkContent = selected ? (
+    <Box as="span" display="flex" alignItems="center">
+      <Box flex="1">{content}</Box>
+      <Box color="blue.700">
+        <CheckBox size={20} />
+      </Box>
+    </Box>
+  ) : (
+    content
+  );
+  return <StyledLink {...action}>{linkContent}</StyledLink>;
+}
 
-    return linkFrom({ content: linkContent, ...action, className: classes }, index);
-  });
+function Section({ section }) {
+  const visibleActions = filterByVisible(section).map((action, i) => (
+    <Action key={i} {...action} />
+  ));
+
+  if (!visibleActions.length) {
+    return null;
+  }
+
+  return <StyledSection>{visibleActions}</StyledSection>;
+}
+
+function ActionList(props) {
+  const {
+    actions = [],
+    sections = [],
+    maxHeight = 'none',
+    groupByKey = 'section',
+    ...rest
+  } = props;
+
+  let list = actions.length ? groupByValues(actions, groupByKey) : [];
+  if (sections.length) {
+    list = list.concat(sections);
+  }
+
+  const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
   return (
-    <div className={styles.Section}>
-      {actions}
-    </div>
+    <Wrapper maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight} {...rest}>
+      {listMarkup}
+    </Wrapper>
   );
-};
-
-class ActionList extends Component {
-  static displayName = 'ActionList';
-
-  static propTypes = {
-    /**
-      * Actions
-      * e.g. [{ content: 'action label', onClick: callback() }]
-      *
-      * Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
-      */
-    actions: PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
-    /**
-      * Creates sections
-      * e.g. [[{ content: 'action label', onClick: callback() }]]
-      */
-    sections: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired }))),
-
-    /**
-      * Max height of list
-      */
-    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-    /**
-     * Group by key used to auto group actions into sections, defaults to "section"
-     */
-    groupByKey: PropTypes.string
-  };
-
-  static defaultProps = {
-    groupByKey: 'section'
-  };
-
-  render() {
-    const {
-      actions = [],
-      sections = [],
-      maxHeight = 'none',
-      groupByKey,
-      ...rest
-    } = this.props;
-
-    let list = actions.length ? groupByValues(actions, groupByKey) : [];
-    if (sections.length) {
-      list = list.concat(sections);
-    }
-
-    const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
-
-    return (
-      <div className={styles.ActionList} style={{ maxHeight }} {...rest}>
-        {listMarkup}
-      </div>
-    );
-  }
 }
+
+ActionList.displayName = 'ActionList';
+ActionList.propTypes = {
+  /**
+   * Actions
+   * e.g. [{ content: 'action label', onClick: callback() }]
+   *
+   * Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
+   */
+  actions: PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
+  /**
+   * Creates sections
+   * e.g. [[{ content: 'action label', onClick: callback() }]]
+   */
+  sections: PropTypes.arrayOf(
+    PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
+  ),
+
+  /**
+   * Max height of list
+   */
+  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * Group by key used to auto group actions into sections, defaults to "section"
+   */
+  groupByKey: PropTypes.string,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(layout.propNames),
+};
 
 export default ActionList;
