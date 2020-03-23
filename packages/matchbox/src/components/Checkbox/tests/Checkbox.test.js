@@ -51,11 +51,13 @@ describe('Checkbox', () => {
   it('renders disabled', () => {
     const wrapper = subject({ disabled: true });
     expect(wrapper.find('label')).toHaveStyleRule('cursor', 'not-allowed', { modifier: ':hover' });
+    expect(wrapper.find('input')).toBeDisabled();
   });
 
   it('renders required', () => {
     const wrapper = subject({ required: true, label: 'test-label' });
     expect(wrapper.text()).toEqual('test-label*');
+    expect(wrapper.find('input')).toHaveAttributeValue('required', '');
   });
 
   it('renders help text', () => {
