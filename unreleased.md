@@ -58,3 +58,4 @@
 - #353 - Deprecates Toggle prop `compact`
 - #353 - Adds new Toggle prop `label`
 - #349 - Toggle `id` prop is now required
+- #359 - Restyles the ScreenReaderOnly component
