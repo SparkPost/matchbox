@@ -30,6 +30,16 @@ function Action(props) {
   return <StyledLink {...action}>{linkContent}</StyledLink>;
 }
 
+Action.propTypes = {
+  content: PropTypes.node,
+  selected: PropTypes.bool,
+  /**
+   * Same as hover styles.
+   * Can be used for wrappers that manage focus within the menu, eg downshift
+   */
+  highlighted: PropTypes.bool,
+};
+
 function Section({ section }) {
   const visibleActions = filterByVisible(section).map((action, i) => (
     <Action key={i} {...action} />
