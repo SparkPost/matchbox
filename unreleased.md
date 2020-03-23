@@ -66,3 +66,5 @@
 - #358 - Restyles ActionList
 - #358 - Removes ActionList `groupByKey` default prop
 - #358 - Adds Action proptypes, used internally by ActionList
+- #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
+  `checkbox`

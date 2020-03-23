@@ -15,29 +15,45 @@ const Wrapper = styled('div')`
 `;
 
 function Action(props) {
-  const { selected, content, ...action } = props;
+  const { selected, content, is = 'link', ...action } = props;
 
   const linkContent = selected ? (
     <Box as="span" display="flex" alignItems="center">
-      <Box flex="1">{content}</Box>
-      <Box color="blue.700">
+      <Box as="span" flex="1">
+        {content}
+      </Box>
+      <Box as="span" color="blue.700">
         <CheckBox size={20} />
       </Box>
     </Box>
   ) : (
     content
   );
-  return <StyledLink {...action}>{linkContent}</StyledLink>;
+
+  return (
+    <StyledLink
+      as={is === 'button' ? 'button' : null}
+      type={is === 'button' ? 'button' : null}
+      isType={is}
+      {...(is === 'checkbox'
+        ? { role: 'checkbox', 'aria-checked': !!selected, tabIndex: '0' }
+        : {})}
+      {...action}
+    >
+      {linkContent}
+    </StyledLink>
+  );
 }
 
 Action.propTypes = {
   content: PropTypes.node,
-  selected: PropTypes.bool,
   /**
    * Same as hover styles.
    * Can be used for wrappers that manage focus within the menu, eg downshift
    */
   highlighted: PropTypes.bool,
+  is: PropTypes.oneOf(['link', 'button', 'checkbox']),
+  selected: PropTypes.bool,
 };
 
 function Section({ section }) {

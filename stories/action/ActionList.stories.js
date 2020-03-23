@@ -29,7 +29,7 @@ export const WithinPopovers = withInfo({ propTables: [ActionList] })(() => (
         sections={[
           [
             { content: 'Sectioned1', to: 'http://sparkpost.com', external: true },
-            { content: 'Sectioned2' },
+            { content: 'Testing really really really long text' },
           ],
           [{ content: 'Sectioned3' }, { content: 'Sectioned4' }],
         ]}
@@ -102,6 +102,21 @@ export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
           { content: 'Action1', highlighted: true },
           { content: 'Action2', highlighted: true },
           { content: 'Action3', selected: false },
+        ]}
+      />
+    </Panel>
+  </Box>
+));
+
+export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() => (
+  <Box maxWidth="20rem">
+    <Panel>
+      <ActionList
+        actions={[
+          { content: 'Checkbox', selected: true, is: 'checkbox' },
+          { content: 'Checkbox', is: 'checkbox' },
+          { content: 'Button', selected: false, is: 'button' },
+          { content: 'Link', is: 'link', to: 'https://sparkpost.com', external: true },
         ]}
       />
     </Panel>
