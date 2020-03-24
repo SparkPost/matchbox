@@ -68,3 +68,4 @@
 - #358 - Adds Action proptypes, used internally by ActionList
 - #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
   `checkbox`
+- #361 – Tabs not specify `type="button"`
