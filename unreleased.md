@@ -63,3 +63,9 @@
 - #355 - Checkbox now properly hides a screen reader accessible label
 - #355 - Checkbox now properly uses aria-describedby to link to its helptext and error
 - #355 - Checkbox.Group now properly uses a `fieldset` and `legend` elements
+- #355 - Adds underline text decoration to all links
+- #358 - Restyles ActionList
+- #358 - Removes ActionList `groupByKey` default prop
+- #358 - Adds Action proptypes, used internally by ActionList
+- #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
+  `checkbox`
