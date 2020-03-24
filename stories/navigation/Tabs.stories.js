@@ -18,7 +18,7 @@ const tabs = [
     onClick: action('Keys Clicked'),
   },
   {
-    content: 'Domains',
+    content: 'Example with long text',
     onClick: action('Domains Clicked'),
   },
 ];

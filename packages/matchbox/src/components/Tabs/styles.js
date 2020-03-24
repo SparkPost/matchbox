@@ -14,6 +14,7 @@ export const tabStyles = ({ selected, fitted }) => `
   font-weight: ${tokens.fontWeight_medium};
   line-height: 3.75rem; ${'' /* Equivalent to 60px */}
   color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
+  white-space: nowrap;
 
   &:after {
     display: block;

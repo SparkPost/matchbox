@@ -39,6 +39,7 @@ function Tab(props) {
       fitted={fitted}
       {...rest}
       onClick={handleClick}
+      type="button"
     >
       {content}
     </StyledTab>
