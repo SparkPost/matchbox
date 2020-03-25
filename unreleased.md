@@ -57,3 +57,6 @@
 - #353 - Deprecates Toggle prop `compact`
 - #353 - Adds new Toggle prop `label`
 - #349 - Toggle `id` prop is now required
+- #362 - Restyles Pagination Component
+- #362 - Deprecates Pagination prop `selectedColor`
+- #362 - Deprecates Pagination prop `flat`
