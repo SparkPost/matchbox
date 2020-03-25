@@ -21,6 +21,11 @@ const tabs = [
     content: 'Example with long text',
     onClick: action('Domains Clicked'),
   },
+  {
+    content: 'Example with a component wrapper',
+    onClick: action('Domains Clicked'),
+    Component: props => <a {...props} href="#" />,
+  },
 ];
 
 const handleSelect = action('Tab Selected');

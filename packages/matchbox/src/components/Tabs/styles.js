@@ -5,6 +5,7 @@ export const tabStyles = ({ selected, fitted }) => `
   ${buttonReset}
   position: relative;
   flex: ${fitted ? '1' : '0'};
+  text-decoration: none;
   
   padding: 0 ${tokens.spacing_200};
   ${'' /* Not a token, equivalent to 20px to enqure 10rem of spacing between text */}

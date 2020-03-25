@@ -34,7 +34,9 @@ function Tab(props) {
 
   return (
     <StyledTab
-      component="button" // Ensures focusability
+      // Ensures focusability
+      // Overwriting component does not guarantee focusability
+      component={rest.component || rest.Component || 'button'}
       selected={selected === index}
       fitted={fitted}
       {...rest}
