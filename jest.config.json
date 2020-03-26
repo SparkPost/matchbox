@@ -11,8 +11,8 @@
       "statements": 80
     }
   },
-  "setupFilesAfterEnv": ["<rootDir>/config/jest/setup.js"],
-  "setupFiles": ["<rootDir>/config/polyfills.js", "<rootDir>/config/helpers.js"],
+  "setupFilesAfterEnv": "<rootDir>/config/jest/setup.js",
+  "setupFiles": ["<rootDir>/config/polyfills.js"],
   "testPathIgnorePatterns": [
     "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
     "/.cache/",
