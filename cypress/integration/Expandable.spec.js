@@ -28,9 +28,9 @@ describe('The Expandable Component', () => {
 
     cy.wait(200);
 
-    cy.get('[data-id="expandable-cfontent"]').should('not.be.visible');
+    cy.get('[data-id="expandable-content"]').should('not.be.visible');
 
-    cy.get('[data-id="expandable-toggle"]')
+    cy.get('[data-id="expandable-togglfe"]')
       .focus()
       .trigger('keydown', {
         key: 'Enter',
