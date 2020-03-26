@@ -26,8 +26,15 @@ describe('TextField', () => {
     expect(input(wrapper)).toHaveAttributeValue('type', 'text');
   });
 
+  it('does not render a label when none is provided', () => {
+    const wrapper = subject();
+
+    expect(wrapper.find('label')).not.toExist();
+  });
+
   it('renders label with required correctly', () => {
     const wrapper = subject({ required: true, label: 'test label' });
+    expect(label(wrapper)).toExist();
     expect(label(wrapper).text()).toEqual('test label*');
   });
 

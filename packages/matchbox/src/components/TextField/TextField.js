@@ -139,16 +139,18 @@ function TextField(props) {
 
   return (
     <StyledWrapper {...systemProps}>
-      <Label id={id} label={label} labelHidden={labelHidden}>
-        {required && (
-          <Box as="span" pr="200" aria-hidden="true">
-            *
-          </Box>
-        )}
-        {error && errorInLabel && (
-          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
-        )}
-      </Label>
+      {!!label && (
+        <Label id={id} label={label} labelHidden={labelHidden}>
+          {required && (
+            <Box as="span" pr="200" aria-hidden="true">
+              *
+            </Box>
+          )}
+          {error && errorInLabel && (
+            <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+          )}
+        </Label>
+      )}
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
           <PrefixOrSuffix
