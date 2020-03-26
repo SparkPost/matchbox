@@ -4,18 +4,14 @@
     "packages/matchbox/src/helpers/**/*.{js,jsx}",
     "packages/matchbox-icons/src/IconBase/**/*.{js,jsx}"
   ],
-  "coveragePathIgnorePatterns": [
-    "index.js"
-  ],
+  "coveragePathIgnorePatterns": ["index.js"],
   "coverageThreshold": {
     "global": {
       "statements": 90
     }
   },
-  "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
-  "setupFiles": [
-    "<rootDir>/config/polyfills.js"
-  ],
+  "setupFilesAfterEnv": "<rootDir>/config/jest/setup.js",
+  "setupFiles": ["<rootDir>/config/polyfills.js"],
   "testPathIgnorePatterns": [
     "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
     "/.cache/",
@@ -28,9 +24,7 @@
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
     "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
   },
-  "transformIgnorePatterns": [
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-  ],
+  "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
   "moduleNameMapper": {
     "^react-native$": "react-native-web",
     "\\.(css|scss)$": "identity-obj-proxy",
