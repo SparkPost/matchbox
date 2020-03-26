@@ -3,7 +3,9 @@
 /* eslint-disable no-undef */
 describe('The Expandable Component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?selectedKind=Layout%7CExpandable&selectedStory=with%20image%20title%20and%20subtitle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel');
+    cy.visit(
+      '/iframe.html?selectedKind=Layout%7CExpandable&selectedStory=with%20image%20title%20and%20subtitle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
+    );
   });
 
   it('should toggle open/close when clicking the arrow', () => {
@@ -21,12 +23,12 @@ describe('The Expandable Component', () => {
         key: 'Enter',
         keyCode: 13,
         which: 13,
-        shiftKey: false
+        shiftKey: false,
       });
 
     cy.wait(200);
 
-    cy.get('[data-id="expandable-content"]').should('not.be.visible');
+    cy.get('[data-id="expandable-cfontent"]').should('not.be.visible');
 
     cy.get('[data-id="expandable-toggle"]')
       .focus()
@@ -34,7 +36,7 @@ describe('The Expandable Component', () => {
         key: 'Enter',
         keyCode: 13,
         which: 13,
-        shiftKey: false
+        shiftKey: false,
       });
 
     cy.wait(200);
