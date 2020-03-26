@@ -69,3 +69,4 @@
 - #358 - Adds Action proptypes, used internally by ActionList
 - #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
   `checkbox`
+- #363 - Conditionally render `<Label/>` component within the `<TextField/>`
