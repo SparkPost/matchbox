@@ -25,18 +25,21 @@ const StyledTabs = styled('div')`
 `;
 
 function Tab(props) {
-  const { index, content, selected, fitted, ...rest } = props;
+  const { index, content, selected, fitted, component, Component, ...rest } = props;
 
   function handleClick(event) {
     const { index, onClick } = props;
     onClick(event, index);
   }
 
+  // Buttons ensure focusability
+  // Links will be focusable with an href
+  // TODO deprecate `Component`
+  const wrapper = component || Component || 'button';
+
   return (
     <StyledTab
-      // Ensures focusability
-      // Overwriting component does not guarantee focusability
-      component={rest.component || rest.Component || 'button'}
+      component={wrapper}
       selected={selected === index}
       fitted={fitted}
       {...rest}
