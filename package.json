@@ -21,7 +21,7 @@
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
     "test:e2e:ci": "start-server-and-test start:storybook:static http://localhost:9001 test:e2e:headless",
     "test:unit": "TZ=UTC node scripts/test.js --env=jsdom --config=./jest.config.json",
-    "test:unit:ci": "npm run test:unit -- --colors -- --coverage",
+    "test:unit:ci": "npm run test:unit -- --colors --ci",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
