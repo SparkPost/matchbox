@@ -57,6 +57,17 @@
 - #353 - Deprecates Toggle prop `compact`
 - #353 - Adds new Toggle prop `label`
 - #349 - Toggle `id` prop is now required
+- #359 - Restyles the ScreenReaderOnly component
+- #355 - Checkbox `id` prop is now required
+- #355 - Checkbox now properly hides a screen reader accessible label
+- #355 - Checkbox now properly uses aria-describedby to link to its helptext and error
+- #355 - Checkbox.Group now properly uses a `fieldset` and `legend` elements
+- #355 - Adds underline text decoration to all links
+- #358 - Restyles ActionList
+- #358 - Removes ActionList `groupByKey` default prop
+- #358 - Adds Action proptypes, used internally by ActionList
+- #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
+  `checkbox`
 - #362 - Restyles Pagination Component
 - #362 - Deprecates Pagination prop `selectedColor`
 - #362 - Deprecates Pagination prop `flat`

@@ -112,6 +112,7 @@ export default `
   a,
   a:visited {
     color: ${tokens.color_blue_700};
+    text-decoration: underline;
 
     &:hover,
     &:active,
