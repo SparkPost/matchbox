@@ -139,7 +139,7 @@ function TextField(props) {
 
   return (
     <StyledWrapper {...systemProps}>
-      {!!label && (
+      {label && (
         <Label id={id} label={label} labelHidden={labelHidden}>
           {required && (
             <Box as="span" pr="200" aria-hidden="true">
