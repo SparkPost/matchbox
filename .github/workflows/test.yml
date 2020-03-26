@@ -1,4 +1,4 @@
-name: Testing
+name: Unit and end-to-end testing
 
 on: [pull_request]
 
