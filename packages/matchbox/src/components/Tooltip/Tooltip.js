@@ -32,6 +32,7 @@ function Tooltip(props) {
 
   function renderTooltip({ preferredDirection }) {
     const {
+      as,
       content,
       dark, // TODO deprecate in favor of system props
       top,
@@ -89,9 +90,10 @@ function Tooltip(props) {
   }
 
   function renderActivator({ activatorRef }) {
+    console.log(props.as);
     return (
       <Box
-        display="inline-block"
+        display={props.as === 'span' ? 'inline-block' : null}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         ref={activatorRef}
@@ -103,6 +105,7 @@ function Tooltip(props) {
 
   return (
     <TooltipOverlay
+      as={props.as}
       id={props.id}
       hideTooltip={handleMouseOut}
       renderTooltip={renderTooltip}
@@ -114,6 +117,10 @@ function Tooltip(props) {
 
 Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
+  /**
+   * Configures the html element that wraps the tooltip, defaults to 'span'
+   */
+  as: PropTypes.string,
   id: PropTypes.string,
   content: PropTypes.node,
   /**
@@ -152,6 +159,7 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
+  as: 'span',
   right: true,
   bottom: true,
   horizontalOffset: '0px',

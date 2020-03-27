@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import { ThemeProvider, Tooltip, Button, Box } from '@sparkpost/matchbox';
+import { ThemeProvider, Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
@@ -12,7 +12,6 @@ export default {
 };
 
 export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
-  // Adding a Box here to test relative positioning
   <Box position="relative">
     <Button.Group>
       <Tooltip content="Hellow I am a Tooltip">
@@ -46,15 +45,17 @@ export const Positioning = withInfo({ propTables: [Tooltip] })(() => (
       <small>Scroll down and hover</small>
     </p>
     <div style={{ height: '400px' }} />
-    <Tooltip content="Tooltips are positioned automatically based on the components position.">
-      <Button>Hover me</Button>
-    </Tooltip>
-
-    <Box textAlign="right">
+    <Button.Group>
       <Tooltip content="Tooltips are positioned automatically based on the components position.">
         <Button>Hover me</Button>
       </Tooltip>
-    </Box>
+
+      <Box textAlign="right">
+        <Tooltip content="Tooltips are positioned automatically based on the components position.">
+          <Button>Hover me</Button>
+        </Tooltip>
+      </Box>
+    </Button.Group>
   </div>
 ));
 
@@ -83,4 +84,29 @@ export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
       <Button>Hover</Button>
     </Tooltip>
   </div>
+));
+
+export const WithinAbsoluteContainer = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <p>This story is meant to test positioning functionality</p>
+    <Box height="20rem"></Box>
+    <Box position="fixed" top="0" left="0" zIndex="10000">
+      <Box position="absolute" top="300px" left="200px">
+        <Tooltip content="Tooltips are positioned automatically based on the components position.">
+          <Button>Hover me</Button>
+        </Tooltip>
+      </Box>
+    </Box>
+  </Box>
+));
+
+export const AroundABlockElement = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <Tooltip
+      as="div"
+      content="Tooltips are positioned automatically based on the components position."
+    >
+      <TextField label="A block level element" />
+    </Tooltip>
+  </Box>
 ));

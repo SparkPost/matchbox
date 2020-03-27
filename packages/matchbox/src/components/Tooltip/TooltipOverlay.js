@@ -24,11 +24,11 @@ function TooltipOverlay(props) {
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const { id, renderTooltip, renderActivator, hideTooltip, visible } = props;
-
+  const { as, id, renderTooltip, renderActivator, hideTooltip, visible } = props;
+  console.log(as);
   function handleMeasurement() {
     if (activatorRef.current && visible) {
-      setPosition(getPositionFor(activatorRef.current, { fixed: true }));
+      setPosition(getPositionFor(activatorRef.current));
       setPreferredDirection(getPreferredDirectionFor(activatorRef.current));
     }
   }
@@ -48,22 +48,21 @@ function TooltipOverlay(props) {
   return (
     <>
       <WindowEvent event="scroll" handler={handleScroll} />
-      {renderActivator({ activatorRef })}
-      <Box
-        {...(!visible ? { 'aria-hidden': true } : {})}
-        as="span"
-        id={id}
-        // Fixes this wrapper to the top and left of viewport
-        // Handles any potential 'position: relative' on a parent
-        position="fixed"
-        top={0}
-        left={0}
-        style={{
-          pointerEvents: 'none',
-        }}
-        zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
-      >
-        <Box as="span" position="absolute" {...position}>
+      <Box as={as} display={as === 'span' ? 'inline-block' : null} position="relative">
+        {renderActivator({ activatorRef })}
+        <Box
+          position="absolute"
+          {...(!visible ? { 'aria-hidden': true } : {})}
+          id={id}
+          top="0"
+          left="0"
+          width={position.width}
+          height={position.height}
+          zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+          style={{
+            pointerEvents: 'none',
+          }}
+        >
           {renderTooltip({ preferredDirection })}
         </Box>
       </Box>
