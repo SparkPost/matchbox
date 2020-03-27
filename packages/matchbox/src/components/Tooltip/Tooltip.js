@@ -100,10 +100,12 @@ function Tooltip(props) {
   }
 
   function renderActivator({ activatorRef }) {
+    const { as = 'span' } = props;
+
     return (
       <Box
-        as={props.as}
-        display={props.as === 'span' ? 'inline-block' : null}
+        as={as}
+        display={as === 'span' ? 'inline-block' : null}
         onFocus={handleShow}
         onBlur={handleHide}
         onMouseOver={handleShow}
@@ -171,7 +173,6 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
-  as: 'span',
   right: true,
   bottom: true,
   horizontalOffset: '0px',

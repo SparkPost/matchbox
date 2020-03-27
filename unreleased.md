@@ -75,4 +75,5 @@
 - #360 - Adds new `fontSize_root` token
 - #363 - `<Label/>` renders `null` when no `label` is provided
 - #365 – Adds a Tooltip `as` prop, defaults to `span`
-- #365 – Fixes tooltip positioning within relative contexts
+- #365 – Fixes tooltip positioning by reverting to portals, `portadId` is available again
+- #365 – Tooltips are now visible if trigger is focused
