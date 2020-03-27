@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import { tokens } from '@sparkpost/design-tokens';
@@ -24,7 +25,14 @@ function TooltipOverlay(props) {
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const { as, id, renderTooltip, renderActivator, hideTooltip, visible } = props;
+  const {
+    renderA11yContent,
+    renderTooltip,
+    renderActivator,
+    hideTooltip,
+    visible,
+    portalId,
+  } = props;
 
   function handleMeasurement() {
     if (activatorRef.current && visible) {
@@ -48,26 +56,30 @@ function TooltipOverlay(props) {
   return (
     <>
       <WindowEvent event="scroll" handler={handleScroll} />
-      <Box as={as} display={as === 'span' ? 'inline-block' : null} position="relative">
-        {renderActivator({ activatorRef })}
+      {renderActivator({ activatorRef })}
+      {renderA11yContent()}
+      <Portal containerId={portalId}>
         <Box
-          as="span"
-          display="inline-block"
+          aria-hidden="true"
           position="absolute"
-          {...(!visible ? { 'aria-hidden': true } : {})}
-          id={id}
           top="0"
           left="0"
-          width={position.width}
-          height={position.height}
-          zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
           style={{
             pointerEvents: 'none',
           }}
         >
-          {renderTooltip({ preferredDirection })}
+          <Box
+            position="absolute"
+            top={`${position.top}px`}
+            left={`${position.left}px`}
+            height={`${position.height}px`}
+            width={`${position.width}px`}
+            zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+          >
+            {renderTooltip({ preferredDirection })}
+          </Box>
         </Box>
-      </Box>
+      </Portal>
     </>
   );
 }
