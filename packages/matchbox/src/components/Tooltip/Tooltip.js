@@ -90,7 +90,6 @@ function Tooltip(props) {
   }
 
   function renderActivator({ activatorRef }) {
-    console.log(props.as);
     return (
       <Box
         display={props.as === 'span' ? 'inline-block' : null}

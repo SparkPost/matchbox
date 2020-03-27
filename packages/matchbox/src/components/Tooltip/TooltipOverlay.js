@@ -25,7 +25,7 @@ function TooltipOverlay(props) {
   const activatorRef = React.useRef(null);
 
   const { as, id, renderTooltip, renderActivator, hideTooltip, visible } = props;
-  console.log(as);
+
   function handleMeasurement() {
     if (activatorRef.current && visible) {
       setPosition(getPositionFor(activatorRef.current));
@@ -51,6 +51,8 @@ function TooltipOverlay(props) {
       <Box as={as} display={as === 'span' ? 'inline-block' : null} position="relative">
         {renderActivator({ activatorRef })}
         <Box
+          as="span"
+          display="inline-block"
           position="absolute"
           {...(!visible ? { 'aria-hidden': true } : {})}
           id={id}

@@ -74,11 +74,17 @@ describe('Tooltip', () => {
 
   it('should render overlay', () => {
     const wrapper = subject();
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('z-index', '1000');
-    expect(wrapper.find('span').at(0)).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('z-index', '1000');
+    expect(wrapper.find('span').at(1)).toHaveAttributeValue('id', 'test-id');
     // These values are 0 but shows the positioning is working
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('top', '0');
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('left', '0');
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('top', '0');
+    expect(wrapper.find('span').at(1)).toHaveStyleRule('left', '0');
     expect(wrapper.find('span').at(1)).toHaveStyleRule('height', '0');
+  });
+
+  it('should render with a block wrapper', () => {
+    const wrapper = subject({ as: 'div' });
+    expect(wrapper.find('div').at(0)).not.toHaveStyleRule('display');
   });
 });
