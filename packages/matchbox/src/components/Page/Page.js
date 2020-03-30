@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { pick } from '@styled-system/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { ChevronLeft, MoreHoriz } from '@sparkpost/matchbox-icons';
 import { ActionList } from '../ActionList';
 import { Box } from '../Box';
@@ -14,18 +11,18 @@ import { UnstyledLink } from '../UnstyledLink';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { filterByVisible } from '../../helpers/array';
 
-const Wrapper = styled('div')`
-  ${margin}
+const StyledLink = styled(UnstyledLink)`
+  text-decoration: none;
 `;
 
 function Breadcrumb({ content, ...rest }) {
   return (
-    <UnstyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
+    <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
       <Box as="span" display="inline-flex" align-items="center">
         <ChevronLeft size={20} />
         {content}
       </Box>
-    </UnstyledLink>
+    </StyledLink>
   );
 }
 
@@ -108,9 +105,7 @@ function Page(props) {
     breadcrumbAction,
     empty = {},
     children,
-    ...rest
   } = props;
-  const systemProps = pick(rest);
   const { show, content, ...emptyProps } = empty;
 
   // TODO verify this in EmptyState ticket
@@ -124,7 +119,7 @@ function Page(props) {
 
   return (
     <div>
-      <Wrapper {...systemProps}>
+      <Box mt={['500', null, null, '700']} mb={['300', null, null, '500']}>
         {breadcrumbAction && (
           <Box mb="500">
             <Breadcrumb {...breadcrumbAction} />
@@ -152,7 +147,7 @@ function Page(props) {
           </Box>
         </Box>
         <Subtitle subtitle={subtitle} />
-      </Wrapper>
+      </Box>
       {children}
     </div>
   );
@@ -212,7 +207,6 @@ Page.propTypes = {
    * Page Children
    */
   children: PropTypes.node,
-  ...createPropTypes(margin.propNames),
 };
 
 export default Page;
