@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { tokens } from '@sparkpost/design-tokens';
+import { pick } from '@styled-system/props';
 
 import { Box } from '../Box';
 import { Button, buttonsFrom } from '../Button';
@@ -13,6 +14,10 @@ import { MoreHoriz } from '@sparkpost/matchbox-icons';
 
 const StyledMoreHoriz = styled(MoreHoriz)`
   fill: ${tokens.color_gray_500};
+`;
+
+const Wrapper = styled('div')`
+  ${margin}
 `;
 
 function Pagination(props) {
@@ -31,6 +36,8 @@ function Pagination(props) {
     ...rest
   } = props;
 
+  const systemProps = pick(rest);
+
   function handlePageChange(index) {
     setIndex(index);
     setHasPrevious(index > 0);
@@ -45,26 +52,6 @@ function Pagination(props) {
 
   function handlePrevious() {
     handlePageChange(index - 1);
-  }
-
-  function _createButtons(start, end) {
-    return React.useMemo(() => {
-      const buttons = [];
-
-      for (let currentIndex = start; currentIndex < end; currentIndex++) {
-        buttons.push({
-          content: `${currentIndex + 1}`,
-          onClick: handlePageChange.bind(this, currentIndex),
-          flat: currentIndex === index ? false : true,
-          size: 'small',
-          color: currentIndex === index ? 'blue' : 'gray',
-          mx: '100',
-          width: currentIndex + 1 < 100 ? tokens.spacing_600 : 'auto',
-        });
-      }
-
-      return buttonsFrom(buttons);
-    }, [index]);
   }
 
   function _getStart() {
@@ -88,22 +75,36 @@ function Pagination(props) {
 
   const start = _getStart();
 
-  const buttonMarkup = () => {
+  const buttonMarkup = React.useMemo(() => {
+    function _createButtons(start, end) {
+      const buttons = [];
+
+      for (let currentIndex = start; currentIndex < end; currentIndex++) {
+        buttons.push({
+          content: `${currentIndex + 1}`,
+          onClick: handlePageChange.bind(this, currentIndex),
+          flat: currentIndex === index ? false : true,
+          size: 'small',
+          color: currentIndex === index ? 'blue' : 'gray',
+          mx: '100',
+          width: currentIndex + 1 < 100 ? tokens.spacing_600 : 'auto',
+        });
+      }
+
+      return buttonsFrom(buttons);
+    }
+
     if (pages <= pageRange) {
       return _createButtons(0, pages);
     } else {
       return _createButtons(start, start + pageRange);
     }
-  };
+  }, [index, pages, pageRange]);
 
   const firstButton =
     !marginsHidden && start > 1 ? (
       <span>
-        <Button
-          flat
-          width={index + 1 < 100 ? tokens.spacing_600 : 'auto'}
-          onClick={() => handlePageChange(0)}
-        >
+        <Button flat width={tokens.spacing_600} size="small" onClick={() => handlePageChange(0)}>
           1
         </Button>
         <Box display="inline" pl={200} pr={200}>
@@ -120,7 +121,8 @@ function Pagination(props) {
         </Box>
         <Button
           flat
-          width={index + 1 < 100 ? tokens.spacing_600 : 'auto'}
+          size="small"
+          width={pages + 1 < 100 ? tokens.spacing_600 : 'auto'}
           onClick={() => handlePageChange(pages - 1)}
         >
           {pages}
@@ -129,13 +131,15 @@ function Pagination(props) {
     ) : null;
 
   return (
-    <Box display="inline-flex" alignItems="center" {...rest}>
-      <Pager.Previous flat onClick={handlePrevious} disabled={!hasPrevious} />
-      {firstButton}
-      <Box display="inline-block">{buttonMarkup()}</Box>
-      {lastButton}
-      <Pager.Next flat onClick={handleNext} disabled={!hasNext} />
-    </Box>
+    <Wrapper {...systemProps}>
+      <Box display="inline-flex" alignItems="center">
+        <Pager.Previous flat onClick={handlePrevious} disabled={!hasPrevious} />
+        {firstButton}
+        <Box display="inline-block">{buttonMarkup}</Box>
+        {lastButton}
+        <Pager.Next flat onClick={handleNext} disabled={!hasNext} />
+      </Box>
+    </Wrapper>
   );
 }
 
