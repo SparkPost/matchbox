@@ -69,3 +69,6 @@
 - #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
   `checkbox`
 - #361 – Tabs now specify `type="button"` and support long text content
+- #362 - Restyles Pagination Component
+- #362 - Deprecates Pagination prop `selectedColor`
+- #362 - Deprecates Pagination prop `flat`
