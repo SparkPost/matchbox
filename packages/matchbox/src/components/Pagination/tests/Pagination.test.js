@@ -19,12 +19,17 @@ describe('Pagination', () => {
   let shallowWrapper = shallow(<Pagination {...props} />);
 
   it('renders styles', () => {
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('display', 'inline-flex');
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('align-items', 'center');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'inline-flex');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('align-items', 'center');
   });
 
   it('renders system props (margin)', () => {
     expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-bottom', tokens.spacing_400);
+  });
+
+  it('renders active page styles correctly', () => {
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', tokens.color_blue_700);
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', tokens.color_white);
   });
 
   it('invokes onChange on page', () => {
