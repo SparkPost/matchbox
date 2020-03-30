@@ -46,4 +46,11 @@ describe('Tabs', () => {
     expect(wrapper).toHaveStyleRule('margin-left', '10px', { media });
     expect(wrapper).toHaveStyleRule('margin-right', tokens.spacing_400);
   });
+
+  it('renders a custom tab component', () => {
+    const wrapper = subject({
+      tabs: [...defaultprops.tabs, { content: 'Tab 4', component: props => <a {...props} /> }],
+    });
+    expect(wrapper.find('a').text()).toEqual('Tab 4');
+  });
 });

@@ -18,8 +18,13 @@ const tabs = [
     onClick: action('Keys Clicked'),
   },
   {
-    content: 'Domains',
+    content: 'Example with long text',
     onClick: action('Domains Clicked'),
+  },
+  {
+    content: 'Example with a component wrapper',
+    onClick: action('Domains Clicked'),
+    Component: props => <a {...props} href="#" />,
   },
 ];
 

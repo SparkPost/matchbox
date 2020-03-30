@@ -48,21 +48,23 @@ function Pagination(props) {
   }
 
   function _createButtons(start, end) {
-    const buttons = [];
+    return React.useMemo(() => {
+      const buttons = [];
 
-    for (let currentIndex = start; currentIndex < end; currentIndex++) {
-      buttons.push({
-        content: `${currentIndex + 1}`,
-        onClick: handlePageChange.bind(this, currentIndex),
-        flat: currentIndex === index ? false : true,
-        size: 'small',
-        color: currentIndex === index ? 'blue' : 'gray',
-        mx: '100',
-        width: currentIndex + 1 < 100 ? '32px' : 'auto',
-      });
-    }
+      for (let currentIndex = start; currentIndex < end; currentIndex++) {
+        buttons.push({
+          content: `${currentIndex + 1}`,
+          onClick: handlePageChange.bind(this, currentIndex),
+          flat: currentIndex === index ? false : true,
+          size: 'small',
+          color: currentIndex === index ? 'blue' : 'gray',
+          mx: '100',
+          width: currentIndex + 1 < 100 ? tokens.spacing_600 : 'auto',
+        });
+      }
 
-    return buttonsFrom(buttons);
+      return buttonsFrom(buttons);
+    }, [index]);
   }
 
   function _getStart() {
@@ -97,7 +99,11 @@ function Pagination(props) {
   const firstButton =
     !marginsHidden && start > 1 ? (
       <span>
-        <Button flat width={index + 1 < 100 ? '32px' : 'auto'} onClick={() => handlePageChange(0)}>
+        <Button
+          flat
+          width={index + 1 < 100 ? tokens.spacing_600 : 'auto'}
+          onClick={() => handlePageChange(0)}
+        >
           1
         </Button>
         <Box display="inline" pl={200} pr={200}>
@@ -114,7 +120,7 @@ function Pagination(props) {
         </Box>
         <Button
           flat
-          width={index + 1 < 100 ? '32px' : 'auto'}
+          width={index + 1 < 100 ? tokens.spacing_600 : 'auto'}
           onClick={() => handlePageChange(pages - 1)}
         >
           {pages}
