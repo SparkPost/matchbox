@@ -105,7 +105,7 @@ export const Group = withInfo()(() => (
 
 export const SystemProps = withInfo()(() => (
   <>
-    <Button mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
+    <Button paddingLeft={800} mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
       Submit
     </Button>
     <Button mb="200" mr="200" width={['100%', 1 / 5, 1 / 6]} outlineBorder>

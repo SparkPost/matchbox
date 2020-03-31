@@ -4,6 +4,7 @@ import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 
 import Group from './Group';
@@ -64,6 +65,8 @@ function Button(props) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
+  const systemProps = pick(rest);
+
   // Polyfills deprecrated 'Component' prop
   const WrapperComponent = component || Component;
 
@@ -97,7 +100,6 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
-    ...rest,
   };
 
   if (to && !WrapperComponent) {
@@ -109,6 +111,7 @@ function Button(props) {
         rel={external ? 'noopener noreferrer' : ''}
         title={external && !title ? 'Opens in a new tab' : title}
         {...sharedProps}
+        {...systemProps}
       >
         {children}
       </StyledButton>
