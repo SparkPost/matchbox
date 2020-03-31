@@ -69,3 +69,8 @@
 - #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
   `checkbox`
 - #361 – Tabs now specify `type="button"` and support long text content
+- #368 - Restyle and convert Radio to Styled Components
+- #368 - Radio `id` prop is now required
+- #368 - Radio now properly hides a screen reader accessible label
+- #368 - Radio now properly uses aria-describedby to link to its helptext and error
+- #368 - Radio.Group now properly uses a `fieldset` and `legend` elements

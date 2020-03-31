@@ -88,7 +88,7 @@ Radio.displayName = 'Radio';
 Radio.Group = Group;
 
 Radio.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string,
   checked: PropTypes.bool,
   label: PropTypes.node,
