@@ -1,14 +1,19 @@
-import React from 'react';
-// import classNames from 'classnames';
+import React, { useRef } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
+import { Box } from '../Box';
 import { onKey } from '../../helpers/keyEvents';
 import Content from './Content';
+import styles from './Modal.module.scss';
 
 function Modal(props) {
   const { open, onClose, children, className, showCloseButton, ...rest } = props;
+  const modalClasses = classNames(styles.Modal, open && styles.open, className);
+  let container = useRef(null);
+  let content = useRef(null);
 
   const handleKeydown = e => {
     if (open && onClose) {
@@ -17,8 +22,8 @@ function Modal(props) {
   };
 
   const handleOutsideClick = e => {
-    // TODO: Figure out how to do this using hooks!
-    const isOutside = true;
+    const isOutside =
+      content && !content.contains(e.target) && container && container.contains(e.target);
 
     if (open && isOutside && onClose) {
       onClose(e);
@@ -26,23 +31,32 @@ function Modal(props) {
   };
 
   return (
-    <div className={className} onClose={onClose} {...rest} role="dialog" aria-modal="true">
+    <Box
+      className={modalClasses}
+      onClose={onClose}
+      {...rest}
+      ref={el => (container = el)}
+      role="dialog"
+      aria-modal="true"
+    >
       <Content open={open}>
-        <WindowEvent event="keydown" handler={handleKeydown} />
+        <div ref={el => (content = el)}>
+          <WindowEvent event="keydown" handler={handleKeydown} />
 
-        <WindowEvent event="click" handler={handleOutsideClick} />
+          <WindowEvent event="click" handler={handleOutsideClick} />
 
-        {showCloseButton && (
-          <Button flat onClick={onClose} data-id="modal-close">
-            <span>Close</span>
+          {showCloseButton && (
+            <Button flat onClick={onClose} data-id="modal-close">
+              <span>Close</span>
 
-            <Close />
-          </Button>
-        )}
+              <Close />
+            </Button>
+          )}
 
-        {children}
+          {children}
+        </div>
       </Content>
-    </div>
+    </Box>
   );
 }
 
