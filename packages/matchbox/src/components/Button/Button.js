@@ -40,6 +40,7 @@ function Button(props) {
     plain, // Deprecate in favor of flat
     flat,
     outline,
+    outlineBorder,
 
     // Options
     // Renaming to prevent `width` and `height` pass through
@@ -71,8 +72,12 @@ function Button(props) {
 
   // Experimenting with a weight prop to replace outline, plain, and flat in the future
   const visualWeight = React.useMemo(() => {
-    if (outline) {
+    if (outlineBorder) {
       return 'normal';
+    }
+
+    if (outline) {
+      return 'outline';
     }
 
     if (plain || flat) {
@@ -137,6 +142,7 @@ Button.propTypes = {
   flat: PropTypes.bool,
   plain: deprecate(PropTypes.bool, 'Use `flat` instead'),
   outline: PropTypes.bool,
+  outlineBorder: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large', 'default']),
   fullWidth: PropTypes.bool,
   submit: PropTypes.bool,

@@ -32,6 +32,7 @@ export const Colors = withInfo({ propTables: [Button] })(() => (
       <Button flat disabled>
         Flat Disabled
       </Button>
+      <Button outlineBorder>Outline Border</Button>
       <Button outline>Outline</Button>
     </Inline>
     <br />
@@ -45,6 +46,9 @@ export const Colors = withInfo({ propTables: [Button] })(() => (
       </Button>
       <Button color="red" flat disabled>
         Flat Disabled
+      </Button>
+      <Button color="red" outlineBorder>
+        Outline Border
       </Button>
       <Button color="red" outline>
         Outline
@@ -61,6 +65,9 @@ export const Colors = withInfo({ propTables: [Button] })(() => (
       </Button>
       <Button color="blue" flat disabled>
         Flat Disabled
+      </Button>
+      <Button color="blue" outlineBorder>
+        Outline Border
       </Button>
       <Button color="blue" outline>
         Outline
@@ -89,8 +96,8 @@ export const External = withInfo()(() => <Button to="http://google.com">Google</
 export const Group = withInfo()(() => (
   <Button.Group>
     <Button>Linear</Button>
-    <Button outline>Log</Button>
-    <Button outline disabled>
+    <Button outlineBorder>Log</Button>
+    <Button outlineBorder disabled>
       Sq Rt
     </Button>
   </Button.Group>
@@ -101,7 +108,7 @@ export const SystemProps = withInfo()(() => (
     <Button mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
       Submit
     </Button>
-    <Button mb="200" mr="200" width={['100%', 1 / 5, 1 / 6]} outline>
+    <Button mb="200" mr="200" width={['100%', 1 / 5, 1 / 6]} outlineBorder>
       Cancel
     </Button>
     <Button mb="200" width={['100%', 1 / 6, 'auto']} flat>
