@@ -48,8 +48,6 @@ function Modal(props) {
     const { open } = props;
     const isOutside =
       content && !content.contains(e.target) && container && container.contains(e.target);
-    console.log('content', content);
-    console.log('container', container);
 
     if (open && isOutside && onClose) {
       onClose(e);
