@@ -1,4 +1,4 @@
-const mapGet = (basename, aliases) => `
+const mapGet = basename => `
   @function ${basename}($variant) {
     @if map-has-key($${basename}-map, '${basename}-#{$variant}') {
       @return map-get($${basename}-map, '${basename}-#{$variant}');
@@ -8,31 +8,36 @@ const mapGet = (basename, aliases) => `
   }
 `;
 
-const typographyMapGet = (basename, aliases) => `
-  $DEFAULT_FONT_SIZE: ${aliases.DEFAULT_BASE.value}px;
-  $DEFAULT_FONT_SIZE_UNITLESS: ${aliases.DEFAULT_BASE.value};
+const typographyMapGet = (basename, props) => {
+  const size = props.find(({ name }) => name === 'font-size-root').value;
+  const unitless = size.replace('px', '');
 
-  @function rem($n) {
-    $result: 0rem + $n / $DEFAULT_FONT_SIZE_UNITLESS;
-    @return $result;
-  }
+  return `
+    $DEFAULT_FONT_SIZE: ${size};
+    $DEFAULT_FONT_SIZE_UNITLESS: ${unitless};
 
-  @function em($n) {
-    $result: 0em + $n / $DEFAULT_FONT_SIZE_UNITLESS;
-    @return $result;
-  }
-
-  @function ${basename}($variant) {
-    @if map-has-key($${basename}-map, '${basename}-#{$variant}') {
-      $result: map-get($${basename}-map, '${basename}-#{$variant}');
+    @function rem($n) {
+      $result: 0rem + $n / $DEFAULT_FONT_SIZE_UNITLESS;
       @return $result;
     }
 
-    @error '${basename} #{$variant} not found.';
-  }
-`;
+    @function em($n) {
+      $result: 0em + $n / $DEFAULT_FONT_SIZE_UNITLESS;
+      @return $result;
+    }
 
-const deepMapGet = (basename) => `
+    @function ${basename}($variant) {
+      @if map-has-key($${basename}-map, '${basename}-#{$variant}') {
+        $result: map-get($${basename}-map, '${basename}-#{$variant}');
+        @return $result;
+      }
+
+      @error '${basename} #{$variant} not found.';
+    }
+  `;
+};
+
+const deepMapGet = basename => `
   @function ${basename}($parent, $variant: base) {
     @if map-has-key($${basename}-map, $parent) {
       $parent-map: map-get($${basename}-map, $parent);
@@ -47,5 +52,5 @@ const deepMapGet = (basename) => `
 module.exports = {
   mapGet,
   typographyMapGet,
-  deepMapGet
+  deepMapGet,
 };
