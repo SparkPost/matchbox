@@ -1,62 +1,54 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
+import { ThemeProvider } from '@sparkpost/matchbox';
 import { Radio, UnstyledLink } from '@sparkpost/matchbox';
 
-storiesOf('Form|Radio', module)
-  .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
-  ))
+addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
-  .add('Basic Radio Group', withInfo()(() => (
-    <Radio.Group label='This is a radio group'>
-      <Radio
-        id='id'
-        label='Option 1'
-        name='group'
-       />
-     <Radio
-       id='id2'
-       label='Option 2'
-       name='group'
-      />
-      <Radio
-        id='id3'
-        label='Option 3'
-        name='group'
-       />
-    </Radio.Group>
-  )))
+export default {
+  title: 'Form|Radio',
+};
 
-  .add('With JSX in Label', withInfo()(() => (
-    <Radio
-      id='id'
-      label={<span>One radio <UnstyledLink>please</UnstyledLink></span>}
-     />
-  )))
+export const BasicRadio = withInfo()(() => <Radio id="id" label="Check Me" />);
+export const WithoutLabel = withInfo()(() => <Radio id="id" label="Check Me" labelHidden />);
 
-  .add('Disabled', withInfo()(() => (
-    <Radio.Group>
-      <Radio
-        id='id'
-        label='Check Me'
-        disabled
-       />
-       <Radio
-         id='id'
-         label='Check Me'
-         checked
-         disabled
-        />
-     </Radio.Group>
-  )))
+export const WithJSXInLabel = withInfo()(() => (
+  <Radio
+    id="id"
+    label={
+      <span>
+        One radio <UnstyledLink>please</UnstyledLink>
+      </span>
+    }
+  />
+));
 
-  .add('With help text', withInfo()(() => (
-    <Radio
-      id='id'
-      label='Check Me'
-      helpText='Check this box'
-     />
-  )));
+export const Disabled = withInfo()(() => (
+  <Radio.Group>
+    <Radio id="id" label="Check Me" disabled />
+    <Radio id="id" label="Check Me" checked disabled />
+  </Radio.Group>
+));
+
+export const WithHelpText = withInfo()(() => (
+  <Radio id="id" label="Check Me" helpText="Check this box" />
+));
+
+export const WithError = withInfo()(() => <Radio id="id" label="Check Me" error="I'm an error" />);
+
+export const GroupWithLabel = withInfo()(() => (
+  <Radio.Group label="This is a radio group">
+    <Radio id="id" label="Option 1" name="group" />
+    <Radio id="id2" label="Option 2" name="group" />
+    <Radio id="id3" label="Option 3" name="group" />
+  </Radio.Group>
+));
+
+export const GroupWithHiddenLabel = withInfo()(() => (
+  <Radio.Group labelHidden label="This is a radio group">
+    <Radio id="id" label="Option 1" name="group" />
+    <Radio id="id2" label="Option 2" name="group" />
+    <Radio id="id3" label="Option 3" name="group" />
+  </Radio.Group>
+));
