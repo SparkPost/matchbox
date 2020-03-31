@@ -1,27 +1,42 @@
 import React, { useRef } from 'react';
-import classNames from 'classnames';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
+import { Box } from '../Box';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
-import { Box } from '../Box';
 import { onKey } from '../../helpers/keyEvents';
 import Content from './Content';
-import styles from './Modal.module.scss';
+import { base, isOpen, wrapper, closeButton } from './styles';
+
+const StyledBase = styled(Box)`
+  ${base}
+  ${isOpen}
+`;
+
+const StyledWrapper = styled('div')`
+  ${wrapper}
+`;
+
+const StyledCloseButton = styled(Button)`
+  ${closeButton}
+`;
 
 function Modal(props) {
-  const { open, onClose, children, className, showCloseButton, ...rest } = props;
-  const modalClasses = classNames(styles.Modal, open && styles.open, className);
+  const { onClose, children, className, showCloseButton, ...rest } = props;
   let container = useRef(null);
   let content = useRef(null);
 
   const handleKeydown = e => {
+    const { open } = props;
+
     if (open && onClose) {
       onKey('escape', onClose)(e);
     }
   };
 
   const handleOutsideClick = e => {
+    const { open } = props;
     const isOutside =
       content && !content.contains(e.target) && container && container.contains(e.target);
 
@@ -31,32 +46,32 @@ function Modal(props) {
   };
 
   return (
-    <Box
-      className={modalClasses}
+    <StyledBase
+      className={className}
       onClose={onClose}
       {...rest}
       ref={el => (container = el)}
       role="dialog"
       aria-modal="true"
     >
-      <Content open={open}>
-        <div ref={el => (content = el)}>
+      <StyledWrapper minHeight="100%" ref={el => (content = el)}>
+        <Content open={props.open}>
           <WindowEvent event="keydown" handler={handleKeydown} />
 
           <WindowEvent event="click" handler={handleOutsideClick} />
 
           {showCloseButton && (
-            <Button flat onClick={onClose} data-id="modal-close">
+            <StyledCloseButton flat onClick={onClose} data-id="modal-close">
               <span>Close</span>
 
               <Close />
-            </Button>
+            </StyledCloseButton>
           )}
 
           {children}
-        </div>
-      </Content>
-    </Box>
+        </Content>
+      </StyledWrapper>
+    </StyledBase>
   );
 }
 
