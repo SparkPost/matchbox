@@ -74,7 +74,7 @@ function Modal(props) {
               <StyledCloseButton flat onClick={onClose} data-id="modal-close">
                 <ScreenReaderOnly>Close</ScreenReaderOnly>
 
-                <Close size={36} />
+                <Close size={34} />
               </StyledCloseButton>
             )}
 

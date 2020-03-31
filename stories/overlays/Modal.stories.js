@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
-
-import { Modal, Panel, Button } from '@sparkpost/matchbox';
+import { Modal, Panel, Button, Box, Inline } from '@sparkpost/matchbox';
 
 class ModalDemo extends React.Component {
   state = {
@@ -30,18 +29,17 @@ class ModalDemo extends React.Component {
           <Panel title="Delete Template" sectioned>
             <p>Are you sure you want to delete your template?</p>
 
-            <Button
-              style={{ marginRight: '1rem' }}
-              primary
-              onClick={this.handleChange}
-              data-id="delete-button"
-            >
-              Delete
-            </Button>
+            <Box mt="500">
+              <Inline space="300">
+                <Button primary onClick={this.handleChange} data-id="delete-button">
+                  Delete
+                </Button>
 
-            <Button onClick={this.handleChange} data-id="cancel-button">
-              Cancel
-            </Button>
+                <Button color="blue" outline onClick={this.handleChange} data-id="cancel-button">
+                  Cancel
+                </Button>
+              </Inline>
+            </Box>
           </Panel>
         </Modal>
       </div>
@@ -57,10 +55,16 @@ storiesOf('Overlays|Modal', module)
       <Modal open>
         <Panel title="Delete Template" sectioned>
           <p>Are you sure you want to delete your template?</p>
-          <Button style={{ marginRight: '1rem' }} primary>
-            Delete
-          </Button>
-          <Button>Cancel</Button>
+
+          <Box mt="500">
+            <Inline space="300">
+              <Button color="blue">Delete</Button>
+
+              <Button color="blue" outline>
+                Cancel
+              </Button>
+            </Inline>
+          </Box>
         </Panel>
       </Modal>
     );
