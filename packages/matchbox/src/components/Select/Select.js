@@ -123,7 +123,7 @@ function Select(props) {
 
   return (
     <StyledWrapper {...systemProps}>
-      {label && labelMarkup}
+      {labelMarkup}
       <Box position="relative">
         <StyledSelect
           id={id}

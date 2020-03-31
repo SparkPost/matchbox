@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should format a standard tokens correctly 1`] = `
+Object {
+  "category": "border-radius",
+  "css": "--border-radius-200",
+  "friendly": "Border Radius 200",
+  "javascript": "borderRadius_200",
+  "name": "border-radius-200",
+  "scss": "border-radius(200)",
+  "type": "border-radius",
+  "value": "2px",
+}
+`;

@@ -4,7 +4,7 @@ export default `
   html {
     position: relative;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: ${tokens.fontSize_root};
   }
 
   body {

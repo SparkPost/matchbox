@@ -1,8 +1,10 @@
 const { getPalette, getName, kebabToFriendly, getCommonJsName, replacePrefix } = require('./utils');
 
 function map(result) {
-  const { props, aliases } = result.toJS();
-  const baseline = Number(aliases.DEFAULT_BASE.value.replace('px', ''));
+  const { props } = result.toJS();
+  const baseline = Number(
+    props.find(({ name }) => name === 'font-size-root').value.replace('px', ''),
+  );
 
   function renderProp(prop) {
     let scssMapGet = `${prop.type}(${replacePrefix(prop.name, prop.type)})`;
