@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Transition } from 'react-transition-group';
+import FocusLock from 'react-focus-lock';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
-import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
 import { onKey } from '../../helpers/keyEvents';
-import Content from './Content';
-import { base, isOpen, wrapper, closeButton } from './styles';
+import { base, isOpen, focusLock, wrapper, content, closeButton } from './styles';
 
-const StyledBase = styled(Box)`
+const StyledBase = styled('div')`
   ${base}
   ${isOpen}
 `;
@@ -20,6 +21,14 @@ const StyledWrapper = styled('div')`
 
 const StyledCloseButton = styled(Button)`
   ${closeButton}
+`;
+
+const StyledFocusLock = styled(FocusLock)`
+  ${focusLock}
+`;
+
+const StyledContent = styled('div')`
+  ${content}
 `;
 
 function Modal(props) {
@@ -39,6 +48,8 @@ function Modal(props) {
     const { open } = props;
     const isOutside =
       content && !content.contains(e.target) && container && container.contains(e.target);
+    console.log('content', content);
+    console.log('container', container);
 
     if (open && isOutside && onClose) {
       onClose(e);
@@ -54,24 +65,68 @@ function Modal(props) {
       role="dialog"
       aria-modal="true"
     >
-      <StyledWrapper minHeight="100%" ref={el => (content = el)}>
-        <Content open={props.open}>
-          <WindowEvent event="keydown" handler={handleKeydown} />
+      <StyledWrapper>
+        <ModalContent open={props.open} maxWidth={props.maxWidth}>
+          <div ref={el => (content = el)}>
+            <WindowEvent event="keydown" handler={handleKeydown} />
 
-          <WindowEvent event="click" handler={handleOutsideClick} />
+            <WindowEvent event="click" handler={handleOutsideClick} />
 
-          {showCloseButton && (
-            <StyledCloseButton flat onClick={onClose} data-id="modal-close">
-              <span>Close</span>
+            {showCloseButton && (
+              <StyledCloseButton flat onClick={onClose} data-id="modal-close">
+                <ScreenReaderOnly>Close</ScreenReaderOnly>
 
-              <Close />
-            </StyledCloseButton>
-          )}
+                <Close size={36} />
+              </StyledCloseButton>
+            )}
 
-          {children}
-        </Content>
+            {children}
+          </div>
+        </ModalContent>
       </StyledWrapper>
     </StyledBase>
+  );
+}
+
+function ModalContent(props) {
+  const { open, children, maxWidth } = props;
+  const content = useRef(null);
+
+  const handleOpen = () => {
+    if (open && content.current) {
+      content.current.focus();
+    }
+  };
+
+  // On mount, focus
+  useEffect(() => {
+    handleOpen();
+  }, []);
+
+  // If open changes, handle opening
+  useEffect(() => {
+    handleOpen();
+  }, [open]);
+
+  return (
+    <StyledFocusLock disabled={!open} maxWidth={maxWidth}>
+      <Transition
+        mountOnEnter
+        unmountOnExit
+        in={open}
+        timeout={{
+          enter: 0,
+          exit: 150,
+        }}
+      >
+        {/* Negative `tabIndex` required to programmatically focus */}
+        {state => (
+          <StyledContent state={state} tabIndex="-1" ref={content} data-id="modal-content-wrapper">
+            {children}
+          </StyledContent>
+        )}
+      </Transition>
+    </StyledFocusLock>
   );
 }
 
@@ -89,7 +144,11 @@ Modal.propTypes = {
    */
   children: PropTypes.node,
   showCloseButton: PropTypes.bool,
+  maxWidth: PropTypes.string,
 };
 
-Modal.displayName = 'Modal';
+Modal.defaultProps = {
+  maxWidth: '800px',
+};
+
 export default Modal;

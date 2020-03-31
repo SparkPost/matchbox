@@ -35,9 +35,23 @@ export const wrapper = () => `
   align-items: center;
 `;
 
+export const focusLock = props => `
+  width: 100%;
+  max-width: ${props.maxWidth};
+`;
+
+export const content = () => `
+  position: relative;
+  width: 100%;
+  outline: none;
+`;
+
 export const closeButton = () => `
-  color: ${tokens.color_gray_1000};
-  position: absolute !important;
-  right: 0;
-  top: -35rem;
+  color: ${tokens.color_gray_600};
+  padding: 0;
+  font-size: ${tokens.fontSize_700};
+  position: absolute;
+  right: ${tokens.spacing_200};
+  top: ${tokens.spacing_200};
+  z-index: calc(${tokens.zIndex_overlay} + 1);
 `;
