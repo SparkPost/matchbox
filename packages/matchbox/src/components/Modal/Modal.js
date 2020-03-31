@@ -1,88 +1,66 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { Close } from '@sparkpost/matchbox-icons';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
-import { Grid } from '../Grid';
-import Content from './Content';
 import { onKey } from '../../helpers/keyEvents';
-import styles from './Modal.module.scss';
+import Content from './Content';
 
-class Modal extends Component {
-  static displayName = 'Modal';
+function Modal(props) {
+  const { open, onClose, children, className, showCloseButton, ...rest } = props;
 
-  static propTypes = {
-    /**
-     * Controlled open state of the modal
-     */
-    open: PropTypes.bool,
-
-    /**
-     * An optional function that is called on key down 'Escape' and on click outside modal content
-     */
-    onClose: PropTypes.func,
-
-    /**
-     * Modal content
-     */
-    children: PropTypes.node,
-
-    showCloseButton: PropTypes.bool
+  const handleKeydown = e => {
+    if (open && onClose) {
+      onKey('escape', onClose)(e);
+    }
   };
 
-  handleOutsideClick = (e) => {
-    const { open, onClose } = this.props;
-    const isOutside = this.content && !this.content.contains(e.target) && this.container && this.container.contains(e.target);
+  const handleOutsideClick = e => {
+    // TODO: Figure out how to do this using hooks!
+    const isOutside = true;
 
     if (open && isOutside && onClose) {
       onClose(e);
     }
-  }
+  };
 
-  handleKeyDown = (e) => {
-    const { onClose, open } = this.props;
+  return (
+    <div className={className} onClose={onClose} {...rest} role="dialog" aria-modal="true">
+      <Content open={open}>
+        <WindowEvent event="keydown" handler={handleKeydown} />
 
-    if (open && onClose) {
-      onKey('escape', onClose)(e);
-    }
-  }
+        <WindowEvent event="click" handler={handleOutsideClick} />
 
-  render() {
-    const {
-      onClose,
-      open,
-      children,
-      className,
-      showCloseButton,
-      ...rest
-    } = this.props;
+        {showCloseButton && (
+          <Button flat onClick={onClose} data-id="modal-close">
+            <span>Close</span>
 
-    const modalClasses = classnames(
-      styles.Modal,
-      open && styles.open,
-      className
-    );
+            <Close />
+          </Button>
+        )}
 
-    return (
-      <div className={modalClasses} onClose={onClose} {...rest} ref={(node) => this.container = node} role="dialog" aria-modal="true">
-        <Grid center='xs' middle='xs' className={styles.Grid}>
-          <Grid.Column xs={11} md={9} xl={7}>
-            <Content contentRef={(node) => this.content = node} open={open}>
-              <WindowEvent event='keydown' handler={this.handleKeyDown} />
-              <WindowEvent event='click' handler={this.handleOutsideClick} />
-              {showCloseButton && (
-                <Button className={styles.CloseButton} flat onClick={onClose} data-id='modal-close'>
-                  Close <Close />
-                </Button>
-              )}
-              {children}
-            </Content>
-          </Grid.Column>
-        </Grid>
-      </div>
-    );
-  }
+        {children}
+      </Content>
+    </div>
+  );
 }
 
+Modal.propTypes = {
+  /**
+   * Controlled open state of the modal
+   */
+  open: PropTypes.bool,
+  /**
+   * An optional function that is called on key down 'Escape' and on click outside modal content
+   */
+  onClose: PropTypes.func,
+  /**
+   * Modal content
+   */
+  children: PropTypes.node,
+  showCloseButton: PropTypes.bool,
+};
+
+Modal.displayName = 'Modal';
 export default Modal;
