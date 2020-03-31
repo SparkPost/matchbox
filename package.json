@@ -20,13 +20,8 @@
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
     "test:e2e:ci": "start-server-and-test start:storybook:static http://localhost:9001 test:e2e:headless",
-<<<<<<< HEAD
     "test:unit": "TZ=UTC node scripts/test.js --env=jsdom --config=./jest.config.json",
     "test:unit:ci": "CI=true npm run test:unit -- --colors",
-=======
-    "test:unit": "TZ=UTC node scripts/test.js --env=jsdom --config=./jest.config.json",
-    "test:unit:ci": "CI=true npm run test:unit -- --colors --coverage && cat ./coverage/lcov.info | coveralls",
->>>>>>> 6ae9b15d... github-actions - Remove Travis, re-introduce Coveralls
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
