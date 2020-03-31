@@ -27,6 +27,6 @@ describe('Label', () => {
   it('renders null when no "label" prop is provided', () => {
     const wrapper = global.mountStyled(<Label />);
 
-    expect(wrapper).not.toExist();
+    expect(wrapper.find('label')).not.toExist();
   });
 });
