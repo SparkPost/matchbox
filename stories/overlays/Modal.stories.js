@@ -1,51 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
-import { Modal, Panel, Button, Box, Inline } from '@sparkpost/matchbox';
-
-class ModalDemo extends React.Component {
-  state = {
-    open: false,
-  };
-
-  handleChange = () => {
-    this.setState({ open: !this.state.open });
-  };
-
-  render() {
-    return (
-      <div>
-        <a
-          onClick={this.handleChange}
-          href="javascript:void(0);"
-          role="button"
-          data-id="open-modal"
-        >
-          Open modal
-        </a>
-
-        <Modal open={this.state.open} onClose={this.handleChange} showCloseButton={true}>
-          <Panel title="Delete Template" sectioned>
-            <p>Are you sure you want to delete your template?</p>
-
-            <Box mt="500">
-              <Inline space="300">
-                <Button primary onClick={this.handleChange} data-id="delete-button">
-                  Delete
-                </Button>
-
-                <Button color="blue" outline onClick={this.handleChange} data-id="cancel-button">
-                  Cancel
-                </Button>
-              </Inline>
-            </Box>
-          </Panel>
-        </Modal>
-      </div>
-    );
-  }
-}
+import { Modal, Panel, Button, Box } from '@sparkpost/matchbox';
 
 storiesOf('Overlays|Modal', module)
   .addDecorator(getStory => <StoryContainer>{getStory()}</StoryContainer>)
@@ -57,19 +14,18 @@ storiesOf('Overlays|Modal', module)
           <p>Are you sure you want to delete your template?</p>
 
           <Box mt="500">
-            <Inline space="300">
-              <Button color="blue">Delete</Button>
+            <Button mr="300" color="blue">
+              Delete
+            </Button>
 
-              <Button color="blue" outline>
-                Cancel
-              </Button>
-            </Inline>
+            <Button color="blue" outline>
+              Cancel
+            </Button>
           </Box>
         </Panel>
       </Modal>
     );
   })
-
   .add(
     'Toggle Example',
     withInfo({
@@ -80,3 +36,33 @@ storiesOf('Overlays|Modal', module)
       return <ModalDemo />;
     }),
   );
+
+function ModalDemo() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  return (
+    <>
+      <button onClick={handleToggle} data-id="open-modal">
+        Open Modal
+      </button>
+
+      <Modal open={isOpen} onClose={handleToggle} showCloseButton={true}>
+        <Panel title="Delete Template" sectioned>
+          <p>Are you sure you want to delete your template?</p>
+
+          <Box mt="500">
+            <Button mr="300" color="blue" onClick={handleToggle} data-id="delete-button">
+              Delete
+            </Button>
+
+            <Button color="blue" outline onClick={handleToggle} data-id="cancel-button">
+              Cancel
+            </Button>
+          </Box>
+        </Panel>
+      </Modal>
+    </>
+  );
+}

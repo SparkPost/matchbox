@@ -47,7 +47,7 @@ export const content = () => `
 `;
 
 export const closeButton = () => `
-  color: ${tokens.color_gray_600};
+  color: ${tokens.color_gray_700};
   padding: 0;
   font-size: ${tokens.fontSize_700};
   position: absolute;
