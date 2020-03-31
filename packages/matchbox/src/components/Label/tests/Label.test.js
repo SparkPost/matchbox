@@ -23,4 +23,10 @@ describe('Label', () => {
     expect(wrapper.find('label')).toHaveAttributeValue('id', 'label1Label');
     expect(wrapper.find('label')).toHaveAttributeValue('for', 'label1');
   });
+
+  it('renders null when no "label" prop is provided', () => {
+    const wrapper = global.mountStyled(<Label />);
+
+    expect(wrapper).toBeNull();
+  });
 });

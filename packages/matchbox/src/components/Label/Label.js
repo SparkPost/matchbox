@@ -14,6 +14,10 @@ function Label(props) {
     mb = '100',
   } = props;
 
+  if (!label) {
+    return null;
+  }
+
   if (labelHidden) {
     return (
       <ScreenReaderOnly>
