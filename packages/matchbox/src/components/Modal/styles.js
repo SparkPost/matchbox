@@ -1,30 +1,23 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const base = props => `
-  position: fixed;
-  z-index: ${tokens.zIndex_overlay};
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100%;
-  max-height: 100vh;
-  opacity: ${props.open ? '1' : '0'};
-  pointer-events: ${props.open ? 'auto' : 'none'};
-  visibility: ${props.open ? 'visible' : 'hidden'};
-  overflow-y: auto;
-  will-change: opacity;
-  background-color: transparent;
-  transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in_out},
-              background-color ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
-`;
+export const base = props => {
+  const overlayHex = `${tokens.color_gray_1000}70`;
 
-export const isOpen = props => {
-  if (props.open) {
-    return `
-      background-color: ${tokens.color_gray_1000}70;
-    `;
-  }
+  return `
+    position: fixed;
+    z-index: ${tokens.zIndex_overlay};
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    max-height: 100vh;
+    pointer-events: ${props.open ? 'auto' : 'none'};
+    overflow-y: auto;
+    will-change: opacity;
+    background-color: ${props.open ? overlayHex : 'transparent'};
+    transition: background-color ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+  `;
 };
 
 export const wrapper = () => `
@@ -44,7 +37,35 @@ export const content = () => `
   position: relative;
   width: 100%;
   outline: none;
+  transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in},
+              visibility ${tokens.motionDuration_fast} ${tokens.motionEase_in},
+              opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in};
 `;
+
+export const contentAnimation = props => {
+  switch (props.state) {
+    case 'entered':
+      return `
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+      `;
+    case 'exiting':
+      return `
+        transform: translateY(${tokens.spacing_200});
+        opacity: 0;
+      `;
+    case 'exited':
+      return `
+        transform: translateY(${tokens.spacing_200});
+        visibility: hidden;
+        pointer-events: none;
+      `;
+    default:
+      break;
+  }
+};
 
 export const closeButton = () => `
   color: ${tokens.color_gray_700};

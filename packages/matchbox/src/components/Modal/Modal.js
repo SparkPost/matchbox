@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Transition } from 'react-transition-group';
 import FocusLock from 'react-focus-lock';
 import styled from 'styled-components';
@@ -9,11 +9,10 @@ import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
 import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
-import { base, isOpen, focusLock, wrapper, content, closeButton } from './styles';
+import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
 
 const StyledBase = styled('div')`
   ${base}
-  ${isOpen}
 `;
 
 const StyledWrapper = styled('div')`
@@ -30,6 +29,7 @@ const StyledFocusLock = styled(FocusLock)`
 
 const StyledContent = styled('div')`
   ${content}
+  ${contentAnimation}
 `;
 
 function Modal(props) {
@@ -92,22 +92,6 @@ function Modal(props) {
 function ModalContent(props) {
   const { open, children, maxWidth } = props;
   const content = useRef(null);
-
-  const handleOpen = () => {
-    if (open && content.current) {
-      content.current.focus();
-    }
-  };
-
-  // On mount, focus
-  useEffect(() => {
-    handleOpen();
-  }, []);
-
-  // If open changes, handle opening
-  useEffect(() => {
-    handleOpen();
-  }, [open]);
 
   return (
     <StyledFocusLock disabled={!open} maxWidth={maxWidth}>
