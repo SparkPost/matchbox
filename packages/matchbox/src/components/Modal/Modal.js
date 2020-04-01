@@ -100,7 +100,7 @@ function ModalContent(props) {
         unmountOnExit
         in={open}
         timeout={{
-          enter: 0,
+          enter: 300,
           exit: 150,
         }}
       >

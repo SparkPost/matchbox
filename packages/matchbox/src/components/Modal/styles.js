@@ -37,12 +37,20 @@ export const content = () => `
   position: relative;
   width: 100%;
   outline: none;
-  transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in},
-              visibility ${tokens.motionDuration_fast} ${tokens.motionEase_in},
-              opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+  transition: transform ${tokens.motionDuration_medium} ${tokens.motionEase_out},
+              visibility ${tokens.motionDuration_medium} ${tokens.motionEase_out},
+              opacity ${tokens.motionDuration_medium} ${tokens.motionEase_out};
 `;
 
 export const contentAnimation = props => {
+  const commonExitStyles = `
+    transform: translateY(${tokens.spacing_200});
+    opacity: 0;
+    transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in},
+                visibility ${tokens.motionDuration_fast} ${tokens.motionEase_in},
+                opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+  `;
+
   switch (props.state) {
     case 'entered':
       return `
@@ -53,13 +61,11 @@ export const contentAnimation = props => {
       `;
     case 'exiting':
       return `
-        transform: translateY(${tokens.spacing_200});
-        opacity: 0;
+        ${commonExitStyles}
       `;
     case 'exited':
       return `
-        transform: translateY(${tokens.spacing_200});
-        visibility: hidden;
+        ${commonExitStyles}
         pointer-events: none;
       `;
     default:
