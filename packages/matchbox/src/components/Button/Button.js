@@ -100,6 +100,7 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
+    ...systemProps,
   };
 
   if (to && !WrapperComponent) {
@@ -111,7 +112,6 @@ function Button(props) {
         rel={external ? 'noopener noreferrer' : ''}
         title={external && !title ? 'Opens in a new tab' : title}
         {...sharedProps}
-        {...systemProps}
       >
         {children}
       </StyledButton>
