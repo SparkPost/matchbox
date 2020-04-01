@@ -74,6 +74,7 @@
 - #362 - Deprecates Pagination prop `flat`
 - #360 - Adds new `fontSize_root` token
 - #363 - `<Label/>` renders `null` when no `label` is provided
+<<<<<<< HEAD
 - #365 – Adds a Tooltip `as` prop, defaults to `span`
 - #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
 - #365 – Tooltips are now visible if trigger is focused
@@ -88,3 +89,10 @@
   rendering
 - #375 - Resolve bug by properly passing the `height` prop to a child styled component
 - #374 - Adds `cursor: pointer;` to the `<Button/>` component styles
+=======
+- #369 - Restyles `Popover`
+- #369 - Adds new `id` prop for `Popover`
+- #369 - Adds new `as` prop for `Popover`, functions the same way as `wrapper`
+- #369 - Removes the `portalId` prop from `Popover`
+- #369 - Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
+>>>>>>> a887627c... FE-826 Add comments, Update unreleased.md, Connect id prop

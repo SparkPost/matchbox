@@ -16,7 +16,6 @@ export const content = props => `
 `;
 
 export const transition = props => {
-  console.log(props.state);
   switch (props.state) {
     case 'entering':
     case 'entered':

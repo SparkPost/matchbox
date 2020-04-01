@@ -10,7 +10,7 @@ import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 
 function Popover(props) {
-  const { as, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
+  const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
   const activatorRef = React.useRef();
@@ -82,6 +82,7 @@ function Popover(props) {
     return (
       <Box
         as={Wrapper}
+        // Inline block is required to measure and set height correctly
         display={Wrapper === 'span' ? 'inline-block' : null}
         position="relative"
         onClick={handleTrigger}
@@ -89,10 +90,11 @@ function Popover(props) {
       >
         <Box
           as={Wrapper}
+          // Inline block is required to measure and set height correctly
           display={Wrapper === 'span' ? 'inline-block' : null}
           width="100%"
           height="100%"
-          ref={forwardedRef}
+          ref={forwardedRef} // Component is duplicated to handle two refs
         >
           {trigger}
         </Box>
@@ -103,6 +105,7 @@ function Popover(props) {
   return (
     <PopoverOverlay
       as={Wrapper}
+      id={id}
       open={shouldBeOpen}
       renderActivator={renderActivator}
       renderPopover={renderPopover}
@@ -113,7 +116,6 @@ function Popover(props) {
 
 Popover.displayName = 'Popover';
 Popover.propTypes = {
-  as: PropTypes.oneOf(['div', 'span']),
   id: PropTypes.string,
   /**
    * A React component to will trigger the popover
@@ -141,6 +143,7 @@ Popover.propTypes = {
    * Popover Content
    */
   children: PropTypes.node,
+  as: PropTypes.oneOf(['div', 'span']),
   wrapper: PropTypes.oneOf(['div', 'span']),
   ...createPropTypes(padding.propNames),
   ...createPropTypes(layout.propNames),

@@ -28,7 +28,12 @@ function PopoverOverlay(props) {
   return (
     <>
       {open && <WindowEvent event="resize" handler={handleMeasurement} />}
-      <Box as={as} display={as === 'span' ? 'inline-block' : null} position="relative">
+      <Box
+        as={as}
+        // Inline block is required to measure and set height correctly on spans
+        display={as === 'span' ? 'inline-block' : null}
+        position="relative"
+      >
         {renderActivator({ activatorRef })}
         <Box
           {...(!open ? { 'aria-hidden': true } : {})}
