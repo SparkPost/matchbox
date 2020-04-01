@@ -7,6 +7,7 @@ import { Close } from '@sparkpost/matchbox-icons';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
+import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
 import { base, isOpen, focusLock, wrapper, content, closeButton } from './styles';
 
@@ -32,7 +33,7 @@ const StyledContent = styled('div')`
 `;
 
 function Modal(props) {
-  const { onClose, children, className, showCloseButton, ...rest } = props;
+  const { onClose, children, containerId, className, showCloseButton, ...rest } = props;
   let container = useRef(null);
   let content = useRef(null);
 
@@ -55,34 +56,36 @@ function Modal(props) {
   };
 
   return (
-    <StyledBase
-      className={className}
-      onClose={onClose}
-      {...rest}
-      ref={el => (container = el)}
-      role="dialog"
-      aria-modal="true"
-    >
-      <StyledWrapper>
-        <ModalContent open={props.open} maxWidth={props.maxWidth}>
-          <div ref={el => (content = el)}>
-            <WindowEvent event="keydown" handler={handleKeydown} />
+    <Portal containerId={containerId}>
+      <StyledBase
+        {...rest}
+        className={className}
+        onClose={onClose}
+        ref={el => (container = el)}
+        role="dialog"
+        aria-modal="true"
+      >
+        <StyledWrapper>
+          <ModalContent open={props.open} maxWidth={props.maxWidth}>
+            <div ref={el => (content = el)}>
+              <WindowEvent event="keydown" handler={handleKeydown} />
 
-            <WindowEvent event="click" handler={handleOutsideClick} />
+              <WindowEvent event="click" handler={handleOutsideClick} />
 
-            {showCloseButton && (
-              <StyledCloseButton flat onClick={onClose} data-id="modal-close">
-                <ScreenReaderOnly>Close</ScreenReaderOnly>
+              {showCloseButton && (
+                <StyledCloseButton flat onClick={onClose} data-id="modal-close">
+                  <ScreenReaderOnly>Close</ScreenReaderOnly>
 
-                <Close size={34} />
-              </StyledCloseButton>
-            )}
+                  <Close size={34} />
+                </StyledCloseButton>
+              )}
 
-            {children}
-          </div>
-        </ModalContent>
-      </StyledWrapper>
-    </StyledBase>
+              {children}
+            </div>
+          </ModalContent>
+        </StyledWrapper>
+      </StyledBase>
+    </Portal>
   );
 }
 
@@ -143,10 +146,15 @@ Modal.propTypes = {
   children: PropTypes.node,
   showCloseButton: PropTypes.bool,
   maxWidth: PropTypes.string,
+  /**
+   * Controls the target container ID for the rendering React portal
+   */
+  containerId: PropTypes.string,
 };
 
 Modal.defaultProps = {
   maxWidth: '800px',
+  containerId: 'modal-portal',
 };
 
 export default Modal;
