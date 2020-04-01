@@ -1,175 +1,128 @@
 import React from 'react';
 import Popover from '../Popover';
-import { shallow } from 'enzyme';
-import * as keyEventHelpers from '../../../helpers/keyEvents';
+import 'jest-styled-components';
 import * as geometryHelpers from '../../../helpers/geometry';
 
 describe('Popover', () => {
-  const Trigger = (props) => <div {...props} />;
-  let wrapper;
-  let instance;
-  let activator;
-  let popover;
-  const activatorRefMock = jest.fn();
-  let toggleSpy;
+  const subject = props =>
+    global.mountStyled(<Popover trigger={<button>trigger</button>} {...props} />);
 
-  beforeEach(() => {
-    wrapper = shallow(<Popover trigger={<Trigger/>} portalId='portal'>Popover Content</Popover>);
-    instance = wrapper.instance();
-    activator = () => shallow(wrapper.instance().renderActivator({ activatorRef: activatorRefMock }));
-    popover = () => shallow(wrapper.instance().renderPopover({ activatorWidth: 100 }));
-    keyEventHelpers.onKey = jest.fn(() => jest.fn());
-    geometryHelpers.getPositionFor = jest.fn(() => 'mock position');
-    toggleSpy = jest.spyOn(wrapper.instance(), 'uncontrolledToggle');
-  });
-
-  it('should render overlay correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('PopoverOverlay').dive()).toMatchSnapshot();
-  });
-
-  it('should render window events when open', () => {
-    wrapper.setProps({ open: true });
-    expect(wrapper.find('PopoverOverlay').dive().find('WindowEvent')).toHaveLength(4);
-  });
-
-  it('should measure position when opened and revert to default when closed', () => {
-    wrapper.setProps({ open: true });
-    expect(wrapper.find('PopoverOverlay').dive().find('.PopoverOverlay').prop('style')).toMatchSnapshot();
-    wrapper.setProps({ open: false });
-    expect(wrapper.find('PopoverOverlay').dive().find('.PopoverOverlay').prop('style')).toMatchSnapshot();
-  });
-
-  it('should use local state if not controlled', () => {
-    expect(shallow(<Popover />)).toHaveState({ open: false });
-  });
-
-  it('should use not use local state if a control prop is provided', () => {
-    expect(shallow(<Popover open={false} />)).toHaveState({ open: null });
-  });
-
-  describe('activator render', () => {
-    it('should render correctly', () => {
-      expect(activator()).toMatchSnapshot();
+  describe('overlay and display', () => {
+    it('should render its wrapper as a span', () => {
+      const wrapper = subject();
+      expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
+      expect(wrapper.find('span').at(1)).toHaveStyleRule('display', 'inline-block');
+      expect(wrapper.find('span').at(2)).toHaveStyleRule('display', 'inline-block');
     });
 
-    it('should render a wrapper component correctly', () => {
-      wrapper.setProps({ wrapper: 'div' });
-      expect(activator()).toMatchSnapshot();
+    it('should render its wrapper as a div', () => {
+      const wrapper = subject({ as: 'div' });
+      expect(wrapper.find('div').at(0)).not.toHaveStyleRule('display');
+      expect(wrapper.find('div').at(1)).not.toHaveStyleRule('display');
+      expect(wrapper.find('div').at(2)).not.toHaveStyleRule('display');
     });
 
-    it('should handle an uncontrolled open', () => {
-      expect(wrapper.state().open).toBe(false);
-      activator().simulate('click');
-      expect(wrapper.state().open).toBe(true);
+    it('should position correctly', () => {
+      const wrapper = subject();
+      expect(wrapper.find('div')).toHaveStyleRule('width', '0px');
+      expect(wrapper.find('div')).toHaveStyleRule('height', '0px');
+    });
+
+    it('should handle measurement on open', () => {
+      geometryHelpers.getPositionFor = jest.fn(() => ({}));
+      const wrapper = subject();
+      wrapper.find('button').simulate('click');
+      expect(geometryHelpers.getPositionFor).toHaveBeenCalledTimes(3);
     });
   });
 
-  describe('popover render', () => {
-    it('should render correctly', () => {
-      expect(popover()).toMatchSnapshot();
+  describe('popover toggling', () => {
+    it('should handle uncontrolled toggle on trigger click', () => {
+      const wrapper = subject();
+      expect(wrapper.find('div')).toHaveAttributeValue('aria-hidden', 'true');
+      expect(wrapper.find('[data-id="popover-content"]')).not.toExist();
+      wrapper.find('button').simulate('click');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '1');
+      expect(wrapper.find('div').at(0)).not.toHaveAttributeValue('aria-hidden');
+      wrapper.find('button').simulate('click');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '0');
+      expect(wrapper.find('div').at(0)).toHaveAttributeValue('aria-hidden', 'true');
     });
 
-    it('should be open if controlled or uncontrolled', () => {
-      expect(popover().props().in).toEqual(false);
-      wrapper.setProps({ open: true });
-      expect(popover().props().in).toEqual(true);
-      wrapper.setProps({ open: false });
-      activator().simulate('click');
-      expect(popover().props().in).toEqual(true);
+    it('should not open a controlled popover', () => {
+      const wrapper = subject({ open: false });
+      wrapper.find('button').simulate('click');
+      expect(wrapper.find('[data-id="popover-content"]')).not.toExist();
     });
 
-    it('should use correct classnames', () => {
-      wrapper.setProps({ sectioned: true, top: true, left: true });
-      expect(popover().props().children()).toMatchSnapshot();
-    });
-  });
-
-  describe('window events', () => {
-
-    describe('escape', () => {
-      it('should do nothing if popover is not open', () => {
-        wrapper.setProps({ onClose: jest.fn() });
-        wrapper.instance().handleEsc('event');
-        expect(keyEventHelpers.onKey).not.toHaveBeenCalled();
-      });
-
-      it('should call onClose prop if controlled component', () => {
-        wrapper.setProps({ open: true, onClose: jest.fn() });
-        wrapper.instance().handleEsc('event');
-        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', instance.props.onClose);
-        expect(keyEventHelpers.onKey).not.toHaveBeenCalledWith('escape', wrapper.instance().uncontrolledToggle);
-      });
-
-      it('should close popover if uncontrolled', () => {
-        wrapper.setProps({ onClose: jest.fn() });
-        wrapper.instance().setState({ open: true });
-        wrapper.instance().handleEsc('event');
-        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', instance.props.onClose);
-        expect(keyEventHelpers.onKey).toHaveBeenCalledWith('escape', wrapper.instance().uncontrolledToggle);
-      });
-    });
-
-    describe('outside click', () => {
-      describe('is outside', () => {
-
-        beforeEach(() => {
-          wrapper.setProps({ onClose: jest.fn() });
-          instance.popover = { contains: jest.fn(() => false) };
-          instance.activator = { contains: jest.fn(() => false) };
-        });
-
-        it('should close if controlled open', () => {
-          wrapper.setProps({ open: true });
-          instance.handleOutsideClick('event');
-          expect(toggleSpy).not.toHaveBeenCalled();
-          expect(instance.props.onClose).toHaveBeenCalled();
-        });
-
-        it('should close if uncontrolled open', () => {
-          instance.setState({ open: true });
-          instance.handleOutsideClick('event');
-          expect(toggleSpy).toHaveBeenCalled();
-          expect(instance.props.onClose).toHaveBeenCalled();
-        });
-
-        it('should not close if closed', () => {
-          instance.setState({ open: false });
-          instance.handleOutsideClick('event');
-          wrapper.setProps({ open: false });
-          instance.handleOutsideClick('event');
-          expect(toggleSpy).not.toHaveBeenCalled();
-          expect(instance.props.onClose).not.toHaveBeenCalled();
-        });
-      });
-
-      describe('is inside', () => {
-        beforeEach(() => {
-          wrapper.setProps({ onClose: jest.fn() });
-          instance.popover = { contains: jest.fn(() => true) };
-          instance.activator = { contains: jest.fn(() => true) };
-        });
-
-        it('should not close', () => {
-          instance.setState({ open: true });
-          instance.handleOutsideClick('event');
-          expect(toggleSpy).not.toHaveBeenCalled();
-          expect(instance.props.onClose).not.toHaveBeenCalled();
-        });
-      });
+    it('should render an opened controlled popover', () => {
+      const wrapper = subject({ open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '1');
     });
   });
 
-  describe('handle trigger toggle', () => {
-    it('should do nothing if popover is controlled', () => {
-      instance.setState({ open: null }); // Reverts to default state
-      instance.handleTrigger();
-      expect(toggleSpy).not.toHaveBeenCalled();
+  describe('content', () => {
+    it('should render deprecated sectioned prop', () => {
+      const wrapper = subject({ sectioned: true, open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('padding', '1rem');
     });
 
-    it('should open popover if uncontrolled', () => {
-      instance.handleTrigger();
-      expect(toggleSpy).toHaveBeenCalled();
+    it('should render custom padding', () => {
+      const wrapper = subject({ p: '500', open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('padding', '1.5rem');
+    });
+
+    it('should render custom width', () => {
+      const wrapper = subject({ width: '100px', minWidth: '50px', open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('width', '100px');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('min-width', '50px');
+    });
+
+    it('should render default position', () => {
+      const wrapper = subject({ open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('top', '100%');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('bottom', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('left', '0');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('right', 'auto');
+    });
+
+    it('should render bottom left position', () => {
+      const wrapper = subject({ left: true, open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('top', '100%');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('bottom', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('left', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('right', '0');
+    });
+
+    it('should render top right position', () => {
+      const wrapper = subject({ top: true, open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('bottom', '100%');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('top', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('left', '0');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('right', 'auto');
+    });
+
+    it('should render top left position', () => {
+      const wrapper = subject({ top: true, left: true, open: true });
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('bottom', '100%');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('top', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('left', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('right', '0');
+    });
+
+    it('should render a classname', () => {
+      const wrapper = subject({ className: 'test-class', open: true });
+      expect(wrapper.find('.test-class')).toExist();
+    });
+
+    it('should render content', () => {
+      const wrapper = subject({ children: 'test content', open: true });
+      expect(
+        wrapper
+          .find('[data-id="popover-content"]')
+          .first() // React transition group duplicates content
+          .text(),
+      ).toEqual('test content');
     });
   });
 });
