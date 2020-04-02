@@ -1,68 +1,67 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { ChevronRight } from '@sparkpost/matchbox-icons';
+import styled from 'styled-components';
+import { pre, code, prefix, line } from './styles';
 
-import styles from './CodeBlock.module.scss';
+const StyledPre = styled('pre')`
+  ${pre}
+`;
 
-class CodeBlock extends Component {
-  static displayName = 'CodeBlock';
+const StyledCode = styled('code')`
+  ${code}
+`;
 
-  static defaultProps = {
-    height: 355,
-    numbered: false
-  }
+const StyledCodePrefix = styled('div')`
+  ${prefix}
+`;
 
-  static propTypes = {
-    /**
-     * The string of code to render
-     */
-    code: PropTypes.string,
+const StyledLineNumber = styled('span')`
+  ${line}
+`;
 
-    /**
-     * Height in pixels of the <pre> block
-     */
-    height: PropTypes.number,
+function CodeBlock(props) {
+  const { code, height, className } = props;
 
-    /**
-     * Use line numbers instead of chevrons
-     */
-    numbered: PropTypes.bool
-  };
+  return (
+    <StyledPre className={className} height={height ? `${height}px` : 'auto'}>
+      <CodePrefix code={code} />
 
-  renderPrefix = (row, i) => {
-    if (this.props.numbered) {
-      return <div key={i} className={styles.LineNumber}>{i}</div>;
-    } else {
-      return <ChevronRight key={i} className={styles.LineChevron}/>;
-    }
-  }
-
-  render() {
-    const {
-      code,
-      height,
-      className
-    } = this.props;
-
-    let prefixMarkup = null;
-    const rows = code.split(/\r\n|\r|\n/);
-
-    if (rows.length) {
-      prefixMarkup = (
-        <div className={styles.PrefixWrapper}>
-          {rows.map(this.renderPrefix)}
-        </div>
-      );
-    }
-
-    return (
-      <pre className={classnames(styles.CodeBlock, className)} style={{ height: `${height}px` }}>
-        <code className={styles.Code}>{code}</code>
-        {prefixMarkup}
-      </pre>
-    );
-  }
+      <StyledCode>{code}</StyledCode>
+    </StyledPre>
+  );
 }
+
+function CodePrefix({ code }) {
+  const rows = code.split(/\r\n|\r|\n/);
+
+  return (
+    <StyledCodePrefix aria-hidden="true">
+      {rows.map((_row, rowIndex) => (
+        <StyledLineNumber key={`code-block-row-${rowIndex}`}>{rowIndex}</StyledLineNumber>
+      ))}
+    </StyledCodePrefix>
+  );
+}
+
+CodeBlock.propTypes = {
+  /**
+   * The string of code to render
+   */
+  code: PropTypes.string,
+  className: PropTypes.string,
+  /**
+   * Height in pixels of the <pre> block
+   */
+  height: PropTypes.number,
+  /**
+   * Render line numbers
+   */
+  numbered: PropTypes.bool,
+  dark: PropTypes.bool,
+};
+
+CodeBlock.defaultProps = {
+  numbered: true,
+};
 
 export default CodeBlock;
