@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { pre, code, prefix, line } from './styles';
+import { ChevronRight } from '@sparkpost/matchbox-icons';
+import { pre, code, prefix, line, chevron } from './styles';
 
 const StyledPre = styled('pre')`
   ${pre}
@@ -19,26 +20,48 @@ const StyledLineNumber = styled('span')`
   ${line}
 `;
 
+const StyledChevron = styled(ChevronRight)`
+  ${chevron}
+`;
+
 function CodeBlock(props) {
-  const { code, height, className } = props;
+  const { code, height, className, numbered, dark } = props;
 
   return (
-    <StyledPre className={className} height={height ? `${height}px` : 'auto'}>
-      <CodePrefix code={code} />
+    <StyledPre
+      className={className}
+      style={{ height: height ? `${height}px` : 'auto' }}
+      dark={dark}
+    >
+      <CodePrefix dark={dark} code={code} numbered={numbered} />
 
-      <StyledCode>{code}</StyledCode>
+      <StyledCode dark={dark}>{code}</StyledCode>
     </StyledPre>
   );
 }
 
-function CodePrefix({ code }) {
+function CodePrefix({ code, numbered, dark }) {
   const rows = code.split(/\r\n|\r|\n/);
 
   return (
     <StyledCodePrefix aria-hidden="true">
-      {rows.map((_row, rowIndex) => (
-        <StyledLineNumber key={`code-block-row-${rowIndex}`}>{rowIndex}</StyledLineNumber>
-      ))}
+      {rows.map((_row, rowIndex) => {
+        const key = `code-block-row-${rowIndex}`;
+
+        if (numbered) {
+          return (
+            <StyledLineNumber dark={dark} key={key}>
+              {rowIndex}
+            </StyledLineNumber>
+          );
+        }
+
+        return (
+          <StyledLineNumber dark={dark} key={key}>
+            <StyledChevron />
+          </StyledLineNumber>
+        );
+      })}
     </StyledCodePrefix>
   );
 }
@@ -57,11 +80,10 @@ CodeBlock.propTypes = {
    * Render line numbers
    */
   numbered: PropTypes.bool,
+  /**
+   * Whether the code block is styled dark or light
+   */
   dark: PropTypes.bool,
-};
-
-CodeBlock.defaultProps = {
-  numbered: true,
 };
 
 export default CodeBlock;
