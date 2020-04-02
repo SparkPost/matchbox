@@ -4,8 +4,8 @@ import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { pick } from '@styled-system/props';
-import { omit } from '../../helpers/systemProps';
+import { omit } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 import Group from './Group';
@@ -66,8 +66,8 @@ function Button(props) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
-  const systemProps = pick(rest);
-  const componentProps = omit(rest, margin.propNames, width.propNames);
+  const systemProps = pick(rest, [...margin.propNames, ...width.propNames]);
+  const componentProps = omit(rest);
 
   // Polyfills deprecrated 'Component' prop
   const WrapperComponent = component || Component;

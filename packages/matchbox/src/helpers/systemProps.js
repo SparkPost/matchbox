@@ -19,3 +19,25 @@ export function omit(props, names) {
   }
   return next;
 }
+
+/**
+ * Picks styled system props from an object
+ * @param {Object} props
+ * @param {Array} names
+ *
+ * @example
+ *  import { margin } from 'styled-system';
+ *
+ * pick({ my: '100', py: '100' }, [margin.propNames])
+ *  > { my: '100' }
+ */
+export function pick(props, names) {
+  const next = {};
+  const regex = new RegExp(`^(${names.join('|')})$`);
+
+  for (let key in props) {
+    if (!regex.test(key)) continue;
+    next[key] = props[key];
+  }
+  return next;
+}
