@@ -21,10 +21,15 @@ function ControlledPopover() {
       <p>Close Count: {count}</p>
       <br />
       <Popover
+        id="test-popover"
         p="400"
         onClose={handleClose}
         open={open}
-        trigger={<Button onClick={() => setOpen(true)}>Open Me</Button>}
+        trigger={
+          <Button aria-describedby="test-popover" onClick={() => setOpen(true)}>
+            Open Me
+          </Button>
+        }
       >
         <p>I am controlled</p>
         <Button data-id="close-button" onClick={handleClose}>
@@ -41,16 +46,24 @@ export default {
 
 export const UncontrolledOpenState = withInfo({ propTables: [Popover] })(() => (
   <Popover
+    id="test-popover"
     p="400"
     width="30rem"
-    trigger={<Button onClick={action('Trigger Click')}>Button</Button>}
+    trigger={
+      <Button aria-describedby="test-popover" onClick={action('Trigger Click')}>
+        Button
+      </Button>
+    }
   >
     Popover Content
   </Popover>
 ));
 
 export const WithAnActionList = withInfo({ propTables: [Popover] })(() => (
-  <Popover trigger={<Button>More Actions</Button>}>
+  <Popover
+    id="test-popover"
+    trigger={<Button aria-describedby="test-popover">More Actions</Button>}
+  >
     <ActionList
       actions={[
         { content: 'Edit', as: 'button' },
@@ -71,24 +84,45 @@ export const Positioning = withInfo({ propTables: [Popover] })(() => (
   <>
     <Box display="flex">
       <Box flex="1">
-        <Popover p="200" trigger={<Button>Default</Button>}>
+        <Popover
+          id="test-popover-1"
+          p="200"
+          trigger={<Button aria-describedby="test-popover-1">Default</Button>}
+        >
           Bottom & Right
         </Popover>
       </Box>
       <Box flex="0">
-        <Popover p="200" bottom left trigger={<Button>Bottom & Left</Button>}>
+        <Popover
+          id="test-popover-2"
+          p="200"
+          bottom
+          left
+          trigger={<Button aria-describedby="test-popover-2">Bottom & Left</Button>}
+        >
           Bottom & Left
         </Popover>
       </Box>
     </Box>
     <Box display="flex" mt="800">
       <Box flex="1">
-        <Popover p="200" top trigger={<Button>Top & Right</Button>}>
+        <Popover
+          id="test-popover-3"
+          p="200"
+          top
+          trigger={<Button aria-describedby="test-popover-3">Top & Right</Button>}
+        >
           Top & Right
         </Popover>
       </Box>
       <Box flex="0">
-        <Popover p="200" top left trigger={<Button>Top & Left</Button>}>
+        <Popover
+          id="test-popover-4"
+          p="200"
+          top
+          left
+          trigger={<Button aria-describedby="test-popover-4">Top & Left</Button>}
+        >
           Top & Left
         </Popover>
       </Box>
@@ -103,10 +137,15 @@ export const ControlledOpenState = withInfo({ source: false, propTables: [Popove
 export const SystemProps = withInfo({ propTables: [Popover] })(() => (
   <>
     <Popover
+      id="test-popover"
       p={['300', null, null, '700']}
       width={['10rem', null, null, '30rem']}
       height={['10rem', null, null, '14rem']}
-      trigger={<Button onClick={action('Trigger Click')}>Button</Button>}
+      trigger={
+        <Button aria-describedby="test-popover" onClick={action('Trigger Click')}>
+          Button
+        </Button>
+      }
     >
       Popover Content
     </Popover>
