@@ -45,6 +45,14 @@ export const GroupWithLabel = withInfo()(() => (
   </Radio.Group>
 ));
 
+export const RequiredGroupWithLabel = withInfo()(() => (
+  <Radio.Group label="This is a required radio group" required>
+    <Radio id="id" label="Option 1" name="group" />
+    <Radio id="id2" label="Option 2" name="group" />
+    <Radio id="id3" label="Option 3" name="group" />
+  </Radio.Group>
+));
+
 export const GroupWithHiddenLabel = withInfo()(() => (
   <Radio.Group labelHidden label="This is a radio group">
     <Radio id="id" label="Option 1" name="group" />

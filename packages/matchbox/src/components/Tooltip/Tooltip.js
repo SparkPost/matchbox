@@ -6,6 +6,7 @@ import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import TooltipOverlay from './TooltipOverlay';
 import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { visibility } from './styles';
 import { deprecate } from '../../helpers/propTypes';
 
@@ -20,14 +21,24 @@ const StyledContent = styled('div')`
 `;
 
 function Tooltip(props) {
-  const [hover, setHover] = React.useState(false);
+  const [show, setshow] = React.useState(false);
 
-  function handleMouseOver() {
-    setHover(true);
+  function handleShow() {
+    setshow(true);
   }
 
-  function handleMouseOut() {
-    setHover(false);
+  function handleHide() {
+    setshow(false);
+  }
+
+  function renderA11yContent() {
+    return (
+      <ScreenReaderOnly>
+        <span role="tooltip" aria-hidden={!show} id={props.id}>
+          {props.content}
+        </span>
+      </ScreenReaderOnly>
+    );
   }
 
   function renderTooltip({ preferredDirection }) {
@@ -65,7 +76,7 @@ function Tooltip(props) {
         // Tooltip gap to activator
         mt={positionTop ? '0' : '100'}
         mb={positionTop ? '100' : '0'}
-        visible={!disabled && hover}
+        visible={!disabled && show}
       >
         <StyledContent
           position="relative"
@@ -89,11 +100,17 @@ function Tooltip(props) {
   }
 
   function renderActivator({ activatorRef }) {
+    const { as = 'span' } = props;
+
     return (
       <Box
-        display="inline-block"
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
+        as={as}
+        // Inline block is required to measure and set height
+        display={as === 'span' ? 'inline-block' : null}
+        onFocus={handleShow}
+        onBlur={handleHide}
+        onMouseOver={handleShow}
+        onMouseOut={handleHide}
         ref={activatorRef}
       >
         {props.children}
@@ -104,17 +121,20 @@ function Tooltip(props) {
   return (
     <TooltipOverlay
       id={props.id}
-      hideTooltip={handleMouseOut}
+      hideTooltip={handleHide}
+      portalId={props.portalId}
+      renderA11yContent={renderA11yContent}
       renderTooltip={renderTooltip}
       renderActivator={renderActivator}
-      visible={!props.disabled && hover}
+      visible={!props.disabled && show}
     />
   );
 }
 
 Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
-  id: PropTypes.string,
+  as: PropTypes.string,
+  id: PropTypes.string.isRequired,
   content: PropTypes.node,
   /**
    * Disables hover events
@@ -142,7 +162,10 @@ Tooltip.propTypes = {
     right: PropTypes.bool,
   }),
 
-  portalId: deprecate(PropTypes.string, 'Portals are no longer used', 'error'),
+  /**
+   * Element ID for the portal that will house tooltips. Appends to body if not provided.
+   */
+  portalId: PropTypes.string,
   ...createPropTypes(border.propNames),
   ...createPropTypes(color.propNames),
   ...createPropTypes(layout.propNames),

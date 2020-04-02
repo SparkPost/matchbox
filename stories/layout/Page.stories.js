@@ -54,7 +54,6 @@ export const BasicExample = withInfo(infoOptions)(() => (
     breadcrumbAction={breadcrumbAction}
     title="Template #3"
     subtitle="Published"
-    mb="700"
   >
     <Panel sectioned>Content</Panel>
   </Page>
@@ -107,10 +106,4 @@ export const SubtitleNodeAndPrimaryArea = withInfo(infoOptions)(() => (
       </div>
     }
   />
-));
-
-export const SystemProps = withInfo(infoOptions)(() => (
-  <Page primaryAction={primaryAction} title="Template #3" mb={['200', null, '400', '700']}>
-    <Panel sectioned>Content</Panel>
-  </Page>
 ));

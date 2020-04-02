@@ -19,7 +19,11 @@ function Group(props) {
 
   return (
     <StyledGroup {...systemProps}>
-      {label && !labelHidden && (
+      {labelHidden ? (
+        <ScreenReaderOnly>
+          <legend>{label}</legend>
+        </ScreenReaderOnly>
+      ) : (
         <Box as="legend" lineHeight="200" fontSize="200" mb="100">
           {label}
           {required && (
@@ -29,11 +33,6 @@ function Group(props) {
           )}
         </Box>
       )}
-      {label && labelHidden && (
-        <ScreenReaderOnly>
-          <legend>{label}</legend>
-        </ScreenReaderOnly>
-      )}
       {children}
     </StyledGroup>
   );
@@ -41,7 +40,7 @@ function Group(props) {
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
-  label: PropTypes.node,
+  label: PropTypes.node.isRequired,
   labelHidden: PropTypes.bool,
   required: PropTypes.bool,
   ...createPropTypes(margin.propNames),

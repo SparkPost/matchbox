@@ -28,7 +28,7 @@ const commonCheckedStyles = `
   position: absolute;
   top: 0;
   left: 0;
-  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+  transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}, fill ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}, box-shadow ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
 export const StyledUnchecked = styled(Box)`
@@ -45,6 +45,14 @@ export const StyledChecked = styled(Box)`
 
 export const StyledInput = styled('input')`
   ${visuallyHidden}
+
+  & ~ span > * {
+    border-radius: ${tokens.borderRadius_circle};
+  }
+
+  &:focus ~ span ${StyledChecked}, &:focus ~ span ${StyledUnchecked} {
+    box-shadow: 0 0 0 0px ${tokens.color_white}, 0 0 0 2px ${tokens.color_blue_700};
+  }
 
   &:hover:not(:disabled) {
     & ~ span ${StyledUnchecked} {

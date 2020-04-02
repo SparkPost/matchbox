@@ -10,11 +10,13 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-  const container = wrapper => wrapper.find('div').at(1);
-  const content = wrapper => wrapper.find('div').at(2);
+  const container = wrapper => wrapper.find('div').at(2);
+  const content = wrapper => wrapper.find('div').at(3);
 
   it('should render default styles correctly', () => {
     const wrapper = subject();
+    expect(wrapper.find('span').at(2)).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
     expect(container(wrapper)).toHaveStyleRule('top', '100%');
     expect(container(wrapper)).toHaveStyleRule('bottom', 'auto');
     expect(container(wrapper)).toHaveStyleRule('left', '0');
@@ -34,13 +36,25 @@ describe('Tooltip', () => {
     expect(content(wrapper)).toHaveStyleRule('width', '100px');
   });
 
-  it('should toggle visibility', () => {
+  it('should toggle hover visibility', () => {
     const wrapper = subject();
     wrapper.find('button').simulate('mouseOver');
     expect(container(wrapper)).toHaveStyleRule('opacity', '1');
     expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
     expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
     wrapper.find('button').simulate('mouseOut');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
+  });
+
+  it('should toggle focus visibility', () => {
+    const wrapper = subject();
+    wrapper.find('button').simulate('focus');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '1');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
+    wrapper.find('button').simulate('blur');
     expect(container(wrapper)).toHaveStyleRule('opacity', '0');
     expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
     expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
@@ -74,11 +88,16 @@ describe('Tooltip', () => {
 
   it('should render overlay', () => {
     const wrapper = subject();
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('z-index', '1000');
-    expect(wrapper.find('span').at(0)).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('z-index', '1000');
     // These values are 0 but shows the positioning is working
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('top', '0');
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('left', '0');
-    expect(wrapper.find('span').at(1)).toHaveStyleRule('height', '0');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('top', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('left', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '0px');
+  });
+
+  it('should render with a block element wrapper', () => {
+    const wrapper = subject({ as: 'div' });
+    expect(wrapper.find('div').at(0)).not.toHaveStyleRule('display');
   });
 });
