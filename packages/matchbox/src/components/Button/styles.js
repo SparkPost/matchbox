@@ -90,10 +90,11 @@ export const colorVariant = props => {
         }
       `;
     case 'normal':
+    case 'outline':
     default:
       return `
         &, &:visited {
-          border: 1px solid ${color};
+          border: 1px solid ${props.visualWeight == 'outline' ? tokens.color_gray_400 : color};
           background: transparent;
           color: ${color};
           &:hover {
