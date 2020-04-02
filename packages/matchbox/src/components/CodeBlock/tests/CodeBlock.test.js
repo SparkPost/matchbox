@@ -28,6 +28,12 @@ describe('CodeBlock', () => {
     expect(wrapper).toIncludeText(codeSnippet);
   });
 
+  it('renders with appropriate semantic HTML elements', () => {
+    const wrapper = subject();
+
+    expect(wrapper.find('pre code')).toHaveLength(1);
+  });
+
   it('renders with the light theme by default', () => {
     const wrapper = subject();
 
