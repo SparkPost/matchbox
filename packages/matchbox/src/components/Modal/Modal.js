@@ -3,12 +3,14 @@ import { Transition } from 'react-transition-group';
 import FocusLock from 'react-focus-lock';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { tokens } from '@sparkpost/design-tokens';
 import { Close } from '@sparkpost/matchbox-icons';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
 import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
+import { secondsToMS } from '../../helpers/string';
 import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
 
 const StyledBase = styled('div')`
@@ -100,8 +102,8 @@ function ModalContent(props) {
         unmountOnExit
         in={open}
         timeout={{
-          enter: 300,
-          exit: 150,
+          enter: secondsToMS(tokens.motionDuration_medium),
+          exit: secondsToMS(tokens.motionDuration_fast),
         }}
       >
         {/* Negative `tabIndex` required to programmatically focus */}
