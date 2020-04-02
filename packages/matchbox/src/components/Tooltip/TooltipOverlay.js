@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import { tokens } from '@sparkpost/design-tokens';
@@ -24,11 +25,18 @@ function TooltipOverlay(props) {
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const { id, renderTooltip, renderActivator, hideTooltip, visible } = props;
+  const {
+    renderA11yContent,
+    renderTooltip,
+    renderActivator,
+    hideTooltip,
+    visible,
+    portalId,
+  } = props;
 
   function handleMeasurement() {
     if (activatorRef.current && visible) {
-      setPosition(getPositionFor(activatorRef.current, { fixed: true }));
+      setPosition(getPositionFor(activatorRef.current));
       setPreferredDirection(getPreferredDirectionFor(activatorRef.current));
     }
   }
@@ -49,24 +57,29 @@ function TooltipOverlay(props) {
     <>
       <WindowEvent event="scroll" handler={handleScroll} />
       {renderActivator({ activatorRef })}
-      <Box
-        {...(!visible ? { 'aria-hidden': true } : {})}
-        as="span"
-        id={id}
-        // Fixes this wrapper to the top and left of viewport
-        // Handles any potential 'position: relative' on a parent
-        position="fixed"
-        top={0}
-        left={0}
-        style={{
-          pointerEvents: 'none',
-        }}
-        zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
-      >
-        <Box as="span" position="absolute" {...position}>
-          {renderTooltip({ preferredDirection })}
+      {renderA11yContent()}
+      <Portal containerId={portalId}>
+        <Box
+          aria-hidden="true"
+          position="absolute"
+          top="0"
+          left="0"
+          style={{
+            pointerEvents: 'none',
+          }}
+        >
+          <Box
+            position="absolute"
+            top={`${position.top}px`}
+            left={`${position.left}px`}
+            height={`${position.height}px`}
+            width={`${position.width}px`}
+            zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+          >
+            {renderTooltip({ preferredDirection })}
+          </Box>
         </Box>
-      </Box>
+      </Portal>
     </>
   );
 }

@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import { ThemeProvider, Tooltip, Button, Box } from '@sparkpost/matchbox';
+import { ThemeProvider, Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
@@ -12,11 +12,12 @@ export default {
 };
 
 export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
-  // Adding a Box here to test relative positioning
   <Box position="relative">
     <Button.Group>
-      <Tooltip content="Hellow I am a Tooltip">
-        <Button onClick={action('click')}>Accepted</Button>
+      <Tooltip id="test-tooltip" content="Hellow I am a Tooltip">
+        <Button aria-describedby="test-tooltip" onClick={action('click')}>
+          Accepted
+        </Button>
       </Tooltip>
       <Button disabled>Targeted</Button>
     </Button.Group>
@@ -25,12 +26,12 @@ export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
 
 export const SpecifiedWidth = withInfo({ propTables: [Tooltip] })(() => (
   <div>
-    <Tooltip dark width="auto" content="Short">
-      <Button>Hover</Button>
+    <Tooltip id="test-tooltip-1" dark width="auto" content="Short">
+      <Button aria-describedby="test-tooltip-1">Hover</Button>
     </Tooltip>
 
-    <Tooltip width="500px" content="Very long">
-      <Button>Hover</Button>
+    <Tooltip id="test-tooltip-2" width="500px" content="Very long">
+      <Button aria-describedby="test-tooltip-2">Hover</Button>
     </Tooltip>
   </div>
 ));
@@ -46,21 +47,30 @@ export const Positioning = withInfo({ propTables: [Tooltip] })(() => (
       <small>Scroll down and hover</small>
     </p>
     <div style={{ height: '400px' }} />
-    <Tooltip content="Tooltips are positioned automatically based on the components position.">
-      <Button>Hover me</Button>
-    </Tooltip>
-
-    <Box textAlign="right">
-      <Tooltip content="Tooltips are positioned automatically based on the components position.">
-        <Button>Hover me</Button>
+    <Button.Group>
+      <Tooltip
+        id="test-tooltip-1"
+        content="Tooltips are positioned automatically based on the components position."
+      >
+        <Button aria-describedby="test-tooltip-1">Hover me</Button>
       </Tooltip>
-    </Box>
+
+      <Box textAlign="right">
+        <Tooltip
+          id="test-tooltip-2"
+          content="Tooltips are positioned automatically based on the components position."
+        >
+          <Button aria-describedby="test-tooltip-2">Hover me</Button>
+        </Tooltip>
+      </Box>
+    </Button.Group>
   </div>
 ));
 
 export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
   <div>
     <Tooltip
+      id="test-tooltip-1"
       content="Hello I am a Tooltip"
       padding="600"
       bg="white"
@@ -68,10 +78,11 @@ export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
       color="purple.700"
       border="400"
     >
-      <Button>Hover</Button>
+      <Button aria-describedby="test-tooltip-1">Hover</Button>
     </Tooltip>
 
     <Tooltip
+      id="test-tooltip-2"
       content="Hello I am a Tooltip"
       bg="red.700"
       fontSize="600"
@@ -80,7 +91,36 @@ export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
       p="700"
       width="30rem"
     >
-      <Button>Hover</Button>
+      <Button aria-describedby="test-tooltip-2">Hover</Button>
     </Tooltip>
   </div>
+));
+
+export const WithinAbsoluteContainer = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <p>This story is meant to test positioning functionality</p>
+    <Box height="20rem"></Box>
+    <Box position="fixed" top="0" left="0" zIndex="10000">
+      <Box position="absolute" top="300px" left="200px">
+        <Tooltip
+          id="test-tooltip"
+          content="Tooltips are positioned automatically based on the components position."
+        >
+          <Button aria-describedby="test-tooltip">Hover me</Button>
+        </Tooltip>
+      </Box>
+    </Box>
+  </Box>
+));
+
+export const AroundABlockElement = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <Tooltip
+      id="test-tooltip"
+      as="div"
+      content="Tooltips are positioned automatically based on the components position."
+    >
+      <TextField aria-describedby="test-tooltip" label="A block level element" />
+    </Tooltip>
+  </Box>
 ));

@@ -74,3 +74,7 @@
 - #362 - Deprecates Pagination prop `flat`
 - #360 - Adds new `fontSize_root` token
 - #363 - `<Label/>` renders `null` when no `label` is provided
+- #365 – Adds a Tooltip `as` prop, defaults to `span`
+- #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
+- #365 – Tooltips are now visible if trigger is focused
+- #365 – Tooltips `id` is now required
