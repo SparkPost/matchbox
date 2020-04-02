@@ -144,7 +144,8 @@ Popover.propTypes = {
    */
   children: PropTypes.node,
   as: PropTypes.oneOf(['div', 'span']),
-  wrapper: PropTypes.oneOf(['div', 'span']),
+  wrapper: deprecate(PropTypes.oneOf(['div', 'span']), 'Use `as` prop instead'),
+  portalId: deprecate(PropTypes.string, 'Portals are no longer used in Popovers'),
   ...createPropTypes(padding.propNames),
   ...createPropTypes(layout.propNames),
 };
