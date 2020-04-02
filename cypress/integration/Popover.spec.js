@@ -42,7 +42,7 @@ describe('Controlled Popover component', () => {
 describe('Uncontrolled Popover with Actionlist', () => {
   beforeEach(() => {
     cy.visit('/iframe.html?path=/story/overlays-popover--with-an-action-list');
-    cy.wait(200); // The element that handles click events requires time to calculate dimensions
+    cy.wait(500); // The element that handles click events requires time to calculate dimensions
   });
 
   it('should open when clicking the trigger', () => {
