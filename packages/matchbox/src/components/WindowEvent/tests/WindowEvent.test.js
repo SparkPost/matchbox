@@ -10,7 +10,7 @@ describe('WindowEvent', () => {
   const handler = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<WindowEvent event='scroll' handler={handler}/>);
+    wrapper = shallow(<WindowEvent event="scroll" handler={handler} />);
   });
 
   afterEach(() => {
