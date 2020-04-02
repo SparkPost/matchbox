@@ -56,11 +56,11 @@ describe('Uncontrolled Popover with Actionlist', () => {
       cy.get('button')
         .first()
         .click();
+      cy.wait(200);
     });
 
     it('should tab through actionlist buttons', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
-      cy.wait(200);
       cy.focused().tab();
       cy.focused().should('have.text', 'Edit');
       cy.focused().tab();
