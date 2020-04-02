@@ -16,7 +16,7 @@ describe('Checkbox Group', () => {
   });
 
   it('renders with system props', () => {
-    const wrapper = subject({ mb: '500' });
+    const wrapper = subject({ label: 'label', mb: '500' });
     expect(wrapper).toHaveStyleRule('margin-bottom', '1.5rem');
   });
 });
