@@ -4,12 +4,14 @@ import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { Modal, Panel, Button, Box } from '@sparkpost/matchbox';
 
+const PORTAL_ID = 'modal-portal';
+
 storiesOf('Overlays|Modal', module)
   .addDecorator(getStory => <StoryContainer>{getStory()}</StoryContainer>)
 
   .add('Open', () => {
     return (
-      <Modal open>
+      <Modal open portalId={PORTAL_ID}>
         <Panel title="Delete Template" sectioned>
           <p>Are you sure you want to delete your template?</p>
 
@@ -48,7 +50,7 @@ function ModalDemo() {
         Open Modal
       </button>
 
-      <Modal open={isOpen} onClose={handleToggle} showCloseButton={true}>
+      <Modal open={isOpen} onClose={handleToggle} showCloseButton={true} portalId={PORTAL_ID}>
         <Panel title="Delete Template" sectioned>
           <p>Are you sure you want to delete your template?</p>
 

@@ -35,7 +35,7 @@ const StyledContent = styled('div')`
 `;
 
 function Modal(props) {
-  const { onClose, children, containerId, className, showCloseButton, ...rest } = props;
+  const { onClose, children, portalId, className, showCloseButton, ...rest } = props;
   let container = useRef(null);
   let content = useRef(null);
 
@@ -58,7 +58,7 @@ function Modal(props) {
   };
 
   return (
-    <Portal containerId={containerId}>
+    <Portal containerId={portalId}>
       <StyledBase
         {...rest}
         className={className}
@@ -135,12 +135,11 @@ Modal.propTypes = {
   /**
    * Controls the target container ID for the rendering React portal
    */
-  containerId: PropTypes.string,
+  portalId: PropTypes.string,
 };
 
 Modal.defaultProps = {
   maxWidth: '800px',
-  containerId: 'modal-portal',
 };
 
 export default Modal;
