@@ -77,3 +77,4 @@
 - #365 – Adds a Tooltip `as` prop, defaults to `span`
 - #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
 - #365 – Tooltips are now visible if trigger is focused
+- #365 – Tooltips `id` is now required

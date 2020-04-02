@@ -105,6 +105,7 @@ function Tooltip(props) {
     return (
       <Box
         as={as}
+        // Inline block is required to measure and set height
         display={as === 'span' ? 'inline-block' : null}
         onFocus={handleShow}
         onBlur={handleHide}
@@ -121,6 +122,7 @@ function Tooltip(props) {
     <TooltipOverlay
       id={props.id}
       hideTooltip={handleHide}
+      portalId={props.portalId}
       renderA11yContent={renderA11yContent}
       renderTooltip={renderTooltip}
       renderActivator={renderActivator}
@@ -132,7 +134,7 @@ function Tooltip(props) {
 Tooltip.displayName = 'Tooltip';
 Tooltip.propTypes = {
   as: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   content: PropTypes.node,
   /**
    * Disables hover events
