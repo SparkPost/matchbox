@@ -51,7 +51,7 @@ function CodePrefix({ code, numbered, dark }) {
         if (numbered) {
           return (
             <StyledLineNumber dark={dark} key={key}>
-              {rowIndex}
+              {rowIndex + 1} {/* Line numbers in code editors do not start with "0"*/}
             </StyledLineNumber>
           );
         }
@@ -84,6 +84,11 @@ CodeBlock.propTypes = {
    * Whether the code block is styled dark or light
    */
   dark: PropTypes.bool,
+};
+
+CodeBlock.defaultProps = {
+  numbered: false,
+  dark: false,
 };
 
 export default CodeBlock;
