@@ -66,7 +66,7 @@ function Button(props) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
-  const systemProps = pick(rest, [...margin.propNames, ...width.propNames]);
+  const systemProps = pick(rest, system.propNames);
   const componentProps = omit(rest);
 
   // Polyfills deprecrated 'Component' prop
