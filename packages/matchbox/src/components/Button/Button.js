@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { margin, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
+import { omit } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 import Group from './Group';
@@ -66,6 +67,7 @@ function Button(props) {
   } = props;
 
   const systemProps = pick(rest);
+  const componentProps = omit(rest, margin.propNames, width.propNames);
 
   // Polyfills deprecrated 'Component' prop
   const WrapperComponent = component || Component;
@@ -88,7 +90,7 @@ function Button(props) {
     }
 
     return 'strong';
-  }, [outline, plain, flat]);
+  }, [outline, outlineBorder, plain, flat]);
 
   const sharedProps = {
     className,
@@ -101,6 +103,7 @@ function Button(props) {
     visualWeight,
     buttonColor,
     ...systemProps,
+    ...componentProps,
   };
 
   if (to && !WrapperComponent) {
