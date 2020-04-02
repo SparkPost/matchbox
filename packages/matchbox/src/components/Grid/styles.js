@@ -1,10 +1,14 @@
-// todo, add margin-left: -$gutter-width;
+import { tokens } from '@sparkpost/design-tokens';
+
+const gutterWidth = tokens.spacing_400;
+
 export const grid = `
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: -${gutterWidth};
 `;
 
 // todo, add to grid
