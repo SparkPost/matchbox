@@ -6,7 +6,7 @@
  * @example
  *  import { margin } from 'styled-system';
  *
- * omit({ my: '100', className: 'classs' }, [margin.propNames])
+ * omit({ my: '100', className: 'classs' }, margin.propNames)
  *  > { className: 'class' }
  */
 export function omit(props, names) {
@@ -28,7 +28,7 @@ export function omit(props, names) {
  * @example
  *  import { margin } from 'styled-system';
  *
- * pick({ my: '100', py: '100' }, [margin.propNames])
+ * pick({ my: '100', py: '100' }, margin.propNames)
  *  > { my: '100' }
  */
 export function pick(props, names) {
