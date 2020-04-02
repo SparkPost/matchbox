@@ -78,3 +78,6 @@
 - #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
 - #365 – Tooltips are now visible if trigger is focused
 - #365 – Tooltips `id` is now required
+- #371 - Restyles `<Modal/>` component using styled components
+- #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
+  rendering
