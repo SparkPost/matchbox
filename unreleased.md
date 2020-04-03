@@ -83,3 +83,6 @@
 - #368 - Radio now properly hides a screen reader accessible label
 - #368 - Radio now properly uses aria-describedby to link to its helptext and error
 - #368 - Radio.Group now properly uses a `fieldset` and `legend` elements
+- #371 - Restyles `<Modal/>` component using styled components
+- #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
+  rendering
