@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { CodeBlock, Panel } from '@sparkpost/matchbox';
-// import CodeBlockDemo from '../../packages/matchbox/src/components/CodeBlock/CodeBlockDemo';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/styles/hljs';
 
@@ -65,7 +64,7 @@ storiesOf('Utility|Code Block', module)
           <SyntaxHighlighter
             PreTag={React.Fragment}
             CodeTag={React.Fragment}
-            language="javascript"
+            language="bash"
             style={docco}
           />
         </CodeBlock>
