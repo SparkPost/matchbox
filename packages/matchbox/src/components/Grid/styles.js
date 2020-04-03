@@ -33,8 +33,8 @@ const orientationStyles = {
 };
 
 export const gridStyle = props => {
-  const orientationStyle = breakpoints
-    .flatMap(breakpoint => {
+  const responsiveStyle = breakpoints
+    .map(breakpoint => {
       const css = Object.keys(props)
         .filter(key => props[key] === breakpoint && orientationStyles[key])
         .map(key => orientationStyles[key])
@@ -68,6 +68,60 @@ export const gridStyle = props => {
     flex-wrap: wrap;
     margin-left: -${gutterWidth};
 
-    ${orientationStyle}
+    ${responsiveStyle}
+  `;
+};
+
+export const gridColumnStyle = props => {
+  const responsiveStyle = breakpoints
+    .map(breakpoint => {
+      const breakpointIndex = props[breakpoint];
+      const breakpointOffsetIndex = props[`${breakpoint}Offset`];
+      let css = '';
+
+      if (breakpointIndex) {
+        const width = (100 / 12) * breakpointIndex;
+        css += `
+        box-sizing: border-box;
+        flex: 0 0 ${width}%;
+        max-width: ${width}%;
+        padding-left: ${gutterWidth};
+        text-align: left;
+      `;
+      }
+
+      if (breakpointOffsetIndex) {
+        const width = (100 / 12) * breakpointOffsetIndex;
+        css += `
+        margin-left: ${width}%;
+      `;
+      }
+
+      if (css === '') {
+        return css;
+      }
+
+      if (breakpoint === 'xs') {
+        return css;
+      }
+
+      const mediaQuery = tokens[`mediaQuery_${breakpoint}`];
+
+      return `
+    @media only screen and (min-width: ${mediaQuery}) {
+      ${css}
+    }
+  `;
+    })
+    .join('\n');
+
+  return `
+    box-sizing: border-box;
+    flex: 1 0 0;
+    max-width: 100%;
+    padding-left: ${gutterWidth};
+    text-align: left;
+
+    ${responsiveStyle}
   `;
 };
