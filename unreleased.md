@@ -78,6 +78,11 @@
 - #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
 - #365 – Tooltips are now visible if trigger is focused
 - #365 – Tooltips `id` is now required
+- #368 - Restyle and convert Radio to Styled Components
+- #368 - Radio `id` prop is now required
+- #368 - Radio now properly hides a screen reader accessible label
+- #368 - Radio now properly uses aria-describedby to link to its helptext and error
+- #368 - Radio.Group now properly uses a `fieldset` and `legend` elements
 - #371 - Restyles `<Modal/>` component using styled components
 - #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
   rendering
