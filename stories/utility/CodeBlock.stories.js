@@ -3,6 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import StoryContainer from '../storyHelpers/StoryContainer';
 import { CodeBlock, Panel } from '@sparkpost/matchbox';
+// import CodeBlockDemo from '../../packages/matchbox/src/components/CodeBlock/CodeBlockDemo';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/styles/hljs';
 
 const codeSnippet = `curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
@@ -51,6 +54,21 @@ storiesOf('Utility|Code Block', module)
     withInfo({ propTablesExclude: [Panel] })(() => (
       <Panel sectioned>
         <CodeBlock numbered dark code={codeSnippet} />
+      </Panel>
+    )),
+  )
+  .add(
+    'syntax highlighting demo',
+    withInfo({ propTablesExclude: [Panel] })(() => (
+      <Panel sectioned>
+        <CodeBlock numbered code={codeSnippet}>
+          <SyntaxHighlighter
+            PreTag={React.Fragment}
+            CodeTag={React.Fragment}
+            language="javascript"
+            style={docco}
+          />
+        </CodeBlock>
       </Panel>
     )),
   );

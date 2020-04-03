@@ -36,6 +36,7 @@
     "@styled-system/props": "^5.1.5",
     "downshift": "^3.2.10",
     "jest-in-case": "^1.0.2",
+    "prismjs": "^1.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

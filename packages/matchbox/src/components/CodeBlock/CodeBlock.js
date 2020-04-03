@@ -25,7 +25,7 @@ const StyledChevron = styled(ChevronRight)`
 `;
 
 function CodeBlock(props) {
-  const { code, height, className, numbered, dark } = props;
+  const { children, code, height, className, numbered, dark } = props;
 
   return (
     <StyledPre
@@ -35,7 +35,16 @@ function CodeBlock(props) {
     >
       <CodePrefix dark={dark} code={code} numbered={numbered} />
 
-      <StyledCode dark={dark}>{code}</StyledCode>
+      <StyledCode dark={dark}>
+        {/* If children are passed in, render those, and pass in the code as a child of that element */}
+        {children ? (
+          React.Children.map(children, child => {
+            return React.cloneElement(child, { children: code });
+          })
+        ) : (
+          <>{code}</>
+        )}
+      </StyledCode>
     </StyledPre>
   );
 }
