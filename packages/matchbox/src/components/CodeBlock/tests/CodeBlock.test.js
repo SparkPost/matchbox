@@ -90,4 +90,12 @@ describe('CodeBlock', () => {
 
     expect(wrapper.find('.foo')).toExist();
   });
+
+  it('renders the passed in child component with the "code" prop as a child of that component', () => {
+    const MyChild = ({ children }) => <h1>{children}</h1>;
+
+    const wrapper = subject({ children: <MyChild /> });
+
+    expect(wrapper.find('h1')).toIncludeText(codeSnippet);
+  });
 });
