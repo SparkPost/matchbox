@@ -87,3 +87,4 @@
 - #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
   rendering
 - #375 - Resolve bug by properly passing the `height` prop to a child styled component
+- #374 - Adds `cursor: pointer;` to the `<Button/>` component styles
