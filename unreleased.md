@@ -74,3 +74,4 @@
 - #362 - Deprecates Pagination prop `flat`
 - #360 - Adds new `fontSize_root` token
 - #363 - `<Label/>` renders `null` when no `label` is provided
+- #376 - Convert WindowEvent component to stateless functional component
