@@ -95,3 +95,4 @@
 - #369 - Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
 - #369 - Adds new exported hook `useWindowEvent`
 - #369 - Page secondary action popover now uses the correct a11y attributes
+- #372 - Restyled Grid and Grid.Column with styled-components
