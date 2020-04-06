@@ -2,126 +2,103 @@ import { tokens } from '@sparkpost/design-tokens';
 
 const gutterWidth = tokens.spacing_400;
 export const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
-const orientationStyles = {
-  start: `
-    justify-content: flex-start;
-    text-align: start;
-  `,
-  center: `
-    justify-content: center;
-    text-align: center;
-  `,
-  end: `
-    justify-content: flex-end;
-    text-align: end;
-  `,
-  top: `
-    align-items: flex-start;
-  `,
-  middle: `
-    align-items: center;
-  `,
-  bottom: `
-    align-items: flex-end;
-  `,
-  around: `
-    justify-content: space-around;
-  `,
-  between: `
-    justify-content: space-between;
-  `,
+const alignmentStyleMap = {
+  start: {
+    justifyContent: 'flex-start',
+    textAlign: 'start',
+  },
+  center: {
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  end: {
+    justifyContent: 'flex-end',
+    textAlign: 'end',
+  },
+  top: {
+    alignItems: 'flex-start',
+  },
+  middle: {
+    alignItems: 'center',
+  },
+  bottom: {
+    alignItems: 'flex-end',
+  },
+  around: {
+    justifyContent: 'space-around',
+  },
+  between: {
+    justifyContent: 'space-between',
+  },
+};
+
+const wrapStyleWithMediaQuery = (breakpoint, style) => {
+  const mediaQueryWidth = tokens[`mediaQuery_${breakpoint}`];
+
+  // do not wrap if no style for breakpoint or breakpoint is extra small
+  if (!Object.keys(style).length || breakpoint === 'xs') {
+    return style;
+  }
+
+  return {
+    [`@media only screen and (min-width: ${mediaQueryWidth})`]: style,
+  };
 };
 
 export const gridStyle = props => {
-  const responsiveStyle = breakpoints
-    .map(breakpoint => {
-      const css = Object.keys(props)
-        .filter(key => props[key] === breakpoint && orientationStyles[key])
-        .map(key => orientationStyles[key])
-        .join('\n');
+  const breakpointStyle = breakpoints.reduce((style, breakpoint) => {
+    // match props with alignment style and merge for breakpoint
+    const alignmentStyle = Object.keys(props).reduce(
+      (obj, key) => (props[key] === breakpoint ? { ...obj, ...alignmentStyleMap[key] } : obj),
+      {},
+    );
 
-      // break early to avoid returning an empty @media
-      if (css === '') {
-        return css;
-      }
+    return { ...style, ...wrapStyleWithMediaQuery(breakpoint, alignmentStyle) };
+  }, {});
 
-      // this is baseline with no media query constraints
-      if (breakpoint === 'xs') {
-        return css;
-      }
-
-      const mediaQuery = tokens[`mediaQuery_${breakpoint}`];
-
-      return `
-      @media only screen and (min-width: ${mediaQuery}) {
-        ${css}
-      }
-    `;
-    })
-    .join('\n');
-
-  return `
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: -${gutterWidth};
-
-    ${responsiveStyle}
-  `;
+  return {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flex: '0 1 auto',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginLeft: `-${gutterWidth}`,
+    ...breakpointStyle,
+  };
 };
 
+const calculateGridColumnWidth = index => (100 / 12) * index;
+
 export const gridColumnStyle = props => {
-  const responsiveStyle = breakpoints
-    .map(breakpoint => {
-      const breakpointIndex = props[breakpoint];
-      const breakpointOffsetIndex = props[`${breakpoint}Offset`];
-      let css = '';
+  const breakpointStyle = breakpoints.reduce((style, breakpoint) => {
+    const breakpointIndex = props[breakpoint];
+    const breakpointOffsetIndex = props[`${breakpoint}Offset`];
+    const columnStyle = {
+      ...(breakpointIndex
+        ? {
+            boxSizing: 'border-box',
+            flex: `0 0 ${calculateGridColumnWidth(breakpointIndex)}%`,
+            maxWidth: `${calculateGridColumnWidth(breakpointIndex)}%`,
+            paddingLeft: gutterWidth,
+            textAlign: 'left',
+          }
+        : {}),
+      ...(breakpointOffsetIndex
+        ? {
+            marginLeft: `${calculateGridColumnWidth(breakpointOffsetIndex)}%`,
+          }
+        : {}),
+    };
 
-      if (breakpointIndex) {
-        const width = (100 / 12) * breakpointIndex;
-        css += `
-        box-sizing: border-box;
-        flex: 0 0 ${width}%;
-        max-width: ${width}%;
-        padding-left: ${gutterWidth};
-        text-align: left;
-      `;
-      }
+    return { ...style, ...wrapStyleWithMediaQuery(breakpoint, columnStyle) };
+  }, {});
 
-      if (breakpointOffsetIndex) {
-        const width = (100 / 12) * breakpointOffsetIndex;
-        css += `
-        margin-left: ${width}%;
-      `;
-      }
-
-      if (css === '') {
-        return css;
-      }
-
-      if (breakpoint === 'xs') {
-        return css;
-      }
-
-      const mediaQuery = tokens[`mediaQuery_${breakpoint}`];
-
-      return `
-    @media only screen and (min-width: ${mediaQuery}) {
-      ${css}
-    }
-  `;
-    })
-    .join('\n');
-
-  return `
-    box-sizing: border-box;
-    flex: 1 0 0;
-    max-width: 100%;
-    padding-left: ${gutterWidth};
-    text-align: left;
-
-    ${responsiveStyle}
-  `;
+  return {
+    boxSizing: 'border-box',
+    flex: '1 0 0',
+    maxWidth: '100%',
+    paddingLeft: gutterWidth,
+    textAlign: 'left',
+    ...breakpointStyle,
+  };
 };
