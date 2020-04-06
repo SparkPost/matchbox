@@ -2,11 +2,57 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
+import { HelpText } from '../HelpText';
 import { Tag } from '../Tag';
 import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
-import classnames from 'classnames';
-import styles from './ComboBoxTextField.module.scss';
+// import classnames from 'classnames';
+// import styles from './ComboBoxTextField.module.scss';
+import useInputDescribedBy from '../../hooks/useInputDescribedBy';
+import { margin } from 'styled-system';
+import { tokens } from '@sparkpost/design-tokens';
+import styled from 'styled-components';
+
+import { Box } from '../Box';
+import { Inline } from '../Inline';
+
+const StyledWrapper = styled('div')`
+  ${margin}
+`;
+
+const inputHeight = '2.5rem';
+const StyledInput = styled('input')`
+  display: inline-block;
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  padding-left: ${tokens.spacing_300};
+  padding-right: ${tokens.spacing_300};
+  line-height: calc(${inputHeight} - 2px);
+  height: calc(${inputHeight} - 2px);
+  font-weight: ${tokens.fontWeight_normal};
+  color: ${tokens.color_gray_900};
+`;
+
+// const FieldBox = props => {
+//   return (
+//     <Box
+//       as="input"
+//       px="400"
+//       {...props}
+//       disabled={props.disabled}
+//       width="100%"
+//       border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
+//       borderRadius="100"
+//       bg={props.disabled ? 'gray.200' : 'white'}
+//       lineHeight="2.5rem"
+//       height="2.5rem"
+//       color="gray.900"
+//       required={props.required}
+//     />
+//   );
+// };
 
 function ComboBoxTextField(props) {
   const {
@@ -27,48 +73,38 @@ function ComboBoxTextField(props) {
     placeholder,
     readOnly,
     removeItem,
+    required,
     style,
     selectedItems,
     value,
-    ...rest
   } = props;
 
-  const inputRef = React.useRef();
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
+    id,
+    hasHelpText: !!helpText,
+    hasError: !!error,
+  });
 
-  const setWrapperClasses = classnames(
-    styles.Wrapper,
-    error && styles.Error,
-    disabled && styles.Disabled
+  const selectedMarkup = React.useMemo(
+    () =>
+      selectedItems.length ? (
+        <Box display="flex" alignItems="center" placeholder="200" pl="200" py="100">
+          <Inline space="100">
+            {selectedItems.map((item, i) => (
+              <Tag key={i} onRemove={!disabled ? () => removeItem(item) : null}>
+                {itemToString(item)}
+              </Tag>
+            ))}
+          </Inline>
+        </Box>
+      ) : null,
+    [selectedItems],
   );
-
-  const labelMarkup = (
-    <Label id={id} label={label}>
-      {error && errorInLabel && <Error className={styles.InlineError} wrapper='span' error={error} />}
-    </Label>
-  );
-
-  const helpMarkup = helpText
-    ? <div className={styles.HelpText}>{helpText}</div>
-    : null;
-
-  const selectedMarkup = selectedItems.length
-    ? selectedItems.map((item, i) => (
-      <Tag
-        key={i}
-        onRemove={!disabled
-          ? () => removeItem(item)
-          : null
-        }
-      >
-        {itemToString(item)}
-      </Tag>
-    ))
-    : null;
 
   // Auto focuses the input
-  function handleClick() {
-    inputRef.current.focus();
-  }
+  // function handleClick() {
+  //   inputRef.current.focus();
+  // }
 
   // Removes last item with a backspace and and empty input value
   function handleKeyDown(e) {
@@ -84,14 +120,22 @@ function ComboBoxTextField(props) {
   }
 
   return (
-    <fieldset className={styles.TextField}>
-      {label && !labelHidden && labelMarkup}
-      <div className={setWrapperClasses} onClick={handleClick}>
+    <StyledWrapper>
+      <Label id={id} label={label} labelHidden={labelHidden}>
+        {required && (
+          <Box as="span" pr="200" aria-hidden="true">
+            *
+          </Box>
+        )}
+        {error && errorInLabel && (
+          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+        )}
+      </Label>
+      <Box display="flex" flexWrap="wrap" border="400" minHeight={inputHeight}>
         {selectedMarkup}
-        <input
-          {...rest}
+        <StyledInput
+          {...describedBy}
           autoFocus={autoFocus}
-          className={styles.Input}
           disabled={disabled}
           id={id}
           name={name}
@@ -101,14 +145,14 @@ function ComboBoxTextField(props) {
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           readOnly={readOnly}
-          ref={inputRef}
+          required={required}
           style={style}
           value={value}
         />
-      </div>
-      {error && !errorInLabel && <Error error={error} />}
-      {helpMarkup}
-    </fieldset>
+      </Box>
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
+      {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
+    </StyledWrapper>
   );
 }
 
@@ -118,7 +162,7 @@ ComboBoxTextField.propTypes = {
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
   helpText: PropTypes.node,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   itemToString: PropTypes.func,
   label: PropTypes.string,
   labelHidden: PropTypes.bool,
@@ -129,13 +173,14 @@ ComboBoxTextField.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   removeItem: PropTypes.func,
-  selectedItems: PropTypes.array
+  required: PropTypes.bool,
+  selectedItems: PropTypes.array,
 };
 
 ComboBoxTextField.defaultProps = {
   selectedItems: [],
   itemToString: identity,
-  removeItem: noop
+  removeItem: noop,
 };
 
 export default ComboBoxTextField;

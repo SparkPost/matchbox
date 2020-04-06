@@ -7,13 +7,12 @@ import styles from './ComboBoxMenu.module.scss';
 function ComboBoxMenu(props) {
   const { items, menuRef, isOpen, maxHeight, ...rest } = props;
 
-  const listClasses = classnames(
-    styles.List,
-    isOpen && styles.open
-  );
+  const listClasses = classnames();
+  // styles.List,
+  // isOpen && styles.open
 
   return (
-    <div {...rest} ref={menuRef} className={listClasses}>
+    <div {...rest} ref={menuRef}>
       <ActionList actions={items} maxHeight={maxHeight} />
     </div>
   );
@@ -27,15 +26,15 @@ ComboBoxMenu.propTypes = {
   /**
    * Controls menu visibility
    */
-  isOpen: PropTypes.bool,
+  // isOpen: PropTypes.bool,
   /**
    * Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
    */
-  menuRef: PropTypes.func
+  menuRef: PropTypes.func,
 };
 
 ComboBoxMenu.defaultProps = {
-  items: []
+  items: [],
 };
 
 export default ComboBoxMenu;
