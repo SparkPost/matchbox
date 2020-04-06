@@ -1,19 +1,48 @@
 import React from 'react';
 import Column from '../Column';
-import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 describe('Column', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<Column><p>Grid</p></Column>);
-  });
+  const subject = props =>
+    global
+      .mountStyled(
+        <Column {...props}>
+          <p>Grid</p>
+        </Column>,
+      )
+      .find('div');
 
   it('renders with default props', () => {
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = subject();
+    expect(wrapper).toHaveStyleRule('box-sizing', 'border-box');
+    expect(wrapper).toHaveStyleRule('flex', '1 0 0');
+    expect(wrapper).toHaveStyleRule('max-width', '100%');
+    expect(wrapper).toHaveStyleRule('padding-left', '1rem');
   });
 
-  it('renders with sizing prop', () => {
-    wrapper.setProps({ xs: 12, sm: 6, md: 6, lg: 4, xl: 2, xsOffset: 1, smOffset: 2, mdOffset: 2, lgOffset: 3, xlOffset: 4 });
-    expect(wrapper).toMatchSnapshot();
+  it('applies extra small sizing without media query', () => {
+    const wrapper = subject({ xs: 6 });
+    expect(wrapper).toHaveStyleRule('box-sizing', 'border-box');
+    expect(wrapper).toHaveStyleRule('flex', '0 0 50%');
+    expect(wrapper).toHaveStyleRule('max-width', '50%');
+    expect(wrapper).toHaveStyleRule('padding-left', '1rem');
+  });
+
+  it('applies extra small offset without media query', () => {
+    const wrapper = subject({ xsOffset: 6 });
+    expect(wrapper).toHaveStyleRule('box-sizing', 'border-box');
+    expect(wrapper).toHaveStyleRule('flex', '1 0 0');
+    expect(wrapper).toHaveStyleRule('margin-left', '50%');
+  });
+
+  it('applies small sizing and offset with media query', () => {
+    const wrapper = subject({ sm: 3, smOffset: 3 });
+    expect(wrapper).toHaveStyleRule('flex', '1 0 0');
+    expect(wrapper).toHaveStyleRule('flex', '0 0 25%', {
+      media: 'only screen and (min-width: 720px)',
+    });
+    expect(wrapper).toHaveStyleRule('margin-left', '25%', {
+      media: 'only screen and (min-width: 720px)',
+    });
   });
 });

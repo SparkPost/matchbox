@@ -76,7 +76,6 @@ export const gridColumnStyle = props => {
     const columnStyle = {
       ...(breakpointIndex
         ? {
-            boxSizing: 'border-box',
             flex: `0 0 ${calculateGridColumnWidth(breakpointIndex)}%`,
             maxWidth: `${calculateGridColumnWidth(breakpointIndex)}%`,
             paddingLeft: gutterWidth,
