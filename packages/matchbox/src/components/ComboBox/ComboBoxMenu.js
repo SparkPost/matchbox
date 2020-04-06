@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import { tokens } from '@sparkpost/design-tokens';
 import { ActionList } from '../ActionList';
-import styles from './ComboBoxMenu.module.scss';
+import { Box } from '../Box';
+import PopoverContent from '../Popover/PopoverContent';
 
 function ComboBoxMenu(props) {
-  const { items, menuRef, isOpen, maxHeight, ...rest } = props;
-
-  const listClasses = classnames();
-  // styles.List,
-  // isOpen && styles.open
+  const { items, menuRef, isOpen = false, maxHeight, ...rest } = props;
 
   return (
-    <div {...rest} ref={menuRef}>
-      <ActionList actions={items} maxHeight={maxHeight} />
-    </div>
+    <Box ref={menuRef} {...rest} position="relative" zIndex={tokens.zIndex_overlay}>
+      <PopoverContent open={isOpen} width="100%">
+        <ActionList actions={items} maxHeight={maxHeight} />
+      </PopoverContent>
+    </Box>
   );
 }
 

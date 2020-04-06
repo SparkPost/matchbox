@@ -5,28 +5,26 @@ import { Box } from '../Box';
 function ComboBox(props) {
   const { children, isOpen, style, rootRef, ...rest } = props;
 
-  function getChild(name) {
+  function getChild(name, passedProps) {
     return React.Children.map(children, child => {
       if (!React.isValidElement(child)) {
         return null;
       }
 
       if (child.type.name === name) {
-        return React.cloneElement(child);
+        return React.cloneElement(child, passedProps);
       }
     });
   }
 
-  const trigger = React.useMemo(() => getChild('ComboBoxTextField'), [children]);
   const menu = React.useMemo(() => getChild('ComboBoxMenu'), [children]);
+  const trigger = React.useMemo(() => getChild('ComboBoxTextField', { renderMenu: menu }), [
+    children,
+  ]);
 
   return (
     <Box position="relative" ref={rootRef} style={style} {...rest}>
-      {/* <Popover open={isOpen} trigger={trigger}>
-        {menu}
-      </Popover> */}
       {trigger}
-      {menu}
     </Box>
   );
 }
