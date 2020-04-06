@@ -30,7 +30,7 @@ const FieldBox = props => {
       borderRadius="100"
       bg={props.disabled ? 'gray.200' : 'white'}
       lineHeight="2.5rem"
-      height="2.5rem"
+      height={props.height}
       color="gray.900"
       required={props.required}
     />
