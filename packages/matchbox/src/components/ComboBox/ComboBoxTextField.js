@@ -118,7 +118,7 @@ function ComboBoxTextField(props) {
       </Label>
       <StyledInputWrapper hasError={!!error} isDisabled={disabled}>
         {selectedItems.length > 0 && (
-          <Box display="flex" alignItems="center" placeholder="200" pl="200" py="100">
+          <Box display="flex" placeholder="200" pl="200" pt="0.375rem">
             <Inline space="100">
               {selectedItems.map((item, i) => (
                 <Tag key={i} onRemove={!disabled ? () => removeItem(item) : null}>

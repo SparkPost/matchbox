@@ -6,12 +6,18 @@ import { Box } from '../Box';
 import PopoverContent from '../Popover/PopoverContent';
 
 function ComboBoxMenu(props) {
-  const { items, menuRef, isOpen = false, maxHeight, ...rest } = props;
+  const { items, menuRef, isOpen, maxHeight, emptyMessage = 'No Results', ...rest } = props;
 
   return (
     <Box ref={menuRef} {...rest} position="relative" zIndex={tokens.zIndex_overlay}>
       <PopoverContent open={isOpen} width="100%">
-        <ActionList actions={items} maxHeight={maxHeight} />
+        {items.length > 0 ? (
+          <ActionList actions={items} maxHeight={maxHeight} />
+        ) : (
+          <Box p="200" color="gray.700">
+            {emptyMessage}
+          </Box>
+        )}
       </PopoverContent>
     </Box>
   );

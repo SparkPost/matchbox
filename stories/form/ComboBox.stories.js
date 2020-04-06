@@ -75,7 +75,7 @@ function TypeaheadExample(props) {
 
     const rootProps = getRootProps({
       refKey: 'rootRef',
-      isOpen: Boolean(isOpen && items.length),
+      isOpen: Boolean(isOpen),
     });
 
     const inputProps = getInputProps({
@@ -92,7 +92,7 @@ function TypeaheadExample(props) {
 
     const menuProps = getMenuProps({
       items,
-      isOpen: Boolean(isOpen && items.length),
+      isOpen: Boolean(isOpen),
       refKey: 'menuRef',
     });
 
@@ -110,8 +110,6 @@ function TypeaheadExample(props) {
     </Downshift>
   );
 }
-
-//
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
