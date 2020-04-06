@@ -19,11 +19,10 @@ function WindowEvent(props) {
   }
 
   React.useEffect(() => {
-    console.log('add event');
+    removeEvent();
     addEvent();
 
     return () => {
-      console.log('remove event');
       removeEvent();
     };
   });
