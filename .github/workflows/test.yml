@@ -18,7 +18,9 @@ jobs:
         run: npm run test:ci
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      - name: Code coverage
+          COVERALLS_GIT_BRANCH: ${{ github.ref }}
+      - name: Collect Code Coverage
+      - name: Upload Code Coverage
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
