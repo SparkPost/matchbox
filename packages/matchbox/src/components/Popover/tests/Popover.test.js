@@ -37,13 +37,13 @@ describe('Popover', () => {
   describe('popover toggling', () => {
     it('should handle uncontrolled toggle on trigger click', () => {
       const wrapper = subject();
-      expect(wrapper.find('div')).toHaveAttributeValue('aria-hidden', 'true');
+      expect(wrapper.find('div').at(0)).toHaveAttributeValue('aria-hidden', 'true');
       expect(wrapper.find('[data-id="popover-content"]')).not.toExist();
       wrapper.find('button').simulate('click');
-      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '1');
+      expect(wrapper.find('[data-id="popover-content"]')).toExist();
       expect(wrapper.find('div').at(0)).not.toHaveAttributeValue('aria-hidden');
       wrapper.find('button').simulate('click');
-      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '0');
+      expect(wrapper.find('[data-id="popover-content"]')).not.toExist();
       expect(wrapper.find('div').at(0)).toHaveAttributeValue('aria-hidden', 'true');
     });
 
@@ -55,7 +55,8 @@ describe('Popover', () => {
 
     it('should render an opened controlled popover', () => {
       const wrapper = subject({ open: true });
-      expect(wrapper.find('[data-id="popover-content"]')).toHaveStyleRule('opacity', '1');
+      expect(wrapper.find('div').at(0)).not.toHaveAttributeValue('aria-hidden');
+      expect(wrapper.find('[data-id="popover-content"]')).toExist();
     });
   });
 
