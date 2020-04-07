@@ -16,29 +16,42 @@ export const content = props => `
 `;
 
 export const transition = props => {
+  const visible = `
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity ${tokens.motionDuration_medium} ${tokens.motionEase_out},
+                transform ${tokens.motionDuration_medium} ${tokens.motionEase_out};
+  `;
+
+  const hidden = `
+    opacity: 0;
+    transform: translateY(${props.isTop ? tokens.spacing_100 : `-${tokens.spacing_100}`});
+    transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in},
+                transform ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+  `;
+
   switch (props.state) {
     case 'entering':
+      return `
+        ${visible}
+        pointer-events: none;
+      `;
     case 'entered':
       return `
+        ${visible}
         pointer-events: auto;
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity ${tokens.motionDuration_medium} ${tokens.motionEase_out},
-                    transform ${tokens.motionDuration_medium} ${tokens.motionEase_out};
       `;
     case 'exiting':
       return `
-        opacity: 0;
-        transform: translateY(${props.isTop ? tokens.spacing_100 : `-${tokens.spacing_100}`});
-        transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in},
-                    transform ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+        ${hidden}
+        pointer-events: none;
+        visibility: visible;
       `;
     case 'exited':
     default:
       return `
-        opacity: 0;
-        transform: translateY(${props.isTop ? tokens.spacing_100 : `-${tokens.spacing_100}`});
+        ${hidden}
         pointer-events: none;
         visibility: hidden;
       `;

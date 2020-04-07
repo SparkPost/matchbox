@@ -71,10 +71,14 @@ function Popover(props) {
     }
   }
 
+  function assignPopoverRef(node) {
+    popoverRef = node;
+  }
+
   // Renders popover content
   function renderPopover() {
     return (
-      <PopoverContent open={shouldBeOpen} popoverRef={popoverRef} {...rest}>
+      <PopoverContent open={shouldBeOpen} popoverRef={assignPopoverRef} {...rest}>
         {children}
       </PopoverContent>
     );
@@ -82,10 +86,11 @@ function Popover(props) {
 
   // Renders popover trigger
   function renderActivator({ activatorRef: forwardedRef }) {
-    const assignRefs = node => {
+    function assignRefs(node) {
       forwardedRef(node);
       activatorRef = node;
-    };
+    }
+
     return (
       <Box
         as={Wrapper}
