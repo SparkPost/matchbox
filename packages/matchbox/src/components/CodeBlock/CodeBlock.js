@@ -79,7 +79,7 @@ CodeBlock.propTypes = {
   /**
    * The string of code to render
    */
-  code: PropTypes.string,
+  code: PropTypes.string.isRequired,
   className: PropTypes.string,
   /**
    * Height in pixels of the <pre> block
