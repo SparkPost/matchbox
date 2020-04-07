@@ -26,7 +26,11 @@ function ControlledPopover() {
         onClose={handleClose}
         open={open}
         trigger={
-          <Button aria-describedby="test-popover" onClick={() => setOpen(true)}>
+          <Button
+            aria-expanded={open}
+            aria-describedby="test-popover"
+            onClick={() => setOpen(true)}
+          >
             Open Me
           </Button>
         }
