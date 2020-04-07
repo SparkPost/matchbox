@@ -32,6 +32,7 @@ describe('WindowEvent', () => {
   });
 
   it('adds and removes event listeners on update', () => {
+    wrapper = subject();
     jest.resetAllMocks(); // clears count of events on mount
     wrapper.setProps({ event: 'resize' });
     expect(global.addEventListener).toHaveBeenCalledWith('resize', handler);

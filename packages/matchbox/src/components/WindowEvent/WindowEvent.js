@@ -19,7 +19,6 @@ function WindowEvent(props) {
   }
 
   React.useEffect(() => {
-    removeEvent();
     addEvent();
     return () => {
       removeEvent();
