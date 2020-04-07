@@ -12,8 +12,8 @@ import { deprecate } from '../../helpers/propTypes';
 function Popover(props) {
   const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
-  const popoverRef = React.useRef();
-  const activatorRef = React.useRef();
+  let popoverRef = React.useRef();
+  let activatorRef = React.useRef();
 
   const shouldBeOpen = controlledOpen || open;
   const Wrapper = as || wrapper || 'span';
@@ -37,7 +37,10 @@ function Popover(props) {
   // Toggles uncontrolled popovers, and calls `onClose` for controlled popovers
   function handleOutsideClick(e) {
     const isOutside =
-      !popoverRef.current.contains(e.target) && !activatorRef.current.contains(e.target);
+      popoverRef &&
+      !popoverRef.contains(e.target) &&
+      activatorRef &&
+      !activatorRef.contains(e.target);
 
     if (isOutside && shouldBeOpen) {
       if (onClose) {
@@ -79,6 +82,10 @@ function Popover(props) {
 
   // Renders popover trigger
   function renderActivator({ activatorRef: forwardedRef }) {
+    const assignRefs = node => {
+      forwardedRef(node);
+      activatorRef = node;
+    };
     return (
       <Box
         as={Wrapper}
@@ -86,18 +93,9 @@ function Popover(props) {
         display={Wrapper === 'span' ? 'inline-block' : null}
         position="relative"
         onClick={handleTrigger}
-        ref={activatorRef}
+        ref={assignRefs}
       >
-        <Box
-          as={Wrapper}
-          // Inline block is required to measure and set height correctly
-          display={Wrapper === 'span' ? 'inline-block' : null}
-          width="100%"
-          height="100%"
-          ref={forwardedRef} // Component is duplicated to handle two refs
-        >
-          {trigger}
-        </Box>
+        {trigger}
       </Box>
     );
   }

@@ -12,14 +12,12 @@ describe('Popover', () => {
       const wrapper = subject();
       expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
       expect(wrapper.find('span').at(1)).toHaveStyleRule('display', 'inline-block');
-      expect(wrapper.find('span').at(2)).toHaveStyleRule('display', 'inline-block');
     });
 
     it('should render its wrapper as a div', () => {
       const wrapper = subject({ as: 'div' });
       expect(wrapper.find('div').at(0)).not.toHaveStyleRule('display');
       expect(wrapper.find('div').at(1)).not.toHaveStyleRule('display');
-      expect(wrapper.find('div').at(2)).not.toHaveStyleRule('display');
     });
 
     it('should position correctly', () => {

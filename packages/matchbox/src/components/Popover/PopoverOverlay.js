@@ -14,11 +14,11 @@ const defaultPosition = {
 
 function PopoverOverlay(props) {
   const [position, setPosition] = React.useState(defaultPosition);
-  const activatorRef = React.useRef(null);
+  let activatorRef = React.useRef(null);
   const { as, id, open, renderPopover, renderActivator } = props;
 
   function handleMeasurement() {
-    setPosition(getPositionFor(activatorRef.current));
+    setPosition(getPositionFor(activatorRef));
   }
 
   React.useEffect(() => {
@@ -34,7 +34,11 @@ function PopoverOverlay(props) {
         display={as === 'span' ? 'inline-block' : null}
         position="relative"
       >
-        {renderActivator({ activatorRef })}
+        {renderActivator({
+          activatorRef: node => {
+            activatorRef = node;
+          },
+        })}
         <Box
           {...(!open ? { 'aria-hidden': true } : {})}
           id={id}
