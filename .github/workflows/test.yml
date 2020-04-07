@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Testing
-        run: COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN npm run test:ci
+        run: npm run test:ci
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           COVERALLS_GIT_BRANCH: ${{ github.ref }}
