@@ -12,8 +12,8 @@ import { deprecate } from '../../helpers/propTypes';
 function Popover(props) {
   const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
-  let popoverRef = React.useRef();
-  let activatorRef = React.useRef();
+  const popoverRef = React.useRef();
+  const activatorRef = React.useRef();
 
   const shouldBeOpen = controlledOpen || open;
   const Wrapper = as || wrapper || 'span';
@@ -37,11 +37,10 @@ function Popover(props) {
   // Toggles uncontrolled popovers, and calls `onClose` for controlled popovers
   function handleOutsideClick(e) {
     const isOutside =
-      popoverRef &&
-      popoverRef.contains &&
-      !popoverRef.contains(e.target) &&
-      activatorRef &&
-      !activatorRef.contains(e.target);
+      popoverRef.current &&
+      !popoverRef.current.contains(e.target) &&
+      activatorRef.current &&
+      !activatorRef.current.contains(e.target);
 
     if (isOutside && shouldBeOpen) {
       if (onClose) {
@@ -72,14 +71,10 @@ function Popover(props) {
     }
   }
 
-  function assignPopoverRef(node) {
-    popoverRef = node;
-  }
-
   // Renders popover content
   function renderPopover() {
     return (
-      <PopoverContent open={shouldBeOpen} popoverRef={assignPopoverRef} {...rest}>
+      <PopoverContent open={shouldBeOpen} popoverRef={popoverRef} {...rest}>
         {children}
       </PopoverContent>
     );
@@ -89,7 +84,7 @@ function Popover(props) {
   function renderActivator({ activatorRef: forwardedRef }) {
     function assignRefs(node) {
       forwardedRef(node);
-      activatorRef = node;
+      activatorRef.current = node;
     }
 
     return (

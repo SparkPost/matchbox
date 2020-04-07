@@ -47,7 +47,6 @@ function Subtitle({ subtitle }) {
   return <div>{subtitle}</div>;
 }
 
-// TODO verify this with Popover and Actionlist tickets
 function SecondaryActions({ actions = [], hasPrimaryAction }) {
   const visibleActions = React.useMemo(() => filterByVisible(actions), [actions]);
   const [isOpen, setIsOpen] = React.useState(false);

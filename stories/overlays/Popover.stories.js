@@ -70,14 +70,14 @@ export const WithAnActionList = withInfo({ propTables: [Popover] })(() => (
   >
     <ActionList
       actions={[
-        { content: 'Edit', as: 'button' },
-        { content: 'Delete', selected: true, as: 'button' },
-        { content: 'Test', as: 'button' },
+        { content: 'Edit', is: 'button' },
+        { content: 'Delete', selected: true, is: 'button' },
+        { content: 'Test', is: 'button' },
       ]}
       sections={[
         [
-          { content: 'Sectioned1', as: 'button' },
-          { content: 'Sectioned2', as: 'button' },
+          { content: 'Sectioned1', is: 'button' },
+          { content: 'Sectioned2', is: 'button' },
         ],
       ]}
     />

@@ -14,11 +14,11 @@ const defaultPosition = {
 
 function PopoverOverlay(props) {
   const [position, setPosition] = React.useState(defaultPosition);
-  let activatorRef = React.useRef(null);
+  const activatorRef = React.useRef(null);
   const { as, id, open, renderPopover, renderActivator } = props;
 
   function handleMeasurement() {
-    setPosition(getPositionFor(activatorRef));
+    setPosition(getPositionFor(activatorRef.current));
   }
 
   React.useEffect(() => {
@@ -36,7 +36,7 @@ function PopoverOverlay(props) {
       >
         {renderActivator({
           activatorRef: node => {
-            activatorRef = node;
+            activatorRef.current = node;
           },
         })}
         <Box
