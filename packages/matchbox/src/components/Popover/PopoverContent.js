@@ -5,6 +5,7 @@ import { padding, layout, compose } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 import { tokens } from '@sparkpost/design-tokens';
+import { secondsToMS } from '../../helpers/string';
 import { content, transition } from './styles';
 
 const system = compose(layout, padding);
@@ -14,8 +15,6 @@ const StyledContent = styled('div')`
   ${content}
   ${transition}
 `;
-
-const fastInMs = tokens.motionDuration_fast.replace('s', '') * 1000;
 
 function Content(props) {
   const {
@@ -36,7 +35,15 @@ function Content(props) {
   const systemProps = pick(rest);
 
   return (
-    <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: fastInMs }}>
+    <Transition
+      mountOnEnter
+      unmountOnExit
+      in={open}
+      timeout={{
+        enter: secondsToMS(tokens.motionDuration_medium),
+        exit: secondsToMS(tokens.motionDuration_fast),
+      }}
+    >
       {state => (
         <Box position="relative" height="100%" ref={popoverRef}>
           <StyledContent
