@@ -19,7 +19,6 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           COVERALLS_GIT_BRANCH: ${{ github.ref }}
-      - name: Collect Code Coverage
       - name: Upload Code Coverage
         uses: coverallsapp/github-action@master
         with:
