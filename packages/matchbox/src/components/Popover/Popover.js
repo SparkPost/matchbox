@@ -38,6 +38,7 @@ function Popover(props) {
   function handleOutsideClick(e) {
     const isOutside =
       popoverRef &&
+      popoverRef.contains &&
       !popoverRef.contains(e.target) &&
       activatorRef &&
       !activatorRef.contains(e.target);
