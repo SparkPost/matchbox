@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box } from '../Box';
 
 function ComboBox(props) {
-  const { children, isOpen, style, rootRef, ...rest } = props;
+  const { children, style, rootRef, ...rest } = props;
 
   function getChild(name, passedProps) {
     return React.Children.map(children, child => {
