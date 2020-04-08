@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
-import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Error } from '../Error';
 import { HelpText } from '../HelpText';
@@ -15,44 +14,10 @@ import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
 import { omit } from '../../helpers/systemProps';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
+import { StyledInput, StyledInputWrapper } from './styles';
 
 const StyledWrapper = styled('div')`
   ${margin}
-`;
-
-const inputHeight = '2.5rem';
-
-const StyledInputWrapper = styled(Box)`
-  display: flex;
-  flex-wrap: wrap;
-  background: ${props => (props.isDisabled ? tokens.color_gray_200 : tokens.color_white)};
-  border: ${props =>
-    props.hasError
-      ? `${tokens.borderWidth_100} solid ${tokens.color_red_700}`
-      : `${tokens.borderWidth_100} solid ${tokens.color_gray_400}`};
-  border-radius: ${tokens.borderRadius_100};
-  min-height: ${inputHeight};
-
-  &:focus-within {
-    border: ${tokens.borderWidth_100} solid ${tokens.color_blue_700};
-  }
-`;
-
-const StyledInput = styled('input')`
-  display: inline-block;
-  flex: 1;
-  background: none;
-  border: none;
-  outline: none;
-  padding-left: ${tokens.spacing_300};
-  padding-right: ${tokens.spacing_300};
-  line-height: calc(${inputHeight} - 2px);
-  height: calc(${inputHeight} - 2px);
-  font-weight: ${tokens.fontWeight_normal};
-  color: ${tokens.color_gray_900};
-  &:disabled {
-    cursor: not-allowed;
-  }
 `;
 
 function ComboBoxTextField(props) {
