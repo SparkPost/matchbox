@@ -28,7 +28,7 @@ const StyledInputWrapper = styled(Box)`
   background: ${props => (props.isDisabled ? tokens.color_gray_200 : tokens.color_white)};
   border: ${props =>
     props.hasError
-      ? `1px solid ${tokens.color_red_700}`
+      ? `${tokens.borderWidth_100} solid ${tokens.color_red_700}`
       : `${tokens.borderWidth_100} solid ${tokens.color_gray_400}`};
   border-radius: ${tokens.borderRadius_100};
   min-height: ${inputHeight};
@@ -142,6 +142,7 @@ function ComboBoxTextField(props) {
           readOnly={readOnly}
           required={required}
           style={style}
+          type="text"
           value={value}
           {...inputProps}
         />

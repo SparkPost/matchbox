@@ -1,32 +1,36 @@
-// import React from 'react';
-// import ComboBoxMenu from '../ComboBoxMenu';
-// import { mount } from 'enzyme';
+import React from 'react';
+import ComboBoxMenu from '../ComboBoxMenu';
+import 'jest-styled-components';
 
 describe('ComboBoxMenu', () => {
-  // const subject = (props = {}) => mount(<ComboBoxMenu {...props} />);
-  // const items = [{ content: 'foo' }, { content: <div>bar</div> }];
+  const subject = (props = {}) => global.mountStyled(<ComboBoxMenu {...props} />);
+  const items = [
+    { content: 'foo', is: 'button' },
+    { content: <div>bar</div>, is: 'link' },
+  ];
 
-  // These tests are causing failures after updating UnstyledLink b/c ComboBoxMenu is using
-  // ActionList - Need to fix with https://jira.int.messagesystems.com/browse/FE-814
-  // it('should render items correctly', () => {
-  //   expect(subject({ items })).toMatchSnapshot();
-  // });
+  it('should render and open menu with items correctly', () => {
+    const wrapper = subject({ items, isOpen: true });
+    expect(wrapper.find('button').text()).toEqual('foo');
+    expect(wrapper.find('a').text()).toEqual('bar');
+    expect(wrapper.find('[data-id="popover-content"]')).toExist();
+    expect(wrapper.find('div').at(4)).toHaveStyleRule('max-height', '20rem');
+  });
 
-  // it('should render correctly when open', () => {
-  //   const menu = subject({ items, isOpen: true });
-  //   expect(menu.find('.List')).toHaveAttributeValue('class', 'List open');
-  // });
+  it('should not render and closed menu', () => {
+    const wrapper = subject({ items, isOpen: false });
+    expect(wrapper.find('button')).not.toExist();
+    expect(wrapper.find('a')).not.toExist();
+    expect(wrapper.find('[data-id="popover-content"]')).not.toExist();
+  });
 
-  // it('should render items correctly', () => {
-  //   expect(
-  //     subject({ items })
-  //       .find('div')
-  //       .at(3)
-  //       .text(),
-  //   ).toEqual('bar');
-  // });
-
-  it('pass test until updated in FE-814', () => {
-    expect('test').toEqual('test');
+  it('should render an open empty list correctly', () => {
+    const wrapper = subject({ items: [], isOpen: true, emptyMessage: 'test message' });
+    expect(
+      wrapper
+        .find('[data-id="popover-content"]')
+        .first()
+        .text(),
+    ).toEqual('test message');
   });
 });
