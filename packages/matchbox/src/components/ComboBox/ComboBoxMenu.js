@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
+import { maxHeight } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { ActionList } from '../ActionList';
 import { Box } from '../Box';
 import PopoverContent from '../Popover/PopoverContent';
 
 function ComboBoxMenu(props) {
-  const { items, menuRef, isOpen, maxHeight, emptyMessage = 'No Results', ...rest } = props;
+  const {
+    items,
+    menuRef,
+    isOpen,
+    maxHeight = '20rem',
+    emptyMessage = 'No Results',
+    ...rest
+  } = props;
 
   return (
     <Box ref={menuRef} {...rest} position="relative" zIndex={tokens.zIndex_overlay}>
@@ -25,17 +34,22 @@ function ComboBoxMenu(props) {
 
 ComboBoxMenu.propTypes = {
   /**
+   * String displayed when item length is 0. Defaults to "No Results"
+   */
+  emptyMessage: PropTypes.string,
+  /**
    * Array of items. see ActionList prop types.
    */
   items: PropTypes.array,
   /**
    * Controls menu visibility
    */
-  // isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool,
   /**
    * Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
    */
   menuRef: PropTypes.func,
+  ...createPropTypes(maxHeight.propNames),
 };
 
 ComboBoxMenu.defaultProps = {
