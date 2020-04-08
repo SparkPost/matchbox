@@ -33,4 +33,19 @@ function resetWarned() {
 
 deprecate.resetWarned = resetWarned;
 
-export { deprecate };
+/**
+ * Reduce props to only defined prop types
+ * @param {object} props
+ * @param {object} propTypes
+ */
+function pick(props, propTypes) {
+  return Object.keys(props).reduce((acc, key) => {
+    if (!propTypes[key]) {
+      return acc;
+    }
+
+    return { ...acc, [key]: props[key] };
+  }, {});
+}
+
+export { deprecate, pick };

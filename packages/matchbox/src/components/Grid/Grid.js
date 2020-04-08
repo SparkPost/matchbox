@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { pick } from '../../helpers/propTypes';
 import { breakpoints, gridStyle } from './styles';
 
 import Column from './Column';
@@ -9,8 +10,9 @@ const StyledGrid = styled('div')`
   ${gridStyle}
 `;
 
-function Grid({ children, ...props }) {
-  return <StyledGrid {...props}>{children}</StyledGrid>;
+function Grid(props) {
+  const { children, ...rest } = pick(props, Grid.propTypes);
+  return <StyledGrid {...rest}>{children}</StyledGrid>;
 }
 
 Grid.displayName = 'Grid';
