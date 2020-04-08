@@ -136,7 +136,11 @@ export const Menu = withInfo({
   propTables: [ComboBoxMenu],
 })(() => (
   <Box maxWidth="20rem">
-    <ComboBoxMenu isOpen={true} items={[{ content: 'foo' }, { content: 'bar' }]} />
+    <ComboBoxMenu
+      isOpen={true}
+      items={[{ content: 'foo' }, { content: 'bar' }, { content: 'baz' }]}
+      maxHeight="5rem"
+    />
   </Box>
 ));
 
