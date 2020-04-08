@@ -88,3 +88,10 @@
   rendering
 - #375 - Resolve bug by properly passing the `height` prop to a child styled component
 - #374 - Adds `cursor: pointer;` to the `<Button/>` component styles
+- #369 - Restyles `Popover`
+- #369 - Adds new `id` prop for `Popover`
+- #369 - Adds new `as` prop for `Popover`, functions the same way as `wrapper`
+- #369 - Removes the `portalId` prop from `Popover`
+- #369 - Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
+- #369 - Adds new exported hook `useWindowEvent`
+- #369 - Page secondary action popover now uses the correct a11y attributes

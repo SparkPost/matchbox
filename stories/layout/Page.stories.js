@@ -28,14 +28,17 @@ const secondaryActions = [
       </span>
     ),
     onClick: action('Save Clicked'),
+    is: 'button',
   },
   {
     content: 'View Draft',
     onClick: action('Draft Clicked'),
+    is: 'button',
   },
   {
     content: 'Preview & Send',
     onClick: action('Preview Clicked'),
+    is: 'button',
   },
   {
     content: 'Not Visible',
