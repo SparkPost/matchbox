@@ -37,7 +37,7 @@ describe('Button', () => {
     },
     {
       name: 'outline enabled',
-      props: { outline: true },
+      props: { outlineBorder: true },
       assert: [
         ['border', '1px solid #39444d'],
         ['background', 'transparent'],

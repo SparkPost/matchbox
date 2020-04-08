@@ -4,6 +4,8 @@ import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { omit } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 import Group from './Group';
@@ -40,6 +42,7 @@ function Button(props) {
     plain, // Deprecate in favor of flat
     flat,
     outline,
+    outlineBorder,
 
     // Options
     // Renaming to prevent `width` and `height` pass through
@@ -63,6 +66,9 @@ function Button(props) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
+  const systemProps = pick(rest, system.propNames);
+  const componentProps = omit(rest);
+
   // Polyfills deprecrated 'Component' prop
   const WrapperComponent = component || Component;
 
@@ -71,8 +77,12 @@ function Button(props) {
 
   // Experimenting with a weight prop to replace outline, plain, and flat in the future
   const visualWeight = React.useMemo(() => {
-    if (outline) {
+    if (outlineBorder) {
       return 'normal';
+    }
+
+    if (outline) {
+      return 'outline';
     }
 
     if (plain || flat) {
@@ -80,7 +90,7 @@ function Button(props) {
     }
 
     return 'strong';
-  }, [outline, plain, flat]);
+  }, [outline, outlineBorder, plain, flat]);
 
   const sharedProps = {
     className,
@@ -92,7 +102,8 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
-    ...rest,
+    ...systemProps,
+    ...componentProps,
   };
 
   if (to && !WrapperComponent) {
@@ -137,6 +148,7 @@ Button.propTypes = {
   flat: PropTypes.bool,
   plain: deprecate(PropTypes.bool, 'Use `flat` instead'),
   outline: PropTypes.bool,
+  outlineBorder: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large', 'default']),
   fullWidth: PropTypes.bool,
   submit: PropTypes.bool,

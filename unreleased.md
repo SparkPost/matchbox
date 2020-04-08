@@ -74,4 +74,25 @@
 - #362 - Deprecates Pagination prop `flat`
 - #360 - Adds new `fontSize_root` token
 - #363 - `<Label/>` renders `null` when no `label` is provided
+- #365 – Adds a Tooltip `as` prop, defaults to `span`
+- #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
+- #365 – Tooltips are now visible if trigger is focused
+- #365 – Tooltips `id` is now required
+- #368 - Restyle and convert Radio to Styled Components
+- #368 - Radio `id` prop is now required
+- #368 - Radio now properly hides a screen reader accessible label
+- #368 - Radio now properly uses aria-describedby to link to its helptext and error
+- #368 - Radio.Group now properly uses a `fieldset` and `legend` elements
+- #371 - Restyles `<Modal/>` component using styled components
+- #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
+  rendering
+- #375 - Resolve bug by properly passing the `height` prop to a child styled component
+- #374 - Adds `cursor: pointer;` to the `<Button/>` component styles
+- #369 - Restyles `Popover`
+- #369 - Adds new `id` prop for `Popover`
+- #369 - Adds new `as` prop for `Popover`, functions the same way as `wrapper`
+- #369 - Removes the `portalId` prop from `Popover`
+- #369 - Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
+- #369 - Adds new exported hook `useWindowEvent`
+- #369 - Page secondary action popover now uses the correct a11y attributes
 - #376 - Convert WindowEvent component to stateless functional component

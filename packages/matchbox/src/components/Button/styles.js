@@ -1,18 +1,19 @@
 import { tokens } from '@sparkpost/design-tokens';
 
 export const base = () => `
-    display: inline-flex;
-    align-items: center;
-    border-radius: ${tokens.borderRadius_100};
-    user-select: none;
-    font-weight: ${tokens.fontWeight_medium};
-    justify-content: center;
-    text-decoration: none;
-    white-space: nowrap;
-    transition-property: background, color, border, outline;
-    transition-duration: .15s;
-    border: 1px solid transparent;
-  `;
+  display: inline-flex;
+  align-items: center;
+  border-radius: ${tokens.borderRadius_100};
+  user-select: none;
+  font-weight: ${tokens.fontWeight_medium};
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition-property: background, color, border, outline;
+  transition-duration: ${tokens.motionDuration_fast};
+  border: 1px solid transparent;
+  cursor: pointer;
+`;
 
 export const visualSize = props => {
   switch (props.buttonSize) {
@@ -67,7 +68,7 @@ export const colorVariant = props => {
         &, &:visited {
           background: ${color};
           color: ${tokens.color_white};
-    
+
           &:hover {
             ${!props.disabled ? `background: ${hoverColor};` : ''}
           }
@@ -90,10 +91,11 @@ export const colorVariant = props => {
         }
       `;
     case 'normal':
+    case 'outline':
     default:
       return `
         &, &:visited {
-          border: 1px solid ${color};
+          border: 1px solid ${props.visualWeight == 'outline' ? tokens.color_gray_400 : color};
           background: transparent;
           color: ${color};
           &:hover {

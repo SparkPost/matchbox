@@ -1,43 +1,90 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
 import Radio from '../Radio';
-import cases from 'jest-in-case';
+import { StyledChecked, StyledUnchecked } from '../styles.js';
+import 'jest-styled-components';
+import { tokens } from '@sparkpost/design-tokens';
 
 describe('Radio', () => {
-  let wrapper;
+  const events = {
+    onChange: jest.fn(),
+    onBlur: jest.fn(),
+    onFocus: jest.fn(),
+  };
+  const subject = props => global.mountStyled(<Radio id="test-id" {...events} {...props} />);
+  const checked = `:checked ~ span ${StyledChecked}`;
+  const unchecked = `:checked ~ span ${StyledUnchecked}`;
 
-  beforeEach(() => {
-    wrapper = shallow(<Radio />);
+  it('renders with id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('input')).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-id');
   });
 
-  const testCases = [
-    { name: 'disabled', props: { disabled: true }},
-    { name: 'checked', props: { checked: true }},
-    { name: 'with name & id', props: { name: 'label1', id: 'label1Id' }},
-    { name: 'label', props: { label: 'Radio Label' }},
-    { name: 'label hidden', props: { label: 'Radio Label', labelHidden: true }},
-    { name: 'value', props: { value: 'selected' }},
-    { name: 'error', props: { error: 'There is an error' }},
-    { name: 'helpText', props: { helpText: 'Radio Help Text' }}
-  ];
+  it('renders checked and value', () => {
+    const wrapper = subject({ checked: true, value: 'test-value' });
+    expect(wrapper.find('input')).toHaveAttributeValue('checked', '');
+    expect(wrapper.find('input')).toHaveAttributeValue('value', 'test-value');
+    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'pointer', { modifier: ':hover' });
 
-  cases('renders radio', (opts) => {
-    wrapper.setProps(opts.props);
-    expect(wrapper).toMatchSnapshot();
-  }, testCases);
+    // This assertion tests the lack of an error
+    // Not possible to check for checked/unchecked styles since the selectors use html input attributes
+    expect(wrapper.find('input')).toHaveStyleRule('opacity', '1', {
+      modifier: checked,
+    });
 
-  cases('invokes event', (opts) => {
-    const fn = jest.fn();
-    const newProps = {};
-    newProps[opts.name] = fn;
-    wrapper.setProps(newProps);
-    wrapper.find('input').simulate(opts.event, opts.args); //due to enzyme no propagating event, it needs to trigger on exact element
-    expect(fn).toHaveBeenCalledTimes(1);
-  }, [
-    { name: 'onChange', event: 'change' },
-    { name: 'onBlur', event: 'blur' },
-    { name: 'onFocus', event: 'focus' }
-  ]);
+    expect(wrapper.find('input')).toHaveStyleRule('opacity', '0', {
+      modifier: unchecked,
+    });
+  });
 
+  it('renders a label', () => {
+    const wrapper = subject({ label: 'test-label' });
+    expect(wrapper.text()).toEqual('test-label');
+  });
+
+  it('renders error', () => {
+    const wrapper = subject({ error: 'test-error' });
+    expect(wrapper.find(StyledUnchecked)).toHaveStyleRule('fill', tokens.color_red_700);
+    expect(wrapper.text()).toEqual('test-error');
+    expect(wrapper.find('input')).toHaveAttributeValue('aria-describedby', 'test-id-error');
+    expect(wrapper.find('div').last()).toHaveAttributeValue('id', 'test-id-error');
+  });
+
+  it('renders disabled', () => {
+    const wrapper = subject({ disabled: true });
+    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'not-allowed', { modifier: ':hover' });
+    expect(wrapper.find('input')).toBeDisabled();
+  });
+
+  it('renders help text', () => {
+    const wrapper = subject({ helpText: 'test-help' });
+    expect(wrapper.text()).toEqual('test-help');
+    expect(wrapper.find('input')).toHaveAttributeValue('aria-describedby', 'test-id-helptext');
+    expect(wrapper.find('div').last()).toHaveAttributeValue('id', 'test-id-helptext');
+  });
+
+  it('renders with error and helptext describedby', () => {
+    const wrapper = subject({ error: 'test-error', helpText: 'test-help' });
+    expect(wrapper.find('input')).toHaveAttributeValue(
+      'aria-describedby',
+      'test-id-helptext test-id-error',
+    );
+  });
+
+  it('renders with system props', () => {
+    const wrapper = subject({ mb: '500' });
+    expect(wrapper).toHaveStyleRule('margin-bottom', '1.5rem');
+    expect(wrapper.find('input').prop('mb')).toBeUndefined();
+  });
+
+  it('should invoke events', () => {
+    const wrapper = subject();
+    wrapper.find('input').simulate('change');
+    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('blur');
+    expect(events.onChange).toHaveBeenCalled();
+    expect(events.onBlur).toHaveBeenCalled();
+    expect(events.onFocus).toHaveBeenCalled();
+  });
 });

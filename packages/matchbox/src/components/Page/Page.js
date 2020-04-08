@@ -47,23 +47,29 @@ function Subtitle({ subtitle }) {
   return <div>{subtitle}</div>;
 }
 
-// TODO verify this with Popover and Actionlist tickets
 function SecondaryActions({ actions = [], hasPrimaryAction }) {
   const visibleActions = React.useMemo(() => filterByVisible(actions), [actions]);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   if (!visibleActions.length) {
     return null;
   }
 
   return (
-    <Popover
-      bottom
-      left
-      trigger={
-        <Box position="relative" mr={hasPrimaryAction ? '200' : ' 0'}>
+    <Box position="relative" mr={hasPrimaryAction ? '200' : ' 0'}>
+      <Popover
+        bottom
+        id="page-secondary-actions"
+        left
+        onClose={() => setIsOpen(false)}
+        open={isOpen}
+        trigger={
           <Button
-            outline
+            aria-describedby="page-secondary-actions"
+            aria-expanded={isOpen}
             color="blue"
+            onClick={() => setIsOpen(!isOpen)}
+            outline
             width="2.5rem" // Forces a square
           >
             <Box position="absolute">
@@ -71,11 +77,11 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
               <ScreenReaderOnly>More Options</ScreenReaderOnly>
             </Box>
           </Button>
-        </Box>
-      }
-    >
-      <ActionList actions={visibleActions} />
-    </Popover>
+        }
+      >
+        <ActionList actions={visibleActions} />
+      </Popover>
+    </Box>
   );
 }
 

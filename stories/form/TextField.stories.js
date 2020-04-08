@@ -44,6 +44,24 @@ export const WithTextAlignment = withInfo()(() => (
   </Stack>
 ));
 
+export const ConnectedWithButtons = withInfo()(() => (
+  <TextField
+    id="id"
+    label="Button"
+    value="Button Value"
+    connectLeft={
+      <Button color="blue" outline>
+        + Add
+      </Button>
+    }
+    connectRight={
+      <Button color="red" outline>
+        Delete
+      </Button>
+    }
+  />
+));
+
 export const ConnectedComponents = withInfo()(() => (
   <TextField
     id="id"

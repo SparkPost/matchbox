@@ -34,7 +34,7 @@ function Toggle(props) {
     ...rest
   } = props;
   const systemProps = pick(rest);
-  const componentProps = omit(rest, [margin.propNames]);
+  const componentProps = omit(rest, margin.propNames);
 
   return (
     <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>

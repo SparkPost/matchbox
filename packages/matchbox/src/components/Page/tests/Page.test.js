@@ -35,6 +35,7 @@ describe('Page', () => {
     const wrapper = subject({
       secondaryActions: [{ content: 'secondary 1' }, { content: 'secondary 2' }],
     });
+    expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'false');
     expect(wrapper.find('button').text()).toEqual('More Options');
     wrapper.find('button').simulate('click'); // Popovers not rendered unless open
     expect(
@@ -43,6 +44,7 @@ describe('Page', () => {
         .at(0)
         .text(),
     ).toEqual('secondary 1');
+    expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'true');
   });
 
   it('renders page with empty state', () => {
