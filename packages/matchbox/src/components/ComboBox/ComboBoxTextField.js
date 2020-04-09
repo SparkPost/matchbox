@@ -24,6 +24,7 @@ function ComboBoxTextField(props) {
   const {
     autoFocus,
     disabled,
+    children,
     error,
     errorInLabel,
     helpText,
@@ -31,7 +32,6 @@ function ComboBoxTextField(props) {
     itemToString,
     label,
     labelHidden,
-    menu,
     name,
     onChange,
     onFocus,
@@ -113,7 +113,7 @@ function ComboBoxTextField(props) {
         />
       </StyledInputWrapper>
       {/* Menu is rendered here so it is positioned correctly before error and helptext */}
-      {menu && menu}
+      {children}
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
     </StyledWrapper>
@@ -123,6 +123,7 @@ function ComboBoxTextField(props) {
 ComboBoxTextField.propTypes = {
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  children: PropTypes.node,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
   helpText: PropTypes.node,
@@ -130,7 +131,6 @@ ComboBoxTextField.propTypes = {
   itemToString: PropTypes.func,
   label: PropTypes.string,
   labelHidden: PropTypes.bool,
-  menu: PropTypes.node,
   name: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
