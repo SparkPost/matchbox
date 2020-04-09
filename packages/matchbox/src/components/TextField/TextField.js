@@ -29,9 +29,10 @@ const FieldBox = props => {
       border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
       borderRadius="100"
       bg={props.disabled ? 'gray.200' : 'white'}
-      lineHeight="2.5rem"
-      height={props.height}
       color="gray.900"
+      height={props.height}
+      lineHeight={props.lineHeight}
+      py={props.py}
       required={props.required}
     />
   );
@@ -115,6 +116,8 @@ function TextField(props) {
     ...componentProps,
     as: multiline ? 'textarea' : 'input',
     height: multiline ? 'auto' : '2.5rem',
+    lineHeight: multiline ? '300' : '2.5rem',
+    py: multiline ? '300' : '0',
     name,
     id,
     type,
