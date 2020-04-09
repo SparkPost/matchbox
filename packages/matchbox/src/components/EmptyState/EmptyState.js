@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { buttonFrom } from '../Button';
 import { linkFrom } from '../UnstyledLink';
 import styled from 'styled-components';
-import { emptyState, title, content, actions, image } from './styles.js';
-import styles from './EmptyState.module.scss';
+import { emptyState, title, content, actions, image, secondaryAction } from './styles.js';
 
 const StyledEmptyState = styled('div')`
   ${emptyState}
@@ -18,12 +17,16 @@ const StyledContent = styled('div')`
   ${content}
 `;
 
-const StyledActions = styled('actions')`
+const StyledActions = styled('div')`
   ${actions}
 `;
 
 const StyledImage = styled('div')`
   ${image}
+`;
+
+const StyledSecondaryAction = styled('span')`
+  ${secondaryAction}
 `;
 
 function EmptyState(props) {
@@ -36,16 +39,15 @@ function EmptyState(props) {
       })
     : null;
 
-  const secondaryActionMarkup = secondaryAction ? (
-    <span className={styles.SecondaryAction}>{linkFrom(secondaryAction)}</span>
-  ) : null;
-
   return (
     <StyledEmptyState>
       <StyledTitle>{title}</StyledTitle>
       <StyledContent>{children}</StyledContent>
       <StyledActions>
-        {primaryActionMarkup} {secondaryActionMarkup}
+        {primaryActionMarkup}{' '}
+        {secondaryAction && (
+          <StyledSecondaryAction>{linkFrom(secondaryAction)}</StyledSecondaryAction>
+        )}
       </StyledActions>
       {Image && (
         <StyledImage>

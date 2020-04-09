@@ -50,7 +50,7 @@ export const image = `
   top: 45%;
   left: 45%;
   width: 50%;
-  max-width: 600px);
+  max-width: 600px;
   height: auto;
 
   transform: translate(0, -50%);
@@ -63,4 +63,10 @@ export const image = `
   @media screen and (min-width: ${tokens.mediaQuery_sm}) {
     display: block;
   }
+`;
+
+export const secondaryAction = `
+  display: inline-block;
+  padding-top: ${tokens.spacing_400};
+  white-space: nowrap;
 `;
