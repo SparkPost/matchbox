@@ -125,9 +125,10 @@ export const TextField = withInfo({
   propTables: [ComboBoxTextField],
 })(() => (
   <ComboBoxTextField
+    id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
     itemToString={({ name }) => name}
-    value="input value"
+    defaultValue="input value"
     label="Filters"
   />
 ));
@@ -148,9 +149,10 @@ export const TextFieldWithError = withInfo({
   propTables: [ComboBoxTextField],
 })(() => (
   <ComboBoxTextField
+    id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
     itemToString={({ name }) => name}
-    value="input value"
+    defaultValue="input value"
     label="Filters"
     error="Required"
     required
@@ -161,9 +163,10 @@ export const TextFieldWhileDisabled = withInfo({
   propTables: [ComboBoxTextField],
 })(() => (
   <ComboBoxTextField
+    id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
     itemToString={({ name }) => name}
-    value="input value"
+    defaultValue="input value"
     label="Filters"
     disabled
   />
