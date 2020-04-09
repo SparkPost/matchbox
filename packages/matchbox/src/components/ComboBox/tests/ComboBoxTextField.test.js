@@ -44,6 +44,7 @@ describe('ComboBoxTextField', () => {
   it('renders label with required correctly', () => {
     const wrapper = subject({ required: true, label: 'test label' });
     expect(label(wrapper).text()).toEqual('test label*');
+    expect(input(wrapper)).toHaveAttributeValue('required', '');
   });
 
   it('renders hidden label correctly', () => {
