@@ -8,6 +8,7 @@ function ComboBox(props) {
   function getChild(name, passedProps) {
     return React.Children.map(children, child => {
       if (!React.isValidElement(child)) {
+        console.error('ComboBox children must be either ComboBoxMenu or ComboBoxTextField');
         return null;
       }
 
@@ -20,9 +21,7 @@ function ComboBox(props) {
   // Clones children in order to pass the menu into the textfield
   // Textfield inserts the menu in the DOM directly after the input, before helptext and error
   const menu = React.useMemo(() => getChild('ComboBoxMenu'), [children]);
-  const textfield = React.useMemo(() => getChild('ComboBoxTextField', { renderMenu: menu }), [
-    children,
-  ]);
+  const textfield = React.useMemo(() => getChild('ComboBoxTextField', { menu }), [children]);
 
   return (
     <Box position="relative" ref={rootRef} style={style} {...rest}>

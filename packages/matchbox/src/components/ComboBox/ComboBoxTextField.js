@@ -31,6 +31,7 @@ function ComboBoxTextField(props) {
     itemToString,
     label,
     labelHidden,
+    menu,
     name,
     onChange,
     onFocus,
@@ -39,7 +40,6 @@ function ComboBoxTextField(props) {
     placeholder,
     readOnly,
     removeItem,
-    renderMenu,
     required,
     style,
     selectedItems,
@@ -113,7 +113,7 @@ function ComboBoxTextField(props) {
         />
       </StyledInputWrapper>
       {/* Menu is rendered here so it is positioned correctly before error and helptext */}
-      {renderMenu && renderMenu}
+      {menu && menu}
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
     </StyledWrapper>
@@ -130,6 +130,7 @@ ComboBoxTextField.propTypes = {
   itemToString: PropTypes.func,
   label: PropTypes.string,
   labelHidden: PropTypes.bool,
+  menu: PropTypes.node,
   name: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
@@ -138,7 +139,6 @@ ComboBoxTextField.propTypes = {
   readOnly: PropTypes.bool,
   removeItem: PropTypes.func,
   required: PropTypes.bool,
-  renderMenu: PropTypes.node,
   selectedItems: PropTypes.array,
   ...createPropTypes(margin.propNames),
 };
