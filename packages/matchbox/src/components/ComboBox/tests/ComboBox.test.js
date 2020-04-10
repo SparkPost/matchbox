@@ -1,15 +1,26 @@
 import React from 'react';
 import ComboBox from '../ComboBox';
-import { mount } from 'enzyme';
+import ComboBoxMenu from '../ComboBoxMenu';
+import ComboBoxTextField from '../ComboBoxTextField';
+import 'jest-styled-components';
 
 describe('ComboBox Wrapper', () => {
-  const subject = (props = {}) => mount(<ComboBox {...props}/>);
+  const subject = (props = {}) =>
+    global.mountStyled(
+      <ComboBox {...props}>
+        <ComboBoxTextField id="test-id" helpText="test help" />
+        <ComboBoxMenu isOpen items={[{ content: 'foo', is: 'button' }]} />
+      </ComboBox>,
+    );
 
-  it('should render styles, children, and other props correctly', () => {
-    expect(subject({
-      children: <span>test children</span>,
-      style: { background: 'red' },
-      onClick: jest.fn()
-    }).find('div')).toMatchSnapshot();
+  it('should menu correctly inside textfield', () => {
+    const wrapper = subject();
+    const children = wrapper
+      .find('div')
+      .at(1)
+      .children();
+    expect(children.at(1).find('input')).toExist();
+    expect(children.at(2).text()).toEqual('foo');
+    expect(children.last().text()).toEqual('test help');
   });
 });

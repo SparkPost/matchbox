@@ -40,7 +40,7 @@ function Content(props) {
       unmountOnExit
       in={open}
       timeout={{
-        enter: secondsToMS(tokens.motionDuration_medium),
+        enter: 0,
         exit: secondsToMS(tokens.motionDuration_fast),
       }}
     >
