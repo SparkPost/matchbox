@@ -15,7 +15,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rollup -c && cp styles.css styles.scss",
+    "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "watch": "rollup -cw"
   },
