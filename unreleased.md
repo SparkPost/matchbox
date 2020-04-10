@@ -104,3 +104,5 @@
 - #377 - ComboBoxTextField now properly uses aria-describedby to link to its helptext and error
 - #377 - ComboBoxMenu now renders a message if it is open and there are no items through the
   `emptyMessage` prop, which defaults to 'No Results'
+- #380 - Fix Toggle checked prop
+- #380 - Add defaultChecked prop to Toggle

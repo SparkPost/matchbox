@@ -25,6 +25,7 @@ function Toggle(props) {
     id,
     value,
     checked,
+    defaultChecked,
     disabled,
     onChange,
     onFocus,
@@ -42,7 +43,8 @@ function Toggle(props) {
       <StyledInput
         id={id}
         value={value}
-        defaultChecked={checked}
+        defaultChecked={defaultChecked}
+        checked={checked}
         disabled={disabled}
         onChange={onChange}
         onFocus={onFocus}
@@ -60,6 +62,7 @@ function Toggle(props) {
 Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  defaultChecked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   compact: deprecate(PropTypes.bool, 'Compact prop has been removed'),
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
