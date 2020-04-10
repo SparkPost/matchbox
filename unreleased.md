@@ -97,3 +97,5 @@
 - #369 - Page secondary action popover now uses the correct a11y attributes
 - #372 - Restyled Grid and Grid.Column with styled-components
 - #376 - Convert WindowEvent component to stateless functional component
+- #380 - Fix Toggle checked prop
+- #380 - Add defaultChecked prop to Toggle
