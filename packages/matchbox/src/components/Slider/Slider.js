@@ -7,7 +7,17 @@ import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
-import { slider, rail, track, tick, tickLabel, handle, handleShadow } from './styles';
+import {
+  slider,
+  rail,
+  railHover,
+  track,
+  tick,
+  tickHover,
+  tickLabel,
+  handle,
+  handleShadow,
+} from './styles';
 import { pick } from '@styled-system/props';
 
 const system = compose(margin);
@@ -19,6 +29,9 @@ export const StyledSlider = styled('div')`
 
 const StyledRail = styled('div')`
   ${rail}
+  ${StyledSlider}:hover & {
+    ${railHover}
+  }
 `;
 
 const StyledTrack = styled('div')`
@@ -27,6 +40,9 @@ const StyledTrack = styled('div')`
 
 const StyledTick = styled('div')`
   ${tick}
+  ${StyledSlider}:hover & {
+    ${tickHover}
+  }
 `;
 
 const StyledTickLabel = styled('div')`

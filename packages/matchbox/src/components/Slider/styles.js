@@ -1,5 +1,4 @@
 import { tokens } from '@sparkpost/design-tokens';
-import { StyledSlider } from './Slider';
 
 export const slider = props => {
   let cursor = 'pointer';
@@ -16,21 +15,20 @@ export const slider = props => {
   `;
 };
 
-export const rail = props => {
-  return `
-    position: absolute;
-    left: ${tokens.spacing_0};
-    right: ${tokens.spacing_0};
+export const rail = () => `
+  position: absolute;
+  left: ${tokens.spacing_0};
+  right: ${tokens.spacing_0};
 
-    height: ${tokens.spacing_100};
-    background: ${tokens.color_gray_300};
-    border-radius: ${tokens.borderRadius_200};
-    transition: ${tokens.motionDuration_medium} background;
-    ${StyledSlider}:hover & {
-      background: ${props.disabled ? tokens.color_gray_300 : tokens.color_gray_400};
-    }
-  `;
-};
+  height: ${tokens.spacing_100};
+  background: ${tokens.color_gray_300};
+  border-radius: ${tokens.borderRadius_200};
+  transition: ${tokens.motionDuration_medium} background;
+`;
+
+export const railHover = props => `
+  background: ${props.disabled ? tokens.color_gray_300 : tokens.color_gray_400};
+`;
 
 export const track = props => {
   let background = tokens.color_blue_700;
@@ -70,11 +68,12 @@ export const tick = props => {
     transition: ${tokens.motionDuration_medium} background;
 
     user-select: none;
-    ${StyledSlider}:hover & {
-      ${!props.disabled && !props.included ? `background: ${tokens.color_gray_400};` : ''};
-    }
   `;
 };
+
+export const tickHover = props => `
+  ${!props.disabled && !props.included ? `background: ${tokens.color_gray_400};` : ''};
+`;
 
 export const tickLabel = () => `
   position: absolute;
