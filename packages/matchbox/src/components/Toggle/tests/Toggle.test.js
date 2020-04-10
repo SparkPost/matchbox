@@ -18,7 +18,7 @@ describe('Toggle', () => {
   });
 
   it('renders default checked styles', () => {
-    wrapper = subject({ checked: true });
+    wrapper = subject({ checked: true, onChange: jest.fn() });
     expect(wrapper.find('input')).toHaveStyleRule('background', tokens.color_green_800, {
       modifier: `:checked ~ ${StyledOutline}`,
     });
