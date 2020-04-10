@@ -106,3 +106,4 @@
   `emptyMessage` prop, which defaults to 'No Results'
 - #380 - Fix Toggle checked prop
 - #380 - Add defaultChecked prop to Toggle
+- #379 - Converts EmptyState to be styled component
