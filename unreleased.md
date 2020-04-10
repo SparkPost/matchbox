@@ -97,3 +97,10 @@
 - #369 - Page secondary action popover now uses the correct a11y attributes
 - #372 - Restyled Grid and Grid.Column with styled-components
 - #376 - Convert WindowEvent component to stateless functional component
+- #377 - Restyles ComboBox, ComboBoxTextField, and ComboBoxMenu
+- #377 - ComboBox now properly renders its menu after the text field
+- #377 - ComboBoxTextField prop `id` is now required
+- #377 - ComboBoxTextField now properly hides a screen reader accessible label
+- #377 - ComboBoxTextField now properly uses aria-describedby to link to its helptext and error
+- #377 - ComboBoxMenu now renders a message if it is open and there are no items through the
+  `emptyMessage` prop, which defaults to 'No Results'
