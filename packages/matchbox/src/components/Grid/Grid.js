@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { pick } from '../../helpers/propTypes';
 import { breakpoints, gridStyle } from './styles';
-
 import Column from './Column';
 
 const StyledGrid = styled('div')`
@@ -11,8 +9,21 @@ const StyledGrid = styled('div')`
 `;
 
 function Grid(props) {
-  const { children, ...rest } = pick(props, Grid.propTypes);
-  return <StyledGrid {...rest}>{children}</StyledGrid>;
+  const { children, start, center, end, top, middle, bottom, around, between } = props;
+  return (
+    <StyledGrid
+      start={start}
+      center={center}
+      end={end}
+      top={top}
+      middle={middle}
+      bottom={bottom}
+      around={around}
+      between={between}
+    >
+      {children}
+    </StyledGrid>
+  );
 }
 
 Grid.displayName = 'Grid';
