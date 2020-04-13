@@ -7,14 +7,14 @@ function ComboBox(props) {
 
   function getChild(name, passedProps) {
     return React.Children.map(children, child => {
-      if (!React.isValidElement(child)) {
-        console.error('ComboBox children must be either ComboBoxMenu or ComboBoxTextField');
-        return null;
-      }
-
-      if (child.type.name === name) {
+      if (
+        React.isValidElement(child) &&
+        (child.type.displayName === name || child.type.name === name)
+      ) {
         return React.cloneElement(child, passedProps);
       }
+
+      return null;
     });
   }
 
