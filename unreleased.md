@@ -109,3 +109,4 @@
 - #379 - Converts EmptyState to be styled component
 - #381 - Adds vertical padding to modal containers
 - #381 - Adds border radius to panel containers
+- #382 - Fix ComboBox children validation to check both displayName and name
