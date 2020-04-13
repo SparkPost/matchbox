@@ -20,6 +20,7 @@ export const headerText = () => `
 export const panel = () => `
   position: relative;
   background: ${tokens.color_white};
+  border-radius: ${tokens.borderRadius_100};
   padding: ${tokens.spacing_0};
 `;
 

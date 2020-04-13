@@ -107,3 +107,5 @@
 - #380 - Fix Toggle checked prop
 - #380 - Add defaultChecked prop to Toggle
 - #379 - Converts EmptyState to be styled component
+- #381 - Adds vertical padding to modal containers
+- #381 - Adds border radius to panel containers

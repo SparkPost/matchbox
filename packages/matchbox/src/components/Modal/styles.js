@@ -10,6 +10,7 @@ export const base = props => {
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: ${tokens.spacing_700} 0;
     min-height: 100%;
     max-height: 100vh;
     pointer-events: ${props.open ? 'auto' : 'none'};
