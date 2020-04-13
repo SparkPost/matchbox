@@ -110,3 +110,4 @@
 - #381 - Adds vertical padding to modal containers
 - #381 - Adds border radius to panel containers
 - #382 - Fix ComboBox children validation to check both displayName and name
+- #383 - Fix Grid in production builds by manually picking props
