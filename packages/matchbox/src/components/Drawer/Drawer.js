@@ -4,13 +4,14 @@ import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { useWindowEvent } from '../../hooks';
+import { onKey } from '../../helpers/keyEvents';
 
 function Drawer(props) {
   const {
     children,
-    // closeOnEscape,
-    // closeOnOutsideClick,
-    // id,
+    closeOnEscape,
+    closeOnOutsideClick,
+    id,
     onChange,
     onClose,
     open,
@@ -21,38 +22,66 @@ function Drawer(props) {
   const overlayRef = React.useRef();
   const childrenRef = React.useRef();
 
-  function handleOutsideClick() {}
+  // Calls onClose when clicking outside drawer content
+  function handleOutsideClick(e) {
+    if (!closeOnOutsideClick) {
+      return;
+    }
 
-  function handleEscape() {}
+    const isOutside =
+      overlayRef.current &&
+      overlayRef.current.contains(e.target) &&
+      childrenRef.current &&
+      !childrenRef.current.contains(e.target);
 
-  useWindowEvent('keyDown', handleEscape);
+    if (isOutside && open && onClose) {
+      onClose();
+    }
+  }
+
+  // Calls onClose when receiving a escape keydown event
+  function handleEscape(e) {
+    if (closeOnEscape && open && onClose) {
+      onKey('escape', onClose)(e);
+    }
+  }
+
+  useWindowEvent('keydown', handleEscape);
   useWindowEvent('click', handleOutsideClick);
 
   React.useEffect(() => {
     if (onChange) {
       onChange(open);
     }
-
-    if (onClose && !open) {
-      onClose();
-    }
   }, [open]);
 
   return (
     <Portal containerId={portalId}>
       <Box
+        opacity={open ? '1' : '0'}
+        style={{ pointerEvents: open ? 'auto' : 'none' }}
         position="fixed"
         top="0"
         left="0"
         height="100vh"
         width="100vw"
-        bg="gray.900"
-        opacity="0.7"
-        ref={overlayRef}
         zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
       >
         <Box
+          position="absolute"
+          top="0"
+          left="0"
+          height="100%"
+          width="100%"
+          bg="gray.900"
+          opacity="0.7"
+          ref={overlayRef}
+        ></Box>
+        <Box
           ref={childrenRef}
+          id={id}
+          aria-modal="true"
+          role="dialog"
           bg="white"
           position="absolute"
           top="0"
