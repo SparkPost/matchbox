@@ -11,7 +11,7 @@ export default {
   title: 'Overlays|Drawer',
 };
 
-export const DrawerExample = withInfo({ propTables: [Drawer] })(() => {
+export const DrawerExample = withInfo({ propTables: [Drawer], source: false })(() => {
   const { closeDrawer, getDrawerProps, getActivatorProps } = useDrawer({ id: 'example-1' });
 
   const { getDrawerProps: getDrawerPropsB, getActivatorProps: getActivatorPropsB } = useDrawer({
@@ -44,13 +44,15 @@ export const DrawerExample = withInfo({ propTables: [Drawer] })(() => {
         position="right"
         portalId="modal-portal"
       >
-        <button>testing</button>
-        <button>focus</button>
+        Opened on the right
+        <button>Button 1</button>
+        <button>Button 2</button>
       </Drawer>
 
       <Drawer {...getDrawerPropsB()} position="left" portalId="modal-portal">
-        <button>testing</button>
-        <button>focus</button>
+        Opened on the left
+        <button>Button 1</button>
+        <button>Button 2</button>
       </Drawer>
     </>
   );
