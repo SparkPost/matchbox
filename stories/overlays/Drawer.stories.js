@@ -44,15 +44,24 @@ export const DrawerExample = withInfo({ propTables: [Drawer], source: false })((
         position="right"
         portalId="modal-portal"
       >
-        Opened on the right
-        <button>Button 1</button>
-        <button>Button 2</button>
+        <Drawer.Content>
+          Opened on the right
+          <button>Button 1</button>
+          <button>Button 2</button>
+        </Drawer.Content>
       </Drawer>
 
       <Drawer {...getDrawerPropsB()} position="left" portalId="modal-portal">
-        Opened on the left
-        <button>Button 1</button>
-        <button>Button 2</button>
+        <Drawer.Content>
+          Opened on the left
+          <button>Button 1</button>
+          <button>Button 2</button>
+          {Array.apply(null, Array(100)).map(() => (
+            <br />
+          ))}
+          Bottom
+        </Drawer.Content>
+        <Drawer.Footer>Footer Content</Drawer.Footer>
       </Drawer>
     </>
   );
