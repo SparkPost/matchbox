@@ -46,16 +46,17 @@ export const DrawerExample = withInfo({ propTables: [Drawer], source: false })((
       >
         <Drawer.Content>
           Opened on the right
-          <button>Button 1</button>
-          <button>Button 2</button>
+          <Button outline>Button 1</Button>
+          <Button outline>Button 2</Button>
         </Drawer.Content>
       </Drawer>
 
       <Drawer {...getDrawerPropsB()} position="left" portalId="modal-portal">
+        <Drawer.Header>Header Title</Drawer.Header>
         <Drawer.Content>
           Opened on the left
-          <button>Button 1</button>
-          <button>Button 2</button>
+          <Button outline>Button 1</Button>
+          <Button outline>Button 2</Button>
           {Array.apply(null, Array(100)).map(() => (
             <br />
           ))}

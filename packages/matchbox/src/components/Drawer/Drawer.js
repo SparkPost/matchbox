@@ -5,8 +5,9 @@ import { Transition } from 'react-transition-group';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
-import Footer from './Footer';
+import Header from './Header';
 import Content from './Content';
+import Footer from './Footer';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
@@ -113,7 +114,7 @@ function Drawer(props) {
               >
                 {/* //mb={footerHeight} */}
                 <Box overflowY="scroll" position="relative" height={`calc(100% - ${footerHeight})`}>
-                  {getChild('Drawer.Header', children)}
+                  {getChild('Drawer.Header', children, { onClose })}
                   {getChild('Drawer.Content', children)}
                   {getChild('Drawer.Footer', children, { ref: footerRef })}
                 </Box>
@@ -148,5 +149,6 @@ Drawer.defaultProps = {
 
 Drawer.Footer = Footer;
 Drawer.Content = Content;
+Drawer.Header = Header;
 
 export default Drawer;
