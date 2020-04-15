@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Content = React.forwardRef(function Content(props, ref) {
   const systemProps = pick(props);
-  // TODO need to offset footer height
+
   return (
     <Container data-id="drawer-content" p="500" {...systemProps} ref={ref}>
       {props.children}
