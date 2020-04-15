@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
@@ -66,31 +67,33 @@ function Drawer(props) {
         in={open}
         timeout={{
           enter: 0,
-          exit: secondsToMS(tokens.motionDuration_slow),
+          exit: secondsToMS(tokens.motionDuration_medium),
         }}
       >
         {state => (
-          <Box
-            style={{ pointerEvents: 'none' }}
-            position="fixed"
-            top="0"
-            left="0"
-            height="100vh"
-            width="100vw"
-            zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
-          >
-            <Overlay ref={overlayRef} state={state} />
-            <Container
-              aria-modal="true"
-              id={id}
-              position={position}
-              ref={childrenRef}
-              role="dialog"
-              state={state}
+          <FocusLock returnFocus>
+            <Box
+              style={{ pointerEvents: 'none' }}
+              position="fixed"
+              top="0"
+              left="0"
+              height="100vh"
+              width="100vw"
+              zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
             >
-              <Box>{children}</Box>
-            </Container>
-          </Box>
+              <Overlay ref={overlayRef} state={state} />
+              <Container
+                aria-modal="true"
+                id={id}
+                position={position}
+                ref={childrenRef}
+                role="dialog"
+                state={state}
+              >
+                <Box>{children}</Box>
+              </Container>
+            </Box>
+          </FocusLock>
         )}
       </Transition>
     </Portal>

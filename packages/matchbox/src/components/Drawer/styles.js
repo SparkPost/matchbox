@@ -63,7 +63,6 @@ export const Container = styled.div`
     `;
 
     const hidden = `
-      ${'' /* transform: translateX(); */}
       transform: translateX(${props.position === 'left' ? '-100%' : '100%'});
       pointer-events: none;
       transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in};
@@ -76,14 +75,18 @@ export const Container = styled.div`
           pointer-events: auto;
           visibility: visible;
         `;
+      case 'entering':
       case 'exiting':
+        /**
+         * Visibility needs to be set here on entering to ensure
+         * FocusLock can focus on Drawer content when opening.
+         */
+
         return `
           ${hidden}
           visibility: visible;
         `;
       case 'exited':
-      case 'entering':
-      default:
         return `
           ${hidden}
           visibility: hidden;

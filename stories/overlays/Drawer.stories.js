@@ -35,9 +35,12 @@ export const DefaultStyle = withInfo({ propTables: [Drawer] })(() => {
       <Drawer
         {...getDrawerProps({ onClose: handleClose })}
         // position="left"
+        portalId="modal-portal"
       >
         test test testtest sfdsf
         <div>test</div>
+        <button>testing</button>
+        <button>focus</button>
       </Drawer>
     </>
   );
