@@ -73,6 +73,7 @@ function Drawer(props) {
         {state => (
           <FocusLock returnFocus>
             <Box
+              data-id="drawer-wrapper"
               style={{ pointerEvents: 'none' }}
               position="fixed"
               top="0"
@@ -81,9 +82,10 @@ function Drawer(props) {
               width="100vw"
               zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
             >
-              <Overlay ref={overlayRef} state={state} />
+              <Overlay data-id="drawer-overlay" ref={overlayRef} state={state} />
               <Container
                 aria-modal="true"
+                data-id="drawer-container"
                 id={id}
                 position={position}
                 ref={childrenRef}
