@@ -44,3 +44,50 @@ export const Overlay = styled.div`
     }
   }}
 `;
+
+export const Container = styled.div`
+  background: ${tokens.color_white};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  ${'' /* TODO Make this configurable and reference sizing theme */}
+  max-width: 32rem;
+  width: 80vw;
+  right: ${props => (props.position === 'right' ? '0' : 'auto')};
+  left: ${props => (props.position === 'left' ? '0' : 'auto')};
+
+  ${props => {
+    const visible = `
+      transform: translateX(0);
+      transition: transform ${tokens.motionDuration_medium} ${tokens.motionEase_out};
+    `;
+
+    const hidden = `
+      ${'' /* transform: translateX(); */}
+      transform: translateX(${props.position === 'left' ? '-100%' : '100%'});
+      pointer-events: none;
+      transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in};
+    `;
+
+    switch (props.state) {
+      case 'entered':
+        return `
+          ${visible}
+          pointer-events: auto;
+          visibility: visible;
+        `;
+      case 'exiting':
+        return `
+          ${hidden}
+          visibility: visible;
+        `;
+      case 'exited':
+      case 'entering':
+      default:
+        return `
+          ${hidden}
+          visibility: hidden;
+        `;
+    }
+  }}
+`;

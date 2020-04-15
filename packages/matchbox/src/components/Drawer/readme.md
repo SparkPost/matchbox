@@ -1,6 +1,6 @@
 # Drawer
 
-A set of composable and accessible Drawer compoennts.
+A set of composable and accessible Drawer components.
 
 ```js
 import { Drawer, useDrawer } from '@sparkpost/matchbox';
@@ -8,9 +8,10 @@ import { Drawer, useDrawer } from '@sparkpost/matchbox';
 function Example(){
   const {
     isOpen,            // Open state
-    closeDrawer,       // Programatically close
-    openDrawer,        // Programatically open
-    getDrawerProps,    // Passes through open state & handles, a11y attributes
+    closeDrawer,       // Function to close the drawer
+    openDrawer,        // Function to open the drawer
+    toggleDrawer,      // Function to toggle the drawer's open state
+    getDrawerProps,    // Passes through open state, event handlers, a11y attributes
     getActivatorProps, // Passes through a11y attributes
   } = useDrawer({
     id,                // Specify an ID, defaults to `matchbox-drawer`

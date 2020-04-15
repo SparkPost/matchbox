@@ -4,7 +4,7 @@ import React from 'react';
  * Reusable hook to be used with the Drawer component
  */
 
-function useDrawer({ initialOpen = false, id = 'drawer' } = {}) {
+function useDrawer({ initialOpen = false, id = 'matchbox-drawer' } = {}) {
   const [isOpen, setIsOpen] = React.useState(initialOpen);
 
   function toggle() {

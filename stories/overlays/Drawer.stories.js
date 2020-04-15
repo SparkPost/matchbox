@@ -18,7 +18,7 @@ export const DefaultStyle = withInfo({ propTables: [Drawer] })(() => {
     // openDrawer, // Programatically open
     getDrawerProps, // Passes through open state & handles, a11y attributes
     getActivatorProps, // Passes through a11y attributes
-  } = useDrawer({ id: 'story-id' });
+  } = useDrawer();
 
   // overriding onClose
   function handleClose() {
@@ -32,7 +32,10 @@ export const DefaultStyle = withInfo({ propTables: [Drawer] })(() => {
         Open Drawer
       </Button>
 
-      <Drawer {...getDrawerProps({ onClose: handleClose })}>
+      <Drawer
+        {...getDrawerProps({ onClose: handleClose })}
+        // position="left"
+      >
         test test testtest sfdsf
         <div>test</div>
       </Drawer>

@@ -7,7 +7,7 @@ import { Portal } from '../Portal';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
-import { Overlay } from './styles';
+import { Overlay, Container } from './styles';
 
 function Drawer(props) {
   const {
@@ -79,21 +79,17 @@ function Drawer(props) {
             width="100vw"
             zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
           >
-            <Overlay state={state} ref={overlayRef} />
-            <Box
-              ref={childrenRef}
-              id={id}
+            <Overlay ref={overlayRef} state={state} />
+            <Container
               aria-modal="true"
+              id={id}
+              position={position}
+              ref={childrenRef}
               role="dialog"
-              bg="white"
-              position="absolute"
-              top="0"
-              bottom="0"
-              right={position === 'right' ? '0' : 'auto'}
-              left={position === 'left' ? '0' : 'auto'}
+              state={state}
             >
               <Box>{children}</Box>
-            </Box>
+            </Container>
           </Box>
         )}
       </Transition>
