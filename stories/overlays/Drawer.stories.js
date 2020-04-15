@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import { ThemeProvider, Drawer, Button, useDrawer } from '@sparkpost/matchbox';
+import { ThemeProvider, Box, Drawer, Button, useDrawer } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
@@ -11,16 +11,14 @@ export default {
   title: 'Overlays|Drawer',
 };
 
-export const DefaultStyle = withInfo({ propTables: [Drawer] })(() => {
-  const {
-    // isOpen, // Open state
-    closeDrawer, // Programatically close
-    // openDrawer, // Programatically open
-    getDrawerProps, // Passes through open state & handles, a11y attributes
-    getActivatorProps, // Passes through a11y attributes
-  } = useDrawer();
+export const DrawerExample = withInfo({ propTables: [Drawer] })(() => {
+  const { closeDrawer, getDrawerProps, getActivatorProps } = useDrawer({ id: 'example-1' });
 
-  // overriding onClose
+  const { getDrawerProps: getDrawerPropsB, getActivatorProps: getActivatorPropsB } = useDrawer({
+    id: 'example-2',
+  });
+
+  // Overriding onClose
   function handleClose() {
     action('close');
     closeDrawer();
@@ -28,17 +26,29 @@ export const DefaultStyle = withInfo({ propTables: [Drawer] })(() => {
 
   return (
     <>
-      <Button outline color="blue" {...getActivatorProps()}>
-        Open Drawer
-      </Button>
+      <Box display="flex">
+        <Box flex="1">
+          <Button outline color="blue" {...getActivatorProps()}>
+            On the right
+          </Button>
+        </Box>
+        <Box flex="0">
+          <Button outline color="blue" {...getActivatorPropsB()}>
+            On the Left
+          </Button>
+        </Box>
+      </Box>
 
       <Drawer
         {...getDrawerProps({ onClose: handleClose })}
-        // position="left"
+        position="right"
         portalId="modal-portal"
       >
-        test test testtest sfdsf
-        <div>test</div>
+        <button>testing</button>
+        <button>focus</button>
+      </Drawer>
+
+      <Drawer {...getDrawerPropsB()} position="left" portalId="modal-portal">
         <button>testing</button>
         <button>focus</button>
       </Drawer>
