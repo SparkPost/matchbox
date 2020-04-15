@@ -5,9 +5,7 @@ import 'jest-styled-components';
 describe('Drawer', () => {
   const subject = props =>
     global.mountStyled(
-      <Drawer id="test-id" {...props}>
-        test content
-      </Drawer>,
+      <Drawer id="test-id" children={<Drawer.Content>test content</Drawer.Content>} {...props} />,
     );
 
   it('should not render when closed', () => {
@@ -30,13 +28,18 @@ describe('Drawer', () => {
     ).toEqual('test content');
   });
 
-  it('should renders on right by default', () => {
+  it('should not render invalid children', () => {
+    const wrapper = subject({ open: true, children: <div id="wrong">test children</div> });
+    expect(wrapper.find('#wrong')).not.toExist();
+  });
+
+  it('should render on right by default', () => {
     const wrapper = subject({ open: true });
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('right', '0');
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('left', 'auto');
   });
 
-  it('should renders on left', () => {
+  it('should render on left', () => {
     const wrapper = subject({ open: true, position: 'left' });
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('left', '0');
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('right', 'auto');
