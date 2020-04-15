@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
+import { secondsToMS } from '../../helpers/string';
+import { Overlay } from './styles';
 
 function Drawer(props) {
   const {
@@ -57,41 +60,43 @@ function Drawer(props) {
 
   return (
     <Portal containerId={portalId}>
-      <Box
-        opacity={open ? '1' : '0'}
-        style={{ pointerEvents: open ? 'auto' : 'none' }}
-        position="fixed"
-        top="0"
-        left="0"
-        height="100vh"
-        width="100vw"
-        zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
+      <Transition
+        mountOnEnter
+        unmountOnExit
+        in={open}
+        timeout={{
+          enter: 0,
+          exit: secondsToMS(tokens.motionDuration_slow),
+        }}
       >
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          height="100%"
-          width="100%"
-          bg="gray.900"
-          opacity="0.7"
-          ref={overlayRef}
-        ></Box>
-        <Box
-          ref={childrenRef}
-          id={id}
-          aria-modal="true"
-          role="dialog"
-          bg="white"
-          position="absolute"
-          top="0"
-          bottom="0"
-          right={position === 'right' ? '0' : 'auto'}
-          left={position === 'left' ? '0' : 'auto'}
-        >
-          <Box>{children}</Box>
-        </Box>
-      </Box>
+        {state => (
+          <Box
+            style={{ pointerEvents: 'none' }}
+            position="fixed"
+            top="0"
+            left="0"
+            height="100vh"
+            width="100vw"
+            zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
+          >
+            <Overlay state={state} ref={overlayRef} />
+            <Box
+              ref={childrenRef}
+              id={id}
+              aria-modal="true"
+              role="dialog"
+              bg="white"
+              position="absolute"
+              top="0"
+              bottom="0"
+              right={position === 'right' ? '0' : 'auto'}
+              left={position === 'left' ? '0' : 'auto'}
+            >
+              <Box>{children}</Box>
+            </Box>
+          </Box>
+        )}
+      </Transition>
     </Portal>
   );
 }
