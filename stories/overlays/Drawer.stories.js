@@ -1,9 +1,8 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 
-import { ThemeProvider, Box, Drawer, Button, useDrawer } from '@sparkpost/matchbox';
+import { ThemeProvider, Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
 
 addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
@@ -11,24 +10,23 @@ export default {
   title: 'Overlays|Drawer',
 };
 
-export const DrawerExample = withInfo({ propTables: [Drawer], source: false })(() => {
-  const { closeDrawer, getDrawerProps, getActivatorProps } = useDrawer({ id: 'example-1' });
+export const DrawerExample = withInfo({
+  propTables: [Drawer, Drawer.Header, Drawer.Content, Drawer.Footer],
+  source: false,
+})(() => {
+  const { getDrawerProps: getDrawerPropsA, getActivatorProps: getActivatorPropsA } = useDrawer({
+    id: 'example-1',
+  });
 
   const { getDrawerProps: getDrawerPropsB, getActivatorProps: getActivatorPropsB } = useDrawer({
     id: 'example-2',
   });
 
-  // Overriding onClose
-  function handleClose() {
-    action('close');
-    closeDrawer();
-  }
-
   return (
     <>
       <Box display="flex">
         <Box flex="1">
-          <Button outline color="blue" {...getActivatorProps()}>
+          <Button outline color="blue" {...getActivatorPropsA()}>
             On the right
           </Button>
         </Box>
@@ -39,11 +37,7 @@ export const DrawerExample = withInfo({ propTables: [Drawer], source: false })((
         </Box>
       </Box>
 
-      <Drawer
-        {...getDrawerProps({ onClose: handleClose })}
-        position="right"
-        portalId="modal-portal"
-      >
+      <Drawer {...getDrawerPropsA()} position="right">
         <Drawer.Content>
           Opened on the right
           <Button outline>Button 1</Button>
@@ -51,7 +45,7 @@ export const DrawerExample = withInfo({ propTables: [Drawer], source: false })((
         </Drawer.Content>
       </Drawer>
 
-      <Drawer {...getDrawerPropsB()} position="left" portalId="modal-portal">
+      <Drawer {...getDrawerPropsB()} position="left">
         <Drawer.Header>Header Title</Drawer.Header>
         <Drawer.Content>
           Opened on the left
@@ -63,6 +57,43 @@ export const DrawerExample = withInfo({ propTables: [Drawer], source: false })((
           Bottom
         </Drawer.Content>
         <Drawer.Footer>Footer Content</Drawer.Footer>
+      </Drawer>
+    </>
+  );
+});
+
+export const WithOtherComponents = withInfo({
+  propTables: [Drawer, Drawer.Header, Drawer.Content, Drawer.Footer],
+})(() => {
+  const drawer = useDrawer();
+
+  return (
+    <>
+      <Button {...drawer.getActivatorProps()}>Open Drawer</Button>
+      <Drawer {...drawer.getDrawerProps()}>
+        <Drawer.Header>Drawer Title</Drawer.Header>
+        <Drawer.Content p="0">
+          <Tabs
+            fitted
+            selected={0}
+            tabs={[{ content: 'Metrics' }, { content: 'Filters' }, { content: 'Compare' }]}
+          />
+          <Box p="500">Content</Box>
+        </Drawer.Content>
+        <Drawer.Footer>
+          <Box display="flex">
+            <Box flex="1" pr="100">
+              <Button width="100%" color="blue">
+                Apply
+              </Button>
+            </Box>
+            <Box flex="1" pl="100">
+              <Button width="100%" outline>
+                Cancel
+              </Button>
+            </Box>
+          </Box>
+        </Drawer.Footer>
       </Drawer>
     </>
   );
