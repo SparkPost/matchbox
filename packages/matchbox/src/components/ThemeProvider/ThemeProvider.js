@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createGlobalStyle, StyleSheetManager } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import theme from './theme';
 import global from './globalStyles';
@@ -18,18 +18,33 @@ const GlobalStyle = createGlobalStyle`
  *
  * @prop theme Overrides matchbox's theme
  */
-
 function Theme(props) {
   return (
     <ThemeProvider theme={{ ...theme, ...props.theme }}>
-      {/* 
+      {/*
         FE-913:`skipGlobalStyles` is to exclude global styles from unit tests.
         The custom assertion `toHaveAttributeValue` fails with this turned on.
         We should either move away from using this assertion (or even enzyme),
         or try to resolve the error
       */}
       {!props.skipGlobalStyles && <GlobalStyle />}
-      {props.children}
+
+      {/*
+        See https://styled-components.com/docs/api#stylesheetmanager
+        Target provides an alternate DOM node to inject styles info
+        
+        Example:
+        In your app's <head>:
+        <style id="styled-components-target"></style>
+
+        When rendering ThemeProvider:
+        <ThemeProvider target={document.getElementById('styled-components-target')} />
+      */}
+      {props.target && (
+        <StyleSheetManager target={props.target}>{props.children}</StyleSheetManager>
+      )}
+
+      {!props.target && <>{props.children}</>}
     </ThemeProvider>
   );
 }
