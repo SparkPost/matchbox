@@ -114,3 +114,4 @@
 - #386 - `className` is properly passed to `<Panel/>` instances
 - #385 - Adds a new `target` prop to `ThemeProvider`, see
   https://styled-components.com/docs/api#stylesheetmanager
+- #384 - Adds `Drawer` component and `useDrawer` hook. See
