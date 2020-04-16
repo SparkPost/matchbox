@@ -18,7 +18,7 @@ describe('Drawer component', () => {
     cy.contains('Opened on the right').should('not.be.visible');
   });
 
-  it('closes when clicking outside the modal', () => {
+  it('closes when clicking outside the drawer', () => {
     cy.get('body').click(100, 300);
     cy.contains('Opened on the right').should('not.be.visible');
   });

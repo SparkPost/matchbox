@@ -94,11 +94,11 @@ function Drawer(props) {
           <FocusLock returnFocus>
             <Box
               data-id="drawer-wrapper"
-              style={{ pointerEvents: 'none' }}
-              position="fixed"
-              top="0"
-              left="0"
               height="100vh"
+              left="0"
+              position="fixed"
+              style={{ pointerEvents: 'none' }}
+              top="0"
               width="100vw"
               zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
             >
@@ -112,7 +112,6 @@ function Drawer(props) {
                 role="dialog"
                 state={state}
               >
-                {/* //mb={footerHeight} */}
                 <Box overflowY="scroll" position="relative" height={`calc(100% - ${footerHeight})`}>
                   {getChild('Drawer.Header', children, { onClose })}
                   {getChild('Drawer.Content', children)}
