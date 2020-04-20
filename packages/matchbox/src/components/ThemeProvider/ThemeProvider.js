@@ -11,6 +11,27 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 /**
+ * See https://styled-components.com/docs/api#stylesheetmanager
+ * Target provides an alternate DOM node to inject styles info
+ *
+ * Example:
+ * In your app's <head>:
+ * <style id="styled-components-target"></style>
+ *
+ * When rendering ThemeProvider:
+ * <ThemeProvider target={document.getElementById('styled-components-target')} />
+ * */
+function Manager({ target, children }) {
+  if (!target) {
+    return children;
+  }
+
+  return <StyleSheetManager target={target}>{children}</StyleSheetManager>;
+}
+
+Manager.displayName = 'MatchboxStyleSheetManager';
+
+/**
  * Provides context for styled-system
  *
  * - https://www.styled-components.com/docs/advanced#theming
@@ -20,18 +41,7 @@ const GlobalStyle = createGlobalStyle`
  */
 function Theme(props) {
   return (
-    /**
-     * See https://styled-components.com/docs/api#stylesheetmanager
-     * Target provides an alternate DOM node to inject styles info
-     *
-     * Example:
-     * In your app's <head>:
-     * <style id="styled-components-target"></style>
-     *
-     * When rendering ThemeProvider:
-     * <ThemeProvider target={document.getElementById('styled-components-target')} />
-     * */
-    <StyleSheetManager target={props.target}>
+    <Manager>
       <ThemeProvider theme={{ ...theme, ...props.theme }}>
         {/*
           FE-913:`skipGlobalStyles` is to exclude global styles from unit tests.
@@ -43,10 +53,11 @@ function Theme(props) {
 
         {props.children}
       </ThemeProvider>
-    </StyleSheetManager>
+    </Manager>
   );
 }
 
+Theme.displayName = 'MatchboxThemeProvider';
 Theme.propTypes = {
   skipGlobalStyles: PropTypes.bool,
 };
