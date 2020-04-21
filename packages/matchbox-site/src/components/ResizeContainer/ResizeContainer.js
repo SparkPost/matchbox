@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, WindowEvent } from '@sparkpost/matchbox';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
-import { ChevronLeft } from '@sparkpost/matchbox-icons';
+import { DragHandle } from '@sparkpost/matchbox-icons';
 
 const StyledContainer = styled(Box)`
   background: ${tokens.color_white};
@@ -14,6 +14,11 @@ const StyledResize = styled(Box)`
   background: ${tokens.color_blue_1000};
   color: white;
   cursor: pointer;
+`;
+
+const StyledDragHandle = styled(DragHandle)`
+  transform-origin: 50% 50%;
+  transform: rotate(90deg);
 `;
 
 function ResizeContainer(props) {
@@ -87,7 +92,7 @@ function ResizeContainer(props) {
         display="flex"
         alignItems="center"
       >
-        <ChevronLeft size={24} />
+        <StyledDragHandle size={24} />
       </StyledResize>
     </Box>
   );
