@@ -13,7 +13,7 @@ const Header = React.forwardRef(function Header(props, ref) {
     <Box data-id="drawer-header" bg="white" p="500" ref={ref}>
       <Box display="flex">
         <Box flex="1">
-          <Text as="h1" fontSize="400" lineHeight="400">
+          <Text as="h2" fontSize="400" lineHeight="400">
             {children}
           </Text>
         </Box>
