@@ -7,7 +7,7 @@ function LiveCode(props) {
   const { children } = props;
 
   function updateIndex(event) {
-    const index = event.target.value;
+    const index = Number(event.target.value);
     setActiveIndex(index);
   }
 
@@ -38,6 +38,8 @@ function LiveCode(props) {
         if (index == activeIndex) {
           return <div>{child}</div>;
         }
+
+        return null;
       })}
     </div>
   );

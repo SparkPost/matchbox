@@ -34,15 +34,28 @@ function ResizeContainer(props) {
     });
   }, []);
 
+  function calculateWidth(clientX) {
+    let width = clientX - position.x;
+    console.log(width);
+
+    if (width >= position.originalWidth) {
+      return position.originalWidth;
+    }
+
+    if (width <= minWidth) {
+      console.log('less than min width');
+      console.log(minWidth);
+      return minWidth;
+    }
+
+    return width;
+  }
+
   function onMouseMove({ clientX }) {
-    if (
-      dragging &&
-      position.width <= position.originalWidth &&
-      position.width > minWidth
-    ) {
+    if (dragging) {
       setPosition({
         ...position,
-        width: clientX - position.x
+        width: calculateWidth(clientX)
       });
     }
   }
@@ -83,10 +96,10 @@ function ResizeContainer(props) {
 ResizeContainer.displayName = 'ResizeContainer';
 ResizeContainer.propTypes = {
   children: PropTypes.node,
-  minWidth: PropTypes.string
+  minWidth: PropTypes.number
 };
 ResizeContainer.defaultProps = {
-  minWidth: '600'
+  minWidth: 600
 };
 
 export default ResizeContainer;
