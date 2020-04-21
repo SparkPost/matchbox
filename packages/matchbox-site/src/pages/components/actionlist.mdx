@@ -1,5 +1,5 @@
 import LiveCode from '../../components/LiveCode/LiveCode';
-import { Button } from '@sparkpost/matchbox';
+import { Button, Box } from '@sparkpost/matchbox';
 
 # ActionList
 
@@ -11,21 +11,26 @@ import { Button } from '@sparkpost/matchbox';
   <LiveCode.Content 
     title="Example 1" 
     description="This is the description"
+    code={`
+      <Box>
+        <Button mr={400} color="blue">Hello, this is the content</Button>
+        <Button color="red">Hello, this is the content</Button>
+      </Box>
+    `}
   >
-    <Button>Hello, this is the content</Button>
   </LiveCode.Content>
   <LiveCode.Content 
     title="Example 2" 
     description="This is the description"
+    code="<h3>Hi, this is the content</h3>"
   >
-    <h3>Hi, this is the content</h3>
   </LiveCode.Content>
-  <LiveCode.Content 
+  {/* <LiveCode.Content 
     title="Example 3" 
     description="This is the description"
   >
     <h5>Hey, this is the content</h5>
-  </LiveCode.Content>
+  </LiveCode.Content> */}
 </LiveCode>
 
 ---

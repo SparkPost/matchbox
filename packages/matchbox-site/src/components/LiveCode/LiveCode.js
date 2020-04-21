@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Content from './LiveCodeContent';
-import { Select } from '@sparkpost/matchbox';
+import { Select, Box } from '@sparkpost/matchbox';
 
 function LiveCode(props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,15 +19,21 @@ function LiveCode(props) {
       };
     });
   }
-  console.log(getOptionsFromChildren());
+
   return (
     <div>
-      <h5>Example</h5>
-      <Select
-        id="code-example-select"
-        onChange={updateIndex}
-        options={getOptionsFromChildren()}
-      />
+      <Box display="flex" alignItems="center">
+        <Box as="h6" m="0">
+          Examples
+        </Box>
+        <Box pl={500} flex="1">
+          <Select
+            id="code-example-select"
+            onChange={updateIndex}
+            options={getOptionsFromChildren()}
+          />
+        </Box>
+      </Box>
       {children.map((child, index) => {
         if (index == activeIndex) {
           return <div>{child}</div>;

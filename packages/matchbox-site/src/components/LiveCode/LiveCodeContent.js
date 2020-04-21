@@ -1,26 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import ResizeContainer from '../ResizeContainer/ResizeContainer';
+import { Box } from '@sparkpost/matchbox';
+import * as components from '@sparkpost/matchbox';
 
-const StyledContent = styled('div')`
-  margin: 20px 0;
+const StyledEditor = styled(LiveEditor)`
+  background: ${tokens.color_blue_1000};
+  font-size: ${tokens.fontSize_200};
 `;
 
 function Content(props) {
-  const { children, title, description } = props;
+  const { description, code } = props;
 
   return (
-    <StyledContent>
-      <h3>{title}</h3>
+    <Box mt="600" mb="600">
       <p>{description}</p>
-      <LiveProvider code={renderToStaticMarkup(children)}>
-        <LiveEditor />
+      <LiveProvider code={code} scope={components}>
+        <ResizeContainer>
+          <LivePreview />
+        </ResizeContainer>
+        <StyledEditor />
         <LiveError />
-        <LivePreview />
       </LiveProvider>
-    </StyledContent>
+    </Box>
   );
 }
 
@@ -29,6 +34,7 @@ Content.displayName = 'LiveCode.Content';
 Content.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
+  code: PropTypes.string,
   description: PropTypes.string
 };
 
