@@ -179,4 +179,10 @@ describe('Panel', () => {
     expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding-left', '0.5rem');
     expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding-top', '1.5rem');
   });
+
+  it('renders with the passed in className', () => {
+    wrapper = global.mountStyled(<Panel className="my-class">Hello, world.</Panel>);
+
+    expect(wrapper.find('.my-class')).toExist();
+  });
 });

@@ -57,7 +57,7 @@ function Panel(props) {
   const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
 
   return (
-    <PanelOuter {...rest}>
+    <PanelOuter className={className} {...rest}>
       {accentMarkup}
       <PanelInner accent={accent}>
         <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
@@ -77,6 +77,7 @@ Panel.Accent = Accent;
 
 Panel.propTypes = {
   title: PropTypes.node,
+  className: PropTypes.string,
   accent: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),

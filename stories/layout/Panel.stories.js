@@ -13,7 +13,7 @@ export default {
 };
 
 export const WithATitle = withInfo()(() => (
-  <Panel title="Title" sectioned>
+  <Panel className="my-class" title="Title" sectioned>
     This is a panel with a title
   </Panel>
 ));
