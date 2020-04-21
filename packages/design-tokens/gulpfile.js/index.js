@@ -30,6 +30,7 @@ const scssMapSources = [
   { src: 'tokens/font-size.yml' },
   { src: 'tokens/font-weight.yml' },
   { src: 'tokens/line-height.yml' },
+  { src: 'tokens/sizing.yml' },
   { src: 'tokens/spacing.yml' },
   { src: 'tokens/z-index.yml' },
 ];
