@@ -5,15 +5,24 @@ props:
   - name: spacing-800
     value: 4rem
     comment: 64px
+  - name: spacing-750
+    value: 3.5rem
+    comment: 56px
   - name: spacing-700
     value: 3rem
     comment: 48px
+  - name: spacing-650
+    value: 2.5rem
+    comment: 40px
   - name: spacing-600
     value: 2rem
     comment: 32px
   - name: spacing-500
     value: 1.5rem
     comment: 24px
+  - name: spacing-450
+    value: 1.25rem
+    comment: 20px
   - name: spacing-400
     value: 1rem
     comment: 16px
