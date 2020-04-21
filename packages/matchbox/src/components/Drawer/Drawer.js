@@ -86,15 +86,33 @@ function Drawer(props) {
               width="100vw"
               zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
             >
-              <Overlay data-id="drawer-overlay" ref={overlayRef} state={state} />
+              <Overlay
+                data-id="drawer-overlay"
+                ref={overlayRef}
+                state={state}
+                position="absolute"
+                top="0"
+                left="0"
+                height="100%"
+                width="100%"
+                bg="gray.900"
+              />
               <Container
                 aria-modal="true"
                 data-id="drawer-container"
                 id={id}
-                position={position}
                 ref={childrenRef}
                 role="dialog"
                 state={state}
+                viewportPosition={position}
+                bg="white"
+                position="absolute"
+                top="0"
+                bottom="0"
+                maxWidth="32rem" // TODO Make this configurable and reference sizing theme
+                width="80vw"
+                right={position === 'right' ? '0' : 'auto'}
+                left={position === 'left' ? '0' : 'auto'}
               >
                 <Box overflowY="scroll" position="relative" height="100%">
                   {getChild('Drawer.Header', children, { onClose })}

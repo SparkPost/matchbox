@@ -1,13 +1,8 @@
 import styled from 'styled-components';
+import { Box } from '../Box';
 import { tokens } from '@sparkpost/design-tokens';
 
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: ${tokens.color_gray_900};
+export const Overlay = styled(Box)`
   opacity: 0;
 
   ${props => {
@@ -45,17 +40,7 @@ export const Overlay = styled.div`
   }}
 `;
 
-export const Container = styled.div`
-  background: ${tokens.color_white};
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  ${'' /* TODO Make this configurable and reference sizing theme */}
-  max-width: 32rem;
-  width: 80vw;
-  right: ${props => (props.position === 'right' ? '0' : 'auto')};
-  left: ${props => (props.position === 'left' ? '0' : 'auto')};
-
+export const Container = styled(Box)`
   ${props => {
     const visible = `
       transform: translateX(0);
@@ -63,7 +48,7 @@ export const Container = styled.div`
     `;
 
     const hidden = `
-      transform: translateX(${props.position === 'left' ? '-100%' : '100%'});
+      transform: translateX(${props.viewportPosition === 'left' ? '-100%' : '100%'});
       pointer-events: none;
       transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in};
     `;
