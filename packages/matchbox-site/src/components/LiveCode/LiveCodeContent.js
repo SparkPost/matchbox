@@ -18,7 +18,7 @@ function Content(props) {
 
   return (
     <Box mt="600" mb="600">
-      <Box as="p" mb="500">
+      <Box as="p" mb="500" pb="0">
         {description}
       </Box>
       <LiveProvider
