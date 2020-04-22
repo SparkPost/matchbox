@@ -34,13 +34,7 @@ function LiveCode(props) {
           />
         </Box>
       </Box>
-      {children.map((child, index) => {
-        if (index == activeIndex) {
-          return <div>{child}</div>;
-        }
-
-        return null;
-      })}
+      {children[activeIndex]}
     </div>
   );
 }

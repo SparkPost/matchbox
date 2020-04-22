@@ -6,10 +6,11 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import ResizeContainer from '../ResizeContainer/ResizeContainer';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
+import beautify from 'beautify';
 
 const StyledEditor = styled(LiveEditor)`
   background: ${tokens.color_blue_1000};
-  font-size: ${tokens.fontSize_200};
+  font-size: ${tokens.fontSize_100};
 `;
 
 function Content(props) {
@@ -17,8 +18,13 @@ function Content(props) {
 
   return (
     <Box mt="600" mb="600">
-      <p>{description}</p>
-      <LiveProvider code={code} scope={components}>
+      <Box as="p" mb="500">
+        {description}
+      </Box>
+      <LiveProvider
+        code={beautify(code, { format: 'html' })}
+        scope={components}
+      >
         <ResizeContainer>
           <LivePreview />
         </ResizeContainer>

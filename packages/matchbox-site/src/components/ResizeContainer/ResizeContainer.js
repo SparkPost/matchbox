@@ -13,7 +13,7 @@ const StyledContainer = styled(Box)`
 const StyledResize = styled(Box)`
   background: ${tokens.color_blue_1000};
   color: white;
-  cursor: pointer;
+  cursor: ew-resize;
 `;
 
 const StyledDragHandle = styled(DragHandle)`
@@ -41,15 +41,12 @@ function ResizeContainer(props) {
 
   function calculateWidth(clientX) {
     let width = clientX - position.x;
-    console.log(width);
 
     if (width >= position.originalWidth) {
       return position.originalWidth;
     }
 
     if (width <= minWidth) {
-      console.log('less than min width');
-      console.log(minWidth);
       return minWidth;
     }
 
@@ -104,7 +101,7 @@ ResizeContainer.propTypes = {
   minWidth: PropTypes.number
 };
 ResizeContainer.defaultProps = {
-  minWidth: 600
+  minWidth: 400
 };
 
 export default ResizeContainer;
