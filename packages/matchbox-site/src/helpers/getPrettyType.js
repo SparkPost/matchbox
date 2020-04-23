@@ -3,11 +3,11 @@ function ObjectOf(type) {
 }
 
 function OneOfType(type) {
-  return type.value.map((v) => getPrettyType(v)).join(' | ');
+  return type.value.map(v => getPrettyType(v)).join(' | ');
 }
 
 function OneOf(type) {
-  return type.value.map((v) => v.value).join(', ');
+  return type.value.map(v => v.value).join(', ');
 }
 
 function ArrayOf(type) {
@@ -16,15 +16,15 @@ function ArrayOf(type) {
 
 function Shape(type) {
   const keys = Object.keys(type.value);
-  return `{${keys.map((k) => `${k}: ${getPrettyType(type.value[k])}`)}, ...}`;
+  return `{${keys.map(k => `${k}: ${getPrettyType(type.value[k])}`)}, ...}`;
 }
 
 const typeMap = {
-  'shape': Shape,
-  'union': OneOfType,
-  'arrayOf': ArrayOf,
-  'objectOf': ObjectOf,
-  'enum': OneOf
+  shape: Shape,
+  union: OneOfType,
+  arrayOf: ArrayOf,
+  objectOf: ObjectOf,
+  enum: OneOf
   // Other unused prop types
   // 'literal': Literal,
   // 'instanceOf': InstanceOf],

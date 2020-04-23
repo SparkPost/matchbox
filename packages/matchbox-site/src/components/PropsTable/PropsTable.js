@@ -1,6 +1,5 @@
 import React from 'react';
-import useComponentProps from './useComponentProps';
-import getPrettyType from './getPrettyType';
+import { useComponentProps, getPrettyType } from '../../helpers';
 import styles from './PropsTable.module.scss';
 import _ from 'lodash';
 
@@ -28,7 +27,9 @@ function PropsTable(props) {
         </tr>
       </thead>
       <tbody>
-        {data.props.map((propProps, i) => <Prop {...propProps} key={`${propProps.name}${i}`} />)}
+        {data.props.map((propProps, i) => (
+          <Prop {...propProps} key={`${propProps.name}${i}`} />
+        ))}
       </tbody>
     </table>
   );
@@ -46,9 +47,7 @@ function Prop(props) {
         <code>{getPrettyType(type)}</code>
       </td>
       <td>{_.get(defaultValue, 'value')}</td>
-      <td>
-        {description.text}
-      </td>
+      <td>{description.text}</td>
       <td>{required ? 'required' : ''}</td>
     </tr>
   );

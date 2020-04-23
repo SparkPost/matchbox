@@ -29,7 +29,7 @@ function useComponentProps(name) {
   `);
 
   const nodes = _.get(data, 'allComponentMetadata.nodes');
-  return _.filter(nodes, ({ displayName, ...rest }) => displayName === name).shift();
+  return _.filter(nodes, ({ displayName }) => displayName === name).shift();
 }
 
 export default useComponentProps;
