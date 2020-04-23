@@ -41,7 +41,7 @@ Manager.displayName = 'MatchboxStyleSheetManager';
  */
 function Theme(props) {
   return (
-    <Manager>
+    <Manager target={props.target}>
       <ThemeProvider theme={{ ...theme, ...props.theme }}>
         {/*
           FE-913:`skipGlobalStyles` is to exclude global styles from unit tests.
@@ -60,6 +60,7 @@ function Theme(props) {
 Theme.displayName = 'MatchboxThemeProvider';
 Theme.propTypes = {
   skipGlobalStyles: PropTypes.bool,
+  target: PropTypes.object,
 };
 
 export default Theme;
