@@ -6,7 +6,6 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import ResizeContainer from '../ResizeContainer/ResizeContainer';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
-import beautify from 'beautify';
 
 const StyledEditor = styled(LiveEditor)`
   background: ${tokens.color_blue_1000};
@@ -21,10 +20,7 @@ function Content(props) {
       <Box as="p" mb="500" pb="0">
         {description}
       </Box>
-      <LiveProvider
-        code={beautify(code, { format: 'html' })}
-        scope={components}
-      >
+      <LiveProvider code={code} scope={components}>
         <ResizeContainer>
           <LivePreview />
         </ResizeContainer>
