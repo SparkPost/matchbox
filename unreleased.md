@@ -112,3 +112,5 @@
 - #382 - Fix ComboBox children validation to check both displayName and name
 - #383 - Fix Grid in production builds by manually picking props
 - #386 - `className` is properly passed to `<Panel/>` instances
+- #385 - Adds a new `target` prop to `ThemeProvider`, see
+  https://styled-components.com/docs/api#stylesheetmanager
