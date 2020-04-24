@@ -3,6 +3,8 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const tabStyles = ({ selected, fitted }) => `
   ${buttonReset}
+  display: inline-block;
+  cursor: pointer;
   position: relative;
   flex: ${fitted ? '1' : '0'};
   text-decoration: none;
@@ -14,14 +16,17 @@ export const tabStyles = ({ selected, fitted }) => `
   font-size: ${tokens.fontSize_200};
   font-weight: ${tokens.fontWeight_medium};
   line-height: 3.75rem; ${'' /* Equivalent to 60px */}
-  color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
   white-space: nowrap;
+
+  &, &:visited {
+    color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
+  }
 
   &:after {
     display: block;
     position: absolute;
     content: '';
-    bottom: -1px;
+    bottom: 0px;
     left: 0;
     right: 0;
     height: ${tokens.spacing_100};
@@ -37,7 +42,19 @@ export const tabStyles = ({ selected, fitted }) => `
   }
 `;
 
-export const wrapperStyles = () => `
+export const overflowTabs = ({ isOverflowing }) => `
+  position: absolute;
+  left: 0;
+  top: 0;
+  right:0;
   display: flex;
+  visibility: ${isOverflowing ? 'hidden' : 'visible'};
+  pointer-events: ${isOverflowing ? 'none' : 'auto'};
+`;
+
+export const containerStyles = () => `
+  position: relative;
+  ${'' /* TODO Update with sizing tokens */}
+  height: 3.75rem; 
   border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
 `;
