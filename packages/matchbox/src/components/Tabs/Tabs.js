@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MoreHoriz } from '@sparkpost/matchbox-icons';
+import { margin, borderBottom } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '@styled-system/props';
 import { ActionList } from '../ActionList';
 import { UnstyledLink } from '../UnstyledLink';
 import { Box } from '../Box';
@@ -9,10 +12,8 @@ import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { deprecate } from '../../helpers/propTypes';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
 import { containerStyles, overflowTabs, tabStyles } from './styles';
-import { pick } from '@styled-system/props';
+
 import { getPositionFor, useWindowSize } from '../../helpers/geometry';
 
 // TODO Replace this when styled-components supports shouldForwardProps
@@ -33,6 +34,7 @@ const OverflowTabContainer = styled('div')`
 
 const Container = styled('div')`
   ${margin}
+  ${borderBottom}
   ${containerStyles}
 `;
 
@@ -114,7 +116,7 @@ function Tabs(props) {
   }, [selected, tabs, isOverflowing]);
 
   return (
-    <Container {...pick(rest)} ref={wrapperRef}>
+    <Container borderBottom="400" {...pick(rest)} ref={wrapperRef}>
       <Box aria-hidden={isOverflowing} overflow="hidden">
         <OverflowTabContainer
           aria-orientation="horizontal"
@@ -196,6 +198,7 @@ Tabs.propTypes = {
   selected: PropTypes.number.isRequired,
   onSelect: PropTypes.func,
   ...createPropTypes(margin.propNames),
+  ...createPropTypes(borderBottom.propNames),
 };
 
 export default Tabs;

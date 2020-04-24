@@ -56,5 +56,4 @@ export const containerStyles = () => `
   position: relative;
   ${'' /* TODO Update with sizing tokens */}
   height: 3.75rem; 
-  border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
 `;
