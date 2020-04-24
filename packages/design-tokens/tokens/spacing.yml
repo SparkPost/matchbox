@@ -17,6 +17,9 @@ props:
   - name: spacing-600
     value: 2rem
     comment: 32px
+  - name: spacing-550
+    value: 1.75rem
+    comment: 28px
   - name: spacing-500
     value: 1.5rem
     comment: 24px
