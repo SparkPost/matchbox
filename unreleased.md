@@ -119,3 +119,6 @@
 - #388 - Adds new spacing design tokens
 - #393 - Fix Stack gutter for last child
 - #396 - Adds z-index tokens to the z indices styled-system field
+- #390 - `Tabs` are now responsive for both fitted and non-fitted variations
+- #390 - `Tab` now uses a `pointer` cursor on hover
+- #390 - `Tabs` now accept the `borderBottom` system prop
