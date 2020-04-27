@@ -19,20 +19,20 @@ export const visualSize = props => {
   switch (props.buttonSize) {
     case 'large':
       return `
-        height: 3.5rem;
+        height: ${tokens.sizing_750};
         font-size: ${tokens.fontSize_300};
         padding: 0 ${tokens.spacing_500};
       `;
     case 'small':
       return `
-        height: 2rem;
+        height: ${tokens.sizing_600};
         font-size: ${tokens.fontSize_200};
         padding: 0 ${tokens.spacing_400};
       `;
     case 'default':
     default:
       return `
-        height: 2.5rem;
+        height: ${tokens.sizing_650};
         font-size: ${tokens.fontSize_200};
         padding: 0 ${tokens.spacing_400};
       `;

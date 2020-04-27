@@ -115,3 +115,5 @@
 - #385 - Adds a new `target` prop to `ThemeProvider`, see
   https://styled-components.com/docs/api#stylesheetmanager
 - #384 - Adds `Drawer` component and `useDrawer` hook. See
+- #388 - Adds new sizing design tokens mapped to the `sizes` styled-system field
+- #388 - Adds new spacing design tokens
