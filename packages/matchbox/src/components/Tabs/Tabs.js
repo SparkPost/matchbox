@@ -140,7 +140,7 @@ function Tabs(props) {
       {isOverflowing && (
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Box flex="0">
-            <Tab index={0} selected={0} {...selectedTab} />
+            <Tab index={selected} selected={selected} {...selectedTab} />
           </Box>
 
           <Box flex="0">

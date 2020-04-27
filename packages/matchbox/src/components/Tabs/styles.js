@@ -10,12 +10,11 @@ export const tabStyles = ({ selected, fitted }) => `
   text-decoration: none;
   
   padding: 0 ${tokens.spacing_200};
-  ${'' /* Not a token, equivalent to 20px to enqure 10rem of spacing between text */}
-  margin: 0 ${!fitted ? '1.25rem' : '0'};
+  margin: 0 ${!fitted ? `${tokens.sizing_450}` : '0'};
 
   font-size: ${tokens.fontSize_200};
   font-weight: ${tokens.fontWeight_medium};
-  line-height: 3.75rem; ${'' /* Equivalent to 60px */}
+  line-height: ${tokens.sizing_750};
   white-space: nowrap;
 
   &, &:visited {
@@ -54,6 +53,5 @@ export const overflowTabs = ({ isOverflowing }) => `
 
 export const containerStyles = () => `
   position: relative;
-  ${'' /* TODO Update with sizing tokens */}
-  height: 3.75rem; 
+  height: ${tokens.sizing_750};
 `;
