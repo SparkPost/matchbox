@@ -1,13 +1,8 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-
 import { EmptyState } from '@sparkpost/matchbox';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Layout|Empty State',

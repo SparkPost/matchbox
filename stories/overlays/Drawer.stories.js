@@ -1,10 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-
-import { ThemeProvider, Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
 
 export default {
   title: 'Overlays|Drawer',

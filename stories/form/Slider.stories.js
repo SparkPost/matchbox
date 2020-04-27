@@ -1,16 +1,6 @@
 import React, { Fragment } from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-
 import { Slider, TextField } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">{storyFn()}</StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Form|Slider',

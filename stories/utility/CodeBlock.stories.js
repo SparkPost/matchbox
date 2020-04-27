@@ -1,9 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-import { CodeBlock, Panel } from '@sparkpost/matchbox';
+import { CodeBlock } from '@sparkpost/matchbox';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/styles/hljs';
 
@@ -22,14 +19,6 @@ https://api.sparkpost.com/api/v1/transmissions
   },
   "recipients": [{ "address": "email address here" }]
 }'`;
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">
-      <Panel sectioned>{storyFn()}</Panel>
-    </StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Utility|Code Block',

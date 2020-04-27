@@ -1,7 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { ThemeProvider, Select } from '@sparkpost/matchbox';
+import { Select } from '@sparkpost/matchbox';
 
 const options = [
   'Foo',
@@ -12,8 +11,6 @@ const options = [
     pass: 'through',
   },
 ];
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Form|Select',

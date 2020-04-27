@@ -1,10 +1,7 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { ThemeProvider, Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
 
 function ControlledPopover() {
   const [open, setOpen] = React.useState(false);
