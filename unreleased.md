@@ -122,3 +122,4 @@
 - #390 - `Tabs` are now responsive for both fitted and non-fitted variations
 - #390 - `Tab` now uses a `pointer` cursor on hover
 - #390 - `Tabs` now accept the `borderBottom` system prop
+- #390 - `Drawer.Footer` now always positioned on bottom
