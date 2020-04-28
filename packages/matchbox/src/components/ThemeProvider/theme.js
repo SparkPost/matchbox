@@ -229,6 +229,12 @@ const theme = {
     tokens.mediaQuery_lg,
     tokens.mediaQuery_xl,
   ],
+
+  zIndices: {
+    below: tokens.zIndex_below,
+    default: tokens.zIndex_default,
+    overlay: tokens.zIndex_overlay,
+  },
 };
 
 export default theme;
