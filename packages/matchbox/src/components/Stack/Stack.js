@@ -38,7 +38,7 @@ function Stack(props) {
   return (
     <div>
       {items.map((child, i) => (
-        <StyledBox key={i} alignment={align} gutter={i < children.length - 1 ? space : null}>
+        <StyledBox key={i} alignment={align} gutter={i < items.length - 1 ? space : null}>
           {child}
         </StyledBox>
       ))}
