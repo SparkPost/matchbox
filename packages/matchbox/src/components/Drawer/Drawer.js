@@ -84,7 +84,7 @@ function Drawer(props) {
               style={{ pointerEvents: 'none' }}
               top="0"
               width="100vw"
-              zIndex={tokens.zIndex_overlay} // TODO use zindex theme values after FE-1011
+              zIndex="overlay"
             >
               <Overlay
                 data-id="drawer-overlay"
