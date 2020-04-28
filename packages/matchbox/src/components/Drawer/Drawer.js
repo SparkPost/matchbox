@@ -11,6 +11,7 @@ import Footer from './Footer';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
+import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
 import { Overlay, Container } from './styles';
 
@@ -29,6 +30,8 @@ function Drawer(props) {
 
   const overlayRef = React.useRef();
   const childrenRef = React.useRef();
+  const footerRef = React.useRef();
+  const [footerHeight, setFooterHeight] = React.useState('0px');
 
   // Calls onClose when clicking outside drawer content
   function handleOutsideClick(e) {
@@ -62,6 +65,19 @@ function Drawer(props) {
       onChange(open);
     }
   }, [open]);
+
+  /**
+   * Drawer.Footer is a fixed element. This effect measures height of the footer and uses
+   * it as padding to offset Drawer.Content so its children isn't rendered underneath
+   * the footer
+   */
+  React.useLayoutEffect(() => {
+    if (!footerRef.current) {
+      setFooterHeight('0px');
+    } else {
+      setFooterHeight(`${getRectFor(footerRef.current).height}px`);
+    }
+  }, [footerRef.current, open]);
 
   return (
     <Portal containerId={portalId}>
@@ -114,10 +130,10 @@ function Drawer(props) {
                 right={position === 'right' ? '0' : 'auto'}
                 left={position === 'left' ? '0' : 'auto'}
               >
-                <Box overflowY="scroll" position="relative" height="100%">
+                <Box overflowY="scroll" position="relative" height={`calc(100% - ${footerHeight})`}>
                   {getChild('Drawer.Header', children, { onClose })}
                   {getChild('Drawer.Content', children)}
-                  {getChild('Drawer.Footer', children)}
+                  {getChild('Drawer.Footer', children, { ref: footerRef })}
                 </Box>
               </Container>
             </Box>
