@@ -67,7 +67,7 @@ describe('Uncontrolled Popover with Actionlist', () => {
   it('should close when clicking outside the popover', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.get('body').click(100, 300);
+    cy.get('body').click(100, 600);
     cy.get('[data-id="popover-content"]').should('not.be.visible');
   });
 
