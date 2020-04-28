@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { WindowEvent } from '../WindowEvent';
 import { Box } from '../Box';
 import { getPositionFor } from '../../helpers/geometry';
-import { tokens } from '@sparkpost/design-tokens';
 
 const defaultPosition = {
   top: 0,
@@ -47,7 +46,7 @@ function PopoverOverlay(props) {
           left="0"
           height={`${position.height}px`}
           width={`${position.width}px`}
-          zIndex={tokens.zIndex_overlay}
+          zIndex="overlay"
           style={{ pointerEvents: 'none' }}
         >
           {renderPopover()}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Portal } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
-import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 
 const defaultPosition = {
@@ -74,7 +73,7 @@ function TooltipOverlay(props) {
             left={`${position.left}px`}
             height={`${position.height}px`}
             width={`${position.width}px`}
-            zIndex={tokens.zIndex_overlay} // TODO add zindices to styled system theme
+            zIndex="overlay"
           >
             {renderTooltip({ preferredDirection })}
           </Box>
