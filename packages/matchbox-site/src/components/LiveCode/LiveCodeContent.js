@@ -34,7 +34,6 @@ function Content(props) {
 Content.displayName = 'LiveCode.Content';
 
 Content.propTypes = {
-  children: PropTypes.node,
   title: PropTypes.string,
   code: PropTypes.string,
   description: PropTypes.string

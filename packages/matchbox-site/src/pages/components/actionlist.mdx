@@ -1,4 +1,4 @@
-import LiveCode from '../../components/LiveCode/LiveCode';
+import { LiveCode } from '../../components/LiveCode';
 import { Button, Box } from '@sparkpost/matchbox';
 
 # ActionList
@@ -17,21 +17,19 @@ import { Button, Box } from '@sparkpost/matchbox';
         <Button color="red">Hello, this is the content</Button>
       </Box>
     `}
-  >
-  </LiveCode.Content>
+  />
   <LiveCode.Content 
     title="Example 2" 
     description="This is the description"
     code="<h3>Hi, this is the content</h3>"
-  >
-  </LiveCode.Content>
-  {/* <LiveCode.Content 
-    title="Example 3" 
-    description="This is the description"
-  >
-    <h5>Hey, this is the content</h5>
-  </LiveCode.Content> */}
+  />
 </LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin', 'padding']} />
 
 ---
 
