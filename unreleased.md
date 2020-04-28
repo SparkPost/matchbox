@@ -117,3 +117,4 @@
 - #384 - Adds `Drawer` component and `useDrawer` hook. See
 - #388 - Adds new sizing design tokens mapped to the `sizes` styled-system field
 - #388 - Adds new spacing design tokens
+- #393 - Fix Stack gutter for last child
