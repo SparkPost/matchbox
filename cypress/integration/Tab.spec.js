@@ -44,6 +44,13 @@ describe('The Tabs component', () => {
         .should('have.text', 'Example with long text');
     });
 
+    it('should toggle when activator is clicked', () => {
+      cy.get('[data-id="tab-options-button"]').click();
+      cy.get('[data-id="popover-content"]').should('be.visible');
+      cy.get('[data-id="tab-options-button"]').click();
+      cy.get('[data-id="popover-content"]').should('not.be.visible');
+    });
+
     it('should handle keyboard navigation', () => {
       cy.get('[data-id="tab-options-button"]').click();
       cy.focused().should('have.text', 'More Options');

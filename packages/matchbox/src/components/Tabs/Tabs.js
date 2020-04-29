@@ -156,7 +156,7 @@ function Tabs(props) {
                   aria-expanded={popoverOpen}
                   data-id="tab-options-button"
                   flat
-                  onClick={() => setPopoverOpen(true)}
+                  onClick={() => setPopoverOpen(!popoverOpen)}
                 >
                   <MoreHoriz size={20} />
                   <ScreenReaderOnly>More Options</ScreenReaderOnly>
