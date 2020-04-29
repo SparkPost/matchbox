@@ -47,7 +47,7 @@ function PrefixOrSuffix({ content, className, forwardedRef, ...rest }) {
     <Box
       as="span"
       position="absolute"
-      zIndex="1"
+      zIndex="default"
       top="0"
       lineHeight="2.5rem"
       height="2.5rem"

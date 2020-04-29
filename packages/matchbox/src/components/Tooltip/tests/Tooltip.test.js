@@ -88,7 +88,7 @@ describe('Tooltip', () => {
 
   it('should render overlay', () => {
     const wrapper = subject();
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('z-index', '1000');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('z-index', 'overlay');
     // These values are 0 but shows the positioning is working
     expect(wrapper.find('div').at(1)).toHaveStyleRule('top', '0px');
     expect(wrapper.find('div').at(1)).toHaveStyleRule('left', '0px');

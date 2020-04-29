@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { tokens } from '@sparkpost/design-tokens';
 import { maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { ActionList } from '../ActionList';
@@ -18,7 +17,7 @@ function ComboBoxMenu(props) {
   } = props;
 
   return (
-    <Box ref={menuRef} {...rest} position="relative" zIndex={tokens.zIndex_overlay}>
+    <Box ref={menuRef} {...rest} position="relative" zIndex="overlay">
       <PopoverContent open={isOpen} width="100%">
         {items.length > 0 ? (
           <ActionList actions={items} maxHeight={maxHeight} />

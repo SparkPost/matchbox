@@ -88,7 +88,7 @@ function Tooltip(props) {
           color="white"
           textAlign="left"
           width={width}
-          zIndex="1"
+          zIndex="default"
           {...contentStyles}
         >
           <Box overflow="hidden" maxHeight="11rem">
