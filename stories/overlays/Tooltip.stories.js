@@ -100,7 +100,7 @@ export const WithinAbsoluteContainer = withInfo({ propTables: [Tooltip] })(() =>
   <Box>
     <p>This story is meant to test positioning functionality</p>
     <Box height="20rem"></Box>
-    <Box position="fixed" top="0" left="0" zIndex="10000">
+    <Box position="fixed" top="0" left="0" zIndex="overlay">
       <Box position="absolute" top="300px" left="200px">
         <Tooltip
           id="test-tooltip"
