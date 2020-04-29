@@ -118,3 +118,4 @@
 - #388 - Adds new sizing design tokens mapped to the `sizes` styled-system field
 - #388 - Adds new spacing design tokens
 - #393 - Fix Stack gutter for last child
+- #396 - Adds z-index tokens to the z indices styled-system field
