@@ -9,7 +9,7 @@ props:
   - name: sizing-1400
     value: 75rem
     comment: 1200px
-  - name: sizing-1250
+  - name: sizing-1350
     value: 66rem
     comment: 1056px # Page container width
   - name: sizing-1300
