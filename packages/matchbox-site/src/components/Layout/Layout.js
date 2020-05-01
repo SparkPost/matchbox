@@ -4,10 +4,11 @@ import _ from 'lodash';
 
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
-import styles from './Layout.module.scss';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import '../../styles/global.scss';
 import { ThemeProvider } from '@sparkpost/matchbox';
+
+import { Box } from '@sparkpost/matchbox';
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -44,10 +45,10 @@ function Layout(props) {
     function mapRoute({ path, childRoutes, ...rest }) {
       const nested = childRoutes
         ? childRoutes.map(({ path: childPath, ...child }) => ({
-          ...child,
-          path: childPath,
-          selected: selected(pathname, childPath, true)
-        }))
+            ...child,
+            path: childPath,
+            selected: selected(pathname, childPath, true)
+          }))
         : null;
 
       return {
@@ -77,20 +78,20 @@ function Layout(props) {
 
   return (
     <ThemeProvider>
-      <div className={styles.Container}>
+      <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
-        <div className={styles.Content}>
+        <Box display="flex">
           {Boolean(sideItems.length) && (
-            <aside className={styles.Aside}>
+            <Box as="aside" flex="0 0 0" minWidth="300px">
               <SideNavigation navItems={sideItems} />
-            </aside>
+            </Box>
           )}
-          <main className={styles.Main}>
+          <Box as="main" flex="1 0 0" pb="800">
             <MDXProvider>{props.children}</MDXProvider>
-          </main>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
