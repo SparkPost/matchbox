@@ -12,7 +12,14 @@ const StyledTitle = styled(Link)`
 
 function Header(props) {
   return (
-    <Box display="flex" alignItems="baseline" mb="700" pt="800" pb="800">
+    <Box
+      as="header"
+      display="flex"
+      alignItems="baseline"
+      mb="700"
+      pt="800"
+      pb="800"
+    >
       <StyledTitle to="/">
         <Box as="h1" fontSize="500" fontWeight="regular" color="gray.900">
           Matchbox
