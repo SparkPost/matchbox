@@ -34,4 +34,28 @@ import { Button, Box } from '@sparkpost/matchbox';
 ---
 
 ### ActionList API
-<PropsTable component='ActionList' />
+<Prop
+  name="actions"
+  type="[{content: ReactNode, ...}]"
+> 
+  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;] Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
+</Prop>
+<Prop
+  name="sections"
+  type="[[{content: ReactNode, ...}]]"
+> 
+  Creates sections e.g. [[&#123; content: 'action label', onClick: callback() &#125;]]
+</Prop>
+<Prop
+  name="maxHeight"
+  type="string | number"
+> 
+  Max height of list
+</Prop>
+<Prop
+  name="groupByKey"
+  type="string"
+  defaultvalue="'section'"
+> 
+  Group by key used to auto group actions into sections, defaults to "section"
+</Prop>
