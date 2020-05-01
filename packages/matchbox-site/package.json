@@ -25,6 +25,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-live": "^2.2.2",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
@@ -33,8 +34,7 @@
     "gatsby-plugin-mdx": "^1.0.18",
     "gatsby-plugin-sass": "^2.1.3",
     "gatsby-transformer-json": "^2.2.2",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.18.2"
+    "node-sass": "^4.12.0"
   },
   "keywords": [
     "gatsby"
