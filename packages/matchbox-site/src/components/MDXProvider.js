@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
-import { PropsTable } from './PropsTable';
+import { Prop } from './Prop';
 import TokenTable from './tokens/TokenTable';
 import Token from './tokens/Token';
 import Heading from './Heading';
@@ -10,9 +10,9 @@ import ExternalLink from './ExternalLink';
 const components = {
   a: props => <Link to={props.href}>{props.children}</Link>,
   ExternalLink,
-  PropsTable,
   TokenTable,
   Token,
+  Prop,
   Heading,
   h1: props => <Heading as="h1" {...props} />,
   h2: props => <Heading as="h2" {...props} />,
