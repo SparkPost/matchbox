@@ -7,8 +7,6 @@ import { Box, Tag, Tooltip } from '@sparkpost/matchbox';
 function SystemPropsTags(props) {
   const { propsList } = props;
 
-  console.log(Tooltip.propTypes);
-
   function availablePropsList(prop) {
     let availableProps = getSystemProps(prop);
     return (
