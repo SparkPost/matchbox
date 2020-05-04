@@ -62,6 +62,23 @@ export const BasicExample = withInfo(infoOptions)(() => (
   </Page>
 ));
 
+export const WithOnlyOneSecondaryAction = withInfo(infoOptions)(() => (
+  <Page
+    primaryAction={primaryAction}
+    secondaryActions={[
+      {
+        content: 'Save',
+        onClick: action('Save Clicked'),
+      },
+    ]}
+    breadcrumbAction={breadcrumbAction}
+    title="Template #3"
+    subtitle="Published"
+  >
+    <Panel sectioned>Content</Panel>
+  </Page>
+));
+
 export const EmbeddedEmptyState = withInfo(infoOptions)(() => (
   <Page
     empty={{

@@ -55,8 +55,28 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return null;
   }
 
+  if (visibleActions.length == 1) {
+    const action = visibleActions[0];
+
+    return (
+      <Button
+        {...action}
+        outline
+        color="blue"
+        mr={hasPrimaryAction ? ['0', null, null, '500'] : ' 0'}
+        ml={hasPrimaryAction ? ['500', null, null, '0'] : '0'}
+      >
+        {action.content}
+      </Button>
+    );
+  }
+
   return (
-    <Box position="relative" mr={hasPrimaryAction ? '200' : ' 0'}>
+    <Box
+      position="relative"
+      mr={hasPrimaryAction ? ['0', null, null, '500'] : ' 0'}
+      ml={hasPrimaryAction ? ['500', null, null, '0'] : '0'}
+    >
       <Popover
         bottom
         id="page-secondary-actions"
@@ -65,7 +85,6 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
         open={isOpen}
         trigger={
           <Button
-            aria-describedby="page-secondary-actions"
             aria-expanded={isOpen}
             color="blue"
             onClick={() => setIsOpen(!isOpen)}
@@ -131,7 +150,7 @@ function Page(props) {
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
-        <Box display="flex" alignItems="center">
+        <Box display={[null, null, 'block', 'flex']} alignItems="center">
           <Box flex="1">
             {title && (
               <Box
@@ -144,7 +163,14 @@ function Page(props) {
               </Box>
             )}
           </Box>
-          <Box flex="0" display="flex">
+          <Box
+            flex="0"
+            display="flex"
+            flexDirection={['row-reverse', null, null, 'row']}
+            justifyContent="flex-end"
+            mt={['400', null, null, '0']}
+            mb={['400', null, null, '0']}
+          >
             <SecondaryActions
               actions={secondaryActions}
               hasPrimaryAction={primaryAction || primaryArea}
