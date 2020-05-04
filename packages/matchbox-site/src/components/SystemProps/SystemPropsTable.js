@@ -29,7 +29,7 @@ function Tr(props) {
   return <Box as="tr" {...props} />;
 }
 
-function Table(props) {
+function SystemPropsTable(props) {
   const data = propData[props.theme];
 
   return (
@@ -60,4 +60,4 @@ function Table(props) {
   );
 }
 
-export default Table;
+export default SystemPropsTable;

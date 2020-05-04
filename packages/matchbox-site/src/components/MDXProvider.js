@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
+import { SystemPropsTags } from './SystemProps';
 import { Prop } from './Prop';
 import TokenTable from './tokens/TokenTable';
 import Token from './tokens/Token';
@@ -10,6 +11,7 @@ import ExternalLink from './ExternalLink';
 const components = {
   a: props => <Link to={props.href}>{props.children}</Link>,
   ExternalLink,
+  SystemPropsTags,
   TokenTable,
   Token,
   Prop,
