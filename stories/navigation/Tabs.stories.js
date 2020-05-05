@@ -2,7 +2,6 @@ import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-// import StoryContainer from '../storyHelpers/StoryContainer';
 
 import { Tabs, ThemeProvider, Panel } from '@sparkpost/matchbox';
 
@@ -14,16 +13,16 @@ const tabs = [
     onClick: action('Details Clicked'),
   },
   {
-    content: 'Keys',
-    onClick: action('Keys Clicked'),
+    content: 'More Details',
+    onClick: action('More Details Clicked'),
   },
   {
     content: 'Example with long text',
-    onClick: action('Domains Clicked'),
+    onClick: action('Example with long text clicked'),
   },
   {
     content: 'Example with a component wrapper',
-    onClick: action('Domains Clicked'),
+    onClick: action('Example with component clicked'),
     Component: props => <a {...props} href="#" />,
   },
 ];
@@ -64,7 +63,7 @@ export const ExampleWithinPanel = withInfo()(() => (
 
 export const SystemProps = withInfo()(() => (
   <>
-    <Tabs selected={0} tabs={tabs} my={['400', null, '800', '100px']} />
+    <Tabs selected={0} borderBottom="none" tabs={tabs} my={['400', null, '800', '100px']} />
     <Tabs fitted selected={0} tabs={tabs} mx={['400', null, '800', '200px']} />
   </>
 ));
