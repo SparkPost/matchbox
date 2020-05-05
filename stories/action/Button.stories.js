@@ -1,15 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
 import { Button, Inline } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">{storyFn()}</StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Action|Button',

@@ -1,10 +1,7 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import { TextField, Button, ThemeProvider, Tooltip, Stack, Select } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|TextField',

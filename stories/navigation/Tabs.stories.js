@@ -1,11 +1,7 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-
-import { Tabs, ThemeProvider, Panel } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { Tabs, Panel } from '@sparkpost/matchbox';
 
 const tabs = [
   {

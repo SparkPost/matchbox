@@ -30,7 +30,10 @@ describe('The Tabs component', () => {
     beforeEach(() => {
       cy.visit('/iframe.html?path=/story/navigation-tabs--example-tabs');
       cy.viewport(800, 600);
-      cy.wait(200);
+
+      // Tests are flakey because they require layout changes
+      // Remove if these become a problem
+      cy.wait(400);
     });
 
     it('should handle actionlist click', () => {

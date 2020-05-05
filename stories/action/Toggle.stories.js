@@ -1,11 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-
 import { Toggle } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Action|Toggle',

@@ -1,11 +1,7 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-
-import { ThemeProvider, Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
 
 export default {
   title: 'Overlays|Tooltip',

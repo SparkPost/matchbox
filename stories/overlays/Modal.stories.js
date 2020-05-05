@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
 import { Modal, Panel, Button, Box } from '@sparkpost/matchbox';
 
 const PORTAL_ID = 'modal-portal';
 
 storiesOf('Overlays|Modal', module)
-  .addDecorator(getStory => <StoryContainer>{getStory()}</StoryContainer>)
-
   .add('Open', () => {
     return (
       <Modal open portalId={PORTAL_ID}>

@@ -1,10 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { Box } from '@sparkpost/matchbox/components/Box';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Layout|Box',

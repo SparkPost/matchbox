@@ -1,18 +1,8 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
 import { action } from '@storybook/addon-actions';
-
 import { Pager } from '@sparkpost/matchbox';
 import { Box } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">{storyFn()}</StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Navigation|Pager',

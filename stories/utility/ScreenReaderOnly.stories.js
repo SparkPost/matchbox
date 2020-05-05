@@ -1,11 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import StoryContainer from '../storyHelpers/StoryContainer';
 import { ScreenReaderOnly } from '@sparkpost/matchbox';
 
 storiesOf('Utility|ScreenReaderOnly', module)
-  .addDecorator(getStory => <StoryContainer>{getStory()}</StoryContainer>)
   .add(
     'Basic example',
     withInfo()(() => (

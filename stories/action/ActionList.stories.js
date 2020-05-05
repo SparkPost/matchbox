@@ -1,18 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-
-import {
-  ThemeProvider,
-  ActionList,
-  Button,
-  Inline,
-  Popover,
-  Panel,
-  Box,
-} from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { ActionList, Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
 
 export default {
   title: 'Action|ActionList',

@@ -1,7 +1,6 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { ThemeProvider, ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
+import { ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
 import Downshift from 'downshift';
 
 // This is an example of a multi select downshift typeahead
@@ -110,8 +109,6 @@ function TypeaheadExample(props) {
     </Downshift>
   );
 }
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Form|ComboBox',

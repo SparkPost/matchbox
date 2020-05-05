@@ -1,11 +1,7 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-
-import { ThemeProvider, Banner } from '@sparkpost/matchbox';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
+import { Banner } from '@sparkpost/matchbox';
 
 export default {
   title: 'Feedback|Banner',

@@ -1,12 +1,9 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { ThemeProvider, Page, Panel, Button, TextField } from '@sparkpost/matchbox';
+import { Page, Panel, Button, TextField } from '@sparkpost/matchbox';
 import { Save, ArrowDropDown, Search, Code } from '@sparkpost/matchbox-icons';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
-
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Layout|Page',

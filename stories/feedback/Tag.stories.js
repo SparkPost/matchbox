@@ -1,16 +1,8 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider, Inline, Tag } from '@sparkpost/matchbox';
+import { Inline, Tag } from '@sparkpost/matchbox';
 import { Language } from '@sparkpost/matchbox-icons';
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">{storyFn()}</StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Feedback|Tag',
