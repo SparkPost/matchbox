@@ -44,7 +44,7 @@ const link = `
   color: ${tokens.color_gray_900};
   font-size: ${tokens.fontSize_400};
   line-height: ${tokens.lineHeight_400};
-  font-weight: 500;
+  font-weight: ${tokens.fontWeight_medium};
 `;
 
 export const StyledListItem = styled('li')`
