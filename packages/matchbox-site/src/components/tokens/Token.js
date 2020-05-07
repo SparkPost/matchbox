@@ -3,7 +3,17 @@ import { meta } from '@sparkpost/design-tokens';
 import { Tooltip, Box } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import copy from 'copy-to-clipboard';
-import styles from './Token.module.scss';
+import styled from 'styled-components';
+
+import { token, color } from './tokenStyle';
+
+const StyledToken = styled('span')`
+  ${token}
+`;
+
+const StyledColor = styled(Box)`
+  ${color}
+`;
 
 function Token(props) {
   const { name } = props;
@@ -11,7 +21,7 @@ function Token(props) {
   const token = _.find(meta, ['name', name]);
 
   if (!token) {
-    return <span className={styles.Token}>Token Not Found</span>;
+    return <StyledToken>Token Not Found</StyledToken>;
   }
 
   const isWhite = React.useMemo(() => name === 'color-white', [name]);
@@ -36,20 +46,13 @@ function Token(props) {
 
   function getPrefix() {
     switch (token.type) {
-      // case 'font-size':
-      //   return <span className={styles.Size}>Aa</span>;
-      // case 'line-height':
-      //   return <span className={styles.Height}>Aa</span>;
-      // case 'font-family':
-      //   return <span className={styles.Family}>Aa</span>;
       case 'color':
         return (
-          <Box
+          <StyledColor
             border={isWhite ? '400' : 'none'}
             bg={token.value}
-            as='span'
-            className={styles.Color}
-          ></Box>
+            as="span"
+          ></StyledColor>
         );
       default:
         return '';
@@ -64,11 +67,11 @@ function Token(props) {
   }, [token.friendly]);
 
   return (
-    <Tooltip dark width='auto' content={clicked ? 'Copied' : token.value}>
-      <span className={styles.Token} onClick={handleClick}>
+    <Tooltip dark width="auto" content={clicked ? 'Copied' : token.value}>
+      <StyledToken onClick={handleClick}>
         {getPrefix()}
         {friendly}
-      </span>
+      </StyledToken>
     </Tooltip>
   );
 }

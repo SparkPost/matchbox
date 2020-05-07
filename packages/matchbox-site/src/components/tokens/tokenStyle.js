@@ -1,10 +1,10 @@
-@import '../../styles/tokens.scss';
+import { tokens } from '@sparkpost/design-tokens';
 
-.Token {
+export const token = `
   display: inline-block;
   padding: 0 2px;
   position: relative;
-  font-weight: 500;
+  font-weight: ${tokens.fontWeight_semibold};
 
   &:after {
     display: block;
@@ -16,8 +16,8 @@
     height: 1px;
     background-image: linear-gradient(
       to right,
-      color(gray, 700),
-      color(gray, 700) 40%,
+      ${tokens.color_gray_700},
+      ${tokens.color_gray_700} 40%,
       transparent 40%,
       transparent
     );
@@ -27,32 +27,14 @@
   &:hover {
     cursor: pointer;
   }
-}
+`;
 
-.Color {
+export const color = `
   display: inline-block;
   margin-top: -1px;
   width: 11px;
   height: 11px;
-  border-radius: 50%;
+  border-radius: ${tokens.borderRadius_circle};
   margin-right: 4px;
   user-select: none;
-}
-
-.Family, .Size, .Height {
-  margin-right: 4px;
-  user-select: none;
-}
-
-
-.Family {
-  color: #0055ff;
-}
-
-.Height {
-  color: #ee0055;
-}
-
-.Size {
-  color: #5500ee;
-}
+`;
