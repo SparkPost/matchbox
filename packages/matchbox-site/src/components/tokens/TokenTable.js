@@ -1,7 +1,17 @@
 import React from 'react';
 import Heading from '../Heading';
-import styles from './TokenTable.module.scss';
 import TokenUsage from './TokenUsage';
+import { Box } from '@sparkpost/matchbox';
+import styled from 'styled-components';
+import { tokenTable, tableCell } from './TokenTableStyle';
+
+const StyledTableCell = styled('td')`
+  ${tableCell}
+`;
+
+const StyledTable = styled('table')`
+  ${tokenTable}
+`;
 
 function TokenTable(props) {
   const [usageType, setType] = React.useState('javascript');
@@ -19,9 +29,9 @@ function TokenTable(props) {
       }
 
       return (
-        <td key={type} className={styles[type]}>
+        <StyledTableCell type={type} key={type}>
           {cell}
-        </td>
+        </StyledTableCell>
       );
     });
 
@@ -30,8 +40,15 @@ function TokenTable(props) {
 
   return (
     <div>
-      <div className={styles.Header}>
-        <Heading as="h4">{props.title || 'Tokens'}</Heading>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb="500"
+      >
+        <Heading m="0" as="h4">
+          {props.title || 'Tokens'}
+        </Heading>
         <div>
           <select onChange={handleTypeSelect} value={usageType}>
             <option value="javascript">Javascript</option>
@@ -39,10 +56,10 @@ function TokenTable(props) {
             <option value="css">CSS</option>
           </select>
         </div>
-      </div>
-      <table className={styles.TokenTable}>
+      </Box>
+      <StyledTable>
         <tbody>{props.tokens.map(renderTokenRow)}</tbody>
-      </table>
+      </StyledTable>
     </div>
   );
 }
