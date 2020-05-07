@@ -1,35 +1,29 @@
 import React from 'react';
-import classnames from 'classnames';
-import { Link } from 'gatsby';
-import styles from './SideNavigation.module.scss';
 import _ from 'lodash';
+import { StyledListItem, StyledLink } from './style';
+
+import { Box } from '@sparkpost/matchbox';
 
 function SideNavigation(props) {
-  const { navItems = []} = props;
+  const { navItems = [] } = props;
   const onlyActive = navItems.filter(({ disabled }) => !disabled);
   const rootItems = onlyActive.filter(({ section }) => !section);
   const sectionedItems = onlyActive.filter(({ section }) => !!section);
-  const sections = _.uniq(sectionedItems.map(({ section }) => section || 'rootList'));
+  const sections = _.uniq(
+    sectionedItems.map(({ section }) => section || 'rootList')
+  );
 
   function renderList(list) {
     return (
-      <ul className={styles.List}>
-        {
-          list.map((item) => (
-            <li
-              key={item.path}
-              className={classnames(
-                styles.ListItem,
-                item.selected && styles.Selected
-              )}
-            >
-              <Link to={item.path} className={styles.Link} disabled={item.disabled}>
-                {item.label}
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
+      <Box as="ul" mb="600" p="0">
+        {list.map(item => (
+          <StyledListItem key={item.path} selected={item.selected}>
+            <StyledLink to={item.path} disabled={item.disabled}>
+              {item.label}
+            </StyledLink>
+          </StyledListItem>
+        ))}
+      </Box>
     );
   }
 
@@ -37,14 +31,16 @@ function SideNavigation(props) {
     const section = navItems.filter(({ section }) => section === key);
     return (
       <div key={key}>
-        <div className={styles.SectionLabel}>{key}</div>
+        <Box mt="700" mb="300" fontSize="300" fontWeight="500" color="gray.500">
+          {key}
+        </Box>
         {renderList(section)}
       </div>
     );
   }
 
   return (
-    <nav className={styles.SideNavigation}>
+    <nav>
       {renderList(rootItems)}
       {sections.map(renderSection)}
     </nav>
