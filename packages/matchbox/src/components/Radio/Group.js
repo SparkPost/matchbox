@@ -20,13 +20,15 @@ function Group(props) {
 
   return (
     <StyledGroup {...systemProps}>
-      <Label label={label} labelHidden={labelHidden}>
-        {required && (
-          <Box as="span" pr="200" aria-hidden="true">
-            *
-          </Box>
-        )}
-      </Label>
+      {label && (
+        <Label as="legend" label={label} labelHidden={labelHidden}>
+          {required && (
+            <Box as="span" pr="200" aria-hidden="true">
+              *
+            </Box>
+          )}
+        </Label>
+      )}
       <Stack space="100">{children}</Stack>
     </StyledGroup>
   );

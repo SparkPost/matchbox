@@ -20,8 +20,8 @@ function Group(props) {
 
   return (
     <StyledGroup {...systemProps}>
-      {label && !labelHidden && (
-        <Label label={label} labelHidden={labelHidden}>
+      {label && (
+        <Label as="legend" label={label} labelHidden={labelHidden}>
           {required && (
             <Box as="span" pr="200" aria-hidden="true">
               *
