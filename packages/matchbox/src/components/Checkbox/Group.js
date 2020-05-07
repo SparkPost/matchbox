@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { Label } from '../Label';
+import { Stack } from '../Stack';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
@@ -20,21 +21,15 @@ function Group(props) {
   return (
     <StyledGroup {...systemProps}>
       {label && !labelHidden && (
-        <Box as="legend" lineHeight="200" fontSize="200" mb="100">
-          {label}
+        <Label label={label} labelHidden={labelHidden}>
           {required && (
             <Box as="span" pr="200" aria-hidden="true">
               *
             </Box>
           )}
-        </Box>
+        </Label>
       )}
-      {label && labelHidden && (
-        <ScreenReaderOnly>
-          <legend>{label}</legend>
-        </ScreenReaderOnly>
-      )}
-      {children}
+      <Stack space="100">{children}</Stack>
     </StyledGroup>
   );
 }
