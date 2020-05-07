@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
-import { margin, width, compose } from 'styled-system';
+import { margin, width, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
@@ -12,7 +12,7 @@ import Group from './Group';
 import { base, visualSize, colorVariant, disabled, fullWidth } from './styles';
 
 // TODO Categorize system props and abstract
-const system = compose(margin, width);
+const system = compose(margin, width, padding);
 
 export const StyledButton = styled(Box)`
   ${base}
