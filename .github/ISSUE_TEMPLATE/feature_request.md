@@ -1,20 +1,30 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Suggest an idea for Matchbox
 title: ''
-labels: ''
+labels: feature request
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## 🚀 Feature request
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Current Behavior**
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+<!-- A clear description of what is the current behavior / use.  -->
+
+**Desired Behavior**
+
+<!-- A clear description of what you want to happen.  -->
+
+**Suggested Solution**
+
+<!-- Suggest a solution that we may take to enable the desired behavior  -->
+
+**Who does this impact? Who is this for? What product or squad is this for?**
+
+<!-- Who is this for? Users? Assistive-tech users? FE engineers? -->
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+
+<!-- Add any other context or links about the request here. -->
