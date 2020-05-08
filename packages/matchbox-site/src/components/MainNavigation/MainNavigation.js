@@ -1,31 +1,42 @@
 import React from 'react';
-import classnames from 'classnames';
 import { Link } from 'gatsby';
-import styles from './MainNavigation.module.scss';
+import { listItem, link } from './style';
+import styled from 'styled-components';
+
+import { Box } from '@sparkpost/matchbox';
+
+const StyledListItem = styled('li')`
+  ${listItem}
+`;
+
+const StyledLink = styled(Link)`
+  ${link}
+`;
 
 function MainNavigation(props) {
   const navItems = React.useMemo(() => {
     const list = props.navItems.filter(({ disabled }) => !disabled);
 
-    return list.map((item) => (
-      <li
-        key={item.path}
-        className={classnames(styles.ListItem, item.selected && styles.Selected)}
-      >
-        <Link
-          to={item.path}
-          className={classnames(styles.Link, item.disabled && styles.Disabled)}
-        >
+    return list.map(item => (
+      <StyledListItem key={item.path} selected={item.selected}>
+        <StyledLink to={item.path} disabled={item.disabled}>
           {item.label}
-        </Link>
-      </li>
+        </StyledLink>
+      </StyledListItem>
     ));
   }, [props.navItems]);
 
-
   return (
-    <nav className={styles.Navigation}>
-      <ul className={styles.List}>{navItems}</ul>
+    <nav>
+      <Box
+        as="ul"
+        display="flex"
+        justifyContent="flex-end"
+        padding="0"
+        margin="0"
+      >
+        {navItems}
+      </Box>
     </nav>
   );
 }
