@@ -34,7 +34,7 @@ describe('DatePicker', () => {
     expect(wrapper.find('button[data-id="datepicker-next"]')).toBeDisabled();
   });
 
-  it('should be able to navigate to previous month with navbar', () => {
+  it('should be able to navigate to previous and next month with navbar', () => {
     const wrapper = subject({ initialMonth: date, toMonth: date });
     wrapper.find('button[data-id="datepicker-previous"]').simulate('click');
     expect(
@@ -43,6 +43,13 @@ describe('DatePicker', () => {
         .at(0)
         .text(),
     ).toEqual('December 2016');
+    wrapper.find('button[data-id="datepicker-next"]').simulate('click');
+    expect(
+      wrapper
+        .find('[data-id="datepicker-caption"]')
+        .at(0)
+        .text(),
+    ).toEqual('January 2017');
   });
 
   describe('modifiers', () => {
@@ -69,6 +76,20 @@ describe('DatePicker', () => {
         'true',
       );
       expect(wrapper.find('.DayPicker-Day--disabled div')).toHaveStyleRule('opacity', '0.3');
+    });
+
+    it('should not render outside days', () => {
+      const wrapper = subject({ initialMonth: date });
+      expect(wrapper.find('.DayPicker-Day--outside').first()).toHaveAttributeValue(
+        'aria-disabled',
+        'true',
+      );
+      expect(
+        wrapper
+          .find('.DayPicker-Day--outside')
+          .first()
+          .text(),
+      ).toBe('');
     });
   });
 });
