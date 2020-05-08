@@ -8,7 +8,7 @@ function Weekday({ className, weekday, localeUtils = {} }) {
   return (
     <Box
       flex="1 0 0"
-      minWidth="40px"
+      minWidth="650"
       textAlign="center"
       role="columnheader"
       className={className}

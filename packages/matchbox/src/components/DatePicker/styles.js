@@ -4,7 +4,7 @@ import { Box } from '../Box';
 
 export const StyledDay = styled(Box)`
   background: ${tokens.color_white};
-  color: ${tokens.color_gray_900};
+  color: ${tokens.color_gray_800};
   cursor: pointer;
   opacity: ${props => (props.modifiers.outside ? '0' : '1')};
 
