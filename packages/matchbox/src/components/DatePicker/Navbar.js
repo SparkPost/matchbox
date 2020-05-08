@@ -13,6 +13,7 @@ function Navbar(props) {
         <Button
           flat
           color="blue"
+          data-id="datepicker-previous"
           disabled={!showPreviousButton}
           onClick={() => onPreviousClick()}
           px="100"
@@ -26,6 +27,7 @@ function Navbar(props) {
         <Button
           flat
           color="blue"
+          data-id="datepicker-next"
           disabled={!showNextButton}
           onClick={() => onNextClick()}
           px="100"

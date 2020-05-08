@@ -3,6 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 
 export const StyledDay = styled(Box)`
+  background: ${tokens.color_white};
   color: ${tokens.color_gray_900};
   cursor: pointer;
   opacity: ${props => (props.modifiers.outside ? '0' : '1')};
@@ -45,10 +46,12 @@ export const StyledDay = styled(Box)`
 
   ${props => {
     // In Between selected modifier styles
-    return `
-      color: ${tokens.color_gray_900};
-      background: ${props.modifiers.inBetween ? tokens.color_blue_200 : tokens.color_white}
-    `;
+    if (props.modifiers.inBetween) {
+      return `
+        color: ${tokens.color_gray_900};
+        background: ${tokens.color_blue_200};
+      `;
+    }
   }}
 
   ${props => {

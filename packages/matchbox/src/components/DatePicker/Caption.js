@@ -7,7 +7,13 @@ function Caption({ classNames = {}, onClick, date, localeUtils = {} }) {
   const year = date.getFullYear();
 
   return (
-    <Box mx="200" role="heading" onClick={onClick} className={classNames.caption}>
+    <Box
+      data-id="datepicker-caption"
+      className={classNames.caption}
+      mx="200"
+      onClick={onClick}
+      role="heading"
+    >
       <Text as="span" fontSize="400" lineHeight="400" fontWeight="semibold">
         {month}
       </Text>{' '}
