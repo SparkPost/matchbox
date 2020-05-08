@@ -24,7 +24,8 @@ const modifiers = selectedDays
       inBetween: day => DateUtils.isDayBetween(day, selectedDays.from, selectedDays.to),
     }
   : {};
-export const BasicDatepicker = withInfo()(() => (
+
+export const BasicDatepicker = withInfo({ propTables: [DatePicker] })(() => (
   <DatePicker
     modifiers={modifiers}
     numberOfMonths={2}

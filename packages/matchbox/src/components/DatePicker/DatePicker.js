@@ -1,70 +1,49 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
 import styled from 'styled-components';
-import { tokens } from '@sparkpost/design-tokens';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '@styled-system/props';
+import { omit } from '../../helpers/systemProps';
 import Navbar from './Navbar';
 import Caption from './Caption';
 import Weekday from './Weekday';
 import renderDay from './Day';
+import { wrapper } from './styles';
 
-const Wrapper = styled.div`
-  .DayPicker-wrapper {
-    position: relative;
-    padding: 0 ${tokens.spacing_500};
-    outline: none;
-  }
-
-  .DayPicker-Months {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .DayPicker-Month {
-    flex: 0 0 auto;
-    & + .DayPicker-Month {
-      margin-left: ${tokens.spacing_400};
-    }
-  }
-
-  .DayPicker-WeekdaysRow {
-    display: flex;
-  }
-
-  .DayPicker-Weekday {
-  }
-
-  .DayPicker-Week {
-    display: flex;
-  }
-
-  .DayPicker-Day {
-    flex: 1 0;
-    outline: none;
-    &:focus {
-      box-shadow: 0 0 0 2px ${tokens.color_blue_700};
-      z-index: 1;
-    }
-  }
+export const Wrapper = styled.div`
+  ${margin}
+  ${wrapper}
 `;
 
 const DatePicker = React.forwardRef(function DatePicker(props, ref) {
+  const systemProps = pick(props);
+  const componentProps = omit(props, margin.propNames);
+
   return (
-    <Wrapper ref={ref}>
+    <Wrapper ref={ref} {...systemProps} data-id="datepicker">
       <DayPicker
-        {...props}
         captionElement={Caption}
-        fixedWeeks={false}
         weekdayElement={Weekday}
         renderDay={renderDay}
         navbarElement={Navbar}
-        enableOutsideDaysClick={false}
-        showOutsideDays={false}
+        {...componentProps}
       />
     </Wrapper>
   );
 });
 
 DatePicker.displayName = 'DatePicker';
+
+DatePicker.propTypes = {
+  ...DayPicker.propTypes,
+  ...createPropTypes(margin.propNames),
+};
+
+DatePicker.defaultProps = {
+  fixedWeeks: false,
+  enableOutsideDaysClick: false,
+  showOutsideDays: false,
+};
+
 export default DatePicker;
