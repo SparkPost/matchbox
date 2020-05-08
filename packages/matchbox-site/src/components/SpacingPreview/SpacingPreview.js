@@ -1,20 +1,40 @@
 import React from 'react';
 import { meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
-import styles from './SpacingPreview.module.scss';
+import styled from 'styled-components';
+import { tokens } from '@sparkpost/design-tokens';
 
-const spacingScale = _.filter(meta, ({ name, value, category }) => !name.includes('base') && category === 'spacing' && value !== '0rem').reverse();
+import { Box } from '@sparkpost/matchbox';
+
+const StyledColumn = styled(Box)`
+  background-color: ${tokens.color_blue_700};
+  border-radius: ${tokens.borderRadius_100};
+  height: ${tokens.spacing_800};
+`;
+
+const spacingScale = _.filter(
+  meta,
+  ({ name, value, category }) =>
+    !name.includes('base') && category === 'spacing' && value !== '0rem'
+).reverse();
 
 function SpacingPreview() {
   return (
-    <div className={styles.SpacingPreview}>
-      {_.map(spacingScale, ((spc) => (
-        <div key={spc.pixel_value} className={styles.Space}>
-          <div style={{ width: spc.pixel_value }}></div>
-          <p>{spc.pixel_value}</p>
-        </div>
-      )))}
-    </div>
+    <Box display="flex" justifyContent="space-between" mb="400">
+      {_.map(spacingScale, spc => (
+        <Box
+          key={spc.pixel_value}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <StyledColumn style={{ width: spc.pixel_value }}></StyledColumn>
+          <Box as="p" fontSize="100" color="gray.800" fontWeight="500" mt="300">
+            {spc.pixel_value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
   );
 }
 
