@@ -123,3 +123,4 @@
 - #390 - `Tab` now uses a `pointer` cursor on hover
 - #390 - `Tabs` now accept the `borderBottom` system prop
 - #390 - `Drawer.Footer` now always positioned on bottom
+- #408 - Fix `Button.Group` alignment and margins with icons and tooltips
