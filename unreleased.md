@@ -133,3 +133,5 @@
 - #414 - Removes aria-expanded from drawer activators
 - #411 - Add looksLike prop to `Text` component
 - #411 - Remove crop prop from `Text` component
+- #407 - Adds new `DatePicker` component
+- #407 - Buttons now support padding system props, to suppport square buttons
