@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { DatePicker } from '@sparkpost/matchbox';
+import { DatePicker, Box } from '@sparkpost/matchbox';
 import { DateUtils } from 'react-day-picker';
 
 export default {
@@ -8,30 +8,32 @@ export default {
 };
 
 const to = new Date();
-let from = new Date(new Date().setDate(new Date().getDate() - 15));
+const from = new Date(new Date().setDate(new Date().getDate() - 15));
 const initial = new Date(new Date().setDate(new Date().getDate() - 30));
+
 const selectedDays = {
   to,
   from,
 };
 
-const modifiers = selectedDays
-  ? {
-      firstSelected: day => {
-        return DateUtils.isSameDay(day, selectedDays.from);
-      },
-      lastSelected: day => DateUtils.isSameDay(day, selectedDays.to),
-      inBetween: day => DateUtils.isDayBetween(day, selectedDays.from, selectedDays.to),
-    }
-  : {};
+const modifiers = {
+  firstSelected: day => {
+    return DateUtils.isSameDay(day, selectedDays.from);
+  },
+  lastSelected: day => DateUtils.isSameDay(day, selectedDays.to),
+  inBetween: day => DateUtils.isDayBetween(day, selectedDays.from, selectedDays.to),
+};
 
 export const BasicDatepicker = withInfo({ propTables: [DatePicker] })(() => (
-  <DatePicker
-    modifiers={modifiers}
-    numberOfMonths={2}
-    initialMonth={initial}
-    disabledDays={{ after: new Date() }}
-    toMonth={new Date()}
-    selectedDays={selectedDays}
-  />
+  <Box maxWidth="1200" border="400">
+    <DatePicker
+      modifiers={modifiers}
+      numberOfMonths={2}
+      initialMonth={initial}
+      disabledDays={{ after: new Date() }}
+      toMonth={new Date()}
+      selectedDays={selectedDays}
+      m="400"
+    />
+  </Box>
 ));
