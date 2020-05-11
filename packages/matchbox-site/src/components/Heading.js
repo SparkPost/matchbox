@@ -25,7 +25,9 @@ function toKebab(str) {
 }
 
 function Heading(props) {
-  if (!props.children) {
+  const { as, children, ...rest } = props;
+
+  if (!children) {
     return null;
   }
 
@@ -34,14 +36,14 @@ function Heading(props) {
 
   React.useEffect(() => {
     if (typeof window !== undefined) {
-      setPathname(`${window.location.pathname}#${toKebab(props.children)}`);
+      setPathname(`${window.location.pathname}#${toKebab(children)}`);
     }
-  }, [props.children]);
+  }, [children]);
 
   return (
     <StyledLink to={pathname}>
-      <Text as={props.as} id={toKebab(props.children)} position="relative">
-        {props.children}
+      <Text {...rest} as={as} id={toKebab(children)} position="relative">
+        {children}
         <span>
           {' '}
           <LinkIcon
