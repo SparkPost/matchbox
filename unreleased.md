@@ -123,3 +123,5 @@
 - #390 - `Tab` now uses a `pointer` cursor on hover
 - #390 - `Tabs` now accept the `borderBottom` system prop
 - #390 - `Drawer.Footer` now always positioned on bottom
+- #409 - `matchbox` now lists `react`, `react-dom` and `styled-components` as peer dependencies
+- #409 - `matchbox-icons` now lists `react` and `react-dom` as peer dependencies
