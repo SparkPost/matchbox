@@ -13,10 +13,10 @@ Anything beyond basic unit testing, such as assistive tech usage, or special int
 
 - [ ] Update `unreleased.md` in the root directory
 <!--
-Outline any chanes to the dev worflow, component APIs, component behavior. If this does not affect a published packages, you can ignore
+Outline any changes to the development worflow, component APIs, component behavior. If this does not affect a published packages, you can ignore.
 -->
 - [ ] Approval from #uxfe or #design-guild
 <!--
 Provide screenshots or [screen recordings](https://getkap.co/) and request a review from.
-Ignore if this does not require approval from UX or the design team
+Ignore if this does not contain and visual component changes
 -->
