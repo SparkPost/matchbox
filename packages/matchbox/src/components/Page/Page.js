@@ -151,7 +151,7 @@ function Page(props) {
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
-        <Box display={[null, null, 'block', 'flex']} alignItems="center">
+        <Box display={[null, null, 'block', 'flex']} alignItems="flex-start">
           <Box flex="1">
             {title && (
               <Box
@@ -163,13 +163,14 @@ function Page(props) {
                 {title}
               </Box>
             )}
+            <Subtitle subtitle={subtitle} />
           </Box>
           <Box
             flex="0"
             display="flex"
             flexDirection={['row-reverse', null, null, 'row']}
             justifyContent="flex-end"
-            mt={['400', null, null, '0']}
+            mt={['400', null, null, '300']}
             mb={['400', null, null, '0']}
           >
             <SecondaryActions
@@ -179,7 +180,6 @@ function Page(props) {
             <PrimaryAction area={primaryArea} action={primaryAction} />
           </Box>
         </Box>
-        <Subtitle subtitle={subtitle} />
       </Box>
       {children}
     </div>
