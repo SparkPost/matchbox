@@ -85,6 +85,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
         open={isOpen}
         trigger={
           <Button
+            aria-controls="page-secondary-actions"
             aria-expanded={isOpen}
             color="blue"
             onClick={() => setIsOpen(!isOpen)}
