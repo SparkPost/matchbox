@@ -21,7 +21,7 @@ assignees: ''
 
 <!-- Suggest a solution that we may take to enable the desired behavior  -->
 
-**Who does this impact? Who is this for? What product or squad is this for?**
+**Who does this impact? Who is this for?**
 
 <!-- Who is this for? Users? Assistive-tech users? FE engineers? -->
 
