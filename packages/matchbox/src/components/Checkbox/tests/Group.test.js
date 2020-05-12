@@ -23,7 +23,7 @@ describe('Checkbox Group', () => {
 
   it('renders a legend with required correctly while hidden correctly', () => {
     const wrapper = subject({ label: 'test-label', required: true, labelHidden: true });
-    expect(wrapper.find('label').text()).toEqual('test-label*');
+    expect(wrapper.find('legend').text()).toEqual('test-label*');
   });
 
   it('renders with system props', () => {
