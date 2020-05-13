@@ -129,8 +129,9 @@ export const fullWidth = props => {
   }
 };
 
-export const group = buttonSelector => () => `
-  & > ${buttonSelector} {
+// This selector is intentionally loose to handle buttons wrapped in other components such as tooltips
+export const group = () => `
+  & > * {
     margin-right: -1px;
   }
 `;

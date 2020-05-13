@@ -9,7 +9,7 @@ import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 import Group from './Group';
-import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
+import { base, visualSize, colorVariant, disabled, fullWidth } from './styles';
 
 // TODO Categorize system props and abstract
 const system = compose(margin, width);
@@ -21,11 +21,6 @@ export const StyledButton = styled(Box)`
   ${disabled}
   ${fullWidth}
   ${system}
-`;
-
-// Button.Group is styled here to access a classname reference to StyledButton
-const StyledGroup = styled(Group)`
-  ${group(StyledButton)}
 `;
 
 function Button(props) {
@@ -137,9 +132,7 @@ function Button(props) {
 }
 
 Button.displayName = 'Button';
-StyledGroup.displayName = Group.displayName;
-StyledGroup.propTypes = Group.propTypes;
-Button.Group = StyledGroup;
+Button.Group = Group;
 
 Button.propTypes = {
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),

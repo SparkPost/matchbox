@@ -123,6 +123,7 @@
 - #390 - `Tab` now uses a `pointer` cursor on hover
 - #390 - `Tabs` now accept the `borderBottom` system prop
 - #390 - `Drawer.Footer` now always positioned on bottom
+- #408 - Fix `Button.Group` alignment and margins with icons and tooltips
 - #406 - `Checkbox` and `Radio` label now match `TextField` and use `Label` component
 - #406 - Help text on `Checkbox` and `Radio` now indented
 - #406 - Use `Stack` around inputs in `Checkbox` and `Radio` groups
