@@ -21,7 +21,7 @@ function Label(props) {
   if (labelHidden) {
     return (
       <ScreenReaderOnly>
-        <Box as="label" id={id && `${id}Label`} htmlFor={id}>
+        <Box as={as} id={id && `${id}Label`} htmlFor={id}>
           {label}
           {children}
         </Box>
