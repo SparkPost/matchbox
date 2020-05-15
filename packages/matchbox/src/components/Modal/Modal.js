@@ -39,20 +39,26 @@ const StyledContent = styled('div')`
 `;
 
 function Modal(props) {
-  const { onClose, children, portalId, className, showCloseButton, maxWidth, ...rest } = props;
+  const {
+    onClose,
+    children,
+    portalId,
+    className,
+    showCloseButton,
+    maxWidth,
+    open,
+    ...rest
+  } = props;
   let container = useRef(null);
   let content = useRef(null);
 
   const handleKeydown = e => {
-    const { open } = props;
-
     if (open && onClose) {
       onKey('escape', onClose)(e);
     }
   };
 
   const handleOutsideClick = e => {
-    const { open } = props;
     const isOutside =
       content && !content.contains(e.target) && container && container.contains(e.target);
 
@@ -73,7 +79,7 @@ function Modal(props) {
         aria-modal="true"
       >
         <StyledWrapper>
-          <ModalContent open={props.open} maxWidth={maxWidth}>
+          <ModalContent open={open} maxWidth={maxWidth}>
             <div ref={el => (content = el)}>
               <WindowEvent event="keydown" handler={handleKeydown} />
 
