@@ -1,12 +1,13 @@
 import React from 'react';
 import Text from '../Text';
+import { tokens } from '@sparkpost/design-tokens';
 import 'jest-styled-components';
 
 jest.mock('@sparkpost/design-tokens', () => ({
   meta: [
     { name: 'font-size-400', pixel_value: '18px' },
-    { name: 'line-height-400', pixel_value: '24px' }
-  ]
+    { name: 'line-height-400', pixel_value: '24px' },
+  ],
 }));
 
 describe('Text', () => {
@@ -20,20 +21,14 @@ describe('Text', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('cropping', () => {
-    it('it should crop when provided a size and line height', () => {
-      const wrapper = global.renderStyled(<Text crop fontSize="400" lineHeight="400">Text</Text>);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('it should not crop with an unsupported size token', () => {
-      const wrapper = global.renderStyled(<Text crop fontSize="10px" lineHeight="400">Text</Text>);
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('it should not crop with an unsupported line height token', () => {
-      const wrapper = global.renderStyled(<Text crop fontSize="400" lineHeight="10px">Text</Text>);
-      expect(wrapper).toMatchSnapshot();
+  describe('looksLike renders correctly', () => {
+    it('it should render visually as the looksLike prop while html should match the as prop ', () => {
+      const wrapper = global.renderStyled(
+        <Text as="h3" looksLike="h1">
+          Text
+        </Text>,
+      );
+      expect(wrapper).toHaveStyleRule('fontSize', tokens.fontSize_700);
     });
   });
 });
