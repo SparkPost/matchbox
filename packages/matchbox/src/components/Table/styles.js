@@ -14,6 +14,24 @@ export const headerCell = () => `
   font-weight: ${tokens.fontWeight_semibold};
 `;
 
+export const sticky = ({ isScrolled, freezeFirstColumn }) => {
+  return `
+    td:first-child, th:first-child {
+      ${
+        freezeFirstColumn
+          ? `
+            transition: box-shadow ${tokens.motionDuration_medium} ${tokens.motionEase_in_out};
+            position: sticky;
+            left: 0;
+            background: inherit;
+          `
+          : ''
+      }
+      ${isScrolled ? `box-shadow: ${tokens.boxShadow_400};` : ''}
+    }
+  `;
+};
+
 export const cell = () => `
   word-break: break-all;
 `;
@@ -29,4 +47,8 @@ export const row = () => `
   tbody &:nth-of-type(even) {
     background: ${tokens.color_gray_100};
   }
+`;
+
+export const wrapper = () => `
+  overflow: auto;
 `;
