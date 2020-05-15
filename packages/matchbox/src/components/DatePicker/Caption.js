@@ -13,6 +13,7 @@ function Caption({ classNames = {}, onClick, date, localeUtils = {} }) {
       mx="200"
       onClick={onClick}
       role="heading"
+      textAlign="center"
     >
       <Text as="span" fontSize="400" lineHeight="400" fontWeight="semibold">
         {month}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { DatePicker, Box } from '@sparkpost/matchbox';
+import { DatePicker } from '@sparkpost/matchbox';
 import { DateUtils } from 'react-day-picker';
 
 export default {
@@ -25,15 +25,13 @@ const modifiers = {
 };
 
 export const BasicDatepicker = withInfo({ propTables: [DatePicker] })(() => (
-  <Box maxWidth="1200" border="400">
-    <DatePicker
-      modifiers={modifiers}
-      numberOfMonths={2}
-      initialMonth={initial}
-      disabledDays={{ after: new Date() }}
-      toMonth={new Date()}
-      selectedDays={selectedDays}
-      m="400"
-    />
-  </Box>
+  <DatePicker
+    modifiers={modifiers}
+    numberOfMonths={2}
+    initialMonth={initial}
+    disabledDays={{ after: new Date() }}
+    toMonth={new Date()}
+    selectedDays={selectedDays}
+    m="400"
+  />
 ));

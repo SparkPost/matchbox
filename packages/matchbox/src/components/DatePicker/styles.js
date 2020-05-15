@@ -83,9 +83,12 @@ export const StyledDay = styled(Box)`
 
 // Daypicker global styles where component overrides are not possible
 export const wrapper = () => `
+  position: relative;
+  max-width: 36.5rem;
+
   .DayPicker-wrapper {
     position: relative;
-    padding: 0 ${tokens.spacing_500};
+    padding: 0;
     outline: none;
 
     *:focus {
