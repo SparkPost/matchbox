@@ -25,21 +25,19 @@
     "@sparkpost/matchbox-icons": "^1.2.1",
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
-    "classnames": "^2.2.5",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-focus-lock": "^2.0.5",
     "react-transition-group": "^2.3.0",
-    "styled-components": "^4.4.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
   "peerDependencies": {
-    "@sparkpost/matchbox-icons": "^1.2.0"
+    "@sparkpost/matchbox-icons": "^1.2.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "@sparkpost/matchbox-icons": "^1.2.1",
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/plugin-external-helpers": "^7.2.0",
@@ -47,6 +45,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "@sparkpost/matchbox-icons": "^1.2.1",
     "autoprefixer": "^7.2.5",
     "change-case": "^3.0.1",
     "cssnano": "^3.10.0",
@@ -56,6 +55,8 @@
     "node-sass": "^4.11.0",
     "postcss-modules": "^1.4.1",
     "postcss-modules-scope": "^1.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-syntax-highlighter": "^12.2.1",
     "rimraf": "^2.6.2",
     "rollup": "^1.25.1",
@@ -63,6 +64,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.1.2",
+    "styled-components": "^4.4.0"
   }
 }

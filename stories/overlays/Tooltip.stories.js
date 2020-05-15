@@ -2,6 +2,7 @@ import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
+import { FileDownload } from '@sparkpost/matchbox-icons';
 
 export default {
   title: 'Overlays|Tooltip',
@@ -11,11 +12,14 @@ export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
   <Box position="relative">
     <Button.Group>
       <Tooltip id="test-tooltip" content="Hellow I am a Tooltip">
-        <Button aria-describedby="test-tooltip" onClick={action('click')}>
+        <Button aria-describedby="test-tooltip" onClick={action('click')} outline>
+          <FileDownload size={14} />
           Accepted
         </Button>
       </Tooltip>
-      <Button disabled>Targeted</Button>
+      <Button disabled outline>
+        Targeted
+      </Button>
     </Button.Group>
   </Box>
 ));

@@ -24,7 +24,7 @@ exports[`Button Utils buttonFrom renders correctly 1`] = `
 `;
 
 exports[`Button Utils buttonsFrom renders correctly 1`] = `
-<ForwardRef(Styled(Button.Group))>
+<Button.Group>
   <Button
     action={
       Object {
@@ -47,5 +47,5 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
       button 2 content
     </span>
   </Button>
-</ForwardRef(Styled(Button.Group))>
+</Button.Group>
 `;
