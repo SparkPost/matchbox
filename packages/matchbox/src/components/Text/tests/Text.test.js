@@ -3,13 +3,6 @@ import Text from '../Text';
 import { tokens } from '@sparkpost/design-tokens';
 import 'jest-styled-components';
 
-jest.mock('@sparkpost/design-tokens', () => ({
-  meta: [
-    { name: 'font-size-400', pixel_value: '18px' },
-    { name: 'line-height-400', pixel_value: '24px' },
-  ],
-}));
-
 describe('Text', () => {
   it('it should render correctly', () => {
     const wrapper = global.renderStyled(<Text id="text-id">Text</Text>);
@@ -23,12 +16,12 @@ describe('Text', () => {
 
   describe('looksLike renders correctly', () => {
     it('it should render visually as the looksLike prop while html should match the as prop ', () => {
-      const wrapper = global.renderStyled(
+      const wrapper = global.mountStyled(
         <Text as="h3" looksLike="h1">
           Text
         </Text>,
       );
-      expect(wrapper).toHaveStyleRule('fontSize', tokens.fontSize_700);
+      expect(wrapper).toHaveStyleRule('font-size', tokens.fontSize_700);
     });
   });
 });
