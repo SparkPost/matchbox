@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { Transition } from 'react-transition-group';
 import FocusLock from 'react-focus-lock';
 import styled from 'styled-components';
+import { padding, maxWidth } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import { Close } from '@sparkpost/matchbox-icons';
@@ -15,6 +17,7 @@ import { base, focusLock, wrapper, content, contentAnimation, closeButton } from
 
 const StyledBase = styled('div')`
   ${base}
+  ${padding}
 `;
 
 const StyledWrapper = styled('div')`
@@ -27,6 +30,7 @@ const StyledCloseButton = styled(Button)`
 
 const StyledFocusLock = styled(FocusLock)`
   ${focusLock}
+  ${maxWidth}
 `;
 
 const StyledContent = styled('div')`
@@ -35,20 +39,26 @@ const StyledContent = styled('div')`
 `;
 
 function Modal(props) {
-  const { onClose, children, portalId, className, showCloseButton, ...rest } = props;
+  const {
+    onClose,
+    children,
+    portalId,
+    className,
+    showCloseButton,
+    maxWidth,
+    open,
+    ...rest
+  } = props;
   let container = useRef(null);
   let content = useRef(null);
 
   const handleKeydown = e => {
-    const { open } = props;
-
     if (open && onClose) {
       onKey('escape', onClose)(e);
     }
   };
 
   const handleOutsideClick = e => {
-    const { open } = props;
     const isOutside =
       content && !content.contains(e.target) && container && container.contains(e.target);
 
@@ -60,6 +70,8 @@ function Modal(props) {
   return (
     <Portal containerId={portalId}>
       <StyledBase
+        p={['400', null, '700']}
+        open={open}
         {...rest}
         className={className}
         onClose={onClose}
@@ -68,7 +80,7 @@ function Modal(props) {
         aria-modal="true"
       >
         <StyledWrapper>
-          <ModalContent open={props.open} maxWidth={props.maxWidth}>
+          <ModalContent open={open} maxWidth={maxWidth}>
             <div ref={el => (content = el)}>
               <WindowEvent event="keydown" handler={handleKeydown} />
 
@@ -136,10 +148,12 @@ Modal.propTypes = {
    * Controls the target container ID for the rendering React portal
    */
   portalId: PropTypes.string,
+  ...createPropTypes(padding.propNames),
+  ...createPropTypes(maxWidth.propNames),
 };
 
 Modal.defaultProps = {
-  maxWidth: '800px',
+  maxWidth: '1200',
 };
 
 export default Modal;
