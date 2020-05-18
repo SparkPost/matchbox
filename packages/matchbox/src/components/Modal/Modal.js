@@ -71,6 +71,7 @@ function Modal(props) {
     <Portal containerId={portalId}>
       <StyledBase
         p={['400', null, '700']}
+        open={open}
         {...rest}
         className={className}
         onClose={onClose}
