@@ -10,7 +10,6 @@ export const inputOptions = {
   external: [
     'react',
     'react-dom',
-    'classnames',
     'prop-types',
     'react-transition-group',
     'react-focus-lock',
