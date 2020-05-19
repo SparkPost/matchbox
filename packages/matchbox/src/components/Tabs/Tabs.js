@@ -70,6 +70,7 @@ function Tabs(props) {
     }
   }, [wrapperRef, overflowRef, windowSize]);
 
+  // Constructs the tabs, their props and handles tab keyboard navigation
   const { tabMarkup, tabActions, onFocusContainerKeyDown, focusContainerRef } = useTabConstructor({
     tabs,
     fitted,

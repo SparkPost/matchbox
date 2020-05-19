@@ -27,14 +27,27 @@ const handleSelect = action('Tab Selected');
 
 const Example = () => {
   const [i, seti] = React.useState(0);
-  return <Tabs selected={i} onSelect={ind => seti(ind)} tabs={tabs} keyboardActivation="manual" />;
+  return (
+    <Tabs
+      mb="800"
+      selected={i}
+      onSelect={ind => seti(ind)}
+      tabs={tabs}
+      keyboardActivation="manual"
+    />
+  );
 };
 
 export default {
   title: 'Navigation|Tabs',
 };
 
-export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => <Example />);
+export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => (
+  <>
+    <Example />
+    <button>this is only here to test focus order</button>
+  </>
+));
 
 export const DefaultTabs = withInfo()(() => (
   <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs} />
