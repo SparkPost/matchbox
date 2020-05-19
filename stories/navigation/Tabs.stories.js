@@ -19,7 +19,7 @@ const tabs = [
   {
     content: 'Example with a component wrapper',
     onClick: action('Example with component clicked'),
-    Component: props => <a {...props} href="#" />,
+    Component: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
   },
 ];
 
@@ -27,7 +27,7 @@ const handleSelect = action('Tab Selected');
 
 const Example = () => {
   const [i, seti] = React.useState(0);
-  return <Tabs selected={i} onSelect={ind => seti(ind)} tabs={tabs} />;
+  return <Tabs selected={i} onSelect={ind => seti(ind)} tabs={tabs} keyboardActivation="manual" />;
 };
 
 export default {

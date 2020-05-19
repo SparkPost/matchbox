@@ -4,7 +4,7 @@ import { deprecate } from '../../helpers/propTypes';
 
 import { Text } from '../Text';
 
-function UnstyledLink(props) {
+const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   const { children, to, title, Component, component, external, onClick, role, ...rest } = props;
 
   const WrapperComponent = component || Component;
@@ -20,6 +20,7 @@ function UnstyledLink(props) {
         rel={external ? 'noopener noreferrer' : ''}
         title={linkTitle}
         onClick={onClick}
+        ref={ref}
         {...rest}
       >
         {children}
@@ -29,18 +30,18 @@ function UnstyledLink(props) {
 
   if (WrapperComponent) {
     return (
-      <Text as={WrapperComponent} to={to} title={linkTitle} onClick={onClick} {...rest}>
+      <Text as={WrapperComponent} to={to} title={linkTitle} onClick={onClick} ref={ref} {...rest}>
         {children}
       </Text>
     );
   }
 
   return (
-    <Text as="a" title={linkTitle} role={linkRole} onClick={onClick} {...rest}>
+    <Text as="a" title={LinkTitle} role={linkRole} onClick={onClick} ref={ref} {...rest}>
       {children}
     </Text>
   );
-}
+});
 
 UnstyledLink.displayName = 'UnstyledLink';
 
