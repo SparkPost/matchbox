@@ -14,10 +14,10 @@ const StyledText = styled(Box)`
 `;
 
 const Text = function(props) {
-  const { as, looksLike, children, ...rest } = props;
+  const { as, lookslike, children, ...rest } = props;
 
   return (
-    <StyledText as={as} looksLike={looksLike} {...rest}>
+    <StyledText as={as} looksLike={lookslike} {...rest}>
       {children}
     </StyledText>
   );
@@ -26,7 +26,7 @@ const Text = function(props) {
 Text.propTypes = {
   as: PropTypes.elementType.isRequired,
   children: PropTypes.node.isRequired,
-  looksLike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
+  lookslike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
 };
 
 Text.defaultProps = {
