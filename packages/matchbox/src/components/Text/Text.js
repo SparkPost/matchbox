@@ -1,23 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '../Box';
 import { color, space, typography, compose } from 'styled-system';
-import { truncate, looksLike } from './styles';
+import { truncate, lookslike } from './styles';
 import PropTypes from 'prop-types';
 
 const system = compose(color, space, typography);
 
-const StyledText = styled(Box)`
+const StyledText = styled('p')`
   ${system}
   ${truncate}
-  ${looksLike}
+  ${lookslike}
 `;
 
 const Text = function(props) {
   const { as, lookslike, children, ...rest } = props;
 
   return (
-    <StyledText as={as} looksLike={lookslike} {...rest}>
+    <StyledText as={as} lookslike={lookslike} {...rest}>
       {children}
     </StyledText>
   );

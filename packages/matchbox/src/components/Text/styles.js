@@ -10,10 +10,10 @@ export const truncate = props => {
   }
 };
 
-export const looksLike = props => {
+export const lookslike = props => {
   let styles;
 
-  switch (props.looksLike) {
+  switch (props.lookslike) {
     case 'h1':
       styles = `
         font-size: ${tokens.fontSize_700};
@@ -57,12 +57,14 @@ export const looksLike = props => {
       `;
       break;
     case 'p':
-    default:
       styles = `
         font-size: ${tokens.fontSize_300};
         line-height: ${tokens.lineHeight_300};
         font-weight: ${tokens.fontWeight_normal};
       `;
+      break;
+    default:
+      break;
   }
 
   return styles;
