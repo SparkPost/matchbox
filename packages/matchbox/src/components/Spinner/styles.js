@@ -26,6 +26,9 @@ export const circle = props => {
     case 'orange':
       color = tokens.color_brand_orange;
       break;
+    case 'white':
+      color = tokens.color_white;
+      break;
     case 'blue':
     default:
       color = tokens.color_blue_700;

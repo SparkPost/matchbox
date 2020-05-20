@@ -12,6 +12,9 @@ export const Color = withInfo()(() => (
       <Spinner label="loading" />
       <Spinner color="orange" label="loading" />
       <Spinner color="gray" label="loading" />
+      <Box bg="blue.700">
+        <Spinner color="white" label="loading" />
+      </Box>
     </Box>
   </div>
 ));

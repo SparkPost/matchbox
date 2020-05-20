@@ -34,6 +34,12 @@ describe('Spinner', () => {
 
       expect(wrapper.find('circle')).toHaveStyleRule('stroke', tokens.color_brand_gray);
     });
+
+    it('white', () => {
+      const wrapper = subject({ color: 'white' });
+
+      expect(wrapper.find('circle')).toHaveStyleRule('stroke', tokens.color_white);
+    });
   });
 
   describe('renders sizing', () => {

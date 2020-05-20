@@ -44,7 +44,7 @@ Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
   size: PropTypes.oneOf(['small', 'large']),
-  color: PropTypes.oneOf(['gray', 'orange', 'blue']),
+  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'white']),
   label: PropTypes.string.isRequired,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(layout.propNames),
