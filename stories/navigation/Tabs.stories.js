@@ -1,7 +1,7 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Tabs, Panel } from '@sparkpost/matchbox';
+import { Tabs, Panel, useTabs } from '@sparkpost/matchbox';
 
 const tabs = [
   {
@@ -23,59 +23,55 @@ const tabs = [
   },
 ];
 
-const handleSelect = action('Tab Selected');
-
-const Example = () => {
-  const [i, seti] = React.useState(0);
-  return (
-    <Tabs
-      mb="800"
-      selected={i}
-      onSelect={ind => seti(ind)}
-      tabs={tabs}
-      keyboardActivation="manual"
-    />
-  );
-};
-
 export default {
   title: 'Navigation|Tabs',
 };
 
-export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => (
-  <>
-    <Example />
-    <button>this is only here to test focus order</button>
-  </>
-));
+export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Tabs mb="800" {...getTabsProps()} keyboardActivation="manual" />
+      <button>this is only here to test focus order</button>
+    </>
+  );
+});
 
-export const DefaultTabs = withInfo()(() => (
-  <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs} />
-));
+export const AutomaticKeyboardActivation = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return <Tabs mb="800" {...getTabsProps()} keyboardActivation="auto" />;
+});
 
-export const FittedTabs = withInfo()(() => (
-  <Tabs fitted selected={0} onSelect={handleSelect} tabs={tabs} />
-));
+export const FittedTabs = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return <Tabs mb="800" {...getTabsProps()} fitted keyboardActivation="auto" />;
+});
 
-export const ExampleWithinPanel = withInfo()(() => (
-  <>
-    <Panel mb="400">
-      <Tabs selected={0} onSelect={handleSelect} tabs={tabs} />
-      <Panel.Section p="400">Example</Panel.Section>
-    </Panel>
-    <Panel>
-      <Tabs fitted selected={0} onSelect={handleSelect} tabs={tabs} />
-      <Panel.Section p="400">Example</Panel.Section>
-    </Panel>
-  </>
-));
+export const ExampleWithinPanel = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Panel mb="400">
+        <Tabs {...getTabsProps()} />
+        <Panel.Section p="400">Example</Panel.Section>
+      </Panel>
+      <Panel>
+        <Tabs fitted {...getTabsProps()} />
+        <Panel.Section p="400">Example</Panel.Section>
+      </Panel>
+    </>
+  );
+});
 
-export const SystemProps = withInfo()(() => (
-  <>
-    <Tabs selected={0} borderBottom="none" tabs={tabs} my={['400', null, '800', '100px']} />
-    <Tabs fitted selected={0} tabs={tabs} mx={['400', null, '800', '200px']} />
-  </>
-));
+export const SystemProps = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Tabs borderBottom="none" {...getTabsProps()} my={['400', null, '800', '100px']} />
+      <Tabs fitted {...getTabsProps()} mx={['400', null, '800', '200px']} />
+    </>
+  );
+});
 
 export const DisabledResponsiveBehavior = withInfo()(() => (
   <Tabs selected={0} disableResponsiveBehavior onSelect={handleSelect} tabs={tabs} />
