@@ -14,29 +14,29 @@ describe('Text', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('looksLike renders correctly', () => {
-    it('it should render visually as the looksLike prop while html should match the as prop ', () => {
+  describe('lookslike renders correctly', () => {
+    it('it should render visually as the lookslike prop while html should match the as prop ', () => {
       const wrapper = global.mountStyled(
         <div>
-          <Text as="h1" looksLike="h2">
+          <Text as="h1" lookslike="h2">
             Text
           </Text>
-          <Text as="h2" looksLike="h5">
+          <Text as="h2" lookslike="h5">
             Text
           </Text>
-          <Text as="h3" looksLike="h1">
+          <Text as="h3" lookslike="h1">
             Text
           </Text>
-          <Text as="h4" looksLike="h6">
+          <Text as="h4" lookslike="h6">
             Text
           </Text>
-          <Text as="h5" looksLike="h3">
+          <Text as="h5" lookslike="h3">
             Text
           </Text>
-          <Text as="h6" looksLike="h4">
+          <Text as="h6" lookslike="h4">
             Text
           </Text>
-          <Text as="p" looksLike="h1">
+          <Text as="p" lookslike="h1">
             Text
           </Text>
         </div>,

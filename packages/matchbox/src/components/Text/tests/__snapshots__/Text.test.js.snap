@@ -1,14 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text it should render correctly 1`] = `
-.c0 {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-}
-
 <p
-  class="c0"
+  class=""
   id="text-id"
 >
   Text
@@ -20,12 +14,6 @@ exports[`Text it should truncate 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  font-weight: 400;
 }
 
 <p

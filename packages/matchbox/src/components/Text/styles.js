@@ -11,7 +11,7 @@ export const truncate = props => {
 };
 
 export const lookslike = props => {
-  let styles;
+  let styles = '';
 
   switch (props.lookslike) {
     case 'h1':
