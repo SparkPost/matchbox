@@ -130,3 +130,4 @@
 - #406 - `Checkbox` and `Radio` label now match `TextField` and use `Label` component
 - #406 - Help text on `Checkbox` and `Radio` now indented
 - #406 - Use `Stack` around inputs in `Checkbox` and `Radio` groups
+- #415 - Adds new `Spinner` Component
