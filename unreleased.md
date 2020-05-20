@@ -159,3 +159,8 @@
 - #245 - Adds new `label` and `valueText` props to Progressbar
 - #235 - Adds new `title` prop to Table that renders a screen reader accessible caption
 - #247 - UnstyledLinks now use `role="button"` if they are not links
+- #413 - Adds support for tab keyboard navigation
+- #413 - Adds new prop keyboardActivation defaults to auto
+- #413 - Tabs with custom components now require a ref to be forwarded
+- #413 - Adds new useTabs hook to support tab state implementation
+- #413 - Refs can now be forwarded to Text, UnstyledLink, Tabs
