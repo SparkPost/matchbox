@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin, layout, compose } from 'styled-system';
+import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
@@ -21,10 +22,11 @@ const StyledCircle = styled('circle')`
   ${circle}
 `;
 
-function Spinner(props) {
-  const { size, color, label, ...rest } = props;
+const Spinner = React.forwardRef(function Spinner(props, ref) {
+  const { size, color, label } = props;
+  const systemProps = pick(props);
   return (
-    <StyledSpinner {...rest}>
+    <StyledSpinner {...systemProps} ref={ref}>
       <StyledSVG size={size} xmlns="http://www.w3.org/2000/svg" viewBox="25 25 50 50">
         <StyledCircle
           size={size}
@@ -38,7 +40,7 @@ function Spinner(props) {
       <ScreenReaderOnly>{label}</ScreenReaderOnly>
     </StyledSpinner>
   );
-}
+});
 
 Spinner.displayName = 'Spinner';
 
