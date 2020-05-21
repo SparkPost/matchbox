@@ -13,6 +13,8 @@ describe('The Tabs component', () => {
         .eq(1)
         .click();
       cy.get('[aria-selected="true"]').should('have.text', 'More Details');
+      cy.get(`[tabindex="0"]`).should('have.text', 'Details');
+      cy.get(`[tabindex="-1"]`).should('have.length', 3);
     });
   });
 
@@ -35,6 +37,7 @@ describe('The Tabs component', () => {
       cy.focused().should('have.text', 'Details');
       cy.get('body').type('{leftArrow}');
       cy.focused().should('have.text', 'Example with a component wrapper');
+      cy.get(`[tabindex="0"]`).should('have.text', 'Example with a component wrapper');
     });
 
     it('should handle home and end keys', () => {
@@ -54,6 +57,14 @@ describe('The Tabs component', () => {
     it('should tab past the tabs', () => {
       cy.tab();
       cy.focused().should('have.text', 'this is only here to test focus order');
+    });
+
+    it('should correctly reset tabindex to selected tab after blurring', () => {
+      cy.get('body').type('{rightArrow}');
+      cy.focused().should('have.text', 'More Details');
+      cy.tab();
+      cy.focused().should('have.text', 'this is only here to test focus order');
+      cy.get(`[tabindex="0"]`).should('have.text', 'Details');
     });
   });
 

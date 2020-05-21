@@ -71,7 +71,7 @@ function Tabs(props) {
   }, [wrapperRef, overflowRef, windowSize]);
 
   // Constructs the tabs, their props and handles tab keyboard navigation
-  const { tabMarkup, tabActions, onFocusContainerKeyDown, focusContainerRef } = useTabConstructor({
+  const { tabMarkup, tabActions, focusContainerProps } = useTabConstructor({
     tabs,
     fitted,
     handleClick,
@@ -95,8 +95,7 @@ function Tabs(props) {
             top="0"
             right="0"
             display="flex"
-            ref={focusContainerRef}
-            onKeyDown={onFocusContainerKeyDown}
+            {...focusContainerProps}
           >
             {tabMarkup}
             {/* Measurement pixel used to detect content overflow */}

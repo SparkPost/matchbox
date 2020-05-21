@@ -13,56 +13,68 @@ function useTabConstructor({
 }) {
   const [focused, setFocused] = React.useState(0);
   const focusContainerRef = React.useRef({});
-  const tabRefs = React.useRef({ current: [{}] });
+  const tabRefs = React.useRef({ current: new Array(tabs.length) });
 
   // Handles keydown events on the tab focus container
-  const onFocusContainerKeyDown = React.useCallback(
-    e => {
-      const isWithin = focusContainerRef.current && focusContainerRef.current.contains(e.target);
+  const onFocusContainerKeyDown = e => {
+    const isWithin =
+      focusContainerRef.current && focusContainerRef.current.contains(e.currentTarget);
 
-      if (!isWithin) {
-        return;
-      }
+    if (!isWithin) {
+      return;
+    }
 
-      onKey('arrowRight', () => {
-        e.preventDefault();
-        if (focused === tabs.length - 1) {
-          setFocused(0);
-        } else {
-          setFocused(focused + 1);
-        }
-      })(e);
-
-      onKey('arrowLeft', () => {
-        e.preventDefault();
-        if (focused === 0) {
-          setFocused(tabs.length - 1);
-        } else {
-          setFocused(focused - 1);
-        }
-      })(e);
-
-      onKeys(['home', 'pageDown'], () => {
-        e.preventDefault();
+    onKey('arrowRight', () => {
+      e.preventDefault();
+      if (focused === tabs.length - 1) {
         setFocused(0);
-      })(e);
+      } else {
+        setFocused(focused + 1);
+      }
+    })(e);
 
-      onKeys(['end', 'pageUp'], () => {
-        e.preventDefault();
+    onKey('arrowLeft', () => {
+      e.preventDefault();
+      if (focused === 0) {
         setFocused(tabs.length - 1);
-      })(e);
-    },
-    [tabs, focusContainerRef.current, focused],
-  );
+      } else {
+        setFocused(focused - 1);
+      }
+    })(e);
+
+    onKeys(['home', 'pageDown'], () => {
+      e.preventDefault();
+      setFocused(0);
+    })(e);
+
+    onKeys(['end', 'pageUp'], () => {
+      e.preventDefault();
+      setFocused(tabs.length - 1);
+    })(e);
+  };
+
+  function onFocusContainerBlur(e) {
+    if (focusContainerRef.current && !focusContainerRef.current.contains(e.relatedTarget)) {
+      setFocused(selected);
+    }
+  }
 
   // Preps array of tab item refs
   React.useEffect(() => {
     tabRefs.current = new Array(tabs.length);
+    return () => {
+      tabRefs.current = [];
+    };
   }, [tabs]);
 
   // Focuses on tab items when focused index changes
   // Optionally calls onSelect
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
+    // Does not continue when focus is reset, when moving focus outside the container
+    if (focusContainerRef.current && !focusContainerRef.current.contains(document.activeElement)) {
+      return;
+    }
+
     if (tabRefs.current[focused]) {
       tabRefs.current[focused].focus();
       if (keyboardActivation === 'auto' && onSelect) {
@@ -81,7 +93,7 @@ function useTabConstructor({
       selected={selected}
       {...tab}
       onClick={handleClick}
-      tabIndex={focused === i || selected === i ? '0' : '-1'}
+      tabIndex={focused === i ? '0' : '-1'}
     />
   ));
 
@@ -98,8 +110,11 @@ function useTabConstructor({
   return {
     tabMarkup,
     tabActions,
-    onFocusContainerKeyDown,
-    focusContainerRef,
+    focusContainerProps: {
+      onBlur: onFocusContainerBlur,
+      onKeyDown: onFocusContainerKeyDown,
+      ref: focusContainerRef,
+    },
   };
 }
 
