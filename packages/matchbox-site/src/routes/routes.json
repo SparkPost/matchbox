@@ -75,5 +75,10 @@
         "section": "Layout"
       }
     ]
+  },
+  {
+    "path": "/posts",
+    "label": "Posts",
+    "hiddenFromNav": true
   }
 ]

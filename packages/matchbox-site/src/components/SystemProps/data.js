@@ -153,6 +153,6 @@ export const propData = {
     'mediaQuery_xl'
   ],
   borders: {
-    '400': '${borderWidth_100} solid ${color_gray_400}'
+    '400': '${borderWidth_100} solid ${color_gray_400}' // eslint-disable-line no-template-curly-in-string
   }
 };

@@ -10,7 +10,7 @@ export const tableCell = props => {
   const { type } = props;
   let fontWeight = tokens.fontWeight_normal;
 
-  if (type == 'friendly') {
+  if (type === 'friendly') {
     fontWeight = tokens.fontWeight_medium;
   }
 
