@@ -122,5 +122,10 @@
         "section": "Overlays"
       }
     ]
+  },
+  {
+    "path": "/posts",
+    "label": "Posts",
+    "hiddenFromNav": true
   }
 ]
