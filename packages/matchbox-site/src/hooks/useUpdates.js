@@ -1,8 +1,8 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-function usePosts() {
+function useUpdates() {
   const data = useStaticQuery(graphql`
-    query SitePostsQuery {
+    query UpdatesQuery {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
         filter: { frontmatter: { published: { eq: true } } }
@@ -13,6 +13,7 @@ function usePosts() {
           frontmatter {
             title
             date
+            category
           }
           fields {
             slug
@@ -25,4 +26,4 @@ function usePosts() {
   return data.allMdx.nodes;
 }
 
-export default usePosts;
+export default useUpdates;

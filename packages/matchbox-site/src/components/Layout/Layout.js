@@ -81,8 +81,8 @@ function Layout(props) {
       <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
-        <Box display="flex">
-          {Boolean(sideItems.length) && (
+        <Box display="flex" maxWidth={props.maxWidth || '1240px'} m="0 auto">
+          {Boolean(sideItems && sideItems.length) && (
             <Box as="aside" flex="0 0 0" minWidth="300px">
               <SideNavigation navItems={sideItems} />
             </Box>

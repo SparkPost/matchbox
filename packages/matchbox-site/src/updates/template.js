@@ -1,16 +1,16 @@
 import React from 'react';
-// import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout/Layout';
-import usePostBySlug from '../hooks/usePostBySlug';
+import useUpdateBySlug from '../hooks/useUpdateBySlug';
 
 function Template() {
-  const { body } = usePostBySlug();
+  const { body } = useUpdateBySlug();
+
   return (
     <Layout>
-      {/* <MDXProvider components={shortcodes}> */}
+      <Link to="/updates">All Updates</Link>
       <MDXRenderer>{body}</MDXRenderer>
-      {/* </MDXProvider> */}
     </Layout>
   );
 }

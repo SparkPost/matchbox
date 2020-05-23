@@ -1,8 +1,8 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-function usePostBySlug() {
+function useUpdateBySlug() {
   const data = useStaticQuery(graphql`
-    query PostsBySlug($id: String) {
+    query UpdateBySlug($id: String) {
       mdx(id: { eq: $id }) {
         body
         frontmatter {
@@ -16,4 +16,4 @@ function usePostBySlug() {
   return data.mdx;
 }
 
-export default usePostBySlug;
+export default useUpdateBySlug;

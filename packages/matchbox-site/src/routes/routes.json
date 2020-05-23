@@ -5,6 +5,11 @@
     "hiddenFromNav": true
   },
   {
+    "path": "/updates",
+    "label": "Updates",
+    "disabled": false
+  },
+  {
     "path": "/brand",
     "label": "Brand",
     "disabled": true
@@ -75,10 +80,5 @@
         "section": "Layout"
       }
     ]
-  },
-  {
-    "path": "/posts",
-    "label": "Posts",
-    "hiddenFromNav": true
   }
 ]

@@ -28,8 +28,8 @@ module.exports = {
       // Sources mdx post pages
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
-        path: `${__dirname}/src/posts`
+        name: 'updates',
+        path: `${__dirname}/src/updates`
       }
     },
     'gatsby-transformer-json',

@@ -28,13 +28,13 @@ exports.createPages = ({ actions, graphql }) => {
     if (result.errors) {
       throw result.errors;
     }
-    const posts = result.data.allMdx.nodes;
+    const updates = result.data.allMdx.nodes;
 
     // Create page for each mdx file
-    posts.forEach(({ fields, id }) => {
+    updates.forEach(({ fields, id }) => {
       createPage({
         path: fields.slug,
-        component: path.resolve('src/posts/template.js'),
+        component: path.resolve('src/updates/template.js'),
         context: {
           slug: fields.slug,
           id: id
@@ -47,7 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  // Creates slug fields and urls for MDX posts
+  // Creates slug fields and urls for MDX updates
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode });
     createNodeField({
@@ -56,7 +56,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Generated value based on filepath with "blog" prefix. you
       // don't need a separating "/" before the value because
       // createFilePath returns a path with the leading "/".
-      value: `/posts${value}`
+      value: `/updates${value}`
     });
   }
 };
