@@ -24,6 +24,14 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    {
+      // Sources mdx post pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'updates',
+        path: `${__dirname}/src/updates`
+      }
+    },
     'gatsby-transformer-json',
     {
       resolve: 'gatsby-source-filesystem',

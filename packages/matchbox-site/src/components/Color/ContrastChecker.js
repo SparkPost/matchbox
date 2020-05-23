@@ -95,7 +95,12 @@ function ContrastChecker() {
   }
 
   return (
-    <Box as="table" style={{ tableLayout: 'fixed' }} width="100%" border="400">
+    <Box
+      as="table"
+      style={{ borderCollapse: 'collapse', tableLayout: 'fixed' }}
+      width="100%"
+      border="400"
+    >
       <tbody>
         {_.map(keys, (k, i) => {
           const shades = _.filter(colors, ({ name }) => name.includes(k));

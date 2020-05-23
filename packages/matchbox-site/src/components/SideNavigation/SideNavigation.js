@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { StyledListItem, StyledLink } from './style';
+import { StyledListItem, StyledLink } from './styles';
 
 import { Box } from '@sparkpost/matchbox';
 
@@ -18,7 +18,11 @@ function SideNavigation(props) {
       <Box as="ul" mb="600" p="0">
         {list.map(item => (
           <StyledListItem key={item.path} selected={item.selected}>
-            <StyledLink to={item.path} disabled={item.disabled}>
+            <StyledLink
+              to={item.path}
+              disabled={item.disabled}
+              selected={item.selected}
+            >
               {item.label}
             </StyledLink>
           </StyledListItem>

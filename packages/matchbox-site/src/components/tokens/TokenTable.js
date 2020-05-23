@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from '../Heading';
 import TokenUsage from './TokenUsage';
-import { Box } from '@sparkpost/matchbox';
+import { Box, Select } from '@sparkpost/matchbox';
 import styled from 'styled-components';
 import { tokenTable, tableCell } from './TokenTableStyle';
 
@@ -38,6 +38,18 @@ function TokenTable(props) {
     return <tr key={`${token.name}-${i}`}>{cells}</tr>;
   }
 
+  // Sorts by category, then friendly name
+  const sortedTokens = React.useMemo(() => {
+    return props.tokens.sort((a, b) => {
+      if (a.category > b.category) return 1;
+      if (a.category < b.category) return -1;
+      if (a.friendly > b.friendly) return 1;
+      if (a.friendly < b.friendly) return -1;
+
+      return 0;
+    });
+  }, [props.tokens]);
+
   return (
     <div>
       <Box
@@ -50,15 +62,19 @@ function TokenTable(props) {
           {props.title || 'Tokens'}
         </Heading>
         <div>
-          <select onChange={handleTypeSelect} value={usageType}>
-            <option value="javascript">Javascript</option>
-            <option value="scss">Scss</option>
-            <option value="css">CSS</option>
-          </select>
+          <Select
+            onChange={handleTypeSelect}
+            value={usageType}
+            options={[
+              { value: 'javascript', label: 'Javascript' },
+              { value: 'scss', label: 'Scss' },
+              { value: 'css', label: 'CSS' }
+            ]}
+          ></Select>
         </div>
       </Box>
       <StyledTable>
-        <tbody>{props.tokens.map(renderTokenRow)}</tbody>
+        <tbody>{sortedTokens.map(renderTokenRow)}</tbody>
       </StyledTable>
     </div>
   );

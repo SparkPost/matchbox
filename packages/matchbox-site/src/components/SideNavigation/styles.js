@@ -35,16 +35,22 @@ const listItem = props => {
   return props.selected ? baseStyles + selectedStyles : baseStyles;
 };
 
-const link = `
+const link = props => `
   position: relative;
   display: inline-block;
   padding: ${tokens.spacing_100} 0;
 
   text-decoration: none;
-  color: ${tokens.color_gray_900};
   font-size: ${tokens.fontSize_400};
   line-height: ${tokens.lineHeight_400};
   font-weight: ${tokens.fontWeight_medium};
+
+  &, &:visited {
+    color: ${props.selected ? tokens.color_blue_700 : tokens.color_gray_900};
+    &:hover {
+      color: ${tokens.color_blue_700};
+    }
+  }
 `;
 
 export const StyledListItem = styled('li')`

@@ -25,7 +25,6 @@ function Group(props) {
   return (
     <Button.Group>
       {items.map(item => {
-        console.log(item, selected);
         const isSelected = [item.pixel_value, item.value, item.name].includes(
           selected
         );
