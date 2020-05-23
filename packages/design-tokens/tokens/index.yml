@@ -10,5 +10,6 @@ imports:
   - ./media-query.yml
   - ./motion-duration.yml
   - ./motion-ease.yml
+  - ./sizing.yml
   - ./spacing.yml
   - ./z-index.yml

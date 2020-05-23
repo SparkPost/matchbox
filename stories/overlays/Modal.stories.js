@@ -1,64 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
+import { Modal, Panel, Button, Box } from '@sparkpost/matchbox';
 
-import { Modal, Panel, Button, Grid } from '@sparkpost/matchbox';
-
-class ModalDemo extends React.Component {
-  state = {
-    open: false
-  }
-
-  handleChange = () => {
-    this.setState({ open: !this.state.open });
-  }
-
-  render() {
-    return (
-      <div>
-        <a onClick={this.handleChange} href="javascript:void(0);" role="button" data-id="open-modal">
-          Open modal
-        </a>
-
-        <Modal open={this.state.open} onClose={this.handleChange} showCloseButton={true}>
-          <Panel title="Delete Template" sectioned accent>
-            <p>Are you sure you want to delete your template?</p>
-
-            <Button style={{ marginRight: '1rem' }} primary onClick={this.handleChange} data-id="delete-button">Delete</Button>
-
-            <Button onClick={this.handleChange} data-id="cancel-button">Cancel</Button>
-          </Panel>
-        </Modal>
-      </div>
-    )
-  }
-};
+const PORTAL_ID = 'modal-portal';
 
 storiesOf('Overlays|Modal', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-
   .add('Open', () => {
     return (
-      <Modal open>
-        <Panel title="Delete Template" sectioned accent>
+      <Modal open portalId={PORTAL_ID}>
+        <Panel title="Delete Template" sectioned>
           <p>Are you sure you want to delete your template?</p>
-          <Button style={{ marginRight: '1rem' }} primary>Delete</Button>
-          <Button>Cancel</Button>
+
+          <Box mt="500">
+            <Button mr="300" color="blue">
+              Delete
+            </Button>
+
+            <Button color="blue" outline>
+              Cancel
+            </Button>
+          </Box>
         </Panel>
       </Modal>
-    )
+    );
   })
+  .add(
+    'Toggle Example',
+    withInfo({
+      source: false,
+      propTables: [Modal],
+      propTablesExclude: [ModalDemo],
+    })(() => {
+      return <ModalDemo />;
+    }),
+  );
 
-  .add('Toggle Example', withInfo({
-    source: false,
-    propTables: [Modal],
-    propTablesExclude: [ModalDemo]
-  })(() => {
-    return (
-      <ModalDemo />
-    )
-  }));
+function ModalDemo() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  return (
+    <>
+      <button onClick={handleToggle} data-id="open-modal">
+        Open Modal
+      </button>
+
+      <Modal open={isOpen} onClose={handleToggle} showCloseButton={true} portalId={PORTAL_ID}>
+        <Panel title="Delete Template" sectioned>
+          <p>Are you sure you want to delete your template?</p>
+
+          <Box mt="500">
+            <Button mr="300" color="blue" onClick={handleToggle} data-id="delete-button">
+              Delete
+            </Button>
+
+            <Button color="blue" outline onClick={handleToggle} data-id="cancel-button">
+              Cancel
+            </Button>
+          </Box>
+        </Panel>
+      </Modal>
+    </>
+  );
+}

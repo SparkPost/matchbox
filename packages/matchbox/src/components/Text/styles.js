@@ -1,51 +1,71 @@
-import { meta } from '@sparkpost/design-tokens';
-import _ from 'lodash';
+import { tokens } from '@sparkpost/design-tokens';
 
-export const truncate = (props) => {
+export const truncate = props => {
   if (props.truncate) {
     return {
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
     };
   }
 };
 
-/**
- * Crops the text elements line height.
- * The element's vertical bounds will begin & end at the rendered font instead of line height.
- * This is an experimental prop
- * Calibre naturally has more spacing above than below, cropping is not perfect.
- */
-export const crop = (props) => {
-  const capHeight = 0.69; // Cap height optimized for Calibre
-  const baseline = 2; // Calculated height will always be divisible by this baseline
+export const lookslike = props => {
+  let styles = '';
 
-  // Requires lineHeight and fontSize to reference a token
-  if (
-    !props.crop || !props.lineHeight || !props.fontSize ||
-    !_.find(meta, ({ name }) => name === `line-height-${props.lineHeight}`) ||
-    !_.find(meta, ({ name }) => name === `font-size-${props.fontSize}`)
-  ) {
-    return;
+  switch (props.lookslike) {
+    case 'h1':
+      styles = `
+        font-size: ${tokens.fontSize_700};
+        line-height: ${tokens.lineHeight_700};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'h2':
+      styles = `
+        font-size: ${tokens.fontSize_600};
+        line-height: ${tokens.lineHeight_600};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'h3':
+      styles = `
+        font-size: ${tokens.fontSize_500};
+        line-height: ${tokens.lineHeight_500};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'h4':
+      styles = `
+        font-size: ${tokens.fontSize_400};
+        line-height: ${tokens.lineHeight_400};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'h5':
+      styles = `
+        font-size: ${tokens.fontSize_300};
+        line-height: ${tokens.lineHeight_300};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'h6':
+      styles = `
+        font-size: ${tokens.fontSize_200};
+        line-height: ${tokens.lineHeight_200};
+        font-weight: ${tokens.fontWeight_semibold};
+      `;
+      break;
+    case 'p':
+      styles = `
+        font-size: ${tokens.fontSize_300};
+        line-height: ${tokens.lineHeight_300};
+        font-weight: ${tokens.fontWeight_normal};
+      `;
+      break;
+    default:
+      break;
   }
 
-  const lineHeight = _.find(meta, ({ name }) => name === `line-height-${props.lineHeight}`).pixel_value.replace('px', '');
-  const fontSize = _.find(meta, ({ name }) => name === `font-size-${props.fontSize}`).pixel_value.replace('px', '');
-
-  const desiredHeight = capHeight * Number(fontSize);
-  const spaceToRemove = (Number(lineHeight) - desiredHeight);
-  const spaceRoundedToBaseline = spaceToRemove - (spaceToRemove % baseline);
-
-  return `
-    transform: translateY(${spaceRoundedToBaseline / 2}px);
-
-    &::before {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-      margin-top: -${spaceRoundedToBaseline}px;
-    }
-  `;
+  return styles;
 };

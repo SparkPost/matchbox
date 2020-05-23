@@ -13,7 +13,7 @@ describe('The Slider component', () => {
 
     // Test relies on timing for layout side effects
     // Remove if flakey
-    it('should update the sliders value when clicking on the track', () => {
+    it.skip('should update the sliders value when clicking on the track', () => {
       cy.wait(200); // Gives slider some time for calculations
 
       cy.get('[data-id="slider-wrapper"]').trigger('mousedown', { button: 0, pageX: 200 });

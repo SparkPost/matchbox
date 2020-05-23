@@ -1,15 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ScreenReaderOnly.module.scss';
+import styled from 'styled-components';
+import { visuallyHidden } from '../../styles/helpers';
 
-const ScreenReaderOnly = ({ children }) => (
-  <span className={styles.ScreenReaderOnly}>
+const StyledScreenReaderOnly = styled('span')`
+  ${visuallyHidden}
+`;
+
+const ScreenReaderOnly = ({ children, as, id }) => (
+  <StyledScreenReaderOnly id={id} as={as}>
     {children}
-  </span>
+  </StyledScreenReaderOnly>
 );
 
 ScreenReaderOnly.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  as: PropTypes.elementType.isRequired,
+  id: PropTypes.string,
 };
 
+ScreenReaderOnly.defaultProps = {
+  as: 'span',
+};
+
+ScreenReaderOnly.displayName = 'ScreenReaderOnly';
 export default ScreenReaderOnly;

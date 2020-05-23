@@ -1,20 +1,22 @@
 /// <reference types="Cypress" />
 
-/* eslint-disable no-undef */
-describe('The Popover component', () => {
-
+describe('Controlled Popover component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?selectedKind=Overlays%7CPopover&selectedStory=with%20a%20controlled%20open%20state');
+    cy.visit('/iframe.html?path=/story/overlays-popover--controlled-open-state');
   });
 
   it('should open when clicking the trigger', () => {
-    cy.get('button').first().click();
+    cy.get('button')
+      .first()
+      .click();
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
 
   describe('when opened', () => {
     beforeEach(() => {
-      cy.get('button').first().click();
+      cy.get('button')
+        .first()
+        .click();
     });
 
     it('should close when clicking outside the popover', () => {
@@ -34,5 +36,45 @@ describe('The Popover component', () => {
       cy.get('[data-id="close-button"]').click();
       cy.get('[data-id="popover-content"]').should('not.be.visible');
     });
+  });
+});
+
+describe('Uncontrolled Popover with Actionlist', () => {
+  beforeEach(() => {
+    cy.visit('/iframe.html?path=/story/overlays-popover--with-an-action-list');
+    cy.wait(500); // The element that handles click events requires time to calculate dimensions
+  });
+
+  it('should open when clicking the trigger', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+  });
+
+  it('should toggle open with enter key', () => {
+    cy.contains('More Actions').type('{enter}');
+    cy.get('[data-id="popover-content"]').should('be.visible');
+  });
+
+  it('should tab through actionlist buttons', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Edit');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Delete');
+  });
+
+  it('should close when clicking outside the popover', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.get('body').click(100, 600);
+    cy.get('[data-id="popover-content"]').should('not.be.visible');
+  });
+
+  it('should close when pressing the escape key', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.get('body').type('{esc}');
+    cy.get('[data-id="popover-content"]').should('not.be.visible');
   });
 });

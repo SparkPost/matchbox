@@ -3,7 +3,7 @@ global:
   type: media-query
 props:
   - name: media-query-xs
-    value: '450px'
+    value: '448px'
   - name: media-query-sm
     value: '720px'
   - name: media-query-md
@@ -11,4 +11,4 @@ props:
   - name: media-query-lg
     value: '1200px'
   - name: media-query-xl
-    value: '1470px'
+    value: '1440px'

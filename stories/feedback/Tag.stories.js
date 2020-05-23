@@ -1,16 +1,8 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ThemeProvider, Inline, Tag } from '@sparkpost/matchbox';
+import { Inline, Tag } from '@sparkpost/matchbox';
 import { Language } from '@sparkpost/matchbox-icons';
-
-addDecorator(storyFn => (
-  <ThemeProvider>
-    <StoryContainer bg="white">{storyFn()}</StoryContainer>
-  </ThemeProvider>
-));
 
 export default {
   title: 'Feedback|Tag',
@@ -52,7 +44,7 @@ export const Colors = withInfo()(() => (
     <Tag onRemove={action('Tag Remove')} color="teal">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="gray">
+    <Tag onRemove={action('Tag Remove')} color="darkGray">
       domain.com
     </Tag>
     <Tag>domain.com</Tag>

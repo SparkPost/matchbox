@@ -1,11 +1,6 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-
 import { Box } from '@sparkpost/matchbox/components/Box';
-import { ThemeProvider } from '@sparkpost/matchbox/components/ThemeProvider';
-
-addDecorator((storyFn) => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 export default {
   title: 'Layout|Box',
@@ -15,13 +10,15 @@ export const StyledBox = withInfo()(() => (
   <Box
     color="gray.1000"
     fontWeight="semibold"
-    bg={["teal.200", "yellow.200", "red.200", "purple.200", "blue.200"]}
+    bg={['teal.200', 'yellow.200', 'red.200', 'purple.200', 'blue.200']}
     py="200"
     px="300"
     m="400"
     borderRadius="200"
-    border={400}>
-      Just a Box
+    zIndex="overlay"
+    border={400}
+  >
+    Just a Box
   </Box>
 ));
 

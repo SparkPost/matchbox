@@ -1,33 +1,50 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
+import { Snackbar, Inline } from '@sparkpost/matchbox';
 
-import { Snackbar } from '@sparkpost/matchbox';
+export default {
+  title: 'Feedback|Snackbar',
+};
 
+export const Statuses = withInfo({ propTables: [Snackbar] })(() => (
+  <Inline space="600">
+    <Snackbar onDismiss={action('Dismissed')}>
+      Snakz <a href="https://sparkpost.github.io/matchbox/">link</a>
+    </Snackbar>
+    <Snackbar status="success" onDismiss={action('Dismissed')}>
+      Snakz good <a href="https://sparkpost.github.io/matchbox/">link</a>
+    </Snackbar>
+    <Snackbar status="warning" onDismiss={action('Dismissed')}>
+      Yer suspended <a href="https://sparkpost.github.io/matchbox/">link</a>
+    </Snackbar>
+    <Snackbar status="danger" onDismiss={action('Dismissed')}>
+      Something went wrong <a href="https://sparkpost.github.io/matchbox/">link</a>
+    </Snackbar>
+  </Inline>
+));
 
-storiesOf('Feedback|Snackbar', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
+export const Large = withInfo()(() => (
+  <Snackbar maxWidth={700}>
+    This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey
+    capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong
+    landjaeger salami ham spare ribs flank cupim porchetta leberkas.{' '}
+    <a href="https://sparkpost.github.io/matchbox/">link</a>
+  </Snackbar>
+));
 
-  .add('Default', withInfo()(() => (
-    <Snackbar onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  )))
-
-  .add('Success', withInfo()(() => (
-    <Snackbar status='success' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  )))
-
-  .add('Danger or Error', withInfo()(() => (
-    <Snackbar status='danger' onDismiss={action('Dismissed')}>Template deleted</Snackbar>
-  )))
-
-  .add('Warning', withInfo()(() => (
-    <Snackbar status='warning' onDismiss={action('Dismissed')}>Yer suspended</Snackbar>
-  )))
-
-  .add('Large', withInfo()(() => (
-    <Snackbar maxWidth={700}>This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong landjaeger salami ham spare ribs flank cupim porchetta leberkas.</Snackbar>
-  )));
+export const ResponsiveSystemProps = withInfo({ propTables: [Snackbar] })(() => (
+  <Inline>
+    <Snackbar
+      status="warning"
+      onDismiss={action('Dismissed')}
+      my={['200', '700', '300', '800']}
+      mx="400"
+    >
+      Yer suspended <a href="https://sparkpost.github.io/matchbox/">link</a>
+    </Snackbar>
+    <Snackbar status="success" onDismiss={action('Dismissed')} mx={['200', '700', '300', '800']}>
+      Template deleted
+    </Snackbar>
+  </Inline>
+));

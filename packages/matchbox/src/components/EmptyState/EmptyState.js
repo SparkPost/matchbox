@@ -1,78 +1,90 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { buttonFrom } from '../Button';
 import { linkFrom } from '../UnstyledLink';
-import styles from './EmptyState.module.scss';
+import styled from 'styled-components';
+import { emptyState, title, content, actions, image, secondaryAction } from './styles.js';
 
-class EmptyState extends Component {
-  static displayName = 'EmptyState';
+const StyledEmptyState = styled('div')`
+  ${emptyState}
+`;
 
-  static propTypes = {
-    /**
-     * The display title
-     */
-    title: PropTypes.string,
-    /**
-      * Main cta. Most button props will work in here.
-      * e.g. { content: 'button label', onClick: callback() }
-      */
-    primaryAction: PropTypes.shape({
-      content: PropTypes.node.isRequired
-    }),
-    /**
-      * Secondary Action - appear as a link next to the primary action
-      */
-    secondaryAction: PropTypes.shape({
-      content: PropTypes.node.isRequired
-    }),
-    /**
-      * Image to display
-      */
-    image: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
-    /**
-      * Content below the CTA
-      */
-    children: PropTypes.node
-  };
+const StyledTitle = styled('h1')`
+  ${title}
+`;
 
-  render() {
-    const {
-      title,
-      primaryAction,
-      secondaryAction,
-      image: Image,
-      children
-    } = this.props;
+const StyledContent = styled('div')`
+  ${content}
+`;
 
-    const imageMarkup = Image
-      ? <div className={styles.Image}><Image /></div>
-      : null;
+const StyledActions = styled('div')`
+  ${actions}
+`;
 
-    const primaryActionMarkup = primaryAction
-      ? buttonFrom(primaryAction, {
+const StyledImage = styled('div')`
+  ${image}
+`;
+
+const StyledSecondaryAction = styled('span')`
+  ${secondaryAction}
+`;
+
+function EmptyState(props) {
+  const { title, primaryAction, secondaryAction, image: Image, children } = props;
+
+  const primaryActionMarkup = primaryAction
+    ? buttonFrom(primaryAction, {
         size: 'large',
-        ...(!primaryAction.color ? { color: 'blue' } : {})
+        ...(!primaryAction.color ? { color: 'blue' } : {}),
       })
-      : null;
+    : null;
 
-    const secondaryActionMarkup = secondaryAction
-      ? <span className={styles.SecondaryAction}>{linkFrom(secondaryAction)}</span>
-      : null;
-
-    return (
-      <div className={styles.EmptyState}>
-        <h1 className={styles.Title}>{title}</h1>
-        <div className={styles.Content}>{children}</div>
-        <div className={styles.Actions}>
-          {primaryActionMarkup} {secondaryActionMarkup}
-        </div>
-        {imageMarkup}
-      </div>
-    );
-  }
+  return (
+    <StyledEmptyState>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledContent>{children}</StyledContent>
+      <StyledActions>
+        {primaryActionMarkup}{' '}
+        {secondaryAction && (
+          <StyledSecondaryAction>{linkFrom(secondaryAction)}</StyledSecondaryAction>
+        )}
+      </StyledActions>
+      {Image && (
+        <StyledImage>
+          <Image />
+        </StyledImage>
+      )}
+    </StyledEmptyState>
+  );
 }
+
+EmptyState.displayName = 'EmptyState';
+EmptyState.propTypes = {
+  /**
+   * The display title
+   */
+  title: PropTypes.string,
+  /**
+   * Main cta. Most button props will work in here.
+   * e.g. { content: 'button label', onClick: callback() }
+   */
+  primaryAction: PropTypes.shape({
+    content: PropTypes.node.isRequired,
+  }),
+  /**
+   * Secondary Action - appear as a link next to the primary action
+   */
+  secondaryAction: PropTypes.shape({
+    content: PropTypes.node.isRequired,
+  }),
+  /**
+   * Image to display
+   */
+  image: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+  /**
+   * Content below the CTA
+   */
+  children: PropTypes.node,
+};
 
 export default EmptyState;

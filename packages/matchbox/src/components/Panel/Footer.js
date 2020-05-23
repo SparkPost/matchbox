@@ -1,44 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from '../Grid';
-import styles from './Panel.module.scss';
+import { Box } from '../Box';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
 
-class Footer extends Component {
+const OuterWrapper = styled('div')`
+  ${margin}
+`;
 
-  static displayName = 'Panel.Footer';
+function Footer(props) {
+  const {
+    // Left aligned content
+    left,
+    // Right aligned content
+    right,
+    ...rest
+  } = props;
 
-  static propTypes = {
-    /**
-      * Left aligned content
-      */
-    left: PropTypes.node,
-
-    /**
-      * Right aligned content
-      */
-    right: PropTypes.node
-  };
-
-  render() {
-    const { left, right, ...rest } = this.props;
-
-    return (
-      <div className={styles.Footer} {...rest}>
-        <Grid>
-          <Grid.Column xs={6}>
-            <div className={styles.Left}>
-              {left}
-            </div>
-          </Grid.Column>
-          <Grid.Column xs={6}>
-            <div className={styles.Right}>
-              {right}
-            </div>
-          </Grid.Column>
-        </Grid>
-      </div>
-    );
-  }
+  return (
+    <OuterWrapper {...rest}>
+      <Box display="flex" justifyContent="space-between">
+        <Box flex="1" textAlign="left">
+          {left}
+        </Box>
+        <Box flex="1" textAlign="right">
+          {right}
+        </Box>
+      </Box>
+    </OuterWrapper>
+  );
 }
+
+Footer.displayName = 'Panel.Footer';
+Footer.propTypes = {
+  left: PropTypes.node,
+  right: PropTypes.node,
+};
 
 export default Footer;

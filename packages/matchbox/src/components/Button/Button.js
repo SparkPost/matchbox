@@ -4,10 +4,12 @@ import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { omit } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 import Group from './Group';
-import { base, visualSize, colorVariant, disabled, fullWidth, group } from './styles';
+import { base, visualSize, colorVariant, disabled, fullWidth } from './styles';
 
 // TODO Categorize system props and abstract
 const system = compose(margin, width);
@@ -19,11 +21,6 @@ export const StyledButton = styled(Box)`
   ${disabled}
   ${fullWidth}
   ${system}
-`;
-
-// Button.Group is styled here to access a classname reference to StyledButton
-const StyledGroup = styled(Group)`
-  ${group(StyledButton)}
 `;
 
 function Button(props) {
@@ -40,6 +37,7 @@ function Button(props) {
     plain, // Deprecate in favor of flat
     flat,
     outline,
+    outlineBorder,
 
     // Options
     // Renaming to prevent `width` and `height` pass through
@@ -63,6 +61,9 @@ function Button(props) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
+  const systemProps = pick(rest, system.propNames);
+  const componentProps = omit(rest);
+
   // Polyfills deprecrated 'Component' prop
   const WrapperComponent = component || Component;
 
@@ -71,8 +72,12 @@ function Button(props) {
 
   // Experimenting with a weight prop to replace outline, plain, and flat in the future
   const visualWeight = React.useMemo(() => {
-    if (outline) {
+    if (outlineBorder) {
       return 'normal';
+    }
+
+    if (outline) {
+      return 'outline';
     }
 
     if (plain || flat) {
@@ -80,7 +85,7 @@ function Button(props) {
     }
 
     return 'strong';
-  }, [outline, plain, flat]);
+  }, [outline, outlineBorder, plain, flat]);
 
   const sharedProps = {
     className,
@@ -92,7 +97,8 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
-    ...rest,
+    ...systemProps,
+    ...componentProps,
   };
 
   if (to && !WrapperComponent) {
@@ -126,9 +132,7 @@ function Button(props) {
 }
 
 Button.displayName = 'Button';
-StyledGroup.displayName = Group.displayName;
-StyledGroup.propTypes = Group.propTypes;
-Button.Group = StyledGroup;
+Button.Group = Group;
 
 Button.propTypes = {
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),
@@ -137,6 +141,7 @@ Button.propTypes = {
   flat: PropTypes.bool,
   plain: deprecate(PropTypes.bool, 'Use `flat` instead'),
   outline: PropTypes.bool,
+  outlineBorder: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large', 'default']),
   fullWidth: PropTypes.bool,
   submit: PropTypes.bool,

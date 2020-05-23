@@ -1,7 +1,31 @@
 import React from 'react';
+import { system } from 'styled-system';
 import { Box } from '../Box';
-import { mapStyledSystemResponsiveProp } from '../../helpers/styledSystem';
+import styled from 'styled-components';
 import propTypes from '@styled-system/prop-types';
+
+const StyledBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  ${() =>
+    system({
+      gutter: {
+        property: 'paddingBottom',
+        scale: 'space',
+      },
+    })}
+  ${() =>
+    system({
+      alignment: {
+        property: 'alignItems',
+        defaultScale: {
+          center: 'center',
+          left: 'flex-start',
+          right: 'flex-end',
+        },
+      },
+    })}
+`;
 
 function Stack(props) {
   const { children, align, space = '400' } = props;
@@ -11,23 +35,12 @@ function Stack(props) {
     return <>{items}</>;
   }
 
-  const alignProps = React.useMemo(() => mapStyledSystemResponsiveProp({
-    center: 'center',
-    left: 'flex-start',
-    right: 'flex-end'
-  }, align), [align, mapStyledSystemResponsiveProp]);
-
   return (
     <div>
       {items.map((child, i) => (
-        <Box
-          key={i}
-          display='flex'
-          flexDirection='column'
-          alignItems={alignProps}
-          pb={i < children.length - 1 ? space : null}>
+        <StyledBox key={i} alignment={align} gutter={i < items.length - 1 ? space : null}>
           {child}
-        </Box>
+        </StyledBox>
       ))}
     </div>
   );
@@ -44,7 +57,7 @@ Stack.propTypes = {
    * Accepts 'center', 'left', 'right', null.
    * Styled-system responsive arrays work here.
    */
-  align: propTypes.flexbox.alignItems
+  align: propTypes.flexbox.alignItems,
 };
 
 Stack.displayName = 'Stack';

@@ -1,11 +1,7 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import StoryContainer from '../storyHelpers/StoryContainer';
-import { ComboBox, ComboBoxTextField, ComboBoxMenu } from '@sparkpost/matchbox';
-import Downshift from 'downshift'
+import { ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
+import Downshift from 'downshift';
 
 // This is an example of a multi select downshift typeahead
 // A few things are missing from this example:
@@ -13,17 +9,11 @@ import Downshift from 'downshift'
 // - limiting results list
 
 function getItems() {
-  return [
-    { name: 'foo' },
-    { name: 'bar' },
-    { name: 'baz' },
-    { name: 'lorem' },
-    { name: 'ipsum' }
-  ]
+  return [{ name: 'foo' }, { name: 'bar' }, { name: 'baz' }, { name: 'lorem' }, { name: 'ipsum' }];
 }
 
 function TypeaheadExample(props) {
-  const { children, error } = props;
+  const { error } = props;
   const [selected, setSelected] = React.useState([]);
 
   function stateReducer(state, changes) {
@@ -35,22 +25,22 @@ function TypeaheadExample(props) {
           return {
             ...changes,
             inputValue: '',
-            selectedItem: null
-          }
+            selectedItem: null,
+          };
         } else {
-          return changes
+          return changes;
         }
       default:
-        return changes
+        return changes;
     }
   }
 
   function addItem(item) {
-    setSelected([ ...selected, item ]);
+    setSelected([...selected, item]);
   }
 
   function removeItem(item) {
-    setSelected(selected.filter((i) => i !== item));
+    setSelected(selected.filter(i => i !== item));
   }
 
   function itemToString(item) {
@@ -65,26 +55,27 @@ function TypeaheadExample(props) {
       getInputProps,
       getMenuProps,
       isOpen,
-      inputValue,
       getItemProps,
       highlightedIndex,
       openMenu,
-      getRootProps
+      getRootProps,
     } = downshift;
 
-    const rootProps = getRootProps({
-      refKey: 'rootRef'
-    });
-
     const items = getItems()
-      .filter((item) => !selected.some(({ name }) => name === item.name))
-      .map((item, index) => getItemProps({
-        content: itemToString(item),
-        highlighted: highlightedIndex === index,
-        index,
-        item
-      })
-    );
+      .filter(item => !selected.some(({ name }) => name === item.name))
+      .map((item, index) =>
+        getItemProps({
+          content: itemToString(item),
+          highlighted: highlightedIndex === index,
+          index,
+          item,
+        }),
+      );
+
+    const rootProps = getRootProps({
+      refKey: 'rootRef',
+      isOpen: Boolean(isOpen),
+    });
 
     const inputProps = getInputProps({
       id: 'story',
@@ -95,22 +86,21 @@ function TypeaheadExample(props) {
       onFocus: openMenu,
       error: error && !isOpen ? 'test' : null,
       placeholder: 'Type to search',
-      helpText: 'Help text'
+      helpText: 'Help text',
     });
 
     const menuProps = getMenuProps({
       items,
-      isOpen: Boolean(isOpen && items.length),
+      isOpen: Boolean(isOpen),
       refKey: 'menuRef',
-      style: { marginTop: '-18px' } // Offsets help text height
     });
 
     return (
       <ComboBox {...rootProps}>
-        <ComboBoxTextField {...inputProps}  />
+        <ComboBoxTextField {...inputProps} />
         <ComboBoxMenu {...menuProps} />
       </ComboBox>
-    )
+    );
   }
 
   return (
@@ -120,48 +110,61 @@ function TypeaheadExample(props) {
   );
 }
 
-//
-storiesOf('Form|ComboBox', module)
-  .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
-  ))
+export default {
+  title: 'Form|ComboBox',
+};
 
-  .add('TextField with Menu', (() => (
-    <TypeaheadExample />
-  )))
+export const TextFieldWithMenu = withInfo({
+  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
+})(() => <TypeaheadExample />);
 
-  .add('TextField', withInfo()(() => (
-    <ComboBoxTextField
-      selectedItems={[
-        { name: 'foo' },
-        { name: 'bar' }
-      ]}
-      itemToString={({ name }) => name}
-      value='input value'
-      label='Filters'
+export const TextField = withInfo({
+  propTables: [ComboBoxTextField],
+})(() => (
+  <ComboBoxTextField
+    id="story-id"
+    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+    itemToString={({ name }) => name}
+    defaultValue="input value"
+    label="Filters"
+  />
+));
+
+export const Menu = withInfo({
+  propTables: [ComboBoxMenu],
+})(() => (
+  <Box maxWidth="20rem">
+    <ComboBoxMenu
+      isOpen={true}
+      items={[{ content: 'foo' }, { content: 'bar' }, { content: 'baz' }]}
+      maxHeight="5rem"
     />
-  )))
+  </Box>
+));
 
-  .add('Menu', withInfo()(() => (
-    <div>
-      <ComboBox>
-        <ComboBoxMenu isOpen={true} items={[
-          { content: 'foo' }, { content: 'bar' }
-        ]}/>
-      </ComboBox>
-      <div style={{ height: '150px' }} />
-    </div>
-  )))
+export const TextFieldWithError = withInfo({
+  propTables: [ComboBoxTextField],
+})(() => (
+  <ComboBoxTextField
+    id="story-id"
+    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+    itemToString={({ name }) => name}
+    defaultValue="input value"
+    label="Filters"
+    error="Required"
+    required
+  />
+));
 
-  .add('TextField with Error', withInfo()(() => (
-    <ComboBoxTextField
-      selectedItems={[
-        { name: 'foo' },
-        { name: 'bar' }
-      ]}
-      itemToString={({ name }) => name}
-      value='input value'
-      label='Filters'
-      error='Required'
-    />
-  )));
+export const TextFieldWhileDisabled = withInfo({
+  propTables: [ComboBoxTextField],
+})(() => (
+  <ComboBoxTextField
+    id="story-id"
+    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+    itemToString={({ name }) => name}
+    defaultValue="input value"
+    label="Filters"
+    disabled
+  />
+));

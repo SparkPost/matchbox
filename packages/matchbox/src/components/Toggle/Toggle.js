@@ -1,68 +1,78 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
+import { pick } from '@styled-system/props';
+import { createPropTypes } from '@styled-system/prop-types';
+import { visuallyHidden } from '../../styles/helpers';
+import { deprecate } from '../../helpers/propTypes';
+import { omit } from '../../helpers/systemProps';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 
-import styles from './Toggle.module.scss';
+const StyledToggle = styled('label')`
+  ${toggle}
+  ${margin}
+`;
 
-class Toggle extends Component {
-  static displayName = 'Toggle';
+const StyledInput = styled('input')`
+  ${visuallyHidden}
+  ${input}
+`;
 
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    checked: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string
-    ]),
-    compact: PropTypes.bool,
-    value: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string
-    ]),
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func
-  };
+function Toggle(props) {
+  const {
+    id,
+    value,
+    checked,
+    defaultChecked,
+    disabled,
+    onChange,
+    onFocus,
+    onBlur,
+    label,
+    required,
+    ...rest
+  } = props;
+  const systemProps = pick(rest);
+  const componentProps = omit(rest, margin.propNames);
 
-  render() {
-    const {
-      id,
-      value,
-      checked,
-      compact,
-      disabled,
-      onChange,
-      onFocus,
-      onBlur,
-      ...rest
-    } = this.props;
-
-    const labelMarkup = compact ? null : (
-      <div className={styles.Labels}>
-        <span>On</span>
-        <span>Off</span>
-      </div>
-    );
-
-    return (
-      <label htmlFor={id} className={classnames(styles.Toggle, compact && styles.compact, disabled && styles.disabled)}>
-        <input
-          id={id}
-          value={value}
-          checked={checked}
-          disabled={disabled}
-          className={styles.Input}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          type='checkbox'
-          {...rest} />
-        <span className={styles.Outline}></span>
-        {labelMarkup}
-        <span className={styles.Indicator}></span>
-      </label>
-    );
-  }
+  return (
+    <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>
+      {label && <ScreenReaderOnly>{label}</ScreenReaderOnly>}
+      <StyledInput
+        id={id}
+        value={value}
+        defaultChecked={defaultChecked}
+        checked={checked}
+        disabled={disabled}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        required={required}
+        type="checkbox"
+        {...componentProps}
+      />
+      <StyledOutline checked={checked} />
+      <StyledIndicator checked={checked} />
+    </StyledToggle>
+  );
 }
+
+Toggle.displayName = 'Toggle';
+Toggle.propTypes = {
+  checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  defaultChecked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  compact: deprecate(PropTypes.bool, 'Compact prop has been removed'),
+  disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  required: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  ...createPropTypes(margin.propNames),
+};
 
 export default Toggle;
