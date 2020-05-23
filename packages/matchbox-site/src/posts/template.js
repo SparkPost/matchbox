@@ -5,8 +5,7 @@ import Layout from '../components/Layout/Layout';
 import usePostBySlug from '../hooks/usePostBySlug';
 
 function Template() {
-  const { body, frontmatter } = usePostBySlug();
-  console.log(frontmatter);
+  const { body } = usePostBySlug();
   return (
     <Layout>
       {/* <MDXProvider components={shortcodes}> */}
