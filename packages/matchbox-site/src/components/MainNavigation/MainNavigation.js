@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { listItem, link } from './style';
+import { listItem, link } from './styles';
 import styled from 'styled-components';
-
 import { Box } from '@sparkpost/matchbox';
 
 const StyledListItem = styled('li')`
@@ -19,7 +18,11 @@ function MainNavigation(props) {
 
     return list.map(item => (
       <StyledListItem key={item.path} selected={item.selected}>
-        <StyledLink to={item.path} disabled={item.disabled}>
+        <StyledLink
+          to={item.path}
+          disabled={item.disabled}
+          selected={item.selected}
+        >
           {item.label}
         </StyledLink>
       </StyledListItem>

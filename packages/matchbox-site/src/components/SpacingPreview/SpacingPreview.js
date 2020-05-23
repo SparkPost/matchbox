@@ -1,8 +1,7 @@
 import React from 'react';
-import { meta } from '@sparkpost/design-tokens';
+import { tokens, meta } from '@sparkpost/design-tokens';
 import _ from 'lodash';
 import styled from 'styled-components';
-import { tokens } from '@sparkpost/design-tokens';
 
 import { Box } from '@sparkpost/matchbox';
 
@@ -15,7 +14,10 @@ const StyledColumn = styled(Box)`
 const spacingScale = _.filter(
   meta,
   ({ name, value, category }) =>
-    !name.includes('base') && category === 'spacing' && value !== '0rem'
+    !name.includes('base') &&
+    category === 'spacing' &&
+    value !== '0rem' &&
+    !name.match(/50$/)
 ).reverse();
 
 function SpacingPreview() {

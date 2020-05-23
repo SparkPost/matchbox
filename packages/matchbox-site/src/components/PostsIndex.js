@@ -5,7 +5,6 @@ import { Box, Text } from '@sparkpost/matchbox';
 
 function PostsIndex() {
   const posts = usePosts();
-  console.log(posts);
   return (
     <Box>
       {posts.map(post => {

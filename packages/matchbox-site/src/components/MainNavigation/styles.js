@@ -26,15 +26,19 @@ export const listItem = props => {
 };
 
 export const link = props => `
-  font-size: font-size(400);
-  line-height: line-height(400);
+  font-size: ${tokens.fontSize_400};
+  line-height: ${tokens.lineHeight_400};
   text-decoration: none;
-  color: color(gray, 900) ${
-    props.selected ? tokens.color_blue_700 : tokens.color_gray_900
-  };
-  font-weight: 500;
+  font-weight: ${tokens.fontWeight_medium};
 
-  padding: spacing(500) 0;
+  padding: ${tokens.spacing_200} 0;
   opacity: ${props.disabled ? 0.4 : 1};
   pointer-events: ${props.disabled ? 'none' : 'auto'};
+
+  &, &:visited {
+    color: ${props.selected ? tokens.color_blue_700 : tokens.color_gray_900};
+    &:hover {
+      color: ${tokens.color_blue_700};
+    }
+  }
 `;

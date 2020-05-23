@@ -67,7 +67,12 @@ function Token(props) {
   }, [token.friendly]);
 
   return (
-    <Tooltip dark width="auto" content={clicked ? 'Copied' : token.value}>
+    <Tooltip
+      id={token.name}
+      bg="gray.1000"
+      width="auto"
+      content={clicked ? 'Copied' : token.value}
+    >
       <StyledToken onClick={handleClick}>
         {getPrefix()}
         {friendly}

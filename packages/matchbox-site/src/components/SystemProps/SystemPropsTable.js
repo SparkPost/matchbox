@@ -45,7 +45,6 @@ function SystemPropsTable(props) {
         <tbody>
           {_.map(_.keys(data), key => {
             const metadata = _.find(meta, ['javascript', data[key]]) || {};
-            console.log(metadata);
             return (
               <Tr key={key}>
                 <Td>{key}</Td>
