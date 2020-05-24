@@ -22,7 +22,7 @@ export default [
   },
   {
     group: 'Button',
-    name: 'Group',
+    name: 'Button Group',
     code: `
       <Button.Group>
         <Button outlineBorder>Button</Button>
@@ -93,7 +93,7 @@ export default [
     code: `
       <Popover
         trigger={
-          <Button outline width="2.5rem">
+          <Button outline width="2rem" size="small">
             <Box as="span"><MoreHoriz /></Box>
           </Button>
         }
