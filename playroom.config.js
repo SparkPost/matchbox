@@ -1,5 +1,4 @@
 module.exports = {
-  baseUrl: '/matchbox-playroom/',
   components: '../.playroom/components',
   exampleCode: `
     <Stack>
