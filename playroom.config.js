@@ -2,7 +2,6 @@ module.exports = {
   baseUrl: '/matchbox-playroom/',
   components: '../.playroom/components',
   exampleCode: `
-  <Box m="400">
     <Stack>
       <Panel title="Hello there">
         <Panel.Section>
@@ -10,7 +9,6 @@ module.exports = {
         </Panel.Section>
       </Panel>
     </Stack>
-  </Box>
   `,
   frameComponent: './.playroom/frameComponent.js',
   openBrowser: true,
