@@ -1,6 +1,6 @@
 module.exports = {
   baseUrl: '/matchbox-playroom/',
-  components: './packages/matchbox/src/components',
+  components: '../.playroom/components',
   exampleCode: `
   <Box m="400">
     <Stack>
@@ -16,7 +16,8 @@ module.exports = {
   openBrowser: true,
   outputPath: './playroom-build',
   port: 9000,
-  title: 'Matchbox Playroom',
+  snippets: './.playroom/snippets.js',
+  title: 'Matchbox',
   widths: [448, 720, 960, 1200],
   // webpackConfig: () => ({
   //   // Custom webpack config goes here...

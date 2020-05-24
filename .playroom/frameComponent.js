@@ -1,4 +1,10 @@
 import React from 'react';
-import { ThemeProvider } from '../packages/matchbox/src/components';
+import { ThemeProvider, Box } from '../packages/matchbox/src/components';
 
-export default ({ theme, children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+export default ({ theme, children }) => (
+  <ThemeProvider theme={theme}>
+    <Box mx={['500', null, null, '700']} my={['500', null, null, '700']}>
+      {children}
+    </Box>
+  </ThemeProvider>
+);
