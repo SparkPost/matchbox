@@ -10,7 +10,7 @@ const Shimmer = keyframes`
   to { opacity: 1; }
 `;
 
-const Animator = styled(Box)`
+export const Animator = styled(Box)`
   position: relative;
   overflow: hidden;
   &:after {
@@ -53,7 +53,7 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
   }, [looksLike]);
 
   return (
-    <Box ref={ref}>
+    <Box ref={ref} tabIndex="-1">
       <Animator
         borderRadius="200"
         delay={delay}
@@ -70,6 +70,7 @@ SkeletonHeader.propTypes = {
   width: Proptypes.string,
 };
 SkeletonHeader.defaultProps = {
+  looksLike: 'h3',
   width: '900',
 };
 
@@ -93,7 +94,7 @@ const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
   }, [lines]);
 
   return (
-    <Box ref={ref} mt="100">
+    <Box ref={ref} mt="100" tabIndex="-1">
       <Stack space="300">{body}</Stack>
     </Box>
   );
@@ -110,7 +111,7 @@ SkeletonBody.defaultProps = {
 const SkeletonBox = React.forwardRef(function SkeletonBox(props, ref) {
   const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
   return (
-    <Box ref={ref}>
+    <Box ref={ref} tabIndex="-1">
       <Animator borderRadius="200" delay={delay} {...props} />
     </Box>
   );
