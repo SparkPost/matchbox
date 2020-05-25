@@ -6,7 +6,7 @@ import { Box } from '../Box';
 import { Stack } from '../Stack';
 
 const Shimmer = keyframes`
-  from { opacity: 0.6 }
+  from { opacity: 0.5 }
   to { opacity: 1; }
 `;
 
@@ -21,12 +21,17 @@ const Animator = styled(Box)`
     left: 0;
     right: 0;
     bottom: 0;
-    animation: ${tokens.motionDuration_slow} infinite alternate ${Shimmer} ${tokens.motionEase_in_out};
+    opacity: 0.5
+    animation: ${tokens.motionDuration_slow} infinite alternate
+               ${Shimmer} ${tokens.motionEase_in_out};
+    animation-delay: ${props => props.delay};
+    will-change: opacity;
   }
 `;
 
 const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
-  const { looksLike, maxWidth } = props;
+  const { looksLike, width } = props;
+  const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
 
   const size = React.useMemo(() => {
     switch (looksLike) {
@@ -49,7 +54,12 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
 
   return (
     <Box ref={ref}>
-      <Animator borderRadius="200" height={tokens[`lineHeight_${size}`]} maxWidth={maxWidth} />
+      <Animator
+        borderRadius="200"
+        delay={delay}
+        height={tokens[`lineHeight_${size}`]}
+        maxWidth={width}
+      />
     </Box>
   );
 });
@@ -57,10 +67,10 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
 SkeletonHeader.displayName = 'Skeleton.Header';
 SkeletonHeader.propTypes = {
   looksLike: Proptypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  maxWidth: Proptypes.string,
+  width: Proptypes.string,
 };
 SkeletonHeader.defaultProps = {
-  maxWidth: '900',
+  width: '900',
 };
 
 const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
@@ -70,7 +80,13 @@ const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
     const arr = [];
     for (let i = 0; i < lines; i++) {
       arr.push(
-        <Animator key={i} borderRadius="200" height="300" width={i === lines - 1 ? '70%' : ''} />,
+        <Animator
+          key={i}
+          borderRadius="200"
+          delay={`${i * 0.3}s`}
+          height="300"
+          width={i === lines - 1 ? '70%' : ''}
+        />,
       );
     }
     return arr;
@@ -92,9 +108,10 @@ SkeletonBody.defaultProps = {
 };
 
 const SkeletonBox = React.forwardRef(function SkeletonBox(props, ref) {
+  const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
   return (
     <Box ref={ref}>
-      <Animator borderRadius="200" {...props} />
+      <Animator borderRadius="200" delay={delay} {...props} />
     </Box>
   );
 });

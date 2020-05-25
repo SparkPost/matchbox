@@ -7,7 +7,9 @@ export default {
   title: 'Feedback|Skeleton',
 };
 
-export const AsAHeading = withInfo()(() => (
+const info = { propTablesExclude: [Stack] };
+
+export const AsAHeading = withInfo(info)(() => (
   <Stack>
     <Skeleton.Header looksLike="h1" />
     <Skeleton.Header looksLike="h2" />
@@ -18,20 +20,20 @@ export const AsAHeading = withInfo()(() => (
   </Stack>
 ));
 
-export const AsABox = withInfo()(() => (
+export const AsABox = withInfo(info)(() => (
   <Stack>
     <Skeleton.Box size="5rem" />
-    <Skeleton.Box width="12rem" height="3rem" />
-    <Skeleton.Box size="5rem" borderRadius="circle" />
+    <Skeleton.Box width="20rem" height="8rem" />
+    <Skeleton.Box size="7rem" borderRadius="circle" />
   </Stack>
 ));
 
-export const AsBodyCopy = withInfo()(() => <Skeleton.Body />);
+export const AsBodyCopy = withInfo(info)(() => <Skeleton.Body />);
 
-export const AllTogether = withInfo()(() => (
+export const AllTogether = withInfo(info)(() => (
   <Stack>
     <Skeleton.Header looksLike="h1" />
-    <Skeleton.Header looksLike="h6" maxWidth="800" />
+    <Skeleton.Header looksLike="h6" width="800" />
     <Panel sectioned>
       <Stack>
         <Skeleton.Header looksLike="h5" />
@@ -40,8 +42,8 @@ export const AllTogether = withInfo()(() => (
     </Panel>
     <Panel sectioned>
       <Stack>
-        <Skeleton.Box size="3rem" borderRadius="circle" />
-        <Skeleton.Body lines={4} />
+        <Skeleton.Box size="3.5rem" borderRadius="circle" />
+        <Skeleton.Body lines={8} />
       </Stack>
     </Panel>
   </Stack>
