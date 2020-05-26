@@ -30,8 +30,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "coverage:all": "npm run coverage:copy && npm run coverage:merge",
     "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
-    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --reporter html --report-dir coverage",
-    "coverage:gui": "npm run coverage:all && open ./coverage/index.html"
+    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --reporter html --report-dir coverage"
   },
   "lint-staged": {
     "**/*.js": [
