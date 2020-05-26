@@ -130,5 +130,6 @@
 - #406 - `Checkbox` and `Radio` label now match `TextField` and use `Label` component
 - #406 - Help text on `Checkbox` and `Radio` now indented
 - #406 - Use `Stack` around inputs in `Checkbox` and `Radio` groups
+- #414 - Removes aria-expanded from drawer activators
 - #411 - Add looksLike prop to `Text` component
 - #411 - Remove crop prop from `Text` component
