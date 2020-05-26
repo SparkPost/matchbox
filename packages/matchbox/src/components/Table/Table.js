@@ -30,7 +30,7 @@ function Table(props) {
 
   // Pick out `p` and `padding` so we only pass one value down
   // `context` is passed to handle directional padding values like `px` or `pr`
-  const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
+  const { p: contextP = '500', padding: contextPadding, ...context } = pick(rest);
 
   return (
     <StyledTable {...rest}>
