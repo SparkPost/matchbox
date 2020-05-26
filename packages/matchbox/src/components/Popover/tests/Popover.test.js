@@ -124,4 +124,21 @@ describe('Popover', () => {
       ).toEqual('test content');
     });
   });
+
+  it('renders with with a ref and focuses automatically', () => {
+    function Test() {
+      const ref = React.useRef();
+      return (
+        <>
+          <Popover ref={ref} open>
+            test content
+          </Popover>
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
 });
