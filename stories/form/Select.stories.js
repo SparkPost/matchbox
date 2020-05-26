@@ -7,7 +7,7 @@ const options = [
   2,
   {
     value: '3',
-    label: 'Three',
+    label: 'Very Very Very Very Very Very Very Very Very long text',
     pass: 'through',
   },
 ];
