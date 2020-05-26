@@ -13,10 +13,13 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-require('cypress-plugin-tab');
-
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
+
+// Code coverage plugin
+import '@cypress/code-coverage/support';
+
+require('cypress-plugin-tab');
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

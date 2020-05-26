@@ -6,6 +6,9 @@ node_modules
 # testing
 /coverage
 /cypress/videos
+.nyc_output
+/cypress-coverage
+/jest-coverage
 
 # misc
 .DS_Store

@@ -16,16 +16,21 @@
     "pretest": "npm run clean && lerna link",
     "pretest:ci": "npm run build && npm run clean && lerna link",
     "test:ci": "npm run test:unit:ci && npm run test:e2e:ci",
+    "posttest:ci": "npm run coverage:all && npm run coveralls",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
     "test:e2e:ci": "start-server-and-test start:storybook:static http://localhost:9001 test:e2e:headless",
     "test:unit": "node scripts/test.js --env=jsdom --config=./jest.config.json",
-    "test:unit:ci": "npm run test:unit -- --coverage && cat ./coverage/lcov.info | coveralls",
+    "test:unit:ci": "npm run test:unit -- --coverage",
     "deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
     "lintfix": "npm run lint -- --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "coverage:all": "npm run coverage:copy && npm run coverage:merge",
+    "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
+    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --reporter html --report-dir coverage"
   },
   "lint-staged": {
     "**/*.js": [
@@ -50,6 +55,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "@cypress/code-coverage": "^3.7.5",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.2.5",
@@ -63,6 +69,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-istanbul": "^6.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^9.0.2",
@@ -109,5 +116,13 @@
     "style-loader": "^1.0.0",
     "theo": "^8.1.5",
     "webpack": "^4.41.2"
+  },
+  "nyc": {
+    "include": [
+      "packages/matchbox/src/components/**/*.js",
+      "packages/matchbox/src/helpers/**/*.js",
+      "packages/matchbox-icons/src/IconBase/**/*.js"
+    ],
+    "report-dir": "cypress-coverage"
   }
 }
