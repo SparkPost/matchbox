@@ -133,3 +133,4 @@
 - #414 - Removes aria-expanded from drawer activators
 - #411 - Add looksLike prop to `Text` component
 - #411 - Remove crop prop from `Text` component
+- #300 - Adds support for `datetime-local` value for the `TextField` `type` prop
