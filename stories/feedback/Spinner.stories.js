@@ -21,14 +21,15 @@ export const Color = withInfo()(() => (
 
 export const Sizing = withInfo()(() => (
   <Box display="flex" alignItems="center">
-    <Spinner label="loading" />
+    <Spinner size="large" label="loading" />
+    <Spinner size="medium" label="loading" />
     <Spinner size="small" label="loading" />
   </Box>
 ));
 
 export const SystemProps = withInfo()(() => (
   <div>
-    <Spinner height={['10rem', null, null, '14rem']} label="loading" />
+    <Spinner size="large" height={['10rem', null, null, '14rem']} label="loading" />
     <Spinner mb={400} color="orange" label="loading" />
     <Spinner ml={300} size="small" color="gray" label="loading" />
   </div>

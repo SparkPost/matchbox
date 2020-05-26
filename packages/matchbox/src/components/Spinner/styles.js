@@ -2,10 +2,18 @@ import { tokens } from '@sparkpost/design-tokens';
 import { keyframes, css } from 'styled-components';
 
 export const circleOuter = props => {
-  let size = '60px';
+  let size;
 
-  if (props.size === 'small') {
-    size = '28px';
+  switch (props.size) {
+    case 'small':
+      size = '20px';
+      break;
+    case 'large':
+      size = '60px';
+      break;
+    case 'medium':
+    default:
+      size = '28px';
   }
 
   return css`
@@ -17,11 +25,11 @@ export const circleOuter = props => {
 };
 
 export const circle = props => {
-  let color;
+  let color, strokeWidth, strokeDashArray, animation;
 
   switch (props.color) {
     case 'gray':
-      color = tokens.color_brand_gray;
+      color = tokens.color_gray_800;
       break;
     case 'orange':
       color = tokens.color_brand_orange;
@@ -35,19 +43,66 @@ export const circle = props => {
       break;
   }
 
+  switch (props.size) {
+    case 'small':
+      strokeWidth = '2px';
+      strokeDashArray = '50 50';
+      animation = smallDashAnimation;
+      break;
+    case 'large':
+      strokeWidth = '4px';
+      strokeDashArray = '150 200';
+      animation = largeDashAnimation;
+      break;
+    case 'medium':
+    default:
+      strokeWidth = '3px';
+      strokeDashArray = '100 100';
+      animation = dashAnimation;
+  }
+
   return css`
     stroke: ${color};
-    stroke-width: ${props.size === 'small' ? '3px' : '4px'};
+    stroke-width: ${strokeWidth};
     stroke-linecap: round;
 
-    stroke-dasharray: ${props.size === 'small' ? '100 100' : '150 200'};
+    stroke-dasharray: ${strokeDashArray};
     stroke-dashoffset: -10;
-    animation: ${props.size === 'small' ? smallDashAnimation : dashAnimation} 1.5s ease-in-out
-      infinite;
+    animation: ${animation} 1.5s ease-in-out infinite;
   `;
 };
 
+const smallDashAnimation = keyframes`
+  0% {
+    stroke-dasharray: 1 50;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 30 50;
+    stroke-dashoffset: -10;
+  }
+  100% {
+    stroke-dasharray: 40 50;
+    stroke-dashoffset: -48;
+  }
+`;
+
 const dashAnimation = keyframes`
+  0% {
+    stroke-dasharray: 1 100;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 60 100;
+    stroke-dashoffset: -15;
+  }
+  100% {
+    stroke-dasharray: 80 100;
+    stroke-dashoffset: -68;
+  }
+`;
+
+const largeDashAnimation = keyframes`
   0% {
     stroke-dasharray: 1 200;
     stroke-dashoffset: 0;
@@ -59,21 +114,6 @@ const dashAnimation = keyframes`
   100% {
     stroke-dasharray: 120 200;
     stroke-dashoffset: -145;
-  }
-`;
-
-const smallDashAnimation = keyframes`
-  0% {
-    stroke-dasharray: 1 100;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 60 100;
-    stroke-dashoffset: -15;
-  }
-  100% {
-    stroke-dasharray: 80 100;
-    stroke-dashoffset: -70;
   }
 `;
 

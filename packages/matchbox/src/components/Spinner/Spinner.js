@@ -45,11 +45,15 @@ const Spinner = React.forwardRef(function Spinner(props, ref) {
 Spinner.displayName = 'Spinner';
 
 Spinner.propTypes = {
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'white']),
   label: PropTypes.string.isRequired,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(layout.propNames),
+};
+
+Spinner.defaultProps = {
+  size: 'medium',
 };
 
 export default Spinner;
