@@ -185,4 +185,17 @@ describe('Panel', () => {
 
     expect(wrapper.find('.my-class')).toExist();
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return <Panel ref={ref}>Hello, world</Panel>;
+    }
+    wrapper = global.mountStyled(<Test />);
+    expect(wrapper.text()).toBe('Hello, world');
+    expect(document.activeElement.innerHTML('Hello, world')).toBe(true);
+  });
 });
