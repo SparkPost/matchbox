@@ -16,3 +16,6 @@ yarn-debug.log*
 yarn-error.log*
 
 storybook-static
+
+# playroom
+/playroom-build
