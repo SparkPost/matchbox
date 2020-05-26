@@ -10,8 +10,8 @@ describe('Spinner', () => {
   it('renders default styles', () => {
     const wrapper = subject();
 
-    expect(wrapper.find('svg')).toHaveStyleRule('height', '60px');
-    expect(wrapper.find('svg')).toHaveStyleRule('width', '60px');
+    expect(wrapper.find('svg')).toHaveStyleRule('height', '28px');
+    expect(wrapper.find('svg')).toHaveStyleRule('width', '28px');
     expect(wrapper.find('svg')).toHaveStyleRule('fill', 'none');
     expect(wrapper.find('circle')).toHaveStyleRule('stroke', tokens.color_blue_700);
   });
@@ -32,7 +32,7 @@ describe('Spinner', () => {
     it('gray', () => {
       const wrapper = subject({ color: 'gray' });
 
-      expect(wrapper.find('circle')).toHaveStyleRule('stroke', tokens.color_brand_gray);
+      expect(wrapper.find('circle')).toHaveStyleRule('stroke', tokens.color_gray_800);
     });
 
     it('white', () => {
@@ -45,6 +45,15 @@ describe('Spinner', () => {
   describe('renders sizing', () => {
     it('small', () => {
       const smallWrapper = subject({ size: 'small' });
+
+      expect(smallWrapper.find('svg')).toHaveStyleRule('width', '20px');
+      expect(smallWrapper.find('svg')).toHaveStyleRule('height', '20px');
+      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-width', '2px');
+      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '50 50');
+    });
+
+    it('medium', () => {
+      const smallWrapper = subject({ size: 'medium' });
 
       expect(smallWrapper.find('svg')).toHaveStyleRule('width', '28px');
       expect(smallWrapper.find('svg')).toHaveStyleRule('height', '28px');
