@@ -23,7 +23,7 @@ export const StyledButton = styled(Box)`
   ${system}
 `;
 
-function Button(props) {
+const Button = React.forwardRef(function Button(props, ref) {
   const {
     children,
 
@@ -97,6 +97,7 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
+    ref,
     ...systemProps,
     ...componentProps,
   };
@@ -129,7 +130,7 @@ function Button(props) {
       {children}
     </StyledButton>
   );
-}
+});
 
 Button.displayName = 'Button';
 Button.Group = Group;
