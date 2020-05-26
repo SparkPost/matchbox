@@ -192,10 +192,14 @@ describe('Panel', () => {
       React.useEffect(() => {
         ref.current.focus();
       }, []);
-      return <Panel ref={ref}>Hello, world</Panel>;
+      return (
+        <>
+          <Panel ref={ref}>Hello, world</Panel>not this
+        </>
+      );
     }
-    wrapper = global.mountStyled(<Test />);
-    expect(wrapper.text()).toBe('Hello, world');
-    expect(document.activeElement.innerHTML('Hello, world')).toBe(true);
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('Hello, world')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
   });
 });

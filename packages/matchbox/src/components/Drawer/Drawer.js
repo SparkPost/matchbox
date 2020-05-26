@@ -15,7 +15,7 @@ import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
 import { Overlay, Container } from './styles';
 
-function Drawer(props) {
+const Drawer = React.forwardRef(function Drawer(props, ref) {
   const {
     children,
     closeOnEscape,
@@ -97,7 +97,9 @@ function Drawer(props) {
               height="100vh"
               left="0"
               position="fixed"
+              ref={ref}
               style={{ pointerEvents: 'none' }}
+              tabIndex="-1"
               top="0"
               width="100vw"
               zIndex="overlay"
@@ -142,7 +144,7 @@ function Drawer(props) {
       </Transition>
     </Portal>
   );
-}
+});
 
 Drawer.displayName = 'Drawer';
 
