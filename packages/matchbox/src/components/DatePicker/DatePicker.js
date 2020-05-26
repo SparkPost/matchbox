@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
@@ -21,7 +22,7 @@ const DatePicker = React.forwardRef(function DatePicker(props, ref) {
   const componentProps = omit(props, margin.propNames);
 
   return (
-    <Wrapper ref={ref} {...systemProps} data-id="datepicker">
+    <Wrapper ref={ref} {...systemProps} data-id="datepicker" numberOfMonths={props.numberOfMonths}>
       <DayPicker
         captionElement={Caption}
         weekdayElement={Weekday}
@@ -37,12 +38,14 @@ DatePicker.displayName = 'DatePicker';
 
 DatePicker.propTypes = {
   ...DayPicker.propTypes,
+  numberOfMonths: PropTypes.oneOf([1, 2]),
   ...createPropTypes(margin.propNames),
 };
 
 DatePicker.defaultProps = {
   fixedWeeks: false,
   enableOutsideDaysClick: false,
+  numberOfMonths: 2,
   showOutsideDays: false,
 };
 

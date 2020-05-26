@@ -82,9 +82,9 @@ export const StyledDay = styled(Box)`
 `;
 
 // Daypicker global styles where component overrides are not possible
-export const wrapper = () => `
+export const wrapper = props => `
   position: relative;
-  max-width: 36.5rem;
+  max-width: ${props.numberOfMonths === 1 ? '17.5rem' : '36.5rem'};
 
   .DayPicker-wrapper {
     position: relative;

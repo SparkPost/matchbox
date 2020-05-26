@@ -5,7 +5,7 @@ import { tokens } from '@sparkpost/design-tokens';
 
 describe('DatePicker', () => {
   const date = new Date('2017-01-05');
-  const subject = props => global.mountStyled(<DatePicker {...props}></DatePicker>);
+  const subject = props => global.mountStyled(<DatePicker {...props} numberOfMonths={1} />);
 
   // NPM test script prepended with `TZ=UTC` to set timezone
   // :)
