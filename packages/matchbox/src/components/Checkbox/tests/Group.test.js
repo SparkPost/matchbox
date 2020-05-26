@@ -1,25 +1,33 @@
 import React from 'react';
 import Group from '../Group';
-import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 describe('Checkbox Group', () => {
-  let wrapper;
-  beforeEach(() => {
-    const props = {
-      label: 'Checkbox Label'
-    };
+  const subject = props => global.mountStyled(<Group {...props}>children</Group>);
 
-    wrapper = shallow(<Group {...props}><span>Checkbox Child</span></Group>);
+  it('renders a legend correctly', () => {
+    const wrapper = subject({ label: 'test-label' });
+    expect(
+      wrapper
+        .find('legend')
+        .find('span')
+        .at(0)
+        .text(),
+    ).toEqual('test-label');
   });
 
-  it('renders correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+  it('renders a legend with required correctly', () => {
+    const wrapper = subject({ label: 'test-label', required: true });
+    expect(wrapper.find('legend').text()).toEqual('test-label*');
   });
 
-  it('renders correctly on required', () => {
-    wrapper.setProps({ required: true });
-    expect(wrapper).toMatchSnapshot();
+  it('renders a legend with required correctly while hidden correctly', () => {
+    const wrapper = subject({ label: 'test-label', required: true, labelHidden: true });
+    expect(wrapper.find('legend').text()).toEqual('test-label*');
   });
 
+  it('renders with system props', () => {
+    const wrapper = subject({ mb: '500' });
+    expect(wrapper).toHaveStyleRule('margin-bottom', '1.5rem');
+  });
 });
-

@@ -1,49 +1,71 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
-import classnames from 'classnames';
-import styles from './Popover.module.scss';
+import styled from 'styled-components';
+import { padding, layout, compose } from 'styled-system';
+import { pick } from '@styled-system/props';
+import { Box } from '../Box';
+import { tokens } from '@sparkpost/design-tokens';
+import { secondsToMS } from '../../helpers/string';
+import { content, transition } from './styles';
 
-const Content = ({
-  children,
-  popoverRef,
-  open,
-  activatorWidth,
-  top, left, bottom, right, fixed,
-  sectioned,
-  className = '',
-  trigger,
-  ...rest
-}) => {
+const system = compose(layout, padding);
 
-  const popoverClasses = classnames(
-    styles.Popover,
-    sectioned && styles.sectioned,
-    className
-  );
+const StyledContent = styled('div')`
+  ${system}
+  ${content}
+  ${transition}
+`;
 
-  const wrapperClasses = classnames(
-    styles.Wrapper,
-    top && styles.top,
-    left && styles.left
-  );
+function Content(props) {
+  const {
+    children,
+    popoverRef,
+    open,
+    top,
+    left,
+    bottom = true,
+    right = true,
+    sectioned,
+    className = '',
+    trigger,
+    style,
+    ...rest
+  } = props;
 
-  const tipStyle = { [left ? 'right' : 'left']: activatorWidth / 2 };
+  const systemProps = pick(rest);
 
   return (
-    <Transition mountOnEnter unmountOnExit in={open} timeout={{ enter: 0, exit: 0 }}>
-      {(state) => (
-        <div className={wrapperClasses} ref={popoverRef}>
-          <div className={classnames(popoverClasses, state && styles[state])} {...rest}>
-            <span className={styles.Tip} style={tipStyle} />
-            <div className={styles.Content}>
-              {children}
-            </div>
-          </div>
-        </div>
+    <Transition
+      mountOnEnter
+      unmountOnExit
+      in={open}
+      timeout={{
+        enter: 0,
+        exit: secondsToMS(tokens.motionDuration_fast),
+      }}
+    >
+      {state => (
+        <Box position="relative" height="100%" ref={popoverRef}>
+          <StyledContent
+            data-id="popover-content"
+            className={className}
+            p={sectioned ? '400' : null}
+            minWidth="13rem" // 208px
+            isTop={top}
+            isBottom={bottom}
+            isLeft={left}
+            isRight={right}
+            state={state}
+            {...style}
+            {...systemProps}
+          >
+            <div>{children}</div>
+          </StyledContent>
+        </Box>
       )}
     </Transition>
   );
-};
+}
 
 Content.displayName = 'Popover.Content';
 export default Content;

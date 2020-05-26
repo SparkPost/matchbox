@@ -1,28 +1,24 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
+import { Toggle } from '@sparkpost/matchbox';
 
-import { Toggle, Checkbox } from '@sparkpost/matchbox';
+export default {
+  title: 'Action|Toggle',
+};
 
-export default storiesOf('Action|Toggle', module)
-  .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
-  ))
+export const BasicToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" />);
 
-  .add('basic toggle', withInfo()(() => (
-    <Toggle id='id' />
-  )))
+export const DisabledToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" disabled />);
 
-  .add('disabled toggle', withInfo()(() => (
-    <Toggle id='id' disabled />
-  )))
+export const RequiredToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" required />);
 
-  .add('compact toggle', withInfo()(() => (
-    <Toggle id='id' compact />
-  )))
-
-  .add('compact and disabled toggle', withInfo()(() => (
-    <Toggle id='id' checked compact disabled />
-  )));
+export const SystemProps = withInfo()(() => (
+  <>
+    <div>
+      <Toggle mb={400} id="id" data-id="toggle-input" label="toggle-1" />
+    </div>
+    <div>
+      <Toggle mb={800} id="id2" data-id="toggle-input-2" disabled checked={true} />
+    </div>
+  </>
+));

@@ -1,39 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Cell, HeaderCell, Row } from './TableElements';
-import styles from './Table.module.scss';
+import styled from 'styled-components';
+import { margin, padding, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { table } from './styles';
+import { pick } from '@styled-system/props';
+import { TablePaddingContext } from './context';
 
-class Table extends Component {
-  static displayName = 'Table';
+const system = compose(margin, padding);
 
-  static Cell = Cell;
-  static HeaderCell = HeaderCell;
-  static Row = Row;
+const StyledTable = styled('table')`
+  ${table}
+  ${system}
+`;
 
-  static propTypes = {
-    data: PropTypes.array,
-    /**
-     * React node(s)
-     */
-    children: PropTypes.node
-  };
+function Table(props) {
+  const { children, data, ...rest } = props;
 
-  render() {
-    const {
-      children,
-      data
-    } = this.props;
+  const dataMarkup = data ? (
+    <tbody>
+      {data.map((rowData, i) => (
+        <Row rowData={rowData} key={`Row-${i}`} />
+      ))}
+    </tbody>
+  ) : (
+    children
+  );
 
-    const dataMarkup = data
-      ? <tbody>{data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />)}</tbody>
-      : children;
+  // Pick out `p` and `padding` so we only pass one value down
+  // `context` is passed to handle directional padding values like `px` or `pr`
+  const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
 
-    return (
-      <table className={styles.Table}>
+  return (
+    <StyledTable {...rest}>
+      <TablePaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
         {dataMarkup}
-      </table>
-    );
-  }
+      </TablePaddingContext.Provider>
+    </StyledTable>
+  );
 }
+
+Table.Cell = Cell;
+Table.HeaderCell = HeaderCell;
+Table.Row = Row;
+
+Table.displayName = 'Table';
+Table.propTypes = {
+  data: PropTypes.array,
+  /**
+   * React node(s)
+   */
+  children: PropTypes.node,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(padding.propNames),
+};
 
 export default Table;

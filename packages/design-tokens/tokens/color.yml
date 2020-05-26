@@ -1,0 +1,173 @@
+global:
+  type: color
+  category: background-color
+props:
+  - name: color-brand-orange
+    value: '#fA6423'
+  - name: color-brand-gray
+    value: '#55555A'
+  - name: color-brand-blue
+    value: '#37AADC'
+  - name: color-yellow-1000
+    value: '#3D3121'
+  - name: color-yellow-900
+    value: '#523E21'
+  - name: color-yellow-800
+    value: '#614D27'
+  - name: color-yellow-700
+    value: '#876A2F'
+  - name: color-yellow-600
+    value: '#B58C12'
+  - name: color-yellow-500
+    value: '#E3AD0B'
+  - name: color-yellow-400
+    value: '#FFDA00'
+  - name: color-yellow-300
+    value: '#FFE75C'
+  - name: color-yellow-200
+    value: '#FFF4B5'
+  - name: color-yellow-100
+    value: '#FFFADB'
+  - name: color-green-1000
+    value: '#233B33'
+  - name: color-green-900
+    value: '#1B5441'
+  - name: color-green-800
+    value: '#067852'
+  - name: color-green-700
+    value: '#009F6A'
+  - name: color-green-600
+    value: '#28BD8B'
+  - name: color-green-500
+    value: '#52D9AC'
+  - name: color-green-400
+    value: '#8DEBCB'
+  - name: color-green-300
+    value: '#B5F5E0'
+  - name: color-green-200
+    value: '#D6FFF1'
+  - name: color-green-100
+    value: '#E8FFF7'
+  - name: color-teal-1000
+    value: '#223A3B'
+  - name: color-teal-900
+    value: '#274C4D'
+  - name: color-teal-800
+    value: '#226363'
+  - name: color-teal-700
+    value: '#199091'
+  - name: color-teal-600
+    value: '#13BEBF'
+  - name: color-teal-500
+    value: '#37E4E6'
+  - name: color-teal-400
+    value: '#6EF4F5'
+  - name: color-teal-300
+    value: '#96FEFF'
+  - name: color-teal-200
+    value: '#CCFFFF'
+  - name: color-teal-100
+    value: '#E3FFFF'
+  - name: color-blue-1000
+    value: '#203752'
+  - name: color-blue-900
+    value: '#1A497D'
+  - name: color-blue-800
+    value: '#0060CC'
+  - name: color-blue-700
+    value: '#1273E6'
+  - name: color-blue-600
+    value: '#429BFF'
+  - name: color-blue-500
+    value: '#78B6FF'
+  - name: color-blue-400
+    value: '#ABD2FF'
+  - name: color-blue-300
+    value: '#CCE3FF'
+  - name: color-blue-200
+    value: '#E8F3FF'
+  - name: color-blue-100
+    value: '#F2F8FF'
+  - name: color-purple-1000
+    value: '#352E4A'
+  - name: color-purple-900
+    value: '#4C2E87'
+  - name: color-purple-800
+    value: '#7122E3'
+  - name: color-purple-700
+    value: '#8C40FF'
+  - name: color-purple-600
+    value: '#A469FF'
+  - name: color-purple-500
+    value: '#BD91FF'
+  - name: color-purple-400
+    value: '#D7BDFF'
+  - name: color-purple-300
+    value: '#E5D4FF'
+  - name: color-purple-200
+    value: '#F3EBFF'
+  - name: color-purple-100
+    value: '#F9F5FF'
+  - name: color-magenta-1000
+    value: '#522338'
+  - name: color-magenta-900
+    value: '#782449'
+  - name: color-magenta-800
+    value: '#992659'
+  - name: color-magenta-700
+    value: '#D1347A'
+  - name: color-magenta-600
+    value: '#F0549A'
+  - name: color-magenta-500
+    value: '#FF7DB7'
+  - name: color-magenta-400
+    value: '#FFB0D3'
+  - name: color-magenta-300
+    value: '#FFCCE3'
+  - name: color-magenta-200
+    value: '#FFE8F2'
+  - name: color-magenta-100
+    value: '#FFF2F8'
+  - name: color-red-1000
+    value: '#5C2121'
+  - name: color-red-900
+    value: '#80252A'
+  - name: color-red-800
+    value: '#A12B2B'
+  - name: color-red-700
+    value: '#D9363E'
+  - name: color-red-600
+    value: '#FF5760'
+  - name: color-red-500
+    value: '#FF858B'
+  - name: color-red-400
+    value: '#FFB5B9'
+  - name: color-red-300
+    value: '#FFCFD1'
+  - name: color-red-200
+    value: '#FFEBEC'
+  - name: color-red-100
+    value: '#FFF2F3'
+  - name: color-gray-1000
+    value: '#2C353D'
+  - name: color-gray-900
+    value: '#39444D'
+  - name: color-gray-800
+    value: '#46525C'
+  - name: color-gray-700
+    value: '#626F7A'
+  - name: color-gray-600
+    value: '#818E9A'
+  - name: color-gray-500
+    value: '#A2ADB8'
+  - name: color-gray-400
+    value: '#C5CED6'
+  - name: color-gray-300
+    value: '#D9E0E6'
+  - name: color-gray-200
+    value: '#EBF0F5'
+  - name: color-gray-100
+    value: '#F5F8FA'
+  - name: color-white
+    value: '#FFFFFF'
+    singleKey: true

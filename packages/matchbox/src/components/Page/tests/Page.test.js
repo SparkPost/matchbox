@@ -1,64 +1,74 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 import Page from '../Page';
 
 describe('Page', () => {
-  let props;
-  let wrapper;
-
-  beforeEach(() => {
-    props = {
-      title: 'Page Title',
-      primaryAction: { content: 'Primary' }
-    };
-
-    wrapper = shallow(<Page {...props}><h1>Test Example</h1></Page>);
-  });
+  const subject = props => global.mountStyled(<Page {...props}>page content</Page>);
 
   it('renders page with children', () => {
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = subject();
+    expect(wrapper.text()).toEqual('page content');
   });
 
-  it('renders page with secondary actions', () => {
-    wrapper.setProps({ secondaryActions: [{ content: 'secondary 1' }, { content: 'secondary 2' }]});
-    expect(wrapper).toMatchSnapshot();
+  it('renders title', () => {
+    const wrapper = subject({ title: 'test title' });
+    expect(wrapper.find('h1').text()).toEqual('test title');
   });
 
-  it('renders page with breadcrumb', () => {
-    wrapper.setProps({ breadcrumbAction: { content: 'Step 1' }});
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('Breadcrumb').dive()).toMatchSnapshot();
+  it('renders primary action', () => {
+    const onClick = jest.fn();
+    const wrapper = subject({ primaryAction: { content: 'test action', onClick } });
+    expect(wrapper.find('button').text()).toEqual('test action');
+    wrapper.find('button').simulate('click');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('renders breadcrumb action', () => {
+    const to = 'testlink';
+    const wrapper = subject({ breadcrumbAction: { content: 'benedict breadcrumbatch', to } });
+    expect(wrapper.find('a').text()).toEqual('benedict breadcrumbatch');
+    expect(wrapper.find('a')).toHaveAttributeValue('href', to);
+  });
+
+  it('renders secondary actions', () => {
+    const wrapper = subject({
+      secondaryActions: [{ content: 'secondary 1' }, { content: 'secondary 2' }],
+    });
+    expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'false');
+    expect(wrapper.find('button').text()).toEqual('More Options');
+    wrapper.find('button').simulate('click'); // Popovers not rendered unless open
+    expect(
+      wrapper
+        .find('a')
+        .at(0)
+        .text(),
+    ).toEqual('secondary 1');
+    expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'true');
   });
 
   it('renders page with empty state', () => {
-    wrapper.setProps({ empty: { show: true, content: 'Empty page' }});
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = subject({ empty: { show: true, content: 'Empty page' } });
+    expect(wrapper.text()).toEqual('Empty page '); // TODO update assertion when EmptyState is updated
   });
 
-  it('renders w/o title', () => {
-    wrapper.setProps({ title: null });
-    expect(wrapper).toMatchSnapshot();
+  it('renders title as a React node', () => {
+    const wrapper = subject({ title: <div data-test="test-id">test</div> });
+    expect(wrapper.find('[data-test="test-id"]').text()).toEqual('test');
   });
 
-  it('renders title as a node', () => {
-    wrapper.setProps({ title: <div>test</div> });
-    expect(wrapper).toMatchSnapshot();
+  it('renders subtitle', () => {
+    const wrapper = subject({ subtitle: 'subtitle test' });
+    expect(wrapper.find('h2').text()).toEqual('subtitle test');
   });
 
-  it('renders subtitle string', () => {
-    wrapper.setProps({ subtitle: 'sub' });
-    expect(wrapper).toMatchSnapshot();
+  it('renders subtitle as a React node', () => {
+    const wrapper = subject({ subtitle: <div data-test="test-id">test</div> });
+    expect(wrapper.find('[data-test="test-id"]').text()).toEqual('test');
   });
 
-  it('renders subtitle node', () => {
-    wrapper.setProps({ subtitle: <div>sub</div> });
-    expect(wrapper).toMatchSnapshot();
+  it('renders primaryArea as a React node', () => {
+    const wrapper = subject({ primaryArea: <div data-test="test-id">test</div> });
+    expect(wrapper.find('[data-test="test-id"]').text()).toEqual('test');
   });
-
-  it('renders primary area node', () => {
-    wrapper.setProps({ primaryArea: <div>primary</div> });
-    expect(wrapper).toMatchSnapshot();
-  });
-
 });

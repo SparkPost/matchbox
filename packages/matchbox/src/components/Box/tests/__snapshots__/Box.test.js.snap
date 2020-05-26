@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box it should render correctly 1`] = `
+<div
+  class=""
+>
+  Just a Box
+</div>
+`;
+
+exports[`Box it should truncate 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<div
+  class="c0"
+>
+  Just a truncated Box
+</div>
+`;

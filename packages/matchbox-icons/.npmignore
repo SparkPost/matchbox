@@ -12,7 +12,8 @@ tests/
 
 # including the production build
 # matchbox-icons.js
-# matchbox-icons.es.js
+# matchbox-icons.esm.js
+# src
 
 # misc
 .DS_Store

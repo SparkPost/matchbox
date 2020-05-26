@@ -1,23 +1,27 @@
 import React from 'react';
 import UnstyledLink from '../UnstyledLink';
-import { shallow } from 'enzyme';
-import cases from 'jest-in-case';
+import 'jest-styled-components';
 
 describe('UnstyledLink', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<UnstyledLink>Hola!</UnstyledLink>);
+  const subject = props => global.mountStyled(<UnstyledLink {...props}>Hola!</UnstyledLink>);
+
+  it('renders an external link', () => {
+    let wrapper = subject({ to: '/external', external: true });
+    expect(wrapper).toHaveAttributeValue('target', '_blank');
   });
 
-  const testCases = [
-    { name: 'external button', props: { external: true }},
-    { name: 'to without component', props: { to: '/nocomp' }},
-    { name: 'external to without component', props: { to: '/nocomp', external: true }},
-    { name: 'to with component', props: { to: '/withcomp', component: jest.fn }}
-  ];
+  it('renders with title', () => {
+    let wrapper = subject({ title: 'The Title' });
+    expect(wrapper).toHaveAttributeValue('title', 'The Title');
+  });
 
-  cases('renders link states', (opts) => {
-    wrapper.setProps(opts.props);
-    expect(wrapper).toMatchSnapshot();
-  }, testCases);
+  it('renders href', () => {
+    let wrapper = subject({ to: '/link' });
+    expect(wrapper).toHaveAttributeValue('href', '/link');
+  });
+
+  it('renders with wrapper component', () => {
+    let wrapper = subject({ component: 'button' });
+    expect(wrapper.find('button').text()).toEqual('Hola!');
+  });
 });

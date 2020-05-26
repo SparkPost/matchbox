@@ -12,9 +12,10 @@ tests/
 
 # including the production build
 # matchbox.js
-# matchbox.es.js
-# styles.css
-# styles.scss
+# matchbox.esm.js
+styles.css
+styles.scss
+# src
 
 # misc
 .DS_Store

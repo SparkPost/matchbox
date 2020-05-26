@@ -1,20 +1,27 @@
+import React from 'react';
 import * as storybook from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
+import { ThemeProvider, Box } from '@sparkpost/matchbox';
 
 setOptions({
-  name: 'Matchbox',
-  url: 'https://github.com/SparkPost/matchbox/',
+  theme: {
+    brandTitle: 'Matchbox',
+    brandUrl: 'https://github.com/SparkPost/matchbox/',
+  },
   hierarchySeparator: /\//,
   hierarchyRootSeparator: /\|/,
 });
 
 // addon-info
 setDefaults({
-  header: false, // Toggles display of header with component name and description
   inline: true,
-  maxPropsIntoLine: 1
+  header: false,
 });
 
-const req = require.context('../stories', true, /\.stories\.js$/)
-storybook.configure(() => req.keys().forEach((filename) => req(filename)), module);
+storybook.addDecorator(storyFn => (
+  <ThemeProvider>
+    <Box p="700">{storyFn()}</Box>
+  </ThemeProvider>
+));
+storybook.configure(require.context('../stories', true, /\.stories\.js$/), module);

@@ -1,41 +1,103 @@
 import React from 'react';
 import Tooltip from '../Tooltip';
-import { shallow } from 'enzyme';
-import cases from 'jest-in-case';
+import 'jest-styled-components';
 
 describe('Tooltip', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<Tooltip content='content test'>Hola!</Tooltip>);
+  const subject = props =>
+    global.mountStyled(
+      <Tooltip content="content test" id="test-id" {...props}>
+        <button>test</button>
+      </Tooltip>,
+    );
+
+  const container = wrapper => wrapper.find('div').at(2);
+  const content = wrapper => wrapper.find('div').at(3);
+
+  it('should render default styles correctly', () => {
+    const wrapper = subject();
+    expect(wrapper.find('span').at(2)).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
+    expect(container(wrapper)).toHaveStyleRule('top', '100%');
+    expect(container(wrapper)).toHaveStyleRule('bottom', 'auto');
+    expect(container(wrapper)).toHaveStyleRule('left', '0');
+    expect(container(wrapper)).toHaveStyleRule('right', 'auto');
+    expect(container(wrapper)).toHaveStyleRule('margin-top', '100'); // Theme key not mocked in tests
+    expect(container(wrapper)).toHaveStyleRule('margin-bottom', '0');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
+
+    expect(content(wrapper)).toHaveStyleRule('font-size', '200'); // Theme key not mocked in tests
+    expect(content(wrapper)).toHaveStyleRule('width', '13rem');
+    expect(content(wrapper)).toHaveStyleRule('background-color', 'gray.1000'); // Theme key not mocked in tests
   });
 
-  const testCases = [
-    { name: 'dark', props: { dark: true }},
-    { name: 'top left and offset', props: { left: true, top: true, horizontalOffset: '10px' }},
-    { name: 'with a width', props: { width: '100px' }}
-  ];
+  it('should render with a width', () => {
+    const wrapper = subject({ width: '100px' });
+    expect(content(wrapper)).toHaveStyleRule('width', '100px');
+  });
 
-  cases('renders tooltip states', (opts) => {
-    wrapper.setProps(opts.props);
-    expect(wrapper.instance().renderTooltip({ preferredDirection: {
-      bottom: true,
-      left: false,
-      right: true,
-      top: false
-    }})).toMatchSnapshot();
+  it('should toggle hover visibility', () => {
+    const wrapper = subject();
+    wrapper.find('button').simulate('mouseOver');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '1');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
+    wrapper.find('button').simulate('mouseOut');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
+  });
 
-    expect(wrapper.instance().renderActivator({ activatorRef: jest.fn() })).toMatchSnapshot();
-  }, testCases);
+  it('should toggle focus visibility', () => {
+    const wrapper = subject();
+    wrapper.find('button').simulate('focus');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '1');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
+    wrapper.find('button').simulate('blur');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
+    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
+    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
+  });
 
-  it('should handle mouse events', () => {
-    wrapper.instance().handleMouseOver();
-    expect(wrapper).toHaveState({ hover: true });
-    wrapper.instance().handleMouseOut();
-    expect(wrapper).toHaveState({ hover: false });
+  it('should not toggle visibility when disabled', () => {
+    const wrapper = subject({ disabled: true });
+    wrapper.find('button').simulate('mouseOver');
+    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
+  });
+
+  it('should render top and left', () => {
+    const wrapper = subject({
+      top: true,
+      left: true,
+    });
+    expect(container(wrapper)).toHaveStyleRule('top', 'auto');
+    expect(container(wrapper)).toHaveStyleRule('bottom', '100%');
+    expect(container(wrapper)).toHaveStyleRule('left', 'auto');
+    expect(container(wrapper)).toHaveStyleRule('right', '0');
+    expect(container(wrapper)).toHaveStyleRule('margin-top', '0');
+    expect(container(wrapper)).toHaveStyleRule('margin-bottom', '100'); // Theme key not mocked in tests
+  });
+
+  it('should pass through system props', () => {
+    const wrapper = subject({ bg: 'blue', fontSize: '400', pr: '500' });
+    expect(content(wrapper)).toHaveStyleRule('background-color', 'blue');
+    expect(content(wrapper)).toHaveStyleRule('font-size', '1rem');
+    expect(content(wrapper)).toHaveStyleRule('padding-right', '1.5rem');
   });
 
   it('should render overlay', () => {
-    wrapper.setProps({ portalId: 'foo', eventDebounce: 800 });
-    expect(wrapper.find('TooltipOverlay').dive()).toMatchSnapshot();
+    const wrapper = subject();
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('z-index', 'overlay');
+    // These values are 0 but shows the positioning is working
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('top', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('left', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '0px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '0px');
+  });
+
+  it('should render with a block element wrapper', () => {
+    const wrapper = subject({ as: 'div' });
+    expect(wrapper.find('div').at(0)).not.toHaveStyleRule('display');
   });
 });

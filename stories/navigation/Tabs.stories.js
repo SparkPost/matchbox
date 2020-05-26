@@ -1,76 +1,65 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
-
-import { Tabs, Page, Panel } from '@sparkpost/matchbox';
-
-const secondaryActions = [
-  {
-    content: 'Save',
-    onClick: action('Save Clicked')
-  },
-  {
-    content: 'Delete',
-    onClick: action('Delete Clicked')
-  }
-];
-
-const breadcrumbAction = {
-  content: 'Webhooks',
-  onClick: action('Webhooks Clicked')
-}
+import { Tabs, Panel } from '@sparkpost/matchbox';
 
 const tabs = [
   {
     content: 'Details',
-    onClick: action('Details Clicked')
+    onClick: action('Details Clicked'),
   },
   {
-    content: 'Keys',
-    onClick: action('Keys Clicked')
+    content: 'More Details',
+    onClick: action('More Details Clicked'),
   },
   {
-    content: 'Domains',
-    onClick: action('Domains Clicked')
+    content: 'Example with long text',
+    onClick: action('Example with long text clicked'),
+  },
+  {
+    content: 'Example with a component wrapper',
+    onClick: action('Example with component clicked'),
+    Component: props => <a {...props} href="#" />,
   },
 ];
 
 const handleSelect = action('Tab Selected');
 
-storiesOf('Navigation|Tabs', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-  .add('basic example', withInfo()(() => (
-    <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
-  )))
+const Example = () => {
+  const [i, seti] = React.useState(0);
+  return <Tabs selected={i} onSelect={ind => seti(ind)} tabs={tabs} />;
+};
 
-  .add('fitted tabs', withInfo()(() => (
-    <Tabs fitted selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
-  )))
+export default {
+  title: 'Navigation|Tabs',
+};
 
-  .add('with other components', withInfo({
-    propTablesExclude: [Page, Panel]
-  })(() => (
-    <div>
-      <Page
-        secondaryActions={secondaryActions}
-        breadcrumbAction={breadcrumbAction}
-        title='Webhook #2'
-      />
-      <Tabs selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
-      <Panel sectioned>A panel</Panel>
-    </div>
-  )))
+export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => <Example />);
 
-  .add('colors', withInfo()(() => (
-    <div>
-      <Tabs connectBelow={false} selected={0} color='purple' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='navy' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='blue' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='orange' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
-    </div>
-  )));
+export const DefaultTabs = withInfo()(() => (
+  <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs} />
+));
+
+export const FittedTabs = withInfo()(() => (
+  <Tabs fitted selected={0} onSelect={handleSelect} tabs={tabs} />
+));
+
+export const ExampleWithinPanel = withInfo()(() => (
+  <>
+    <Panel mb="400">
+      <Tabs selected={0} onSelect={handleSelect} tabs={tabs} />
+      <Panel.Section p="400">Example</Panel.Section>
+    </Panel>
+    <Panel>
+      <Tabs fitted selected={0} onSelect={handleSelect} tabs={tabs} />
+      <Panel.Section p="400">Example</Panel.Section>
+    </Panel>
+  </>
+));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Tabs selected={0} borderBottom="none" tabs={tabs} my={['400', null, '800', '100px']} />
+    <Tabs fitted selected={0} tabs={tabs} mx={['400', null, '800', '200px']} />
+  </>
+));

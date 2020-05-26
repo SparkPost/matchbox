@@ -1,65 +1,126 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
+import { Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
+import { FileDownload } from '@sparkpost/matchbox-icons';
 
-import { Tooltip, Button } from '@sparkpost/matchbox';
+export default {
+  title: 'Overlays|Tooltip',
+};
 
-storiesOf('Overlays|Tooltip', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-  .add('Default Style', withInfo({
-    propTablesExclude: [Button, Button.Group]
-  })(() => (
+export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
+  <Box position="relative">
+    <Button.Group>
+      <Tooltip id="test-tooltip" content="Hellow I am a Tooltip">
+        <Button aria-describedby="test-tooltip" onClick={action('click')} outline>
+          <FileDownload size={14} />
+          Accepted
+        </Button>
+      </Tooltip>
+      <Button disabled outline>
+        Targeted
+      </Button>
+    </Button.Group>
+  </Box>
+));
+
+export const SpecifiedWidth = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <Tooltip id="test-tooltip-1" dark width="auto" content="Short">
+      <Button aria-describedby="test-tooltip-1">Hover</Button>
+    </Tooltip>
+
+    <Tooltip id="test-tooltip-2" width="500px" content="Very long">
+      <Button aria-describedby="test-tooltip-2">Hover</Button>
+    </Tooltip>
+  </div>
+));
+
+export const Positioning = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <p>
+      <small>
+        Tooltips are positioned automatically based on the components position within the viewport.
+      </small>
+    </p>
+    <p>
+      <small>Scroll down and hover</small>
+    </p>
+    <div style={{ height: '400px' }} />
     <Button.Group>
       <Tooltip
-        content='Messages an ISP or other remote domain accepted' >
-        <Button onClick={action('click')}>Accepted</Button>
+        id="test-tooltip-1"
+        content="Tooltips are positioned automatically based on the components position."
+      >
+        <Button aria-describedby="test-tooltip-1">Hover me</Button>
       </Tooltip>
-      <Button disabled>Targeted</Button>
+
+      <Box textAlign="right">
+        <Tooltip
+          id="test-tooltip-2"
+          content="Tooltips are positioned automatically based on the components position."
+        >
+          <Button aria-describedby="test-tooltip-2">Hover me</Button>
+        </Tooltip>
+      </Box>
     </Button.Group>
-  )))
+  </div>
+));
 
-  .add('Dark & top', withInfo({
-    propTablesExclude: [Button, Button.Group]
-  })(() => (
-    <div style={{ marginTop: 100 }}>
-      <Tooltip
-        content='Messages an ISP or other remote domain accepted'
-        dark top>
-        <Button>Accepted</Button>
-      </Tooltip>
-    </div>
-  )))
+export const StyledWithSystemProps = withInfo({ propTables: [Tooltip] })(() => (
+  <div>
+    <Tooltip
+      id="test-tooltip-1"
+      content="Hello I am a Tooltip"
+      padding="600"
+      bg="white"
+      boxShadow="300"
+      color="purple.700"
+      border="400"
+    >
+      <Button aria-describedby="test-tooltip-1">Hover</Button>
+    </Tooltip>
 
-  .add('Positioned Automatically', withInfo({
-    propTablesExclude: [Button, Button.Group],
-    text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
-  })(() => (
-    <div>
-      <p><small>Tooltips are positioned automatically based on the components position.</small></p>
-      <p><small>Scroll down and hover</small></p>
-      <div style={{height:'400px'}}/>
-      <Tooltip
-        content='Messages an ISP or other remote domain accepted'>
-        <Button>Hover</Button>
-      </Tooltip>
-    </div>
-  )))
+    <Tooltip
+      id="test-tooltip-2"
+      content="Hello I am a Tooltip"
+      bg="red.700"
+      fontSize="600"
+      lineHeight="600"
+      fontWeight="semibold"
+      p="700"
+      width="30rem"
+    >
+      <Button aria-describedby="test-tooltip-2">Hover</Button>
+    </Tooltip>
+  </div>
+));
 
-  .add('With Specified Width', withInfo({
-    propTablesExclude: [Button, Button.Group],
-    text: 'Tooltips are positioned automatically based on the components position. Use forcePosition to disable this behavior.'
-  })(() => (
-    <div>
-      <Tooltip width='auto' content='Short'>
-        <Button>Hover</Button>
-      </Tooltip>
+export const WithinAbsoluteContainer = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <p>This story is meant to test positioning functionality</p>
+    <Box height="20rem"></Box>
+    <Box position="fixed" top="0" left="0" zIndex="overlay">
+      <Box position="absolute" top="300px" left="200px">
+        <Tooltip
+          id="test-tooltip"
+          content="Tooltips are positioned automatically based on the components position."
+        >
+          <Button aria-describedby="test-tooltip">Hover me</Button>
+        </Tooltip>
+      </Box>
+    </Box>
+  </Box>
+));
 
-      <Tooltip width='500px' content='Very long'>
-        <Button>Hover</Button>
-      </Tooltip>
-    </div>
-  )));
+export const AroundABlockElement = withInfo({ propTables: [Tooltip] })(() => (
+  <Box>
+    <Tooltip
+      id="test-tooltip"
+      as="div"
+      content="Tooltips are positioned automatically based on the components position."
+    >
+      <TextField aria-describedby="test-tooltip" label="A block level element" />
+    </Tooltip>
+  </Box>
+));

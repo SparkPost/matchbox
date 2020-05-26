@@ -2,69 +2,54 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "phantomjs": true
+    "jest": true
   },
   "rules": {
-    "block-spacing": [
-      "error",
-      "always"
-    ],
-    "complexity": "off",
-    "react/jsx-no-bind": "off",
-    "max-lines": [
-      "error",
-      {
-        "max": 150,
-        "skipComments": true,
-        "skipBlankLines": true
-      }
-    ],
-    "object-curly-spacing": [
-      "error",
-      "always",
-      {
-        "arraysInObjects": false,
-        "objectsInObjects": false
-      }
-    ],
-    "one-var": [
-      "error",
-      "never"
-    ],
-    "operator-linebreak": [
-      "error",
-      "after",
-      {
-        "overrides": {
-          "?": "before",
-          ":": "before"
-        }
-      }
-    ],
-    "lodash/chaining": [
-      "error",
-      "never"
-    ],
-    "react/jsx-curly-spacing": [
+    // doesn't work with jest-in-case
+    "jest/no-standalone-expect": "off",
+
+    "lodash/chaining": ["error", "never"],
+
+    // could result in unwanted result (e.g. _.get(obj, [a,b]) is not same as _.get(obj, `${a}${b}`))
+    "lodash/path-style": "off",
+
+    // allow `import debounce from 'lodash/debounce';` for easy mocking
+    "lodash/import-scope": "off",
+
+    // All of the following "lodash/*" rules are lodash's "Preference over Native"
+    // We prefer native functions over lodash in most cases to reduce proneness to
+    // masking errors (_.map will still work if the array is null, etc.)
+    "lodash/prefer-constant": "off",
+    "lodash/prefer-get": "off",
+    "lodash/prefer-includes": "off",
+    "lodash/prefer-is-nil": "off",
+    "lodash/prefer-lodash-chain": "off",
+    "lodash/prefer-lodash-method": "off",
+    "lodash/prefer-lodash-typecheck": "off",
+    "lodash/prefer-matches": "off",
+    "lodash/prefer-noop": "off",
+    "lodash/prefer-over-quantifier": "off",
+    "lodash/prefer-some": "off",
+    "lodash/prefer-startswith": "off",
+    "lodash/prefer-times": "off",
+    "no-unused-vars": [
       "error",
       {
-        "when": "never",
-        "children": true
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
       }
     ]
   },
   "extends": [
     "react-app",
-    "sparkpost",
-    "plugin:jest/recommended"
+    "plugin:lodash/canonical",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "lodash",
-    "jest"
-  ],
+  "plugins": ["lodash", "jest", "prettier"],
   "overrides": [
     {
-      "files": ["*.test.js"],
+      "files": ["*.test.js", "**/dist/*.js"],
       "rules": {
         "max-lines": "off"
       }

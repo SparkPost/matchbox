@@ -1,19 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 import { Label } from '../Label';
-import styles from './Radio.module.scss';
+import { Stack } from '../Stack';
+import { createPropTypes } from '@styled-system/prop-types';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
+import { pick } from '@styled-system/props';
 
-const Group = ({ children, label, required }) => (
-  <div className={styles.Group}>
-    {label && <Label className={styles.GroupLabel}>{label}{required && ' *'}</Label>}
-    {children}
-  </div>
-);
+const StyledGroup = styled('fieldset')`
+  border: none;
+  padding: 0;
+  ${margin}
+`;
+
+function Group(props) {
+  const { children, label, labelHidden, required, ...rest } = props;
+  const systemProps = pick(rest);
+
+  return (
+    <StyledGroup {...systemProps}>
+      {label && (
+        <Label as="legend" label={label} labelHidden={labelHidden}>
+          {required && (
+            <Box as="span" pr="200" aria-hidden="true">
+              *
+            </Box>
+          )}
+        </Label>
+      )}
+      <Stack space="100">{children}</Stack>
+    </StyledGroup>
+  );
+}
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
-  label: PropTypes.node,
-  required: PropTypes.bool
+  label: PropTypes.node.isRequired,
+  labelHidden: PropTypes.bool,
+  required: PropTypes.bool,
+  ...createPropTypes(margin.propNames),
 };
 
 Group.displayName = 'Radio.Group';

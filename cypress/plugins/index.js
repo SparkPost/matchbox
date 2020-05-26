@@ -12,6 +12,17 @@
 // the project's config changing)
 
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
+  require('@cypress/code-coverage/task')(on, config);
+  on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'));
+
+  // Allows logging output while in headless mode
+  // cy.task('log', 'This will be logged')
+  on('task', {
+    log(message) {
+      console.log(message);
+      return null;
+    },
+  });
+
+  return config;
+};

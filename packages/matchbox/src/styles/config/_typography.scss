@@ -2,36 +2,6 @@
 @import '~@sparkpost/design-tokens/dist/font-size.map.scss';
 @import '~@sparkpost/design-tokens/dist/line-height.map.scss';
 
-// Returns a font family stack
-// @param {String} $font - The font family to use
-// @return {} The full font family stack
-
-@function font-family($font: base) {
-
-  @if map-has-key($font-family-map, $font) {
-    @return map-get($font-family-map, $font);
-  }
-
-  @error 'Font family stack `#{$font}` not found.';
-}
-
-@function font-size($size: 400) {
-  @if map-has-key($font-size-map, 'font-size-#{$size}') {
-    $unit: map-get($font-size-map, 'font-size-#{$size}');
-    @return rem($unit);
-  }
-
-  @error 'Font size `#{$size}` not found.';
-}
-
-@function line-height($line: 400) {
-  @if map-has-key($line-height-map, $line) {
-    @return map-get($line-height-map, $line);
-  }
-
-  @error 'Line height `#{$line}` not found.';
-}
-
 @mixin text-style-body {
   font-size: font-size(400);;
   font-weight: 400;
@@ -41,23 +11,23 @@
 @mixin text-style-heading {
   font-size: font-size(700);;
   font-weight: 600;
-  line-height: line-height(200);
+  line-height: line-height(700);
 }
 
 @mixin text-style-display-heading {
-  font-size: font-size(900);
+  font-size: font-size(800);
   font-weight: 600;
-  line-height: line-height(200);
+  line-height: line-height(800);
 }
 
 @mixin text-style-small-heading {
   font-size: font-size(600);
   font-weight: 600;
-  line-height: line-height(200);
+  line-height: line-height(600);
 }
 
 @mixin text-style-smaller-heading {
   font-size: font-size(400);
   font-weight: 600;
-  line-height: line-height(200);
+  line-height: line-height(300);
 }

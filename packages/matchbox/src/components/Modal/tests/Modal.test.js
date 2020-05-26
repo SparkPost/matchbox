@@ -1,65 +1,50 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import * as keyMock from '../../../helpers/keyEvents';
+import 'jest-styled-components';
 import Modal from '../Modal';
-import Content from '../Content';
 
-jest.mock('../../../helpers/keyEvents');
+const subject = props =>
+  global.mountStyled(
+    <Modal {...props}>
+      <div data-id="child-content">I am some child content</div>
+    </Modal>,
+  );
 
 describe('Modal', () => {
-  let props;
-  let wrapper;
+  const modalPortal = global.document.createElement('div');
+  modalPortal.setAttribute('id', 'modal-portal');
+  const body = global.document.querySelector('body');
+  body.appendChild(modalPortal);
 
-  beforeEach(() => {
-    props = {
-      onClose: jest.fn(),
-      open: false
-    };
+  it('renders content as hidden when the "open" prop is false', () => {
+    const wrapper = subject({ open: false });
 
-    wrapper = shallow(<Modal {...props}><h1>Test Example</h1></Modal>);
+    expect(wrapper.find('[data-id="child-content"]')).not.toExist();
   });
 
-  it('should render modal', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+  it('renders content visible when the "open" prop is true', () => {
+    const wrapper = subject({ open: true });
 
-  it('should render modal with close button', () => {
-    wrapper.setProps({ showCloseButton: true });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('[data-id="child-content"]')).toExist();
   });
 
   it('renders with relevant ARIA attributes', () => {
-    const wrapperProps = wrapper.props();
+    const wrapper = subject({ open: true });
 
-    expect(wrapperProps.role).toEqual('dialog');
-    expect(wrapperProps['aria-modal']).toEqual('true');
+    expect(wrapper.find('[role="dialog"]')).toExist();
+    expect(wrapper.find('[aria-modal="true"]')).toExist();
   });
 
-  it('should render contents when open', () => {
-    wrapper.setProps({ open: true });
-    expect(wrapper).toMatchSnapshot();
+  it('renders a close button when "showCloseButton" is true', () => {
+    const wrapper = subject({ open: true, showCloseButton: true });
 
-    const content = shallow(<Content open>Content test</Content>);
-
-    expect(content).toMatchSnapshot();
-
-    const Children = shallow(content.props().children);
-
-    expect(Children).toMatchSnapshot();
+    expect(wrapper.find('[data-id="modal-close"]')).toExist();
   });
 
-  it('handle key down', () => {
-    keyMock.onKey.mockImplementationOnce(() => jest.fn());
-    wrapper.setProps({ open: true });
-    wrapper.instance().handleKeyDown();
-    expect(keyMock.onKey).toHaveBeenCalledWith('escape', props.onClose);
-  });
+  it('invokes "onClose" when clicking on the close button', () => {
+    const mockOnClose = jest.fn();
+    const wrapper = subject({ open: true, showCloseButton: true, onClose: mockOnClose });
+    wrapper.find('button[data-id="modal-close"]').simulate('click');
 
-  it('handle outside click', () => {
-    wrapper.setProps({ open: true });
-    wrapper.instance().content = { contains: jest.fn(() => false) };
-    wrapper.instance().container = { contains: jest.fn(() => true) };
-    wrapper.instance().handleOutsideClick({ target: 'test' });
-    expect(props.onClose).toHaveBeenCalledTimes(1);
+    expect(mockOnClose).toHaveBeenCalled();
   });
 });

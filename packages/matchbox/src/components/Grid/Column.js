@@ -1,49 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { gridColumnStyle } from './styles';
 
-import styles from './Grid.module.scss';
+const StyledGridColumn = styled('div')`
+  ${gridColumnStyle}
+`;
 
-class Column extends Component {
-  static displayName = 'Grid.Column';
-
-  static propTypes = {
-    xs: PropTypes.number,
-    sm: PropTypes.number,
-    md: PropTypes.number,
-    lg: PropTypes.number,
-    xl: PropTypes.number,
-    xsOffset: PropTypes.number,
-    smOffset: PropTypes.number,
-    mdOffset: PropTypes.number,
-    lgOffset: PropTypes.number,
-    children: PropTypes.node
-  };
-
-  render() {
-    const {
-      children,
-      xs, sm, md, lg, xl,
-      xsOffset, smOffset, mdOffset, lgOffset, xlOffset,
-      ...rest
-    } = this.props;
-
-    const colClasses = classnames(
-      styles.Column,
-      xs && styles[`xs-${xs}`],
-      sm && styles[`sm-${sm}`],
-      md && styles[`md-${md}`],
-      lg && styles[`lg-${lg}`],
-      xl && styles[`xl-${xl}`],
-      xsOffset && styles[`xs-offset-${xsOffset}`],
-      smOffset && styles[`sm-offset-${smOffset}`],
-      mdOffset && styles[`md-offset-${mdOffset}`],
-      lgOffset && styles[`lg-offset-${lgOffset}`],
-      xlOffset && styles[`xl-offset-${xlOffset}`]
-    );
-
-    return <div className={colClasses} {...rest}>{children}</div>;
-  }
+function Column({ children, ...props }) {
+  return <StyledGridColumn {...props}>{children}</StyledGridColumn>;
 }
+
+Column.displayName = 'Grid.Column';
+Column.propTypes = {
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
+  xl: PropTypes.number,
+  xsOffset: PropTypes.number,
+  smOffset: PropTypes.number,
+  mdOffset: PropTypes.number,
+  lgOffset: PropTypes.number,
+  children: PropTypes.node,
+};
 
 export default Column;
