@@ -28,13 +28,11 @@ function Table(props) {
     children
   );
 
-  // Pick out `p` and `padding` so we only pass one value down
-  // `context` is passed to handle directional padding values like `px` or `pr`
-  const { p: contextP = '500', padding: contextPadding, ...context } = pick(rest);
+  const { px = '500', py = '400', ...context } = pick(rest);
 
   return (
     <StyledTable {...rest}>
-      <TablePaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
+      <TablePaddingContext.Provider value={{ px, py, ...context }}>
         {dataMarkup}
       </TablePaddingContext.Provider>
     </StyledTable>

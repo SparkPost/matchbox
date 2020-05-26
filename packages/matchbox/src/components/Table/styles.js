@@ -10,7 +10,7 @@ export const table = () => `
 
 export const headerCell = () => `
   font-size: ${tokens.fontSize_200};
-  line-height: ${tokens.lineHeight_200};
+  line-height: ${tokens.lineHeight_300};
   font-weight: ${tokens.fontWeight_semibold};
 `;
 
