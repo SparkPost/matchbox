@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ChevronRight, ChevronLeft } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -40,5 +41,15 @@ function Navbar(props) {
     </Box>
   );
 }
+
+Navbar.displayName = 'Navbar';
+
+// Props come from react-day-picker
+Navbar.propTypes = {
+  onNextClick: PropTypes.func,
+  onPreviousClick: PropTypes.func,
+  showNextButton: PropTypes.bool,
+  showPreviousButton: PropTypes.bool,
+};
 
 export default Navbar;

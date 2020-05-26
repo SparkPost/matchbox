@@ -157,6 +157,7 @@ Button.propTypes = {
   // https://github.com/styled-system/styled-system/issues/618
   // TODO Abstract when system props are grouped
   ...createPropTypes(margin.propNames),
+  ...createPropTypes(padding.propNames),
   ...createPropTypes(width.propNames),
 };
 

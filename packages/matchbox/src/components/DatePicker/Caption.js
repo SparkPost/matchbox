@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Text } from '../Text';
 
@@ -24,5 +25,15 @@ function Caption({ classNames = {}, onClick, date, localeUtils = {} }) {
     </Box>
   );
 }
+
+Caption.displayName = 'Caption';
+
+// Props come from react-day-picker
+Caption.propTypes = {
+  classNames: PropTypes.object,
+  date: PropTypes.instanceOf(Date),
+  localeUtils: PropTypes.object,
+  onClick: PropTypes.func,
+};
 
 export default Caption;

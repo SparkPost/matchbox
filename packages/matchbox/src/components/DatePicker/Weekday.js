@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Text } from '../Text';
 
@@ -30,5 +31,13 @@ function Weekday({ className, weekday, localeUtils = {} }) {
     </Box>
   );
 }
+
+Weekday.displayName = 'Weekday';
+
+// Props come from react-day-picker
+Weekday.propTypes = {
+  className: PropTypes.string,
+  weekday: PropTypes.number,
+};
 
 export default Weekday;
