@@ -84,6 +84,12 @@
         "label": "WindowEvent",
         "disabled": false,
         "section": "Utility"
+      },
+      {
+        "path": "/components/progressbar",
+        "label": "ProgressBar",
+        "disabled": false,
+        "section": "Feedback"
       }
     ]
   }
