@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWindow } from '../../helpers/window';
+import { getWindow } from '../helpers/window';
 
 /**
  * Handles global window event listeners in a reusable hook
