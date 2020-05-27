@@ -78,6 +78,12 @@
         "label": "Panel",
         "disabled": false,
         "section": "Layout"
+      },
+      {
+        "path": "/components/progressbar",
+        "label": "ProgressBar",
+        "disabled": false,
+        "section": "Feedback"
       }
     ]
   }
