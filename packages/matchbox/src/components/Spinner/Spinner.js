@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin, layout, compose } from 'styled-system';
+import { margin, position, compose } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { circleOuter, circle } from './styles';
 
-const system = compose(margin, layout);
+const system = compose(margin, position);
 
 const StyledSpinner = styled(Box)`
   ${system}
@@ -49,7 +49,7 @@ Spinner.propTypes = {
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'white']),
   label: PropTypes.string.isRequired,
   ...createPropTypes(margin.propNames),
-  ...createPropTypes(layout.propNames),
+  ...createPropTypes(position.propNames),
 };
 
 Spinner.defaultProps = {
