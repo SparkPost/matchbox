@@ -1,4 +1,5 @@
 import React from 'react';
+import { getWindow } from '../../helpers/window';
 
 /**
  * Handles global window event listeners in a reusable hook
@@ -12,9 +13,11 @@ import React from 'react';
  *  }
  */
 function useWindowEvent(event, callback) {
+  const environment = getWindow();
+
   React.useEffect(() => {
-    window.addEventListener(event, callback);
-    return () => window.removeEventListener(event, callback);
+    environment.addEventListener(event, callback);
+    return () => environment.removeEventListener(event, callback);
   }, [event, callback]);
 }
 
