@@ -1,0 +1,40 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# ProgressBar
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Normal Sized Progress Bar"
+    code={`
+      <ProgressBar completed={54} my="600" />
+    `}
+  />
+  <LiveCode.Content
+    title="Small Progress Bar"
+    code={`
+      <ProgressBar completed={54} size="small" my="600" />
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### ProgressBar API
+
+<Prop name="completed" type="number" required>
+  Percentage completed
+</Prop>
+<Prop name="size" type="string" defaultValue="normal">
+  <div>"small" | "normal"</div>
+  <div>Percentage completed</div>
+</Prop>
