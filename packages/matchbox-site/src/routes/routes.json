@@ -90,6 +90,12 @@
         "label": "ProgressBar",
         "disabled": false,
         "section": "Feedback"
+      },
+      {
+        "path": "/components/slider",
+        "label": "Slider",
+        "disabled": false,
+        "section": "Form"
       }
     ]
   }
