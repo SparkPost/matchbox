@@ -8,7 +8,7 @@ export default {
   title: 'Overlays|Tooltip',
 };
 
-export const DefaultStyle = withInfo({ propTables: [Tooltip] })(() => (
+export const DefaultStyle = withInfo({ propTables: [Tooltip], source: false })(() => (
   <Box position="relative">
     <Button.Group>
       <Tooltip id="test-tooltip" content="Hellow I am a Tooltip">

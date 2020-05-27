@@ -1,0 +1,88 @@
+@import '../../styles/config';
+
+.TextField {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0 0 spacing() 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.HelpText {
+  padding-top: rem(6);
+  font-size: font-size(300);
+  line-height: line-height(300);
+  color: color(gray, 4);
+  word-break: normal;
+  word-wrap: normal;
+}
+
+.Input {
+  outline: none;
+  border: none;
+  background: transparent;
+
+  color: color(gray, 1);
+  font-weight: 400;
+  font-size: font-size(400);
+  line-height: rem(24);
+
+  width: 100%; // fill remaining space
+
+  &:disabled {
+    background: color(gray, 9);
+    color: color(gray, 3);
+    cursor: not-allowed;
+  }
+}
+
+.Wrapper {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: rem(6) 0 0 rem(6);
+
+  outline: none;
+  border: 1px solid color(gray, 7);
+  border-radius: border-radius();
+
+  transition: border 0.15s;
+
+  &.Error {
+    border: 1px solid color(red);
+    background: rgba(color(red, dark), 0.06);
+  }
+
+  &.Disabled {
+    background: color(gray, 9);
+    color: color(gray, 3);
+    cursor: not-allowed;
+  }
+
+  &:focus-within {
+    border: 1px solid color(blue);
+    box-shadow: 0 0 0 1px color(blue);
+  }
+
+  &:hover:not(.Disabled) {
+    cursor: text;
+  }
+}
+
+.WrapperItem {
+  margin: 0 rem(6) rem(6) 0;
+
+  &.Grow {
+    flex: 1;
+  }
+}
+
+.InlineError {
+  padding-left: spacing(small);
+}
