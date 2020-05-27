@@ -1,0 +1,41 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# WindowEvent
+
+Use this component to set up a function that listens to window events.
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Scroll event handler"
+    code={`
+      <WindowEvent
+        event='scroll'
+        handler={() => console.log('scroll!')}
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="Click event handler"
+    code={`
+      <WindowEvent
+        event='click'
+        handler={() => console.log('click!')}
+      />
+    `}
+  />
+</LiveCode>
+
+---
+
+### WindowEvent API
+
+<Prop name="event" type="string" required>
+  Type of event
+</Prop>
+<Prop name="handler" type="function" required>
+  Event callback function
+</Prop>
