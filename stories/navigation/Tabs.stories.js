@@ -63,3 +63,7 @@ export const SystemProps = withInfo()(() => (
     <Tabs fitted selected={0} tabs={tabs} mx={['400', null, '800', '200px']} />
   </>
 ));
+
+export const DisabledResponsiveBehavior = withInfo()(() => (
+  <Tabs selected={0} disableResponsiveBehavior onSelect={handleSelect} tabs={tabs} />
+));

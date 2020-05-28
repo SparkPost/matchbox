@@ -136,4 +136,10 @@
 - #407 - Adds new `DatePicker` component
 - #407 - Buttons now support padding system props, to suppport square buttons
 - #300 - Adds support for `datetime-local` value for the `TextField` `type` prop
+- #424 - Default padding on Stack and Panel is now 500
+- #424 - Default padding-x on Table is now 500
+- #424 - Default padding-y on Table headers now matches UI kit components
+- #424 - Links inside form input help text is now gray
+- #424 - Modal close button has been resized
+- #424 - Adds new bool prop `disableResponsiveBehavior` to Tabs
 - #415 - Adds new `Spinner` Component

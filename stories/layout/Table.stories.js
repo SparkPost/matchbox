@@ -50,7 +50,7 @@ export const SystemProps = withInfo()(() => (
     <Table>
       <thead>
         <Table.Row header>
-          <Table.HeaderCell p="300">Padding 300</Table.HeaderCell>
+          <Table.HeaderCell>Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
         </Table.Row>
