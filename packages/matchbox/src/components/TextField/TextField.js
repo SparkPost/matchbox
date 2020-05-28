@@ -186,7 +186,17 @@ TextField.propTypes = {
   /**
    * 'text' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'url' | 'date'
    */
-  type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'search', 'tel', 'url', 'date', 'datetime-local']),
+  type: PropTypes.oneOf([
+    'text',
+    'email',
+    'number',
+    'password',
+    'search',
+    'tel',
+    'url',
+    'date',
+    'datetime-local',
+  ]),
   placeholder: PropTypes.string,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
