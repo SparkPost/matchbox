@@ -22,7 +22,6 @@ function useDrawer({ initialOpen = false, id = 'matchbox-drawer' } = {}) {
   function getActivatorProps(additionalProps = {}) {
     return {
       'aria-controls': id,
-      'aria-expanded': open,
       onClick: open,
       ...additionalProps,
     };
