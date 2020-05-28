@@ -136,3 +136,4 @@
 - #407 - Adds new `DatePicker` component
 - #407 - Buttons now support padding system props, to suppport square buttons
 - #300 - Adds support for `datetime-local` value for the `TextField` `type` prop
+- #415 - Adds new `Spinner` Component

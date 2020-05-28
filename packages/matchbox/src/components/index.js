@@ -27,6 +27,7 @@ export * from './ScreenReaderOnly';
 export * from './Select';
 export * from './Slider';
 export * from './Snackbar';
+export * from './Spinner';
 export * from './Stack';
 export * from './Table';
 export * from './Tabs';
