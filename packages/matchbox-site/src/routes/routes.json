@@ -102,6 +102,12 @@
         "label": "Slider",
         "disabled": false,
         "section": "Form"
+      },
+      {
+        "path": "/components/unstyledlink",
+        "label": "UnstyledLink",
+        "disabled": false,
+        "section": "Navigation"
       }
     ]
   }
