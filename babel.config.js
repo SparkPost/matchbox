@@ -3,38 +3,24 @@ module.exports = {
     test: {
       presets: [
         [
-          "@babel/preset-env",
+          '@babel/preset-env',
           {
-            modules: "commonjs",
-            debug: false
-          }
+            modules: 'commonjs',
+            debug: false,
+          },
         ],
-        "@babel/preset-react",
-        "react-app"
+        '@babel/preset-react',
+        'react-app',
       ],
-      plugins: [
-        "@babel/plugin-proposal-class-properties"
-      ]
+      plugins: ['@babel/plugin-proposal-class-properties'],
     },
     production: {
-      presets: [
-        ["@babel/preset-env"],
-        "@babel/preset-react",
-        "react-app"
-      ],
-      plugins: [
-        "@babel/plugin-proposal-class-properties"
-      ]
+      presets: [['@babel/preset-env'], '@babel/preset-react', 'react-app'],
+      plugins: ['@babel/plugin-proposal-class-properties'],
     },
     development: {
-      presets: [
-        ["@babel/preset-env"],
-        "@babel/preset-react",
-        "react-app"
-      ],
-      plugins: [
-        "@babel/plugin-proposal-class-properties"
-      ]
-    }
-  }
+      presets: [['@babel/preset-env'], '@babel/preset-react', 'react-app'],
+      plugins: ['@babel/plugin-proposal-class-properties'],
+    },
+  },
 };
