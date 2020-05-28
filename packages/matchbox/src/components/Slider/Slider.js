@@ -7,6 +7,7 @@ import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
+import { getWindow } from '../../helpers/window';
 import {
   slider,
   rail,
@@ -74,6 +75,7 @@ function Slider(props) {
   } = props;
 
   const systemProps = pick(rest);
+  const environment = getWindow();
 
   const windowSize = useWindowSize(50);
   const [sliderValue, setSliderValue] = React.useState(
@@ -196,24 +198,24 @@ function Slider(props) {
   // Binding of mouse/touch drag events
   React.useEffect(() => {
     if (moving === 'mouse') {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleEnd);
+      environment.addEventListener('mousemove', handleMouseMove);
+      environment.addEventListener('mouseup', handleEnd);
     }
 
     if (moving === 'touch') {
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleEnd);
+      environment.addEventListener('touchmove', handleTouchMove);
+      environment.addEventListener('touchend', handleEnd);
     }
 
     return () => {
       if (moving === 'mouse') {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleEnd);
+        environment.removeEventListener('mousemove', handleMouseMove);
+        environment.removeEventListener('mouseup', handleEnd);
       }
 
       if (moving === 'touch') {
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleEnd);
+        environment.removeEventListener('touchmove', handleTouchMove);
+        environment.removeEventListener('touchend', handleEnd);
       }
     };
   }, [moving]);
