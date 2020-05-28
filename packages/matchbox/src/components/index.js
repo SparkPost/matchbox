@@ -5,6 +5,7 @@ export * from './Button';
 export * from './Checkbox';
 export * from './CodeBlock';
 export * from './ComboBox';
+export * from './DatePicker';
 export * from './Drawer';
 export * from './EmptyState';
 export * from './Error';
