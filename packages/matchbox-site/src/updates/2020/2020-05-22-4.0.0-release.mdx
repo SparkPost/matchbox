@@ -1,0 +1,216 @@
+---
+title: Matchbox 4.0.0
+date: 2020-05-20
+published: true
+category: release notes
+---
+
+#### @sparkpost/matchbox 4.0.0
+
+###### New Components
+
+- Box
+- Text
+- ThemeProvider
+- Columns
+- Stack
+- Inline
+- Drawer
+- DatePicker
+
+###### New Hooks
+
+- useDrawer
+- useWindowEvent
+- useWindowSize
+
+---
+
+##### Component Changes
+
+All components have been redesigned and restyled with styled-components.
+
+**ActionList**
+
+- #358 - Restyles ActionList
+- #358 - Removes ActionList `groupByKey` default prop
+- #358 - Adds Action proptypes, used internally by ActionList
+- #358 - ActionList actions now accept a new `is` prop, and accept either `link` `button` or
+  `checkbox`
+
+**Banner**
+
+- #334 - Restyles the Banner component
+- #334 - Banner component dismiss button is now a button, and handles both space and enter events
+- #334 - Banner component dismiss button is now screen reader accessible
+- #334 - Banner with a status of 'default' now defaults to 'info'
+- #334 - Links within the Banner component overwrite color and hover color to be accessible
+
+**Button**
+
+- #309 - Buttons no longer automatically blur on click
+- #309 - Restyles the Button and Button.Group components with styled-components
+- #309 - External buttons now add a default title, and allow custom titles through a new title prop
+- #374 - Adds `cursor: pointer;` to the `<Button/>` component styles
+
+**Checkbox**
+
+- #355 - Checkbox `id` prop is now required
+- #355 - Checkbox now properly hides a screen reader accessible label
+- #355 - Checkbox now properly uses aria-describedby to link to its helptext and error
+- #355 - Checkbox.Group now properly uses a `fieldset` and `legend` elements
+- #355 - Adds underline text decoration to all links
+
+**ComboBox**
+
+- #377 - Restyles ComboBox, ComboBoxTextField, and ComboBoxMenu
+- #377 - ComboBox now properly renders its menu after the text field
+- #377 - ComboBoxTextField prop `id` is now required
+- #377 - ComboBoxTextField now properly hides a screen reader accessible label
+- #377 - ComboBoxTextField now properly uses aria-describedby to link to its helptext and error
+- #377 - ComboBoxMenu now renders a message if it is open and there are no items through the
+  `emptyMessage` prop, which defaults to 'No Results'
+- #382 - Fix ComboBox children validation to check both displayName and name
+
+**EmptyState**
+
+- #379 - Converts EmptyState to be styled component
+
+**Expandable**
+
+- #339 - Restyle the Expandable Component
+
+**Label**
+
+- #340 - Label component with labelHidden prop now properly hides a screen reader accessible label
+- #363 - `<Label/>` renders `null` when no `label` is provided
+
+**Modal**
+
+- #410 - `Modal` now accepts `padding` and `maxWidth` system props, and sets new defaults
+
+* #371 - Restyles `<Modal/>` component using styled components
+* #371 - Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
+  rendering
+
+**ProgressBar**
+
+- #323 - Progress Bar Updates, default props changed and added size: 'normal'
+
+**Panel**
+
+- #329 - Restyle the Panel Component
+- #386 - `className` is properly passed to `<Panel/>` instances
+- #381 - Adds border radius to panel containers
+
+**Radio**
+
+- #368 - Restyle and convert Radio to Styled Components
+- #368 - Radio `id` prop is now required
+- #368 - Radio now properly hides a screen reader accessible label
+- #368 - Radio now properly uses aria-describedby to link to its helptext and error
+- #368 - Radio.Group now properly uses a `fieldset` and `legend` elements
+
+**Slider**
+
+- #337 - Restyles the Slider component
+
+**Pagination**
+
+- #325 - Pagination next and previous buttons are now screen reader accessible with screen reader
+  only content
+- #362 - Restyles Pagination Component
+- #362 - Deprecates Pagination prop `selectedColor`
+- #362 - Deprecates Pagination prop `flat`
+
+**Page**
+
+- #356 - Restyles Page component
+- #356 - Removes the default prop `empty`
+- #369 - Page secondary action popover now uses the correct a11y attributes
+
+**Pager**
+
+- #343 - Update the Pager Component
+
+**Popover**
+
+- #369 - Restyles `Popover`
+- #369 - Adds new `id` prop for `Popover`
+- #369 - Adds new `as` prop for `Popover`, functions the same way as `wrapper`
+- #369 - Removes the `portalId` prop from `Popover`
+- #369 - Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
+
+**Tab**
+
+- #348 - Restyles the Tabs component
+- #348 - Tab `connectBelow` is removed in favor of margin system props
+- #361 – Tabs now specify `type="button"` and support long text content
+- #390 - `Tabs` are now responsive for both fitted and non-fitted variations
+- #390 - `Tab` now uses a `pointer` cursor on hover
+- #390 - `Tabs` now accept the `borderBottom` system prop
+
+**Table**
+
+- #342 - Restyles the Table component and adds configurable padding
+
+**Tag**
+
+- #324 - Restyles the Tag component
+- #324 - Tag component close button is now a button, and handles both space and enter events
+- #341 - Adds a lightGray and darkGray variant to Tag component
+
+**Tooltip**
+
+- #365 – Adds a Tooltip `as` prop, defaults to `span`
+- #365 – Fixes tooltip positioning by reverting to portals, `portalId` is available again
+- #365 – Tooltips are now visible if trigger is focused
+- #365 – Tooltips `id` is now required
+
+**ScreenReaderOnly**
+
+- #359 - Restyles the ScreenReaderOnly component
+
+**Select**
+
+- #340 - Restyles Select component
+- #340 - Select now properly uses aria-describedby to link to its helptext and error
+- #340 - Select with the required prop now applies the required HTML attribute to the input
+
+**Snackbar**
+
+- #328 - Snackbar dismiss button is now a button, and handles both space and enter events
+
+**TextField**
+
+- #349 - Restyles the TextField component
+- #349 - TextField now properly hides a screen reader accessible label
+- #349 - TextField now properly uses aria-describedby to link to its helptext and error
+- #349 - TextField `id` prop is now required
+
+**Toggle**
+
+- #353 - Restyles the Toggle component
+- #353 - Deprecates Toggle prop `compact`
+- #353 - Adds new Toggle prop `label`
+- #349 - Toggle `id` prop is now required
+- #380 - Add defaultChecked prop to Toggle
+
+**Tooltip**
+
+- #346 - Restyle Tooltip component
+- #346 - Deprecates the dark prop on Tooltip
+- #346 - Adds new `id` prop on Tooltip
+- #346 - Tooltips are now properly positioned after the trigger in the DOM, no longer use portals
+  and the `portalId` prop
+- #346 - Tooltips no longer accept the prop `debounceEvent`
+
+##### Other Changes
+
+- #409 - `matchbox` now lists `react`, `react-dom` and `styled-components` as peer dependencies
+- #409 - `matchbox-icons` now lists `react` and `react-dom` as peer dependencies
+- #351 - ThemeProvider now injects global CSS and the exported `styles.css` should no longer be used
+- #270 - Refreshes global CSS, Adds Box component, and Installs styled-system
+
+* #354 - Adds type="button" to Snackbar, Banner, Tag, Expandable button elements
+* #388 - Adds new sizing design tokens mapped to the `sizes` styled-system field

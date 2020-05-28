@@ -75,7 +75,7 @@ function Layout(props) {
     const selectedRoute = _.findLast(allRoutes, ({ path }) =>
       selected(pathname, path, false)
     );
-    return _.get(selectedRoute, 'label', '404');
+    return _.get(selectedRoute, 'label', '');
   }, [allRoutes, pathname]);
 
   return (
