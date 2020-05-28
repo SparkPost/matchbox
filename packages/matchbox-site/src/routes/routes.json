@@ -74,6 +74,12 @@
         "label": "System Props"
       },
       {
+        "path": "/components/page",
+        "label": "Page",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
         "path": "/components/panel",
         "label": "Panel",
         "disabled": false,
