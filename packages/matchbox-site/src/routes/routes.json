@@ -108,6 +108,12 @@
         "label": "UnstyledLink",
         "disabled": false,
         "section": "Navigation"
+      },
+      {
+        "path": "/components/tooltip",
+        "label": "Tooltip",
+        "disabled": false,
+        "section": "Overlays"
       }
     ]
   }

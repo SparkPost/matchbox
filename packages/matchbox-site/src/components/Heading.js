@@ -21,6 +21,9 @@ const StyledLink = styled(Link)`
 `;
 
 function toKebab(str) {
+  if (!str) {
+    return '';
+  }
   return str.replace(/\s+/g, '-').toLowerCase();
 }
 
