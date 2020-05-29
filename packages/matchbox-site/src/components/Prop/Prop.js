@@ -9,11 +9,11 @@ function Prop(props) {
   return (
     <Box mb="600">
       <Box display="flex" alignItems="center">
-        <Box as="h6" fontSize="400" m="0" mb="100" mr="300" color="blue.700">
+        <Box as="h6" fontSize="400" m="0" mb="100" mr="400" color="blue.700">
           {name}
         </Box>
         {required && (
-          <Box as="span" fontSize="100" color="gray.700">
+          <Box as="span" fontSize="200" fontStyle="italic" color="gray.700">
             required
           </Box>
         )}
@@ -34,7 +34,9 @@ function Prop(props) {
             display="inline"
             mb="200"
             fontWeight="regular"
-            fontSize="100"
+            fontSize="0.75rem"
+            fontFamily="monospace"
+            color="magenta.800"
           >
             {type}
           </Box>
@@ -55,7 +57,9 @@ function Prop(props) {
               display="inline"
               mb="200"
               fontWeight="regular"
-              fontSize="100"
+              fontSize="0.75rem"
+              fontFamily="monospace"
+              color="magenta.800"
             >
               {defaultValue}
             </Box>

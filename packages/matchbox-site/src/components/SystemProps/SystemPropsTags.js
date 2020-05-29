@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getSystemProps } from '../../helpers';
 
-import { Box, Tag, Tooltip } from '@sparkpost/matchbox';
+import { Box, Tag, Tooltip, Inline } from '@sparkpost/matchbox';
 
 function SystemPropsTags(props) {
   const { propsList } = props;
@@ -19,15 +19,17 @@ function SystemPropsTags(props) {
   }
 
   return (
-    <Box>
+    <Inline space="200">
       {propsList.map(prop => {
         return (
-          <Tooltip width="175px" key={prop} content={availablePropsList(prop)}>
-            <Tag mr="200">{prop}</Tag>
-          </Tooltip>
+          <div key={prop}>
+            <Tooltip content={availablePropsList(prop)}>
+              <Tag>{prop}</Tag>
+            </Tooltip>
+          </div>
         );
       })}
-    </Box>
+    </Inline>
   );
 }
 
