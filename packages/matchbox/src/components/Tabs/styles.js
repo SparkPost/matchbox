@@ -51,8 +51,7 @@ export const overflowTabs = ({ isOverflowing }) => `
   pointer-events: ${isOverflowing ? 'none' : 'auto'};
 `;
 
-export const containerStyles = ({ disableResponsiveBehavior }) => `
+export const containerStyles = () => `
   position: relative;
   height: ${tokens.sizing_750};
-  ${!disableResponsiveBehavior ? `overflow: hidden;` : ''}
 `;
