@@ -53,4 +53,11 @@ describe('Tabs', () => {
     });
     expect(wrapper.find('a').text()).toEqual('Tab 4');
   });
+
+  it('should be able to disable responsive behavior', () => {
+    const wrapper = subject({
+      disableResponsiveBehavior: true,
+    });
+    expect(wrapper).not.toHaveStyleRule('overflow', 'hidden');
+  });
 });

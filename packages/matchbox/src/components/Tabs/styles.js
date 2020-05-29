@@ -54,5 +54,5 @@ export const overflowTabs = ({ isOverflowing }) => `
 export const containerStyles = ({ disableResponsiveBehavior }) => `
   position: relative;
   height: ${tokens.sizing_750};
-  ${disableResponsiveBehavior ? `overflow: hidden;` : ''}
+  ${!disableResponsiveBehavior ? `overflow: hidden;` : ''}
 `;
