@@ -48,7 +48,7 @@ export const WithSuppliedData = withInfo()(() => (
 export const ResponsiveTable = withInfo()(() => (
   <Box maxWidth="1100">
     <Panel>
-      <Table p="200" data={data} freezeFirstColumn freezeColumns={2} />
+      <Table p="200" data={data} freezeFirstColumn />
     </Panel>
   </Box>
 ));
