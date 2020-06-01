@@ -6,7 +6,7 @@ export default {
   title: 'Feedback|KeyboardKey',
 };
 
-export const Shortcut = withInfo()(() => (
+export const Shortcut = withInfo({ propTables: [KeyboardKey] })(() => (
   <>
     Press the <KeyboardKey>Ctrl</KeyboardKey> + <KeyboardKey>S</KeyboardKey> key to save
   </>
