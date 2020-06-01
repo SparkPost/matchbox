@@ -70,7 +70,7 @@ function Tab(props) {
 Tab.displayName = 'Tab';
 
 function Tabs(props) {
-  const { tabs, selected, onSelect, fitted, ...rest } = props;
+  const { disableResponsiveBehavior, tabs, selected, onSelect, fitted, ...rest } = props;
   const [isOverflowing, setIsOverflowing] = React.useState(false);
   const [popoverOpen, setPopoverOpen] = React.useState(false);
 
@@ -95,14 +95,16 @@ function Tabs(props) {
   }
 
   React.useLayoutEffect(() => {
-    const wrapperPosition = getPositionFor(wrapperRef.current);
-    const overflowPosition = getPositionFor(overflowRef.current);
+    if (!disableResponsiveBehavior) {
+      const wrapperPosition = getPositionFor(wrapperRef.current);
+      const overflowPosition = getPositionFor(overflowRef.current);
 
-    // Compares tab container width with its position relative to a measurement pixel
-    if (wrapperPosition.width < overflowPosition.left - wrapperPosition.left) {
-      setIsOverflowing(true);
-    } else {
-      setIsOverflowing(false);
+      // Compares tab container width with its position relative to a measurement pixel
+      if (wrapperPosition.width < overflowPosition.left - wrapperPosition.left) {
+        setIsOverflowing(true);
+      } else {
+        setIsOverflowing(false);
+      }
     }
   }, [wrapperRef, overflowRef, windowSize]);
 
@@ -110,10 +112,13 @@ function Tabs(props) {
 
   // Constructs ActionList actions from tabs
   const tabActions = React.useMemo(() => {
+    if (disableResponsiveBehavior) {
+      return;
+    }
     return tabs.map((tab, i) => {
       return { is: 'button', ...tab, onClick: e => handleClick(e, i), visible: i !== selected };
     });
-  }, [selected, tabs, isOverflowing]);
+  }, [selected, tabs, isOverflowing, disableResponsiveBehavior]);
 
   return (
     <Container borderBottom="400" {...pick(rest)} ref={wrapperRef}>
@@ -137,7 +142,7 @@ function Tabs(props) {
           <Box display="inline-block" width="1px" height="1px" ref={overflowRef} />
         </OverflowTabContainer>
       </Box>
-      {isOverflowing && (
+      {isOverflowing && !disableResponsiveBehavior && (
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Box flex="0">
             <Tab index={selected} selected={selected} {...selectedTab} />
@@ -174,6 +179,7 @@ function Tabs(props) {
 
 Tabs.displayName = 'Tabs';
 Tabs.propTypes = {
+  disableResponsiveBehavior: PropTypes.bool,
   /**
    * Tab Content
    * Actions that build the tabs. Most button and unstyled link props will work in here.

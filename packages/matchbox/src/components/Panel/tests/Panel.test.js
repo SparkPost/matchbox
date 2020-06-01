@@ -150,7 +150,7 @@ describe('Panel', () => {
 
   it('renders default padding context correctly', () => {
     wrapper = global.mountStyled(<Panel sectioned>test</Panel>);
-    expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1rem');
+    expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1.5rem');
   });
 
   it('renders default padding context correctly on sections', () => {
@@ -161,8 +161,8 @@ describe('Panel', () => {
       </Panel>,
     );
     // Spacing theme values are mocked in jest, these are not representative of tokens
-    expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule('padding', '1rem');
-    expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding', '1rem');
+    expect(wrapper.find(Panel.Section).at(0)).toHaveStyleRule('padding', '1.5rem');
+    expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding', '1.5rem');
   });
 
   it('renders default contextual padding and a section with padding overide', () => {

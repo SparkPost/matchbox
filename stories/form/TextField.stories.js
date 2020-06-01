@@ -24,7 +24,11 @@ export const HelpTextAndError = withInfo()(() => (
     id="id"
     error="You forgot an ID!"
     label="Template ID"
-    helpText="A unique ID for your template."
+    helpText={
+      <>
+        A unique ID for your <a>template</a>.
+      </>
+    }
   />
 ));
 

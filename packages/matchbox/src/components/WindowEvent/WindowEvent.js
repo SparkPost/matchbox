@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getWindow } from '../../helpers/window';
 
 /**
  * Adds and removes events for you
@@ -9,13 +10,14 @@ import PropTypes from 'prop-types';
 
 function WindowEvent(props) {
   const { event, handler } = props;
+  const environment = getWindow();
 
   function addEvent() {
-    window.addEventListener(event, handler);
+    environment.addEventListener(event, handler);
   }
 
   function removeEvent() {
-    window.removeEventListener(event, handler);
+    environment.removeEventListener(event, handler);
   }
 
   React.useEffect(() => {

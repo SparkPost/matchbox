@@ -28,7 +28,7 @@ const StyledBox = styled(Box)`
 `;
 
 function Stack(props) {
-  const { children, align, space = '400' } = props;
+  const { children, align, space = '500' } = props;
   const items = React.Children.toArray(children);
 
   if (items.length <= 1 && !align) {
