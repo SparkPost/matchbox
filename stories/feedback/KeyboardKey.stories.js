@@ -8,6 +8,6 @@ export default {
 
 export const Shortcut = withInfo()(() => (
   <>
-    Press the <KeyboardKey>Ctrl</KeyboardKey> key
+    Press the <KeyboardKey>Ctrl</KeyboardKey> + <KeyboardKey>S</KeyboardKey> key to save
   </>
 ));
