@@ -13,6 +13,7 @@ export * from './Expandable';
 export * from './Grid';
 export * from './HelpText';
 export * from './Inline';
+export * from './KeyboardKey';
 export * from './Label';
 export * from './Modal';
 export * from './Page';
