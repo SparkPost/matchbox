@@ -121,12 +121,7 @@ function Tabs(props) {
   }, [selected, tabs, isOverflowing, disableResponsiveBehavior]);
 
   return (
-    <Container
-      borderBottom="400"
-      {...pick(rest)}
-      ref={wrapperRef}
-      disableResponsiveBehavior={disableResponsiveBehavior}
-    >
+    <Container borderBottom="400" {...pick(rest)} ref={wrapperRef}>
       <Box aria-hidden={isOverflowing} overflow="hidden">
         <OverflowTabContainer
           aria-orientation="horizontal"
