@@ -7,11 +7,6 @@ describe('KeyboardKey', () => {
 
   it('should render children correctly', () => {
     const wrapper = subject();
-    expect(
-      wrapper
-        .find('Box')
-        .at(0)
-        .text(),
-    ).toBe('Ctrl');
+    expect(wrapper.text()).toBe('Ctrl');
   });
 });
