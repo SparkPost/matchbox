@@ -143,4 +143,6 @@
 - #424 - Modal close button has been resized
 - #424 - Adds new bool prop `disableResponsiveBehavior` to Tabs
 - #415 - Adds new `Spinner` Component
+- #435 - Fixes Tab `disableResponsiveBehavior` rule
 - #436 - Removes all Sass from matchbox including all functions and mixins
+
