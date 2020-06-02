@@ -15,7 +15,8 @@ const Column = React.forwardRef(function Column(props, ref) {
 
   return (
     <StyledColumn
-      width={!width || collapsed ? '100%' : width === 'content' ? 'auto' : width}
+      width={collapsed ? '100%' : width === 'content' ? 'auto' : width}
+      flex={!width && !collapsed ? '1' : ''}
       gutter={space}
       ref={ref}
     >

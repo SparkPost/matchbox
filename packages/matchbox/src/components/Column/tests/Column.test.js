@@ -15,8 +15,8 @@ describe('Columns', () => {
   it('defaults to fluid width', () => {
     const wrapper = subject();
 
-    expect(wrapper.find('div').at(2)).toHaveStyleRule('width', '100%');
-    expect(wrapper.find('div').at(3)).toHaveStyleRule('width', '100%');
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('flex', '1');
+    expect(wrapper.find('div').at(3)).toHaveStyleRule('flex', '1');
   });
 
   it('renders content width', () => {
@@ -28,7 +28,7 @@ describe('Columns', () => {
     );
 
     expect(wrapper.find('div').at(2)).toHaveStyleRule('width', 'auto');
-    expect(wrapper.find('div').at(3)).toHaveStyleRule('width', '100%');
+    expect(wrapper.find('div').at(3)).toHaveStyleRule('flex', '1');
   });
 
   it('renders width with styled system math', () => {
