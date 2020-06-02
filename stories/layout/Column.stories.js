@@ -2,11 +2,18 @@ import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { Columns } from '@sparkpost/matchbox/components/Columns';
 import { Column } from '@sparkpost/matchbox/components/Column';
-
-import { DemoBlock } from './Columns.stories';
+import { Box } from '@sparkpost/matchbox/components/Box';
 
 export default {
   title: 'Layout|Column',
+};
+
+const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
+  return (
+    <Box display="flex" alignItems="center" bg="blue.400" height={height} mb="18px" p={p}>
+      {children}
+    </Box>
+  );
 };
 
 export const Default = withInfo()(() => (

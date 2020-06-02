@@ -8,7 +8,7 @@ export default {
   title: 'Layout|Columns',
 };
 
-export const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
+const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
   return (
     <Box display="flex" alignItems="center" bg="blue.400" height={height} mb="18px" p={p}>
       {children}
