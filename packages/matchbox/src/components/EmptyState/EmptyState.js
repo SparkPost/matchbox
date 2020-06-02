@@ -1,32 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonFrom } from '../Button';
-import { linkFrom } from '../UnstyledLink';
 import styled from 'styled-components';
-import { emptyState, title, content, actions, image, secondaryAction } from './styles.js';
+import css from '@styled-system/css';
+import { Box } from '../Box';
+import { buttonFrom } from '../Button';
+import { Inline } from '../Inline';
+import { linkFrom } from '../UnstyledLink';
+import { Stack } from '../Stack';
 
-const StyledEmptyState = styled('div')`
-  ${emptyState}
+const StyledContent = styled(Box)`
+  p {
+    color: ${props => props.theme.colors.gray['700']};
+    ${css({
+      fontSize: ['400', null, null, '500'],
+      lineHeight: ['400', null, null, '500'],
+    })};
+  }
 `;
 
-const StyledTitle = styled('h1')`
-  ${title}
-`;
-
-const StyledContent = styled('div')`
-  ${content}
-`;
-
-const StyledActions = styled('div')`
-  ${actions}
-`;
-
-const StyledImage = styled('div')`
-  ${image}
-`;
-
-const StyledSecondaryAction = styled('span')`
-  ${secondaryAction}
+const StyledImage = styled(Box)`
+  transform: translate(0, -50%);
+  & > svg {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 function EmptyState(props) {
@@ -40,21 +37,38 @@ function EmptyState(props) {
     : null;
 
   return (
-    <StyledEmptyState>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledContent>{children}</StyledContent>
-      <StyledActions>
-        {primaryActionMarkup}{' '}
-        {secondaryAction && (
-          <StyledSecondaryAction>{linkFrom(secondaryAction)}</StyledSecondaryAction>
-        )}
-      </StyledActions>
+    <Box position="relative" height="100vh" py={['500', null, '33vh']} px="500">
+      <Stack space={['400', null, null, '600']}>
+        <Box
+          as="h1"
+          width={['auto', null, '45%']}
+          fontSize={['600', null, null, '700']}
+          lineHeight={['600', null, null, '700']}
+        >
+          {title}
+        </Box>
+        <StyledContent width={['auto', null, '45%']}>{children}</StyledContent>
+        <Box width={['auto', null, '45%']}>
+          <Inline space="500">
+            {primaryActionMarkup}
+            {secondaryAction && <span>{linkFrom(secondaryAction)}</span>}
+          </Inline>
+        </Box>
+      </Stack>
       {Image && (
-        <StyledImage>
+        <StyledImage
+          display={['none', null, 'block']}
+          top="45%"
+          left="48%"
+          width="50%"
+          maxWidth="600px"
+          height="auto"
+          position="absolute"
+        >
           <Image />
         </StyledImage>
       )}
-    </StyledEmptyState>
+    </Box>
   );
 }
 
