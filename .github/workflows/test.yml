@@ -3,11 +3,7 @@
 
 name: test
 
-on:
-  pull_request
-  push:
-    branches: [master]
-  
+on: [pull_request]
 
 jobs:
   testing:
@@ -26,8 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run test:ci
-
-
 # name: Unit and end-to-end testing
 
 # on: [pull_request]
