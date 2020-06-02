@@ -17,6 +17,11 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
     600: '2rem',
   },
   breakpoints: ['400px', '800px'],
+  colors: {
+    gray: {
+      700: 'gray',
+    },
+  },
 }));
 
 // jest-styled-components@6.3.3 has some issues:
