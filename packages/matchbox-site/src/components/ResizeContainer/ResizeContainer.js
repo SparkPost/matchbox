@@ -47,7 +47,6 @@ function ResizeContainer(props) {
 
   useEffect(() => {
     if (contentRef && contentRef.current) {
-      console.log(contentRef.current.getBoundingClientRect());
       setContentHeight(contentRef.current.getBoundingClientRect().height);
     }
   }, []);
@@ -112,7 +111,8 @@ function ResizeContainer(props) {
       <WindowEvent event="mouseup" handler={onMouseUp} />
       <WindowEvent event="resize" handler={handleResize} />
       <StyledContainer
-        padding={400}
+        padding="400"
+        pr="700"
         flex="1"
         ref={contentRef}
         width={`${position.width}px`}

@@ -6,7 +6,7 @@
   "author": "SparkPost",
   "dependencies": {
     "@sparkpost/design-tokens": "^1.0.0-beta.20",
-    "@sparkpost/matchbox": "^4.0.0-hibana.22",
+    "@sparkpost/matchbox": "^4.0.0-hibana.24",
     "@sparkpost/matchbox-icons": "^1.3.0",
     "color": "^3.1.2",
     "copy-to-clipboard": "^3.2.0",
