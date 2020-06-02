@@ -8,7 +8,10 @@ Use this component to switch views within the same page context.
 
 ### Usage
 
-<!-- Responsive behavior is bugged here: UX-234 -->
+<!--
+Responsive behavior is bugged here: UX-234
+remove disableResponsiveBehavior prop after
+ -->
 
 <LiveCode>
   <LiveCode.Content
@@ -16,6 +19,7 @@ Use this component to switch views within the same page context.
     code={`
       <Tabs
         selected={1}
+        disableResponsiveBehavior
         tabs={[
           { content: 'Details' },
           { content: 'Sending Domains'},
@@ -31,6 +35,7 @@ Use this component to switch views within the same page context.
       <Tabs
         fitted  
         selected={1}
+        disableResponsiveBehavior
         tabs={[
           { content: 'Details' },
           { content: 'Sending Domains'},
