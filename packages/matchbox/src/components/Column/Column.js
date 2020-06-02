@@ -10,14 +10,15 @@ const StyledColumn = styled(Box)`
 `;
 
 const Column = React.forwardRef(function Column(props, ref) {
-  const { children } = props;
-
-  const spaceContext = React.useContext(ColumnsContext);
-
-  console.log(spaceContext);
+  const { width, children } = props;
+  const { space, collapsed } = React.useContext(ColumnsContext);
 
   return (
-    <StyledColumn gutter={spaceContext} ref={ref}>
+    <StyledColumn
+      width={!width || collapsed ? '100%' : width === 'content' ? 'auto' : width}
+      gutter={space}
+      ref={ref}
+    >
       {children}
     </StyledColumn>
   );
@@ -27,6 +28,7 @@ Column.displayName = 'Column';
 
 Column.propTypes = {
   children: PropTypes.node,
+  width: PropTypes.oneOfType([PropTypes.oneOf(['content']), PropTypes.number]),
 };
 
 export default Column;
