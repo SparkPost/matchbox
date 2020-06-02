@@ -3,6 +3,8 @@ import Column from '../Column';
 import { Columns } from '../../Columns';
 import 'jest-styled-components';
 
+import { tokens } from '@sparkpost/design-tokens';
+
 describe('Columns', () => {
   const subject = props =>
     global.mountStyled(
@@ -17,6 +19,14 @@ describe('Columns', () => {
 
     expect(wrapper.find('div').at(2)).toHaveStyleRule('flex', '1');
     expect(wrapper.find('div').at(3)).toHaveStyleRule('flex', '1');
+  });
+
+  it('defaults space to 500', () => {
+    const wrapper = subject();
+
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', `-${tokens.spacing_500}`);
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('margin-left', tokens.spacing_500);
+    expect(wrapper.find('div').at(3)).toHaveStyleRule('margin-left', tokens.spacing_500);
   });
 
   it('renders content width', () => {

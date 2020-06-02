@@ -67,4 +67,8 @@ Columns.propTypes = {
   ...createPropTypes(margin.propNames),
 };
 
+Columns.defaultProps = {
+  space: 500,
+};
+
 export default Columns;

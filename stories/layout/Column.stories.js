@@ -18,7 +18,7 @@ const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
 
 export const Default = withInfo()(() => (
   <>
-    <Columns space="300">
+    <Columns>
       <Column>
         <DemoBlock>Fluid</DemoBlock>
       </Column>
@@ -26,25 +26,25 @@ export const Default = withInfo()(() => (
         <DemoBlock>Content</DemoBlock>
       </Column>
     </Columns>
-    <Columns space="300">
+    <Columns>
       <Column width={1 / 3}>
-        <DemoBlock>1/3</DemoBlock>
+        <DemoBlock> 1 / 3</DemoBlock>
       </Column>
       <Column>
         <DemoBlock>Fluid</DemoBlock>
       </Column>
     </Columns>
-    <Columns space="300">
+    <Columns>
       <Column width={2 / 3}>
-        <DemoBlock>2/3</DemoBlock>
+        <DemoBlock> 2 / 3</DemoBlock>
       </Column>
       <Column>
         <DemoBlock>Fluid</DemoBlock>
       </Column>
     </Columns>
-    <Columns space="300">
+    <Columns>
       <Column width={1 / 6}>
-        <DemoBlock>1/6</DemoBlock>
+        <DemoBlock> 1 / 6</DemoBlock>
       </Column>
       <Column width={2 / 6}>
         <DemoBlock>2/6</DemoBlock>
