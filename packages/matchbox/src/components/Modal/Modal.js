@@ -83,14 +83,13 @@ function Modal(props) {
           <ModalContent open={open} maxWidth={maxWidth}>
             <div ref={el => (content = el)}>
               <WindowEvent event="keydown" handler={handleKeydown} />
-
               <WindowEvent event="click" handler={handleOutsideClick} />
 
               {showCloseButton && (
                 <StyledCloseButton flat onClick={onClose} data-id="modal-close">
                   <ScreenReaderOnly>Close</ScreenReaderOnly>
 
-                  <Close size={34} />
+                  <Close size={24} />
                 </StyledCloseButton>
               )}
 

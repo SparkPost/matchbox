@@ -40,10 +40,8 @@ Cell.propTypes = {
 Cell.displayName = 'Table.Cell';
 
 const HeaderCell = ({ value, children, className, ...rest }) => {
-  const paddingContext = React.useContext(TablePaddingContext);
-
   return (
-    <StyledHeaderCell {...paddingContext} className={className} {...rest}>
+    <StyledHeaderCell p="500" className={className} {...rest}>
       {value || children}
     </StyledHeaderCell>
   );
@@ -53,7 +51,6 @@ HeaderCell.propTypes = {
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
-  ...createPropTypes(padding.propNames),
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 

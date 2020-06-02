@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Cell, HeaderCell, Row } from './TableElements';
 import styled from 'styled-components';
-import { margin, padding, compose } from 'styled-system';
+import { margin, padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { table } from './styles';
-import { pick } from '@styled-system/props';
+import { Box } from '../Box';
+import { pick } from '../../helpers/systemProps';
+import { Cell, HeaderCell, Row } from './TableElements';
 import { TablePaddingContext } from './context';
-
-const system = compose(margin, padding);
+import { table, wrapper, sticky } from './styles';
 
 const StyledTable = styled('table')`
   ${table}
-  ${system}
+  ${padding}
+  ${sticky}
+`;
+
+const Wrapper = styled(Box)`
+  ${wrapper}
+  ${margin}
 `;
 
 function Table(props) {
-  const { children, data, ...rest } = props;
+  const { children, data, freezeFirstColumn, ...rest } = props;
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const handleScroll = React.useCallback(
+    e => {
+      setIsScrolled(e.target.scrollLeft > 10);
+    },
+    [freezeFirstColumn],
+  );
 
   const dataMarkup = data ? (
     <tbody>
@@ -28,16 +41,17 @@ function Table(props) {
     children
   );
 
-  // Pick out `p` and `padding` so we only pass one value down
-  // `context` is passed to handle directional padding values like `px` or `pr`
-  const { p: contextP = '400', padding: contextPadding, ...context } = pick(rest);
+  const { px = '500', py = '400', ...paddingProps } = pick(rest, padding.propNames);
+  const marginProps = pick(rest, margin.propNames);
 
   return (
-    <StyledTable {...rest}>
-      <TablePaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
-        {dataMarkup}
-      </TablePaddingContext.Provider>
-    </StyledTable>
+    <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
+      <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
+        <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+          {dataMarkup}
+        </TablePaddingContext.Provider>
+      </StyledTable>
+    </Wrapper>
   );
 }
 
@@ -47,6 +61,7 @@ Table.Row = Row;
 
 Table.displayName = 'Table';
 Table.propTypes = {
+  freezeFirstColumn: PropTypes.bool,
   data: PropTypes.array,
   /**
    * React node(s)

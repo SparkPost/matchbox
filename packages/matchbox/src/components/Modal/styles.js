@@ -76,9 +76,9 @@ export const contentAnimation = props => {
 export const closeButton = () => `
   color: ${tokens.color_gray_700};
   padding: 0;
-  font-size: ${tokens.fontSize_700};
   position: absolute;
   right: ${tokens.spacing_200};
   top: ${tokens.spacing_200};
+  width: ${tokens.sizing_650};
   z-index: calc(${tokens.zIndex_overlay} + 1);
 `;

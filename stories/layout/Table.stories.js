@@ -1,16 +1,16 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Table, Panel } from '@sparkpost/matchbox';
+import { Table, Panel, Box } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Table',
 };
 
-const Node = () => <div>A react component</div>;
+const Node = ({ children = 'A react component' }) => <Box minWidth="900">{children}</Box>;
 const data = [
-  ['A', 'B', 'C'],
-  [<Node />, <Node />, <Node />],
-  [1, 2, 3],
+  ['Foo', 'Bar', 'Baz', 'Foo'],
+  [<Node />, <Node />, <Node />, <Node />],
+  [1, 2, 3, 4],
 ];
 
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
@@ -45,12 +45,20 @@ export const WithSuppliedData = withInfo()(() => (
   </Panel>
 ));
 
+export const ResponsiveTable = withInfo()(() => (
+  <Box maxWidth="1100">
+    <Panel>
+      <Table p="200" data={data} freezeFirstColumn />
+    </Panel>
+  </Box>
+));
+
 export const SystemProps = withInfo()(() => (
   <Panel>
     <Table>
       <thead>
         <Table.Row header>
-          <Table.HeaderCell p="300">Padding 300</Table.HeaderCell>
+          <Table.HeaderCell>Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
           <Table.HeaderCell>Padding 300</Table.HeaderCell>
         </Table.Row>

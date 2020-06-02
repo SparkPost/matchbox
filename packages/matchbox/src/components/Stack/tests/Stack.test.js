@@ -20,14 +20,14 @@ describe('Stack', () => {
 
   it('should render default spacing and alignment correctly', () => {
     const wrapper = subject();
-    expect(wrapper.find('#child-1').parent()).toHaveStyleRule('padding-bottom', '1rem');
+    expect(wrapper.find('#child-1').parent()).toHaveStyleRule('padding-bottom', '1.5rem');
     expect(wrapper.find('#child-1').parent()).toHaveStyleRule('align-items', undefined);
     expect(wrapper.find('#child-2').parent()).toHaveStyleRule('padding-bottom', undefined);
   });
 
   it('should render styled system spacing and custom alignment correctly', () => {
-    const wrapper = subject({ space: '500', align: 'right' });
-    expect(wrapper.find('#child-1').parent()).toHaveStyleRule('padding-bottom', '1.5rem');
+    const wrapper = subject({ space: '600', align: 'right' });
+    expect(wrapper.find('#child-1').parent()).toHaveStyleRule('padding-bottom', '2rem');
     expect(wrapper.find('#child-2').parent()).toHaveStyleRule('padding-bottom', undefined);
     expect(wrapper.find('#child-1').parent()).toHaveStyleRule('align-items', 'flex-end');
     expect(wrapper.find('#child-2').parent()).toHaveStyleRule('align-items', 'flex-end');

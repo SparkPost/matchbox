@@ -1,0 +1,27 @@
+name: Unit Tests
+
+on: [pull_request]
+
+jobs:
+  testing:
+    runs-on: ubuntu-16.04
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+      - name: Testing
+        run: npm run test:unit:ci
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.7
+        with:
+          file: ./jest-coverage/lcov.info
