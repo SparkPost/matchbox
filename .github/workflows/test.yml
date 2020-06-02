@@ -1,11 +1,10 @@
-# This workflow will do a clean install of node dependencies, and run unit and e2e tests
-name: Unit and E2E
+name: Unit & E2E
 
 on: [pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  testing:
+    runs-on: ubuntu-16.04
     timeout-minutes: 30
 
     strategy:
@@ -18,5 +17,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run test:ci
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+      - name: Testing
+        run: npm run test:ci
