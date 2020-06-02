@@ -79,13 +79,30 @@ function UpdatesIndex() {
         )}
         {filteredByCategory.map(post => {
           return (
-            <Box key={post.id} pb="600">
-              <Box as="h5" mb="0">
+            <Box key={post.id}>
+              <Box
+                as={Link}
+                to={post.fields.slug}
+                fontSize="500"
+                lineHeight="500"
+                fontWeight="medium"
+                mb="0"
+              >
                 {post.frontmatter.title}
               </Box>
-              <Text as="small">{post.frontmatter.date}</Text>
-              <Text>{post.excerpt}</Text>
-              <Link to={post.fields.slug}>{post.fields.slug}</Link>
+              <Text
+                as="p"
+                mb="200"
+                fontSize="200"
+                lineHeight="200"
+                color="gray.700"
+              >
+                {post.frontmatter.date}
+              </Text>
+              <Text fontSize="300" lineHeight="300" mt="200" mb="200">
+                {post.excerpt}
+              </Text>
+              <hr />
             </Box>
           );
         })}

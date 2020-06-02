@@ -7,6 +7,7 @@ import TokenTable from './tokens/TokenTable';
 import Token from './tokens/Token';
 import Heading from './Heading';
 import ExternalLink from './ExternalLink';
+import InlineCode from './InlineCode';
 
 const components = {
   a: props => <Link to={props.href}>{props.children}</Link>,
@@ -21,7 +22,8 @@ const components = {
   h3: props => <Heading as="h3" {...props} />,
   h4: props => <Heading as="h4" {...props} />,
   h5: props => <Heading as="h5" {...props} />,
-  Link
+  Link,
+  inlineCode: InlineCode
 };
 
 export default ({ children }) => (

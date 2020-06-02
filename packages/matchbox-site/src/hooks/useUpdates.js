@@ -8,11 +8,11 @@ function useUpdates() {
         filter: { frontmatter: { published: { eq: true } } }
       ) {
         nodes {
-          id
           excerpt(pruneLength: 150)
+          id
           frontmatter {
             title
-            date
+            date(formatString: "YYYY MMMM Do")
             category
           }
           fields {

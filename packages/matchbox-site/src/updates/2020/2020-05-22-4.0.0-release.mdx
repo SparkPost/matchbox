@@ -1,0 +1,219 @@
+---
+title: Matchbox 4.0.0
+date: 2020-05-20
+published: true
+category: release notes
+---
+
+#### @sparkpost/matchbox 4.0.0
+
+###### New Components
+
+- Box
+- Text
+- ThemeProvider
+- Columns & Column
+- Stack
+- Inline
+- Drawer
+- DatePicker
+- Spinner
+
+###### New Hooks
+
+- useDrawer
+- useTabs
+- useWindowEvent
+- useWindowSize
+
+---
+
+##### General Changes
+
+- All Sass including global styles, functions and mixin are no longer provided by matchbox
+  - Certain helper functions and token accessors are available through `design-tokens`
+  - ThemeProvider provides global CSS and the exported `styles.css` should no longer be used
+- `matchbox` now lists `react`, `react-dom`, `react-day-picker` and `styled-components` as peer dependencies
+- `matchbox-icons` now lists `react` and `react-dom` as peer dependencies
+
+##### Component Changes
+
+Note: System prop APIs are not provided in this list.
+
+**ActionList**
+
+- Removes ActionList `groupByKey` default prop
+- Adds Action proptypes, used internally by ActionList
+- ActionList actions now accept a new `is` prop, and accept either `link` `button` or
+  `checkbox`
+
+**Banner**
+
+- Banner component dismiss button is now a `button`, and handles correct keyboard events
+- Banner component dismiss button is now screen reader accessible
+- Banner with a status of `default` now defaults to `info`
+- Links within the Banner component overwrite color and hover color to be accessible
+- `default` banners have been removed and the option renders an `info` banner
+
+**Button**
+
+- Buttons no longer automatically blur on click
+- External buttons now add a default title, and allow custom titles through a new `title` prop
+- New style option `outlineBorder`
+- Deprecates `primary`, `plain` and `Component` props
+
+**Checkbox**
+
+- Checkbox `id` prop is now required
+- Checkbox now properly hides a screen reader accessible label
+- Checkbox now properly uses aria-describedby to link to its helptext and error
+- Checkbox.Group now properly uses a `fieldset` and `legend` elements
+
+**CodeBlock**
+
+- No Changes
+
+**ComboBox**
+
+- ComboBox now properly renders its menu after the text field
+- ComboBoxTextField prop `id` is now required
+- ComboBoxTextField now properly hides a screen reader accessible label
+- ComboBoxTextField now properly uses aria-describedby to link to its helptext and error
+- ComboBoxMenu now renders a message if it is open and there are no items through the
+  `emptyMessage` prop, which defaults to 'No Results'
+
+**EmptyState**
+
+- No changes
+
+**Expandable**
+
+- Toggle button button is now a `button`, and handles correct keyboard events
+
+**Grid**
+
+- No changes
+
+**Label**
+
+- Label component with labelHidden prop now properly hides a screen reader accessible label
+- `<Label/>` now renders nothing when no `label` is provided
+
+**Modal**
+
+- `Modal` now accepts `padding` and `maxWidth` system props, and sets new defaults
+- Adds React Portal to the `<Modal/>` component with a new `portalId` prop to handle
+  rendering
+
+**ProgressBar**
+
+- Default props changed to support new design and added size: `normal`
+- Deprecates `color` as only one color is supported
+
+**Panel**
+
+- No changes
+
+**Radio**
+
+- Radio `id` prop is now required
+- Radio now properly hides a screen reader accessible label
+- Radio now properly uses aria-describedby to link to its helptext and error
+- Radio.Group now properly uses a `fieldset` and `legend` elements
+
+**Slider**
+
+- No changes
+
+**Pagination**
+
+- Pagination next and previous buttons are now screen reader accessible with screen reader
+  only content
+- Deprecates Pagination prop `selectedColor`
+- Deprecates Pagination prop `flat`
+
+**Page**
+
+- Removes the default prop `empty`
+- Page secondary action popover now use the correct accessibility attributes
+
+**Pager**
+
+- No changes
+
+**Popover**
+
+- Adds new `id` prop for `Popover`
+- Adds new `as` prop for `Popover`, functions the same way as `wrapper`
+- Removes the `portalId` prop from `Popover`
+- Removes the `fixed` prop from `Popover`, since popover content no longer uses portals
+- Deprecates `sectioned` and `wrapper` props
+
+**ScreenReaderOnly**
+
+- No changes
+
+**Select**
+
+- Select now properly uses aria-describedby to link to its helptext and error
+- Select with the required prop now applies the required HTML attribute to the input
+
+**Snackbar**
+
+- Snackbar dismiss button is now a `button`, and handles correct keyboard events
+
+**Tab**
+
+- Tab `connectBelow` is removed in favor of margin system props
+- Tabs now specify `type="button"` and support long text content
+- `Tabs` are now responsive for both fitted and non-fitted variations
+- `Tab` now uses a `pointer` cursor on hover
+- `Tabs` now accept the `borderBottom` system prop
+- Deprecates `color` as only one color is supported
+
+**Table**
+
+- Tables now support configurable padding on table components
+
+**Tag**
+
+- Tag component close button is now a `button`, and handles correct keyboard events
+- New tag colors:
+  - `orange`
+  - `blue`
+  - `yellow`
+  - `red`
+  - `navy`
+  - `purple`
+  - `green`
+  - `magenta`
+  - `teal`
+  - `lightGray`
+  - `darkGray`
+
+**Tooltip**
+
+- Adds a Tooltip `as` prop, defaults to `span`
+- Fixes tooltip positioning by reverting to portals, `portalId` is available again
+- Tooltips are now visible if trigger is focused
+- Tooltips `id` is now required
+- Deprecates the `dark` prop on Tooltip
+- Tooltips no longer accept the prop `debounceEvent`
+
+**TextField**
+
+- TextField now properly hides a screen reader accessible label
+- TextField now properly uses aria-describedby to link to its helptext and error
+- TextField `id` prop is now required
+
+**Toggle**
+
+- Restyles the Toggle component
+- Deprecates Toggle prop `compact`
+- Adds new Toggle prop `label`
+- Toggle `id` prop is now required
+- Add defaultChecked prop to Toggle
+
+**UnstyledLink**
+
+- Deprecates `Component` prop
