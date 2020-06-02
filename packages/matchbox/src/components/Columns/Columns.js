@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import propTypes from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { pick } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
 import { tokens } from '@sparkpost/design-tokens';
@@ -24,7 +24,7 @@ const Columns = React.forwardRef(function Columns(props, ref) {
   const { children, reverse, space, alignY, align, collapseBelow, ...rest } = props;
   const [collapsed, setCollapsed] = React.useState(false);
 
-  const systemProps = pick(rest);
+  const systemProps = pick(rest, margin.propNames);
 
   const windowSize = useWindowSize();
 
@@ -36,7 +36,7 @@ const Columns = React.forwardRef(function Columns(props, ref) {
         setCollapsed(false);
       }
     }
-  }, [windowSize]);
+  }, [windowSize, collapseBelow]);
 
   return (
     <Box {...systemProps}>

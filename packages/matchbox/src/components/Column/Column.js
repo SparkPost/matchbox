@@ -13,9 +13,19 @@ const Column = React.forwardRef(function Column(props, ref) {
   const { width, children } = props;
   const { space, collapsed } = React.useContext(ColumnsContext);
 
+  let columnWidth = width;
+
+  if (collapsed) {
+    columnWidth = '100%';
+  }
+
+  if (width === 'content') {
+    columnWidth = 'auto';
+  }
+
   return (
     <StyledColumn
-      width={collapsed ? '100%' : width === 'content' ? 'auto' : width}
+      width={columnWidth}
       flex={!width && !collapsed ? '1' : ''}
       gutter={space}
       ref={ref}
