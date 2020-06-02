@@ -12,7 +12,7 @@
     }
   },
   "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
-  "setupFiles": ["<rootDir>/config/polyfills.js"],
+  "setupFiles": ["<rootDir>/config/polyfills.js", "<rootDir>/config/helpers.js"],
   "testPathIgnorePatterns": [
     "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
     "/.cache/",
