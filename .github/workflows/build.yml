@@ -1,5 +1,5 @@
 # This workflow will do a clean install of node dependencies, build the matchbox, icons, and tokens
-name: Build
+name: Build Matchbox, Icons & Tokens
 
 on: [pull_request]
 

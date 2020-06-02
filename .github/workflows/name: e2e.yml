@@ -1,4 +1,4 @@
-name: Unit Tests
+name: E2E Tests
 
 on: [pull_request]
 
@@ -20,4 +20,4 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Testing
-        run: npm run test:unit:ci
+        run: npm run test:e2e:ci
