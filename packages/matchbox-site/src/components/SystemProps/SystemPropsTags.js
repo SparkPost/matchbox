@@ -12,7 +12,7 @@ function SystemPropsTags(props) {
     return (
       <Box>
         {availableProps.map(propName => {
-          return <div>{propName}</div>;
+          return <div key={propName}>{propName}</div>;
         })}
       </Box>
     );
@@ -20,10 +20,14 @@ function SystemPropsTags(props) {
 
   return (
     <Inline space="200">
-      {propsList.map(prop => {
+      {propsList.map((prop, i) => {
         return (
           <div key={prop}>
-            <Tooltip content={availablePropsList(prop)}>
+            <Tooltip
+              key={i}
+              id={`system-props-${i}`}
+              content={availablePropsList(prop)}
+            >
               <Tag>{prop}</Tag>
             </Tooltip>
           </div>

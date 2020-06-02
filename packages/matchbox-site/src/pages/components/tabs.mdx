@@ -1,0 +1,74 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Tabs
+
+Use this component to switch views within the same page context.
+
+---
+
+### Usage
+
+<!--
+Responsive behavior is bugged here: UX-234
+remove disableResponsiveBehavior prop after
+ -->
+
+<LiveCode>
+  <LiveCode.Content
+    title="Default Tabs"
+    code={`
+      <Tabs
+        selected={1}
+        disableResponsiveBehavior
+        tabs={[
+          { content: 'Details' },
+          { content: 'Sending Domains'},
+          { content: 'Api Keys'},
+          { content: 'Permissions'},
+        ]}
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="Fitted Tabs"
+    code={`
+      <Tabs
+        fitted  
+        selected={1}
+        disableResponsiveBehavior
+        tabs={[
+          { content: 'Details' },
+          { content: 'Sending Domains'},
+          { content: 'Api Keys'},
+          { content: 'Permissions'},
+        ]}
+      />
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin', 'borderBottom']} />
+
+---
+
+### Tabs API
+
+<Prop name="disableResponsiveBehavior" type="bool">
+  Not recommended - Disables truncating tabs that overflow into a popover menu
+</Prop>
+<Prop name="fitted" type="bool">
+  Fits the tabs to span the full width of the container
+</Prop>
+<Prop name="onSelect" type="function">
+  Callback when a tab is selected. Returns array index.
+</Prop>
+<Prop name="tabs" type="array">
+  Tabs content. Objects of Button and UnstyledLink props work here.
+</Prop>
+<Prop name="selected" type="number" required>
+  Index of the selected tab
+</Prop>

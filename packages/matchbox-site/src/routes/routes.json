@@ -104,6 +104,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/tabs",
+        "label": "Tabs",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
         "path": "/components/unstyledlink",
         "label": "UnstyledLink",
         "disabled": false,
