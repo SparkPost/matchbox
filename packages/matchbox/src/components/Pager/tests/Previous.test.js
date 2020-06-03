@@ -8,7 +8,12 @@ describe('Pager.Previous', () => {
   let wrapper = global.mountStyled(<Previous />);
 
   it('renders screen reader text', () => {
-    expect(wrapper.find('span').text()).toEqual('Previous');
+    expect(
+      wrapper
+        .find('span')
+        .first()
+        .text(),
+    ).toEqual('Previous');
   });
 
   it('renders disabled button', () => {
