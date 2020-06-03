@@ -1,7 +1,7 @@
 import { tokens } from '@sparkpost/design-tokens';
 import { keyframes, css } from 'styled-components';
 
-export const circleOuter = props => {
+export const dimensions = props => {
   let size;
 
   switch (props.size) {
@@ -16,13 +16,39 @@ export const circleOuter = props => {
       size = '28px';
   }
 
-  return css`
+  return `
     width: ${size};
     height: ${size};
-    fill: none;
-    animation: ${rotateAnimation} 2s linear infinite;
   `;
 };
+
+export const circleOuter = ({ rotationOnly }) => {
+  return css`
+    fill: none;
+    animation: ${rotateAnimation} ${rotationOnly ? '1.2s' : '2s'} linear infinite;
+  `;
+};
+
+function getDefaultStrokes(size) {
+  switch (size) {
+    case 'small':
+      return `
+        stroke-dasharray: 35 50;
+        stroke-dashoffset: -10;
+      `;
+    case 'large':
+      return `
+        stroke-dasharray: 110 200;
+        stroke-dashoffset: -25;
+      `;
+    case 'medium':
+    default:
+      return `
+          stroke-dasharray: 55 100;
+          stroke-dashoffset: -15;
+        `;
+  }
+}
 
 export const circle = props => {
   let color, strokeWidth, strokeDashArray, animation;
@@ -68,7 +94,10 @@ export const circle = props => {
 
     stroke-dasharray: ${strokeDashArray};
     stroke-dashoffset: -10;
-    animation: ${animation} 1.5s ease-in-out infinite;
+
+    ${props.rotationOnly
+      ? getDefaultStrokes(props.size)
+      : `animation: ${animation} 1.5s ease-in-out infinite;`}
   `;
 };
 
