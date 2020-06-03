@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "4.0.0-hibana.24",
+  "version": "4.0.0-hibana.25",
   "description": "A React UI component library",
   "main": "matchbox.js",
   "module": "matchbox.esm.js",
@@ -21,7 +21,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@sparkpost/design-tokens": "^1.0.0-beta.20",
+    "@sparkpost/design-tokens": "^1.0.0",
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
     "prop-types": "^15.7.2",
