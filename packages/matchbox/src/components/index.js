@@ -4,6 +4,8 @@ export * from './Box';
 export * from './Button';
 export * from './Checkbox';
 export * from './CodeBlock';
+export * from './Column';
+export * from './Columns';
 export * from './ComboBox';
 export * from './DatePicker';
 export * from './Drawer';
