@@ -32,21 +32,21 @@ export const circleOuter = ({ rotationOnly }) => {
 function getDefaultStrokes(size) {
   switch (size) {
     case 'small':
-      return `
+      return css`
         stroke-dasharray: 35 50;
         stroke-dashoffset: -10;
       `;
     case 'large':
-      return `
+      return css`
         stroke-dasharray: 110 200;
         stroke-dashoffset: -25;
       `;
     case 'medium':
     default:
-      return `
-          stroke-dasharray: 55 100;
-          stroke-dashoffset: -15;
-        `;
+      return css`
+        stroke-dasharray: 55 100;
+        stroke-dashoffset: -15;
+      `;
   }
 }
 
@@ -97,7 +97,9 @@ export const circle = props => {
 
     ${props.rotationOnly
       ? getDefaultStrokes(props.size)
-      : `animation: ${animation} 1.5s ease-in-out infinite;`}
+      : css`
+          animation: ${animation} 1.5s ease-in-out infinite;
+        `}
   `;
 };
 

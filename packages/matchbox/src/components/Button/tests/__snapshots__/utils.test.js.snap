@@ -3,6 +3,7 @@
 exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
 <ForwardRef(Button)
   foo="bar"
+  loadingLabel="Loading"
   size="default"
   type="submit"
 >
@@ -15,6 +16,7 @@ exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
 exports[`Button Utils buttonFrom renders correctly 1`] = `
 <ForwardRef(Button)
   disabled={false}
+  loadingLabel="Loading"
   size="default"
 >
   <span>
@@ -33,6 +35,7 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
         </span>,
       }
     }
+    loadingLabel="Loading"
     size="default"
   >
     <span>
@@ -41,6 +44,7 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
   </ForwardRef(Button)>
   <ForwardRef(Button)
     action={Object {}}
+    loadingLabel="Loading"
     size="default"
   >
     <span>
