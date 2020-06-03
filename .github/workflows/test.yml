@@ -21,3 +21,7 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Testing
         run: npm run test:unit:ci
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.7
+        with:
+          file: ./jest-coverage/lcov.info
