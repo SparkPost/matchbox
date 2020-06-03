@@ -151,3 +151,4 @@
 - #423 - Popover automatically focuses on content container when opening, with both controlled and
   uncontrolled open state
 - #444 - Adds new `Columns` and `Column` components
+- #442 - Empty State typography and margins are now responsive
