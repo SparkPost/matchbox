@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/SparkPost/matchbox/tree/master/packages/matchbox-icons#readme",
   "sideEffects": false,
+  "files": [
+    "matchbox-icons.js",
+    "matchbox-icons.esm.js"
+  ],
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
