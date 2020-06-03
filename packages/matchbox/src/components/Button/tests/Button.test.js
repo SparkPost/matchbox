@@ -118,6 +118,24 @@ describe('Button', () => {
   );
 });
 
+it('renders with with a ref', () => {
+  function Test() {
+    const ref = React.useRef();
+    React.useEffect(() => {
+      ref.current.focus();
+    }, []);
+    return (
+      <>
+        <Button ref={ref}>test content</Button>
+        not this
+      </>
+    );
+  }
+  global.mountStyled(<Test />);
+  expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
+  expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+});
+
 describe('wrappers', () => {
   it('should render a custom wrapper', () => {
     const wrapper = global.mountStyled(

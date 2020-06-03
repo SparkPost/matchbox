@@ -147,4 +147,7 @@
 - #436 - Removes all Sass from matchbox including all functions and mixins
 - #412 - `Table` are now responsive and support freezing the first column with the
   `freezeFirstColumn` prop
+- #423 - Panel, Drawer, Banner, Popover, Snackbar, Button now accept refs
+- #423 - Popover automatically focuses on content container when opening, with both controlled and
+  uncontrolled open state
 - #444 - Adds new `Columns` and `Column` components

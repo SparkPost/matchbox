@@ -61,7 +61,7 @@ const StyledDismiss = styled(Box)`
   ${dismissColor}
 `;
 
-function Banner(props) {
+const Banner = React.forwardRef(function Banner(props, ref) {
   const { children, title, status, action, actions, onDismiss, ...rest } = props;
 
   const titleMarkup = title ? (
@@ -99,6 +99,8 @@ function Banner(props) {
       borderRadius="100"
       status={status}
       {...rest}
+      ref={ref}
+      tabIndex="-1"
     >
       <IconSection status={status} />
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
@@ -111,7 +113,7 @@ function Banner(props) {
       {dismissMarkup}
     </StyledContainer>
   );
-}
+});
 
 Banner.displayName = 'Banner';
 Banner.propTypes = {

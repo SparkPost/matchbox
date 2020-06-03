@@ -1,6 +1,5 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
 import { Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
 
 function ControlledPopover() {
@@ -50,11 +49,7 @@ export const UncontrolledOpenState = withInfo({ propTables: [Popover] })(() => (
     id="test-popover"
     p="400"
     width="30rem"
-    trigger={
-      <Button aria-describedby="test-popover" onClick={action('Trigger Click')}>
-        Button
-      </Button>
-    }
+    trigger={<Button aria-describedby="test-popover">Button</Button>}
   >
     Popover Content
   </Popover>
@@ -142,11 +137,7 @@ export const SystemProps = withInfo({ propTables: [Popover] })(() => (
       p={['300', null, null, '700']}
       width={['10rem', null, null, '30rem']}
       height={['10rem', null, null, '14rem']}
-      trigger={
-        <Button aria-describedby="test-popover" onClick={action('Trigger Click')}>
-          Button
-        </Button>
-      }
+      trigger={<Button aria-describedby="test-popover">Button</Button>}
     >
       Popover Content
     </Popover>
