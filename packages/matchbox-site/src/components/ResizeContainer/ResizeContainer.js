@@ -4,6 +4,7 @@ import { Box, WindowEvent } from '@sparkpost/matchbox';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { DragHandle } from '@sparkpost/matchbox-icons';
+import _ from 'lodash';
 
 const StyledContainer = styled(Box)`
   position: absolute;
@@ -76,11 +77,10 @@ function ResizeContainer(props) {
     return width;
   }
 
-  // Resets position when window resizes
-  function handleResize() {
-    const rect = containerRef.current.getBoundingClientRect();
-    setPosition({ ...position, width: rect.width, originalWidth: rect.width });
-  }
+  const handleResize =
+    typeof window !== 'undefined'
+      ? _.throttle(() => window.dispatchEvent(new Event('resize')), 20)
+      : _.noop;
 
   function onMouseMove({ clientX }) {
     if (dragging) {
@@ -88,6 +88,7 @@ function ResizeContainer(props) {
         ...position,
         width: calculateWidth(clientX)
       });
+      handleResize();
     }
   }
 
@@ -109,7 +110,6 @@ function ResizeContainer(props) {
     >
       <WindowEvent event="mousemove" handler={onMouseMove} />
       <WindowEvent event="mouseup" handler={onMouseUp} />
-      <WindowEvent event="resize" handler={handleResize} />
       <StyledContainer
         padding="400"
         pr="700"
