@@ -104,6 +104,12 @@
         "section": "Feedback"
       },
       {
+        "path": "/components/tag",
+        "label": "Tag",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
         "path": "/components/slider",
         "label": "Slider",
         "disabled": false,
