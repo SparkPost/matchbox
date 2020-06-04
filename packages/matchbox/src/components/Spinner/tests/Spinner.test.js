@@ -71,6 +71,24 @@ describe('Spinner', () => {
     });
   });
 
+  describe('renders with rotation only', () => {
+    it('small', () => {
+      const smallWrapper = subject({ size: 'small', rotationOnly: true });
+      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '35 50');
+    });
+
+    it('medium', () => {
+      const mediumWrapp = subject({ size: 'medium', rotationOnly: true });
+      expect(mediumWrapp.find('circle')).toHaveStyleRule('stroke-dasharray', '55 100');
+    });
+
+    it('large', () => {
+      const largeWrapper = subject({ size: 'large', rotationOnly: true });
+      expect(largeWrapper.find('circle')).toHaveStyleRule('stroke-width', '4px');
+      expect(largeWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '110 200');
+    });
+  });
+
   it('renders hidden label', () => {
     const wrapper = subject({ label: 'The Label' });
 
