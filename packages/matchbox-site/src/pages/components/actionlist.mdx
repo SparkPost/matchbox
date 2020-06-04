@@ -1,5 +1,5 @@
 import { LiveCode } from '../../components/LiveCode';
-import { Button, Box } from '@sparkpost/matchbox';
+import { Box, Popover } from '@sparkpost/matchbox';
 
 # ActionList
 
@@ -9,27 +9,185 @@ import { Button, Box } from '@sparkpost/matchbox';
 
 <LiveCode>
   <LiveCode.Content 
-    title="Example 1" 
-    description="This is the description"
+    title="Inside Popover" 
     code={`
-      <Box>
-        <Button mr={400} color="blue">Hello, this is the content</Button>
-        <Button color="red">Hello, this is the content</Button>
+      <Box display="flex" height="250px">
+        <Popover
+          open
+          style={{
+            width: '200px'
+          }}
+          trigger={<Button size="default">Actions</Button>}
+        >
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                to: '#'
+              }
+            ]}
+          />
+        </Popover>
+        <Box ml="10rem">
+          <Popover
+            open
+            style={{
+              width: '200px'
+            }}
+            trigger={<Button size="default">Actions with Sections</Button>}
+          >
+            <ActionList
+              actions={[
+                {
+                  content: 'Action1',
+                  to: '#'
+                },
+                {
+                  content: 'Action2',
+                  to: '#'
+                }
+              ]}
+              sections={[
+                [
+                  {
+                    content: 'Sectioned1',
+                    to: '#'
+                  },
+                  {
+                    content: 'Sectioned2',
+                    to: '#'
+                  }
+                ]
+              ]}
+            />
+          </Popover>
+        </Box>
       </Box>
     `}
   />
   <LiveCode.Content 
-    title="Example 2" 
-    description="This is the description"
-    code="<h3>Hi, this is the content</h3>"
+    title="Selected Actions" 
+    code={`
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                selected: true,
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                selected: true,
+                to: '#'
+              },
+              {
+                content: 'Action3',
+                selected: false,
+                to: '#'
+              }
+            ]}
+          />
+        </Panel>
+      </Box>
+    `}
   />
+  <LiveCode.Content 
+    title="Highlighted Actions" 
+    code={`
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                highlighted: true,
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                highlighted: true,
+                to: '#'
+              },
+              {
+                content: 'Action3',
+                selected: false,
+                to: '#'
+              }
+            ]}
+          />
+        </Panel>
+      </Box>
+    `}
+  />
+  <LiveCode.Content 
+      title="As Buttons and Checkboxes" 
+      code={`
+        <Box maxWidth="20rem">
+          <Panel>
+            <ActionList
+              actions={[
+                {
+                  content: 'Checkbox',
+                  is: 'checkbox',
+                  selected: true
+                },
+                {
+                  content: 'Checkbox',
+                  is: 'checkbox'
+                },
+                {
+                  content: 'Button',
+                  is: 'button',
+                  selected: false
+                },
+                {
+                  content: 'Link',
+                  external: true,
+                  is: 'link',
+                  to: '#'
+                }
+              ]}
+            />
+          </Panel>
+        </Box>
+      `}
+    />
+    <LiveCode.Content 
+      title="System Props" 
+      code={`
+        <Box maxWidth="20rem">
+          <Panel>
+            <ActionList
+              actions={[
+                {
+                  content: 'Action1',
+                  to: '#'
+                },
+                {
+                  content: 'Action2',
+                  to: '#'
+                }
+              ]}
+              m="400"
+              width={0.5}
+            />
+          </Panel>
+        </Box>
+      `}
+    />
 </LiveCode>
 
 ---
 
 ### System Props
 
-<SystemPropsTags propsList={['margin', 'padding']} />
+<SystemPropsTags propsList={['margin', 'layout']} />
 
 ---
 
