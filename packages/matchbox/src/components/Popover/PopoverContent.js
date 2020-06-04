@@ -44,7 +44,13 @@ const Content = React.forwardRef(function Content(props, ref) {
       }}
     >
       {state => (
-        <Box position="relative" height="100%" ref={ref} tabIndex="-1">
+        <Box
+          data-id="popover-focus-wrapper"
+          position="relative"
+          height="100%"
+          ref={ref}
+          tabIndex="-1"
+        >
           <StyledContent
             data-id="popover-content"
             className={className}

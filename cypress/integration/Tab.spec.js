@@ -95,11 +95,9 @@ describe('The Tabs component', () => {
       cy.get('[data-id="popover-content"]').should('not.be.visible');
     });
 
-    it('should handle keyboard navigation', () => {
+    it('should focus on the menu', () => {
       cy.get('[data-id="tab-options-button"]').click();
-      cy.focused().should('have.text', 'More Options');
-      cy.focused().tab();
-      cy.focused().should('have.text', 'More Details');
+      cy.get('[data-id="popover-focus-wrapper"]').should('have.focus');
     });
   });
 });
