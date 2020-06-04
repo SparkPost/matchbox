@@ -21,11 +21,7 @@ const StyledKey = styled.kbd`
 `;
 
 const KeyboardKey = React.forwardRef(function KeyboardKey(props, ref) {
-  return (
-    <StyledKey as="kbd" ref={ref}>
-      {props.children}
-    </StyledKey>
-  );
+  return <StyledKey ref={ref}>{props.children}</StyledKey>;
 });
 
 KeyboardKey.displayName = 'KeyboardKey';
