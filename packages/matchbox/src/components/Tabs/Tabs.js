@@ -28,11 +28,15 @@ const Container = styled('div')`
 `;
 
 function Tabs(props) {
-<<<<<<< HEAD
-  const { disableResponsiveBehavior, tabs, selected, onSelect, fitted, ...rest } = props;
-=======
-  const { tabs, selected, onSelect, fitted, keyboardActivation, ...rest } = props;
->>>>>>> 07501457... UX-155 Add keyboard navigation for tabs
+  const {
+    disableResponsiveBehavior,
+    keyboardActivation,
+    tabs,
+    selected,
+    onSelect,
+    fitted,
+    ...rest
+  } = props;
   const [isOverflowing, setIsOverflowing] = React.useState(false);
   const [popoverOpen, setPopoverOpen] = React.useState(false);
 
@@ -78,7 +82,7 @@ function Tabs(props) {
     selected,
     onSelect,
     keyboardActivation,
-    disableResponsiveBehavior
+    disableResponsiveBehavior,
   });
 
   return (
