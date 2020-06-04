@@ -14,8 +14,6 @@
     "build:playroom": "NODE_ENV=production playroom build",
     "clean": "lerna clean --yes",
     "pretest": "npm run clean && lerna link",
-    "pretest:ci": "npm run build && npm run clean && lerna link",
-    "posttest:ci": "npm run coverage:all",
     "test:ci": "npm run test:unit:ci && npm run test:e2e:ci",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
