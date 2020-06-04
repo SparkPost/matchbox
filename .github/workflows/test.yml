@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Unit and Cypress Tests
 
 on: [pull_request]
 
@@ -19,9 +19,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
-      - name: Testing
-        run: npm run test:unit:ci
+      - name: Test
+        run: npm run test:ci
       - name: Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
-          file: ./jest-coverage/lcov.info
+          file: ./coverage/lcov.info
