@@ -16,10 +16,9 @@ const StyledContent = styled('div')`
   ${transition}
 `;
 
-function Content(props) {
+const Content = React.forwardRef(function Content(props, ref) {
   const {
     children,
-    popoverRef,
     open,
     top,
     left,
@@ -45,7 +44,7 @@ function Content(props) {
       }}
     >
       {state => (
-        <Box position="relative" height="100%" ref={popoverRef}>
+        <Box position="relative" height="100%" ref={ref} tabIndex="-1">
           <StyledContent
             data-id="popover-content"
             className={className}
@@ -65,7 +64,7 @@ function Content(props) {
       )}
     </Transition>
   );
-}
+});
 
 Content.displayName = 'Popover.Content';
 export default Content;

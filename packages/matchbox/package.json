@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "4.0.0-hibana.24",
+  "version": "4.0.0-hibana.25",
   "description": "A React UI component library",
   "main": "matchbox.js",
   "module": "matchbox.esm.js",
@@ -14,6 +14,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "matchbox.js",
+    "matchbox.esm.js"
+  ],
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
@@ -52,12 +56,11 @@
     "fs-extra": "^3.0.1",
     "incstr": "^1.2.3",
     "jest-styled-components": "^6.3.3",
-    "node-sass": "^4.14.1",
     "postcss-modules": "^1.4.1",
     "postcss-modules-scope": "^1.0.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-day-picker": "^7.4.8",
+    "react-dom": "^16.8.6",
     "react-syntax-highlighter": "^12.2.1",
     "rimraf": "^2.6.2",
     "rollup": "^1.25.1",

@@ -44,4 +44,24 @@ describe('Drawer', () => {
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('left', '0');
     expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('right', 'auto');
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Drawer ref={ref} open id="test-id">
+            <Drawer.Content>test content</Drawer.Content>
+          </Drawer>
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
 });
