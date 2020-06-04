@@ -152,3 +152,5 @@
 - #423 - Popover automatically focuses on content container when opening, with both controlled and
   uncontrolled open state
 - #444 - Adds new `Columns` and `Column` components
+- #447 - Adds new `loading` prop to `Button`
+- #447 - Adds new `rotationOnly` prop to `Spinner`
