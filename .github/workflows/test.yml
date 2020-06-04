@@ -19,15 +19,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
-      - name: Prepare Tests
-        run: npm run build && npm run clean && lerna link
-      - name: Unit Tests
+      - name: Prepare tests
+        run: npm run pretest:ci
+      - name: Unit tests
         run: npm run test:unit:ci
-      - name: E2E Tests
+      - name: E2E tests
         run: npm run test:e2e:ci
-      - name: Generate Coverage
+      - name: Prepare coverage
         run: npm run coverage:all
-      - name: Codecov
+      - name: Report to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
           file: ./coverage/lcov.info
