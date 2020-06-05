@@ -1,15 +1,14 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, WindowEvent } from '@sparkpost/matchbox';
+import Frame, { FrameContextConsumer } from 'react-frame-component';
+import { Box, WindowEvent, ThemeProvider } from '@sparkpost/matchbox';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { DragHandle } from '@sparkpost/matchbox-icons';
 import _ from 'lodash';
 
 const StyledContainer = styled(Box)`
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   background: ${tokens.color_white};
   border: 6px solid ${tokens.color_gray_200};
 `;
@@ -37,28 +36,17 @@ const StyledDragHandle = styled(DragHandle)`
 `;
 
 function ResizeContainer(props) {
-  const { children, minWidth } = props;
+  const { children, minWidth, disableResize } = props;
 
   const [position, setPosition] = useState({});
   const [dragging, setDragging] = useState(false);
-  const [contentHeight, setContentHeight] = useState('0px');
-
   const containerRef = useRef();
-  const contentRef = useRef();
 
-  useEffect(() => {
-    if (contentRef && contentRef.current) {
-      setContentHeight(contentRef.current.getBoundingClientRect().height);
-    }
-  }, []);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const rect = containerRef.current.getBoundingClientRect();
     setPosition({
-      x: rect.x,
       width: rect.width,
-      originalWidth: rect.width,
-      left: rect.left
+      originalWidth: rect.width
     });
   }, []);
 
@@ -77,18 +65,12 @@ function ResizeContainer(props) {
     return width;
   }
 
-  const handleResize =
-    typeof window !== 'undefined'
-      ? _.throttle(() => window.dispatchEvent(new Event('resize')), 20)
-      : _.noop;
-
   function onMouseMove({ clientX }) {
     if (dragging) {
       setPosition({
         ...position,
         width: calculateWidth(clientX)
       });
-      handleResize();
     }
   }
 
@@ -98,34 +80,71 @@ function ResizeContainer(props) {
 
   function onMouseUp() {
     setDragging(false);
+
+    // This is a hack, need components to behave when they resize independent of window resize
+    if (window !== 'undefined') {
+      window.dispatchEvent(new Event('resize'));
+    }
+  }
+
+  function onResize(e) {
+    if (!dragging) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setPosition({
+        originalWidth: rect.width
+      });
+    }
   }
 
   return (
-    <Box
-      position="relative"
-      mb={500}
-      // Appending px to avoid conflicting with token names
-      height={`${contentHeight}px`}
-      ref={containerRef}
-    >
-      <WindowEvent event="mousemove" handler={onMouseMove} />
-      <WindowEvent event="mouseup" handler={onMouseUp} />
+    <Box position="relative" mb={500} ref={containerRef}>
+      {!disableResize && (
+        <>
+          <WindowEvent event="mousemove" handler={onMouseMove} />
+          <WindowEvent event="mouseup" handler={onMouseUp} />
+          <WindowEvent event="resize" handler={onResize} />
+        </>
+      )}
+
       <StyledContainer
-        padding="400"
-        pr="700"
+        p="0"
+        pr="0"
         flex="1"
-        ref={contentRef}
-        width={`${position.width}px`}
+        width={position.width ? `${position.width}px` : 'auto'}
       >
-        {children}
-        <StyledResize
-          onMouseDown={onMouseDown}
-          padding={100}
-          display="flex"
-          alignItems="center"
-        >
-          <StyledDragHandle size={24} />
-        </StyledResize>
+        {!disableResize ? (
+          <Frame
+            width="100%"
+            height="200px"
+            frameBorder="none"
+            initialContent='<!DOCTYPE html><html><head></head><body><div></div><div id="target-portal"></div></body></html>'
+          >
+            <FrameContextConsumer>
+              {frameContext => (
+                <ThemeProvider target={frameContext.document.head}>
+                  <Box position="relative" p="400" pr="700" overflow="hidden">
+                    {children}
+                  </Box>
+                </ThemeProvider>
+              )}
+            </FrameContextConsumer>
+          </Frame>
+        ) : (
+          <Box position="relative" p="400" pr="700" overflow="hidden">
+            children
+          </Box>
+        )}
+
+        {!disableResize && (
+          <StyledResize
+            onMouseDown={onMouseDown}
+            padding={100}
+            display="flex"
+            alignItems="center"
+          >
+            <StyledDragHandle size={24} />
+          </StyledResize>
+        )}
       </StyledContainer>
     </Box>
   );

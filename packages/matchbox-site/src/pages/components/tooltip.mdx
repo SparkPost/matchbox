@@ -11,14 +11,16 @@ Use this component to explain the function or action of an interactive element. 
 
 <LiveCode>
   <LiveCode.Content 
+    disableResize
     title="Default Tooltip" 
     code={`
-      <Tooltip content="I am an explanation">
+      <Tooltip content="I am an explanation" portalId="target-portal">
         <Button outline>Hover Me</Button>
       </Tooltip>
     `}
   />
   <LiveCode.Content 
+    disableResize
     title="Light Tooltip" 
     code={`
       <Tooltip bg="white" color="gray.900" border="400" content="I am an explanation">
@@ -26,7 +28,9 @@ Use this component to explain the function or action of an interactive element. 
       </Tooltip>
     `}
   />
+  
 </LiveCode>
+<div id="target-portal"></div>
 
 ---
 
