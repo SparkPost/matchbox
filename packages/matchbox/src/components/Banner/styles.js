@@ -31,12 +31,14 @@ export function container(props) {
 // Overwrites unstyled link colors within Banner content to be color-contrast accessible
 export function childLinks() {
   return `
+  p, ul, ol {
     a, a:visited {
       color: ${tokens.color_blue_800};
       &:hover {
         color: ${tokens.color_blue_900};
       }
     }
+  }
   `;
 }
 
