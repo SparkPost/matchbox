@@ -51,7 +51,7 @@ function getDefaultStrokes(size) {
 }
 
 export const circle = props => {
-  let color, strokeWidth, strokeDashArray, animation;
+  let color, strokeWidth, animation;
 
   switch (props.color) {
     case 'gray':
@@ -72,18 +72,15 @@ export const circle = props => {
   switch (props.size) {
     case 'small':
       strokeWidth = '2px';
-      strokeDashArray = '50 50';
       animation = smallDashAnimation;
       break;
     case 'large':
       strokeWidth = '4px';
-      strokeDashArray = '150 200';
       animation = largeDashAnimation;
       break;
     case 'medium':
     default:
       strokeWidth = '3px';
-      strokeDashArray = '100 100';
       animation = dashAnimation;
   }
 
@@ -91,9 +88,6 @@ export const circle = props => {
     stroke: ${color};
     stroke-width: ${strokeWidth};
     stroke-linecap: round;
-
-    stroke-dasharray: ${strokeDashArray};
-    stroke-dashoffset: -10;
 
     ${props.rotationOnly
       ? getDefaultStrokes(props.size)
