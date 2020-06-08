@@ -1,5 +1,35 @@
 import { tokens } from '@sparkpost/design-tokens';
 
+export function focus(props) {
+  let color = tokens.color_gray_300;
+
+  switch (props.buttonColor) {
+    case 'orange': // To be deprecated
+    case 'blue':
+      color = tokens.color_blue_700;
+      break;
+
+    case 'red':
+      color = tokens.color_red_700;
+      break;
+
+    case 'gray':
+    default:
+      color = tokens.color_gray_700;
+      break;
+  }
+
+  return `
+    box-shadow: none;
+    outline: none;
+    transition: ${tokens.motionDuration_fast};
+    &:focus {
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 2px ${tokens.color_white}, 0 0 0 4px ${color};
+    }`;
+}
+
 export const base = () => `
   position: relative;
   display: inline-flex;

@@ -8,7 +8,7 @@ import { negativeTop, negativeLeft, alignChildren } from './styles';
 // Overflow: auto is set here to prevent margin collapse
 // If this becomes flakey, padding-top: 1px is also an option
 const OuterWrapper = styled('div')`
-  overflow: auto;
+  padding-top: 1px;
   &:before {
     display: block;
     content: '';
