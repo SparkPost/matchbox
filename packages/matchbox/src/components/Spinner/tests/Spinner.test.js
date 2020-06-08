@@ -49,16 +49,14 @@ describe('Spinner', () => {
       expect(smallWrapper.find('svg')).toHaveStyleRule('width', '20px');
       expect(smallWrapper.find('svg')).toHaveStyleRule('height', '20px');
       expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-width', '2px');
-      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '50 50');
     });
 
     it('medium', () => {
-      const smallWrapper = subject({ size: 'medium' });
+      const mediumWrapper = subject({ size: 'medium' });
 
-      expect(smallWrapper.find('svg')).toHaveStyleRule('width', '28px');
-      expect(smallWrapper.find('svg')).toHaveStyleRule('height', '28px');
-      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-width', '3px');
-      expect(smallWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '100 100');
+      expect(mediumWrapper.find('svg')).toHaveStyleRule('width', '28px');
+      expect(mediumWrapper.find('svg')).toHaveStyleRule('height', '28px');
+      expect(mediumWrapper.find('circle')).toHaveStyleRule('stroke-width', '3px');
     });
 
     it('large', () => {
@@ -67,7 +65,6 @@ describe('Spinner', () => {
       expect(largeWrapper.find('svg')).toHaveStyleRule('width', '60px');
       expect(largeWrapper.find('svg')).toHaveStyleRule('height', '60px');
       expect(largeWrapper.find('circle')).toHaveStyleRule('stroke-width', '4px');
-      expect(largeWrapper.find('circle')).toHaveStyleRule('stroke-dasharray', '150 200');
     });
   });
 
