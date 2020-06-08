@@ -92,24 +92,32 @@ export const visualSize = props => {
 
 export const colorVariant = props => {
   let color;
-  let hoverColor;
+  let darkHoverColor;
+  let lightHoverColor;
+  let lightActiveColor;
 
   switch (props.buttonColor) {
     case 'orange': // To be deprecated
     case 'blue':
       color = tokens.color_blue_700;
-      hoverColor = tokens.color_blue_800;
+      darkHoverColor = tokens.color_blue_800;
+      lightActiveColor = tokens.color_blue_200;
+      lightHoverColor = tokens.color_blue_100;
       break;
 
     case 'red':
       color = tokens.color_red_700;
-      hoverColor = tokens.color_red_800;
+      darkHoverColor = tokens.color_red_800;
+      lightActiveColor = tokens.color_red_200;
+      lightHoverColor = tokens.color_red_100;
       break;
 
     case 'gray':
     default:
       color = tokens.color_gray_900;
-      hoverColor = tokens.color_gray_1000;
+      darkHoverColor = tokens.color_gray_1000;
+      lightActiveColor = tokens.color_gray_200;
+      lightHoverColor = tokens.color_gray_100;
       break;
   }
 
@@ -121,10 +129,13 @@ export const colorVariant = props => {
           color: ${tokens.color_white};
 
           &:hover {
-            ${!props.disabled ? `background: ${hoverColor};` : ''}
+            ${!props.disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
             color: ${tokens.color_white};
+          }
+          &:active {
+            background: ${color};
           }
         }
       `;
@@ -134,10 +145,13 @@ export const colorVariant = props => {
           background: transparent;
           color: ${color};
           &:hover {
-            ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
+            ${!props.disabled ? `background: ${lightHoverColor};` : ''}
           }
           &:focus, &:hover {
             color: ${color};
+          }
+          &:active {
+            background: ${lightActiveColor};
           }
         }
       `;
@@ -150,10 +164,13 @@ export const colorVariant = props => {
           background: transparent;
           color: ${color};
           &:hover {
-            ${!props.disabled ? `background: ${tokens.color_gray_200};` : ''}
+            ${!props.disabled ? `background: ${lightHoverColor};` : ''}
           }
           &:focus, &:hover {
             color: ${color};
+          }
+          &:active {
+            background: ${lightActiveColor};
           }
         }
       `;
