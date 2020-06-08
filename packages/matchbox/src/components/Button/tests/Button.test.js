@@ -143,7 +143,7 @@ describe('wrappers', () => {
         Hola!
       </Button>,
     );
-    expect(wrapper.find('span')).toExist();
-    expect(wrapper.find('span')).toHaveAttributeValue('to', '/test');
+    expect(wrapper.find('span').first()).toExist();
+    expect(wrapper.find('span').first()).toHaveAttributeValue('to', '/test');
   });
 });
