@@ -32,7 +32,7 @@ function ProgressBar(props) {
       {...rest}
       role="progressbar"
       aria-label={label}
-      aria-valuenow={completed}
+      aria-valuenow={`${completed}`}
       aria-valuemin="0"
       aria-valuemax="100"
       aria-valuetext={valueText}
