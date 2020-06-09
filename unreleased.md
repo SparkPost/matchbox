@@ -156,3 +156,4 @@
 - #447 - Adds new `rotationOnly` prop to `Spinner`
 - #245 - Progressbar now correctly specifies its html `role`
 - #245 - Adds new `label` and `valueText` props to Progressbar
+- #235 - Adds new `title` prop to Table that renders a screen reader accessible caption
