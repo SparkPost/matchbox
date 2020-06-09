@@ -154,3 +154,5 @@
 - #444 - Adds new `Columns` and `Column` components
 - #447 - Adds new `loading` prop to `Button`
 - #447 - Adds new `rotationOnly` prop to `Spinner`
+- #245 - Progressbar now correctly specifies its html `role`
+- #245 - Adds new `label` and `valueText` props to Progressbar
