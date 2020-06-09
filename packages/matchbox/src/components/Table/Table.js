@@ -49,9 +49,11 @@ function Table(props) {
     <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
-          <caption>
-            <ScreenReaderOnly>{title}</ScreenReaderOnly>
-          </caption>
+          {title && (
+            <caption>
+              <ScreenReaderOnly>{title}</ScreenReaderOnly>
+            </caption>
+          )}
           {dataMarkup}
         </TablePaddingContext.Provider>
       </StyledTable>
