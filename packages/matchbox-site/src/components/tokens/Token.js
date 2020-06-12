@@ -20,10 +20,6 @@ function Token(props) {
   const [clicked, setClicked] = React.useState(false);
   const token = _.find(meta, ['name', name]);
 
-  if (!token) {
-    return <StyledToken>Token Not Found</StyledToken>;
-  }
-
   const isWhite = React.useMemo(() => name === 'color-white', [name]);
 
   function handleClick() {
@@ -65,6 +61,10 @@ function Token(props) {
     }
     return token.friendly;
   }, [token.friendly]);
+
+  if (!token) {
+    return <StyledToken>Token Not Found</StyledToken>;
+  }
 
   return (
     <Tooltip

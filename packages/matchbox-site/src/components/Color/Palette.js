@@ -45,13 +45,12 @@ const Shade = styled(Box)`
 
 function Palette(props) {
   const palette = React.useMemo(() => palettes[props.colors], [props.colors]);
+  const [selected, setSelected] = React.useState(palette[0]);
+  const colorInstance = color(selected.value);
 
   if (!palette.length) {
     return null;
   }
-
-  const [selected, setSelected] = React.useState(palette[0]);
-  const colorInstance = color(selected.value);
 
   return (
     <Box display="grid" gridGap="600" gridTemplateColumns="1fr 1fr" mb="600">

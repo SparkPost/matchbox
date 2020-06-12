@@ -30,18 +30,18 @@ function toKebab(str) {
 function Heading(props) {
   const { as, children, ...rest } = props;
 
-  if (!children) {
-    return null;
-  }
-
   // Gastby deploys break without this
   const [pathname, setPathname] = React.useState('');
 
   React.useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== undefined && children) {
       setPathname(`${window.location.pathname}#${toKebab(children)}`);
     }
   }, [children]);
+
+  if (!children) {
+    return null;
+  }
 
   return (
     <StyledLink to={pathname}>

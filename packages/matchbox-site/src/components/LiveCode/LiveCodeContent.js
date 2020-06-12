@@ -13,7 +13,7 @@ const StyledEditor = styled(LiveEditor)`
 `;
 
 function Content(props) {
-  const { description, code } = props;
+  const { description, disableResize, code } = props;
 
   return (
     <Box mt="600" mb="600">
@@ -21,7 +21,7 @@ function Content(props) {
         {description}
       </Box>
       <LiveProvider code={code} scope={components}>
-        <ResizeContainer>
+        <ResizeContainer disableResize={disableResize}>
           <LivePreview />
         </ResizeContainer>
         <StyledEditor />
