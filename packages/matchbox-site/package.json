@@ -21,6 +21,7 @@
     "gatsby-transformer-sharp": "^2.5.5",
     "lodash": "^4.17.15",
     "normalize.css": "^8.0.1",
+    "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

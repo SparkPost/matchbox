@@ -110,6 +110,12 @@
         "section": "Feedback"
       },
       {
+        "path": "/components/snackbar",
+        "label": "Snackbar",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
         "path": "/components/tag",
         "label": "Tag",
         "disabled": false,
