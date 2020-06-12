@@ -5,6 +5,7 @@ import { Select, Box } from '@sparkpost/matchbox';
 function LiveCode(props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { children } = props;
+  const childMap = React.Children.toArray(children);
 
   function updateIndex(event) {
     const index = Number(event.target.value);
@@ -12,7 +13,7 @@ function LiveCode(props) {
   }
 
   function getOptionsFromChildren() {
-    return children.map((child, index) => {
+    return childMap.map((child, index) => {
       return {
         value: index,
         label: child.props.title
@@ -34,7 +35,7 @@ function LiveCode(props) {
           />
         </Box>
       </Box>
-      {children[activeIndex]}
+      {childMap[activeIndex]}
     </div>
   );
 }

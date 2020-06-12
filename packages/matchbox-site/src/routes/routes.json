@@ -86,6 +86,12 @@
         "section": "Action"
       },
       {
+        "path": "/components/emptystate",
+        "label": "Empty State",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
         "path": "/components/page",
         "label": "Page",
         "disabled": false,

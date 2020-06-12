@@ -1,10 +1,52 @@
-# EmptyState
+import { LiveCode } from '../../components/LiveCode';
+
+# Empty State
+
+This component is used as a full-page layout for landing pages
 
 ---
 
 ### Usage
-_Coming soon_
+
+<LiveCode>
+  <LiveCode.Content
+    title="Without an image"
+    code={`
+      <EmptyState
+        title="Manage your email templates"
+        primaryAction={{
+          content: 'Create Template'
+        }}
+        secondaryAction={{ content: 'Learn More'}}
+      >
+        <p>Build, test, preview and send your transmissions.</p>
+      </EmptyState>
+    `}
+  />
+</LiveCode>
 
 ---
 
-### EmptyState API
+### System Props
+
+None
+
+---
+
+### Snackbar API
+
+<Prop name="title" type="string">
+  The display title
+</Prop>
+<Prop name="primaryAction" type="object">
+  Primary action button (accepts button props){' '}
+</Prop>
+<Prop name="secondaryAction" type="object">
+  Secondary action button (appear as a link next to the primary action)
+</Prop>
+<Prop name="image" type="function | element">
+  Empty state Image to be rendered
+</Prop>
+<Prop name="children" type="React node">
+  Content rendered below the title
+</Prop>
