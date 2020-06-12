@@ -13,7 +13,17 @@ import parserBabel from 'prettier/parser-babel';
 const StyledEditor = styled(LiveEditor)`
   background: ${tokens.color_blue_1000};
   font-size: ${tokens.fontSize_100};
-  color: ${tokens.color_blue_200}; // controls the blinking cursor color
+  ${'' /* // controls the blinking cursor color */}
+  color: ${tokens.color_blue_200};
+  * {
+    outline: none;
+  }
+`;
+
+const StyledError = styled(LiveError)`
+  background: ${tokens.color_red_800};
+  font-size: ${tokens.fontSize_100};
+  color: ${tokens.color_red_100};
 `;
 
 function Content(props) {
@@ -37,8 +47,8 @@ function Content(props) {
         </ResizeContainer>
         <Box bg="blue.1000" p="400" fontSize="100">
           <StyledEditor />
-          <LiveError />
         </Box>
+        <StyledError />
       </LiveProvider>
     </Box>
   );
