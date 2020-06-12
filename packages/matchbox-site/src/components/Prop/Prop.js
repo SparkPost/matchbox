@@ -7,9 +7,9 @@ function Prop(props) {
   const { children, name, type, defaultValue, required } = props;
 
   return (
-    <Box mb="600">
+    <Box mb="700">
       <Box display="flex" alignItems="center">
-        <Box as="h6" fontSize="400" m="0" mb="100" mr="400" color="blue.700">
+        <Box as="h6" fontSize="400" m="0" mr="400" color="blue.700">
           {name}
         </Box>
         {required && (
@@ -18,14 +18,14 @@ function Prop(props) {
           </Box>
         )}
       </Box>
-      <Box display="flex">
+      <Box display="flex" mb="200">
         <Box mr="800">
           <Box
             as="label"
             display="inline"
             mr="300"
-            fontSize="100"
-            fontWeight="bold"
+            fontSize="200"
+            fontWeight="semibold"
           >
             Type
           </Box>
@@ -34,9 +34,9 @@ function Prop(props) {
             display="inline"
             mb="200"
             fontWeight="regular"
-            fontSize="0.75rem"
+            fontSize="100"
             fontFamily="monospace"
-            color="magenta.800"
+            color="magenta.700"
           >
             {type}
           </Box>

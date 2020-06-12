@@ -1,11 +1,74 @@
+import { LiveCode } from '../../components/LiveCode';
+
 # Snackbar
-A snackbar is a overlayed, non-disruptive message to provide quick and immediate feedback following an action taken by the user.
+
+This component is used for real-time confirmation or feedback that a user-initiated action has taken place.
 
 ---
 
 ### Usage
-_Coming soon_
+
+<LiveCode>
+  <LiveCode.Content
+    title="Default Informational"
+    code={`
+      <Snackbar>
+        Snackbar Content
+      </Snackbar>
+    `}
+  />
+  <LiveCode.Content
+    title="Success"
+    code={`<Snackbar status="success" onDismiss={() => alert('Clicked')}>
+  Snackbar Content
+</Snackbar>`}
+  />
+  <LiveCode.Content
+    title="Warning"
+    code={`
+<Snackbar status="warning" onDismiss={() => alert('Clicked')}>
+  Snackbar Content
+</Snackbar>
+    `}
+  />
+  <LiveCode.Content
+    title="Success"
+    code={`
+<Snackbar status="success" onDismiss={() => alert('Clicked')}>
+  Snackbar Content
+</Snackbar>
+    `}
+  />
+  <LiveCode.Content
+    title="Long Content"
+    code={`
+<Snackbar maxWidth={500}>
+  This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong landjaeger salami ham spare ribs flank cupim porchetta leberkas.
+</Snackbar>
+    `}
+  />
+</LiveCode>
 
 ---
 
-### API
+### System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### Snackbar API
+
+<Prop name="status" type="string">
+  <div>One of <inlineCode>default</inlineCode> <inlineCode>success</inlineCode> <inlineCode>error</inlineCode> <inlineCode>warning</inlineCode></div>
+  <div>The status of the banner, determines the color scheme</div>
+</Prop>
+<Prop name="maxWidth" type="number">
+  The maximum width of the snackbar
+</Prop>
+<Prop name="onDismiss" type="function">
+  Callback for when the Snackbar is dismissed	
+</Prop>
+<Prop name="children" type="React node">
+  Content to be displayed inside the banner	
+</Prop>
