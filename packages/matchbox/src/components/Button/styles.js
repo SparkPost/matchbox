@@ -1,6 +1,7 @@
 import { tokens } from '@sparkpost/design-tokens';
 
 export const base = () => `
+  position: relative;
   display: inline-flex;
   align-items: center;
   border-radius: ${tokens.borderRadius_100};
@@ -13,6 +14,26 @@ export const base = () => `
   transition-duration: ${tokens.motionDuration_fast};
   border: 1px solid transparent;
   cursor: pointer;
+  overflow: hidden;  
+`;
+
+export const childwrapper = props => `
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+  transform: translateY(${props.loading ? '-50%' : '0%'});
+  opacity: ${props.loading ? '0' : '1'};
+`;
+
+export const loader = props => `
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  user-select: none
+  opacity: ${props.state === 'entered' ? '1' : '0'};
+  transform: ${props.state === 'entered' ? 'translate(0%, 0%)' : 'translate(0%, 40%)'};
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
 export const visualSize = props => {

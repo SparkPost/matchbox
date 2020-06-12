@@ -9,7 +9,7 @@ describe('Table', () => {
 
   let subject = props =>
     global.mountStyled(
-      <Table {...props}>
+      <Table {...props} title="My Data Table">
         <tbody>
           <Table.Row>
             <Table.Cell>one</Table.Cell>
@@ -98,6 +98,11 @@ describe('Table', () => {
     expect(wrapper.find('table')).toHaveStyleRule('position', 'sticky', {
       modifier: 'td:first-child',
     });
+  });
+
+  it('should render a caption', () => {
+    wrapper = subject();
+    expect(wrapper.find('caption').text()).toEqual('My Data Table');
   });
 
   it('should distribute system props correctly', () => {

@@ -147,8 +147,15 @@
 - #436 - Removes all Sass from matchbox including all functions and mixins
 - #412 - `Table` are now responsive and support freezing the first column with the
   `freezeFirstColumn` prop
+- #441 - Adds new `KeyboardKey` component
 - #423 - Panel, Drawer, Banner, Popover, Snackbar, Button now accept refs
 - #423 - Popover automatically focuses on content container when opening, with both controlled and
   uncontrolled open state
 - #444 - Adds new `Columns` and `Column` components
 - #442 - Empty State typography and margins are now responsive
+- #447 - Adds new `loading` prop to `Button`
+- #447 - Adds new `rotationOnly` prop to `Spinner`
+- #245 - Progressbar now correctly specifies its html `role`
+- #245 - Adds new `label` and `valueText` props to Progressbar
+- #235 - Adds new `title` prop to Table that renders a screen reader accessible caption
+- #247 - UnstyledLinks now use `role="button"` if they are not links
