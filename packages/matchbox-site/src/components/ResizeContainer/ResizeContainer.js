@@ -1,11 +1,9 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Frame, { FrameContextConsumer } from 'react-frame-component';
-import { Box, WindowEvent, ThemeProvider } from '@sparkpost/matchbox';
+import { Box, WindowEvent } from '@sparkpost/matchbox';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { DragHandle } from '@sparkpost/matchbox-icons';
-import _ from 'lodash';
 
 const StyledContainer = styled(Box)`
   position: relative;
@@ -87,7 +85,7 @@ function ResizeContainer(props) {
     }
   }
 
-  function onResize(e) {
+  function onResize() {
     if (!dragging) {
       const rect = containerRef.current.getBoundingClientRect();
       setPosition({
@@ -107,33 +105,15 @@ function ResizeContainer(props) {
       )}
 
       <StyledContainer
+        position="relative"
         p="0"
-        pr="0"
-        flex="1"
-        width={position.width ? `${position.width}px` : 'auto'}
+        width={
+          !disableResize && position.width ? `${position.width}px` : 'auto'
+        }
       >
-        {!disableResize ? (
-          <Frame
-            width="100%"
-            height="200px"
-            frameBorder="none"
-            initialContent='<!DOCTYPE html><html><head></head><body><div></div><div id="target-portal"></div></body></html>'
-          >
-            <FrameContextConsumer>
-              {frameContext => (
-                <ThemeProvider target={frameContext.document.head}>
-                  <Box position="relative" p="400" pr="700" overflow="hidden">
-                    {children}
-                  </Box>
-                </ThemeProvider>
-              )}
-            </FrameContextConsumer>
-          </Frame>
-        ) : (
-          <Box position="relative" p="400" pr="700" overflow="hidden">
-            children
-          </Box>
-        )}
+        <Box p="600" overflow="hidden">
+          {children}
+        </Box>
 
         {!disableResize && (
           <StyledResize
@@ -156,7 +136,8 @@ ResizeContainer.propTypes = {
   minWidth: PropTypes.number
 };
 ResizeContainer.defaultProps = {
-  minWidth: 400
+  minWidth: 400,
+  disableResize: true // TODO fix resizing
 };
 console.log('test pusdafsadfh');
 export default ResizeContainer;
