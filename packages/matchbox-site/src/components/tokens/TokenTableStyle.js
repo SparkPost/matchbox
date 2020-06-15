@@ -3,7 +3,10 @@ import { tokens } from '@sparkpost/design-tokens';
 export const tokenTable = `
   table-layout: fixed;
   width: 100%;
-  font-size: 18px;
+
+  td {
+    vertical-align: top;
+  }
 `;
 
 export const tableCell = props => {
@@ -19,7 +22,7 @@ export const tableCell = props => {
     vertical-align: middle;
     text-align: right;
     font-weight: ${fontWeight};
-    font-size: ${tokens.fontSize_200};
+    font-size: ${tokens.fontSize_300};
     &:first-child {
       text-align: left;
     }

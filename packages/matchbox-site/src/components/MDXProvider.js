@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { SystemPropsTags } from './SystemProps';
 import { Prop } from './Prop';
 import TokenTable from './tokens/TokenTable';
+import FilterableTokenTable from './tokens/FilterableTokenTable';
 import Token from './tokens/Token';
 import Heading from './Heading';
 import ExternalLink from './ExternalLink';
@@ -14,6 +15,7 @@ const components = {
   ExternalLink,
   SystemPropsTags,
   TokenTable,
+  FilterableTokenTable,
   Token,
   Prop,
   Heading,
