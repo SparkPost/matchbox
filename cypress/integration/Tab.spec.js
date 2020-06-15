@@ -14,7 +14,7 @@ describe('The Tabs component', () => {
         .click();
       cy.get('[aria-selected="true"]').should('have.text', 'More Details');
       cy.get(`[tabindex="0"]`).should('have.text', 'Details');
-      cy.get(`[tabindex="-1"]`).should('have.length', 3);
+      cy.get(`[tabindex="-1"]`).should('have.length', 4);
     });
   });
 
