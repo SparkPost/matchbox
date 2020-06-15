@@ -15,18 +15,32 @@ export function focus(props) {
 
     case 'gray':
     default:
-      color = tokens.color_gray_700;
+      color = tokens.color_gray_900;
       break;
   }
 
   return `
-    box-shadow: none;
+    position: relative;
     outline: none;
-    transition: ${tokens.motionDuration_fast};
-    &:focus {
-      position: relative;
+
+    &:after {
+      position: absolute;
+      content: "";
+      display: block;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      transition: ${tokens.motionDuration_fast};
+      border-radius: ${tokens.borderRadius_200};
+      box-shadow: none;
+      pointer-events: none;
+    } 
+
+    &:focus:after {
       z-index: 1;
-      box-shadow: 0 0 0 2px ${tokens.color_white}, 0 0 0 4px ${color};
+      opacity: 1;
+      box-shadow: 0 0 0 2px ${color};
     }`;
 }
 
