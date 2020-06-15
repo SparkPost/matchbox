@@ -12,6 +12,10 @@ const StyledUsage = styled(Box)`
   border-radius: ${tokens.borderRadius_200};
   transition: 0.15s;
 
+  code {
+    font-size: 0.8rem;
+  }
+
   &:hover {
     cursor: pointer;
     background: ${tokens.color_gray_300};

@@ -50,6 +50,28 @@ function TokenTable(props) {
     });
   }, [props.tokens]);
 
+  const filteredTokens = React.useMemo(() => {
+    if (!props.filter) {
+      return sortedTokens;
+    }
+
+    const filterTerm = props.filter.toLowerCase();
+    return sortedTokens.filter(
+      ({ category, friendly = '', value, name, javascript = '' }) => {
+        if (
+          category.includes(filterTerm) ||
+          friendly.toLowerCase().includes(filterTerm) ||
+          value.includes(filterTerm) ||
+          name.includes(filterTerm) ||
+          javascript.toLowerCase().includes(filterTerm)
+        ) {
+          return true;
+        }
+        return false;
+      }
+    );
+  }, [props.tokens, props.filter, sortedTokens]);
+
   return (
     <div>
       <Box
@@ -74,7 +96,7 @@ function TokenTable(props) {
         </div>
       </Box>
       <StyledTable>
-        <tbody>{sortedTokens.map(renderTokenRow)}</tbody>
+        <tbody>{filteredTokens.map(renderTokenRow)}</tbody>
       </StyledTable>
     </div>
   );
