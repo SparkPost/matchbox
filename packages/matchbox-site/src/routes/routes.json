@@ -110,6 +110,12 @@
         "section": "Utility"
       },
       {
+        "path": "/components/banner",
+        "label": "Banner",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
         "path": "/components/progressbar",
         "label": "ProgressBar",
         "disabled": false,
