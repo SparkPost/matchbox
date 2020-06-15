@@ -45,7 +45,6 @@ export function focus(props) {
 }
 
 export const base = () => `
-  position: relative;
   display: inline-flex;
   align-items: center;
   border-radius: ${tokens.borderRadius_100};
@@ -58,7 +57,6 @@ export const base = () => `
   transition-duration: ${tokens.motionDuration_fast};
   border: 1px solid transparent;
   cursor: pointer;
-  overflow: hidden;  
 `;
 
 export const childwrapper = props => `

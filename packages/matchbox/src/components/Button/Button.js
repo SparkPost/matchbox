@@ -144,7 +144,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
   const childrenMarkup = React.useMemo(() => {
     return (
-      <ChildWrapper aria-hidden={loading} loading={loading}>
+      <ChildWrapper aria-hidden={loading} loading={loading ? loading : undefined}>
         {children}
       </ChildWrapper>
     );
