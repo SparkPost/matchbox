@@ -134,6 +134,12 @@
         "section": "Feedback"
       },
       {
+        "path": "/components/checkbox",
+        "label": "Checkbox",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
         "path": "/components/slider",
         "label": "Slider",
         "disabled": false,
