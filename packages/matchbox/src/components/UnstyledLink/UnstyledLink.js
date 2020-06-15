@@ -37,7 +37,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   }
 
   return (
-    <Text as="a" title={LinkTitle} role={linkRole} onClick={onClick} ref={ref} {...rest}>
+    <Text as="a" title={linkTitle} role={linkRole} onClick={onClick} ref={ref} {...rest}>
       {children}
     </Text>
   );
