@@ -51,20 +51,25 @@ function TokenTable(props) {
   }, [props.tokens]);
 
   const filteredTokens = React.useMemo(() => {
+    if (!props.filter) {
+      return sortedTokens;
+    }
+
     const filterTerm = props.filter.toLowerCase();
-    return sortedTokens.filter(item => {
-      console.log(item);
-      if (
-        item.category.includes(filterTerm) ||
-        item.friendly.toLowerCase().includes(filterTerm) ||
-        item.value.includes(filterTerm) ||
-        item.name.includes(filterTerm) ||
-        item.javascript.toLowerCase().includes(filterTerm)
-      ) {
-        return true;
+    return sortedTokens.filter(
+      ({ category, friendly = '', value, name, javascript = '' }) => {
+        if (
+          category.includes(filterTerm) ||
+          friendly.toLowerCase().includes(filterTerm) ||
+          value.includes(filterTerm) ||
+          name.includes(filterTerm) ||
+          javascript.toLowerCase().includes(filterTerm)
+        ) {
+          return true;
+        }
+        return false;
       }
-      return false;
-    });
+    );
   }, [props.tokens, props.filter, sortedTokens]);
 
   return (
