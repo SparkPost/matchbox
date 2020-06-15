@@ -59,4 +59,22 @@ describe('Tabs', () => {
     });
     expect(wrapper.find('a').text()).toEqual('Tab 4');
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Tabs ref={ref} {...defaultprops} />
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('Tab 1')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
 });

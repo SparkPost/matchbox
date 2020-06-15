@@ -27,7 +27,7 @@ const Container = styled('div')`
   ${containerStyles}
 `;
 
-function Tabs(props) {
+const Tabs = React.forwardRef(function Tabs(props, userRef) {
   const {
     disableResponsiveBehavior,
     keyboardActivation,
@@ -85,8 +85,17 @@ function Tabs(props) {
     disableResponsiveBehavior,
   });
 
+  const assignWrapperRefs = node => {
+    if (wrapperRef) {
+      wrapperRef.current = node;
+    }
+    if (userRef) {
+      userRef.current = node;
+    }
+  };
+
   return (
-    <Container borderBottom="400" {...pick(rest)} ref={wrapperRef}>
+    <Container borderBottom="400" {...pick(rest)} ref={assignWrapperRefs} tabIndex="-1">
       <Box aria-hidden={isOverflowing}>
         <OverflowTabContainer
           aria-orientation="horizontal"
@@ -140,7 +149,7 @@ function Tabs(props) {
       )}
     </Container>
   );
-}
+});
 
 Tabs.displayName = 'Tabs';
 Tabs.propTypes = {
