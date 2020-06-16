@@ -12,20 +12,20 @@ const StyledText = styled('p')`
   ${lookslike}
 `;
 
-const Text = function(props) {
-  const { as, lookslike, children, ...rest } = props;
+const Text = React.forwardRef(function Text(props, ref) {
+  const { as, looksLike, children, ...rest } = props;
 
   return (
-    <StyledText as={as} lookslike={lookslike} {...rest}>
+    <StyledText as={as} lookslike={looksLike} ref={ref} {...rest}>
       {children}
     </StyledText>
   );
-};
+});
 
 Text.propTypes = {
   as: PropTypes.elementType.isRequired,
   children: PropTypes.node.isRequired,
-  lookslike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
+  looksLike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
 };
 
 Text.defaultProps = {

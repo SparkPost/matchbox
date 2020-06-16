@@ -134,7 +134,6 @@ function Page(props) {
   } = props;
   const { show, content, ...emptyProps } = empty;
 
-  // TODO verify this in EmptyState ticket
   if (show) {
     return (
       <EmptyState title={title} primaryAction={primaryAction} {...emptyProps}>

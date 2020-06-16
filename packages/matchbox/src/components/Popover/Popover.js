@@ -9,7 +9,7 @@ import { onKey } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 
-function Popover(props) {
+const Popover = React.forwardRef(function Popover(props, ref) {
   const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
@@ -28,6 +28,13 @@ function Popover(props) {
       setOpen(false);
     }
   }, []);
+
+  // Automatically focuses on content when opening
+  React.useLayoutEffect(() => {
+    if (shouldBeOpen && popoverRef && popoverRef.current) {
+      popoverRef.current.focus();
+    }
+  }, [shouldBeOpen]);
 
   // Toggles uncontrolled open state
   function handleUncontrolledToggle() {
@@ -73,8 +80,15 @@ function Popover(props) {
 
   // Renders popover content
   function renderPopover() {
+    function assignRefs(node) {
+      if (ref) {
+        ref.current = node;
+      }
+      popoverRef.current = node;
+    }
+
     return (
-      <PopoverContent open={shouldBeOpen} popoverRef={popoverRef} {...rest}>
+      <PopoverContent open={shouldBeOpen} ref={assignRefs} {...rest}>
         {children}
       </PopoverContent>
     );
@@ -111,7 +125,7 @@ function Popover(props) {
       activatorRef={activatorRef}
     />
   );
-}
+});
 
 Popover.displayName = 'Popover';
 Popover.propTypes = {

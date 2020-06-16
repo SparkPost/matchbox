@@ -17,7 +17,6 @@ module.exports = async ({ config, mode }) => {
         loader: 'postcss-loader',
         options: { plugins: () => [autoprefixer()] },
       },
-      'sass-loader',
     ],
     include: path.resolve(__dirname, '../'),
   });

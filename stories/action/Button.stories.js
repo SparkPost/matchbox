@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Button, Inline } from '@sparkpost/matchbox';
+import { Button, Inline, Box, Stack } from '@sparkpost/matchbox';
 
 export default {
   title: 'Action|Button',
@@ -82,6 +82,69 @@ export const Destructive = withInfo()(() => (
   </Inline>
 ));
 
+export const Loading = withInfo({ propTables: [Button] })(() => (
+  <Box display="flex" justifyContent="space-between">
+    <Stack>
+      <Button loading>Button</Button>
+      <Button loading flat>
+        Flat
+      </Button>
+      <Button loading outlineBorder>
+        Outline Border
+      </Button>
+      <Button loading outline>
+        Outline
+      </Button>
+    </Stack>
+
+    <Stack>
+      <Button loading color="red">
+        Button
+      </Button>
+      <Button loading color="red" flat>
+        Flat
+      </Button>
+      <Button loading color="red" outlineBorder>
+        Outline Border
+      </Button>
+      <Button loading color="red" outline>
+        Outline
+      </Button>
+    </Stack>
+
+    <Stack>
+      <Button loading color="blue">
+        Button
+      </Button>
+      <Button loading color="blue" flat>
+        Flat
+      </Button>
+      <Button loading color="blue" outlineBorder>
+        Outline Border
+      </Button>
+      <Button loading color="blue" outline>
+        Outline
+      </Button>
+    </Stack>
+  </Box>
+));
+
+export const TogglingLoading = () => {
+  const [on, setOn] = React.useState(false);
+
+  return (
+    <Button
+      color="blue"
+      loading={on}
+      onClick={() => {
+        setOn(!on);
+        window.setTimeout(() => setOn(false), 5000);
+      }}
+    >
+      Click on me to load
+    </Button>
+  );
+};
 export const External = withInfo()(() => <Button to="http://google.com">Google</Button>);
 
 export const Group = withInfo()(() => (

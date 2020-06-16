@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
 import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, width, padding, compose } from 'styled-system';
@@ -7,9 +8,18 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
+import { Spinner } from '../Spinner';
 
 import Group from './Group';
-import { base, visualSize, colorVariant, disabled, fullWidth } from './styles';
+import {
+  base,
+  visualSize,
+  colorVariant,
+  disabled,
+  fullWidth,
+  loader,
+  childwrapper,
+} from './styles';
 
 // TODO Categorize system props and abstract
 const system = compose(margin, width, padding);
@@ -23,7 +33,15 @@ export const StyledButton = styled(Box)`
   ${system}
 `;
 
-function Button(props) {
+const StyledLoader = styled.div`
+  ${loader}
+`;
+
+const ChildWrapper = styled.span`
+  ${childwrapper}
+`;
+
+const Button = React.forwardRef(function Button(props, ref) {
   const {
     children,
 
@@ -32,6 +50,8 @@ function Button(props) {
     color,
     disabled,
     destructive, // Deprecate in favor of color
+    loading,
+    loadingLabel,
 
     // Below 3 props to be deprecated for a 'weight' prop
     plain, // Deprecate in favor of flat
@@ -87,9 +107,26 @@ function Button(props) {
     return 'strong';
   }, [outline, outlineBorder, plain, flat]);
 
+  const loadingIndicator = React.useMemo(() => {
+    return (
+      <Transition mountOnEnter unmountOnExit in={loading}>
+        {state => (
+          <StyledLoader state={state}>
+            <Spinner
+              color={!outline && !outlineBorder && !plain && !flat ? 'white' : 'gray'}
+              size="small"
+              label={loadingLabel}
+              rotationOnly
+            />
+          </StyledLoader>
+        )}
+      </Transition>
+    );
+  }, [loading]);
+
   const sharedProps = {
     className,
-    disabled,
+    disabled: disabled || loading,
     fullWidth,
     onClick,
     onFocus,
@@ -97,9 +134,19 @@ function Button(props) {
     buttonSize,
     visualWeight,
     buttonColor,
+    ref,
+    loading,
     ...systemProps,
     ...componentProps,
   };
+
+  const childrenMarkup = React.useMemo(() => {
+    return (
+      <ChildWrapper aria-hidden={loading} loading={loading}>
+        {children}
+      </ChildWrapper>
+    );
+  }, [loading, children]);
 
   if (to && !WrapperComponent) {
     return (
@@ -111,7 +158,8 @@ function Button(props) {
         title={external && !title ? 'Opens in a new tab' : title}
         {...sharedProps}
       >
-        {children}
+        {childrenMarkup}
+        {loadingIndicator}
       </StyledButton>
     );
   }
@@ -119,17 +167,19 @@ function Button(props) {
   if (to && WrapperComponent) {
     return (
       <StyledButton as={WrapperComponent} to={to} {...sharedProps}>
-        {children}
+        {childrenMarkup}
+        {loadingIndicator}
       </StyledButton>
     );
   }
 
   return (
     <StyledButton as="button" type={submit ? 'submit' : 'button'} {...sharedProps}>
-      {children}
+      {childrenMarkup}
+      {loadingIndicator}
     </StyledButton>
   );
-}
+});
 
 Button.displayName = 'Button';
 Button.Group = Group;
@@ -152,6 +202,8 @@ Button.propTypes = {
   Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
   children: PropTypes.node,
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
+  loading: PropTypes.bool,
+  loadingLabel: PropTypes.string,
 
   // Undocumented helper function
   // https://github.com/styled-system/styled-system/issues/618
@@ -163,6 +215,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   size: 'default',
+  loadingLabel: 'Loading',
 };
 
 export default Button;

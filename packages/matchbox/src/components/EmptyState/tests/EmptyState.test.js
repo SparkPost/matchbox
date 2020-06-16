@@ -1,7 +1,6 @@
 import React from 'react';
 import EmptyState from '../EmptyState';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
-import { tokens } from '@sparkpost/design-tokens';
 import 'jest-styled-components';
 
 describe('EmptyState', () => {
@@ -18,16 +17,13 @@ describe('EmptyState', () => {
     wrapper = subject({ title: 'The Title' });
     const title = wrapper.find('h1');
     expect(title.text()).toEqual('The Title');
-    expect(title).toHaveStyleRule('font-size', tokens.fontSize_700);
-    expect(title).toHaveStyleRule('line-height', tokens.lineHeight_700);
+    expect(title).toHaveStyleRule('font-size', '600');
+    expect(title).toHaveStyleRule('line-height', '600');
   });
 
   it('renders with image', () => {
     wrapper = subject({ image: ChevronRight });
-    const image = wrapper.find('div').at(3);
-    expect(wrapper.find('svg')).toExist();
-    expect(image).toHaveStyleRule('top', '45%');
-    expect(image).toHaveStyleRule('left', '45%');
+    expect(wrapper.find(ChevronRight)).toExist();
   });
 
   it('renders without any actions', () => {

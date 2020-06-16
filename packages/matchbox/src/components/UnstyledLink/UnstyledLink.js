@@ -4,11 +4,12 @@ import { deprecate } from '../../helpers/propTypes';
 
 import { Text } from '../Text';
 
-function UnstyledLink(props) {
-  const { children, to, title, Component, component, external, ...rest } = props;
+const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
+  const { children, to, title, Component, component, external, onClick, role, ...rest } = props;
 
   const WrapperComponent = component || Component;
-  const LinkTitle = external && !title ? 'Opens in a new tab' : title;
+  const linkTitle = external && !title ? 'Opens in a new tab' : title;
+  const linkRole = role ? role : !!onClick ? 'button' : null;
 
   if (to && !WrapperComponent) {
     return (
@@ -17,7 +18,9 @@ function UnstyledLink(props) {
         href={to}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
-        title={LinkTitle}
+        title={linkTitle}
+        onClick={onClick}
+        ref={ref}
         {...rest}
       >
         {children}
@@ -27,18 +30,18 @@ function UnstyledLink(props) {
 
   if (WrapperComponent) {
     return (
-      <Text as={WrapperComponent} to={to} title={LinkTitle} {...rest}>
+      <Text as={WrapperComponent} to={to} title={linkTitle} onClick={onClick} ref={ref} {...rest}>
         {children}
       </Text>
     );
   }
 
   return (
-    <Text as="a" title={LinkTitle} {...rest}>
+    <Text as="a" title={linkTitle} role={linkRole} onClick={onClick} ref={ref} {...rest}>
       {children}
     </Text>
   );
-}
+});
 
 UnstyledLink.displayName = 'UnstyledLink';
 
@@ -49,6 +52,8 @@ UnstyledLink.propTypes = {
   component: PropTypes.elementType,
   Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
   children: PropTypes.node,
+  onClick: PropTypes.func,
+  role: PropTypes.string,
 };
 
 export default UnstyledLink;
