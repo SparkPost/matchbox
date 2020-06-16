@@ -1,0 +1,178 @@
+import { meta } from '@sparkpost/design-tokens';
+import { Box, Text } from '@sparkpost/matchbox';
+import {
+  Speed,
+  EaseIn,
+  EaseOut,
+  EaseInOut,
+  EnterExit,
+  FastInPlace,
+  Large
+} from '../../components/Motion';
+
+# Motion
+
+Matchbox uses motion to provide guidance, clarity and focus to a UI.
+
+Consistent movement improves an experience by visually describing connections and spatial relationships between states and views, drawing attention to importance or providing appropriate feedback.
+
+- [Principles](/design/motion#principles)
+- [UI Concept: Easing](/design/motion#easing)
+- [UI Concept: Duration](/design/motion#duration)
+- [UI Animation Examples](/design/motion#ui-animation-examples)
+- [Resources](/design/motion#resources)
+
+---
+
+### Principles
+
+<Box display={['block', 'block', 'block', 'flex']}>
+  <Box flex="1" pr={['0', '0', '0', '200']} mb="600">
+    <h6>Intentional</h6>
+    <small>
+      Animation should always serve a purpose. Motion helps users reach their
+      goals by guiding them through the complexity of an experience.
+    </small>
+  </Box>
+  <Box flex="1" px={['0', '0', '0', '200']} mb="600">
+    <h6>Intuitive</h6>
+    <small>
+      Motion should feel familiar and expected. Fluid, seamless motion make the
+      experience feel natural, and mirrors objects in motion in the real world.
+    </small>
+  </Box>
+  <Box flex="1" pl={['0', '0', '0', '200']}>
+    <h6>Contextual</h6>
+    <small>
+      Motion should tie back to the user's interaction. It provides appropriate
+      feedback by aligning to the way an experience is used or manipulated.
+    </small>
+  </Box>
+</Box>
+
+---
+
+### UI Animation Concepts
+
+#### Easing
+
+_Describes changes in an object's velocity over time as it travels._
+
+Easing reinforces movement by contributing to the naturalism and seamlessness of an experience. Objects move in a manner that is intuitive and behave as users expect them to.
+
+##### Ease In
+
+Starts slow and ends fast. Imagine dropping a ball to the ground. This
+easing curve is typically used to remove objects from view.
+
+<EaseIn />
+
+<Box my="800"></Box>
+
+##### Ease Out
+
+Starts fast and ends slow. Think of throwing a ball in the air and slowing
+down as it reaches its peak. This function is typically used to introduce
+objects to the view.
+
+<EaseOut />
+
+<Box my="800"></Box>
+
+##### Ease In Out
+
+Starts slow, speeds up, then ends slow. Think of a car accelerating and
+coming to a stop. This curve is typically used to move objects from one
+location to another.
+
+<EaseInOut />
+
+---
+
+<TokenTable
+  title="Easing Tokens"
+  columns={['friendly', 'value', 'usage']}
+  tokens={meta.filter(({ category }) => ['motion-ease'].includes(category))}
+/>
+
+---
+
+#### Duration
+
+_The amount of time it takes for a transition to take place_
+
+Animation duration is closely related to how large the object in motion is, the distance it travels, and whether the object is entering, exiting, or transitioning.
+
+<Box display={['block', 'block', 'block', 'flex']}>
+  <Box flex="1" pr={['0', '0', '0', '200']} mb="600">
+    <h6>Fast / Near / Exit</h6>
+    <small>
+      Use for objects that do not move, move a distance of less than 25% of the
+      view, or are exiting the view.
+    </small>
+  </Box>
+  <Box flex="1" pr={['0', '0', '0', '200']} mb="600">
+    <h6>Medium / Enter</h6>
+    <small>
+      Use for objects move a distance of less than 50% of the view, or are
+      entering the view.
+    </small>
+  </Box>
+  <Box flex="1" pr={['0', '0', '0', '200']} mb="600">
+    <h6>Slow / Far</h6>
+    <small>
+      Use for objects move a distance of more than 50% of the view, or are large
+      in size.
+    </small>
+  </Box>
+</Box>
+
+<Speed />
+
+---
+
+<TokenTable
+  title="Duration Tokens"
+  columns={['friendly', 'value', 'usage']}
+  tokens={meta.filter(({ category }) => ['motion-duration'].includes(category))}
+/>
+
+---
+
+### UI Animation Examples
+
+##### Fade In and Out
+
+The entrance of the snackbar in this example uses medium speed with ease out, while the exit uses a fast speed with ease in.
+
+<EnterExit />
+
+<Box my="800"></Box>
+
+##### Fast Transitions
+
+Fast transitions typically take place in small common interactions, think buttons, links, menu items, or anything that does not transform.
+
+<FastInPlace />
+
+<Box my="800"></Box>
+
+##### Slow and Large
+
+A large animation would use a longer duration, think of pages, empty states, or large overlays.
+
+<Large />
+
+---
+
+### Resources
+
+- <ExternalLink to="https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc">
+    Creating Usability with Motion: The UX in Motion Manifesto
+  </ExternalLink>
+- <ExternalLink to="https://developers.google.com/web/fundamentals/design-and-ux/animations/choosing-the-right-easing">
+    Choosing the Right Easing
+  </ExternalLink>
+- <ExternalLink to="https://cubic-bezier.com">cubic-bezier.com</ExternalLink>
+- <ExternalLink to="https://easings.net/en">easings.net</ExternalLink>
+- <ExternalLink to="https://csstriggers.com/">CSS Triggers</ExternalLink>

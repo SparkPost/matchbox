@@ -1,13 +1,59 @@
 const path = require('path');
+
 module.exports = {
   siteMetadata: {
-    title: 'Matchbox'
+    title: 'Matchbox',
+    description: 'SparkPost Design System',
+    author: '@sparkpost'
   },
   plugins: [
-    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    'gatsby-transformer-react-docgen',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/Layout/Layout.js')
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`
+      }
+    },
+    {
+      // Sources mdx post pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'updates',
+        path: `${__dirname}/src/updates`
+      }
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'routes',
+        path: `${__dirname}/src/routes`
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.png' // This path is relative to the root of the site.
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -16,19 +62,25 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
-        name: 'icon',
-        path: path.resolve(__dirname, '../matchbox-icons/src/IconBase')
-      }
-    },
-    'gatsby-plugin-mdx',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages/`
+        // Uncomment these aliases if you want to reference local matchbox packages
+        // alias: {
+        //   '@sparkpost/matchbox': path.resolve(__dirname, '../matchbox/src'),
+        //   '@sparkpost/matchbox-icons': path.resolve(
+        //     __dirname,
+        //     '../matchbox-icons/src'
+        //   ),
+        //   '@sparkpost/design-tokens': path.resolve(
+        //     __dirname,
+        //     '../design-tokens'
+        //   )
+        // },
+        // extensions: []
       }
     }
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ]
 };

@@ -1,0 +1,93 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Slider
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Uncontrolled with min and max"
+    code={`
+      <Slider defaultValue={125} min={100} max={150} />
+    `}
+  />
+  <LiveCode.Content
+    title="With ticks"
+    code={`
+      <Slider
+      value={75}
+      ticks={{
+        0: '0',
+        50: '50',
+        25: 'Recommended',
+        100: '100',
+      }}
+    />
+    `}
+  />
+  <LiveCode.Content
+    title="Disabled"
+    code={`
+      <Slider disabled value={75} />
+    `}
+  />
+  <LiveCode.Content
+    title="With system props"
+    code={`
+      <Slider
+        mb={400}
+        mr={800}
+        ml={800}
+      />
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### Slider API
+
+<Prop name="defaultValue" type="number">
+  The slider's initial value on first render
+</Prop>
+<Prop name="disabled" type="bool">
+  Disables focus, key down, mouse and touch events
+</Prop>
+<Prop name="min" type="number">
+  The slider's lower bounds
+</Prop>
+<Prop name="max" type="number">
+  The slider's upper bounds
+</Prop>
+<Prop name="onBlur" type="function">
+  Callback when input loses focus
+</Prop>
+<Prop name="onChange" type="function">
+  Callback when input value changes
+</Prop>
+<Prop name="onFocus" type="function">
+  Callback when input is focused
+</Prop>
+<Prop name="precision" type="number">
+  The number of decimal places to round values to
+</Prop>
+<Prop name="ticks" type="object">
+  Object of nodes to generate tick marks
+</Prop>
+<Prop name="value" type="number">
+  A value to programmatically control the slider
+</Prop>
+<Prop name="aria-controls" type="string">
+  Describes a side-effect relationship with another DOM element
+</Prop>
+<Prop name="data-id" type="string">
+  Identifier passed to the handle for testing or tracking purposes
+</Prop>

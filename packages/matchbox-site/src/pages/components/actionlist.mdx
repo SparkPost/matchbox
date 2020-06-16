@@ -1,0 +1,219 @@
+import { LiveCode } from '../../components/LiveCode';
+import { Box, Popover } from '@sparkpost/matchbox';
+
+# ActionList
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content 
+    title="Inside Popover" 
+    code={`
+      <Box display="flex" height="250px">
+        <Popover
+          open
+          style={{
+            width: '200px'
+          }}
+          trigger={<Button size="default">Actions</Button>}
+        >
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                to: '#'
+              }
+            ]}
+          />
+        </Popover>
+        <Box ml="10rem">
+          <Popover
+            open
+            style={{
+              width: '200px'
+            }}
+            trigger={<Button size="default">Actions with Sections</Button>}
+          >
+            <ActionList
+              actions={[
+                {
+                  content: 'Action1',
+                  to: '#'
+                },
+                {
+                  content: 'Action2',
+                  to: '#'
+                }
+              ]}
+              sections={[
+                [
+                  {
+                    content: 'Sectioned1',
+                    to: '#'
+                  },
+                  {
+                    content: 'Sectioned2',
+                    to: '#'
+                  }
+                ]
+              ]}
+            />
+          </Popover>
+        </Box>
+      </Box>
+    `}
+  />
+  <LiveCode.Content 
+    title="Selected Actions" 
+    code={`
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                selected: true,
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                selected: true,
+                to: '#'
+              },
+              {
+                content: 'Action3',
+                selected: false,
+                to: '#'
+              }
+            ]}
+          />
+        </Panel>
+      </Box>
+    `}
+  />
+  <LiveCode.Content 
+    title="Highlighted Actions" 
+    code={`
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList
+            actions={[
+              {
+                content: 'Action1',
+                highlighted: true,
+                to: '#'
+              },
+              {
+                content: 'Action2',
+                highlighted: true,
+                to: '#'
+              },
+              {
+                content: 'Action3',
+                selected: false,
+                to: '#'
+              }
+            ]}
+          />
+        </Panel>
+      </Box>
+    `}
+  />
+  <LiveCode.Content 
+      title="As Buttons and Checkboxes" 
+      code={`
+        <Box maxWidth="20rem">
+          <Panel>
+            <ActionList
+              actions={[
+                {
+                  content: 'Checkbox',
+                  is: 'checkbox',
+                  selected: true
+                },
+                {
+                  content: 'Checkbox',
+                  is: 'checkbox'
+                },
+                {
+                  content: 'Button',
+                  is: 'button',
+                  selected: false
+                },
+                {
+                  content: 'Link',
+                  external: true,
+                  is: 'link',
+                  to: '#'
+                }
+              ]}
+            />
+          </Panel>
+        </Box>
+      `}
+    />
+    <LiveCode.Content 
+      title="System Props" 
+      code={`
+        <Box maxWidth="20rem">
+          <Panel>
+            <ActionList
+              actions={[
+                {
+                  content: 'Action1',
+                  to: '#'
+                },
+                {
+                  content: 'Action2',
+                  to: '#'
+                }
+              ]}
+              m="400"
+              width={0.5}
+            />
+          </Panel>
+        </Box>
+      `}
+    />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin', 'layout']} />
+
+---
+
+### ActionList API
+<Prop
+  name="actions"
+  type="[{content: ReactNode, ...}]"
+> 
+  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;] Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
+</Prop>
+<Prop
+  name="sections"
+  type="[[{content: ReactNode, ...}]]"
+> 
+  Creates sections e.g. [[&#123; content: 'action label', onClick: callback() &#125;]]
+</Prop>
+<Prop
+  name="maxHeight"
+  type="string | number"
+> 
+  Max height of list
+</Prop>
+<Prop
+  name="groupByKey"
+  type="string"
+  defaultvalue="'section'"
+> 
+  Group by key used to auto group actions into sections, defaults to "section"
+</Prop>

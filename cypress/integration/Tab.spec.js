@@ -70,7 +70,7 @@ describe('The Tabs component', () => {
 
   // Tests are flakey because they require layout changes
   // Remove if these become a problem
-  describe('when overflowing', () => {
+  describe.skip('when overflowing', () => {
     beforeEach(() => {
       cy.visit('/iframe.html?path=/story/navigation-tabs--example-tabs');
       cy.viewport(800, 600);

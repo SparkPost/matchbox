@@ -1,0 +1,303 @@
+import { LiveCode } from '../../components/LiveCode';
+import { Button, Box, Inline } from '@sparkpost/matchbox';
+
+# Button
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content 
+    title="Sizes" 
+    code={`
+      <Inline>
+        <Button size="small">
+          Small Button
+        </Button>
+        <Button size="default">
+          Default Button
+        </Button>
+        <Button size="large">
+          Large Button
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Colors" 
+    code={`
+      <Inline>
+        <Button>
+          Gray
+        </Button>
+        <Button color="blue">
+          Blue
+        </Button>
+        <Button color="red">
+          Red
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Disabled" 
+    code={`
+      <Inline>
+        <Button disabled>
+          Gray
+        </Button>
+        <Button disabled color="blue">
+          Blue
+        </Button>
+        <Button disabled color="red">
+          Red
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Flat" 
+    code={`
+      <Inline>
+        <Button flat>
+          Flat
+        </Button>
+        <Button flat color="blue">
+          Flat
+        </Button>
+        <Button flat color="red">
+          Flat
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Outline Border" 
+    code={`
+      <Inline>
+        <Button outlineBorder>
+          Outline Border
+        </Button>
+        <Button outlineBorder color="blue">
+          Outline Border
+        </Button>
+        <Button outlineBorder color="red">
+          Outline Border
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Outline" 
+    code={`
+      <Inline>
+        <Button outline>
+          Outline
+        </Button>
+        <Button outline color="blue">
+          Outline
+        </Button>
+        <Button outline color="red">
+          Outline
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content 
+    title="Full Width" 
+    code={`
+      <Button fullWidth color="blue">Full Width</Button>
+    `}
+  />
+  <LiveCode.Content 
+    title="Destructive" 
+    code={`
+      <Inline>
+        <Button destructive size="small">
+          Delete Domain
+        </Button>
+        <Button destructive size="default">
+          Delete Domain
+        </Button>
+        <Button destructive size="large">
+          Delete Domain
+        </Button>
+        <Button destructive disabled>
+          Delete Domain
+        </Button>
+      </Inline>
+    `}
+  />
+  <LiveCode.Content
+    title="External"
+    code={`
+      <Button external to="https://google.com">
+        Google
+      </Button>
+    `}
+  />
+  <LiveCode.Content
+    title="Group"
+    code={`
+      <Button.Group>
+        <Button size="default">
+          Linear
+        </Button>
+        <Button
+          outlineBorder
+          size="default"
+        >
+          Log
+        </Button>
+        <Button
+          disabled
+          outlineBorder
+          size="default"
+        >
+          Sq Rt
+        </Button>
+      </Button.Group>
+    `}
+  />
+  <LiveCode.Content
+    title="System Props"
+    code={`
+      <Inline>
+        <Button
+          color="blue"
+          mb="200"
+          mr="200"
+          paddingLeft={800}
+          size="default"
+        >
+          Submit
+        </Button>
+        <Button
+          mb="200"
+          mr="200"
+          outlineBorder
+          size="default"
+        >
+          Cancel
+        </Button>
+        <Button
+          flat
+          mb="200"
+          size="default"
+        >
+          Reset
+        </Button>
+      </Inline>
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin', 'width']} />
+
+---
+
+### Button API
+<Prop
+  name="color"
+  type="string"
+> 
+  gray, blue, red <br /> The color of the button
+</Prop>
+
+<Prop
+  name="disabled"
+  type="bool"
+>
+  Whether the button is disabled or not
+</Prop>
+
+<Prop
+  name="destructive"
+  type="bool"
+>
+  Whether the button is used for destructive action or not (i.e. delete) - Will be the destructive red color
+</Prop>
+
+<Prop
+  name="flat"
+  type="bool"
+>
+  The button will have a transparent background and the text color will correspond with the color prop
+</Prop>
+
+<Prop
+  name="outline"
+  type="bool"
+>
+  The button will have a gray border and text corresponding with the color prop
+</Prop>
+
+<Prop
+  name="outlineBorder"
+  type="bool"
+>
+  The button will have a border matching the color of text corresponding with the color prop
+</Prop>
+
+<Prop
+  name="size"
+  type="string"
+  defaultValue="default"
+>
+  small, large, default <br />
+  The size of the button
+</Prop>
+
+<Prop
+  name="fullWidth"
+  type="bool"
+>
+  Whether the button is the full width of its parent
+</Prop>
+
+<Prop
+  name="submit"
+  type="bool"
+>
+  Whether the button is a submit button or regular button
+</Prop>
+
+<Prop
+  name="to"
+  type="string | object"
+>
+  The location the button will route to
+</Prop>
+
+<Prop
+  name="title"
+  type="string"
+>
+  The title of the button
+</Prop>
+
+<Prop
+  name="external"
+  type="bool"
+>
+  Whether the button takes you to an external link or not
+</Prop>
+
+<Prop
+  name="component"
+  type="element type"
+>
+  Component to render the button as. (i.e. 'span')
+</Prop>
+
+<Prop
+  name="children"
+  type="react node"
+>
+  Children of the button
+</Prop>

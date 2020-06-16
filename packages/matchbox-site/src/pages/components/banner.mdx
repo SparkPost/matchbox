@@ -1,0 +1,163 @@
+import { LiveCode } from '../../components/LiveCode';
+import { Banner } from '@sparkpost/matchbox';
+
+# Banner
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content 
+    title="Default" 
+    code={`
+      <Banner title="Heads up!">
+        <p>
+          If you're importing recipients from a previous provider, be sure to also{' '}
+          <a href="https://design.sparkpost.com">import your suppressions</a> later.
+        </p>
+      </Banner>
+    `}
+  />
+  <LiveCode.Content 
+    title="Success" 
+    code={`
+      <Banner
+        title="Thank you for your dedicated IP purchase"
+        status="success"
+      >
+        <p>Happy Sending!</p>
+      </Banner>
+    `}
+  />
+  <LiveCode.Content 
+    title="Info" 
+    code={`
+      <Banner
+        status="info"
+        title="Verify your email address"
+        action={{
+          content: 'Resend Email',
+        }}
+      >
+        <p>Please click the link in the email we sent you to unlock the higher daily sending limits.</p>
+      </Banner>
+    `}
+  />
+  <LiveCode.Content 
+    title="Warning" 
+    code={`
+      <Banner
+        title="New IPs need to be warmed up"
+        status="warning"
+      >
+        <p>
+          Please read the{' '}
+          <a
+            href="https://support.sparkpost.com/customer/portal/articles/1972209-ip-warm-up-overview"
+            target="_blank"
+          >
+            IP Warm-up Overview article
+          </a>{' '}
+          for more information.
+        </p>
+      </Banner>
+    `}
+  />
+  <LiveCode.Content 
+    title="Danger" 
+    code={`
+      <Banner
+        title="Your account has been suspended due to a billing problem"
+        status="danger"
+        actions={[
+          {
+            content: 'Update Billing Info',
+          },
+          {
+            content: 'Close',
+            outline: true,
+          },
+        ]}
+      >
+        <p>
+          To reactivate your account and pay your outstanding balance due, please update your payment
+          information.
+        </p>
+        <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
+      </Banner>
+    `}
+  />
+  <LiveCode.Content 
+    title="System Props" 
+    code={`
+      <>
+        <Banner title="Responsive Margin-Y" status="warning" my={['400', '600', '800', '300']}>
+          <p>Set margin with system props</p>
+        </Banner>
+        <Banner title="Responsive Margin-X" mx={['600', '500', '900', '300']}>
+          <p>Set margin with system props</p>
+        </Banner>
+      </>
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### Banner API
+
+<Prop
+  name="status"
+  type="string"
+> 
+  default, success, warning, danger, info <br /> The status of the banner, determines the color scheme. 
+success = green; 
+warning = yellow; 
+danger = red; 
+info = blue; 
+default = blue;
+</Prop>
+
+<Prop
+  name="title"
+  type="string"
+> 
+  The title of the banner
+</Prop>
+
+<Prop
+  name="onDismiss"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback for when the banner is dismissed
+</Prop>
+
+<Prop
+  name="action"
+  type="object"
+  required
+> 
+  Used for single action button
+</Prop>
+
+<Prop
+  name="actions"
+  type="array"
+> 
+  Renders multiple action buttons
+</Prop>
+
+<Prop
+  name="children"
+  type="node"
+> 
+  Content to be displayed inside the banner
+</Prop>

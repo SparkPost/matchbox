@@ -1,0 +1,33 @@
+import { meta } from '@sparkpost/design-tokens';
+import SpacingPreview from '../../components/SpacingPreview/SpacingPreview';
+
+# Space
+
+Spacing tokens make it easy to configure a component's padding, margin, or position. Consistent spacing promotes a visual balance that helps make UIs more digestible and scannable.
+
+---
+
+<SpacingPreview />
+
+<small>
+  This scale operates on a 4px baseline, with each variant being a multiple of
+  that baseline. Any spacing larger than 800 should be multiples of 16px or 400.
+</small>
+
+---
+
+<TokenTable
+  columns={['friendly', 'value', 'pixel_value', 'usage']}
+  tokens={meta.filter(({ category }) => category === 'spacing')}
+/>
+
+---
+
+### Resources
+
+- <ExternalLink to="https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62">
+    Space in Design Systems
+  </ExternalLink>
+- <ExternalLink to="https://www.designsystems.com/space-grids-and-layouts/">
+    Space Grids and Layouts
+  </ExternalLink>

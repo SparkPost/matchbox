@@ -1,7 +1,6 @@
 # matchbox-site
 
-## Local Development
 ```bash
-# Runs gatsby at localhost:8000
-npm run start:site
+# Starts gatsby at localhost:8001
+npm run start
 ```

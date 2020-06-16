@@ -1,0 +1,168 @@
+[
+  {
+    "path": "/",
+    "label": "Home",
+    "hiddenFromNav": true
+  },
+  {
+    "path": "/updates",
+    "label": "Updates",
+    "disabled": false
+  },
+  {
+    "path": "/brand",
+    "label": "Brand",
+    "disabled": true
+  },
+  {
+    "path": "/design",
+    "label": "Design",
+    "childRoutes": [
+      {
+        "path": "/design",
+        "label": "Overview",
+        "disabled": false
+      },
+      {
+        "path": "/design/color",
+        "label": "Color",
+        "disabled": false
+      },
+      {
+        "path": "/design/typography",
+        "label": "Typography",
+        "disabled": false
+      },
+      {
+        "path": "/design/spacing",
+        "label": "Spacing",
+        "disabled": false
+      },
+      {
+        "path": "/design/elevation",
+        "label": "Elevation",
+        "disabled": false
+      },
+      {
+        "path": "/design/motion",
+        "label": "Motion",
+        "disabled": false
+      },
+      {
+        "path": "/design/datavisualization",
+        "label": "Data Visualization",
+        "disabled": true
+      },
+      {
+        "path": "/design/tokenreference",
+        "label": "Token API Reference",
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "path": "/components",
+    "label": "Components",
+    "childRoutes": [
+      {
+        "path": "/components",
+        "label": "Overview",
+        "disabled": false
+      },
+      {
+        "path": "/components/system-props",
+        "label": "System Props"
+      },
+      {
+        "path": "/components/actionlist",
+        "label": "ActionList",
+        "disabled": false,
+        "section": "Action"
+      },
+      {
+        "path": "/components/button",
+        "label": "Button",
+        "disabled": false,
+        "section": "Action"
+      },
+      {
+        "path": "/components/emptystate",
+        "label": "Empty State",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
+        "path": "/components/page",
+        "label": "Page",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
+        "path": "/components/panel",
+        "label": "Panel",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
+        "path": "/components/windowevent",
+        "label": "WindowEvent",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/banner",
+        "label": "Banner",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
+        "path": "/components/progressbar",
+        "label": "ProgressBar",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
+        "path": "/components/snackbar",
+        "label": "Snackbar",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
+        "path": "/components/tag",
+        "label": "Tag",
+        "disabled": false,
+        "section": "Feedback"
+      },
+      {
+        "path": "/components/checkbox",
+        "label": "Checkbox",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
+        "path": "/components/slider",
+        "label": "Slider",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
+        "path": "/components/tabs",
+        "label": "Tabs",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
+        "path": "/components/unstyledlink",
+        "label": "UnstyledLink",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
+        "path": "/components/tooltip",
+        "label": "Tooltip",
+        "disabled": false,
+        "section": "Overlays"
+      }
+    ]
+  }
+]

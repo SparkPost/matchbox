@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  all:
+  libraries:
     runs-on: ubuntu-latest
 
     strategy:
