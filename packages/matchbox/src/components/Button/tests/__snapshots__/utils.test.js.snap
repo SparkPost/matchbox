@@ -1,31 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
-<Button
+<ForwardRef(Button)
   foo="bar"
+  loadingLabel="Loading"
   size="default"
   type="submit"
 >
   <span>
     button content
   </span>
-</Button>
+</ForwardRef(Button)>
 `;
 
 exports[`Button Utils buttonFrom renders correctly 1`] = `
-<Button
+<ForwardRef(Button)
   disabled={false}
+  loadingLabel="Loading"
   size="default"
 >
   <span>
     button content
   </span>
-</Button>
+</ForwardRef(Button)>
 `;
 
 exports[`Button Utils buttonsFrom renders correctly 1`] = `
 <Button.Group>
-  <Button
+  <ForwardRef(Button)
     action={
       Object {
         "content": <span>
@@ -33,19 +35,21 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
         </span>,
       }
     }
+    loadingLabel="Loading"
     size="default"
   >
     <span>
       button 1 content
     </span>
-  </Button>
-  <Button
+  </ForwardRef(Button)>
+  <ForwardRef(Button)
     action={Object {}}
+    loadingLabel="Loading"
     size="default"
   >
     <span>
       button 2 content
     </span>
-  </Button>
+  </ForwardRef(Button)>
 </Button.Group>
 `;

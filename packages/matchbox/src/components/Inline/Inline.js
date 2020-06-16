@@ -20,6 +20,7 @@ const OuterWrapper = styled('div')`
 const InnerWrapper = styled('div')`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   ${negativeLeft}
   ${alignChildren}
 `;

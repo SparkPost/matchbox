@@ -139,4 +139,8 @@ export default `
     background: ${tokens.color_blue_300};
     text-shadow: none;
   }
+
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
 `;

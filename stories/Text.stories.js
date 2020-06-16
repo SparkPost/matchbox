@@ -49,25 +49,25 @@ export const ExampleOfTags = withInfo(infoOptions)(() => (
 
 export const LooksLike = withInfo(infoOptions)(() => (
   <Box>
-    <Text as="h1" lookslike="h4">
+    <Text as="h1" looksLike="h4">
       Is h1, Looks Like h4
     </Text>
-    <Text as="h2" lookslike="h6">
+    <Text as="h2" looksLike="h6">
       Is h2, Looks Like h6
     </Text>
-    <Text as="h3" lookslike="h2">
+    <Text as="h3" looksLike="h2">
       Is h3, Looks Like h2
     </Text>
-    <Text as="h4" lookslike="h1">
+    <Text as="h4" looksLike="h1">
       Is h4, Looks Like h1
     </Text>
-    <Text as="h5" lookslike="h3">
+    <Text as="h5" looksLike="h3">
       Is h5, Looks Like h3
     </Text>
-    <Text as="h6" lookslike="h4">
+    <Text as="h6" looksLike="h4">
       Is h6, Looks Like h4
     </Text>
-    <Text as="p" lookslike="h1">
+    <Text as="p" looksLike="h1">
       Is p, Looks Like h1
     </Text>
   </Box>

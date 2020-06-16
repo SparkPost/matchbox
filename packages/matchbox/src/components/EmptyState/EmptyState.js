@@ -1,33 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 import { buttonFrom } from '../Button';
+import { Inline } from '../Inline';
 import { linkFrom } from '../UnstyledLink';
-import styled from 'styled-components';
-import { emptyState, title, content, actions, image, secondaryAction } from './styles.js';
-
-const StyledEmptyState = styled('div')`
-  ${emptyState}
-`;
-
-const StyledTitle = styled('h1')`
-  ${title}
-`;
-
-const StyledContent = styled('div')`
-  ${content}
-`;
-
-const StyledActions = styled('div')`
-  ${actions}
-`;
-
-const StyledImage = styled('div')`
-  ${image}
-`;
-
-const StyledSecondaryAction = styled('span')`
-  ${secondaryAction}
-`;
+import { Stack } from '../Stack';
+import { StyledContent, StyledImage } from './styles';
 
 function EmptyState(props) {
   const { title, primaryAction, secondaryAction, image: Image, children } = props;
@@ -40,21 +18,38 @@ function EmptyState(props) {
     : null;
 
   return (
-    <StyledEmptyState>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledContent>{children}</StyledContent>
-      <StyledActions>
-        {primaryActionMarkup}{' '}
-        {secondaryAction && (
-          <StyledSecondaryAction>{linkFrom(secondaryAction)}</StyledSecondaryAction>
-        )}
-      </StyledActions>
+    <Box position="relative" height="100vh" py={['500', null, '33vh']} px="500">
+      <Stack space={['400', null, null, '600']}>
+        <Box
+          as="h1"
+          width={['auto', null, '45%']}
+          fontSize={['600', null, null, '700']}
+          lineHeight={['600', null, null, '700']}
+        >
+          {title}
+        </Box>
+        <StyledContent width={['auto', null, '45%']}>{children}</StyledContent>
+        <Box width={['auto', null, '45%']}>
+          <Inline space="500">
+            {primaryActionMarkup}
+            {secondaryAction && <span>{linkFrom(secondaryAction)}</span>}
+          </Inline>
+        </Box>
+      </Stack>
       {Image && (
-        <StyledImage>
+        <StyledImage
+          display={['none', null, 'block']}
+          top="45%"
+          left="48%"
+          width="50%"
+          maxWidth="600px"
+          height="auto"
+          position="absolute"
+        >
           <Image />
         </StyledImage>
       )}
-    </StyledEmptyState>
+    </Box>
   );
 }
 

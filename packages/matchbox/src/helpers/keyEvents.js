@@ -2,57 +2,71 @@ const keys = {
   backspace: {
     key: 'Backspace',
     keyCode: 8,
-    shiftKey: false
+    shiftKey: false,
   },
   enter: {
     key: 'Enter',
     keyCode: 13,
-    shiftKey: false
+    shiftKey: false,
   },
   escape: {
     key: 'Escape',
     keyCode: 27,
-    shiftKey: false
+    shiftKey: false,
   },
   arrowRight: {
     key: 'ArrowRight',
     keyCode: 39,
-    shiftKey: false
+    shiftKey: false,
   },
   arrowLeft: {
     key: 'ArrowLeft',
     keyCode: 37,
-    shiftKey: false
+    shiftKey: false,
   },
   arrowUp: {
     key: 'ArrowUp',
     keyCode: 38,
-    shiftKey: false
+    shiftKey: false,
   },
   arrowDown: {
     key: 'ArrowDown',
     keyCode: 40,
-    shiftKey: false
+    shiftKey: false,
   },
   home: {
     key: 'Home',
     keyCode: 36,
-    shiftKey: false
+    shiftKey: false,
   },
   end: {
     key: 'End',
     keyCode: 35,
-    shiftKey: false
+    shiftKey: false,
   },
   space: {
     key: ' ',
     keyCode: 32,
-    shiftKey: false
-  }
+    shiftKey: false,
+  },
+  pageUp: {
+    key: 'PageUp',
+    keyCode: 33,
+    shiftKey: false,
+  },
+  pageDown: {
+    key: 'PageDown',
+    keyCode: 34,
+    shiftKey: false,
+  },
 };
 
 function compareEvent(event, e) {
-  return (e.key === keys[event].key || e.keyCode === keys[event].keyCode) && e.shiftKey === keys[event].shiftKey;
+  return (
+    !!keys[event] &&
+    (e.key === keys[event].key || e.keyCode === keys[event].keyCode) &&
+    e.shiftKey === keys[event].shiftKey
+  );
 }
 
 /**
@@ -73,6 +87,6 @@ export function onKey(event, callback) {
  */
 export function onKeys(events, callback) {
   return function handleEvents(e) {
-    events.forEach((event) => onKey(event, callback)(e));
+    events.forEach(event => onKey(event, callback)(e));
   };
 }

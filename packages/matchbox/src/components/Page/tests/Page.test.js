@@ -49,7 +49,7 @@ describe('Page', () => {
 
   it('renders page with empty state', () => {
     const wrapper = subject({ empty: { show: true, content: 'Empty page' } });
-    expect(wrapper.text()).toEqual('Empty page '); // TODO update assertion when EmptyState is updated
+    expect(wrapper.text()).toEqual('Empty page');
   });
 
   it('renders title as a React node', () => {

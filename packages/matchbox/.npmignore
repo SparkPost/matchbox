@@ -10,13 +10,6 @@ tests/
 /stories
 /.storybook
 
-# including the production build
-# matchbox.js
-# matchbox.esm.js
-styles.css
-styles.scss
-# src
-
 # misc
 .DS_Store
 .env
