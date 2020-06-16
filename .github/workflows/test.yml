@@ -1,6 +1,12 @@
 name: Unit and Cypress Tests
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   testing:
