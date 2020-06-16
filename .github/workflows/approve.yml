@@ -1,5 +1,5 @@
 on: pull_request_review
-name: Label approved pull requests
+name: Label approved PRs
 jobs:
   labelWhenApproved:
     name: Label when approved
