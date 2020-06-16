@@ -1,23 +1,16 @@
 {
   "lerna": "2.10.2",
-  "packages": [
-    "packages/design-tokens",
-    "packages/matchbox-icons",
-    "packages/matchbox"
-  ],
+  "packages": ["packages/design-tokens", "packages/matchbox-icons", "packages/matchbox"],
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": [
-        "**/tests/**",
-        "**/*.md"
-      ]
+      "ignoreChanges": ["**/tests/**", "**/*.md"]
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
     },
     "version": {
-      "allowBranch": "master",
+      "allowBranch": "main",
       "message": "Publish"
     }
   },
