@@ -65,5 +65,6 @@ lerna version
 # prompt you for a one-time password from your authenticator
 lerna publish from-package
 
+# Remember to clear unreleased.md of any changes you pushed out!
 # That's it!
 ```
