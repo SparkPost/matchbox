@@ -32,9 +32,9 @@ This component is used for real-time confirmation or feedback that a user-initia
     `}
   />
   <LiveCode.Content
-    title="Success"
+    title="Error"
     code={`
-<Snackbar status="success" onDismiss={() => alert('Clicked')}>
+<Snackbar status="error" onDismiss={() => alert('Clicked')}>
   Snackbar Content
 </Snackbar>
     `}
@@ -60,15 +60,18 @@ This component is used for real-time confirmation or feedback that a user-initia
 ### Snackbar API
 
 <Prop name="status" type="string">
-  <div>One of <inlineCode>default</inlineCode> <inlineCode>success</inlineCode> <inlineCode>error</inlineCode> <inlineCode>warning</inlineCode></div>
+  <div>
+    One of <inlineCode>default</inlineCode> <inlineCode>success</inlineCode>{' '}
+    <inlineCode>error</inlineCode> <inlineCode>warning</inlineCode>
+  </div>
   <div>The status of the banner, determines the color scheme</div>
 </Prop>
 <Prop name="maxWidth" type="number">
   The maximum width of the snackbar
 </Prop>
 <Prop name="onDismiss" type="function">
-  Callback for when the Snackbar is dismissed	
+  Callback for when the Snackbar is dismissed
 </Prop>
 <Prop name="children" type="React node">
-  Content to be displayed inside the banner	
+  Content to be displayed inside the banner
 </Prop>
