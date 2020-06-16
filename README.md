@@ -1,6 +1,6 @@
 # Matchbox
 
-Matchbox is an open source React component library, built for
+Matchbox is an open source design system and React component library, built for
 [SparkPost's UI](https://github.com/SparkPost/2web2ui).
 
 ![Build](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Build?label=Build&style=flat-square)
@@ -8,20 +8,29 @@ Matchbox is an open source React component library, built for
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
 [![Playroom](https://img.shields.io/badge/Try%20it%20with-Playroom-black.svg?style=flat-square&colorA=009f6a&longCache=true)](https://matchbox-playroom.netlify.app/)
 
+##### Deploy Status
+
+[![Website Status](https://api.netlify.com/api/v1/badges/0ce1d44f-e768-4a1a-b7da-0cf637a2b854/deploy-status)](https://app.netlify.com/sites/sparkpost-matchbox/deploys)
+
+[![Storybook Status](https://api.netlify.com/api/v1/badges/d9885b5c-2b54-4d4d-82c0-0e28349d2334/deploy-status)](https://app.netlify.com/sites/matchbox-storybook/deploys)
+
+[![Playroom Status](https://api.netlify.com/api/v1/badges/f2107970-a943-4662-bc75-81b4bd806e6c/deploy-status)](https://app.netlify.com/sites/matchbox-playroom/deploys)
+
 ---
 
 ## Welcome to Matchbox Development
 
 Looking for documentation? See:
 
-- [Website](https://design.sparkpost.com)
+- [Design System Website](https://design.sparkpost.com)
 - [Storybook](https://matchbox-storybook.netlify.app/)
 - [Playroom](https://matchbox-playroom.netlify.app/)
 
 ### Getting Started
 
-Matchbox uses [Lerna](https://github.com/lerna/lerna) to manage packages. Install lerna globally,
-and run the following commands to get started:
+Matchbox uses [Lerna](https://github.com/lerna/lerna) to manage packages.
+
+First install `lerna` globally, then run the following commands to get started:
 
 ```bash
 npm i -g lerna
