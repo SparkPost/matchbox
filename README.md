@@ -7,7 +7,6 @@ Matchbox is an open source React component library, built for
 ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
 [![Playroom](https://img.shields.io/badge/Try%20it%20with-Playroom-black.svg?style=flat-square&colorA=009f6a&longCache=true)](https://matchbox-playroom.netlify.app/)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/SparkPost/matchbox/build?label=Build&style=flat-square)
 
 #### Links:
 
