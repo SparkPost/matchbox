@@ -6,15 +6,9 @@ Matchbox is an open source design system and React component library, built for
 ![Build](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Build?label=Build&style=flat-square)
 ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
-[![Playroom](https://img.shields.io/badge/Try%20it%20with-Playroom-black.svg?style=flat-square&colorA=009f6a&longCache=true)](https://matchbox-playroom.netlify.app/)
-
-##### Deploy Status
-
-[![Website Status](https://api.netlify.com/api/v1/badges/0ce1d44f-e768-4a1a-b7da-0cf637a2b854/deploy-status)](https://app.netlify.com/sites/sparkpost-matchbox/deploys)
-
-[![Storybook Status](https://api.netlify.com/api/v1/badges/d9885b5c-2b54-4d4d-82c0-0e28349d2334/deploy-status)](https://app.netlify.com/sites/matchbox-storybook/deploys)
-
-[![Playroom Status](https://api.netlify.com/api/v1/badges/f2107970-a943-4662-bc75-81b4bd806e6c/deploy-status)](https://app.netlify.com/sites/matchbox-playroom/deploys)
+![Website Deploy](https://img.shields.io/netlify/0ce1d44f-e768-4a1a-b7da-0cf637a2b854?label=Website%20Deploy&style=flat-square)
+![Storybook Deploy](https://img.shields.io/netlify/d9885b5c-2b54-4d4d-82c0-0e28349d2334?label=Storybook%20Deploy&style=flat-square)
+![Playroom Deploy](https://img.shields.io/netlify/f2107970-a943-4662-bc75-81b4bd806e6c?label=Playroom%20Deploy&style=flat-square)
 
 ---
 
