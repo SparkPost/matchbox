@@ -8,28 +8,26 @@ describe('The Tooltip component', () => {
   });
 
   it('should open when a mouse over event triggers.', () => {
-    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
 
     cy.get('button')
       .first()
       .trigger('mouseover');
 
-    cy.findAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
+    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
 
     cy.get('button')
       .first()
       .trigger('mouseout');
-
-    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
   });
 
   it('should open when clicking', () => {
-    cy.findAllByText('Messages an ISP or other remote domain accepted').should('not.be.visible');
+    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
 
     cy.get('button')
       .first()
       .click();
 
-    cy.findAllByText('Messages an ISP or other remote domain accepted').should('be.visible');
+    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
   });
 });

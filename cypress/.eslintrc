@@ -5,6 +5,7 @@
     "phantomjs": true
   },
   "rules": {
-    "no-undef": ["off"]
+    "no-undef": ["off"],
+    "jest/valid-expect": ["off"]
   }
 }

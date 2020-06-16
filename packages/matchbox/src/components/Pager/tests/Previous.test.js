@@ -1,16 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import 'jest-styled-components';
+
 import Previous from '../Previous';
 
 describe('Pager.Previous', () => {
-  it('renders button', () => {
-    const wrapper = shallow(<Previous />);
-    expect(wrapper).toMatchSnapshot();
+  let wrapper = global.mountStyled(<Previous />);
+
+  it('renders screen reader text', () => {
+    expect(
+      wrapper
+        .find('span')
+        .first()
+        .text(),
+    ).toEqual('Previous');
   });
 
   it('renders disabled button', () => {
-    const wrapper = shallow(<Previous disabled />);
-    expect(wrapper).toMatchSnapshot();
+    wrapper = global.mountStyled(<Previous disabled />);
+    expect(wrapper.find(Previous).is('[disabled]')).toBe(true);
   });
 
   it('calls click handler', () => {

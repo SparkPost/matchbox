@@ -1,54 +1,45 @@
-import { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { getWindow } from '../../helpers/window';
 
 /**
  * Adds and removes events for you
  * Usage:
  * <WindowEvent event='keydown' handler={this.handleKeyDown} />
  */
-class WindowEvent extends Component {
-  static displayName = 'WindowEvent';
 
-  static propTypes = {
-    /**
-     * Type of event
-     */
-    event: PropTypes.string.isRequired,
-    /**
-      * Event callback function
-      */
-    handler: PropTypes.func.isRequired
-  };
+function WindowEvent(props) {
+  const { event, handler } = props;
+  const environment = getWindow();
 
-  componentDidMount() {
-    this.addEvent();
+  function addEvent() {
+    environment.addEventListener(event, handler);
   }
 
-  componentWillUpdate() {
-    this.removeEvent();
+  function removeEvent() {
+    environment.removeEventListener(event, handler);
   }
 
-  componentDidUpdate() {
-    this.addEvent();
-  }
+  React.useEffect(() => {
+    addEvent();
+    return () => {
+      removeEvent();
+    };
+  }, [event, handler]);
 
-  componentWillUnmount() {
-    this.removeEvent();
-  }
-
-  render() {
-    return null;
-  }
-
-  addEvent() {
-    const { event, handler } = this.props;
-    window.addEventListener(event, handler);
-  }
-
-  removeEvent() {
-    const { event, handler } = this.props;
-    window.removeEventListener(event, handler);
-  }
+  return null;
 }
+
+WindowEvent.displayName = 'WindowEvent';
+WindowEvent.propTypes = {
+  /**
+   * Type of event
+   */
+  event: PropTypes.string.isRequired,
+  /**
+   * Event callback function
+   */
+  handler: PropTypes.func.isRequired,
+};
 
 export default WindowEvent;

@@ -1,74 +1,73 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { onKey } from '../../helpers/keyEvents';
-import { Close } from '@sparkpost/matchbox-icons';
-import { UnstyledLink } from '../UnstyledLink';
+import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import styled from 'styled-components';
+import { Close } from '@sparkpost/matchbox-icons';
+import { createPropTypes } from '@styled-system/prop-types';
+import { margin } from 'styled-system';
+import { tagBase, tagColor, closeBase, closeColor, content } from './styles';
 
-import styles from './Tag.module.scss';
+const StyledTag = styled(Box)`
+  ${tagBase}
+  ${tagColor}
+  ${margin}
+`;
 
-class Tag extends Component {
-  static displayName = 'Tag';
+const StyledClose = styled('button')`
+  ${closeBase}
+  ${closeColor}
+`;
 
-  static propTypes = {
-    /**
-     * 'orange' | 'blue' | 'yellow' | 'red'
-     */
-    color: PropTypes.oneOf(['orange', 'blue', 'yellow', 'red', 'navy', 'purple']),
-    /**
-     * Close button is hidden unless this is provided
-     */
-    onRemove: PropTypes.func,
-    /**
-     * Tag content
-     */
-    children: PropTypes.node
-  };
+const StyledContent = styled('span')`
+  ${content}
+`;
 
-  handleKeydown = (e) => {
-    const { onRemove } = this.props;
+function Tag(props) {
+  const { color, children, onRemove, className, ...rest } = props;
 
-    onKey('space', () => onRemove())(e);
-  }
+  const closeMarkup = onRemove ? (
+    <StyledClose onClick={onRemove} tagColor={color} type="button">
+      <Close size={16} />
+      <ScreenReaderOnly>Close</ScreenReaderOnly>
+    </StyledClose>
+  ) : null;
 
-  render() {
-    const {
-      color,
-      children,
-      onRemove,
-      className,
-      ...rest
-    } = this.props;
-
-    const tagClasses = classnames(
-      styles.Tag,
-      onRemove && styles.hasRemove,
-      color && styles[color],
-      className
-    );
-
-    const closeMarkup = onRemove
-      ? <UnstyledLink
-        className={styles.Close}
-        onClick={onRemove}
-        onKeyDown={this.handleKeydown}
-        to="javascript:void(0)"
-        role="button">
-        <Close size={16} />
-
-        <ScreenReaderOnly>Close</ScreenReaderOnly>
-      </UnstyledLink>
-      : null;
-
-    return (
-      <div className={tagClasses} {...rest}>
-        <div className={styles.Content}>{children}</div>
-        {closeMarkup}
-      </div>
-    );
-  }
+  return (
+    <StyledTag as="span" className={className} tagColor={color} hasRemove={!!onRemove} {...rest}>
+      <StyledContent>{children}</StyledContent>
+      {closeMarkup}
+    </StyledTag>
+  );
 }
 
+Tag.displayName = 'Tag';
+Tag.propTypes = {
+  /**
+   * 'orange' | 'blue' | 'yellow' | 'red' | 'navy' | 'purple' | 'green' | 'magenta' | 'teal' | 'lightGray' | 'darkGray'
+   */
+  color: PropTypes.oneOf([
+    'orange',
+    'blue',
+    'yellow',
+    'red',
+    'navy',
+    'purple',
+    'green',
+    'magenta',
+    'teal',
+    'lightGray',
+    'darkGray',
+  ]),
+  /**
+   * Close button is hidden unless this is provided
+   */
+  onRemove: PropTypes.func,
+  /**
+   * Tag content
+   */
+  children: PropTypes.node,
+  ...createPropTypes(margin.propNames),
+};
 
 export default Tag;

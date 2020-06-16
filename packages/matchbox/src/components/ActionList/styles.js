@@ -1,0 +1,47 @@
+import styled from 'styled-components';
+import { tokens } from '@sparkpost/design-tokens';
+import { UnstyledLink } from '../UnstyledLink';
+import { Box } from '../Box';
+import { buttonReset } from '../../styles/helpers';
+
+export const StyledSection = styled(Box)`
+  border-top: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+  padding-bottom: ${tokens.spacing_200};
+  padding-top: ${tokens.spacing_200};
+
+  &:first-child {
+    border: none;
+    padding-top: ${tokens.spacing_0};
+  }
+
+  &:last-child {
+    padding-bottom: ${tokens.spacing_0};
+  }
+`;
+
+export const StyledLink = styled(UnstyledLink)`
+  ${props => (props.isType ? buttonReset : '')}
+  display: block;
+  width: 100%;
+  padding: ${tokens.spacing_200} ${tokens.spacing_300};
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+  transition-property: color, background;
+  cursor: pointer;
+  font-size: ${tokens.fontSize_300};
+  line-height: ${tokens.lineHeight_300};
+  text-align: left;
+
+  &,
+  &:visited {
+    text-decoration: none;
+    color: ${props => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
+    background: ${props => (props.highlighted ? tokens.color_blue_100 : 'none')};
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    color: ${tokens.color_blue_700};
+    background: ${tokens.color_blue_100};
+  }
+`;

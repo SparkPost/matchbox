@@ -1,8 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
 import { Select } from '@sparkpost/matchbox';
 
 const options = [
@@ -10,47 +7,67 @@ const options = [
   2,
   {
     value: '3',
-    label: 'Three',
-    pass: 'through'
-  }
+    label: 'Very Very Very Very Very Very Very Very Very long text',
+    pass: 'through',
+  },
 ];
 
+export default {
+  title: 'Form|Select',
+};
 
-export default storiesOf('Form|Select', module)
-  .addDecorator((getStory) => (
-    <StoryContainer bg='white'>{ getStory() }</StoryContainer>
-  ))
-  .add('Basic Select', withInfo()(() => (
-    <Select
-      id='id'
-      label='Select an option'
-      options={options}
-    />
-  )))
+export const BasicSelect = withInfo()(() => (
+  <Select id="id" label="Select an option" options={options} />
+));
 
-  .add('With an error', withInfo()(() => (
-    <Select
-      id='id'
-      label='Select an option'
-      options={options}
-      error='Your forgot to select'
-    />
-  )))
+export const Placeholder = withInfo()(() => (
+  <Select
+    id="id"
+    label="Select an option"
+    options={options}
+    placeholder="Placeholder"
+    placeholderValue="placeholder"
+    value="placeholder"
+  />
+));
 
-  .add('Disabled', withInfo()(() => (
-    <Select
-      id='id'
-      label='Select an option'
-      options={options}
-      disabled
-    />
-  )))
+export const WithError = withInfo()(() => (
+  <Select id="id" label="Select an option" options={options} error="You forgot to select" />
+));
 
-  .add('With help text', withInfo()(() => (
-    <Select
-      id='id'
-      label='Select an option'
-      options={options}
-      helpText='Remember to select something'
-    />
-  )));
+export const WithHelpTextAndError = withInfo()(() => (
+  <Select
+    id="id"
+    label="Select an option"
+    options={options}
+    helpText="Remember to select something"
+    error="You forgot to select"
+  />
+));
+
+export const WithRequiredAndErrorInLabel = withInfo()(() => (
+  <Select
+    id="id"
+    label="Select an option"
+    errorInLabel
+    options={options}
+    required
+    error="You forgot to select"
+  />
+));
+
+export const Disabled = withInfo()(() => (
+  <Select id="id" label="Select an option" disabled options={options} />
+));
+
+// TODO Add this back in after hibana cutover
+// export const LabelHidden = withInfo()(() => (
+//   <Select id="id" labelHidden label="Select an option" disabled options={options} />
+// ));
+
+export const SystemProps = withInfo()(() => (
+  <>
+    <Select id="id" label="Select an option" options={options} my={['200', '400', '600', '800']} />
+    <Select id="id" label="Select an option" options={options} mx={['200', '400', '600', '800']} />
+  </>
+));

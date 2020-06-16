@@ -2,13 +2,15 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import { clamp } from './math';
 import { debounce } from './event';
+import { getWindow } from './window';
 
 export function getWindowRect() {
+  const environment = getWindow();
   return {
-    top: window.scrollY,
-    left: window.scrollX,
-    height: window.innerHeight,
-    width: window.innerWidth
+    top: environment.scrollY,
+    left: environment.scrollX,
+    height: environment.innerHeight,
+    width: environment.innerWidth,
   };
 }
 
@@ -28,6 +30,7 @@ export function getRectFor(node) {
  * @return {Shape}             Same results as `getWindowRect``
  */
 export function useWindowSize(wait = 100) {
+  const environment = getWindow();
   const [size, setSize] = React.useState(getWindowRect());
 
   const handleResize = debounce(() => {
@@ -35,9 +38,9 @@ export function useWindowSize(wait = 100) {
   }, wait);
 
   React.useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    environment.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      environment.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -63,10 +66,9 @@ export function getPreferredDirectionFor(node) {
     top: bottomOffset < elementRect.top,
     left: rightOffset < elementRect.left,
     right: rightOffset >= elementRect.left,
-    bottom: bottomOffset >= elementRect.top
+    bottom: bottomOffset >= elementRect.top,
   };
 }
-
 
 /**
  * Gets coordinates and dimensions in pixels for the provided react component
@@ -81,7 +83,7 @@ export function getPositionFor(node, { fixed = false } = {}) {
     top: elementRect.top + (fixed ? 0 : windowRect.top),
     left: elementRect.left + (fixed ? 0 : windowRect.left),
     width: elementRect.width,
-    height: elementRect.height
+    height: elementRect.height,
   };
 }
 
@@ -98,4 +100,11 @@ export function getPositionFor(node, { fixed = false } = {}) {
 export function lerp(min, max, n) {
   const value = (max - min) * n + min;
   return clamp(value, min, max);
+}
+
+/**
+ * Rounds a number to the nearest baseline ceiling
+ */
+export function roundToBaseline(n, base = 4) {
+  return Math.ceil(n / base) * base;
 }

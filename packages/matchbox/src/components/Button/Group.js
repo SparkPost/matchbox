@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import styles from './Button.module.scss';
+import styled from 'styled-components';
+import { Box } from '../Box';
+import { group } from './styles';
+
+const StyledGroup = styled(Box)`
+  ${group}
+`;
 
 const Group = ({ children, className = '' }) => (
-  <div className={classnames(styles.Group, className)}>
+  <StyledGroup display="inline-flex" alignItems="center" className={className}>
     {children}
-  </div>
+  </StyledGroup>
 );
 
 Group.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 Group.displayName = 'Button.Group';

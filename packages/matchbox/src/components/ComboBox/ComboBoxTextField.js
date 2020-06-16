@@ -1,17 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from '../Label';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '@styled-system/props';
+import { Box } from '../Box';
 import { Error } from '../Error';
+import { HelpText } from '../HelpText';
+import { Inline } from '../Inline';
+import { Label } from '../Label';
 import { Tag } from '../Tag';
 import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
-import classnames from 'classnames';
-import styles from './ComboBoxTextField.module.scss';
+import { omit } from '../../helpers/systemProps';
+import useInputDescribedBy from '../../hooks/useInputDescribedBy';
+import { StyledInput, StyledInputWrapper } from './styles';
+
+const StyledWrapper = styled('div')`
+  ${margin}
+`;
 
 function ComboBoxTextField(props) {
   const {
     autoFocus,
     disabled,
+    children,
     error,
     errorInLabel,
     helpText,
@@ -27,42 +40,21 @@ function ComboBoxTextField(props) {
     placeholder,
     readOnly,
     removeItem,
+    required,
     style,
     selectedItems,
     value,
     ...rest
   } = props;
 
-  const inputRef = React.useRef();
+  const inputProps = omit(rest, margin.propNames);
+  const systemProps = pick(rest);
 
-  const setWrapperClasses = classnames(
-    styles.Wrapper,
-    error && styles.Error,
-    disabled && styles.Disabled,
-  );
-
-  const labelMarkup = (
-    <Label id={id} label={label}>
-      {error && errorInLabel && (
-        <Error className={styles.InlineError} wrapper="span" error={error} />
-      )}
-    </Label>
-  );
-
-  const helpMarkup = helpText ? <div className={styles.HelpText}>{helpText}</div> : null;
-
-  const selectedMarkup = selectedItems.length
-    ? selectedItems.map((item, i) => (
-        <div className={styles.WrapperItem} key={i}>
-          <Tag onRemove={!disabled ? () => removeItem(item) : null}>{itemToString(item)}</Tag>
-        </div>
-      ))
-    : null;
-
-  // Auto focuses the input
-  function handleClick() {
-    inputRef.current.focus();
-  }
+  const { describedBy, errorId, helpTextId } = useInputDescribedBy({
+    id,
+    hasHelpText: !!helpText,
+    hasError: !!error,
+  });
 
   // Removes last item with a backspace and and empty input value
   function handleKeyDown(e) {
@@ -78,43 +70,64 @@ function ComboBoxTextField(props) {
   }
 
   return (
-    <fieldset className={styles.TextField}>
-      {label && !labelHidden && labelMarkup}
-      <div className={setWrapperClasses} onClick={handleClick}>
-        {selectedMarkup}
-        <div className={classnames(styles.WrapperItem, styles.Grow)} key="input">
-          <input
-            {...rest}
-            autoFocus={autoFocus}
-            className={styles.Input}
-            disabled={disabled}
-            id={id}
-            name={name}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChange={onChange}
-            onKeyDown={handleKeyDown}
-            placeholder={placeholder}
-            readOnly={readOnly}
-            ref={inputRef}
-            style={style}
-            value={value}
-          />
-        </div>
-      </div>
-      {error && !errorInLabel && <Error error={error} />}
-      {helpMarkup}
-    </fieldset>
+    <StyledWrapper {...systemProps}>
+      <Label id={id} label={label} labelHidden={labelHidden}>
+        {required && (
+          <Box as="span" pr="200" aria-hidden="true">
+            *
+          </Box>
+        )}
+        {error && errorInLabel && (
+          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+        )}
+      </Label>
+      <StyledInputWrapper hasError={!!error} isDisabled={disabled}>
+        {selectedItems.length > 0 && (
+          <Box display="flex" pl="200" pt="0.375rem">
+            <Inline space="100">
+              {selectedItems.map((item, i) => (
+                <Tag key={i} onRemove={!disabled ? () => removeItem(item) : null}>
+                  {itemToString(item)}
+                </Tag>
+              ))}
+            </Inline>
+          </Box>
+        )}
+        <StyledInput
+          {...describedBy}
+          autoFocus={autoFocus}
+          disabled={disabled}
+          id={id}
+          name={name}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={onChange}
+          onKeyDown={handleKeyDown}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          required={required}
+          style={style}
+          type="text"
+          value={value}
+          {...inputProps}
+        />
+      </StyledInputWrapper>
+      {/* Menu is rendered here so it is positioned correctly before error and helptext */}
+      {children}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
+      {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
+    </StyledWrapper>
   );
 }
 
 ComboBoxTextField.propTypes = {
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  children: PropTypes.node,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
   helpText: PropTypes.node,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   itemToString: PropTypes.func,
   label: PropTypes.string,
   labelHidden: PropTypes.bool,
@@ -125,7 +138,9 @@ ComboBoxTextField.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   removeItem: PropTypes.func,
+  required: PropTypes.bool,
   selectedItems: PropTypes.array,
+  ...createPropTypes(margin.propNames),
 };
 
 ComboBoxTextField.defaultProps = {

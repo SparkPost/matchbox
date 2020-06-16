@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text it should render correctly 1`] = `
+<p
+  class=""
+  id="text-id"
+>
+  Text
+</p>
+`;
+
+exports[`Text it should truncate 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<p
+  class="c0"
+>
+  Text
+</p>
+`;

@@ -1,39 +1,81 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { margin, padding } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { pick } from '../../helpers/systemProps';
 import { Cell, HeaderCell, Row } from './TableElements';
-import styles from './Table.module.scss';
+import { TablePaddingContext } from './context';
+import { table, wrapper, sticky } from './styles';
 
-class Table extends Component {
-  static displayName = 'Table';
+const StyledTable = styled('table')`
+  ${table}
+  ${padding}
+  ${sticky}
+`;
 
-  static Cell = Cell;
-  static HeaderCell = HeaderCell;
-  static Row = Row;
+const Wrapper = styled(Box)`
+  ${wrapper}
+  ${margin}
+`;
 
-  static propTypes = {
-    data: PropTypes.array,
-    /**
-     * React node(s)
-     */
-    children: PropTypes.node
-  };
+function Table(props) {
+  const { children, data, freezeFirstColumn, title, ...rest } = props;
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
-  render() {
-    const {
-      children,
-      data
-    } = this.props;
+  const handleScroll = React.useCallback(
+    e => {
+      setIsScrolled(e.target.scrollLeft > 10);
+    },
+    [freezeFirstColumn],
+  );
 
-    const dataMarkup = data
-      ? <tbody>{data.map((rowData, i) => <Row rowData={rowData} key={`Row-${i}`} />)}</tbody>
-      : children;
+  const dataMarkup = data ? (
+    <tbody>
+      {data.map((rowData, i) => (
+        <Row rowData={rowData} key={`Row-${i}`} />
+      ))}
+    </tbody>
+  ) : (
+    children
+  );
 
-    return (
-      <table className={styles.Table}>
-        {dataMarkup}
-      </table>
-    );
-  }
+  const { px = '500', py = '400', ...paddingProps } = pick(rest, padding.propNames);
+  const marginProps = pick(rest, margin.propNames);
+
+  return (
+    <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
+      <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
+        <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+          {title && (
+            <caption>
+              <ScreenReaderOnly>{title}</ScreenReaderOnly>
+            </caption>
+          )}
+          {dataMarkup}
+        </TablePaddingContext.Provider>
+      </StyledTable>
+    </Wrapper>
+  );
 }
+
+Table.Cell = Cell;
+Table.HeaderCell = HeaderCell;
+Table.Row = Row;
+
+Table.displayName = 'Table';
+Table.propTypes = {
+  freezeFirstColumn: PropTypes.bool,
+  data: PropTypes.array,
+  /**
+   * React node(s)
+   */
+  children: PropTypes.node,
+  title: PropTypes.string,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(padding.propNames),
+};
 
 export default Table;

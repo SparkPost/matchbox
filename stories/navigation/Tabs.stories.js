@@ -1,76 +1,78 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
-
-import { Tabs, Page, Panel } from '@sparkpost/matchbox';
-
-const secondaryActions = [
-  {
-    content: 'Save',
-    onClick: action('Save Clicked')
-  },
-  {
-    content: 'Delete',
-    onClick: action('Delete Clicked')
-  }
-];
-
-const breadcrumbAction = {
-  content: 'Webhooks',
-  onClick: action('Webhooks Clicked')
-}
+import { Tabs, Panel, useTabs } from '@sparkpost/matchbox';
 
 const tabs = [
   {
     content: 'Details',
-    onClick: action('Details Clicked')
+    onClick: action('Details Clicked'),
   },
   {
-    content: 'Keys',
-    onClick: action('Keys Clicked')
+    content: 'More Details',
+    onClick: action('More Details Clicked'),
   },
   {
-    content: 'Domains',
-    onClick: action('Domains Clicked')
+    content: 'Example with long text',
+    onClick: action('Example with long text clicked'),
+  },
+  {
+    content: 'Example with a component wrapper',
+    onClick: action('Example with component clicked'),
+    Component: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
   },
 ];
 
-const handleSelect = action('Tab Selected');
+export default {
+  title: 'Navigation|Tabs',
+};
 
-storiesOf('Navigation|Tabs', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-  .add('basic example', withInfo()(() => (
-    <Tabs selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
-  )))
+export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Tabs mb="800" {...getTabsProps()} keyboardActivation="manual" />
+      <button>this is only here to test focus order</button>
+    </>
+  );
+});
 
-  .add('fitted tabs', withInfo()(() => (
-    <Tabs fitted selected={0} connectBelow={false} onSelect={handleSelect} tabs={tabs}/>
-  )))
+export const AutomaticKeyboardActivation = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return <Tabs mb="800" {...getTabsProps()} keyboardActivation="auto" />;
+});
 
-  .add('with other components', withInfo({
-    propTablesExclude: [Page, Panel]
-  })(() => (
-    <div>
-      <Page
-        secondaryActions={secondaryActions}
-        breadcrumbAction={breadcrumbAction}
-        title='Webhook #2'
-      />
-      <Tabs selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
-      <Panel sectioned>A panel</Panel>
-    </div>
-  )))
+export const FittedTabs = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return <Tabs mb="800" {...getTabsProps()} fitted keyboardActivation="auto" />;
+});
 
-  .add('colors', withInfo()(() => (
-    <div>
-      <Tabs connectBelow={false} selected={0} color='purple' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='navy' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='blue' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='orange' onSelect={handleSelect} tabs={tabs} />
-      <Tabs connectBelow={false} selected={0} color='red' onSelect={handleSelect} tabs={tabs} />
-    </div>
-  )));
+export const ExampleWithinPanel = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Panel mb="400">
+        <Tabs {...getTabsProps()} />
+        <Panel.Section p="400">Example</Panel.Section>
+      </Panel>
+      <Panel>
+        <Tabs fitted {...getTabsProps()} />
+        <Panel.Section p="400">Example</Panel.Section>
+      </Panel>
+    </>
+  );
+});
+
+export const SystemProps = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  return (
+    <>
+      <Tabs borderBottom="none" {...getTabsProps()} my={['400', null, '800', '100px']} />
+      <Tabs fitted {...getTabsProps()} mx={['400', null, '800', '200px']} />
+    </>
+  );
+});
+
+export const DisabledResponsiveBehavior = withInfo()(() => (
+  <Tabs selected={0} disableResponsiveBehavior tabs={tabs} />
+));

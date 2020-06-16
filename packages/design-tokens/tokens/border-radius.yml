@@ -1,0 +1,14 @@
+global:
+  category: border-radius
+  type: border-radius
+props:
+  - name: border-radius-0
+    value: '0'
+  - name: border-radius-100
+    value: '1px'
+  - name: border-radius-200
+    value: '2px'
+  - name: border-radius-pill
+    value: '9999em'
+  - name: border-radius-circle
+    value: '50%'

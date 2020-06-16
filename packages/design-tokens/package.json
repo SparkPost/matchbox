@@ -1,0 +1,34 @@
+{
+  "name": "@sparkpost/design-tokens",
+  "version": "1.0.0",
+  "description": "SparkPost Design Tokens",
+  "main": "index.js",
+  "style": "dist/index.scss",
+  "author": "SparkPost",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sparkpost/design-tokens.git"
+  },
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "gulp && node scripts/scss.js && npm run format",
+    "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
+    "clean": "rimraf ./dist",
+    "start": "npm run build && gulp serve"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-theo": "^2.0.1",
+    "path": "^0.12.7",
+    "plugin-error": "^1.0.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
+    "theo": "^8.1.3"
+  },
+  "dependencies": {}
+}

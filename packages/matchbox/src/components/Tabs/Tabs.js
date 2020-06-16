@@ -1,71 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import styled from 'styled-components';
+import { MoreHoriz } from '@sparkpost/matchbox-icons';
+import { margin, borderBottom } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '@styled-system/props';
+import { ActionList } from '../ActionList';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Popover } from '../Popover';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { deprecate } from '../../helpers/propTypes';
+import useTabConstructor from './useTabConstructor';
+import Tab from './Tab';
+import { containerStyles, overflowTabs } from './styles';
 
-import { UnstyledLink } from '../UnstyledLink';
+import { getPositionFor, useWindowSize } from '../../helpers/geometry';
 
-import styles from './Tabs.module.scss';
+const OverflowTabContainer = styled('div')`
+  ${overflowTabs}
+`;
 
-class Tab extends Component {
-  static displayName = 'Tab';
+const Container = styled('div')`
+  ${margin}
+  ${borderBottom}
+  ${containerStyles}
+`;
 
-  handleClick = (event) => {
-    const { index, onClick } = this.props;
-    onClick(event, index);
-  }
+const Tabs = React.forwardRef(function Tabs(props, userRef) {
+  const {
+    disableResponsiveBehavior,
+    keyboardActivation,
+    tabs,
+    selected,
+    onSelect,
+    fitted,
+    ...rest
+  } = props;
+  const [isOverflowing, setIsOverflowing] = React.useState(false);
+  const [popoverOpen, setPopoverOpen] = React.useState(false);
 
-  render() {
-    const { index, content, selected, fittedTab, ...rest } = this.props;
-    const classes = classnames(
-      styles.Tab,
-      selected === index && styles.selected,
-      fittedTab && styles.fittedTab
-    );
+  const wrapperRef = React.useRef();
+  const overflowRef = React.useRef();
+  const windowSize = useWindowSize();
 
-    return (
-      <UnstyledLink className={classes} {...rest} onClick={this.handleClick}>
-        {content}
-      </UnstyledLink>
-    );
-  }
-}
-
-class Tabs extends Component {
-  static displayName = 'Tabs';
-
-  static propTypes = {
-    /**
-     * Tab Content
-     * Actions that build the tabs. Most button and unstyled link props will work in here.
-     * e.g. { content: 'Label', onClick: callback() }
-     */
-    tabs: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.node.isRequired
-    })),
-
-    /**
-     * Tab Color
-     */
-    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
-    /**
-      * Index of selected tab
-      */
-    selected: PropTypes.number.isRequired,
-    /**
-      * Connects this component with component underneath it. Works well with Panels.
-      */
-    connectBelow: PropTypes.bool,
-
-    onSelect: PropTypes.func
-  };
-
-  static defaultProps = {
-    connectBelow: true,
-    color: 'orange'
-  };
-
-  handleClick = (event, index) => {
-    const { onSelect, selected, tabs } = this.props;
+  function handleClick(event, index) {
     const { onClick } = tabs[index];
 
     if (onClick) {
@@ -75,28 +54,136 @@ class Tabs extends Component {
     if (onSelect && selected !== index) {
       onSelect(index, selected);
     }
+
+    if (isOverflowing) {
+      setPopoverOpen(false);
+    }
   }
 
-  render() {
-    const { tabs, selected, connectBelow, color, fitted } = this.props;
+  React.useLayoutEffect(() => {
+    if (!disableResponsiveBehavior) {
+      const wrapperPosition = getPositionFor(wrapperRef.current);
+      const overflowPosition = getPositionFor(overflowRef.current);
 
-    const tabMarkup = tabs.map((tab, i) => (
-      <Tab key={i} index={i} fittedTab={fitted} selected={selected} {...tab} onClick={this.handleClick} />
-    ));
+      // Compares tab container width with its position relative to a measurement pixel
+      if (wrapperPosition.width < overflowPosition.left - wrapperPosition.left) {
+        setIsOverflowing(true);
+      } else {
+        setIsOverflowing(false);
+      }
+    }
+  }, [wrapperRef, overflowRef, windowSize]);
 
-    const tabsClasses = classnames(
-      styles.Tabs,
-      styles[`color-${color}`],
-      connectBelow && styles.connectBelow,
-      fitted && styles.fitted
-    );
+  // Constructs the tabs, their props and handles tab keyboard navigation
+  const { tabMarkup, tabActions, focusContainerProps } = useTabConstructor({
+    tabs,
+    fitted,
+    handleClick,
+    selected,
+    onSelect,
+    keyboardActivation,
+    disableResponsiveBehavior,
+  });
 
-    return (
-      <div className={tabsClasses}>
-        {tabMarkup}
-      </div>
-    );
-  }
-}
+  const assignWrapperRefs = node => {
+    if (wrapperRef) {
+      wrapperRef.current = node;
+    }
+    if (userRef) {
+      userRef.current = node;
+    }
+  };
+
+  return (
+    <Container borderBottom="400" {...pick(rest)} ref={assignWrapperRefs} tabIndex="-1">
+      <Box aria-hidden={isOverflowing}>
+        <OverflowTabContainer
+          aria-orientation="horizontal"
+          isOverflowing={isOverflowing}
+          role="tablist"
+        >
+          <Box
+            position="absolute"
+            left="0"
+            top="0"
+            right="0"
+            display="flex"
+            {...focusContainerProps}
+          >
+            {tabMarkup}
+            {/* Measurement pixel used to detect content overflow */}
+            <Box display="inline-block" width="1px" height="1px" ref={overflowRef} />
+          </Box>
+        </OverflowTabContainer>
+      </Box>
+      {isOverflowing && !disableResponsiveBehavior && (
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Box flex="0">
+            <Tab index={selected} selected={selected} {...tabs[selected]} />
+          </Box>
+
+          <Box flex="0">
+            <Popover
+              id="tab-options"
+              left
+              bottom
+              open={popoverOpen}
+              onClose={() => setPopoverOpen(false)}
+              trigger={
+                <Button
+                  aria-controls="tab-options"
+                  aria-expanded={popoverOpen}
+                  data-id="tab-options-button"
+                  flat
+                  onClick={() => setPopoverOpen(!popoverOpen)}
+                >
+                  <MoreHoriz size={20} />
+                  <ScreenReaderOnly>More Options</ScreenReaderOnly>
+                </Button>
+              }
+            >
+              <ActionList actions={tabActions} />
+            </Popover>
+          </Box>
+        </Box>
+      )}
+    </Container>
+  );
+});
+
+Tabs.displayName = 'Tabs';
+Tabs.propTypes = {
+  disableResponsiveBehavior: PropTypes.bool,
+  /**
+   * Tab Content
+   * Actions that build the tabs. Most button and unstyled link props will work in here.
+   * e.g. { content: 'Label', onClick: callback() }
+   */
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.node.isRequired,
+    }),
+  ),
+
+  /**
+   * Tab Color
+   */
+  color: deprecate(
+    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
+    'Tab color is no longer configurable',
+  ),
+  keyboardActivation: PropTypes.oneOf(['auto', 'manual']),
+  /**
+   * Index of selected tab
+   */
+  selected: PropTypes.number.isRequired,
+  onSelect: PropTypes.func,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(borderBottom.propNames),
+};
+
+Tabs.defaultProps = {
+  keyboardActivation: 'auto',
+};
 
 export default Tabs;

@@ -1,15 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import StoryContainer from '../storyHelpers/StoryContainer';
-
 import { ProgressBar } from '@sparkpost/matchbox';
 
-export default storiesOf('Feedback|ProgressBar', module)
-  .addDecorator((getStory) => (
-    <StoryContainer>{ getStory() }</StoryContainer>
-  ))
-  .add('Default', withInfo()(() => (
-    <ProgressBar completed={54} color='red' />
-  )));
+export default {
+  title: 'Feedback|ProgressBar',
+};
+
+export const Default = withInfo()(() => (
+  <div>
+    <ProgressBar completed={54} mb={400} label="My Progress Bar" />
+    <ProgressBar completed={82} size="small" label="My Progress Bar" />
+  </div>
+));

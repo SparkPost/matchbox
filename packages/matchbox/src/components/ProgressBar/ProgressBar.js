@@ -1,45 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import styles from './ProgressBar.module.scss';
+import { deprecate } from '../../helpers/propTypes';
+import styled from 'styled-components';
+import { margin, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { Box } from '../Box';
 
-class ProgressBar extends Component {
-  static displayName = 'ProgressBar';
+import { outerBase, innerBase, visualSize, calculatedWidth } from './styles.js';
 
-  static propTypes = {
-    /**
-     * Completion in percentage
-     */
-    completed: PropTypes.number.isRequired,
+const system = compose(margin);
 
-    /**
-     * Bar color
-     */
-    color: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
-  };
+export const StyledProgressBarOuter = styled(Box)`
+  ${outerBase}
+  ${visualSize}
+  ${system}
+`;
 
-  static defaultProps = {
-    completed: 0,
-    color: 'orange'
-  }
+export const StyledProgressBarInner = styled(Box)`
+  ${innerBase}
+  ${visualSize}
+  ${calculatedWidth}
+`;
 
-  render() {
-    const { completed = 0, color } = this.props;
+function ProgressBar(props) {
+  const { completed = 0, label, size, valueText, ...rest } = props;
 
-    let percentage = completed;
-
-    if (percentage > 100) {
-      percentage = 100;
-    } else if (percentage < 1) {
-      percentage = 0;
-    }
-
-    return (
-      <div className={classnames(styles.ProgressBar, styles[color])}>
-        <div className={styles.Progress} style={{ width: `${percentage}%` }}/>
-      </div>
-    );
-  }
+  return (
+    <StyledProgressBarOuter
+      as="div"
+      visualSize={size}
+      {...rest}
+      role="progressbar"
+      aria-label={label}
+      aria-valuenow={`${completed}`}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuetext={valueText}
+    >
+      <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
+    </StyledProgressBarOuter>
+  );
 }
+
+ProgressBar.displayName = 'ProgressBar';
+
+ProgressBar.propTypes = {
+  completed: PropTypes.number.isRequired,
+  color: deprecate(
+    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
+    'Color is always blue for now. This may be updated in the future.',
+  ),
+  size: PropTypes.oneOf(['normal', 'small']),
+  /**
+   * Describes what the progressbar represents - content is visually hidden
+   */
+  label: PropTypes.string,
+
+  /**
+   * Used to describe the current status of the progress bar to screen reader only users if completion percentage is inadequete
+   */
+  valueText: PropTypes.string,
+  ...createPropTypes(margin.propNames),
+};
+
+ProgressBar.defaultProps = {
+  size: 'normal',
+};
 
 export default ProgressBar;

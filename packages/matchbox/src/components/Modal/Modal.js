@@ -1,88 +1,158 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
+import { Transition } from 'react-transition-group';
+import FocusLock from 'react-focus-lock';
+import styled from 'styled-components';
+import { padding, maxWidth } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import { tokens } from '@sparkpost/design-tokens';
 import { Close } from '@sparkpost/matchbox-icons';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
-import { Grid } from '../Grid';
-import Content from './Content';
+import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
-import styles from './Modal.module.scss';
+import { secondsToMS } from '../../helpers/string';
+import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
 
-class Modal extends Component {
-  static displayName = 'Modal';
+const StyledBase = styled('div')`
+  ${base}
+  ${padding}
+`;
 
-  static propTypes = {
-    /**
-     * Controlled open state of the modal
-     */
-    open: PropTypes.bool,
+const StyledWrapper = styled('div')`
+  ${wrapper}
+`;
 
-    /**
-     * An optional function that is called on key down 'Escape' and on click outside modal content
-     */
-    onClose: PropTypes.func,
+const StyledCloseButton = styled(Button)`
+  ${closeButton}
+`;
 
-    /**
-     * Modal content
-     */
-    children: PropTypes.node,
+const StyledFocusLock = styled(FocusLock)`
+  ${focusLock}
+  ${maxWidth}
+`;
 
-    showCloseButton: PropTypes.bool
+const StyledContent = styled('div')`
+  ${content}
+  ${contentAnimation}
+`;
+
+function Modal(props) {
+  const {
+    onClose,
+    children,
+    portalId,
+    className,
+    showCloseButton,
+    maxWidth,
+    open,
+    ...rest
+  } = props;
+  let container = useRef(null);
+  let content = useRef(null);
+
+  const handleKeydown = e => {
+    if (open && onClose) {
+      onKey('escape', onClose)(e);
+    }
   };
 
-  handleOutsideClick = (e) => {
-    const { open, onClose } = this.props;
-    const isOutside = this.content && !this.content.contains(e.target) && this.container && this.container.contains(e.target);
+  const handleOutsideClick = e => {
+    const isOutside =
+      content && !content.contains(e.target) && container && container.contains(e.target);
 
     if (open && isOutside && onClose) {
       onClose(e);
     }
-  }
+  };
 
-  handleKeyDown = (e) => {
-    const { onClose, open } = this.props;
+  return (
+    <Portal containerId={portalId}>
+      <StyledBase
+        p={['400', null, '700']}
+        open={open}
+        {...rest}
+        className={className}
+        onClose={onClose}
+        ref={el => (container = el)}
+        role="dialog"
+        aria-modal="true"
+      >
+        <StyledWrapper>
+          <ModalContent open={open} maxWidth={maxWidth}>
+            <div ref={el => (content = el)}>
+              <WindowEvent event="keydown" handler={handleKeydown} />
+              <WindowEvent event="click" handler={handleOutsideClick} />
 
-    if (open && onClose) {
-      onKey('escape', onClose)(e);
-    }
-  }
-
-  render() {
-    const {
-      onClose,
-      open,
-      children,
-      className,
-      showCloseButton,
-      ...rest
-    } = this.props;
-
-    const modalClasses = classnames(
-      styles.Modal,
-      open && styles.open,
-      className
-    );
-
-    return (
-      <div className={modalClasses} onClose={onClose} {...rest} ref={(node) => this.container = node} role="dialog" aria-modal="true">
-        <Grid center='xs' middle='xs' className={styles.Grid}>
-          <Grid.Column xs={11} md={9} xl={7}>
-            <Content contentRef={(node) => this.content = node} open={open}>
-              <WindowEvent event='keydown' handler={this.handleKeyDown} />
-              <WindowEvent event='click' handler={this.handleOutsideClick} />
               {showCloseButton && (
-                <Button className={styles.CloseButton} flat onClick={onClose} data-id='modal-close'>
-                  Close <Close />
-                </Button>
+                <StyledCloseButton flat onClick={onClose} data-id="modal-close">
+                  <ScreenReaderOnly>Close</ScreenReaderOnly>
+
+                  <Close size={24} />
+                </StyledCloseButton>
               )}
+
               {children}
-            </Content>
-          </Grid.Column>
-        </Grid>
-      </div>
-    );
-  }
+            </div>
+          </ModalContent>
+        </StyledWrapper>
+      </StyledBase>
+    </Portal>
+  );
 }
+
+function ModalContent(props) {
+  const { open, children, maxWidth } = props;
+  const content = useRef(null);
+
+  return (
+    <StyledFocusLock disabled={!open} maxWidth={maxWidth}>
+      <Transition
+        mountOnEnter
+        unmountOnExit
+        in={open}
+        timeout={{
+          enter: secondsToMS(tokens.motionDuration_medium),
+          exit: secondsToMS(tokens.motionDuration_fast),
+        }}
+      >
+        {/* Negative `tabIndex` required to programmatically focus */}
+        {state => (
+          <StyledContent state={state} tabIndex="-1" ref={content} data-id="modal-content-wrapper">
+            {children}
+          </StyledContent>
+        )}
+      </Transition>
+    </StyledFocusLock>
+  );
+}
+
+Modal.propTypes = {
+  /**
+   * Controlled open state of the modal
+   */
+  open: PropTypes.bool,
+  /**
+   * An optional function that is called on key down 'Escape' and on click outside modal content
+   */
+  onClose: PropTypes.func,
+  /**
+   * Modal content
+   */
+  children: PropTypes.node,
+  showCloseButton: PropTypes.bool,
+  maxWidth: PropTypes.string,
+  /**
+   * Controls the target container ID for the rendering React portal
+   */
+  portalId: PropTypes.string,
+  ...createPropTypes(padding.propNames),
+  ...createPropTypes(maxWidth.propNames),
+};
+
+Modal.defaultProps = {
+  maxWidth: '1200',
+};
 
 export default Modal;

@@ -1,46 +1,80 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 import Tabs from '../Tabs';
 
 describe('Tabs', () => {
-  let wrapper;
-  let props;
+  const defaultprops = {
+    tabs: [{ content: 'Tab 1' }, { content: 'Tab 2' }, { content: 'Tab 3', onClick: jest.fn() }],
+    selected: 0,
+    onSelect: jest.fn(),
+  };
+  const subject = props => global.mountStyled(<Tabs {...defaultprops} {...props} />);
 
-  beforeEach(() => {
-    props = {
-      tabs: [
-        { content: 'Tab 1', onClick: jest.fn() },
-        { content: 'Tab 2', onClick: jest.fn() }
-      ],
-      selected: 0,
-      connectBelow: false,
-      onSelect: jest.fn()
-    };
+  it('renders non-fitted styles', () => {
+    const wrapper = subject();
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '0');
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('margin', '0 1.25rem');
+  });
 
-    wrapper = shallow(<Tabs {...props}/>);
+  it('renders fitted styles', () => {
+    const wrapper = subject({ fitted: true });
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '1');
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('margin', '0 0.5rem');
   });
 
   it('renders with first tab selected', () => {
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('Tab').at(0).dive()).toMatchSnapshot();
-    expect(wrapper.find('Tab').at(1).dive()).toMatchSnapshot();
+    const wrapper = subject();
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('color', tokens.color_blue_700);
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', tokens.color_gray_700);
   });
 
-  it('renders with fitted tabs', () => {
-    wrapper.setProps({ fitted: true });
-    expect(wrapper).toMatchSnapshot();
+  it('handles clicking a tab', () => {
+    const wrapper = subject();
+    wrapper
+      .find('button')
+      .at(2)
+      .simulate('click');
+    expect(defaultprops.onSelect).toHaveBeenCalledWith(2, 0);
+    expect(defaultprops.tabs[2].onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('renders when connected with below components', () => {
-    wrapper.setProps({ connectBelow: true });
-    expect(wrapper).toMatchSnapshot();
+  it('renders system props', () => {
+    const wrapper = subject({ mx: ['400', null, '10px'] });
+    const media = 'screen and (min-width:800px)';
+    expect(wrapper).toHaveStyleRule('margin-left', '10px', { media });
+    expect(wrapper).toHaveStyleRule('margin-right', tokens.spacing_400);
   });
 
-  it('changes selected tab on click', () => {
-    const event = {};
-    wrapper.find('Tab').at(1).simulate('click', event, 1);
-    expect(props.tabs[1].onClick).toHaveBeenCalledTimes(1);
-    expect(props.onSelect).toHaveBeenCalledWith(1, 0);
+  it('renders a custom tab component', () => {
+    const wrapper = subject({
+      tabs: [
+        ...defaultprops.tabs,
+        {
+          content: 'Tab 4',
+          component: React.forwardRef((props, ref) => <a ref={ref} {...props} />),
+        },
+      ],
+    });
+    expect(wrapper.find('a').text()).toEqual('Tab 4');
+  });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Tabs ref={ref} {...defaultprops} />
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('Tab 1')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
   });
 });

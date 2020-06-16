@@ -1,49 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { deprecate } from '../../helpers/propTypes';
 
-class UnstyledLink extends Component {
-  static displayName = 'UnstyledLink';
+import { Text } from '../Text';
 
-  static propTypes = {
-    to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    external: PropTypes.bool,
-    component: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
-    children: PropTypes.node
+const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
+  const { children, to, title, Component, component, external, onClick, role, ...rest } = props;
+
+  const WrapperComponent = component || Component;
+  const linkTitle = external && !title ? 'Opens in a new tab' : title;
+  const linkRole = role ? role : !!onClick ? 'button' : null;
+
+  if (to && !WrapperComponent) {
+    return (
+      <Text
+        as="a"
+        href={to}
+        target={external ? '_blank' : ''}
+        rel={external ? 'noopener noreferrer' : ''}
+        title={linkTitle}
+        onClick={onClick}
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </Text>
+    );
   }
 
-  render() {
-    const {
-      children,
-      to,
-      Component,
-      component,
-      external,
-      ...rest
-    } = this.props;
-
-    const WrapperComponent = component || Component;
-
-    if (to && !WrapperComponent) {
-      return (
-        <a
-          href={to}
-          target={external ? '_blank' : ''}
-          rel={external ? 'noopener noreferrer' : ''}
-          {...rest}>
-          {children}
-        </a>
-      );
-    }
-
-    if (WrapperComponent) {
-      return <WrapperComponent to={to} {...rest} >{children}</WrapperComponent>;
-    }
-
-    return <a {...rest}>{children}</a>;
+  if (WrapperComponent) {
+    return (
+      <Text as={WrapperComponent} to={to} title={linkTitle} onClick={onClick} ref={ref} {...rest}>
+        {children}
+      </Text>
+    );
   }
-}
+
+  return (
+    <Text as="a" title={linkTitle} role={linkRole} onClick={onClick} ref={ref} {...rest}>
+      {children}
+    </Text>
+  );
+});
+
+UnstyledLink.displayName = 'UnstyledLink';
+
+UnstyledLink.propTypes = {
+  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  title: PropTypes.string,
+  external: PropTypes.bool,
+  component: PropTypes.elementType,
+  Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  role: PropTypes.string,
+};
 
 export default UnstyledLink;

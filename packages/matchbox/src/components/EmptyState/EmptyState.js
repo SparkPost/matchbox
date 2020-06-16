@@ -1,78 +1,85 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '../Box';
 import { buttonFrom } from '../Button';
+import { Inline } from '../Inline';
 import { linkFrom } from '../UnstyledLink';
-import styles from './EmptyState.module.scss';
+import { Stack } from '../Stack';
+import { StyledContent, StyledImage } from './styles';
 
-class EmptyState extends Component {
-  static displayName = 'EmptyState';
+function EmptyState(props) {
+  const { title, primaryAction, secondaryAction, image: Image, children } = props;
 
-  static propTypes = {
-    /**
-     * The display title
-     */
-    title: PropTypes.string,
-    /**
-      * Main cta. Most button props will work in here.
-      * e.g. { content: 'button label', onClick: callback() }
-      */
-    primaryAction: PropTypes.shape({
-      content: PropTypes.node.isRequired
-    }),
-    /**
-      * Secondary Action - appear as a link next to the primary action
-      */
-    secondaryAction: PropTypes.shape({
-      content: PropTypes.node.isRequired
-    }),
-    /**
-      * Image to display
-      */
-    image: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.element
-    ]),
-    /**
-      * Content below the CTA
-      */
-    children: PropTypes.node
-  };
-
-  render() {
-    const {
-      title,
-      primaryAction,
-      secondaryAction,
-      image: Image,
-      children
-    } = this.props;
-
-    const imageMarkup = Image
-      ? <div className={styles.Image}><Image /></div>
-      : null;
-
-    const primaryActionMarkup = primaryAction
-      ? buttonFrom(primaryAction, {
+  const primaryActionMarkup = primaryAction
+    ? buttonFrom(primaryAction, {
         size: 'large',
-        ...(!primaryAction.color ? { color: 'orange' } : {})
+        ...(!primaryAction.color ? { color: 'blue' } : {}),
       })
-      : null;
+    : null;
 
-    const secondaryActionMarkup = secondaryAction
-      ? <span className={styles.SecondaryAction}>{linkFrom(secondaryAction)}</span>
-      : null;
-
-    return (
-      <div className={styles.EmptyState}>
-        <h1 className={styles.Title}>{title}</h1>
-        <div className={styles.Content}>{children}</div>
-        <div className={styles.Actions}>
-          {primaryActionMarkup} {secondaryActionMarkup}
-        </div>
-        {imageMarkup}
-      </div>
-    );
-  }
+  return (
+    <Box position="relative" height="100vh" py={['500', null, '33vh']} px="500">
+      <Stack space={['400', null, null, '600']}>
+        <Box
+          as="h1"
+          width={['auto', null, '45%']}
+          fontSize={['600', null, null, '700']}
+          lineHeight={['600', null, null, '700']}
+        >
+          {title}
+        </Box>
+        <StyledContent width={['auto', null, '45%']}>{children}</StyledContent>
+        <Box width={['auto', null, '45%']}>
+          <Inline space="500">
+            {primaryActionMarkup}
+            {secondaryAction && <span>{linkFrom(secondaryAction)}</span>}
+          </Inline>
+        </Box>
+      </Stack>
+      {Image && (
+        <StyledImage
+          display={['none', null, 'block']}
+          top="45%"
+          left="48%"
+          width="50%"
+          maxWidth="600px"
+          height="auto"
+          position="absolute"
+        >
+          <Image />
+        </StyledImage>
+      )}
+    </Box>
+  );
 }
+
+EmptyState.displayName = 'EmptyState';
+EmptyState.propTypes = {
+  /**
+   * The display title
+   */
+  title: PropTypes.string,
+  /**
+   * Main cta. Most button props will work in here.
+   * e.g. { content: 'button label', onClick: callback() }
+   */
+  primaryAction: PropTypes.shape({
+    content: PropTypes.node.isRequired,
+  }),
+  /**
+   * Secondary Action - appear as a link next to the primary action
+   */
+  secondaryAction: PropTypes.shape({
+    content: PropTypes.node.isRequired,
+  }),
+  /**
+   * Image to display
+   */
+  image: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+  /**
+   * Content below the CTA
+   */
+  children: PropTypes.node,
+};
 
 export default EmptyState;

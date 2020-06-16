@@ -1,144 +1,163 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { Error as ErrorIcon, CheckCircle, InfoOutline, Close } from '@sparkpost/matchbox-icons';
-
-import styles from './Banner.module.scss';
+import { createPropTypes } from '@styled-system/prop-types';
+import { Close } from '@sparkpost/matchbox-icons';
+import { Box } from '../Box';
+import { Text } from '../Text';
+import { Inline } from '../Inline';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import styled from 'styled-components';
+import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
+import { buttonReset } from '../../styles/helpers';
 import { buttonFrom } from '../Button';
+import { margin } from 'styled-system';
 
-const actionOverrides = { outline: true, size: 'small' };
+function IconSection({ status }) {
+  const statusIcon = React.useMemo(() => {
+    return status === 'default' ? statusIcons.info : statusIcons[status];
+  }, [statusIcons, status]);
 
-const IconSection = ({ status }) => {
-  const icons = {
-    success: {
-      iconName: CheckCircle,
-      iconLabel: 'Success'
-    },
-    info: {
-      iconName: InfoOutline,
-      iconLabel: 'Info'
-    },
-    warning: {
-      iconName: ErrorIcon,
-      iconLabel: 'Warning'
-    },
-    danger: {
-      iconName: ErrorIcon,
-      iconLabel: 'Error'
-    }
-  };
-
-  if (status === 'default' || !icons[status]) {
-    return null;
-  }
-
-  const iconClasses = classnames(
-    styles.Icon,
-    status && styles[`${status}Icon`]
-  );
-
-  const Icon = icons[status].iconName;
-  const iconLabel = icons[status].iconLabel;
+  const Icon = statusIcon.iconName;
 
   return (
-    <div className={styles.IconWrapper}>
-      <Icon size={30} className={iconClasses} label={iconLabel}/>
-      <div className={styles.IconBackdrop} />
-    </div>
+    <Box
+      position="relative"
+      display="flex"
+      flexShrink="0"
+      alignItems="center"
+      justifyContent="center"
+      width="3rem"
+      height="3rem"
+      mr="500"
+    >
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        width="3rem"
+        height="3rem"
+        borderRadius="circle"
+        bg={statusIcon.bg}
+      />
+      <Box position="relative" color={statusIcon.fill}>
+        <Icon size={30} label={statusIcon.iconLabel} />
+      </Box>
+    </Box>
   );
-};
+}
 
-class Banner extends Component {
-  static displayName = 'Banner';
+const StyledContainer = styled(Box)`
+  ${container}
+  ${margin}
+`;
 
-  static propTypes = {
-    /**
-     * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
-     */
-    status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info']),
+const StyledChildren = styled('div')`
+  ${childLinks}
+`;
 
-    /**
-     * The banner's title
-     */
-    title: PropTypes.string,
+const StyledDismiss = styled(Box)`
+  ${buttonReset}
+  ${dismissBase}
+  ${dismissColor}
+`;
 
-    /**
-     * Callback when dismiss button is clicked. Button hidden without callback.
-     */
-    onDismiss: PropTypes.func,
+const Banner = React.forwardRef(function Banner(props, ref) {
+  const { children, title, status, action, actions, onDismiss, ...rest } = props;
 
-    /**
-     * Action that build a button. Most button props will work in here.
-     * e.g. { content: 'button label', onClick: callback() }
-     */
-    action: PropTypes.shape({ content: PropTypes.string.isRequired }),
+  const titleMarkup = title ? (
+    <Box pt={['300', null, '200']} mb="200">
+      <Text fontSize={['400', null, '500']} lineHeight={['400', null, '500']} as="h5">
+        {title}
+      </Text>
+    </Box>
+  ) : null;
 
-    /**
-     * List of actions that build buttons. Most button props will work in here.
-     * Overrides `action`
-     */
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      content: PropTypes.string.isRequired
-    })),
-
-    /**
-     * Banner Content
-     */
-    children: PropTypes.node
-  };
-
-  static defaultProps = {
-    status: 'default'
-  };
-
-  render() {
-    const {
-      children,
-      title,
-      status,
-      action,
-      actions,
-      onDismiss,
-      ...rest
-    } = this.props;
-
-    const titleMarkup = title
-      ? <h5 className={styles.Title}>{title}</h5>
-      : null;
-
-    let actionMarkup = action
-      ? <div className={styles.Actions}>{buttonFrom(action, actionOverrides)}</div>
-      : null;
+  const actionMarkup = React.useMemo(() => {
+    let result = action ? <div>{buttonFrom(action)}</div> : null;
 
     if (actions) {
-      actionMarkup = (
-        <div className={styles.Actions}>
-          {actions.map((action, i) => buttonFrom(action, actionOverrides, i))}
-        </div>
-      );
+      result = <Inline>{actions.map((action, i) => buttonFrom(action, {}, i))}</Inline>;
     }
 
-    const dismissMarkup = onDismiss
-      ? <a className={styles.Dismiss} onClick={onDismiss}><Close size={24} className={styles.DismissIcon} /></a>
-      : null;
+    return result;
+  }, [action, actions]);
 
-    const bannerStyles = classnames(
-      styles.Banner,
-      styles[`${status}`]
-    );
+  const dismissMarkup = onDismiss ? (
+    <Box flex={['1', null, '0']} textAlign="right">
+      <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800" type="button">
+        <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
+        <Close size={24} />
+      </StyledDismiss>
+    </Box>
+  ) : null;
 
-    return (
-      <div className={bannerStyles} {...rest}>
-        <IconSection status={status} />
-        <div className={styles.Content}>
-          {dismissMarkup}
-          {titleMarkup}
-          <div className={styles.Children}>{children}</div>
-          {actionMarkup}
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <StyledContainer
+      display="flex"
+      flexWrap={['wrap', null, 'nowrap']}
+      p="500"
+      borderRadius="100"
+      status={status}
+      {...rest}
+      ref={ref}
+      tabIndex="-1"
+    >
+      <IconSection status={status} />
+      <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
+        {titleMarkup}
+        <Box mb={actionMarkup ? '500' : '0'}>
+          <StyledChildren>{children}</StyledChildren>
+        </Box>
+        {actionMarkup}
+      </Box>
+      {dismissMarkup}
+    </StyledContainer>
+  );
+});
+
+Banner.displayName = 'Banner';
+Banner.propTypes = {
+  /**
+   * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
+   */
+  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info']),
+
+  /**
+   * The banner's title
+   */
+  title: PropTypes.string,
+
+  /**
+   * Callback when dismiss button is clicked. Button hidden without callback.
+   */
+  onDismiss: PropTypes.func,
+
+  /**
+   * Action that build a button. Most button props will work in here.
+   * e.g. { content: 'button label', onClick: callback() }
+   */
+  action: PropTypes.shape({ content: PropTypes.string.isRequired }),
+
+  /**
+   * List of actions that build buttons. Most button props will work in here.
+   * Overrides `action`
+   */
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.string.isRequired,
+    }),
+  ),
+
+  /**
+   * Banner Content
+   */
+  children: PropTypes.node,
+
+  ...createPropTypes(margin.propNames),
+};
+
+Banner.defaultProps = {
+  status: 'default',
+};
 
 export default Banner;

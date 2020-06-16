@@ -1,115 +1,60 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import { deprecate } from '../../helpers/propTypes';
+import styled from 'styled-components';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { tokens } from '@sparkpost/design-tokens';
+import { pick } from '@styled-system/props';
 
+import { Box } from '../Box';
 import { Button, buttonsFrom } from '../Button';
-import { MoreHoriz, ArrowBack, ArrowForward } from '@sparkpost/matchbox-icons';
-import styles from './Pagination.module.scss';
+import { Pager } from '../Pager';
+import { MoreHoriz } from '@sparkpost/matchbox-icons';
 
-class Pagination extends Component {
-  static displayName = 'Pagination';
+const StyledMoreHoriz = styled(MoreHoriz)`
+  fill: ${tokens.color_gray_500};
+`;
 
-  static propTypes = {
+const Wrapper = styled('div')`
+  ${margin}
+`;
 
-    /**
-     * Sets the current page number
-     */
-    currentPage: PropTypes.number,
+function Pagination(props) {
+  const [index, setIndex] = React.useState(0);
+  const [hasPrevious, setHasPrevious] = React.useState(false);
+  const [hasNext, setHasNext] = React.useState(false);
 
-    /**
-     * The total number of pages
-     */
-    pages: PropTypes.number.isRequired,
+  const {
+    currentPage,
+    pages,
+    pageRange,
+    onChange,
+    marginsHidden,
+    flat,
+    selectedColor,
+    ...rest
+  } = props;
 
-    /**
-     * The number of page buttons to display. Odd numbers look better.
-     */
-    pageRange: PropTypes.number.isRequired,
+  const systemProps = pick(rest);
 
-    /**
-     * Callback when page is changed. Index passed as argument.
-     */
-    onChange: PropTypes.func,
+  function handlePageChange(index) {
+    setIndex(index);
+    setHasPrevious(index > 0);
+    setHasNext(index < pages - 1);
 
-    /**
-     * Hides first and last buttons
-     */
-    marginsHidden: PropTypes.bool,
-
-    /**
-     * Flat style buttons
-     */
-    flat: PropTypes.bool,
-
-    /**
-     * Selected page color
-     */
-    selectedColor: PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red'])
-  };
-
-  static defaultProps = {
-    currentPage: 1,
-    selectedColor: 'orange'
-  };
-
-  state = {
-    index: 0,
-    hasPrevious: false,
-    hasNext: true
-  };
-
-  componentDidMount() {
-    this.handlePageChange(this.props.currentPage - 1);
+    onChange && onChange(index);
   }
 
-  componentDidUpdate(prevProps) {
-    const { pages, pageRange, currentPage } = this.props;
-    if (pages !== prevProps.pages || pageRange !== prevProps.pageRange || currentPage !== prevProps.currentPage) {
-      this.handlePageChange(currentPage - 1);
-    }
+  function handleNext() {
+    handlePageChange(index + 1);
   }
 
-  handlePageChange(index) {
-    this.setState({
-      index,
-      hasPrevious: index > 0,
-      hasNext: index < this.props.pages - 1
-    });
-
-    this.props.onChange && this.props.onChange(index);
+  function handlePrevious() {
+    handlePageChange(index - 1);
   }
 
-  handleNext = () => {
-    this.handlePageChange(this.state.index + 1);
-  }
-
-  handlePrevious = () => {
-    this.handlePageChange(this.state.index - 1);
-  }
-
-  _createButtons(start, end) {
-    const buttons = [];
-
-    for (let index = start; index < end; index++) {
-      buttons.push({
-        content: `${index + 1}`,
-        onClick: this.handlePageChange.bind(this, index),
-        flat: this.props.flat,
-        className: classnames(
-          styles.Page,
-          index === this.state.index && styles.Selected,
-          index === this.state.index && styles[`color-${this.props.selectedColor}`]
-        )
-      });
-    }
-
-    return buttonsFrom(buttons);
-  }
-
-  _getStart() {
-    const { pages, pageRange } = this.props;
-    const { index } = this.state;
-
+  function _getStart() {
     let start = 0;
     const half = Math.floor(pageRange / 2);
 
@@ -124,72 +69,128 @@ class Pagination extends Component {
     return start;
   }
 
-  render() {
-    const {
-      pages,
-      pageRange,
-      marginsHidden,
-      flat,
-      className
-    } = this.props;
+  React.useEffect(() => {
+    handlePageChange(currentPage - 1);
+  }, [pages, pageRange, currentPage]);
 
-    const {
-      hasPrevious,
-      hasNext
-    } = this.state;
+  const start = _getStart();
 
-    const start = this._getStart();
+  const buttonMarkup = React.useMemo(() => {
+    function _createButtons(start, end) {
+      const buttons = [];
 
-    const buttonMarkup = () => {
-      if (pages <= pageRange) {
-        return this._createButtons(0, pages);
-      } else {
-        return this._createButtons(start, start + pageRange);
+      for (let currentIndex = start; currentIndex < end; currentIndex++) {
+        buttons.push({
+          content: `${currentIndex + 1}`,
+          onClick: handlePageChange.bind(this, currentIndex),
+          flat: currentIndex === index ? false : true,
+          size: 'small',
+          color: currentIndex === index ? 'blue' : 'gray',
+          mx: '100',
+          width: currentIndex + 1 < 100 ? tokens.spacing_600 : 'auto',
+        });
       }
-    };
 
-    const firstButton = !marginsHidden && start > 1
-      ? <span>
-        <Button flat={flat}
-          className={styles.Start}
-          onClick={() => this.handlePageChange(0)} >
-            1
+      return buttonsFrom(buttons);
+    }
+
+    if (pages <= pageRange) {
+      return _createButtons(0, pages);
+    } else {
+      return _createButtons(start, start + pageRange);
+    }
+  }, [index, pages, pageRange]);
+
+  const firstButton =
+    !marginsHidden && start > 1 ? (
+      <span>
+        <Button flat width={tokens.spacing_600} size="small" onClick={() => handlePageChange(0)}>
+          1
         </Button>
-        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
+        <Box display="inline" pl={200} pr={200}>
+          <StyledMoreHoriz size={24} />
+        </Box>
       </span>
-      : null;
+    ) : null;
 
-    const lastButton = !marginsHidden && start + pageRange < pages
-      ? <span>
-        <MoreHoriz className={styles.Ellipse} style={{ marginTop: '-0.2em' }}/>
-        <Button flat={flat}
-          className={styles.End}
-          onClick={() => this.handlePageChange(pages - 1)} >
+  const lastButton =
+    !marginsHidden && start + pageRange < pages ? (
+      <span>
+        <Box display="inline" pl={200} pr={200}>
+          <StyledMoreHoriz size={24} />
+        </Box>
+        <Button
+          flat
+          size="small"
+          width={pages + 1 < 100 ? tokens.spacing_600 : 'auto'}
+          onClick={() => handlePageChange(pages - 1)}
+        >
           {pages}
         </Button>
       </span>
-      : null;
+    ) : null;
 
-    return (
-      <div className={classnames(styles.Pagination, className)}>
-        <Button flat={flat}
-          className={styles.Back}
-          onClick={this.handlePrevious}
-          disabled={!hasPrevious} >
-          <ArrowBack size={16} style={{ marginTop: '-0.2em' }}/>
-        </Button>
+  return (
+    <Wrapper {...systemProps}>
+      <Box display="inline-flex" alignItems="center">
+        <Pager.Previous flat onClick={handlePrevious} disabled={!hasPrevious} />
         {firstButton}
-        <span className={styles.Pages}>{buttonMarkup()}</span>
+        <Box display="inline-block">{buttonMarkup}</Box>
         {lastButton}
-        <Button flat={flat}
-          className={styles.Next}
-          onClick={this.handleNext}
-          disabled={!hasNext} >
-          <ArrowForward size={16} style={{ marginTop: '-0.2em' }}/>
-        </Button>
-      </div>
-    );
-  }
+        <Pager.Next flat onClick={handleNext} disabled={!hasNext} />
+      </Box>
+    </Wrapper>
+  );
 }
+
+Pagination.displayName = 'Pagination';
+Pagination.propTypes = {
+  /**
+   * Sets the current page number
+   */
+  currentPage: PropTypes.number,
+
+  /**
+   * The total number of pages
+   */
+  pages: PropTypes.number.isRequired,
+
+  /**
+   * The number of page buttons to display. Odd numbers look better.
+   */
+  pageRange: PropTypes.number.isRequired,
+
+  /**
+   * Callback when page is changed. Index passed as argument.
+   */
+  onChange: PropTypes.func,
+
+  /**
+   * Hides first and last buttons
+   */
+  marginsHidden: PropTypes.bool,
+
+  /**
+   * Flat style buttons
+   */
+  flat: deprecate(PropTypes.bool, 'Flat has been deprecated'),
+
+  /**
+   * Selected page color
+   */
+  selectedColor: deprecate(
+    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
+    'Selected Color has been deprecated',
+  ),
+
+  /**
+   * System Margins
+   */
+  ...createPropTypes(margin.propNames),
+};
+Pagination.defaultProps = {
+  currentPage: 1,
+  selectedColor: 'orange',
+};
 
 export default Pagination;
