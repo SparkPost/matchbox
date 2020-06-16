@@ -23,7 +23,7 @@ const PanelInner = styled('div')`
   ${panelInner}
 `;
 
-function Panel(props) {
+const Panel = React.forwardRef(function Panel(props, ref) {
   const {
     // panel heading title
     title,
@@ -57,7 +57,7 @@ function Panel(props) {
   const { p: contextP = '500', padding: contextPadding, ...context } = pick(rest);
 
   return (
-    <PanelOuter className={className} {...rest}>
+    <PanelOuter className={className} {...rest} ref={ref} tabIndex="-1">
       {accentMarkup}
       <PanelInner accent={accent}>
         <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
@@ -67,7 +67,7 @@ function Panel(props) {
       </PanelInner>
     </PanelOuter>
   );
-}
+});
 
 Panel.displayName = 'Panel';
 Panel.Header = Header;

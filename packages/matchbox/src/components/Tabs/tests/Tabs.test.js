@@ -21,7 +21,7 @@ describe('Tabs', () => {
   it('renders fitted styles', () => {
     const wrapper = subject({ fitted: true });
     expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '1');
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('margin', '0 0');
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('margin', '0 0.5rem');
   });
 
   it('renders with first tab selected', () => {
@@ -49,8 +49,32 @@ describe('Tabs', () => {
 
   it('renders a custom tab component', () => {
     const wrapper = subject({
-      tabs: [...defaultprops.tabs, { content: 'Tab 4', component: props => <a {...props} /> }],
+      tabs: [
+        ...defaultprops.tabs,
+        {
+          content: 'Tab 4',
+          component: React.forwardRef((props, ref) => <a ref={ref} {...props} />),
+        },
+      ],
     });
     expect(wrapper.find('a').text()).toEqual('Tab 4');
+  });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Tabs ref={ref} {...defaultprops} />
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('Tab 1')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
   });
 });

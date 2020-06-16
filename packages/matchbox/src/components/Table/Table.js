@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { margin, padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { pick } from '../../helpers/systemProps';
 import { Cell, HeaderCell, Row } from './TableElements';
 import { TablePaddingContext } from './context';
@@ -21,7 +22,7 @@ const Wrapper = styled(Box)`
 `;
 
 function Table(props) {
-  const { children, data, freezeFirstColumn, ...rest } = props;
+  const { children, data, freezeFirstColumn, title, ...rest } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   const handleScroll = React.useCallback(
@@ -48,6 +49,11 @@ function Table(props) {
     <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+          {title && (
+            <caption>
+              <ScreenReaderOnly>{title}</ScreenReaderOnly>
+            </caption>
+          )}
           {dataMarkup}
         </TablePaddingContext.Provider>
       </StyledTable>
@@ -67,6 +73,7 @@ Table.propTypes = {
    * React node(s)
    */
   children: PropTypes.node,
+  title: PropTypes.string,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
 };

@@ -58,6 +58,10 @@ describe('Uncontrolled Popover with Actionlist', () => {
   it('should tab through actionlist buttons', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.focused().should('have.attr', 'tabindex', '-1');
+    // Container is focused with tabindex=-1 here, not "tabbable" by cypress
+    // So we reset to start at the button instead
+    cy.get('body').tab();
     cy.focused().tab();
     cy.focused().should('have.text', 'Edit');
     cy.focused().tab();

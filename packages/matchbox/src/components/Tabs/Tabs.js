@@ -6,27 +6,16 @@ import { margin, borderBottom } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
 import { ActionList } from '../ActionList';
-import { UnstyledLink } from '../UnstyledLink';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { deprecate } from '../../helpers/propTypes';
-import { containerStyles, overflowTabs, tabStyles } from './styles';
+import useTabConstructor from './useTabConstructor';
+import Tab from './Tab';
+import { containerStyles, overflowTabs } from './styles';
 
 import { getPositionFor, useWindowSize } from '../../helpers/geometry';
-
-// TODO Replace this when styled-components supports shouldForwardProps
-// See: https://github.com/styled-components/styled-components/commit/e02109e626ed117b76f220d0b9b926129655262d
-// Or when UnstyledLink is updated to use system props
-function LinkWrapper(props) {
-  const { selected, fitted, ...rest } = props;
-  return <UnstyledLink {...rest} />;
-}
-
-const StyledTab = styled(LinkWrapper)`
-  ${tabStyles}
-`;
 
 const OverflowTabContainer = styled('div')`
   ${overflowTabs}
@@ -38,39 +27,16 @@ const Container = styled('div')`
   ${containerStyles}
 `;
 
-function Tab(props) {
-  const { index, content, selected, fitted, component, Component, ...rest } = props;
-
-  function handleClick(event) {
-    const { index, onClick } = props;
-    onClick(event, index);
-  }
-
-  // Buttons ensure focusability
-  // Links will be focusable with an href
-  // TODO deprecate `Component`
-  const wrapper = component || Component || 'button';
-
-  return (
-    <StyledTab
-      aria-selected={selected === index}
-      component={wrapper}
-      selected={selected === index}
-      fitted={fitted}
-      {...rest}
-      onClick={handleClick}
-      role="tab"
-      type="button"
-    >
-      {content}
-    </StyledTab>
-  );
-}
-
-Tab.displayName = 'Tab';
-
-function Tabs(props) {
-  const { disableResponsiveBehavior, tabs, selected, onSelect, fitted, ...rest } = props;
+const Tabs = React.forwardRef(function Tabs(props, userRef) {
+  const {
+    disableResponsiveBehavior,
+    keyboardActivation,
+    tabs,
+    selected,
+    onSelect,
+    fitted,
+    ...rest
+  } = props;
   const [isOverflowing, setIsOverflowing] = React.useState(false);
   const [popoverOpen, setPopoverOpen] = React.useState(false);
 
@@ -108,44 +74,52 @@ function Tabs(props) {
     }
   }, [wrapperRef, overflowRef, windowSize]);
 
-  const selectedTab = tabs[selected];
+  // Constructs the tabs, their props and handles tab keyboard navigation
+  const { tabMarkup, tabActions, focusContainerProps } = useTabConstructor({
+    tabs,
+    fitted,
+    handleClick,
+    selected,
+    onSelect,
+    keyboardActivation,
+    disableResponsiveBehavior,
+  });
 
-  // Constructs ActionList actions from tabs
-  const tabActions = React.useMemo(() => {
-    if (disableResponsiveBehavior) {
-      return;
+  const assignWrapperRefs = node => {
+    if (wrapperRef) {
+      wrapperRef.current = node;
     }
-    return tabs.map((tab, i) => {
-      return { is: 'button', ...tab, onClick: e => handleClick(e, i), visible: i !== selected };
-    });
-  }, [selected, tabs, isOverflowing, disableResponsiveBehavior]);
+    if (userRef) {
+      userRef.current = node;
+    }
+  };
 
   return (
-    <Container borderBottom="400" {...pick(rest)} ref={wrapperRef}>
-      <Box aria-hidden={isOverflowing} overflow="hidden">
+    <Container borderBottom="400" {...pick(rest)} ref={assignWrapperRefs} tabIndex="-1">
+      <Box aria-hidden={isOverflowing}>
         <OverflowTabContainer
           aria-orientation="horizontal"
           isOverflowing={isOverflowing}
           role="tablist"
         >
-          {tabs.map((tab, i) => (
-            <Tab
-              key={i}
-              index={i}
-              fitted={fitted}
-              selected={selected}
-              {...tab}
-              onClick={handleClick}
-            />
-          ))}
-          {/* Measurement pixel used to detect content overflow */}
-          <Box display="inline-block" width="1px" height="1px" ref={overflowRef} />
+          <Box
+            position="absolute"
+            left="0"
+            top="0"
+            right="0"
+            display="flex"
+            {...focusContainerProps}
+          >
+            {tabMarkup}
+            {/* Measurement pixel used to detect content overflow */}
+            <Box display="inline-block" width="1px" height="1px" ref={overflowRef} />
+          </Box>
         </OverflowTabContainer>
       </Box>
       {isOverflowing && !disableResponsiveBehavior && (
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Box flex="0">
-            <Tab index={selected} selected={selected} {...selectedTab} />
+            <Tab index={selected} selected={selected} {...tabs[selected]} />
           </Box>
 
           <Box flex="0">
@@ -175,7 +149,7 @@ function Tabs(props) {
       )}
     </Container>
   );
-}
+});
 
 Tabs.displayName = 'Tabs';
 Tabs.propTypes = {
@@ -198,6 +172,7 @@ Tabs.propTypes = {
     PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
     'Tab color is no longer configurable',
   ),
+  keyboardActivation: PropTypes.oneOf(['auto', 'manual']),
   /**
    * Index of selected tab
    */
@@ -205,6 +180,10 @@ Tabs.propTypes = {
   onSelect: PropTypes.func,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(borderBottom.propNames),
+};
+
+Tabs.defaultProps = {
+  keyboardActivation: 'auto',
 };
 
 export default Tabs;

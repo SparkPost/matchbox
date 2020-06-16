@@ -133,7 +133,6 @@
 - #414 - Removes aria-expanded from drawer activators
 - #411 - Add looksLike prop to `Text` component
 - #411 - Remove crop prop from `Text` component
-- #300 - Adds support for `datetime-local` value for the `TextField` `type` prop
 - #407 - Adds new `DatePicker` component
 - #407 - Buttons now support padding system props, to suppport square buttons
 - #300 - Adds support for `datetime-local` value for the `TextField` `type` prop
@@ -147,3 +146,23 @@
 - #435 - Fixes Tab `disableResponsiveBehavior` rule
 - #412 - `Table` are now responsive and support freezing the first column with the
   `freezeFirstColumn` prop
+- #436 - Removes all Sass from matchbox including all functions and mixins
+- #412 - `Table` are now responsive and support freezing the first column with the
+  `freezeFirstColumn` prop
+- #441 - Adds new `KeyboardKey` component
+- #423 - Panel, Drawer, Banner, Popover, Snackbar, Button now accept refs
+- #423 - Popover automatically focuses on content container when opening, with both controlled and
+  uncontrolled open state
+- #444 - Adds new `Columns` and `Column` components
+- #442 - Empty State typography and margins are now responsive
+- #447 - Adds new `loading` prop to `Button`
+- #447 - Adds new `rotationOnly` prop to `Spinner`
+- #245 - Progressbar now correctly specifies its html `role`
+- #245 - Adds new `label` and `valueText` props to Progressbar
+- #235 - Adds new `title` prop to Table that renders a screen reader accessible caption
+- #247 - UnstyledLinks now use `role="button"` if they are not links
+- #413 - Adds support for tab keyboard navigation
+- #413 - Adds new prop keyboardActivation defaults to auto
+- #413 - Tabs with custom components now require a ref to be forwarded
+- #413 - Adds new useTabs hook to support tab state implementation
+- #413 - Refs can now be forwarded to Text, UnstyledLink, Tabs

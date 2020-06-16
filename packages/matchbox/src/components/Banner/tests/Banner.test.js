@@ -98,4 +98,22 @@ describe('Banner', () => {
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
     expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'transparent');
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Banner ref={ref} title="test content"></Banner>
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
 });

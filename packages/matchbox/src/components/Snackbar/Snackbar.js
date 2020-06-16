@@ -21,11 +21,19 @@ const StyledClose = styled(Box)`
   ${dismissStatus}
 `;
 
-function Snackbar(props) {
+const Snackbar = React.forwardRef(function Snackbar(props, ref) {
   const { children, status, maxWidth, onDismiss, ...rest } = props;
 
   return (
-    <StyledBox status={status} role="alert" p="300" borderRadius="100" {...rest}>
+    <StyledBox
+      status={status}
+      role="alert"
+      p="300"
+      borderRadius="100"
+      ref={ref}
+      {...rest}
+      tabIndex="-1"
+    >
       <Box mr="300">
         {status === 'default' && <Info size="20" label="Info" />}
         {status === 'success' && <CheckCircle size="20" label="Success" />}
@@ -48,7 +56,7 @@ function Snackbar(props) {
       </StyledClose>
     </StyledBox>
   );
-}
+});
 
 Snackbar.displayName = 'Snackbar';
 Snackbar.defaultProps = {

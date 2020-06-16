@@ -57,4 +57,24 @@ describe('Snackbar', () => {
     wrapper.find('button').simulate('click');
     expect(defaults.onDismiss).toHaveBeenCalledTimes(1);
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Snackbar ref={ref} onDismiss={jest.fn()}>
+            test content
+          </Snackbar>
+          not this
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
+    expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
 });
