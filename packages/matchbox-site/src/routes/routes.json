@@ -140,6 +140,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/select",
+        "label": "Select",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
         "path": "/components/slider",
         "label": "Slider",
         "disabled": false,
