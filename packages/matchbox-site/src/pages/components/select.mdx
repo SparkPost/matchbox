@@ -1,10 +1,177 @@
+import { LiveCode } from '../../components/LiveCode';
+import { Select } from '@sparkpost/matchbox';
+
+export const optionsString = `[
+  'Foo',
+  2,
+  {
+    value: '3',
+    label: 'Very Very Very Very Very Very Very Very Very long text',
+    pass: 'through',
+  },
+]`;
+
 # Select
 
 ---
 
 ### Usage
-_Coming soon_
+
+<LiveCode>
+  <LiveCode.Content
+    title="Basic"
+    code={`
+      <Select id="id" label="Select an option" options={${optionsString}} />
+    `}
+  />
+  <LiveCode.Content
+    title="Disabled"
+    code={`
+      <Select id="id" label="Select an option" disabled options={${optionsString}} />
+    `}
+  />
+  <LiveCode.Content
+    title="Placeholder"
+    code={`
+      <Select
+        id="id"
+        label="Select an option"
+        options={${optionsString}}
+        placeholder="Placeholder"
+        placeholderValue="placeholder"
+        value="placeholder"
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="With Error"
+    code={`
+      <Select id="id" label="Select an option" options={${optionsString}} error="You forgot to select" />
+    `}
+  />
+  <LiveCode.Content
+    title="With Help Text and Error"
+    code={`
+      <Select
+        id="id"
+        label="Select an option"
+        options={${optionsString}}
+        helpText="Remember to select something"
+        error="You forgot to select"
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="With Required and Error in Label"
+    code={`
+      <Select
+        id="id"
+        label="Select an option"
+        errorInLabel
+        options={${optionsString}}
+        required
+        error="You forgot to select"
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="System Props"
+    code={`
+      <>
+        <Select id="id" label="Select an option" options={${optionsString}} my={['200', '400', '600', '800']} />
+        <Select id="id" label="Select an option" options={${optionsString}} mx={['200', '400', '600', '800']} />
+      </>
+    `}
+  />
+</LiveCode>
+
+---
+
+### Select System Props
+
+<SystemPropsTags propsList={['margin']} />
 
 ---
 
 ### Select API
+
+<Prop
+  name="id"
+  type="string"
+> 
+  The ID for the form input
+</Prop>
+
+<Prop
+  name="options"
+  type="array"
+  required
+> 
+  Array of options with &#123; value, label &#125;, Strings, or Numbers
+</Prop>
+
+<Prop
+  name="disabled"
+  type="bool"
+> 
+  Whether the input is disabled or not
+</Prop>
+
+<Prop
+  name="required"
+  type="bool"
+> 
+  Whether the input is required or not
+</Prop>
+
+<Prop
+  name="label"
+  type="string"
+> 
+  Label for the input
+</Prop>
+
+<Prop
+  name="helpText"
+  type="node"
+> 
+  Addition text to help the user that renders below the input
+</Prop>
+
+<Prop
+  name="error"
+  type="string"
+> 
+  Renders an error message below the input
+</Prop>
+
+<Prop
+  name="errorInLabel"
+  type="bool"
+> 
+  Optionally renders the error message to the right of the input's label
+</Prop>
+
+<Prop
+  name="onChange"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when input value state changes
+</Prop>
+
+<Prop
+  name="onFocus"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when input becomes focused
+</Prop>
+
+<Prop
+  name="onBlur"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when input loses focus
+</Prop>
