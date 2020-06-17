@@ -1,121 +1,73 @@
 # Matchbox
 
-Matchbox is an open source React component library, built for
+Matchbox is an open source design system and React component library, built for
 [SparkPost's UI](https://github.com/SparkPost/2web2ui).
 
 ![Build](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Build?label=Build&style=flat-square)
 ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
-[![Playroom](https://img.shields.io/badge/Try%20it%20with-Playroom-black.svg?style=flat-square&colorA=009f6a&longCache=true)](https://matchbox-playroom.netlify.app/)
-
-#### Links:
-
-- [Component Demo](https://sparkpost.github.io/matchbox/)
-- [Sass Documentation](packages/matchbox/src/styles/README.md)
-- [Unreleased Changes](unreleased.md)
+![Website Deploy](https://img.shields.io/netlify/0ce1d44f-e768-4a1a-b7da-0cf637a2b854?label=Website%20Deploy&style=flat-square)
+![Storybook Deploy](https://img.shields.io/netlify/d9885b5c-2b54-4d4d-82c0-0e28349d2334?label=Storybook%20Deploy&style=flat-square)
+![Playroom Deploy](https://img.shields.io/netlify/f2107970-a943-4662-bc75-81b4bd806e6c?label=Playroom%20Deploy&style=flat-square)
 
 ---
 
-## Usage
+## Welcome to Matchbox Development
 
-### 1. Installation
+Looking for documentation? See:
 
-In your React project, use npm to install matchbox:
+- [Design System Website](https://design.sparkpost.com)
+- [Storybook](https://matchbox-storybook.netlify.app/)
+- [Playroom](https://matchbox-playroom.netlify.app/)
 
-```bash
-npm install @sparkpost/matchbox --save
-```
+### Getting Started
 
-### 2. Include Styles
+Matchbox uses [Lerna](https://github.com/lerna/lerna) to manage packages.
 
-```scss
-// Import matchbox's styles
-@import '~@sparkpost/matchbox/styles.scss';
-// Optionally include config.scss for sass functions and mixins
-@import '~@sparkpost/matchbox/src/styles/config.scss';
-```
-
-### 3. Use the React components
-
-In-depth usage docs coming in the future. For now, reference
-[storybook](https://sparkpost.github.io/matchbox/).
-
-```js
-import React from ‘react’;
-import { Panel } from '@sparkpost/matchbox';
-
-const YourComponent = () => (
- <Panel accent title='Hey!'>
-  <Panel.Section>
-    Section Content
-  </Panel.Section>
- </Panel>
-);
-```
-
-## Storybook Development
-
-[React Storybook](https://github.com/storybooks/storybook) is included for local development.
+First install `lerna` globally, then run the following commands to get started:
 
 ```bash
-# Runs storybook at localhost:9001
-npm run start:storybook
+npm i -g lerna
+git clone git@github.com:SparkPost/matchbox.git
+cd matchbox
+npm i
+lerna bootstrap
 ```
 
-## Running Tests
-
-### Unit Testing
-
-When running tests for the first time locally:
+### Root Repo Scripts
 
 ```bash
-npm run pretest
+# Start Scripts
+npm run start:storybook   # Runs storybook
+npm run start:site        # Runs the design system website
+npm run start:playroom    # Runs playroom
+
+# Test Scripts
+# Integration tests require storybook to be running first
+npm run pretest           # Run before running tests for first time
+npm run test:unit         # Runs unit tests
+npm run test:e2e:gui      # Runs integration tests
+npm run test:e2e:headless # Runs integration tests in headless mode
+
+# Build Scripts
+npm run build             # Builds all packages
 ```
 
-After the initial setup, tests can be run at any time via:
+### Releases
+
+We use `lerna` to handle versioning and publishing to NPM. Before publishing, ensure you are logged
+into SparkPost's NPM account locally via the NPM CLI.
 
 ```bash
-npm run test:unit
-```
+# Update the package versions with lerna. The CLI will prompt you
+# to pick versions for each package that changed.
+lerna version
 
-### End to End Testing
+# Publish to NPM
+# Prepublish scripts will build each package and the CLI will
+# prompt you for a one-time password from your authenticator
+lerna publish from-package
 
-End to end tests can be run locally, either in headless mode or with a GUI.
-
-First, run storybook with a local server:
-
-```bash
-npm run start:storybook
-```
-
-Then, either run Cypress in headless mode:
-
-```bash
-npm run test:e2e:headless
-```
-
-Or, run Cypress with the GUI
-
-```bash
-npm run test:e2e:gui
-```
-
-## Publishing
-
-```bash
-# First merge your PR into master
-# Move into the package you want to publish
-cd packages/matchbox
-
-# Bump version number
-npm version x.x.x
-
-# Commit the release
-git add .
-git commit -m "Publish @sparkpost/matchbox x.x.x"
-git push
-
-# Run the build and publish to NPM with your 2fa code
-npm run build
-npm publish --otp=xxxxxx
+# Remember to clear unreleased.md of any changes you pushed out!
+# That's it!
 ```
