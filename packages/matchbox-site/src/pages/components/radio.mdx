@@ -1,0 +1,232 @@
+import { LiveCode } from '../../components/LiveCode';
+import { Radio } from '@sparkpost/matchbox';
+
+# Radio
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Basic"
+    code={`
+      <Radio id="id" label="Check Me" />
+    `}
+  />
+  <LiveCode.Content
+    title="Without Label"
+    code={`
+      <Radio id="id" label="Check Me" labelHidden />
+    `}
+  />
+  <LiveCode.Content
+    title="with JSX in Label"
+    code={`
+      <Radio
+        id="id"
+        label={
+          <span>
+            One radio <UnstyledLink>please</UnstyledLink>
+          </span>
+        }
+      />
+    `}
+  />
+  <LiveCode.Content
+    title="Disabled"
+    code={`
+      <Radio.Group>
+        <Radio id="id" label="Check Me" disabled />
+        <Radio id="id" label="Check Me" checked disabled />
+      </Radio.Group>
+    `}
+  />
+  <LiveCode.Content
+    title="With Help Text"
+    code={`
+      <Radio id="id" label="Check Me" helpText="Check this box" />
+    `}
+  />
+  <LiveCode.Content
+    title="With Error"
+    code={`
+      <Radio id="id" label="Check Me" error="I'm an error" />
+    `}
+  />
+  <LiveCode.Content
+    title="Group with Label"
+    code={`
+      <Radio.Group label="This is a radio group">
+        <Radio id="id" label="Option 1" name="group" />
+        <Radio id="id2" label="Option 2" name="group" />
+        <Radio id="id3" label="Option 3" name="group" />
+      </Radio.Group>
+    `}
+  />
+  <LiveCode.Content
+    title="Required Group with Label"
+    code={`
+      <Radio.Group label="This is a required radio group" required>
+        <Radio id="id" label="Option 1" name="group" />
+        <Radio id="id2" label="Option 2" name="group" />
+        <Radio id="id3" label="Option 3" name="group" />
+      </Radio.Group>
+    `}
+  />
+  <LiveCode.Content
+    title="Group with Hidden Label"
+    code={`
+      <Radio.Group labelHidden label="This is a radio group">
+        <Radio id="id" label="Option 1" name="group" />
+        <Radio id="id2" label="Option 2" name="group" />
+        <Radio id="id3" label="Option 3" name="group" />
+      </Radio.Group>
+    `}
+  />
+</LiveCode>
+
+---
+
+### Radio System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### Radio API
+
+<Prop
+  name="id"
+  type="string"
+  required
+> 
+  The ID for the form input
+</Prop>
+
+<Prop
+  name="checked"
+  type="bool"
+> 
+  Whether the input is selected or not
+</Prop>
+
+<Prop
+  name="name"
+  type="string"
+> 
+  The name of the form input
+</Prop>
+
+<Prop
+  name="label"
+  type="node"
+> 
+  Label for the form input
+</Prop>
+
+<Prop
+  name="labelHidden"
+  type="bool"
+> 
+  Hides the label visually, but still accessible to screen readers
+</Prop>
+
+<Prop
+  name="disabled"
+  type="bool"
+> 
+  Whether the input is disabled or not
+</Prop>
+
+<Prop
+  name="required"
+  type="bool"
+> 
+  Whether the input is required or not
+</Prop>
+
+<Prop
+  name="value"
+  type="string"
+> 
+  Value for the form input
+</Prop>
+
+<Prop
+  name="error"
+  type="string"
+> 
+  Renders an error message below the form input
+</Prop>
+
+<Prop
+  name="onChange"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when the input state changes
+</Prop>
+
+<Prop
+  name="onFocus"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when the input becomes focused
+</Prop>
+
+<Prop
+  name="onBlur"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Callback when the input loses focus
+</Prop>
+
+<Prop
+  name="helpText"
+  type="node"
+> 
+  Additional text to help the user that renders below the input
+</Prop>
+
+---
+
+### Radio.Group System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+---
+
+### Radio.Group API
+
+<Prop
+  name="children"
+  type="node"
+  required
+> 
+  Children of the radio group fieldset wrapper
+</Prop>
+
+<Prop
+  name="label"
+  type="node"
+  required
+> 
+  A legend label for the radio group
+</Prop>
+
+<Prop
+  name="labelHidden"
+  type="bool"
+> 
+  Hides the label visually, but still accessible to screen readers
+</Prop>
+
+<Prop
+  name="required"
+  type="bool"
+> 
+  Whether the radio group fieldset is required or not
+</Prop>
