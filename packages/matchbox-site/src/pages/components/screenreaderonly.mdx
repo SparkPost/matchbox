@@ -1,0 +1,57 @@
+
+import { LiveCode } from '../../components/LiveCode';
+
+# ScreenReaderOnly
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Basic"
+    code={`
+      <p>
+        I am content that is available to all users...
+        <ScreenReaderOnly id="example-id">
+          ...and I am content that is only available to screen reader users.
+        </ScreenReaderOnly>
+      </p>
+    `}
+  />
+  <LiveCode.Content
+    title="As a div"
+    code={`
+      <ScreenReaderOnly as="div">
+        <h2>I am a block-level element that must be inside another block-level element</h2>
+      </ScreenReaderOnly>
+    `}
+  />
+</LiveCode>
+
+---
+
+### ScreenReaderOnly API
+
+<Prop
+  name="children"
+  type="node"
+  required
+> 
+  Content rendered inside the ScreenReaderOnly
+</Prop>
+
+<Prop
+  name="as"
+  type="elementType"
+  required
+> 
+  Element the ScreenReaderOnly should be rendered as
+</Prop>
+
+<Prop
+  name="id"
+  type="string"
+> 
+  ID of the ScreenReaderOnly
+</Prop>
