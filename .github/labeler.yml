@@ -1,3 +1,8 @@
 :eyes:%20needs%20review:
-  title: '*'
-  mergeable: true
+  - ./*
+
+matchbox-site:
+  - packages/matchbox-site/*
+
+design-tokens:
+  - packages/design-tokens/*
