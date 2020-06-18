@@ -18,18 +18,10 @@ const Header = React.forwardRef(function Header(props, ref) {
           </Text>
         </Box>
         {showCloseButton && (
-          <Box
-            position="relative"
-            width={tokens.spacing_500} // TODO update with FE-1012
-          >
-            <Button flat size="small" fullWidth px="0" onClick={onClose}>
-              <ScreenReaderOnly>Close</ScreenReaderOnly>
-              {/* TODO Support square Buttons without hacks */}
-              <Box position="absolute" left="0" top="0" p="100">
-                <Close size={25} />
-              </Box>
-            </Button>
-          </Box>
+          <Button flat size="small" width={tokens.spacing_600} px="0" onClick={onClose}>
+            <ScreenReaderOnly>Close</ScreenReaderOnly>
+            <Close size={25} />
+          </Button>
         )}
       </Box>
     </Box>
