@@ -1,8 +1,11 @@
 :eyes:%20needs%20review:
   - ./*
 
-matchbox-site:
+package:matchbox:
   - packages/matchbox-site/*
 
-design-tokens:
+package:matchbox-site:
+  - packages/matchbox-site/*
+
+package:design-tokens:
   - packages/design-tokens/*
