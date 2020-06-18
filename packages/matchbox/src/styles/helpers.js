@@ -1,3 +1,5 @@
+import { tokens } from '@sparkpost/design-tokens';
+
 export const buttonReset = `
   border: none;
   margin: 0;
@@ -29,4 +31,33 @@ export const visuallyHidden = `
   position: absolute !important;
   width: 1px !important;
   word-wrap: normal !important;
+`;
+
+/**
+ * Creates focus styles on an :after pseudo-element. Defaults to blue 700.
+ * @param string color
+ */
+export const focusOutline = (color = tokens.color_blue_700) => `
+  position: relative;
+  outline: none;
+
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    transition: ${tokens.motionDuration_fast};
+    border-radius: ${tokens.borderRadius_200};
+    box-shadow: none;
+    pointer-events: none;
+  } 
+
+  &:focus:after {
+    z-index: 1;
+    opacity: 1;
+    box-shadow: 0 0 0 2px ${color};
+  }
 `;

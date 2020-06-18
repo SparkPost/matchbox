@@ -1,4 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
+import { focusOutline } from '../../styles/helpers';
 
 export function focus(props) {
   let color = tokens.color_gray_300;
@@ -19,29 +20,7 @@ export function focus(props) {
       break;
   }
 
-  return `
-    position: relative;
-    outline: none;
-
-    &:after {
-      position: absolute;
-      content: "";
-      display: block;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      transition: ${tokens.motionDuration_fast};
-      border-radius: ${tokens.borderRadius_200};
-      box-shadow: none;
-      pointer-events: none;
-    } 
-
-    &:focus:after {
-      z-index: 1;
-      opacity: 1;
-      box-shadow: 0 0 0 2px ${color};
-    }`;
+  return focusOutline(color);
 }
 
 export const base = () => `
