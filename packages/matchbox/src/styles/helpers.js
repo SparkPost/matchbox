@@ -56,7 +56,7 @@ export const focusOutline = (color = tokens.color_blue_700) => `
   } 
 
   &:focus:after {
-    z-index: 1;
+    z-index: ${tokens.zIndex_default};
     opacity: 1;
     box-shadow: 0 0 0 2px ${color};
   }
