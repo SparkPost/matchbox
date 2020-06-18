@@ -1,4 +1,2 @@
 ':eyes: needs review':
-  - '**'
-  - '.*'
-  - '.*/**'
+  - 'packages/**/*'

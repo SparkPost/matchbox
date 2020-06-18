@@ -158,6 +158,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/textfield",
+        "label": "TextField",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
         "path": "/components/tabs",
         "label": "Tabs",
         "disabled": false,
