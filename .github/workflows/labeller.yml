@@ -1,5 +1,5 @@
 on: [pull_request]
-name: Label needs review PRs
+name: Label PR
 jobs:
   labelWhenMergable:
     runs-on: ubuntu-latest
