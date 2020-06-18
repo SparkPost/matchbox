@@ -13,6 +13,7 @@ export const inputOptions = {
     'react-day-picker',
     'react-transition-group',
     'react-focus-lock',
+    'react-scrolllock',
     '@sparkpost/matchbox-icons',
     '@sparkpost/design-tokens',
     '@styled-system/prop-types',

@@ -11,6 +11,7 @@ export function getWindowRect() {
     left: environment.scrollX,
     height: environment.innerHeight,
     width: environment.innerWidth,
+    pageYOffset: environment.pageYOffset,
   };
 }
 
