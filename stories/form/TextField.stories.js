@@ -95,7 +95,14 @@ export const Multiline = withInfo()(() => <TextField id="id" label="Message" row
 
 export const SystemProps = withInfo()(() => (
   <>
-    <TextField id="id" label="Name" placeholder="Leslie Knope" my={['200', '400', null, '700']} />
+    <TextField
+      id="id"
+      label="Name"
+      placeholder="Leslie Knope"
+      my={['200', '400', null, '700']}
+      maxWidth="800px"
+      bg="black"
+    />
     <TextField
       id="id"
       label="Email"

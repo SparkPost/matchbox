@@ -2,6 +2,7 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const select = props => `
   appearance: none;
+  margin: 0;
   &:hover {
     cursor: ${props.disabled ? 'not-allowed;' : 'pointer;'}
   }
