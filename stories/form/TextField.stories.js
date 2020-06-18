@@ -101,7 +101,6 @@ export const SystemProps = withInfo()(() => (
       placeholder="Leslie Knope"
       my={['200', '400', null, '700']}
       maxWidth="800px"
-      bg="black"
     />
     <TextField
       id="id"

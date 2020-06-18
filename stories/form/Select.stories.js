@@ -73,7 +73,6 @@ export const SystemProps = withInfo()(() => (
       options={options}
       my={['200', '400', '600', '800']}
       maxWidth="800px"
-      bg="black"
     />
     <Select id="id" label="Select an option" options={options} mx={['200', '400', '600', '800']} />
   </>
