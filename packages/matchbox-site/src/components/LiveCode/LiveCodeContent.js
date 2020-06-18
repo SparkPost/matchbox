@@ -6,6 +6,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import ResizeContainer from '../ResizeContainer/ResizeContainer';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
+import * as icons from '@sparkpost/matchbox-icons';
 
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
@@ -41,7 +42,7 @@ function Content(props) {
       <Box as="p" mb="500" pb="0">
         {description}
       </Box>
-      <LiveProvider code={formatted.trim()} scope={components}>
+      <LiveProvider code={formatted.trim()} scope={{ ...components, ...icons }}>
         <ResizeContainer disableResize={disableResize}>
           <LivePreview />
         </ResizeContainer>
