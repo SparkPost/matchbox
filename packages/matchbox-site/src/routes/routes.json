@@ -164,6 +164,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/pagination",
+        "label": "Pagination",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
         "path": "/components/tabs",
         "label": "Tabs",
         "disabled": false,
