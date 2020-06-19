@@ -11,6 +11,7 @@ import { Close } from '@sparkpost/matchbox-icons';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { WindowEvent } from '../WindowEvent';
 import { Button } from '../Button';
+import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
@@ -77,7 +78,6 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
       <Portal containerId={portalId}>
         <TouchScrollable>
           <StyledBase
-            p={['400', null, '700']}
             open={open}
             {...rest}
             className={className}
@@ -89,7 +89,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
               Ref can't be a direct child of TouchScrollable
               See https://github.com/jossmac/react-scrolllock/issues/67
             */}
-            <div ref={container}>
+            <Box p={['400', null, '700']} size="100%" ref={container}>
               <StyledWrapper>
                 <div ref={content}>
                   <ModalContent open={open} maxWidth={maxWidth} ref={userRef}>
@@ -107,7 +107,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                   </ModalContent>
                 </div>
               </StyledWrapper>
-            </div>
+            </Box>
           </StyledBase>
         </TouchScrollable>
       </Portal>

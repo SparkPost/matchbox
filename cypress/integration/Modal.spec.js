@@ -21,13 +21,11 @@ describe('The Modal component', () => {
 
   it('closes when using the escape key', () => {
     cy.get('[role="dialog"] > div').type('{esc}');
-
     cy.contains('Are you sure you want to delete your template?').should('not.be.visible');
   });
 
   it('closes when clicking outside the modal', () => {
-    cy.get('[role="dialog"] > div').click({ force: true, x: 1, y: 1 });
-
+    cy.get('[role="dialog"] > div').click({ force: true, x: -100, y: -100 });
     cy.contains('Are you sure you want to delete your template?').should('not.be.visible');
   });
 
