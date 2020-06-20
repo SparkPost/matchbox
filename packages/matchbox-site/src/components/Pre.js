@@ -5,12 +5,15 @@ import { Box } from '@sparkpost/matchbox';
 
 function Pre(props) {
   const { children } = props;
+  let language = '';
 
   if (!children.props.children) {
     return null;
   }
 
-  const language = children.props.className.replace('language-', '');
+  if (children.props.className) {
+    language = children.props.className.replace('language-', '');
+  }
 
   return (
     <Box bg="gray.100" p="600" mb="400" borderRadius="200">
@@ -19,7 +22,8 @@ function Pre(props) {
         style={coy}
         customStyle={{
           padding: 0,
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          margin: 0
         }}
       >
         {children.props.children}

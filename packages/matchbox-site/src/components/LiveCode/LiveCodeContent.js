@@ -16,8 +16,11 @@ const StyledEditor = styled(LiveEditor)`
   font-size: ${tokens.fontSize_100};
   ${'' /* // controls the blinking cursor color */}
   color: ${tokens.color_blue_200};
-  textarea { 
+  textarea:focus { 
     outline: none;
+    box-shadow: 0 0 2px ${tokens.color_white}, 0 0 0 2px ${
+  tokens.color_blue_800
+};
   }
 `;
 
@@ -31,6 +34,7 @@ const StyledError = styled(LiveError)`
   background: ${tokens.color_red_800};
   font-size: ${tokens.fontSize_100};
   color: ${tokens.color_red_100};
+  padding: ${tokens.spacing_400};
 `;
 
 function Content(props) {
