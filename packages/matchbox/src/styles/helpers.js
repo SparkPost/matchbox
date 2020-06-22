@@ -37,6 +37,7 @@ export const visuallyHidden = `
  * Creates focus styles on an :after pseudo-element. Defaults to blue 700.
  * @param string color
  * @param within boolean
+ * @param offset string, pixel value
  */
 export const focusOutline = ({ color = tokens.color_blue_700, within = false, offset = '3px' }) => `
   position: relative;
