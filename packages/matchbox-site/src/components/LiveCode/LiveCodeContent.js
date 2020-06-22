@@ -28,7 +28,7 @@ const StyledError = styled(LiveError)`
 `;
 
 function Content(props) {
-  const { description, disableResize, code } = props;
+  const { description, disableResize, code, scope } = props;
 
   const formatted = prettier.format(code.trim(), {
     parser: 'babel',
@@ -42,7 +42,10 @@ function Content(props) {
       <Box as="p" mb="500" pb="0">
         {description}
       </Box>
-      <LiveProvider code={formatted.trim()} scope={{ ...components, ...icons }}>
+      <LiveProvider
+        code={formatted.trim()}
+        scope={{ ...components, ...icons, ...scope }}
+      >
         <ResizeContainer disableResize={disableResize}>
           <LivePreview />
         </ResizeContainer>
@@ -60,6 +63,7 @@ Content.displayName = 'LiveCode.Content';
 Content.propTypes = {
   title: PropTypes.string,
   code: PropTypes.string,
+  scope: PropTypes.node,
   description: PropTypes.string
 };
 

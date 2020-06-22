@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
 import styled from 'styled-components';
 import { border, color, compose, layout, padding, typography, shadow } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
+import { tokens } from '@sparkpost/design-tokens';
 import TooltipOverlay from './TooltipOverlay';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { visibility } from './styles';
 import { deprecate } from '../../helpers/propTypes';
+import { secondsToMS } from '../../helpers/string';
 
 const system = compose(border, color, layout, padding, typography, shadow);
 
@@ -66,36 +69,49 @@ function Tooltip(props) {
     };
 
     return (
-      <StyledTooltipContainer
-        display="block"
-        position="absolute"
-        top={positionTop ? 'auto' : '100%'}
-        bottom={positionTop ? '100%' : 'auto'}
-        left={positionLeft ? 'auto' : '0'}
-        right={positionLeft ? '0' : 'auto'}
-        // Tooltip gap to activator
-        mt={positionTop ? '0' : '100'}
-        mb={positionTop ? '100' : '0'}
-        visible={!disabled && show}
+      <Transition
+        mountOnEnter
+        unmountOnExit
+        in={show}
+        timeout={{
+          enter: secondsToMS(tokens.motionDuration_medium),
+          exit: 0,
+        }}
       >
-        <StyledContent
-          position="relative"
-          fontSize="200"
-          lineHeight="200"
-          p="300"
-          borderRadius="100"
-          bg="gray.1000"
-          color="white"
-          textAlign="left"
-          width={width}
-          zIndex="default"
-          {...contentStyles}
-        >
-          <Box overflow="hidden" maxHeight="11rem">
-            {content}
-          </Box>
-        </StyledContent>
-      </StyledTooltipContainer>
+        {state => (
+          <StyledTooltipContainer
+            display="block"
+            position="absolute"
+            top={positionTop ? 'auto' : '100%'}
+            bottom={positionTop ? '100%' : 'auto'}
+            left={positionLeft ? 'auto' : '0'}
+            right={positionLeft ? '0' : 'auto'}
+            // Tooltip gap to activator
+            mt={positionTop ? '0' : '100'}
+            mb={positionTop ? '100' : '0'}
+            visible={!disabled && show}
+            state={state}
+          >
+            <StyledContent
+              position="relative"
+              fontSize="200"
+              lineHeight="200"
+              p="300"
+              borderRadius="100"
+              bg="gray.1000"
+              color="white"
+              textAlign="left"
+              width={width}
+              zIndex="default"
+              {...contentStyles}
+            >
+              <Box overflow="hidden" maxHeight="11rem">
+                {content}
+              </Box>
+            </StyledContent>
+          </StyledTooltipContainer>
+        )}
+      </Transition>
     );
   }
 
