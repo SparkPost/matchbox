@@ -92,6 +92,12 @@
         "section": "Layout"
       },
       {
+        "path": "/components/expandable",
+        "label": "Expandable",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
         "path": "/components/page",
         "label": "Page",
         "disabled": false,
@@ -102,6 +108,18 @@
         "label": "Panel",
         "disabled": false,
         "section": "Layout"
+      },
+      {
+        "path": "/components/table",
+        "label": "Table",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
+        "path": "/components/screenreaderonly",
+        "label": "ScreenReaderOnly",
+        "disabled": false,
+        "section": "Utility"
       },
       {
         "path": "/components/windowevent",
@@ -140,6 +158,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/combobox",
+        "label": "ComboBox",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
         "path": "/components/radio",
         "label": "Radio",
         "disabled": false,
@@ -162,6 +186,18 @@
         "label": "TextField",
         "disabled": false,
         "section": "Form"
+      },
+      {
+        "path": "/components/pager",
+        "label": "Pager",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
+        "path": "/components/pagination",
+        "label": "Pagination",
+        "disabled": false,
+        "section": "Navigation"
       },
       {
         "path": "/components/tabs",

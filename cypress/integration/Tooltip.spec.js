@@ -30,4 +30,14 @@ describe('The Tooltip component', () => {
 
     cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
   });
+
+  it('should open when focusing', () => {
+    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
+
+    cy.get('button')
+      .first()
+      .focus();
+
+    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
+  });
 });

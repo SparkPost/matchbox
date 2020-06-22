@@ -11,10 +11,11 @@ describe('Tooltip', () => {
     );
 
   const container = wrapper => wrapper.find('div').at(2);
-  const content = wrapper => wrapper.find('div').at(3);
+  const content = wrapper => wrapper.find('div').at(4);
 
   it('should render default styles correctly', () => {
     const wrapper = subject();
+    wrapper.find('button').simulate('mouseOver');
     expect(wrapper.find('span').at(2)).toHaveAttributeValue('id', 'test-id');
     expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
     expect(container(wrapper)).toHaveStyleRule('top', '100%');
@@ -33,31 +34,8 @@ describe('Tooltip', () => {
 
   it('should render with a width', () => {
     const wrapper = subject({ width: '100px' });
-    expect(content(wrapper)).toHaveStyleRule('width', '100px');
-  });
-
-  it('should toggle hover visibility', () => {
-    const wrapper = subject();
     wrapper.find('button').simulate('mouseOver');
-    expect(container(wrapper)).toHaveStyleRule('opacity', '1');
-    expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
-    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
-    wrapper.find('button').simulate('mouseOut');
-    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
-    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
-    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
-  });
-
-  it('should toggle focus visibility', () => {
-    const wrapper = subject();
-    wrapper.find('button').simulate('focus');
-    expect(container(wrapper)).toHaveStyleRule('opacity', '1');
-    expect(container(wrapper)).toHaveStyleRule('visibility', 'visible');
-    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(1)');
-    wrapper.find('button').simulate('blur');
-    expect(container(wrapper)).toHaveStyleRule('opacity', '0');
-    expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
-    expect(container(wrapper)).toHaveStyleRule('transform', 'scale(0.96)');
+    expect(content(wrapper)).toHaveStyleRule('width', '100px');
   });
 
   it('should not toggle visibility when disabled', () => {
@@ -71,6 +49,7 @@ describe('Tooltip', () => {
       top: true,
       left: true,
     });
+    wrapper.find('button').simulate('mouseOver');
     expect(container(wrapper)).toHaveStyleRule('top', 'auto');
     expect(container(wrapper)).toHaveStyleRule('bottom', '100%');
     expect(container(wrapper)).toHaveStyleRule('left', 'auto');
@@ -81,6 +60,7 @@ describe('Tooltip', () => {
 
   it('should pass through system props', () => {
     const wrapper = subject({ bg: 'blue', fontSize: '400', pr: '500' });
+    wrapper.find('button').simulate('mouseOver');
     expect(content(wrapper)).toHaveStyleRule('background-color', 'blue');
     expect(content(wrapper)).toHaveStyleRule('font-size', '1rem');
     expect(content(wrapper)).toHaveStyleRule('padding-right', '1.5rem');
