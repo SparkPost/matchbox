@@ -170,6 +170,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/pager",
+        "label": "Pager",
+        "disabled": false,
+        "section": "Navigation"
+      },
+      {
         "path": "/components/pagination",
         "label": "Pagination",
         "disabled": false,
