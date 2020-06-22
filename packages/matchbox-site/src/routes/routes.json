@@ -212,6 +212,12 @@
         "section": "Navigation"
       },
       {
+        "path": "/components/modal",
+        "label": "Modal",
+        "disabled": false,
+        "section": "Overlays"
+      },
+      {
         "path": "/components/tooltip",
         "label": "Tooltip",
         "disabled": false,

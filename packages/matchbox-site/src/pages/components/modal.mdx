@@ -1,0 +1,76 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Modal
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Open"
+    code={`
+      <Modal open>
+        <Panel title="Delete Template" sectioned>
+          <p>Are you sure you want to delete your template?</p>
+          <Box mt="500">
+            <Button mr="300" color="blue">
+              Delete
+            </Button>
+            <Button color="blue" outline>
+              Cancel
+            </Button>
+          </Box>
+        </Panel>
+      </Modal>
+    `}
+  />
+</LiveCode>
+
+---
+
+### Modal API
+
+<Prop
+  name="open"
+  type="bool"
+> 
+  Controlled open state of the modal
+</Prop>
+
+<Prop
+  name="onClose"
+  type="function"
+  defaultValue="(e) => void"
+> 
+  Optional callback that is called on key down 'Escape' and on click outside modal content
+</Prop>
+
+<Prop
+  name="children"
+  type="node"
+> 
+  The content of the modal
+</Prop>
+
+<Prop
+  name="showCloseButton"
+  type="bool"
+> 
+  Whether or not to show a close button
+</Prop>
+
+<Prop
+  name="maxWidth"
+  type="number"
+  defaultValue="800px"
+> 
+  The maximum width of the modal
+</Prop>
+
+<Prop
+  name="portalId"
+  type="string"
+> 
+  Controls the target container ID for the rendering React portal
+</Prop>

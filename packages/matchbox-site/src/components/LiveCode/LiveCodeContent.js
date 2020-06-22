@@ -57,9 +57,11 @@ function Content(props) {
         scope={{ ...components, ...icons, ...scope }}
         theme={palenight}
       >
-        <ResizeContainer disableResize={disableResize}>
-          <LivePreview />
-        </ResizeContainer>
+        <div id="live-code-content">
+          <ResizeContainer disableResize={disableResize}>
+            <LivePreview />
+          </ResizeContainer>
+        </div>
         <StyledWrapper p="400" fontSize="100">
           <StyledEditor />
         </StyledWrapper>
