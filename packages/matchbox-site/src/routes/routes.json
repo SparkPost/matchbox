@@ -140,6 +140,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/combobox",
+        "label": "ComboBox",
+        "disabled": false,
+        "section": "Form"
+      },
+      {
         "path": "/components/radio",
         "label": "Radio",
         "disabled": false,
