@@ -21,10 +21,12 @@ function Pre(props) {
         language={language}
         style={coy}
         customStyle={{
-          padding: 0,
-          backgroundColor: 'transparent',
-          margin: 0
+          whiteSpace: 'pre-wrap',
+          marginBottom: 0,
+          marginTop: 0,
+          backgroundColor: 'transparent'
         }}
+        codeTagProps={{}} // Removes <code> inline
       >
         {children.props.children}
       </SyntaxHighlighter>
