@@ -13,30 +13,40 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import styled from 'styled-components';
 import { pick } from '../../helpers/systemProps';
+import { focusOutline } from '../../styles/helpers';
 
 const system = compose(margin, maxWidth);
 const StyledWrapper = styled('div')`
   ${system}
 `;
 
-// TODO Make this reusable and shared with Select
+const StyledInputWrapper = styled(Box)`
+  ${focusOutline({ within: true, offset: '2px' })}
+`;
+
+const StyledInput = styled(Box)`
+  outline: none;
+`;
+
 const FieldBox = props => {
   return (
-    <Box
-      as="input"
-      px="400"
-      {...props}
-      disabled={props.disabled}
-      width="100%"
-      border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
-      borderRadius="100"
-      bg={props.disabled ? 'gray.200' : 'white'}
-      color="gray.900"
-      height={props.height}
-      lineHeight={props.lineHeight}
-      py={props.py}
-      required={props.required}
-    />
+    <StyledInputWrapper>
+      <StyledInput
+        as="input"
+        px="400"
+        {...props}
+        disabled={props.disabled}
+        width="100%"
+        border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
+        borderRadius="100"
+        bg={props.disabled ? 'gray.200' : 'white'}
+        color="gray.900"
+        height={props.height}
+        lineHeight={props.lineHeight}
+        py={props.py}
+        required={props.required}
+      />
+    </StyledInputWrapper>
   );
 };
 
