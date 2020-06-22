@@ -122,6 +122,12 @@
         "section": "Utility"
       },
       {
+        "path": "/components/portal",
+        "label": "Portal",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
         "path": "/components/screenreaderonly",
         "label": "ScreenReaderOnly",
         "disabled": false,
