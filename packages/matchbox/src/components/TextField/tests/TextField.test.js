@@ -8,7 +8,7 @@ describe('TextField', () => {
   const input = wrapper => wrapper.find('input');
   const label = wrapper => wrapper.find('label');
   const helptext = wrapper => wrapper.find('div').last();
-  const error = wrapper => wrapper.find('div').at(4); // last with no label or help text
+  const error = wrapper => wrapper.find('div').at(5); // last with no label or help text
   const textarea = wrapper => wrapper.find('textarea');
 
   it('renders defaults correctly', () => {

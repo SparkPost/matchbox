@@ -40,11 +40,11 @@ describe('Select', () => {
     expect(
       wrapper
         .find('div')
-        .at(2)
+        .at(3)
         .text(),
     ).toEqual('test-error');
     expect(wrapper.find('select')).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(wrapper.find('div').at(2)).toHaveAttributeValue('id', 'test-id-error');
+    expect(wrapper.find('div').at(3)).toHaveAttributeValue('id', 'test-id-error');
   });
 
   it('should render with error and helptext describedby', () => {
