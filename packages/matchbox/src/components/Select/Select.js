@@ -8,9 +8,10 @@ import styled from 'styled-components';
 import { select, chevron } from './styles';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
-import { margin } from 'styled-system';
+import { compose, margin, maxWidth } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { pick, omit } from '@styled-system/props';
+import { omit } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 
 const Option = ({ option }) => {
@@ -65,6 +66,8 @@ const SelectBox = props => {
   );
 };
 
+const system = compose(margin, maxWidth);
+
 const StyledSelect = styled(SelectBox)`
   ${select}
 `;
@@ -74,7 +77,7 @@ const StyledChevron = styled(KeyboardArrowDown)`
 `;
 
 const StyledWrapper = styled('div')`
-  ${margin}
+  ${system}
 `;
 
 function Select(props) {
@@ -92,7 +95,7 @@ function Select(props) {
     // labelHidden, TODO add this back in later after hibana cutover
     ...rest
   } = props;
-  const systemProps = pick(rest);
+  const systemProps = pick(rest, system.propNames);
   const componentProps = omit(rest);
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -175,6 +178,7 @@ Select.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   ...createPropTypes(margin.propNames),
+  ...createPropTypes(maxWidth.propNames),
 };
 
 export default Select;
