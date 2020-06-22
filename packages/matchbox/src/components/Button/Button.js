@@ -13,6 +13,7 @@ import { Spinner } from '../Spinner';
 import Group from './Group';
 import {
   base,
+  focus,
   visualSize,
   colorVariant,
   disabled,
@@ -26,6 +27,7 @@ const system = compose(margin, width, padding);
 
 export const StyledButton = styled(Box)`
   ${base}
+  ${focus}
   ${visualSize}
   ${colorVariant}
   ${disabled}
@@ -142,7 +144,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
   const childrenMarkup = React.useMemo(() => {
     return (
-      <ChildWrapper aria-hidden={loading} loading={loading}>
+      <ChildWrapper aria-hidden={loading} loading={loading ? loading : undefined}>
         {children}
       </ChildWrapper>
     );

@@ -1,14 +1,2 @@
-:eyes:%20needs%20review:
-  - ./**/*
-
-package-matchbox:
-  - ./packages/matchbox/**/*
-
-package-matchbox-icons:
-  - ./packages/matchbox-icons/**/*
-
-package-matchbox-site:
-  - ./packages/matchbox-site/**/*
-
-package-design-tokens:
-  - ./packages/design-tokens/**/*
+':eyes: needs review':
+  - 'packages/**/*'

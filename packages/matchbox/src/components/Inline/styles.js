@@ -4,7 +4,7 @@ export const negativeTop = system({
   gutter: {
     property: 'marginTop',
     scale: 'space',
-    transform: (value, scale) => `-${scale[value] || value}`,
+    transform: (value, scale) => `calc(-${scale[value] || value} - 1px)`,
   },
 });
 
