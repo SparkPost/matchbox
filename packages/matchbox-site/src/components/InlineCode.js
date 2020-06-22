@@ -4,6 +4,7 @@ import { Box } from '@sparkpost/matchbox';
 function InlineCode(props) {
   return (
     <Box
+      as="code"
       display="inline-block"
       fontFamily="monospace"
       lineHeight="100"

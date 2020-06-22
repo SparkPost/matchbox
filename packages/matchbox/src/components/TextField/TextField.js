@@ -8,13 +8,15 @@ import { HelpText } from '../HelpText';
 import { getRectFor, roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { tokens } from '@sparkpost/design-tokens';
-import { margin } from 'styled-system';
+import { compose, margin, maxWidth } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { omit } from '@styled-system/props';
 import styled from 'styled-components';
-import { pick } from '@styled-system/props';
-import { omit } from '../../helpers/systemProps';
+import { pick } from '../../helpers/systemProps';
 
+const system = compose(margin, maxWidth);
 const StyledWrapper = styled('div')`
-  ${margin}
+  ${system}
 `;
 
 // TODO Make this reusable and shared with Select
@@ -91,8 +93,8 @@ function TextField(props) {
     ...rest
   } = props;
 
-  const componentProps = omit(rest, margin.propNames);
-  const systemProps = pick(rest);
+  const componentProps = omit(rest);
+  const systemProps = pick(rest, system.propNames);
   const prefixRef = React.useRef(null);
   const suffixRef = React.useRef(null);
   const [prefixPadding, setPrefixPadding] = React.useState('0');
@@ -218,6 +220,8 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(maxWidth.propNames),
 };
 
 TextField.defaultProps = {

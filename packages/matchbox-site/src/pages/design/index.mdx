@@ -6,22 +6,73 @@ Matchbox provides a library of tokens and guidelines that define the SparkPost p
 
 ---
 
-#### Tokens
+#### What are design tokens?
 
-Design tokens are the smallest indivisible atoms of the design system. They are named entities with immutable values that serve as the foundation for UI development.
+Design tokens are the smallest indivisible units of a design system. They are named entities with immutable values that serve as the foundation for UI development.
 
-- [Color](/design/color)
-- [Typography](/design/typography)
-- [Spacing](/design/spacing)
-- [Elevation](/design/elevation)
-- [Motion](/design/motion)
-- [Token API Reference](/design/tokenreference)
+Tokens from Matchbox are available in a few formats – _CSS_, _Scss_, and _JavaScript_.
+
+##### CSS
+
+You will need to configure your environment to resolve CSS files from node_modules:
+
+```css
+@import '~@sparkpost/design-tokens/dist/index.custom-properties.css';
+
+.my-element {
+  background: var(--color-blue-700);
+  box-shadow: var(--box-shadow-200);
+}
+```
+
+Or, you can also install the CSS variables directly via CDN:
+
+```html
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://unpkg.com/@sparkpost/design-tokens@1.0.0/dist/index.custom-properties.css"
+/>
+```
+
+##### Sass
+
+Install via NPM. You will need to configuring your environment to resolve Scss files from node_modules:
+
+```scss
+@import '~@sparkpost/design-tokens/tokens.scss';
+
+.my-element {
+  background: color(blue, 700);
+  box-shadow: box-shadow(400);
+
+  // Two Sass utility functions are also provided:
+  font-size: rem(24); // Converts a pixel value to rems
+  line-height: em(30); // Converts a pixel value to ems;
+}
+```
+
+##### JavaScript
+
+Install via NPM. When using tokens in javascript, a `meta` object is provided with additional token usage information:
+
+```jsx
+import { tokens, meta } from '@sparkpost/design-tokens';
+
+function Component() {
+  return (
+    <div
+      style={{
+        background: tokens.color_blue_700,
+        boxShadow: tokens.boxShadow_400
+      }}
+    />
+  );
+}
+```
 
 ---
 
-#### Visual Guidelines
+Resources:
 
-- Data Visualization
-- Illustration
-
----
+- [Token reference](design/tokenreference)

@@ -4,52 +4,38 @@ Explore Matchbox's React component library
 
 ---
 
-##### Action
+### Getting Started with Matchbox
 
-- [ActionList](/components/actionlist)
-- [Button](/components/button)
-- [Toggle](/components/toggle)
+First install the component library with <ExternalLink tp="https://www.npmjs.com/package/@sparkpost/matchbox">NPM</ExternalLink>. Our components are styled with javascript via <ExternalLink to="https://styled-components.com/">styled-components</ExternalLink>, install this too.
 
-##### Feedback
+```bash
+npm install @sparkpost/matchbox @sparkpost/matchbox-icons styled-components --save
+```
 
-- [Banner](/components/banner)
-- [ProgressBar](/components/progressbar)
-- [Snackbar](/components/snackbar)
-- [Tag](/components/tag)
+Optionally, if you plan on styling with Matchbox, install our [design token library](/design).
 
-##### Form
+```bash
+npm install @sparkpost/design-tokens --save
+```
 
-- [Checkbox](/components/checkbox)
-- [ComboBox](/components/comboBox)
-- [Radio](/components/radio)
-- [Select](/components/select)
-- [Slider](/components/slider)
-- [TextField](/components/textField)
+Wrap your React app with our `ThemeProvider` component:
 
-##### Layout
+```javascript
+import { ThemeProvider } from '@sparkpost/matchbox';
 
-- [EmptyState](/components/emptyState)
-- [Expandable](/components/expandable)
-- [Page](/components/page)
-- [Panel](/components/panel)
-- [Table](/components/table)
+function App(props) {
+  return <ThemeProvider>{props.children}</ThemeProvider>;
+}
+```
 
-##### Navigation
+That's it!
 
-- [Pager](/components/pager)
-- [Pagination](/components/pagination)
-- [Tabs](/components/tabs)
-- [UnstyledLink](/components/unstyledLink)
+---
 
-##### Overlays
+For information on how to use and style Matchbox components:
 
-- [Modal](/components/modal)
-- [Popover](/components/popover)
-- [Tooltip](/components/tooltip)
+- Read our [design token guide](/design)
+- Read our [system prop guide](./system-props)
+- Read docs for a component. [Button](button) is a good one!
 
-##### Utility
-
-- [Grid](/components/grid)
-- [Portal](/components/portal)
-- [ScreenReaderOnly](/components/screenReaderOnly)
-- [WindowEvent](/components/windowEvent)
+---

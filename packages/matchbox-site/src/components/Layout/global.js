@@ -178,10 +178,7 @@ export default `
      }
     
      pre {
-      background: ${tokens.color_gray_100};
-      padding: ${tokens.spacing_400};
-      color: ${tokens.color_gray_800};
-      border-radius: ${tokens.borderRadius_200};
+      margin-bottom: ${tokens.spacing_400};
     }
   }
 
