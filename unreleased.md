@@ -11,3 +11,4 @@ Example: - #456 - Deprecates Tab prop `tabs`
 - #462 - Adds focus styles to all button variations
 - #484 - Locks background window scroll when Drawers or Modals are open
 - #490 - Toolips wait 300 ms after interaction before becoming visible
+- #500 - Modals and Drawers no longer lock focus if inside an iframe
