@@ -14,6 +14,7 @@ import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
 import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
+import { isInIframe } from '../../helpers/window';
 import { Overlay, Container } from './styles';
 
 const Drawer = React.forwardRef(function Drawer(props, ref) {
@@ -94,10 +95,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
           }}
         >
           {state => (
-            <FocusLock
-              returnFocus
-              crossFrame="false" // Seee https://github.com/reach/reach-ui/issues/536#issuecomment-614981674
-            >
+            <FocusLock returnFocus disabled={!open || isInIframe()}>
               <Box
                 data-id="drawer-wrapper"
                 height="100vh"

@@ -15,6 +15,7 @@ import { Box } from '../Box';
 import { Portal } from '../Portal';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
+import { isInIframe } from '../../helpers/window';
 import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
 
 const StyledBase = styled('div')`
@@ -119,11 +120,7 @@ const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
   const { open, children, maxWidth } = props;
 
   return (
-    <StyledFocusLock
-      disabled={!open}
-      maxWidth={maxWidth}
-      crossFrame="false" // Seee https://github.com/reach/reach-ui/issues/536#issuecomment-614981674
-    >
+    <StyledFocusLock disabled={!open || isInIframe()} maxWidth={maxWidth}>
       <Transition
         mountOnEnter
         unmountOnExit
