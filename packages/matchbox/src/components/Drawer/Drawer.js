@@ -94,7 +94,10 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
           }}
         >
           {state => (
-            <FocusLock returnFocus>
+            <FocusLock
+              returnFocus
+              crossFrame="false" // Seee https://github.com/reach/reach-ui/issues/536#issuecomment-614981674
+            >
               <Box
                 data-id="drawer-wrapper"
                 height="100vh"

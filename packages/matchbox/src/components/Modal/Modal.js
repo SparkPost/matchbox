@@ -119,7 +119,11 @@ const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
   const { open, children, maxWidth } = props;
 
   return (
-    <StyledFocusLock disabled={!open} maxWidth={maxWidth}>
+    <StyledFocusLock
+      disabled={!open}
+      maxWidth={maxWidth}
+      crossFrame="false" // Seee https://github.com/reach/reach-ui/issues/536#issuecomment-614981674
+    >
       <Transition
         mountOnEnter
         unmountOnExit
