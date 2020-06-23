@@ -218,6 +218,12 @@
         "section": "Navigation"
       },
       {
+        "path": "/components/popover",
+        "label": "Popover",
+        "disabled": false,
+        "section": "Overlays"
+      },
+      {
         "path": "/components/tooltip",
         "label": "Tooltip",
         "disabled": false,
