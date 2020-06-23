@@ -56,6 +56,10 @@ export const WithRequiredAndErrorInLabel = withInfo()(() => (
   />
 ));
 
+export const Optional = withInfo()(() => (
+  <Select id="id" label="Select an option" options={options} optional />
+));
+
 export const Disabled = withInfo()(() => (
   <Select id="id" label="Select an option" disabled options={options} />
 ));

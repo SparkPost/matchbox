@@ -39,6 +39,11 @@ describe('TextField', () => {
     expect(label(wrapper)).toHaveStyleRule('font-weight', '500');
   });
 
+  it('renders label without optional correctly', () => {
+    const wrapper = subject({ label: 'test label', optional: true });
+    expect(label(wrapper).text()).toEqual('test labelOptional');
+  });
+
   it('renders hidden label correctly', () => {
     const wrapper = subject({ label: 'test label', labelHidden: true });
     expect(label(wrapper).text()).toEqual('test label');

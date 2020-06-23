@@ -7,6 +7,7 @@ import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
 import styled from 'styled-components';
 import { select, chevron } from './styles';
 import { Box } from '../Box';
+import { OptionalLabel } from '../OptionalLabel';
 import { HelpText } from '../HelpText';
 import { compose, margin, maxWidth } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -92,6 +93,7 @@ function Select(props) {
     required,
     error,
     errorInLabel,
+    optional,
     // labelHidden, TODO add this back in later after hibana cutover
     ...rest
   } = props;
@@ -119,6 +121,7 @@ function Select(props) {
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
       )}
+      {optional && <OptionalLabel />}
     </Label>
   );
 
@@ -177,6 +180,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  optional: PropTypes.bool,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(maxWidth.propNames),
 };

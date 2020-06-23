@@ -19,6 +19,8 @@ export const RequiredAndErrorInLabel = withInfo()(() => (
   <TextField id="id" error="You forgot an ID!" label="Template ID" errorInLabel required />
 ));
 
+export const Optional = withInfo()(() => <TextField id="id" label="Template ID" optional />);
+
 export const HelpTextAndError = withInfo()(() => (
   <TextField
     id="id"
