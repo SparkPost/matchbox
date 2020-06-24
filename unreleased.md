@@ -11,3 +11,5 @@ Example: - #456 - Deprecates Tab prop `tabs`
 - #462 - Adds focus styles to all button variations
 - #484 - Locks background window scroll when Drawers or Modals are open
 - #490 - Toolips wait 300 ms after interaction before becoming visible
+- #503 - Deprecates the `selected` prop on ActionList Actions
+- #503 - Adds new `helpText` prop to ActionList Actions
