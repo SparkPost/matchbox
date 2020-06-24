@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
+import { focusOutline } from '../../styles/helpers';
 
 const inputHeight = '2.5rem';
 
@@ -15,9 +16,7 @@ export const StyledInputWrapper = styled(Box)`
   border-radius: ${tokens.borderRadius_100};
   min-height: ${inputHeight};
 
-  &:focus-within {
-    border: ${tokens.borderWidth_100} solid ${tokens.color_blue_700};
-  }
+  ${focusOutline({ within: true })}
 `;
 
 export const StyledInput = styled('input')`

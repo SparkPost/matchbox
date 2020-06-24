@@ -13,6 +13,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
+import { focusOutline } from '../../styles/helpers';
 
 const Option = ({ option }) => {
   if (typeof option === 'object') {
@@ -47,22 +48,32 @@ function Options({ options, placeholder, placeholderValue }) {
   );
 }
 
+const StyledInputWrapper = styled(Box)`
+  ${focusOutline({ within: true, offset: '2px' })}
+`;
+
+const StyledInput = styled(Box)`
+  outline: none;
+`;
+
 const SelectBox = props => {
   return (
-    <Box
-      as="select"
-      disabled={props.disabled}
-      width="100%"
-      border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
-      borderRadius="100"
-      bg={props.disabled ? 'gray.200' : 'white'}
-      pl="400"
-      pr="600"
-      lineHeight="2.5rem"
-      height="2.5rem"
-      color="gray.900"
-      {...props}
-    />
+    <StyledInputWrapper>
+      <StyledInput
+        as="select"
+        disabled={props.disabled}
+        width="100%"
+        border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
+        borderRadius="100"
+        bg={props.disabled ? 'gray.200' : 'white'}
+        pl="400"
+        pr="600"
+        lineHeight="2.5rem"
+        height="2.5rem"
+        color="gray.900"
+        {...props}
+      />
+    </StyledInputWrapper>
   );
 };
 
