@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin, layout, compose } from 'styled-system';
 import { groupByValues, filterByVisible } from '../../helpers/array';
+import { deprecate } from '../../helpers/propTypes';
 import { Box } from '../Box';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { StyledLink, StyledSection } from './styles';
@@ -15,20 +16,35 @@ const Wrapper = styled('div')`
 `;
 
 function Action(props) {
-  const { selected, content, is = 'link', ...action } = props;
+  const { content, helpText, is = 'link', selected, ...action } = props;
 
-  const linkContent = selected ? (
-    <Box as="span" display="flex" alignItems="center">
-      <Box as="span" flex="1">
-        {content}
+  const linkContent = React.useMemo(() => {
+    return (
+      <Box as="span" alignItems="flex-start" display="flex">
+        <Box as="span" flex="1" fontSize="300" lineHeight="300">
+          {content}
+        </Box>
+        {selected && (
+          <Box as="span" color="blue.700">
+            <CheckBox size={20} />
+          </Box>
+        )}
+        {helpText && (
+          <Box
+            as="span"
+            color="gray.700"
+            fontSize="200"
+            lineHeight="200"
+            pl="100"
+            pt="100"
+            textAlign="right"
+          >
+            {helpText}
+          </Box>
+        )}
       </Box>
-      <Box as="span" color="blue.700">
-        <CheckBox size={20} />
-      </Box>
-    </Box>
-  ) : (
-    content
-  );
+    );
+  }, [content, selected, helpText]);
 
   return (
     <StyledLink
@@ -45,6 +61,7 @@ function Action(props) {
   );
 }
 
+Action.displayName = 'ActionList.Action';
 Action.propTypes = {
   content: PropTypes.node,
   /**
@@ -53,7 +70,8 @@ Action.propTypes = {
    */
   highlighted: PropTypes.bool,
   is: PropTypes.oneOf(['link', 'button', 'checkbox']),
-  selected: PropTypes.bool,
+  selected: deprecate(PropTypes.bool, 'Use the checkboxe component instead'),
+  helpText: PropTypes.string,
 };
 
 function Section({ section }) {
@@ -67,6 +85,8 @@ function Section({ section }) {
 
   return <StyledSection>{visibleActions}</StyledSection>;
 }
+
+Section.displayName = 'ActionList.Section';
 
 function ActionList(props) {
   const {
@@ -121,4 +141,5 @@ ActionList.propTypes = {
   ...createPropTypes(layout.propNames),
 };
 
+ActionList.Action = Action;
 export default ActionList;
