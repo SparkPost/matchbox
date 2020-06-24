@@ -1,0 +1,36 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Portal
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Basic"
+    code={`
+      <Portal>
+        <div style={{ position: 'fixed', top: 10, left: 30 }}>Portal Content</div>
+      </Portal>
+    `}
+  />
+</LiveCode>
+
+---
+
+### Portal API
+
+<Prop
+  name="containerId"
+  type="string"
+> 
+  ID of the target portal container. Appends a new portal to document body if not provided
+</Prop>
+
+<Prop
+  name="children"
+  type="node"
+> 
+  Content rendered inside the portal
+</Prop>

@@ -122,6 +122,12 @@
         "section": "Utility"
       },
       {
+        "path": "/components/portal",
+        "label": "Portal",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
         "path": "/components/screenreaderonly",
         "label": "ScreenReaderOnly",
         "disabled": false,
@@ -216,6 +222,12 @@
         "label": "UnstyledLink",
         "disabled": false,
         "section": "Navigation"
+      },
+      {
+        "path": "/components/popover",
+        "label": "Popover",
+        "disabled": false,
+        "section": "Overlays"
       },
       {
         "path": "/components/tooltip",
