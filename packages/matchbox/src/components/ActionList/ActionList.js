@@ -70,7 +70,7 @@ Action.propTypes = {
    */
   highlighted: PropTypes.bool,
   is: PropTypes.oneOf(['link', 'button', 'checkbox']),
-  selected: deprecate(PropTypes.bool, 'Use the checkboxe component instead'),
+  selected: deprecate(PropTypes.bool, 'Use the checkbox component instead'),
   helpText: PropTypes.string,
 };
 
