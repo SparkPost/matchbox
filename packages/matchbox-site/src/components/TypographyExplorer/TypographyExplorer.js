@@ -4,20 +4,14 @@ import _ from 'lodash';
 import TokenTable from '../tokens/TokenTable';
 import { Button, Box } from '@sparkpost/matchbox';
 
-// Omit base tokens because they are only used to indicate defaults in scss map formats
-const omitBaseTokens = _.filter(meta, ({ name }) => !name.includes('base'));
 const SIZES = _.filter(
-  omitBaseTokens,
-  size => size.category === 'font-size' && !size.name.includes('base')
+  meta,
+  size => size.category === 'font-size' && !size.name.includes('root')
 ).reverse();
 
-const LINE_HEIGHTS = _.filter(omitBaseTokens, [
-  'category',
-  'line-height'
-]).reverse();
-
-const WEIGHTS = _.filter(omitBaseTokens, ['category', 'font-weight']);
-const FAMILIES = _.filter(omitBaseTokens, ['category', 'font-family']);
+const LINE_HEIGHTS = _.filter(meta, ['category', 'line-height']).reverse();
+const WEIGHTS = _.filter(meta, ['category', 'font-weight']);
+const FAMILIES = _.filter(meta, ['category', 'font-family']);
 
 function Group(props) {
   const { items, selected, onSelect, itemToLabel } = props;
