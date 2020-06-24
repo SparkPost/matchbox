@@ -155,7 +155,7 @@ function TextField(props) {
         {error && errorInLabel && (
           <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
         )}
-        {optional && <OptionalLabel />}
+        {optional && <OptionalLabel float />}
       </Label>
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
