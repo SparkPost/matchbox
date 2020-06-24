@@ -13,6 +13,5 @@ export function getWindow() {
  * @see https://stackoverflow.com/questions/326069/how-to-identify-if-a-webpage-is-being-loaded-inside-an-iframe-or-directly-into-t
  */
 export function isInIframe() {
-  console.log(window.self !== window.top);
   return window.self !== window.top;
 }
