@@ -20,7 +20,7 @@ export function focus(props) {
       break;
   }
 
-  return focusOutline(color);
+  return focusOutline({ color });
 }
 
 export const base = () => `
