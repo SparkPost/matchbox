@@ -141,5 +141,4 @@ ActionList.propTypes = {
   ...createPropTypes(layout.propNames),
 };
 
-ActionList.Action = Action;
 export default ActionList;
