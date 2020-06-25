@@ -1,11 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
+import { Box, ThemeProvider } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
-import { Box, ThemeProvider } from '@sparkpost/matchbox';
+import Footer from '../Footer/Footer';
 import global from './global';
 
 const GlobalStyle = createGlobalStyle`
@@ -94,6 +95,7 @@ function Layout(props) {
             <MDXProvider>{props.children}</MDXProvider>
           </Box>
         </Box>
+        <Footer />
       </Box>
     </ThemeProvider>
   );
