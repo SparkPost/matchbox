@@ -14,6 +14,7 @@ import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
 import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
+import { isInIframe } from '../../helpers/window';
 import { Overlay, Container } from './styles';
 
 const Drawer = React.forwardRef(function Drawer(props, ref) {
@@ -94,7 +95,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
           }}
         >
           {state => (
-            <FocusLock returnFocus>
+            <FocusLock returnFocus disabled={!open || isInIframe()}>
               <Box
                 data-id="drawer-wrapper"
                 height="100vh"

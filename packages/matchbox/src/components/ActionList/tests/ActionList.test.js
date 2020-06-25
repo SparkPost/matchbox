@@ -17,6 +17,21 @@ describe('ActionList', () => {
     ).toEqual('Action');
   });
 
+  it('renders help text correctly', () => {
+    const wrapper = subject({
+      actions: [
+        { content: 'Action', helpText: 'help1' },
+        { content: 'Action 2', helpText: 'help2' },
+      ],
+    });
+    expect(
+      wrapper
+        .find('a')
+        .at(0)
+        .text(),
+    ).toEqual('Actionhelp1');
+  });
+
   it('renders sections correctly', () => {
     const wrapper = subject({
       sections: [
