@@ -69,7 +69,7 @@ function Layout(props) {
   const sideItems = React.useMemo(() => {
     const selectedNavItem = _.find(navItems, ['selected', true]);
     return _.get(selectedNavItem, 'childRoutes', []);
-  }, [navItems, pathname]);
+  }, [navItems]);
 
   const pageTitle = React.useMemo(() => {
     const selectedRoute = _.findLast(allRoutes, ({ path }) =>
