@@ -180,6 +180,16 @@ describe('Panel', () => {
     expect(wrapper.find(Panel.Section).at(1)).toHaveStyleRule('padding-top', '1.5rem');
   });
 
+  it('renders other system props', () => {
+    wrapper = global.mountStyled(<Panel borderBottom="none" width="30px" height="50px"></Panel>);
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('width', '30px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('width', undefined);
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('border-bottom', undefined);
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('border-bottom', 'none');
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('height', '50px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '50px');
+  });
+
   it('renders with the passed in className', () => {
     wrapper = global.mountStyled(<Panel className="my-class">Hello, world.</Panel>);
 

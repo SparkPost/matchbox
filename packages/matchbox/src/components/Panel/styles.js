@@ -32,7 +32,6 @@ export const panelInner = props => {
   }
 
   return `
-    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
     border-radius: ${borderRadius};
     border-top-width: ${props.accent ? '0' : '1px'};
   `;
