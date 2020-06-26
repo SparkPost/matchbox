@@ -27,7 +27,8 @@
     "precommit": "lint-staged",
     "coverage:all": "npm run coverage:copy && npm run coverage:merge",
     "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
-    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --report-dir coverage"
+    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --report-dir coverage",
+    "changelog": "dotenv lerna-changelog"
   },
   "lint-staged": {
     "**/*.js": [
@@ -78,6 +79,7 @@
     "css-loader": "^3.2.0",
     "cypress": "^3.8.0",
     "cypress-plugin-tab": "^1.0.1",
+    "dotenv-cli": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
@@ -121,5 +123,14 @@
       "packages/matchbox-icons/src/IconBase/**/*.js"
     ],
     "report-dir": "cypress-coverage"
+  },
+  "changelog": {
+    "repo": "sparkpost/matchbox",
+    "labels": {
+      "type: feature": "Features",
+      "type: enhancement": "Enhancements",
+      "type: bug": "Bug Fixes",
+      "type: breaking change": "Breaking Changes"
+    }
   }
 }
