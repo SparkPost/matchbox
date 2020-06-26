@@ -22,3 +22,6 @@ storybook-static
 
 # playroom
 /playroom-build
+
+# changelog 
+.changes.md
