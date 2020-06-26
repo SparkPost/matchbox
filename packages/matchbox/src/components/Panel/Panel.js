@@ -57,16 +57,14 @@ const Panel = React.forwardRef(function Panel(props, ref) {
   // Picks border, width, and height for outer container
   const systemOuterProps = pickNames(rest, systemOuter.propNames);
 
-  // Picks border and height for inner container, its width should always be 100%
-  const { border: borderProp = '400', ...systemInnerProps } = pickNames(
-    rest,
-    systemInner.propNames,
-  );
+  // Picks border for inner container, its width and height should always be 100%
+  const { border: borderProp = '400', ...systemInnerProps } = pickNames(rest, border.propNames);
+  const innerHeight = !!systemOuterProps.height ? '100%' : null;
 
   return (
     <PanelOuter className={className} {...rest} ref={ref} tabIndex="-1" {...systemOuterProps}>
       {accentColor && <Accent accentColor={accentColor} />}
-      <PanelInner accent={accent} border={borderProp} {...systemInnerProps}>
+      <PanelInner accent={accent} border={borderProp} height={innerHeight} {...systemInnerProps}>
         <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
           {title && <Header title={title} actions={actions} />}
           {contentMarkup}
