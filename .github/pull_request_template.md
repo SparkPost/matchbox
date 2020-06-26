@@ -1,4 +1,5 @@
-<!-- Give your PR a recognizable title. For example: "FE-123: Ticket Title" or "Resolve Issue #123: Description" -->
+<!-- Give your PR a recognizable title. For example: "FE-123: Add new prop to component" or "Resolve Issue #123: Fix bug in component" -->
+<!-- Your PR title will be visible in changelogs -->
 
 ### What Changed
 

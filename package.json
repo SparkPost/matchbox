@@ -127,6 +127,7 @@
   },
   "changelog": {
     "repo": "sparkpost/matchbox",
+    "cacheDir": ".changelog",
     "labels": {
       "type: feature": "Features",
       "type: enhancement": "Enhancements",
