@@ -24,4 +24,6 @@ storybook-static
 /playroom-build
 
 # changelog 
-.changes.md
+.changelog
+.temp_changes.md
+.changelog.md

@@ -71,3 +71,9 @@ lerna publish from-package
 # Remember to clear unreleased.md of any changes you pushed out!
 # That's it!
 ```
+
+Changelog generation is automatic based on pull request titles and Github labels. Run this
+
+```bash
+npm run changelog
+```

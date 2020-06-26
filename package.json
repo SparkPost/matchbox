@@ -28,7 +28,7 @@
     "coverage:all": "npm run coverage:copy && npm run coverage:merge",
     "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
     "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --report-dir coverage",
-    "changelog": "dotenv lerna-changelog 2>&1 | tee .changes.md"
+    "changelog": "dotenv lerna-changelog 2>&1 | tee .temp_changes.md && bash scripts/changelog.sh"
   },
   "lint-staged": {
     "**/*.js": [
@@ -127,6 +127,7 @@
   },
   "changelog": {
     "repo": "sparkpost/matchbox",
+    "cacheDir": ".changelog",
     "labels": {
       "type: feature": "Features",
       "type: enhancement": "Enhancements",
