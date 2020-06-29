@@ -75,11 +75,13 @@ npm run changelog
 
 # Update the package versions with lerna. The CLI will prompt you
 # to pick versions for each package that changed.
+# See https://github.com/lerna/lerna/tree/master/commands/version
 lerna version
 
 # Publish to NPM
 # Prepublish scripts will build each package and the CLI will
 # prompt you for a one-time password from your authenticator
+# See https://github.com/lerna/lerna/tree/master/commands/publish
 lerna publish
 
 # That's it!
