@@ -13,6 +13,7 @@ echo "category: release notes" >> .changelog.md
 echo "---" >> .changelog.md
 mkdir -p "site/src/updates/$year"
 cat .temp_changes.md >> .changelog.md
+sed -i -e 's/## /#### /g' .changelog.md
 
 mv .changelog.md "site/src/updates/$year/$now-release.mdx"
 rm -f .temp_changes.md
