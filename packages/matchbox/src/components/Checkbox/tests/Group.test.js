@@ -21,6 +21,11 @@ describe('Checkbox Group', () => {
     expect(wrapper.find('legend').text()).toEqual('test-label*');
   });
 
+  it('renders a legend with optional correctly', () => {
+    const wrapper = subject({ label: 'test-label', optional: true });
+    expect(wrapper.find('legend').text()).toEqual('test-labelOptional');
+  });
+
   it('renders a legend with required correctly while hidden correctly', () => {
     const wrapper = subject({ label: 'test-label', required: true, labelHidden: true });
     expect(wrapper.find('legend').text()).toEqual('test-label*');

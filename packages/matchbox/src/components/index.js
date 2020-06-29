@@ -18,6 +18,7 @@ export * from './Inline';
 export * from './KeyboardKey';
 export * from './Label';
 export * from './Modal';
+export * from './OptionalLabel';
 export * from './Page';
 export * from './Pager';
 export * from './Pagination';
