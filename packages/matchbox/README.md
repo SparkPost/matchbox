@@ -1,4 +1,4 @@
-# matchbox-icons
+# matchbox
 
 Want to start using Matchbox? See:
 
