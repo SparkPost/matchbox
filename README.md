@@ -59,9 +59,6 @@ We use `lerna` to handle versioning and publishing to NPM. Before publishing, en
 into SparkPost's NPM account locally via the NPM CLI.
 
 ```bash
-# Before publishing a release, create a new branch for your release
-git checkout -b rc/4.x.x
-
 # This generates a markdown changelog for the website under site/src/updates
 # Edit this file with a proper title, and push it up to your branch
 # The changelog is based on pull request titles and Github labels
@@ -74,7 +71,7 @@ lerna version
 # Publish to NPM
 # Prepublish scripts will build each package and the CLI will
 # prompt you for a one-time password from your authenticator
-lerna publish from-git
+lerna publish
 
 # That's it!
 ```
