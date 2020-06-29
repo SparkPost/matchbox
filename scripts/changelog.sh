@@ -8,7 +8,7 @@ rm -f .changelog.md
 echo "---" > .changelog.md
 echo "title: Matchbox ENTER VERSION" >> .changelog.md
 echo "date: ${now}" >> .changelog.md
-echo "published: true" >> .changelog.md
+echo "published: false" >> .changelog.md
 echo "category: release notes" >> .changelog.md
 echo "---" >> .changelog.md
 mkdir -p "site/src/updates/$year"
