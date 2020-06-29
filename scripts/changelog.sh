@@ -6,7 +6,7 @@ year=$(date +'%Y')
 rm -f .changelog.md
 
 echo "---" > .changelog.md
-echo "title: ENTER TITLE" >> .changelog.md
+echo "title: Matchbox ENTER VERSION" >> .changelog.md
 echo "date: ${now}" >> .changelog.md
 echo "published: true" >> .changelog.md
 echo "category: release notes" >> .changelog.md
