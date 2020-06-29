@@ -187,7 +187,7 @@ describe('Panel', () => {
     expect(wrapper.find('div').at(0)).toHaveStyleRule('border-bottom', undefined);
     expect(wrapper.find('div').at(1)).toHaveStyleRule('border-bottom', 'none');
     expect(wrapper.find('div').at(0)).toHaveStyleRule('height', '50px');
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '50px');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '100%');
   });
 
   it('renders with the passed in className', () => {
