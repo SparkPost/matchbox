@@ -13,9 +13,9 @@ echo "category: release notes" >> .changelog.md
 echo "---" >> .changelog.md
 mkdir -p "site/src/updates/$year"
 cat .temp_changes.md >> .changelog.md
-sed 's/## /#### /g' .changelog.md > .changelog_formatted.md
+sed -i -e 's/## /#### /g' .changelog.md
 
-mv .changelog_formatted.md "site/src/updates/$year/$now-release.mdx"
+mv .changelog.md "site/src/updates/$year/$now-release.mdx"
 rm -f .temp_changes.md
 rm -f .changelog.md
 rm -f .changelog.md-e
