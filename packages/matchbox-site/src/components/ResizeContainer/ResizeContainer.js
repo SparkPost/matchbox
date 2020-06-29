@@ -139,5 +139,5 @@ ResizeContainer.defaultProps = {
   minWidth: 400,
   disableResize: true // TODO fix resizing
 };
-console.log('test pusdafsadfh');
+
 export default ResizeContainer;

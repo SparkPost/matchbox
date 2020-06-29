@@ -5,8 +5,8 @@ Example: - #123 - Adds new Button component prop `active`
 Example: - #456 - Deprecates Tab prop `tabs`
 -->
 
-- #483 - Fixes a bug that allows all system props on TextField
-- #483 - TextField and Select now accept margin and maxWidth system props
-- #476 - Fixes a visual bug with the drawer close button
-- #462 - Adds focus styles to all button variations
-- #490 - Toolips wait 300 ms after interaction before becoming visible
+
+- #503 - Deprecates the `selected` prop on ActionList Actions
+- #503 - Adds new `helpText` prop to ActionList Actions
+- #500 - Modals and Drawers no longer lock focus if inside an iframe
+

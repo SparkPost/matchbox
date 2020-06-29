@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
+import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
@@ -13,6 +14,7 @@ import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
 import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
+import { isInIframe } from '../../helpers/window';
 import { Overlay, Container } from './styles';
 
 const Drawer = React.forwardRef(function Drawer(props, ref) {
@@ -80,69 +82,78 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
   }, [footerRef.current, open]);
 
   return (
-    <Portal containerId={portalId}>
-      <Transition
-        mountOnEnter
-        unmountOnExit
-        in={open}
-        timeout={{
-          enter: 0,
-          exit: secondsToMS(tokens.motionDuration_medium),
-        }}
-      >
-        {state => (
-          <FocusLock returnFocus>
-            <Box
-              data-id="drawer-wrapper"
-              height="100vh"
-              left="0"
-              position="fixed"
-              ref={ref}
-              style={{ pointerEvents: 'none' }}
-              tabIndex="-1"
-              top="0"
-              width="100vw"
-              zIndex="overlay"
-            >
-              <Overlay
-                data-id="drawer-overlay"
-                ref={overlayRef}
-                state={state}
-                position="absolute"
-                top="0"
+    <>
+      <ScrollLock isActive={open} />
+      <Portal containerId={portalId}>
+        <Transition
+          mountOnEnter
+          unmountOnExit
+          in={open}
+          timeout={{
+            enter: 0,
+            exit: secondsToMS(tokens.motionDuration_medium),
+          }}
+        >
+          {state => (
+            <FocusLock returnFocus disabled={!open || isInIframe()}>
+              <Box
+                data-id="drawer-wrapper"
+                height="100vh"
                 left="0"
-                height="100%"
-                width="100%"
-                bg="gray.900"
-              />
-              <Container
-                aria-modal="true"
-                data-id="drawer-container"
-                id={id}
-                ref={childrenRef}
-                role="dialog"
-                state={state}
-                viewportPosition={position}
-                bg="white"
-                position="absolute"
+                position="fixed"
+                ref={ref}
+                style={{ pointerEvents: 'none' }}
+                tabIndex="-1"
                 top="0"
-                bottom="0"
-                maxWidth="32rem" // TODO Make this configurable and reference sizing theme
-                width="80vw"
-                right={position === 'right' ? '0' : 'auto'}
-                left={position === 'left' ? '0' : 'auto'}
+                width="100vw"
+                zIndex="overlay"
               >
-                <Box overflowY="scroll" position="relative" height={`calc(100% - ${footerHeight})`}>
-                  {getChild('Drawer.Header', children, { onClose })}
-                  {getChild('Drawer.Content', children)}
-                  {getChild('Drawer.Footer', children, { ref: footerRef })}
-                </Box>
-              </Container>
-            </Box>
-          </FocusLock>
-        )}
-      </Transition>
-    </Portal>
+                <Overlay
+                  data-id="drawer-overlay"
+                  ref={overlayRef}
+                  state={state}
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  height="100%"
+                  width="100%"
+                  bg="gray.900"
+                />
+                <Container
+                  aria-modal="true"
+                  data-id="drawer-container"
+                  id={id}
+                  ref={childrenRef}
+                  role="dialog"
+                  state={state}
+                  viewportPosition={position}
+                  bg="white"
+                  position="absolute"
+                  top="0"
+                  bottom="0"
+                  maxWidth="32rem" // TODO Make this configurable and reference sizing theme
+                  width="80vw"
+                  right={position === 'right' ? '0' : 'auto'}
+                  left={position === 'left' ? '0' : 'auto'}
+                >
+                  <TouchScrollable>
+                    <Box
+                      overflowY="scroll"
+                      position="relative"
+                      height={`calc(100% - ${footerHeight})`}
+                    >
+                      {getChild('Drawer.Header', children, { onClose })}
+                      {getChild('Drawer.Content', children)}
+                      {getChild('Drawer.Footer', children, { ref: footerRef })}
+                    </Box>
+                  </TouchScrollable>
+                </Container>
+              </Box>
+            </FocusLock>
+          )}
+        </Transition>
+      </Portal>
+    </>
   );
 });
 

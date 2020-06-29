@@ -112,6 +112,20 @@ export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
   </Box>
 ));
 
+export const WithHelpText = withInfo({ propTables: [ActionList] })(() => (
+  <Box maxWidth="20rem">
+    <Panel>
+      <ActionList
+        actions={[
+          { content: 'mail.example.com', to: '#', helpText: 'Sending Domain' },
+          { content: 'bobs pizza shop', to: '#', helpText: 'Subaccount' },
+          { content: 'welcome-email-ab-test-12', to: '#', helpText: 'Template' },
+        ]}
+      />
+    </Panel>
+  </Box>
+));
+
 export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>

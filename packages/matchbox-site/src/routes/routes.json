@@ -116,6 +116,18 @@
         "section": "Layout"
       },
       {
+        "path": "/components/grid",
+        "label": "Grid",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/portal",
+        "label": "Portal",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
         "path": "/components/screenreaderonly",
         "label": "ScreenReaderOnly",
         "disabled": false,
@@ -214,6 +226,12 @@
       {
         "path": "/components/modal",
         "label": "Modal",
+        "disabled": false,
+        "section": "Overlays"
+      },
+      {
+        "path": "/components/popover",
+        "label": "Popover",
         "disabled": false,
         "section": "Overlays"
       },

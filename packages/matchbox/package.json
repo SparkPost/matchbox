@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A React UI component library",
   "main": "matchbox.js",
   "module": "matchbox.esm.js",
@@ -29,7 +29,8 @@
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
     "prop-types": "^15.7.2",
-    "react-focus-lock": "^2.0.5",
+    "react-focus-lock": "^2.4.0",
+    "react-scrolllock": "^5.0.1",
     "react-transition-group": "^2.3.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
