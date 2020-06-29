@@ -46,6 +46,16 @@ export const GroupWithLabel = withInfo()(() => (
   </div>
 ));
 
+export const OptionalGroupWithLabel = withInfo()(() => (
+  <div>
+    <Checkbox.Group label="Example" optional>
+      <Checkbox id="id2" label="Check Me" />
+      <Checkbox id="id3" label="Check Me" />
+      <Checkbox id="id4" label="Check Me" />
+    </Checkbox.Group>
+  </div>
+));
+
 export const GroupWithHiddenLabel = withInfo()(() => (
   <div>
     <Checkbox.Group label="I'm a group" labelHidden>
