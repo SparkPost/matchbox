@@ -49,7 +49,7 @@ function Layout(props) {
         ? childRoutes.map(({ path: childPath, ...child }) => ({
             ...child,
             path: childPath,
-            selected: selected(pathname, childPath, true)
+            selected: selected(pathname, childPath, false)
           }))
         : null;
 
