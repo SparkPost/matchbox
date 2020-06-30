@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { ArrowForward, ArrowDownward } from '@sparkpost/matchbox-icons';
+import { ChevronRight } from '@sparkpost/matchbox-icons';
 import { Box } from '@sparkpost/matchbox';
 import { navigate } from 'gatsby';
+import { tokens } from '@sparkpost/design-tokens';
 
 const StyledHeader = styled(Box)`
   cursor: pointer;
+`;
+
+const StyledChevronRight = styled(ChevronRight)`
+  transform: ${props => (props.expanded ? 'rotate(90deg)' : 'rotate(0deg)')};
+  transition: transform ${tokens.motionDuration_fast}
+    ${tokens.motionEase_in_out};
 `;
 
 function ExpandableMenuItem(props) {
@@ -38,8 +45,7 @@ function ExpandableMenuItem(props) {
           {value}
         </Box>
         <Box color="gray.500">
-          {expanded && <ArrowDownward />}
-          {!expanded && <ArrowForward />}
+          <StyledChevronRight expanded={expanded} />
         </Box>
       </StyledHeader>
       {expanded && <Box pl="300">{children}</Box>}
