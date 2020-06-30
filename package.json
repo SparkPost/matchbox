@@ -1,6 +1,10 @@
 {
   "name": "matchbox-workspace",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparkPost/matchbox.git"
+  },
   "scripts": {
     "start:site": "npm run build:tokens && cd site && npm run develop",
     "start:storybook": "npm run build:tokens && start-storybook -p 9001 -c .storybook",
@@ -126,7 +130,6 @@
     "report-dir": "cypress-coverage"
   },
   "changelog": {
-    "repo": "sparkpost/matchbox",
     "cacheDir": ".changelog",
     "labels": {
       "type: feature": "Features",
