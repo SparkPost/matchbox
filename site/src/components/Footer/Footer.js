@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Columns, Column } from '@sparkpost/matchbox';
 import styled from 'styled-components';
 import ExternalLink from '../ExternalLink';
-import matchboxPkg from '../../../../matchbox/package.json';
+import matchboxPkg from '../../../../packages/matchbox/package.json';
 import { tokens } from '@sparkpost/design-tokens';
 
 const Wrapper = styled(Box)`
