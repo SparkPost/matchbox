@@ -14,13 +14,17 @@ Matchbox is an open source design system and React component library, built for
 
 ## Welcome to Matchbox Development
 
+Want to start using Matchbox? See:
+
+- [Getting Started](https://design.sparkpost.com/components)
+
 Looking for documentation? See:
 
 - [Design System Website](https://design.sparkpost.com)
 - [Storybook](https://matchbox-storybook.netlify.app/)
 - [Playroom](https://matchbox-playroom.netlify.app/)
 
-### Getting Started
+### Collaborating on Matchbox
 
 Matchbox uses [Lerna](https://github.com/lerna/lerna) to manage packages.
 
@@ -55,19 +59,30 @@ npm run build             # Builds all packages
 
 ### Releases
 
+Our release process isn't perfect, and for now **only administrators can publish**.
+
 We use `lerna` to handle versioning and publishing to NPM. Before publishing, ensure you are logged
 into SparkPost's NPM account locally via the NPM CLI.
 
+**Important** - In order to run `changelog` you'll need to create a personal access token with the
+`public_repo` permissions and copy it to a `GITHUB_AUTH` variable in an `.env` file.
+
 ```bash
+# This generates a markdown changelog for the website under site/src/updates
+# Edit this file with a proper title, and push it up to your branch
+# The changelog is based on pull request titles and Github labels
+npm run changelog
+
 # Update the package versions with lerna. The CLI will prompt you
 # to pick versions for each package that changed.
+# See https://github.com/lerna/lerna/tree/master/commands/version
 lerna version
 
 # Publish to NPM
 # Prepublish scripts will build each package and the CLI will
 # prompt you for a one-time password from your authenticator
-lerna publish from-package
+# See https://github.com/lerna/lerna/tree/master/commands/publish
+lerna publish
 
-# Remember to clear unreleased.md of any changes you pushed out!
 # That's it!
 ```

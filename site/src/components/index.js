@@ -7,4 +7,13 @@ import Token from './tokens/Token';
 import TokenUsage from './tokens/TokenUsage';
 import TypographyExplorer from './TypographyExplorer/TypographyExplorer';
 
-export { Header, Layout, MainNavigation, MDXProvider, SideNavigation, Token, TokenUsage, TypographyExplorer };
+export {
+  Header,
+  Layout,
+  MainNavigation,
+  MDXProvider,
+  SideNavigation,
+  Token,
+  TokenUsage,
+  TypographyExplorer
+};

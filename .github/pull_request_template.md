@@ -1,22 +1,21 @@
-<!-- Give your PR a recognizable title. For example: "FE-123: Ticket Title" or "Resolve Issue #123: Description" -->
+<!-- Give your PR a recognizable title. For example: "FE-123: Add new prop to component" or "Resolve Issue #123: Fix bug in component" -->
+<!-- Your PR title will be visible in changelogs -->
 
 ### What Changed
-<!-- What changes does this PR propose?  -->
+
+<!--
+What changes does this PR propose?
+Provide screenshots or [screen recordings](https://getkap.co/) for any visual changes.
+-->
 
 ### How To Test or Verify
+
 <!--
 Describe any steps that may help reviewers verify changes.
-Anything beyond basic unit testing, such as assistive tech usage, or special interactions. 
+Anything beyond basic unit testing, such as assistive tech usage, or special interactions.
 -->
 
 ### PR Checklist
 
-- [ ] Update `unreleased.md` in the root directory
-<!--
-Outline any changes to the development worflow, component APIs, component behavior. If this does not affect a published packages, you can ignore.
--->
-- [ ] Approval from #uxfe or #design-guild
-<!--
-Provide screenshots or [screen recordings](https://getkap.co/) and request a review from.
-Ignore if this does not contain and visual component changes
--->
+- [ ] Add the correct `type` label
+- [ ] Pull request approval from #uxfe or #design-guild
