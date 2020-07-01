@@ -68,9 +68,8 @@ into SparkPost's NPM account locally via the NPM CLI.
 `public_repo` permissions and copy it to a `GITHUB_AUTH` variable in an `.env` file.
 
 ```bash
-# This generates a markdown changelog for the website under site/src/updates
-# Edit this file with a proper title, and push it up to your branch
-# The changelog is based on pull request titles and Github labels
+# This generates a markdown changelog for your release
+# Remember to copy this output and add it to CHANGELOG.md
 npm run changelog
 
 # Update the package versions with lerna. The CLI will prompt you
