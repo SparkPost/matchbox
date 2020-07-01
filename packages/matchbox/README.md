@@ -1,8 +1,8 @@
-# design-tokens
+# matchbox
 
-Want to start using tokens? See:
+Want to start using Matchbox? See:
 
-- [Getting Started](https://design.sparkpost.com/design/overview)
+- [Getting Started](https://design.sparkpost.com/components)
 
 Looking for documentation? See:
 
@@ -13,15 +13,3 @@ Looking for documentation? See:
 Want to contribute? See:
 
 - [README.md](https://github.com/SparkPost/matchbox/blob/main/README.md)
-
----
-
-Commands:
-
-```bash
-# Runs docs task and starts a local server at http://localhost:3000
-npm run start
-
-# Compiles tokens for packaging
-npm run build
-```

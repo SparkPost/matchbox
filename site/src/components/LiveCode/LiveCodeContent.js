@@ -54,7 +54,7 @@ function Content(props) {
       </Box>
       <LiveProvider
         code={formatted.trim()}
-        scope={{ ...components, ...icons, ...scope }}
+        scope={{ ...icons, ...components, ...scope }}
         theme={palenight}
       >
         <ResizeContainer disableResize={disableResize}>

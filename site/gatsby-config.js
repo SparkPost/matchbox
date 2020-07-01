@@ -58,7 +58,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'components',
-        path: path.resolve(__dirname, '../matchbox/src/components')
+        path: path.resolve(__dirname, '../packages/matchbox/src/components')
       }
     },
     {

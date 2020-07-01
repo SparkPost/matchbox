@@ -17,6 +17,11 @@ describe('Select', () => {
     expect(wrapper.find('label').text()).toEqual('test-label*');
   });
 
+  it('should render with optional label', () => {
+    const wrapper = subject({ optional: true, label: 'test-label' });
+    expect(wrapper.find('label').text()).toEqual('test-labelOptional');
+  });
+
   it('should render with id', () => {
     const wrapper = subject({ id: 'test-id', label: 'test-label' });
     expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-id');
