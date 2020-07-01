@@ -17,9 +17,10 @@
   {
     "path": "/design",
     "label": "Design",
+    "indexRoute": "/design/overview",
     "childRoutes": [
       {
-        "path": "/design",
+        "path": "/design/overview",
         "label": "Overview",
         "disabled": false
       },
@@ -63,9 +64,10 @@
   {
     "path": "/components",
     "label": "Components",
+    "indexRoute": "/components/overview",
     "childRoutes": [
       {
-        "path": "/components",
+        "path": "/components/overview",
         "label": "Overview",
         "disabled": false
       },

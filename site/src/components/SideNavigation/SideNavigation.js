@@ -2,10 +2,53 @@ import React from 'react';
 import _ from 'lodash';
 import { StyledListItem, StyledLink } from './styles';
 
+import { ExpandableMenuItem } from '../ExpandableMenuItem';
 import { Box } from '@sparkpost/matchbox';
+
+function Section(props) {
+  const { value, navItems } = props;
+
+  const section = navItems.filter(({ section }) => section === value);
+
+  const isActiveSection = section.some(item => {
+    return item.selected;
+  });
+
+  return (
+    <ExpandableMenuItem
+      key={value}
+      value={value}
+      defaultExpanded={isActiveSection}
+      firstRoute={section[0].path}
+    >
+      <List items={section} />
+    </ExpandableMenuItem>
+  );
+}
+
+function List(props) {
+  const { items } = props;
+
+  return (
+    <Box as="ul" mb="600" p="0">
+      {items.map(item => (
+        <StyledListItem key={item.path} selected={item.selected}>
+          <StyledLink
+            to={item.path}
+            disabled={item.disabled}
+            selected={item.selected}
+          >
+            {item.label}
+          </StyledLink>
+        </StyledListItem>
+      ))}
+    </Box>
+  );
+}
 
 function SideNavigation(props) {
   const { navItems = [] } = props;
+
   const onlyActive = navItems.filter(({ disabled }) => !disabled);
   const rootItems = onlyActive.filter(({ section }) => !section);
   const sectionedItems = onlyActive.filter(({ section }) => !!section);
@@ -13,41 +56,24 @@ function SideNavigation(props) {
     sectionedItems.map(({ section }) => section || 'rootList')
   );
 
-  function renderList(list) {
-    return (
-      <Box as="ul" mb="600" p="0">
-        {list.map(item => (
-          <StyledListItem key={item.path} selected={item.selected}>
-            <StyledLink
-              to={item.path}
-              disabled={item.disabled}
-              selected={item.selected}
-            >
-              {item.label}
-            </StyledLink>
-          </StyledListItem>
-        ))}
-      </Box>
-    );
-  }
-
   function renderSection(key) {
-    const section = navItems.filter(({ section }) => section === key);
-    return (
-      <div key={key}>
-        <Box mt="700" mb="300" fontSize="300" fontWeight="500" color="gray.500">
-          {key}
-        </Box>
-        {renderList(section)}
-      </div>
-    );
+    return <Section key={key} value={key} navItems={navItems} />;
   }
 
   return (
-    <nav>
-      {renderList(rootItems)}
-      {sections.map(renderSection)}
-    </nav>
+    <Box
+      height="100vh"
+      pt="400"
+      position="sticky"
+      top="0"
+      overflow="scroll"
+      as="nav"
+    >
+      <Box pb="600">
+        <List items={rootItems} />
+        {sections.map(renderSection)}
+      </Box>
+    </Box>
   );
 }
 
