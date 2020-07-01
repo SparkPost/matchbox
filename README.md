@@ -16,7 +16,7 @@ Matchbox is an open source design system and React component library, built for
 
 Want to start using Matchbox? See:
 
-- [Getting Started](https://design.sparkpost.com/components)
+- [Getting Started](https://design.sparkpost.com/components/overview)
 
 Looking for documentation? See:
 
