@@ -10,6 +10,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Shows component displaynames in CSS classnames
+        // displayName: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
