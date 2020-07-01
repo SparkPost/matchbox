@@ -10,12 +10,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      }
-    },
-    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
