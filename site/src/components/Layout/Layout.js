@@ -24,6 +24,7 @@ function Layout(props) {
         nodes {
           label
           path
+          indexRoute
           disabled
           hiddenFromNav
           childRoutes {
@@ -44,7 +45,7 @@ function Layout(props) {
   }
 
   const navItems = React.useMemo(() => {
-    function mapRoute({ path, childRoutes, ...rest }) {
+    function mapRoute({ path, indexRoute, childRoutes, ...rest }) {
       const nested = childRoutes
         ? childRoutes.map(({ path: childPath, ...child }) => ({
             ...child,
@@ -55,7 +56,7 @@ function Layout(props) {
 
       return {
         ...rest,
-        path,
+        path: indexRoute || path,
         selected: selected(pathname, path, false),
         childRoutes: nested
       };

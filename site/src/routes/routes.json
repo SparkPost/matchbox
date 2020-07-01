@@ -63,9 +63,10 @@
   {
     "path": "/components",
     "label": "Components",
+    "indexRoute": "/components/overview",
     "childRoutes": [
       {
-        "path": "/components",
+        "path": "/components/overview",
         "label": "Overview",
         "disabled": false
       },

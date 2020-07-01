@@ -32,7 +32,7 @@ function ExpandableMenuItem(props) {
   }
 
   return (
-    <div onClick={navigateToFirstLink}>
+    <div role="button" onClick={navigateToFirstLink}>
       <StyledHeader
         width="200px"
         display="flex"
