@@ -1,17 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { createGlobalStyle } from 'styled-components';
-import { Box, ThemeProvider } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import Footer from '../Footer/Footer';
-import global from './global';
-
-const GlobalStyle = createGlobalStyle`
-  ${global}
-`;
+import { Box, ThemeProvider } from '@sparkpost/matchbox';
+import Global from './Global';
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -38,6 +33,7 @@ function Layout(props) {
       }
     }
   `);
+
   const pathname = _.get(props, 'location.pathname', '');
   const allRoutes = data.allRoutesJson.nodes;
 
@@ -82,7 +78,7 @@ function Layout(props) {
 
   return (
     <ThemeProvider>
-      <GlobalStyle />
+      <Global />
       <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />

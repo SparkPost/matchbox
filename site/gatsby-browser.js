@@ -4,7 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+const React = require('react');
+const PageElement = require('./src/components/GatsbyWrappers/PageElement')
+  .default;
 
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (!location.hash) {
@@ -12,4 +14,8 @@ exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
     return false;
   }
   return true;
+};
+
+exports.wrapPageElement = ({ element, props }) => {
+  return <PageElement {...props}>{element}</PageElement>;
 };
