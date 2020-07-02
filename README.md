@@ -59,14 +59,15 @@ npm run build             # Builds all packages
 
 ### Releases
 
-Our release process isn't perfect, and for now **only administrators can publish**.
+Our release process isn't perfect, and requires some manual work.
 
 We use `lerna` to handle versioning and publishing to NPM. Before publishing, ensure you are logged
-into SparkPost's NPM account locally via the NPM CLI.
+into SparkPost's NPM account locally via the NPM CLI. Reach out to #UXFE or #design-guild on Slack
+if you need access.
 
 **Publishing Steps**
 
-1. Merge all pull requests you wish to release to `main`
+1. Merge all pull requests you wish to release to `main`.
 1. Before publishing for the first time, set up your github auth token in `.env`. In order to run
    `changelog` you'll need to create a personal access token with the `public_repo` permissions and
    copy it to a `GITHUB_AUTH` variable in an `.env` file.
