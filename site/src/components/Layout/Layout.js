@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Box } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import Footer from '../Footer/Footer';
+import { Box, ThemeProvider } from '@sparkpost/matchbox';
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -75,21 +75,23 @@ function Layout(props) {
   }, [allRoutes, pathname]);
 
   return (
-    <>
-      <SEO title={pageTitle} />
-      <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
-      <Box display="flex" maxWidth={props.maxWidth || '1240px'} m="0 auto">
-        {Boolean(sideItems && sideItems.length) && (
-          <Box as="aside" flex="0 0 0" minWidth="300px">
-            <SideNavigation navItems={sideItems} />
+    <ThemeProvider>
+      <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
+        <SEO title={pageTitle} />
+        <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
+        <Box display="flex" maxWidth={props.maxWidth || '1240px'} m="0 auto">
+          {Boolean(sideItems && sideItems.length) && (
+            <Box as="aside" flex="0 0 0" minWidth="300px">
+              <SideNavigation navItems={sideItems} />
+            </Box>
+          )}
+          <Box as="main" flex="1 0 0" pb="800" pt="400">
+            <MDXProvider>{props.children}</MDXProvider>
           </Box>
-        )}
-        <Box as="main" flex="1 0 0" pb="800" pt="400">
-          <MDXProvider>{props.children}</MDXProvider>
         </Box>
         <Footer />
       </Box>
-    </>
+    </ThemeProvider>
   );
 }
 

@@ -3,11 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import React from 'react';
-import { Box, ThemeProvider } from '@sparkpost/matchbox';
-import GlobalStyle from './src/components/Layout/Global';
 
-const shouldUpdateScroll = ({ routerProps: { location } }) => {
+const React = require('react');
+const PageElement = require('./src/components/GatsbyWrappers/PageElement')
+  .default;
+
+exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (!location.hash) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return false;
@@ -15,15 +16,6 @@ const shouldUpdateScroll = ({ routerProps: { location } }) => {
   return true;
 };
 
-const wrapPageElement = ({ element, props }) => {
-  return (
-    <ThemeProvider {...props}>
-      <GlobalStyle />
-      <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
-        {element}
-      </Box>
-    </ThemeProvider>
-  );
+exports.wrapPageElement = ({ element, props }) => {
+  return <PageElement {...props}>{element}</PageElement>;
 };
-
-export { shouldUpdateScroll, wrapPageElement };
