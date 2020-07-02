@@ -64,25 +64,30 @@ Our release process isn't perfect, and for now **only administrators can publish
 We use `lerna` to handle versioning and publishing to NPM. Before publishing, ensure you are logged
 into SparkPost's NPM account locally via the NPM CLI.
 
-**Important** - In order to run `changelog` you'll need to create a personal access token with the
-`public_repo` permissions and copy it to a `GITHUB_AUTH` variable in an `.env` file.
+**Publishing Steps**
+
+1. Merge all pull requests you wish to release to `main`
+1. Before publishing for the first time, set up your github auth token in `.env`. In order to run
+   `changelog` you'll need to create a personal access token with the `public_repo` permissions and
+   copy it to a `GITHUB_AUTH` variable in an `.env` file.
+1. On the `main` branch, run `npm run changelog`. This generates a markdown changelog in
+   `CHANGELOG.md`.
+1. Open and edit `CHANGELOG.md` with correct title and version number of your release.
+1. Push these changes to `main` if you have permissions, or on a new branch.
+1. Run `lerna version`. The Lerna CLI will prompt you for version numbers. See
+   https://github.com/lerna/lerna/tree/master/commands/version.
+1. Run `lerna publish`. The Lerna CLI will prompt you for a one time password from your
+   authenticator. See https://github.com/lerna/lerna/tree/master/commands/publish.
+
+**What the commands look like:**
 
 ```bash
-# This generates a markdown changelog for your release in CHANGELOG.md
-# Open the file and edit the title for your release with your version number
-# Commit and push this to the main branch prior to versioning
 npm run changelog
-
-# Update the package versions with lerna. The CLI will prompt you
-# to pick versions for each package that changed.
-# See https://github.com/lerna/lerna/tree/master/commands/version
+# Open the changelog file and edit
+git add CHANGELOG.md
+git commit -m "Update CHANGELOG.md"
+git push
 lerna version
-
-# Publish to NPM
-# Prepublish scripts will build each package and the CLI will
-# prompt you for a one-time password from your authenticator
-# See https://github.com/lerna/lerna/tree/master/commands/publish
 lerna publish
-
 # That's it!
 ```
