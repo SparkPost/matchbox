@@ -64,8 +64,4 @@ export default createGlobalStyle`
     font-weight: 600;
     font-style: italic;
   }
-
-  .site-wrapper {
-    opacity: 0;
-  }
 `;

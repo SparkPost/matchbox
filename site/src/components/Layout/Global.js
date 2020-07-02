@@ -1,11 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
-import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
-  .site-wrapper {
-    opacity: 1 !important;
-  }
-  
+export default `
   body {
     color: ${tokens.color_gray_900};
   }
