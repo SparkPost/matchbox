@@ -10,12 +10,13 @@ const StyledHeader = styled(Box)`
   cursor: pointer;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   text-decoration: none;
 `;
 
 const StyledChevronRight = styled(ChevronRight)`
-  transform: ${props => (props.expanded ? 'rotate(-90deg)' : 'rotate(90deg)')};
+  transform: ${(props) =>
+    props.expanded ? 'rotate(-90deg)' : 'rotate(90deg)'};
   transition: transform ${tokens.motionDuration_medium}
     ${tokens.motionEase_in_out};
 `;
@@ -32,7 +33,7 @@ function ExpandableMenuItem(props) {
 
   return (
     <Box>
-      <WrapperComponent to={firstRoute}>
+      <WrapperComponent to={firstRoute} to={!defaultExpanded ? firstRoute : ''}>
         <StyledHeader
           width="200px"
           display="flex"
