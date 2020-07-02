@@ -74,7 +74,10 @@ function UpdatesIndex() {
       <Box flex="1" pl="800">
         {!filteredByCategory.length && (
           <Box color="gray.800" fontSize="200">
-            There's nothing here yet 😢
+            There's nothing here yet{' '}
+            <span role="img" aria-label="Sad emoji">
+              😢
+            </span>
           </Box>
         )}
         {filteredByCategory.map(post => {

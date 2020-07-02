@@ -1,11 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
+import { Box, ThemeProvider } from '@sparkpost/matchbox';
 import _ from 'lodash';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
-import { Box, ThemeProvider } from '@sparkpost/matchbox';
+import Footer from '../Footer/Footer';
 import global from './global';
 
 const GlobalStyle = createGlobalStyle`
@@ -70,7 +71,7 @@ function Layout(props) {
   const sideItems = React.useMemo(() => {
     const selectedNavItem = _.find(navItems, ['selected', true]);
     return _.get(selectedNavItem, 'childRoutes', []);
-  }, [navItems, pathname]);
+  }, [navItems]);
 
   const pageTitle = React.useMemo(() => {
     const selectedRoute = _.findLast(allRoutes, ({ path }) =>
@@ -95,6 +96,7 @@ function Layout(props) {
             <MDXProvider>{props.children}</MDXProvider>
           </Box>
         </Box>
+        <Footer />
       </Box>
     </ThemeProvider>
   );

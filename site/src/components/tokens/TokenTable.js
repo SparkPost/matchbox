@@ -70,7 +70,7 @@ function TokenTable(props) {
         return false;
       }
     );
-  }, [props.tokens, props.filter, sortedTokens]);
+  }, [props.filter, sortedTokens]);
 
   return (
     <div>
