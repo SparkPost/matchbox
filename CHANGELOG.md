@@ -1,0 +1,15 @@
+## 4.0.2 (2020-06-26)
+
+#### Enhancements
+
+- `matchbox`
+  - [#503](https://github.com/SparkPost/matchbox/pull/503) UX-252 Add helptext prop to
+    Actionlist.Action ([@jonambas](https://github.com/jonambas))
+  - [#500](https://github.com/SparkPost/matchbox/pull/500) UX-220 Drawers and Modals do not lock
+    focus if inside iframes ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 3
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+- Tim Reeder ([@tokonoma](https://github.com/tokonoma))
