@@ -113,7 +113,7 @@ describe('ComboBoxTextField', () => {
   describe('selected items', () => {
     it('should render selected items correctly', () => {
       const wrapper = subject();
-      expect(tags(wrapper).text()).toEqual('fooClosebarClose');
+      expect(tags(wrapper).text()).toEqual('fooRemovebarRemove');
     });
 
     it('should handle remove on a tag correctly', () => {
