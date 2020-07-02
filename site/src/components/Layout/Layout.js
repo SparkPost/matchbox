@@ -6,6 +6,7 @@ import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import Footer from '../Footer/Footer';
 import { Box, ThemeProvider } from '@sparkpost/matchbox';
+import Global from './Global';
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -77,6 +78,7 @@ function Layout(props) {
 
   return (
     <ThemeProvider>
+      <Global />
       <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />

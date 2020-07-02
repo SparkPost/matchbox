@@ -1,10 +1,10 @@
 import React from 'react';
-import GlobalStyle from './Global';
+import Critical from './Critical';
 
 function PageElement(props) {
   return (
-    <div>
-      <GlobalStyle />
+    <div className="site-wrapper">
+      <Critical />
       {props.children}
     </div>
   );
