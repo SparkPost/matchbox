@@ -29,7 +29,7 @@ function Tag(props) {
   const closeMarkup = onRemove ? (
     <StyledClose onClick={onRemove} tagColor={color} type="button">
       <Close size={16} />
-      <ScreenReaderOnly>Close</ScreenReaderOnly>
+      <ScreenReaderOnly>Remove</ScreenReaderOnly>
     </StyledClose>
   ) : null;
 

@@ -15,7 +15,7 @@ describe('Tag', () => {
 
   it('should render a remove button', () => {
     const wrapper = global.mountStyled(<Tag onRemove={jest.fn()}>Hola!</Tag>);
-    expect(wrapper.find('button').text()).toEqual('Close');
+    expect(wrapper.find('button').text()).toEqual('Remove');
   });
 
   it('should handle remove on click', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Panel } from '@sparkpost/matchbox';
+import { Panel, Columns, Column } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Panel',
@@ -117,6 +117,38 @@ export const SystemProps = withInfo()(() => (
       </Panel.Section>
     </Panel>
   </>
+));
+
+export const AsCards = withInfo()(() => (
+  <Columns>
+    <Column>
+      <Panel p="400" height="100%" borderTop="none">
+        <Panel.Section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+          reprehenderit, odio temporibus culpa beatae iure!
+        </Panel.Section>
+        <Panel.Section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+          reprehenderit, odio temporibus culpa beatae iure!
+        </Panel.Section>
+        <Panel.Section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+          reprehenderit, odio temporibus culpa beatae iure!
+        </Panel.Section>
+      </Panel>
+    </Column>
+    <Column>
+      <Panel height="100%" borderRight="none">
+        <Panel.Section>Lorem Ipsum</Panel.Section>
+        <Panel.Section>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel.Section>
+      </Panel>
+    </Column>
+    <Column>
+      <Panel height="50%" width="50%">
+        <Panel.Section>Lprehenderit, odio temporibus culpa beatae iure!</Panel.Section>
+      </Panel>
+    </Column>
+  </Columns>
 ));
 
 export const ResonsiveSystemProps = withInfo()(() => (

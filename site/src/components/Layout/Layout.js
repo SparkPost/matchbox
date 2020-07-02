@@ -1,16 +1,16 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { createGlobalStyle } from 'styled-components';
-import { Box, ThemeProvider } from '@sparkpost/matchbox';
 import _ from 'lodash';
+import { createGlobalStyle } from 'styled-components';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import Footer from '../Footer/Footer';
-import global from './global';
+import { Box, ThemeProvider } from '@sparkpost/matchbox';
+import global from './Global';
 
-const GlobalStyle = createGlobalStyle`
-  ${global}
+const GlobalStyle = createGlobalStyle`	
+  ${global}	
 `;
 
 function Layout(props) {
@@ -38,6 +38,7 @@ function Layout(props) {
       }
     }
   `);
+
   const pathname = _.get(props, 'location.pathname', '');
   const allRoutes = data.allRoutesJson.nodes;
 

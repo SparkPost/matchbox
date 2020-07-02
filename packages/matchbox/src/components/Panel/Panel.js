@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin, padding, compose } from 'styled-system';
+import { margin, padding, border, width, height, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { panel, panelInner } from './styles';
 import { pick } from '@styled-system/props';
+import { pick as pickNames } from '../../helpers/systemProps';
 import { PanelPaddingContext } from './context';
 
 import Section from './Section';
@@ -12,14 +13,16 @@ import Footer from './Footer';
 import Header from './Header';
 import Accent from './Accent';
 
-const system = compose(margin, padding);
+const systemOuter = compose(margin, padding, width, height);
+const systemInner = compose(border, height);
 
 const PanelOuter = styled('div')`
-  ${system}
+  ${systemOuter}
   ${panel}
 `;
 
 const PanelInner = styled('div')`
+  ${systemInner}
   ${panelInner}
 `;
 
@@ -45,23 +48,25 @@ const Panel = React.forwardRef(function Panel(props, ref) {
   } = props;
 
   const accentColor = accent === true ? 'blue' : accent;
-
-  const headerMarkup = title ? <Header title={title} actions={actions} /> : null;
-
   const contentMarkup = sectioned ? <Section>{children}</Section> : children;
-
-  const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
   // Pick out `p` and `padding` so we only pass one value down
   // `context` is passed to handle directional padding values like `px` or `pr`
   const { p: contextP = '500', padding: contextPadding, ...context } = pick(rest);
 
+  // Picks border, width, and height for outer container
+  const systemOuterProps = pickNames(rest, systemOuter.propNames);
+
+  // Picks border for inner container, its width and height should always be 100%
+  const { border: borderProp = '400', ...systemInnerProps } = pickNames(rest, border.propNames);
+  const innerHeight = !!systemOuterProps.height ? '100%' : null;
+
   return (
-    <PanelOuter className={className} {...rest} ref={ref} tabIndex="-1">
-      {accentMarkup}
-      <PanelInner accent={accent}>
+    <PanelOuter className={className} {...rest} ref={ref} tabIndex="-1" {...systemOuterProps}>
+      {accentColor && <Accent accentColor={accentColor} />}
+      <PanelInner accent={accent} border={borderProp} height={innerHeight} {...systemInnerProps}>
         <PanelPaddingContext.Provider value={{ p: contextP || contextPadding, ...context }}>
-          {headerMarkup}
+          {title && <Header title={title} actions={actions} />}
           {contentMarkup}
         </PanelPaddingContext.Provider>
       </PanelInner>
@@ -89,8 +94,11 @@ Panel.propTypes = {
     }),
   ),
   children: PropTypes.node,
+  ...createPropTypes(border.propNames),
+  ...createPropTypes(height.propNames),
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
+  ...createPropTypes(width.propNames),
 };
 
 export default Panel;

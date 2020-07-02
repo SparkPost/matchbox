@@ -22,6 +22,7 @@ export const panel = () => `
   background: ${tokens.color_white};
   border-radius: ${tokens.borderRadius_100};
   padding: ${tokens.spacing_0};
+  overflow: hidden;
 `;
 
 export const panelInner = props => {
@@ -32,7 +33,6 @@ export const panelInner = props => {
   }
 
   return `
-    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
     border-radius: ${borderRadius};
     border-top-width: ${props.accent ? '0' : '1px'};
   `;
