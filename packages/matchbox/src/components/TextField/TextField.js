@@ -4,6 +4,7 @@ import { Label } from '../Label';
 import { Error } from '../Error';
 import { Connect } from '../Connect';
 import { Box } from '../Box';
+import { OptionalLabel } from '../OptionalLabel';
 import { HelpText } from '../HelpText';
 import { getRectFor, roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
@@ -100,6 +101,7 @@ function TextField(props) {
     suffix,
     suffixClassname,
     style,
+    optional,
     ...rest
   } = props;
 
@@ -163,6 +165,7 @@ function TextField(props) {
         {error && errorInLabel && (
           <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
         )}
+        {optional && <OptionalLabel float />}
       </Label>
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
@@ -230,6 +233,7 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  optional: PropTypes.bool,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(maxWidth.propNames),
 };

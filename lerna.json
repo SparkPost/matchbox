@@ -4,13 +4,15 @@
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/tests/**", "**/*.md"]
+      "ignoreChanges": ["**/tests/**", "**/*.md"],
+      "allowBranch": "main"
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
     },
     "version": {
-      "message": "Publish"
+      "message": "Publish",
+      "allowBranch": "main"
     }
   },
   "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
