@@ -32,6 +32,7 @@ function Layout(props) {
       }
     }
   `);
+
   const pathname = _.get(props, 'location.pathname', '');
   const allRoutes = data.allRoutesJson.nodes;
 
