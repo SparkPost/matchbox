@@ -11,10 +11,7 @@ module.exports = {
     'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Shows component displaynames in CSS classnames
-        // displayName: true
-      }
+      options: {}
     },
     {
       resolve: 'gatsby-plugin-mdx',
