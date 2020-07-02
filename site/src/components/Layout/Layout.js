@@ -1,12 +1,17 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import _ from 'lodash';
+import { createGlobalStyle } from 'styled-components';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
 import Footer from '../Footer/Footer';
 import { Box, ThemeProvider } from '@sparkpost/matchbox';
-import Global from './Global';
+import global from './Global';
+
+const GlobalStyle = createGlobalStyle`	
+  ${global}	
+`;
 
 function Layout(props) {
   const data = useStaticQuery(graphql`
@@ -78,7 +83,7 @@ function Layout(props) {
 
   return (
     <ThemeProvider>
-      <Global />
+      <GlobalStyle />
       <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
