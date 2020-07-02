@@ -1,6 +1,7 @@
 import { tokens } from '@sparkpost/design-tokens';
+import { createGlobalStyle } from 'styled-components';
 
-export default `
+export default createGlobalStyle`
   @font-face {
     font-family: 'Calibre';
     src: url('/fonts/calibre/Calibre-Light.woff2') format('woff2'),
@@ -84,29 +85,29 @@ export default `
     color: ${tokens.color_gray_900};
   }
 
-   h1,
-   h2 {
-     font-size: ${tokens.fontSize_800};
-     line-height: ${tokens.lineHeight_800};
-   }
+  h1,
+  h2 {
+    font-size: ${tokens.fontSize_800};
+    line-height: ${tokens.lineHeight_800};
+  }
 
-   h3,
-   h4 {
-     font-size: ${tokens.fontSize_600};
-     line-height: ${tokens.lineHeight_600};
-   }
+  h3,
+  h4 {
+    font-size: ${tokens.fontSize_600};
+    line-height: ${tokens.lineHeight_600};
+  }
 
-   h5 {
-     font-size: ${tokens.fontSize_500};
-     line-height: ${tokens.lineHeight_500};
-   }
+  h5 {
+    font-size: ${tokens.fontSize_500};
+    line-height: ${tokens.lineHeight_500};
+  }
 
-   h6 {
-     font-size: ${tokens.fontSize_400};
-     line-height: ${tokens.lineHeight_400};
-   }
+  h6 {
+    font-size: ${tokens.fontSize_400};
+    line-height: ${tokens.lineHeight_400};
+  }
 
-   p {
+  p {
     font-size: ${tokens.fontSize_400};
     line-height: ${tokens.lineHeight_400};
     margin-top: 0;
@@ -130,24 +131,24 @@ export default `
   }
 
   hr {
-     border: none;
-     height: 2px;
-     background: ${tokens.color_gray_200};
-     margin: ${tokens.spacing_700} 0;
-   }
+    border: none;
+    height: 2px;
+    background: ${tokens.color_gray_200};
+    margin: ${tokens.spacing_700} 0;
+  }
 
-   b,
-   strong {
-     font-weight: 600;
-   }
+  b,
+  strong {
+    font-weight: 600;
+  }
 
-   a,
-   a:visited {
-     color: ${tokens.color_gray_900};
-     &:hover {
-       color: ${tokens.color_gray_900};
-     }
-   }
+  a,
+  a:visited {
+    color: ${tokens.color_gray_900};
+    &:hover {
+      color: ${tokens.color_gray_900};
+    }
+  }
 
   main {
     a,
@@ -167,19 +168,18 @@ export default `
       line-height: ${tokens.lineHeight_400};
     }
 
-     code {
-       font-size: ${tokens.fontSize_100};
-     }
+    code {
+      font-size: ${tokens.fontSize_100};
+    }
 
-     small {
-       font-size: ${tokens.fontSize_300};
-       line-height: ${tokens.lineHeigh_300};
-       color: ${tokens.color_gray_700};
-     }
+    small {
+      font-size: ${tokens.fontSize_300};
+      line-height: ${tokens.lineHeigh_300};
+      color: ${tokens.color_gray_700};
+    }
     
-     pre {
+    pre {
       margin-bottom: ${tokens.spacing_400};
     }
   }
-
 `;
