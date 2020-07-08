@@ -36,6 +36,7 @@ function Td({ c, selected, onSelect, ...rest }) {
       height="4rem"
       textAlign="center"
       onMouseOver={() => onSelect(c)}
+      onFocus={() => onSelect(c)}
       bg={c.value}
       {...rest}
     >
