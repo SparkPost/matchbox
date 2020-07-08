@@ -111,7 +111,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
   const loadingIndicator = React.useMemo(() => {
     return (
-      <Transition mountOnEnter unmountOnExit in={loading}>
+      <Transition mountOnEnter unmountOnExit in={loading} timeout="500">
         {state => (
           <StyledLoader state={state}>
             <Spinner
