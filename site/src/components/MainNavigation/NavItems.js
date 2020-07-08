@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { listItem, link } from './styles';
 import { Link } from 'gatsby';
 
-const StyledListItem = styled('li')`
+import { Box } from '@sparkpost/matchbox';
+
+const StyledListItem = styled(Box)`
   ${listItem}
 `;
 
@@ -16,6 +18,7 @@ function NavItems(props) {
 
   return list.map(item => (
     <StyledListItem
+      as="li"
       ml={['0', null, '800']}
       key={item.path}
       selected={item.selected}
