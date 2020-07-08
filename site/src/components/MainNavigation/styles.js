@@ -4,7 +4,6 @@ export const listItem = props => {
   const baseStyles = `
     position: relative;
     list-style-type: none;
-    margin: 0 0 0 ${tokens.spacing_800};
   `;
 
   const selectedStyles = `

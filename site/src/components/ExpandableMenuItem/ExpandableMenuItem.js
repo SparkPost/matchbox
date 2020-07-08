@@ -15,15 +15,16 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledChevronRight = styled(ChevronRight)`
-  transform: ${props => (props.expanded ? 'rotate(90deg)' : 'rotate(0deg)')};
-  transition: transform ${tokens.motionDuration_fast}
+  transform: ${props => (props.expanded ? 'rotate(-90deg)' : 'rotate(90deg)')};
+  transition: transform ${tokens.motionDuration_medium}
     ${tokens.motionEase_in_out};
 `;
 
 function ExpandableMenuItem(props) {
   const { value, defaultExpanded, firstRoute, children } = props;
-
   const [expanded, setExpanded] = useState(defaultExpanded || false);
+
+  const WrapperComponent = defaultExpanded ? Box : StyledLink;
 
   function toggleExpanded() {
     setExpanded(!expanded);
@@ -31,7 +32,7 @@ function ExpandableMenuItem(props) {
 
   return (
     <Box>
-      <StyledLink to={!defaultExpanded ? firstRoute : ''}>
+      <WrapperComponent to={firstRoute}>
         <StyledHeader
           width="200px"
           display="flex"
@@ -47,7 +48,7 @@ function ExpandableMenuItem(props) {
             <StyledChevronRight expanded={expanded} />
           </Box>
         </StyledHeader>
-      </StyledLink>
+      </WrapperComponent>
       {expanded && <Box pl="300">{children}</Box>}
     </Box>
   );
