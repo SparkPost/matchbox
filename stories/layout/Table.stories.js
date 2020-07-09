@@ -7,9 +7,12 @@ export default {
 };
 
 const Node = ({ children = 'A react component' }) => <Box minWidth="900">{children}</Box>;
+const NodeLong = ({
+  children = 'A really longgggggggggggggggggggggggggggggggggggggggg react component',
+}) => <Box minWidth="900">{children}</Box>;
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
-  [<Node />, <Node />, <Node />, <Node />],
+  [<Node />, <Node />, <NodeLong />, <Node />],
   [1, 2, 3, 4],
 ];
 
