@@ -17,21 +17,23 @@ function NavItems(props) {
   const list = props.items.filter(({ disabled }) => !disabled);
 
   return list.map(item => (
-    <StyledListItem
-      as="li"
-      ml={['0', null, '800']}
-      key={item.path}
-      selected={item.selected}
-    >
-      <StyledLink
-        as={Link}
-        to={item.path}
-        disabled={item.disabled}
+    <Box display="block">
+      <StyledListItem
+        as="li"
+        ml={['0', null, '800']}
+        key={item.path}
         selected={item.selected}
       >
-        {item.label}
-      </StyledLink>
-    </StyledListItem>
+        <StyledLink
+          as={Link}
+          to={item.path}
+          disabled={item.disabled}
+          selected={item.selected}
+        >
+          {item.label}
+        </StyledLink>
+      </StyledListItem>
+    </Box>
   ));
 }
 

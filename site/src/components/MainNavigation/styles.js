@@ -3,6 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 export const listItem = props => {
   const baseStyles = `
     position: relative;
+    display: inline-block;
     list-style-type: none;
   `;
 

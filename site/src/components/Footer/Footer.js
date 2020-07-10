@@ -17,16 +17,19 @@ const Wrapper = styled(Box)`
   }
 `;
 
-const List = styled.ul`
+const List = styled(Box)`
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
 
   li {
     flex: 0;
-    margin-left: ${props => props.theme.sizes['600']};
+    margin-right: ${props => props.theme.sizes['600']};
+    &:last-of-type {
+      margin-right: 0;
+    }
 
     a {
       text-decoration: none;
@@ -42,9 +45,9 @@ function Footer() {
       py="800"
       borderTop={`2px solid ${tokens.color_gray_200}`}
     >
-      <Columns>
+      <Columns collapseBelow="md">
         <Column>
-          <Box fontSize="300" lineHeight="300">
+          <Box fontSize="300" lineHeight="300" mb={['600', null, '0']}>
             <Box fontWeight="medium">
               Have questions or feedback? Open an issue on{' '}
               <ExternalLink to="https://github.com/SparkPost/matchbox/issues/new/choose">
@@ -56,7 +59,7 @@ function Footer() {
           </Box>
         </Column>
         <Column>
-          <List>
+          <List as="ul" justifyContent={['flex-start', null, 'flex-end']}>
             <li>
               <ExternalLink to="https://github.com/SparkPost/matchbox">
                 Contribute
