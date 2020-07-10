@@ -31,7 +31,7 @@ function Section(props) {
     actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
 
   return (
-    <SectionOuter {...paddingContext} {...rest}>
+    <SectionOuter className={className} {...paddingContext} {...rest}>
       <SectionContent>{children}</SectionContent>
       {actionMarkup}
     </SectionOuter>
