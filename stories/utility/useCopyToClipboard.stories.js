@@ -5,7 +5,7 @@ export default {
   title: 'Utility|useCopyToClipboard',
 };
 
-export const Chevrons = () => {
+export const exampleUsage = () => {
   const { copy, copied } = useCopyToClipboard();
   return (
     <Button onClick={() => copy('copied text')}>{copied ? 'Copied!' : 'Click to Copy'}</Button>
