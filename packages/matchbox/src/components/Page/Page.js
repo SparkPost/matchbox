@@ -63,8 +63,8 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
         {...action}
         outlineBorder
         color="blue"
-        mr={hasPrimaryAction ? ['0', null, null, '500'] : ' 0'}
-        ml={hasPrimaryAction ? ['500', null, null, '0'] : '0'}
+        mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
+        ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
       >
         {action.content}
       </Button>
@@ -74,8 +74,8 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
   return (
     <Box
       position="relative"
-      mr={hasPrimaryAction ? ['0', null, null, '500'] : ' 0'}
-      ml={hasPrimaryAction ? ['500', null, null, '0'] : '0'}
+      mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
+      ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
     >
       <Popover
         bottom
@@ -143,13 +143,13 @@ function Page(props) {
 
   return (
     <div>
-      <Box mt={['500', null, null, '700']} mb={['300', null, null, '500']}>
+      <Box mt={['500', null, '700']} mb={['300', null, '500']}>
         {breadcrumbAction && (
           <Box mb="500">
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
-        <Box display={[null, null, 'block', 'flex']} alignItems="flex-start">
+        <Box display={[null, 'block', 'flex']} alignItems="flex-start">
           <Box flex="1">
             {title && (
               <Box
@@ -166,10 +166,10 @@ function Page(props) {
           <Box
             flex="0"
             display="flex"
-            flexDirection={['row-reverse', null, null, 'row']}
+            flexDirection={['row-reverse', null, 'row']}
             justifyContent="flex-end"
-            mt={['400', null, null, '300']}
-            mb={['400', null, null, '0']}
+            mt={['400', null, '300']}
+            mb={['400', null, '0']}
           >
             <SecondaryActions
               actions={secondaryActions}
