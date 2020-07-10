@@ -11,6 +11,10 @@ import { StyledDay } from './styles';
  * */
 
 function renderDay(date, modifiers = {}) {
+  if (modifiers.outside) {
+    return '';
+  }
+
   return (
     <StyledDay
       alignItems="center"

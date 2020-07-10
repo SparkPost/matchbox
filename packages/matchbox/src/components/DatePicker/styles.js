@@ -121,4 +121,8 @@ export const wrapper = props => `
   .DayPicker-Day {
     flex: 1 0;
   }
+
+  .DayPicker-Day--disabled {
+    pointer-events: none;
+  }
 `;
