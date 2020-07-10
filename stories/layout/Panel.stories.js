@@ -41,7 +41,7 @@ export const WithAFooter = withInfo()(() => (
 export const WithMultipleSections = withInfo()(() => (
   <Panel>
     <Panel.Section>This is a panel with sections</Panel.Section>
-    <Panel.Section>This is a panel with sections</Panel.Section>
+    <Panel.Section className="test-class">This is a panel with sections</Panel.Section>
     <Panel.Section>This is a panel with sections</Panel.Section>
   </Panel>
 ));

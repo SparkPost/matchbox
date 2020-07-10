@@ -196,6 +196,15 @@ describe('Panel', () => {
     expect(wrapper.find('.my-class')).toExist();
   });
 
+  it('renders with the passed in className on a section', () => {
+    wrapper = global.mountStyled(
+      <Panel>
+        <Panel.Section className="my-class">Hello, world.</Panel.Section>
+      </Panel>,
+    );
+    expect(wrapper.find('.my-class')).toExist();
+  });
+
   it('renders with with a ref', () => {
     function Test() {
       const ref = React.useRef();
