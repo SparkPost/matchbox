@@ -7,7 +7,6 @@ export default `
 
   #___gatsby {
     width: 100vw;
-    overflow: hidden;
   }
 
   h1,

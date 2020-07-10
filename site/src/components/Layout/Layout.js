@@ -104,7 +104,13 @@ function Layout(props) {
               <SideNavigation navItems={sideItems} />
             </Box>
           )}
-          <Box as="main" flex="1 0 0" pb="800" pt="400">
+          <Box
+            as="main"
+            flex="1 0 0"
+            pb={['400', null, '800']}
+            pt="400"
+            width="100%"
+          >
             <MDXProvider>{props.children}</MDXProvider>
           </Box>
         </Box>
