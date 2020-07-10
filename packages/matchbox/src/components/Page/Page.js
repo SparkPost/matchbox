@@ -55,7 +55,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return null;
   }
 
-  if (visibleActions.length == 1) {
+  if (visibleActions.length === 1) {
     const action = visibleActions[0];
 
     return (
@@ -89,13 +89,12 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
             aria-expanded={isOpen}
             color="blue"
             onClick={() => setIsOpen(!isOpen)}
-            outline
+            outlineBorder
+            p="0"
             width="2.5rem" // Forces a square
           >
-            <Box position="absolute">
-              <MoreHoriz />
-              <ScreenReaderOnly>More Options</ScreenReaderOnly>
-            </Box>
+            <MoreHoriz />
+            <ScreenReaderOnly>More Options</ScreenReaderOnly>
           </Button>
         }
       >
