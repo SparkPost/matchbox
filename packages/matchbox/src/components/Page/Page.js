@@ -61,7 +61,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return (
       <Button
         {...action}
-        outline
+        outlineBorder
         color="blue"
         mr={hasPrimaryAction ? ['0', null, null, '500'] : ' 0'}
         ml={hasPrimaryAction ? ['500', null, null, '0'] : '0'}
