@@ -3,7 +3,7 @@ import { getWindow } from '../helpers/window';
 import copy from 'copy-to-clipboard';
 
 /**
- * Copies a string to the clipboard and provides copied state
+ * SSR friendly hook that copies a string to the clipboard and provides copied state
  *
  * @example
  * const { copy, copied } = useCopyToClipboard({ timeout: 2000 });
