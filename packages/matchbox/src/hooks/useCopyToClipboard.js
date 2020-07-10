@@ -1,34 +1,28 @@
 import React from 'react';
 import { getWindow } from '../helpers/window';
+import copy from 'copy-to-clipboard';
+
 /**
- import { useCopyToClipboard } from '@sparkpost/matchbox'
-
-  const {
-    copy,  // function to programatically copy a string to clipboard
-    copied // Copied state, resets after specified timeout
-  } = useCopyToClipboard(
-    timeout = 1000 // Timeout to reset copied state
-  );
-
-  function handleCopy() {
-    copy('copy me')
-  }
-
-  <Button onClick={handleCopy}>
-    {copied ? 'string has been copied' : 'copy to clipboard'}
-  </Button>
+ * Copies a string to the clipboard and provides copied state
+ *
+ * @example
+ * const { copy, copied } = useCopyToClipboard({ timeout: 2000 });
+ *
+ * <Button onClick={() => copy('string')}>
+ *  {copied ? 'String has been copied' : 'Copy to clipboard'}
+ * </Button>
  */
-
-function useCopyToClipboard(args) {
+function useCopyToClipboard({ timeout = 1000 } = {}) {
   const environment = getWindow();
-  const { timeout = 1000 } = args;
   const [copied, setCopied] = React.useState(false);
 
-  function copy() {}
+  function handleCopy(string) {
+    copy(string);
+    setCopied(true);
+  }
 
   React.useEffect(() => {
     let timer;
-
     if (copied) {
       timer = environment.setTimeout(() => setCopied(false), timeout);
     }
@@ -38,7 +32,7 @@ function useCopyToClipboard(args) {
   }, [copied, timeout]);
 
   return {
-    copy,
+    copy: handleCopy,
     copied,
   };
 }
