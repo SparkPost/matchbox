@@ -9,7 +9,7 @@ export const outerBase = () => `
 
 export const innerBase = () => `
   background-color: ${tokens.color_blue_700};
-  border-radius: ${tokens.borderRadius_100} ${tokens.borderRadius_0} ${tokens.borderRadius_0} ${tokens.borderRadius_100}
+  border-radius: ${tokens.borderRadius_100} ${tokens.borderRadius_0} ${tokens.borderRadius_0} ${tokens.borderRadius_100};
 `;
 
 export const visualSize = props => {
