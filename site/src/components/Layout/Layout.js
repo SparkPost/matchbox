@@ -116,6 +116,7 @@ function Layout(props) {
         </Box>
         <Footer />
       </Box>
+      <Box id="modal-portal"></Box>
     </ThemeProvider>
   );
 }
