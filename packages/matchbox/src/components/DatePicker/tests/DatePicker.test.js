@@ -79,7 +79,8 @@ describe('DatePicker', () => {
     });
 
     it('should not render outside days', () => {
-      const wrapper = subject({ initialMonth: date });
+      const click = jest.fn();
+      const wrapper = subject({ initialMonth: date, onDayClick: click });
       expect(wrapper.find('.DayPicker-Day--outside').first()).toHaveAttributeValue(
         'aria-disabled',
         'true',
@@ -90,6 +91,28 @@ describe('DatePicker', () => {
           .first()
           .text(),
       ).toBe('');
+    });
+
+    it('should not click on outside days', () => {
+      const click = jest.fn();
+      const wrapper = subject({ initialMonth: date, onDayClick: click });
+
+      wrapper
+        .find('.DayPicker-Day--outside')
+        .first()
+        .simulate('click');
+      expect(click).not.toHaveBeenCalled();
+    });
+
+    it('should click on a day', () => {
+      const click = jest.fn();
+      const wrapper = subject({ initialMonth: date, onDayClick: click });
+
+      wrapper
+        .find('.DayPicker-Day')
+        .first()
+        .simulate('click');
+      expect(click).toHaveBeenCalled();
     });
   });
 });
