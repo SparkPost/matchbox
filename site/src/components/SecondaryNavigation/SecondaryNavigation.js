@@ -8,10 +8,10 @@ import SideNavigation from '../SideNavigation/SideNavigation';
 function SecondaryNavigation(props) {
   const { navItems } = props;
 
-  const { label: primaryLabel, childRoutes } = _.find(navItems, [
-    'selected',
-    true
-  ]);
+  const { label: primaryLabel, childRoutes } = _.find(
+    navItems,
+    ['selected', true] || {}
+  );
 
   const { label: secondaryLabel } = _.find(
     childRoutes,
