@@ -144,7 +144,7 @@ Popover.propTypes = {
    * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
    */
   open: PropTypes.bool,
-  left: PropTypes.bool,
+  left: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
   right: PropTypes.bool,
   top: PropTypes.bool,
   bottom: PropTypes.bool,

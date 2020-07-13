@@ -9,8 +9,6 @@ export const content = props => `
   margin-top: ${props.isTop ? tokens.spacing_0 : tokens.spacing_100};
   margin-bottom: ${props.isTop ? tokens.spacing_100 : tokens.spacing_0};
 
-  left: ${props.isLeft ? 'auto' : '0'};
-  right: ${!props.isLeft ? 'auto' : '0'};
   top: ${props.isTop ? 'auto' : '100%'};
   bottom: ${!props.isTop ? 'auto' : '100%'};
 `;
