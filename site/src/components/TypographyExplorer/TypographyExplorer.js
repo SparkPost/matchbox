@@ -95,7 +95,7 @@ function TypographyExplorer() {
         }}
       />
 
-      <Box display="flex">
+      <Box display="flex" flexWrap="wrap">
         <Box mr="500" mb="400">
           <Box fontWeight="medium" fontSize="200" lineHeight="200">
             Family

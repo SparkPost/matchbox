@@ -5,6 +5,10 @@ export default `
     color: ${tokens.color_gray_900};
   }
 
+  #___gatsby {
+    width: 100vw;
+  }
+
   h1,
   h2,
   h3,

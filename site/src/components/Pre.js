@@ -16,7 +16,7 @@ function Pre(props) {
   }
 
   return (
-    <Box bg="gray.100" p="600" mb="400" borderRadius="200">
+    <Box bg="gray.100" p="600" mb="400" borderRadius="200" overflow="scroll">
       <SyntaxHighlighter
         language={language}
         style={coy}

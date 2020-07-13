@@ -5,6 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 import { Header, MDXProvider } from '../';
 import SEO from '../seo';
 import SideNavigation from '../SideNavigation/SideNavigation';
+import SecondaryNavigation from '../SecondaryNavigation/SecondaryNavigation';
 import Footer from '../Footer/Footer';
 import { Box, ThemeProvider } from '@sparkpost/matchbox';
 import global from './Global';
@@ -87,13 +88,29 @@ function Layout(props) {
       <Box maxWidth="1240px" margin="0 auto" pl="600" pr="600">
         <SEO title={pageTitle} />
         <Header siteTitle={data.site.siteMetadata.title} navItems={navItems} />
+        {Boolean(sideItems && sideItems.length) && (
+          <Box display={['flex', null, 'none']} pb="700">
+            <SecondaryNavigation navItems={navItems} />
+          </Box>
+        )}
         <Box display="flex" maxWidth={props.maxWidth || '1240px'} m="0 auto">
           {Boolean(sideItems && sideItems.length) && (
-            <Box as="aside" flex="0 0 0" minWidth="300px">
+            <Box
+              display={['none', null, 'flex']}
+              as="aside"
+              flex="0 0 0"
+              minWidth="300px"
+            >
               <SideNavigation navItems={sideItems} />
             </Box>
           )}
-          <Box as="main" flex="1 0 0" pb="800" pt="400">
+          <Box
+            as="main"
+            flex="1 0 0"
+            pb={['400', null, '800']}
+            pt="400"
+            width="100%"
+          >
             <MDXProvider>{props.children}</MDXProvider>
           </Box>
         </Box>
