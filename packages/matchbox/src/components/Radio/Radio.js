@@ -79,7 +79,7 @@ function Radio(props) {
       </StyledLabel>
       {error && <Error id={errorId} error={error} ml="500" />}
       {helpText && (
-        <HelpText id={helpTextId} ml="500">
+        <HelpText id={helpTextId} ml="500" mt="0">
           {helpText}
         </HelpText>
       )}
