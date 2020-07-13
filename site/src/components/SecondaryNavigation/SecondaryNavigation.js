@@ -13,7 +13,10 @@ function SecondaryNavigation(props) {
     true
   ]);
 
-  const { label: secondaryLabel } = _.find(childRoutes, ['selected', true]);
+  const { label: secondaryLabel } = _.find(
+    childRoutes,
+    ['selected', true] || {}
+  );
 
   const { getDrawerProps, getActivatorProps } = useDrawer({
     id: 'secondary-navigation'
