@@ -22,7 +22,6 @@ export const panel = () => `
   background: ${tokens.color_white};
   border-radius: ${tokens.borderRadius_100};
   padding: ${tokens.spacing_0};
-  overflow: hidden;
 `;
 
 export const panelInner = props => {
