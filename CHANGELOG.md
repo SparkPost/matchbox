@@ -1,11 +1,25 @@
-
-## Unreleased (2020-07-14)
+## 4.0.8 (2020-07-14)
 
 #### Bug Fixes
-* `matchbox`
-  * [#536](https://github.com/SparkPost/matchbox/pull/536) Add missing styled-system/css external dependency ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#538](https://github.com/SparkPost/matchbox/pull/538) UX-278 Modal content now expands to its
+    container ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+## 4.0.7 (2020-07-14)
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#536](https://github.com/SparkPost/matchbox/pull/536) Add missing styled-system/css external
+    dependency ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 
 ## 4.0.6 (2020-07-13)
