@@ -108,6 +108,7 @@ const theme = {
       gray: tokens.color_brand_gray,
       blue: tokens.color_brand_blue,
     },
+    white: tokens.color_white,
   },
 
   // Example: <Box marginBottom="400" padding={400} />
@@ -164,12 +165,14 @@ const theme = {
   // Example: <Box border={500} />
   borders: {
     400: `${tokens.borderWidth_100} solid ${tokens.color_gray_400}`,
+    500: `${tokens.borderWidth_200} solid ${tokens.color_gray_400}`,
   },
 
   // Example: <Box borderWidth={100} />
   borderWidths: {
     0: tokens.borderWidth_0,
     100: tokens.borderWidth_100,
+    200: tokens.borderWidth_200,
   },
 
   // Example: <Box boxShadow={200} />

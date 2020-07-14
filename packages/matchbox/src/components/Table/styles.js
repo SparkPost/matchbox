@@ -8,14 +8,14 @@ export const table = () => `
   border-collapse: collapse;
 `;
 
-export const headerCell = () => `
-  font-size: ${tokens.fontSize_200};
-  line-height: ${tokens.lineHeight_300};
-  font-weight: ${tokens.fontWeight_semibold};
+export const headerCell = ({ theme }) => `
+  font-size: ${theme.fontSizes['200']};
+  line-height: ${theme.lineHeights['300']};
+  font-weight: ${theme.fontWeights.semibold};
   vertical-align: top;
 `;
 
-export const sticky = ({ isScrolled, freezeFirstColumn }) => {
+export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
   return `
     td:first-child, th:first-child {
       ${
@@ -28,7 +28,7 @@ export const sticky = ({ isScrolled, freezeFirstColumn }) => {
           `
           : ''
       }
-      ${isScrolled ? `box-shadow: ${tokens.boxShadow_400};` : ''}
+      ${isScrolled ? `box-shadow: ${theme.shadows['400']};` : ''}
     }
   `;
 };
@@ -38,38 +38,38 @@ export const cell = () => `
   vertical-align: top;
 `;
 
-const zebra = `
+const zebra = theme => `
   tbody &:nth-of-type(even) {
-    background: ${tokens.color_gray_100};
+    background: ${theme.colors.gray['100']};
   }
 `;
 
-export const row = () => `
-  background: ${tokens.color_white};
+export const row = ({ theme }) => `
+  background: ${theme.colors.white};
   border: none;
 
   thead & {
-    border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+    border-bottom:${theme.borders['400']};
   }
 
-  ${zebra}
+  ${zebra(theme)}
 `;
 
 export const wrapper = () => `
-  overflow: auto;
+overflow: auto;
 `;
 
-export const totalsRow = () => `
+export const totalsRow = ({ theme }) => `
   &:not(:last-child) {
-    border-bottom: 2px solid ${tokens.color_gray_400};
+    border-bottom: ${theme.borders['500']};
   }
 
   &:not(:first-child) {
-    border-top: 2px solid ${tokens.color_gray_400};
+    border-top: ${theme.borders['500']};
   }
 
   td {
-    font-weight: ${tokens.fontWeight_semibold};
+    font-weight: ${theme.fontWeights.semibold};
   }
-  ${zebra}
+  ${zebra(theme)}
 `;
