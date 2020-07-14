@@ -25,6 +25,25 @@ storiesOf('Overlays|Modal', module)
       </Modal>
     );
   })
+  .add('LEGACY', () => {
+    return (
+      <Modal.LEGACY open portalId={PORTAL_ID}>
+        <Panel title="Delete Template" sectioned>
+          <p>Are you sure you want to delete your template?</p>
+
+          <Box mt="500">
+            <Button mr="300" color="blue">
+              Delete
+            </Button>
+
+            <Button color="blue" outline>
+              Cancel
+            </Button>
+          </Box>
+        </Panel>
+      </Modal.LEGACY>
+    );
+  })
   .add(
     'Toggle Example',
     withInfo({
@@ -47,7 +66,12 @@ function ModalDemo() {
         Open Modal
       </button>
 
-      <Modal open={isOpen} onClose={handleToggle} showCloseButton={true} portalId={PORTAL_ID}>
+      <Modal.LEGACY
+        open={isOpen}
+        onClose={handleToggle}
+        showCloseButton={true}
+        portalId={PORTAL_ID}
+      >
         <Panel title="Delete Template" sectioned>
           <p>Are you sure you want to delete your template?</p>
 
@@ -61,7 +85,7 @@ function ModalDemo() {
             </Button>
           </Box>
         </Panel>
-      </Modal>
+      </Modal.LEGACY>
     </>
   );
 }

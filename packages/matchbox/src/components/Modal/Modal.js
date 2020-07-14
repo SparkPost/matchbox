@@ -1,177 +1,118 @@
 import React, { useRef } from 'react';
-import { Transition } from 'react-transition-group';
-import FocusLock from 'react-focus-lock';
-import ScrollLock, { TouchScrollable } from 'react-scrolllock';
+import PropTypes from 'prop-types';
+import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { padding, maxWidth } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import PropTypes from 'prop-types';
+import FocusLock from 'react-focus-lock';
+import { Transition } from 'react-transition-group';
+import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
-import { Close } from '@sparkpost/matchbox-icons';
-import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { WindowEvent } from '../WindowEvent';
-import { Button } from '../Button';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
+import { getRectFor } from '../../helpers/geometry';
+import { getChild } from '../../helpers/children';
 import { isInIframe } from '../../helpers/window';
+import { Overlay, Container } from './styles';
 import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
+
+import Legacy from './Legacy';
 
 const StyledBase = styled('div')`
   ${base}
   ${padding}
 `;
 
-const StyledWrapper = styled('div')`
-  ${wrapper}
-`;
-
-const StyledCloseButton = styled(Button)`
-  ${closeButton}
-`;
-
-const StyledFocusLock = styled(FocusLock)`
-  ${focusLock}
-  ${maxWidth}
-`;
-
-const StyledContent = styled('div')`
-  ${content}
-  ${contentAnimation}
-`;
-
-const Modal = React.forwardRef(function Modal(props, userRef) {
+const Modal = React.forwardRef(function Modal(props, ref) {
   const {
-    onClose,
     children,
-    portalId,
     className,
-    showCloseButton,
-    maxWidth,
+    closeOnEscape,
+    closeOnOutsideClick,
+    onClose,
     open,
+    portalId,
+    maxWidth,
     ...rest
   } = props;
-  const container = useRef();
-  const content = useRef();
 
-  const handleKeydown = e => {
-    if (open && onClose) {
+  const overlayRef = useRef();
+  const contentRef = useRef();
+
+  // Calls onClose when clicking outside drawer content
+  function handleOutsideClick(e) {
+    if (!closeOnOutsideClick) {
+      return;
+    }
+
+    const isOutside =
+      overlayRef.current &&
+      overlayRef.current.contains(e.target) &&
+      childrenRef.current &&
+      !childrenRef.current.contains(e.target);
+
+    if (isOutside && open && onClose) {
+      onClose();
+    }
+  }
+
+  // Calls onClose when receiving a escape keydown event
+  function handleEscape(e) {
+    if (closeOnEscape && open && onClose) {
       onKey('escape', onClose)(e);
     }
-  };
+  }
 
-  const handleOutsideClick = e => {
-    const isOutside =
-      content &&
-      !content.current.contains(e.target) &&
-      container &&
-      container.current.contains(e.target);
-
-    if (open && isOutside && onClose) {
-      onClose(e);
-    }
-  };
+  useWindowEvent('keydown', handleEscape);
+  useWindowEvent('click', handleOutsideClick);
 
   return (
     <>
       <ScrollLock isActive={open} />
       <Portal containerId={portalId}>
-        <TouchScrollable>
-          <StyledBase
-            open={open}
-            {...rest}
-            className={className}
-            onClose={onClose}
-            role="dialog"
-            aria-modal="true"
-          >
-            {/*
-              Ref can't be a direct child of TouchScrollable
-              See https://github.com/jossmac/react-scrolllock/issues/67
-            */}
-            <Box p={['400', null, '700']} size="100%" ref={container}>
-              <StyledWrapper>
-                <Box
-                  display="flex"
-                  justifyContent="center"
-                  ref={content}
-                  width="100%"
-                  maxWidth={maxWidth}
-                >
-                  <ModalContent open={open} ref={userRef}>
-                    <WindowEvent event="keydown" handler={handleKeydown} />
-                    <WindowEvent event="click" handler={handleOutsideClick} />
-
-                    {showCloseButton && (
-                      <StyledCloseButton flat onClick={onClose} data-id="modal-close">
-                        <ScreenReaderOnly>Close</ScreenReaderOnly>
-
-                        <Close size={24} />
-                      </StyledCloseButton>
-                    )}
-                    {children}
-                  </ModalContent>
-                </Box>
-              </StyledWrapper>
-            </Box>
-          </StyledBase>
-        </TouchScrollable>
+        <StyledBase
+          open={open}
+          {...rest}
+          className={className}
+          onClose={onClose}
+          ref={ref}
+          role="dialog"
+          aria-modal="true"
+        >
+          <Box p={['400', null, '700']} size="100%" ref={overlayRef}>
+            <div>Modal</div>
+          </Box>
+        </StyledBase>
       </Portal>
     </>
   );
 });
 
-const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
-  const { open, children } = props;
-
-  return (
-    <StyledFocusLock disabled={!open || isInIframe()}>
-      <Transition
-        mountOnEnter
-        unmountOnExit
-        in={open}
-        timeout={{
-          enter: secondsToMS(tokens.motionDuration_medium),
-          exit: secondsToMS(tokens.motionDuration_fast),
-        }}
-      >
-        {/* Negative `tabIndex` required to programmatically focus */}
-        {state => (
-          <StyledContent state={state} tabIndex="-1" ref={userRef} data-id="modal-content-wrapper">
-            {children}
-          </StyledContent>
-        )}
-      </Transition>
-    </StyledFocusLock>
-  );
-});
+Modal.displayName = 'Modal';
 
 Modal.propTypes = {
-  /**
-   * Controlled open state of the modal
-   */
-  open: PropTypes.bool,
-  /**
-   * An optional function that is called on key down 'Escape' and on click outside modal content
-   */
-  onClose: PropTypes.func,
-  /**
-   * Modal content
-   */
   children: PropTypes.node,
-  showCloseButton: PropTypes.bool,
-  maxWidth: PropTypes.string,
-  /**
-   * Controls the target container ID for the rendering React portal
-   */
+  closeOnEscape: PropTypes.bool,
+  closeOnOutsideClick: PropTypes.bool,
+  onClose: PropTypes.func,
+  open: PropTypes.bool.isRequired,
   portalId: PropTypes.string,
+  maxWidth: PropTypes.string,
   ...createPropTypes(padding.propNames),
   ...createPropTypes(maxWidth.propNames),
 };
 
 Modal.defaultProps = {
-  maxWidth: '1200',
+  closeOnEscape: true,
+  closeOnOutsideClick: true,
+  position: 'right',
 };
+
+Modal.LEGACY = Legacy;
 
 export default Modal;
