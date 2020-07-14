@@ -38,6 +38,12 @@ export const cell = () => `
   vertical-align: top;
 `;
 
+const zebra = `
+  tbody &:nth-of-type(even) {
+    background: ${tokens.color_gray_100};
+  }
+`;
+
 export const row = () => `
   background: ${tokens.color_white};
   border: none;
@@ -46,11 +52,24 @@ export const row = () => `
     border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
   }
 
-  tbody &:nth-of-type(even) {
-    background: ${tokens.color_gray_100};
-  }
+  ${zebra}
 `;
 
 export const wrapper = () => `
   overflow: auto;
+`;
+
+export const totalsRow = () => `
+  &:not(:last-child) {
+    border-bottom: 2px solid ${tokens.color_gray_400};
+  }
+
+  &:not(:first-child) {
+    border-top: 2px solid ${tokens.color_gray_400};
+  }
+
+  td {
+    font-weight: ${tokens.fontWeight_semibold};
+  }
+  ${zebra}
 `;

@@ -37,6 +37,26 @@ export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
           <Table.Cell>2</Table.Cell>
           <Table.Cell>3</Table.Cell>
         </Table.Row>
+        <Table.TotalsRow>
+          <Table.Cell>Total</Table.Cell>
+          <Table.Cell></Table.Cell>
+          <Table.Cell>100000</Table.Cell>
+        </Table.TotalsRow>
+        <Table.Row>
+          <Table.Cell>1</Table.Cell>
+          <Table.Cell>2</Table.Cell>
+          <Table.Cell>3</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>1</Table.Cell>
+          <Table.Cell>2</Table.Cell>
+          <Table.Cell>3</Table.Cell>
+        </Table.Row>
+        <Table.TotalsRow>
+          <Table.Cell>Total</Table.Cell>
+          <Table.Cell></Table.Cell>
+          <Table.Cell>100000</Table.Cell>
+        </Table.TotalsRow>
       </tbody>
     </Table>
   </Panel>

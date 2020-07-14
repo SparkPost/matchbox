@@ -171,6 +171,45 @@ describe('Table', () => {
           .at(0)
           .text(),
       ).toEqual('3');
+      expect(wrapper.find('.test')).toExist();
+    });
+  });
+
+  describe('TotalsRow', () => {
+    it('renders children', () => {
+      wrapper = shallow(<Table.Row>children test</Table.Row>);
+      expect(wrapper.text()).toEqual('children test');
+    });
+
+    it('renders totals row data', () => {
+      wrapper = global.mountStyled(
+        <Table>
+          <tbody>
+            <Table.TotalsRow rowData={[1, '2', <span>3</span>]} className="test" />
+          </tbody>
+        </Table>,
+      );
+      expect(
+        wrapper
+          .find('td')
+          .at(0)
+          .text(),
+      ).toEqual('1');
+      expect(
+        wrapper
+          .find('td')
+          .at(1)
+          .text(),
+      ).toEqual('2');
+      expect(
+        wrapper
+          .find('td')
+          .at(2)
+          .find('span')
+          .at(0)
+          .text(),
+      ).toEqual('3');
+      expect(wrapper.find('.test')).toExist();
     });
   });
 });
