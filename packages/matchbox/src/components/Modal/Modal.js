@@ -92,8 +92,14 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
             */}
             <Box p={['400', null, '700']} size="100%" ref={container}>
               <StyledWrapper>
-                <div ref={content}>
-                  <ModalContent open={open} maxWidth={maxWidth} ref={userRef}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  ref={content}
+                  width="100%"
+                  maxWidth={maxWidth}
+                >
+                  <ModalContent open={open} ref={userRef}>
                     <WindowEvent event="keydown" handler={handleKeydown} />
                     <WindowEvent event="click" handler={handleOutsideClick} />
 
@@ -106,7 +112,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                     )}
                     {children}
                   </ModalContent>
-                </div>
+                </Box>
               </StyledWrapper>
             </Box>
           </StyledBase>
@@ -117,10 +123,10 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
 });
 
 const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
-  const { open, children, maxWidth } = props;
+  const { open, children } = props;
 
   return (
-    <StyledFocusLock disabled={!open || isInIframe()} maxWidth={maxWidth}>
+    <StyledFocusLock disabled={!open || isInIframe()}>
       <Transition
         mountOnEnter
         unmountOnExit
