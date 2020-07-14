@@ -7,6 +7,7 @@ export const inputOptions = {
   input: 'src/index.js',
   plugins: [...jsPlugins],
   external: [
+    'copy-to-clipboard',
     'react',
     'react-dom',
     'prop-types',
