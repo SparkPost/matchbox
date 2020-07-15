@@ -1,5 +1,5 @@
 import { LiveCode } from '../../components/LiveCode';
-import { Box } from '@sparkpost/matchbox'
+import { Box } from '@sparkpost/matchbox';
 
 export const DemoBlock = ({ height = '18px' }) => {
   return <Box bg="blue.400" height={height} mb="18px" />;
@@ -14,7 +14,7 @@ export const DemoBlock = ({ height = '18px' }) => {
 <LiveCode>
   <LiveCode.Content
     title="Responsive"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <Grid extra="blahhhh">
         <Grid.Column xs={12} md={2} lg={6}>
@@ -31,7 +31,7 @@ export const DemoBlock = ({ height = '18px' }) => {
   />
   <LiveCode.Content
     title="Auto Width"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <Grid>
         <Grid.Column>
@@ -51,7 +51,7 @@ export const DemoBlock = ({ height = '18px' }) => {
   />
   <LiveCode.Content
     title="Offset"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <Grid>
         <Grid.Column xsOffset={10} xs={2}>
@@ -74,7 +74,7 @@ export const DemoBlock = ({ height = '18px' }) => {
   />
   <LiveCode.Content
     title="Horizontal Alignment"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <div>
         <Grid start="xs" end="lg">
@@ -97,7 +97,7 @@ export const DemoBlock = ({ height = '18px' }) => {
   />
   <LiveCode.Content
     title="Vertical Alignment"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <div>
         <Grid top="xs">
@@ -129,7 +129,7 @@ export const DemoBlock = ({ height = '18px' }) => {
   />
   <LiveCode.Content
     title="Distribution"
-    scope={{DemoBlock}}
+    scope={{ DemoBlock }}
     code={`
       <div>
         <Grid around="xs">
@@ -163,74 +163,46 @@ export const DemoBlock = ({ height = '18px' }) => {
 
 ### Grid API
 
-<Prop
-  name="start"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="start" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the left at specified breakpoint
 </Prop>
 
-<Prop
-  name="center"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="center" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the center at specified breakpoint
 </Prop>
 
-<Prop
-  name="end"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="end" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the Right at specified breakpoint
 </Prop>
 
-<Prop
-  name="top"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="top" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the top at specified breakpoint
 </Prop>
 
-<Prop
-  name="middle"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="middle" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the middle at specified breakpoint
 </Prop>
 
-<Prop
-  name="bottom"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="bottom" type="string">
+  xs, sm, md, lg, xl <br />
   Aligns to the bottom at specified breakpoint
 </Prop>
 
-<Prop
-  name="around"
-  type="string"
-> 
-  xs, sm, md, lg, xl <br/>
+<Prop name="around" type="string">
+  xs, sm, md, lg, xl <br />
   Sets space around columns at specified breakpoint
 </Prop>
 
-<Prop
-  name="between"
-  type="string"
-> 
-  xs, sm, md, lg, xl
-  Sets space between columns at specified breakpoint
+<Prop name="between" type="string">
+  xs, sm, md, lg, xl Sets space between columns at specified breakpoint
 </Prop>
 
-<Prop
-  name="children"
-  type="node"
-> 
+<Prop name="children" type="node">
   The contents of the Grid
 </Prop>
 
@@ -238,79 +210,46 @@ export const DemoBlock = ({ height = '18px' }) => {
 
 ### Grid.Column API
 
-<Prop
-  name="xs"
-  type="number"
-> 
+<Prop name="xs" type="number">
   Sets the width of the column
 </Prop>
 
-<Prop
-  name="sm"
-  type="number"
-> 
+<Prop name="sm" type="number">
   Sets the width of the column
 </Prop>
 
-<Prop
-  name="md"
-  type="number"
-> 
+<Prop name="md" type="number">
   Sets the width of the column
 </Prop>
 
-<Prop
-  name="lg"
-  type="number"
-> 
+<Prop name="lg" type="number">
   Sets the width of the column
 </Prop>
 
-<Prop
-  name="xl"
-  type="number"
-> 
+<Prop name="xl" type="number">
   Sets the width of the column
 </Prop>
 
-<Prop
-  name="xsOffset"
-  type="number"
-> 
+<Prop name="xsOffset" type="number">
   Sets the offset of the column
 </Prop>
 
-<Prop
-  name="smOffset"
-  type="number"
-> 
+<Prop name="smOffset" type="number">
   Sets the offset of the column
 </Prop>
 
-<Prop
-  name="mdOffset"
-  type="number"
-> 
+<Prop name="mdOffset" type="number">
   Sets the offset of the column
 </Prop>
 
-<Prop
-  name="lgOffset"
-  type="number"
-> 
+<Prop name="lgOffset" type="number">
   Sets the offset of the column
 </Prop>
 
-<Prop
-  name="xlOffset"
-  type="number"
-> 
+<Prop name="xlOffset" type="number">
   Sets the offset of the column
 </Prop>
 
-<Prop
-  name="children"
-  type="node"
-> 
+<Prop name="children" type="node">
   The contents of the column
 </Prop>
