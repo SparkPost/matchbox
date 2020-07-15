@@ -24,7 +24,7 @@ const Footer = React.forwardRef(function Footer({ children }, ref) {
   let buttons = getChild('Button', children);
 
   return (
-    <Panel borderLeft="none" birderRight="none" borderBottom="none" sectioned ref={ref}>
+    <Panel borderLeft="none" borderRight="none" borderBottom="none" sectioned ref={ref}>
       {buttons &&
         buttons.map((button, index) => {
           return React.cloneElement(button, buttonProps[index]);
