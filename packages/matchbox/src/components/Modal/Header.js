@@ -2,10 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { tokens } from '@sparkpost/design-tokens';
+import styled from 'styled-components';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Button } from '../Button';
+
+const StyledButton = styled(Button)`
+  color: ${tokens.color_gray_700};
+`;
 
 const Header = React.forwardRef(function Header(props, ref) {
   const { children, onClose, showCloseButton } = props;
@@ -18,10 +23,17 @@ const Header = React.forwardRef(function Header(props, ref) {
           </Text>
         </Box>
         {showCloseButton && (
-          <Button flat size="small" width={tokens.spacing_600} px="0" onClick={onClose}>
+          <StyledButton
+            flat
+            size="small"
+            width={tokens.spacing_600}
+            px="0"
+            onClick={onClose}
+            data-id="modal-close"
+          >
             <ScreenReaderOnly>Close</ScreenReaderOnly>
             <Close size={25} />
-          </Button>
+          </StyledButton>
         )}
       </Box>
     </Box>

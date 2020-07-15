@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { padding, maxWidth } from 'styled-system';
+import { maxWidth } from 'styled-system';
 import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
@@ -23,7 +23,6 @@ import Legacy from './Legacy';
 
 const StyledBase = styled('div')`
   ${base}
-  ${padding}
 `;
 
 const StyledWrapper = styled('div')`
@@ -49,6 +48,7 @@ const Modal = React.forwardRef(function Modal(props, ref) {
     open,
     portalId,
     maxWidth,
+    showCloseButton,
     ...rest
   } = props;
 
@@ -95,7 +95,7 @@ const Modal = React.forwardRef(function Modal(props, ref) {
             role="dialog"
             aria-modal="true"
           >
-            <Box p={['400', null, '700']} size="100%" ref={overlayRef}>
+            <Box p={['400', null, '700']} size="100%" ref={overlayRef} data-id="modal-overlay">
               <StyledWrapper>
                 <StyledFocusLock disabled={!open || isInIframe()}>
                   <Transition
@@ -116,7 +116,7 @@ const Modal = React.forwardRef(function Modal(props, ref) {
                         data-id="modal-content-wrapper"
                       >
                         <Box ref={contentRef} width="100%" maxWidth={maxWidth} bg="white">
-                          {getChild('Modal.Header', children, { onClose })}
+                          {getChild('Modal.Header', children, { onClose, showCloseButton })}
                           {getChild('Modal.Content', children, { ref, open })}
                           {getChild('Modal.Footer', children)}
                         </Box>
@@ -143,7 +143,7 @@ Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   portalId: PropTypes.string,
   maxWidth: PropTypes.string,
-  ...createPropTypes(padding.propNames),
+  showCloseButton: PropTypes.bool,
   ...createPropTypes(maxWidth.propNames),
 };
 

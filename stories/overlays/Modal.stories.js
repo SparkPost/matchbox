@@ -8,7 +8,7 @@ const PORTAL_ID = 'modal-portal';
 storiesOf('Overlays|Modal', module)
   .add('Open', () => {
     return (
-      <Modal open portalId={PORTAL_ID}>
+      <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
         <Modal.Header showCloseButton>Modal Title</Modal.Header>
         <Modal.Content>Modal Content</Modal.Content>
         <Modal.Footer>
