@@ -18,7 +18,7 @@ const Header = React.forwardRef(function Header(props, ref) {
     <Box data-id="modal-header" bg="white" pl="500" pr="500" pt="500" ref={ref}>
       <Box display="flex" alignItems="center">
         <Box flex="1">
-          <Text as="h2" fontSize="400" lineHeight="400">
+          <Text as="h2" fontSize="500" lineHeight="500">
             {children}
           </Text>
         </Box>
