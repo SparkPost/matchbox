@@ -30,7 +30,15 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
 
   if (WrapperComponent) {
     return (
-      <Text as={WrapperComponent} to={to} title={linkTitle} onClick={onClick} ref={ref} {...rest}>
+      <Text
+        as={WrapperComponent}
+        onClick={onClick}
+        ref={ref}
+        role={linkRole}
+        title={linkTitle}
+        to={to}
+        {...rest}
+      >
         {children}
       </Text>
     );

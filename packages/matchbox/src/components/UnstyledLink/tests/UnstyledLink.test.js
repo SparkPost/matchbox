@@ -38,4 +38,10 @@ describe('UnstyledLink', () => {
     expect(wrapper.find('button').text()).toEqual('Hola!');
     expect(wrapper.prop('role')).toBeUndefined();
   });
+
+  it('renders with wrapper component with a role', () => {
+    let wrapper = subject({ component: 'button', role: 'button' });
+    expect(wrapper.find('button').text()).toEqual('Hola!');
+    expect(wrapper.find('button').prop('role')).toEqual('button');
+  });
 });
