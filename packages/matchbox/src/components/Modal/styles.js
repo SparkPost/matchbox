@@ -35,6 +35,8 @@ export const focusLock = props => `
 
 export const content = () => `
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   outline: none;
   transition: transform ${tokens.motionDuration_medium} ${tokens.motionEase_out},

@@ -9,23 +9,34 @@ import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 import { Portal } from '../Portal';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
-import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
 import { isInIframe } from '../../helpers/window';
-import { Overlay, Container } from './styles';
-import { base, focusLock, wrapper, content, contentAnimation, closeButton } from './styles';
+import { base, focusLock, wrapper, content, contentAnimation } from './styles';
 
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
 import Legacy from './Legacy';
 
 const StyledBase = styled('div')`
   ${base}
   ${padding}
+`;
+
+const StyledWrapper = styled('div')`
+  ${wrapper}
+`;
+
+const StyledFocusLock = styled(FocusLock)`
+  ${focusLock}
+`;
+
+const StyledContent = styled('div')`
+  ${content}
+  ${contentAnimation}
 `;
 
 const Modal = React.forwardRef(function Modal(props, ref) {
@@ -53,8 +64,8 @@ const Modal = React.forwardRef(function Modal(props, ref) {
     const isOutside =
       overlayRef.current &&
       overlayRef.current.contains(e.target) &&
-      childrenRef.current &&
-      !childrenRef.current.contains(e.target);
+      contentRef.current &&
+      !contentRef.current.contains(e.target);
 
     if (isOutside && open && onClose) {
       onClose();
@@ -75,19 +86,48 @@ const Modal = React.forwardRef(function Modal(props, ref) {
     <>
       <ScrollLock isActive={open} />
       <Portal containerId={portalId}>
-        <StyledBase
-          open={open}
-          {...rest}
-          className={className}
-          onClose={onClose}
-          ref={ref}
-          role="dialog"
-          aria-modal="true"
-        >
-          <Box p={['400', null, '700']} size="100%" ref={overlayRef}>
-            <div>Modal</div>
-          </Box>
-        </StyledBase>
+        <TouchScrollable>
+          <StyledBase
+            open={open}
+            {...rest}
+            className={className}
+            onClose={onClose}
+            role="dialog"
+            aria-modal="true"
+          >
+            <Box p={['400', null, '700']} size="100%" ref={overlayRef}>
+              <StyledWrapper>
+                <StyledFocusLock disabled={!open || isInIframe()}>
+                  <Transition
+                    mountOnEnter
+                    unmountOnExit
+                    in={open}
+                    timeout={{
+                      enter: secondsToMS(tokens.motionDuration_medium),
+                      exit: secondsToMS(tokens.motionDuration_fast),
+                    }}
+                  >
+                    {/* Negative `tabIndex` required to programmatically focus */}
+                    {state => (
+                      <StyledContent
+                        state={state}
+                        tabIndex="-1"
+                        ref={ref}
+                        data-id="modal-content-wrapper"
+                      >
+                        <Box ref={contentRef} width="100%" maxWidth={maxWidth} bg="white">
+                          {getChild('Modal.Header', children, { onClose })}
+                          {getChild('Modal.Content', children, { ref, open })}
+                          {getChild('Modal.Footer', children)}
+                        </Box>
+                      </StyledContent>
+                    )}
+                  </Transition>
+                </StyledFocusLock>
+              </StyledWrapper>
+            </Box>
+          </StyledBase>
+        </TouchScrollable>
       </Portal>
     </>
   );
@@ -110,9 +150,12 @@ Modal.propTypes = {
 Modal.defaultProps = {
   closeOnEscape: true,
   closeOnOutsideClick: true,
-  position: 'right',
+  maxWidth: '1200',
 };
 
+Modal.Header = Header;
+Modal.Content = Content;
+Modal.Footer = Footer;
 Modal.LEGACY = Legacy;
 
 export default Modal;

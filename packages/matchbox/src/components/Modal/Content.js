@@ -1,28 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import { pick } from '@styled-system/props';
 
-const Container = styled.div`
-  ${padding}
-`;
+import { Box } from '../Box';
 
 const Content = React.forwardRef(function Content(props, ref) {
-  const systemProps = pick(props);
+  const { children } = props;
 
   return (
-    <Container data-id="drawer-content" p="500" {...systemProps} ref={ref}>
-      {props.children}
-    </Container>
+    <Box data-id="modal-content" p="500" ref={ref}>
+      {children}
+    </Box>
   );
 });
 
 Content.displayName = 'Modal.Content';
 Content.propTypes = {
   children: PropTypes.node,
-  ...createPropTypes(padding.propNames),
 };
 
 export default Content;
