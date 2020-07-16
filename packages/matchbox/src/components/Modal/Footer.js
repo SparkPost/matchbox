@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getChild } from '../../helpers/children';
 import { Panel } from '../Panel';
+import { Box } from '../Box';
 
 const buttonProps = {
   0: {
@@ -25,10 +26,13 @@ const Footer = React.forwardRef(function Footer({ children }, ref) {
 
   return (
     <Panel borderLeft="none" borderRight="none" borderBottom="none" sectioned ref={ref}>
-      {buttons &&
-        buttons.map((button, index) => {
-          return React.cloneElement(button, buttonProps[index]);
-        })}
+      <Box display="flex" justifyContent="space-between">
+        <Box>
+          {buttons[0] && React.cloneElement(buttons[0], buttonProps[0])}
+          {buttons[1] && React.cloneElement(buttons[1], buttonProps[1])}
+        </Box>
+        {buttons[2] && <Box>{buttons[2] && React.cloneElement(buttons[2], buttonProps[2])}</Box>}
+      </Box>
     </Panel>
   );
 });

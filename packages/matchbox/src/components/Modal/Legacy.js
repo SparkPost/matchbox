@@ -33,6 +33,7 @@ const StyledCloseButton = styled(Button)`
 
 const StyledFocusLock = styled(FocusLock)`
   ${focusLock}
+  ${maxWidth}
 `;
 
 const StyledContent = styled('div')`
@@ -40,7 +41,7 @@ const StyledContent = styled('div')`
   ${contentAnimation}
 `;
 
-const Legacy = React.forwardRef(function Legacy(props, userRef) {
+const Modal = React.forwardRef(function Modal(props, userRef) {
   const {
     onClose,
     children,
@@ -146,9 +147,7 @@ const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
   );
 });
 
-Legacy.displayName = 'Modal.LEGACY';
-
-Legacy.propTypes = {
+Modal.propTypes = {
   /**
    * Controlled open state of the modal
    */
@@ -171,8 +170,8 @@ Legacy.propTypes = {
   ...createPropTypes(maxWidth.propNames),
 };
 
-Legacy.defaultProps = {
+Modal.defaultProps = {
   maxWidth: '1200',
 };
 
-export default Legacy;
+export default Modal;

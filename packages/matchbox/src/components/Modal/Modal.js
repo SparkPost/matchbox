@@ -33,7 +33,7 @@ const StyledFocusLock = styled(FocusLock)`
   ${focusLock}
 `;
 
-const StyledContent = styled('div')`
+const StyledContent = styled(Box)`
   ${content}
   ${contentAnimation}
 `;
@@ -55,7 +55,7 @@ const Modal = React.forwardRef(function Modal(props, ref) {
   const overlayRef = useRef();
   const contentRef = useRef();
 
-  // Calls onClose when clicking outside drawer content
+  // Calls onClose when clicking outside modal content
   function handleOutsideClick(e) {
     if (!closeOnOutsideClick) {
       return;
@@ -113,10 +113,12 @@ const Modal = React.forwardRef(function Modal(props, ref) {
                         state={state}
                         tabIndex="-1"
                         ref={ref}
+                        display="flex"
+                        justifyContent="center"
                         data-id="modal-content-wrapper"
                       >
                         <Box ref={contentRef} width="100%" maxWidth={maxWidth} bg="white">
-                          {getChild('Modal.Header', children, { onClose, showCloseButton })}
+                          {getChild('Modal.Header', children, { onClose })}
                           {getChild('Modal.Content', children, { ref, open })}
                           {getChild('Modal.Footer', children)}
                         </Box>
@@ -143,7 +145,6 @@ Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   portalId: PropTypes.string,
   maxWidth: PropTypes.string,
-  showCloseButton: PropTypes.bool,
   ...createPropTypes(maxWidth.propNames),
 };
 

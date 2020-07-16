@@ -41,10 +41,15 @@ const Header = React.forwardRef(function Header(props, ref) {
 });
 
 Header.displayName = 'Modal.Header';
+
 Header.propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func,
   showCloseButton: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  showCloseButton: true,
 };
 
 export default Header;

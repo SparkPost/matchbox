@@ -7,7 +7,7 @@ import { onKey } from '../../../helpers/keyEvents';
 const subject = props =>
   global.mountStyled(
     <Modal {...props}>
-      <Modal.Header>Modal Header</Modal.Header>
+      <Modal.Header showCloseButton={props.showCloseButton}>Modal Header</Modal.Header>
       <Modal.Content>Modal Content</Modal.Content>
       <Modal.Footer>
         <Button>Primary Button</Button>

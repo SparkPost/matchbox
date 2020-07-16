@@ -37,9 +37,11 @@ describe('The Modal component', () => {
     cy.get('body').tab();
     cy.focused().should('have.attr', 'data-id', 'modal-close');
     cy.focused().tab();
-    cy.focused().should('have.attr', 'data-id', 'delete-button');
+    cy.focused().should('have.text', 'Primary Button');
     cy.focused().tab();
-    cy.focused().should('have.attr', 'data-id', 'cancel-button');
+    cy.focused().should('have.text', 'Secondary Button');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Tertiary Button');
     cy.focused().tab();
     cy.focused().should('have.attr', 'data-id', 'modal-close');
   });
