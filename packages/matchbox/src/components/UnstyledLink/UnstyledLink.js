@@ -20,6 +20,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         rel={external ? 'noopener noreferrer' : ''}
         title={linkTitle}
         onClick={onClick}
+        role={role}
         ref={ref}
         {...rest}
       >
@@ -34,7 +35,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         as={WrapperComponent}
         onClick={onClick}
         ref={ref}
-        role={linkRole}
+        role={role}
         title={linkTitle}
         to={to}
         {...rest}
