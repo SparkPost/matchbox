@@ -11,7 +11,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "color": "^3.1.2",
     "copy-to-clipboard": "^3.2.0",
-    "gatsby": "^2.13.42",
+    "gatsby": "^2.24.3",
     "gatsby-image": "^2.2.7",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-manifest": "^2.2.4",
