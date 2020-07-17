@@ -27,7 +27,9 @@ export const ToggleExample = withInfo({
 
   return (
     <>
-      <Button {...modal.getActivatorProps()}>Open Modal</Button>
+      <Button data-id="open-modal" {...modal.getActivatorProps()}>
+        Open Modal
+      </Button>
 
       <Modal {...modal.getModalProps()}>
         <Modal.Header showCloseButton>Modal Title</Modal.Header>
