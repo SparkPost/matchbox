@@ -7,6 +7,10 @@ import { gutter } from './styles';
 
 const StyledColumn = styled(Box)`
   ${gutter}
+
+  &:first-child {
+    padding-top: 0;
+  }
 `;
 
 const Column = React.forwardRef(function Column(props, ref) {
@@ -27,6 +31,7 @@ const Column = React.forwardRef(function Column(props, ref) {
     <StyledColumn
       width={columnWidth}
       flex={!width && !collapsed ? '1' : ''}
+      pt={collapsed ? space : null}
       gutter={space}
       ref={ref}
     >

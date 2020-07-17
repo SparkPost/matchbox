@@ -3,6 +3,7 @@ import { withInfo } from '@storybook/addon-info';
 import { Columns } from '@sparkpost/matchbox/components/Columns';
 import { Column } from '@sparkpost/matchbox/components/Column';
 import { Box } from '@sparkpost/matchbox/components/Box';
+import { Stack } from '@sparkpost/matchbox/components/Stack';
 
 export default {
   title: 'Layout|Columns',
@@ -10,14 +11,14 @@ export default {
 
 const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
   return (
-    <Box display="flex" alignItems="center" bg="blue.400" height={height} mb="18px" p={p}>
+    <Box display="flex" alignItems="center" bg="blue.400" height={height} p={p}>
       {children}
     </Box>
   );
 };
 
 export const Default = withInfo()(() => (
-  <>
+  <Stack>
     <Columns space="300">
       <Column>
         <DemoBlock>Fluid</DemoBlock>
@@ -45,11 +46,11 @@ export const Default = withInfo()(() => (
         <DemoBlock>1/2</DemoBlock>
       </Column>
     </Columns>
-  </>
+  </Stack>
 ));
 
 export const Space = withInfo()(() => (
-  <>
+  <Stack>
     <Columns space="100">
       <Column>
         <DemoBlock>100</DemoBlock>
@@ -138,11 +139,11 @@ export const Space = withInfo()(() => (
         <DemoBlock>800</DemoBlock>
       </Column>
     </Columns>
-  </>
+  </Stack>
 ));
 
 export const Alignment = withInfo()(() => (
-  <>
+  <Stack>
     <Columns space="300" align={['right', null, 'left']}>
       <Column width={1 / 2}>
         <DemoBlock>Left Aligned</DemoBlock>
@@ -168,11 +169,11 @@ export const Alignment = withInfo()(() => (
         <DemoBlock>Column 2</DemoBlock>
       </Column>
     </Columns>
-  </>
+  </Stack>
 ));
 
 export const Reverse = withInfo()(() => (
-  <>
+  <Stack>
     <Columns space="300" reverse>
       <Column>
         <DemoBlock>Column 1</DemoBlock>
@@ -195,7 +196,7 @@ export const Reverse = withInfo()(() => (
         <DemoBlock>Column 3</DemoBlock>
       </Column>
     </Columns>
-  </>
+  </Stack>
 ));
 
 export const CollapseBelow = withInfo()(() => (
@@ -213,8 +214,8 @@ export const CollapseBelow = withInfo()(() => (
 ));
 
 export const SystemProps = withInfo()(() => (
-  <>
-    <Columns space="300" mb={600}>
+  <Stack>
+    <Columns space="300">
       <Column>
         <DemoBlock>Column 1</DemoBlock>
       </Column>
@@ -225,7 +226,7 @@ export const SystemProps = withInfo()(() => (
         <DemoBlock>Column 3</DemoBlock>
       </Column>
     </Columns>
-    <Columns space="300" mb={200}>
+    <Columns space="300">
       <Column>
         <DemoBlock>Column 1</DemoBlock>
       </Column>
@@ -247,5 +248,5 @@ export const SystemProps = withInfo()(() => (
         <DemoBlock>Column 3</DemoBlock>
       </Column>
     </Columns>
-  </>
+  </Stack>
 ));
