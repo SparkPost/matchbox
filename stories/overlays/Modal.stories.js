@@ -20,9 +20,7 @@ export const Open = withInfo()(() => (
   </Modal>
 ));
 
-export const ToggleExample = withInfo({
-  propTables: [Modal, Modal.Header, Modal.Content, Modal.Footer],
-})(() => {
+export const ToggleExample = () => {
   const modal = useModal();
 
   return (
@@ -42,7 +40,7 @@ export const ToggleExample = withInfo({
       </Modal>
     </>
   );
-});
+};
 
 export const LEGACY = withInfo()(() => (
   <Modal.LEGACY open portalId={PORTAL_ID}>
