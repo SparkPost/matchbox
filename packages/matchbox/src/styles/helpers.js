@@ -39,7 +39,11 @@ export const visuallyHidden = `
  * @param within boolean
  * @param offset string, pixel value
  */
-export const focusOutline = ({ color = tokens.color_blue_700, within = false, offset = '3px' }) => `
+export const focusOutline = ({
+  color = tokens.color_blue_700,
+  offset = '3px',
+  modifier = '&:focus',
+} = {}) => `
   position: relative;
   outline: none;
 
@@ -57,9 +61,10 @@ export const focusOutline = ({ color = tokens.color_blue_700, within = false, of
     pointer-events: none;
   } 
 
-  &:focus${within ? '-within' : ''}:after {
+  ${modifier}:after {
     z-index: ${tokens.zIndex_default};
     opacity: 1;
     box-shadow: 0 0 0 2px ${color};
   }
+
 `;
