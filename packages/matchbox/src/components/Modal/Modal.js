@@ -48,7 +48,6 @@ const Modal = React.forwardRef(function Modal(props, ref) {
     open,
     portalId,
     maxWidth,
-    showCloseButton,
     ...rest
   } = props;
 

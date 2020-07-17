@@ -16,7 +16,6 @@ const buttonProps = {
   },
   2: {
     color: 'blue',
-    padding: '0',
     flat: true,
   },
 };
