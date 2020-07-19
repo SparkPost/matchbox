@@ -11,6 +11,7 @@ jest.mock('../packages/matchbox/src/components/ThemeProvider/theme', () => ({
     gray: {
       700: 'gray',
     },
+    blue: {},
   },
   fonts: {},
   fontSizes: {

@@ -24,7 +24,7 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
   const fontSize = weight === 'heavy' ? '400' : '300';
 
   return (
-    <Box>
+    <Box data-id="radio-card">
       <StyledInput
         checked={checked}
         disabled={disabled}
@@ -47,10 +47,19 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
             </Box>
           </Box>
           <Box flex="1" pl="300">
-            <StyledHeader fontSize={fontSize} lineHeight="400" fontWeight="semibold">
+            <StyledHeader
+              data-id="radio-card-header"
+              fontSize={fontSize}
+              lineHeight="400"
+              fontWeight="semibold"
+            >
               {label}
             </StyledHeader>
-            {children && <Box pt="200">{children}</Box>}
+            {children && (
+              <Box data-id="radio-card-content" pt="200">
+                {children}
+              </Box>
+            )}
           </Box>
         </Box>
       </StyledLabel>
