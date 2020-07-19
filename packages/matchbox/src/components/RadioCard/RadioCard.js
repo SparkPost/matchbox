@@ -19,6 +19,7 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
     onBlur,
     value,
     weight,
+    ...rest
   } = props;
 
   const fontSize = weight === 'heavy' ? '400' : '300';
@@ -27,6 +28,7 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
     <Box data-id="radio-card">
       <StyledInput
         checked={checked}
+        data-id={rest['data-id']}
         disabled={disabled}
         defaultChecked={defaultChecked}
         id={id}
@@ -70,10 +72,11 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
 RadioCard.displayName = 'RadioCard';
 
 RadioCard.propTypes = {
-  id: PropTypes.string.isRequired,
   checked: PropTypes.bool,
+  'data-id': PropTypes.string,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
   label: PropTypes.node,
   name: PropTypes.string,
   onChange: PropTypes.func,
