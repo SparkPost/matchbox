@@ -23,7 +23,7 @@ export const Default = withInfo()(() => (
       <Column>
         <DemoBlock>Fluid</DemoBlock>
       </Column>
-      <Column>
+      <Column width="content">
         <DemoBlock>Content</DemoBlock>
       </Column>
     </Columns>
