@@ -1,5 +1,5 @@
 {
-  "lerna": "2.10.2",
+  "lerna": "4.0.9",
   "packages": ["packages/design-tokens", "packages/matchbox-icons", "packages/matchbox"],
   "version": "fixed",
   "command": {
