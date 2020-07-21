@@ -24,7 +24,7 @@ import ResizeObserver from 'resize-observer-polyfill';
  * };
  */
 function useResizeObserver() {
-  const [entry, setEntry] = React.useState({});
+  const [entry, setEntry] = React.useState({ contentRect: {} });
   const [node, setNode] = React.useState(null);
   const observer = React.useRef(null);
 
