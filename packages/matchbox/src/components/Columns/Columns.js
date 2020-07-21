@@ -68,7 +68,7 @@ Columns.propTypes = {
 };
 
 Columns.defaultProps = {
-  space: 500,
+  space: '500',
 };
 
 export default Columns;
