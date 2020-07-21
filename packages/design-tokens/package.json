@@ -21,7 +21,7 @@
     "start": "npm run build && gulp serve"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.10",
     "gulp": "^4.0.2",
     "gulp-theo": "^2.0.1",
     "path": "^0.12.7",
