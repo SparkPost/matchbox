@@ -51,6 +51,6 @@ export const row = () => `
   }
 `;
 
-export const wrapper = () => `
-  overflow: auto;
+export const wrapper = ({ freezeFirstColumn }) => `
+   ${freezeFirstColumn ? 'overflow: auto;' : ''}
 `;

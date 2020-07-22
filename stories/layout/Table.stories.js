@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Table, Panel, Box } from '@sparkpost/matchbox';
+import { Table, Panel, Box, Popover, Button } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Table',
@@ -10,10 +10,16 @@ const Node = ({ children = 'A react component' }) => <Box minWidth="900">{childr
 const NodeLong = ({
   children = 'A really longgggggggggggggggggggggggggggggggggggggggg react component',
 }) => <Box minWidth="900">{children}</Box>;
+const PopoverNode = () => (
+  <Popover sectioned trigger={<Button>Click</Button>}>
+    Content
+  </Popover>
+);
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
   [<Node />, <Node />, <NodeLong />, <Node />],
   [1, 2, 3, 4],
+  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />],
 ];
 
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
@@ -86,3 +92,9 @@ export const SystemProps = withInfo()(() => (
     </Table>
   </Panel>
 ));
+
+export const WithOverflowingElement = () => (
+  <Panel>
+    <Table p="200" data={data} />
+  </Panel>
+);
