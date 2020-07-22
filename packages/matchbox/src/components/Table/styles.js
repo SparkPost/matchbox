@@ -1,4 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
+import { system } from 'styled-system';
 
 export const table = () => `
   position: relative;
@@ -12,7 +13,6 @@ export const headerCell = () => `
   font-size: ${tokens.fontSize_200};
   line-height: ${tokens.lineHeight_300};
   font-weight: ${tokens.fontWeight_semibold};
-  vertical-align: top;
 `;
 
 export const sticky = ({ isScrolled, freezeFirstColumn }) => {
@@ -35,7 +35,6 @@ export const sticky = ({ isScrolled, freezeFirstColumn }) => {
 
 export const cell = () => `
   word-break: break-all;
-  vertical-align: top;
 `;
 
 export const row = () => `
@@ -50,6 +49,17 @@ export const row = () => `
     background: ${tokens.color_gray_100};
   }
 `;
+
+export const verticalAlignment = system({
+  alignY: {
+    property: 'verticalAlign',
+    defaultScale: {
+      center: 'middle',
+      top: 'top',
+      bottom: 'bottom',
+    },
+  },
+});
 
 export const wrapper = ({ freezeFirstColumn }) => `
    ${freezeFirstColumn ? 'overflow: auto;' : ''}

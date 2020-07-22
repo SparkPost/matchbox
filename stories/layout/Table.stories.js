@@ -98,3 +98,36 @@ export const WithOverflowingElement = () => (
     <Table p="200" data={data} />
   </Panel>
 );
+
+export const VerticalAligntment = withInfo()(() => (
+  <Panel>
+    <Table>
+      <thead>
+        <Table.Row header alignY="bottom">
+          <Table.HeaderCell>Lorem ipsum</Table.HeaderCell>
+          <Table.HeaderCell>
+            Lorem ipsum A really longgggggggggggggggggggggggggggggg
+          </Table.HeaderCell>
+          <Table.HeaderCell>Lorem ipsum</Table.HeaderCell>
+        </Table.Row>
+      </thead>
+      <tbody>
+        <Table.Row alignY="top">
+          <Table.Cell>Top Aligned</Table.Cell>
+          <Table.Cell>Top Aligned</Table.Cell>
+          <Table.Cell>Top Aligned</Table.Cell>
+        </Table.Row>
+        <Table.Row alignY="center">
+          <Table.Cell>Center Aligned</Table.Cell>
+          <Table.Cell>Center Aligned</Table.Cell>
+          <Table.Cell>Center Aligned</Table.Cell>
+        </Table.Row>
+        <Table.Row alignY="bottom">
+          <Table.Cell>Bottom Aligned</Table.Cell>
+          <Table.Cell>Bottom Aligned</Table.Cell>
+          <Table.Cell>Bottom Aligned</Table.Cell>
+        </Table.Row>
+      </tbody>
+    </Table>
+  </Panel>
+));
