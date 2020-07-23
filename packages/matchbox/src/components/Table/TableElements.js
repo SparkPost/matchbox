@@ -5,6 +5,7 @@ import { cell, row, headerCell, totalsRow } from './styles';
 import { TablePaddingContext } from './context';
 import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '../../helpers/systemProps';
 
 const StyledCell = styled('td')`
   ${cell}
@@ -78,8 +79,9 @@ const TotalsRow = React.forwardRef(function TotalsRow(
   { rowData, children, className, ...rest },
   ref,
 ) {
+  const paddingProps = pick(rest, padding.propNames);
   return (
-    <StyledTotalsRow className={className} {...rest} ref={ref}>
+    <StyledTotalsRow className={className} {...paddingProps} ref={ref} tabIndex="-1">
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledTotalsRow>
   );
