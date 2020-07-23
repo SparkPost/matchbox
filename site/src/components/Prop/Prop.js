@@ -47,8 +47,8 @@ function Prop(props) {
               as="label"
               display="inline"
               mr="300"
-              fontSize="100"
-              fontWeight="bold"
+              fontSize="200"
+              fontWeight="semibold"
             >
               Default Value
             </Box>
@@ -57,9 +57,9 @@ function Prop(props) {
               display="inline"
               mb="200"
               fontWeight="regular"
-              fontSize="0.75rem"
+              fontSize="100"
               fontFamily="monospace"
-              color="magenta.800"
+              color="magenta.700"
             >
               {defaultValue}
             </Box>

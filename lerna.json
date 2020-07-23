@@ -1,7 +1,7 @@
 {
-  "lerna": "2.10.2",
+  "lerna": "4.0.9",
   "packages": ["packages/design-tokens", "packages/matchbox-icons", "packages/matchbox"],
-  "version": "independent",
+  "version": "4.0.10",
   "command": {
     "publish": {
       "ignoreChanges": ["**/tests/**", "**/*.md"],
@@ -11,7 +11,7 @@
       "npmClientArgs": ["--no-package-lock"]
     },
     "version": {
-      "message": "Publish",
+      "message": "Publish %s",
       "allowBranch": "main"
     }
   },

@@ -1,3 +1,32 @@
+## 4.0.10 (2020-07-20)
+
+#### Enhancements
+
+- Other
+  - [#553](https://github.com/SparkPost/matchbox/pull/553) UX-277 Use fixed versioning
+    ([@jonambas](https://github.com/jonambas))
+- `matchbox`
+  - [#542](https://github.com/SparkPost/matchbox/pull/542) Closes
+    [#540](https://github.com/SparkPost/matchbox/issues/540) - Pass through role to UnstyledLinks
+    with wrappers or to links ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#552](https://github.com/SparkPost/matchbox/pull/552) Closes
+    [#551](https://github.com/SparkPost/matchbox/issues/551) - Adds correct vertical margin between
+    collapsed columns ([@jonambas](https://github.com/jonambas))
+  - [#541](https://github.com/SparkPost/matchbox/pull/541) Closes
+    [#518](https://github.com/SparkPost/matchbox/issues/518) - Add 4px margin top to select and
+    textfield help text ([@jonambas](https://github.com/jonambas))
+- `design-tokens`, `matchbox-icons`, `matchbox`
+  - [#550](https://github.com/SparkPost/matchbox/pull/550) Resolve matchbox security dependencies
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.0.8 (2020-07-14)
 
 #### Bug Fixes

@@ -46,7 +46,11 @@ function Table(props) {
   const marginProps = pick(rest, margin.propNames);
 
   return (
-    <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
+    <Wrapper
+      freezeFirstColumn={freezeFirstColumn}
+      onScroll={freezeFirstColumn ? handleScroll : null}
+      {...marginProps}
+    >
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
           {title && (

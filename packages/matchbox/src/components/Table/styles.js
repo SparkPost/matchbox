@@ -1,4 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
+import { system } from 'styled-system';
 
 export const table = () => `
   position: relative;
@@ -12,7 +13,6 @@ export const headerCell = ({ theme }) => `
   font-size: ${theme.fontSizes['200']};
   line-height: ${theme.lineHeights['300']};
   font-weight: ${theme.fontWeights.semibold};
-  vertical-align: top;
 `;
 
 export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
@@ -25,6 +25,7 @@ export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
             position: sticky;
             left: 0;
             background: inherit;
+            z-index: 1;
           `
           : ''
       }
@@ -35,7 +36,6 @@ export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
 
 export const cell = () => `
   word-break: break-all;
-  vertical-align: top;
 `;
 
 const zebra = theme => `
@@ -55,10 +55,6 @@ export const row = ({ theme }) => `
   ${zebra(theme)}
 `;
 
-export const wrapper = () => `
-overflow: auto;
-`;
-
 export const totalsRow = ({ theme }) => `
   &:not(:last-child) {
     border-bottom: ${theme.borders['500']};
@@ -72,4 +68,19 @@ export const totalsRow = ({ theme }) => `
     font-weight: ${theme.fontWeights.semibold};
   }
   ${zebra(theme)}
+`;
+
+export const verticalAlignment = system({
+  alignY: {
+    property: 'verticalAlign',
+    defaultScale: {
+      center: 'middle',
+      top: 'top',
+      bottom: 'bottom',
+    },
+  },
+});
+
+export const wrapper = ({ freezeFirstColumn }) => `
+   ${freezeFirstColumn ? 'overflow: auto;' : ''}
 `;
