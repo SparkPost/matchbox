@@ -116,6 +116,7 @@
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.8.6",
     "react-transition-group": "^4.3.0",
+    "resize-observer-polyfill": "^1.5.1",
     "start-server-and-test": "^1.10.0",
     "style-loader": "^1.0.0",
     "theo": "^8.1.5",

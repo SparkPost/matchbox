@@ -15,6 +15,7 @@ export const inputOptions = {
     'react-transition-group',
     'react-focus-lock',
     'react-scrolllock',
+    'resize-observer-polyfill',
     '@sparkpost/matchbox-icons',
     '@sparkpost/design-tokens',
     '@styled-system/css',
