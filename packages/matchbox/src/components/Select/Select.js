@@ -50,7 +50,7 @@ function Options({ options, placeholder, placeholderValue }) {
 }
 
 const StyledInputWrapper = styled(Box)`
-  ${focusOutline({ within: true, offset: '2px' })}
+  ${focusOutline({ modifier: '&:focus-within', offset: '2px' })}
 `;
 
 const StyledInput = styled(Box)`
