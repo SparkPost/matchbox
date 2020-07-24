@@ -74,7 +74,7 @@ const Panel = React.forwardRef(function Panel(props, ref) {
   );
 });
 
-Panel.displayName = 'Panel';
+Panel.displayName = 'Panel.LEGACY';
 Panel.Header = Header;
 Panel.Section = Section;
 Panel.Footer = Footer;

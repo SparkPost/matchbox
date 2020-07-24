@@ -31,7 +31,7 @@ function Footer(props) {
   );
 }
 
-Footer.displayName = 'Panel.Footer';
+Footer.displayName = 'Panel.LEGACY.Footer';
 Footer.propTypes = {
   left: PropTypes.node,
   right: PropTypes.node,

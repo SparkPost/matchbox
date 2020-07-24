@@ -26,9 +26,11 @@ const Header = React.forwardRef(function Header(props, userRef) {
             {title}
           </Box>
         </Column>
-        <Column width="content">
-          <Button.Group>{actions}</Button.Group>
-        </Column>
+        {actions.length ? (
+          <Column width="content">
+            <Button.Group>{actions}</Button.Group>
+          </Column>
+        ) : null}
       </Columns>
     </Box>
   );

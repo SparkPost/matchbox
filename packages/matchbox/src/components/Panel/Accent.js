@@ -15,7 +15,6 @@ function Accent(props) {
       case 'gray':
         return 'gray.600';
       case 'blue':
-
       default:
         return 'blue.700';
     }

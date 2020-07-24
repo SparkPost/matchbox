@@ -36,7 +36,7 @@ const Header = ({ title, actions, p, ...rest }) => {
   );
 };
 
-Header.displayName = 'Panel.Header';
+Header.displayName = 'Panel.LEGACY.Header';
 Header.propTypes = {
   title: PropTypes.node,
   ...createPropTypes(padding.propNames),

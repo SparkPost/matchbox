@@ -38,7 +38,7 @@ function Section(props) {
   );
 }
 
-Section.displayName = 'Panel.Section';
+Section.displayName = 'Panel.LEGACY.Section';
 Section.propTypes = {
   /**
    * Actions that build buttons. Most button props will work in here.
