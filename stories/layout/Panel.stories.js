@@ -4,46 +4,48 @@ import { action } from '@storybook/addon-actions';
 import { Panel, Columns, Column } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Layout|Panel',
+  title: 'Layout|Legacy Panel',
 };
 
 export const WithATitle = withInfo()(() => (
-  <Panel className="my-class" title="Title" sectioned>
+  <Panel.LEGACY className="my-class" title="Title" sectioned>
     This is a panel with a title
-  </Panel>
+  </Panel.LEGACY>
 ));
 
 export const WithAnAccent = withInfo()(() => (
   <>
-    <Panel mb={300} accent sectioned>
+    <Panel.LEGACY mb={300} accent sectioned>
       This is a highlighted panel with a title
-    </Panel>
-    <Panel mb={300} accent="orange" sectioned>
+    </Panel.LEGACY>
+    <Panel.LEGACY mb={300} accent="orange" sectioned>
       This is a highlighted panel with a title
-    </Panel>
+    </Panel.LEGACY>
   </>
 ));
 
 export const WithAFooter = withInfo()(() => (
   <>
-    <Panel title="Title" accent sectioned>
+    <Panel.LEGACY title="Title" accent sectioned>
       This is a panel
-    </Panel>
-    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
+    </Panel.LEGACY>
+    <Panel.LEGACY.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.LEGACY.Footer>
 
-    <Panel title="Title" accent sectioned>
+    <Panel.LEGACY title="Title" accent sectioned>
       This is a panel
-    </Panel>
-    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
+    </Panel.LEGACY>
+    <Panel.LEGACY.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.LEGACY.Footer>
   </>
 ));
 
 export const WithMultipleSections = withInfo()(() => (
-  <Panel>
-    <Panel.Section>This is a panel with sections</Panel.Section>
-    <Panel.Section className="test-class">This is a panel with sections</Panel.Section>
-    <Panel.Section>This is a panel with sections</Panel.Section>
-  </Panel>
+  <Panel.LEGACY>
+    <Panel.LEGACY.Section>This is a panel with sections</Panel.LEGACY.Section>
+    <Panel.LEGACY.Section className="test-class">
+      This is a panel with sections
+    </Panel.LEGACY.Section>
+    <Panel.LEGACY.Section>This is a panel with sections</Panel.LEGACY.Section>
+  </Panel.LEGACY>
 ));
 
 export const WithActions = withInfo()(() => {
@@ -75,95 +77,99 @@ export const WithActions = withInfo()(() => {
     },
   ];
   return (
-    <Panel actions={actions} accent="red" title="Panel with Actions">
-      <Panel.Section actions={sectionActions}>
+    <Panel.LEGACY actions={actions} accent="red" title="Panel with Actions">
+      <Panel.LEGACY.Section actions={sectionActions}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
           reprehenderit, odio temporibus culpa beatae iure!
         </p>
-      </Panel.Section>
-    </Panel>
+      </Panel.LEGACY.Section>
+    </Panel.LEGACY>
   );
 });
 
 export const SystemProps = withInfo()(() => (
   <>
-    <Panel mb="400">
+    <Panel.LEGACY mb="400">
       <p>This panel should have no padding</p>
-    </Panel>
+    </Panel.LEGACY>
 
-    <Panel sectioned mb="400">
+    <Panel.LEGACY sectioned mb="400">
       <p>This panel should default to 400 padding</p>
-    </Panel>
+    </Panel.LEGACY>
 
-    <Panel mb="400">
-      <Panel.Section>
+    <Panel.LEGACY mb="400">
+      <Panel.LEGACY.Section>
         <p>These sections should default to 400 padding</p>
-      </Panel.Section>
-      <Panel.Section>
+      </Panel.LEGACY.Section>
+      <Panel.LEGACY.Section>
         <p>These sections should default to 400 padding</p>
-      </Panel.Section>
-    </Panel>
+      </Panel.LEGACY.Section>
+    </Panel.LEGACY>
 
-    <Panel padding="200" mb="400">
-      <Panel.Section>
+    <Panel.LEGACY padding="200" mb="400">
+      <Panel.LEGACY.Section>
         <p>This section should inherit 200 panel padding</p>
-      </Panel.Section>
-      <Panel.Section p="800">
+      </Panel.LEGACY.Section>
+      <Panel.LEGACY.Section p="800">
         <p>This section should have 800 padding</p>
-      </Panel.Section>
-      <Panel.Section py="700">
+      </Panel.LEGACY.Section>
+      <Panel.LEGACY.Section py="700">
         <p>This section should inherit 200 px but overried 700 py</p>
-      </Panel.Section>
-    </Panel>
+      </Panel.LEGACY.Section>
+    </Panel.LEGACY>
   </>
 ));
 
 export const AsCards = withInfo()(() => (
   <Columns>
     <Column>
-      <Panel p="400" height="100%" borderTop="none">
-        <Panel.Section>
+      <Panel.LEGACY p="400" height="100%" borderTop="none">
+        <Panel.LEGACY.Section>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
           reprehenderit, odio temporibus culpa beatae iure!
-        </Panel.Section>
-        <Panel.Section>
+        </Panel.LEGACY.Section>
+        <Panel.LEGACY.Section>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
           reprehenderit, odio temporibus culpa beatae iure!
-        </Panel.Section>
-        <Panel.Section>
+        </Panel.LEGACY.Section>
+        <Panel.LEGACY.Section>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
           reprehenderit, odio temporibus culpa beatae iure!
-        </Panel.Section>
-      </Panel>
+        </Panel.LEGACY.Section>
+      </Panel.LEGACY>
     </Column>
     <Column>
-      <Panel height="100%" borderRight="none">
-        <Panel.Section>Lorem Ipsum</Panel.Section>
-        <Panel.Section>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel.Section>
-      </Panel>
+      <Panel.LEGACY height="100%" borderRight="none">
+        <Panel.LEGACY.Section>Lorem Ipsum</Panel.LEGACY.Section>
+        <Panel.LEGACY.Section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </Panel.LEGACY.Section>
+      </Panel.LEGACY>
     </Column>
     <Column>
-      <Panel height="50%" width="50%">
-        <Panel.Section>Lprehenderit, odio temporibus culpa beatae iure!</Panel.Section>
-      </Panel>
+      <Panel.LEGACY height="50%" width="50%">
+        <Panel.LEGACY.Section>
+          Lprehenderit, odio temporibus culpa beatae iure!
+        </Panel.LEGACY.Section>
+      </Panel.LEGACY>
     </Column>
   </Columns>
 ));
 
 export const ResonsiveSystemProps = withInfo()(() => (
   <>
-    <Panel sectioned my={['200', '300', '600', '800']} mb="400">
+    <Panel.LEGACY sectioned my={['200', '300', '600', '800']} mb="400">
       <p>Responsive MY</p>
-    </Panel>
+    </Panel.LEGACY>
 
-    <Panel p={['600', '200', '500', '800']}>
-      <Panel.Section>
+    <Panel.LEGACY p={['600', '200', '500', '800']}>
+      <Panel.LEGACY.Section>
         <p>Responsive padding inherited</p>
-      </Panel.Section>
-      <Panel.Section p={['600', '600', '800', '200']}>
+      </Panel.LEGACY.Section>
+      <Panel.LEGACY.Section p={['600', '600', '800', '200']}>
         <p>Responsive padding on section</p>
-      </Panel.Section>
-    </Panel>
+      </Panel.LEGACY.Section>
+    </Panel.LEGACY>
   </>
 ));

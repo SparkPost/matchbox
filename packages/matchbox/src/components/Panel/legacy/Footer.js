@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
+import { Box } from '../../Box';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 

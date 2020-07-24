@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonsFrom } from '../Button';
+import { buttonsFrom } from '../../Button';
 import styled from 'styled-components';
 import { actions, header, headerText } from './styles';
 import { padding } from 'styled-system';
