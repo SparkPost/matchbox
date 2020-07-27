@@ -15,7 +15,7 @@ export const Sizing = withInfo()(() => (
 ));
 
 export const Colors = withInfo({ propTables: [Button] })(() => (
-  <>
+  <Box bg="gray.100">
     <Inline>
       <Button>Button</Button>
       <Button disabled>Disabled</Button>
@@ -64,7 +64,7 @@ export const Colors = withInfo({ propTables: [Button] })(() => (
         Outline
       </Button>
     </Inline>
-  </>
+  </Box>
 ));
 
 export const Destructive = withInfo()(() => (
