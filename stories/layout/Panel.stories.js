@@ -31,7 +31,7 @@ export const WithSections = () => (
 );
 
 export const WithActions = () => (
-  <Panel accent="red">
+  <Panel accent="gray">
     <Panel.Header>
       <Panel.Action>Action</Panel.Action>
       <Panel.Action>Action</Panel.Action>

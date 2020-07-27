@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from '../Box';
 
-function Accent(props) {
+function Accent({ accentColor }) {
   const color = React.useMemo(() => {
-    switch (props.accentColor) {
+    switch (accentColor) {
       case 'orange':
         return 'brand.orange';
       case 'green':
@@ -18,7 +18,7 @@ function Accent(props) {
       default:
         return 'blue.700';
     }
-  }, [props.color]);
+  }, [accentColor]);
 
   return (
     <Box

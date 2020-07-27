@@ -16,7 +16,6 @@ const systemInner = compose(border, height);
 
 const Panel = React.forwardRef(function Panel(props, userRef) {
   const { accent, children, className, ...rest } = props;
-  const accentColor = accent === true ? 'blue' : accent;
 
   const outerSystemProps = pick(rest, systemOuter.propNames);
   const innerSystemProps = pick(rest, systemInner.propNames);
@@ -36,7 +35,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
         {...innerSystemProps}
         height={innerHeight}
       >
-        {accentColor && <Accent color={accentColor} />}
+        {accent && <Accent accentColor={accent} />}
         <PanelPaddingContext.Provider
           value={{ p: contextP || contextPadding || '500', ...context }}
         >
