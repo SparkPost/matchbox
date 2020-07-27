@@ -1,13 +1,18 @@
 import React from 'react';
 import 'jest-styled-components';
-import { tokens } from '@sparkpost/design-tokens';
 
 import Layout from '../Layout';
 
+const resizeWindow = (x, y) => {
+  window.innerWidth = x;
+  window.innerHeight = y;
+  window.dispatchEvent(new Event('resize'));
+};
+
 describe('Layout', () => {
-  const subject = () =>
+  const subject = props =>
     global.mountStyled(
-      <Layout>
+      <Layout {...props}>
         <Layout.Section>Layout Section Content</Layout.Section>
       </Layout>,
     );
@@ -18,11 +23,10 @@ describe('Layout', () => {
     expect(wrapper.text()).toEqual('Layout Section Content');
   });
 
-  it('renders layout styles correctly', () => {
-    const wrapper = subject();
+  it('renders default collapseBelow prop', () => {
+    resizeWindow(500, 500);
 
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('display', 'flex');
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-left', `-${tokens.spacing_500}`);
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('flex-wrap', 'wrap');
+    const wrapper = subject();
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('flex-wrap', 'wrap');
   });
 });

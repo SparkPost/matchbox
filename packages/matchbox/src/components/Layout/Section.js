@@ -1,28 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
+import { Column } from '../Column';
 
 function Section(props) {
-  const { variant, children } = props;
-  let width = '100%';
+  const { annotated, children } = props;
 
-  if (variant === 'twoColumn') {
-    width = '50%';
-  }
-
-  if (variant === 'annotatedLeft') {
-    width = '300px';
-  }
-
-  if (variant === 'annotatedRight') {
-    width = 'calc(100% - 300px)';
-  }
-
-  return (
-    <Box width={['100%', null, width]} mb="36px" pl="500">
-      {children}
-    </Box>
-  );
+  return <Column width={annotated ? 1 / 3 : 1}>{children}</Column>;
 }
 
 Section.displayName = 'Layout.Section';
@@ -35,7 +18,7 @@ Section.propTypes = {
   /**
    * The section type (i.e. one column, two columns, or annotated)
    */
-  variant: PropTypes.oneOf(['oneColumn', 'twoColumn', 'annotatedLeft', 'annotatedRight']),
+  annotated: PropTypes.bool,
 };
 
 Section.defaultProps = {

@@ -21,23 +21,43 @@ const breadcrumbAction = {
 };
 
 export const ColumnExample = withInfo()(() => (
-  <Layout>
-    <Layout.Section variant="oneColumn">
-      <DemoBox>One Column Layout</DemoBox>
-    </Layout.Section>
-    <Layout.Section variant="twoColumn">
-      <DemoBox>Two Column Layout</DemoBox>
-    </Layout.Section>
-    <Layout.Section variant="twoColumn">
-      <DemoBox>Two Column Layout</DemoBox>
-    </Layout.Section>
-  </Layout>
+  <>
+    <Layout>
+      <Layout.Section>
+        <DemoBox>One Column Layout</DemoBox>
+      </Layout.Section>
+    </Layout>
+    <Layout>
+      <Layout.Section>
+        <DemoBox>Two Column Layout</DemoBox>
+      </Layout.Section>
+      <Layout.Section>
+        <DemoBox>Two Column Layout</DemoBox>
+      </Layout.Section>
+    </Layout>
+  </>
+));
+
+export const CollapseBelowExample = withInfo()(() => (
+  <>
+    <Layout collapseBelow="lg">
+      <Layout.Section>
+        <DemoBox>Three Column Layout</DemoBox>
+      </Layout.Section>
+      <Layout.Section>
+        <DemoBox>Three Column Layout</DemoBox>
+      </Layout.Section>
+      <Layout.Section>
+        <DemoBox>Three Column Layout</DemoBox>
+      </Layout.Section>
+    </Layout>
+  </>
 ));
 
 export const AnnotatedExample = withInfo()(() => (
   <Page title="Domain Details" breadcrumbAction={breadcrumbAction}>
     <Layout>
-      <Layout.Section variant="annotatedLeft">
+      <Layout.Section annotated>
         <Text as="h4" mb="300">
           Domain Status
         </Text>
@@ -45,7 +65,7 @@ export const AnnotatedExample = withInfo()(() => (
           Domain status text
         </Text>
       </Layout.Section>
-      <Layout.Section variant="annotatedRight">
+      <Layout.Section>
         <Panel>
           <Panel.Section>
             <Columns collapseBelow="md">
@@ -75,16 +95,9 @@ export const AnnotatedExample = withInfo()(() => (
           </Panel.Section>
         </Panel>
       </Layout.Section>
-
-      <Layout.Section variant="annotatedLeft">
-        <Text as="h4" mb="300">
-          DNS Details
-        </Text>
-        <Text fontSize="200" color="gray.700">
-          Something about these records being successfully placed in Go-Daddy?
-        </Text>
-      </Layout.Section>
-      <Layout.Section variant="annotatedRight">
+    </Layout>
+    <Layout>
+      <Layout.Section>
         <Panel>
           <Panel.Section>
             <Text>Below are the records for this domain hosted at Go-Daddy</Text>
@@ -93,6 +106,14 @@ export const AnnotatedExample = withInfo()(() => (
             <Text>TXT Record details here</Text>
           </Panel.Section>
         </Panel>
+      </Layout.Section>
+      <Layout.Section annotated>
+        <Text as="h4" mb="300">
+          DNS Details
+        </Text>
+        <Text fontSize="200" color="gray.700">
+          Something about these records being successfully placed in Go-Daddy?
+        </Text>
       </Layout.Section>
     </Layout>
   </Page>
