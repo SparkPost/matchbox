@@ -58,9 +58,7 @@ export const AnnotatedExample = withInfo()(() => (
   <Page title="Domain Details" breadcrumbAction={breadcrumbAction}>
     <Layout>
       <Layout.Section annotated>
-        <Text as="h4" mb="300">
-          Domain Status
-        </Text>
+        <Layout.SectionTitle>Domain Status</Layout.SectionTitle>
         <Text fontSize="200" color="gray.700">
           Domain status text
         </Text>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Columns } from '../Columns';
 
 import Section from './Section';
+import SectionTitle from './SectionTitle';
 
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
@@ -34,5 +35,6 @@ Layout.defaultProps = {
 };
 
 Layout.Section = Section;
+Layout.SectionTitle = SectionTitle;
 
 export default Layout;
