@@ -1,7 +1,6 @@
 import React from 'react';
 import Panel from '../Panel';
 import Accent from '../Accent';
-// import { tokens } from '@sparkpost/design-tokens';
 import 'jest-styled-components';
 
 describe('Panel Components', () => {
