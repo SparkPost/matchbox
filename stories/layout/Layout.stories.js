@@ -106,9 +106,7 @@ export const AnnotatedExample = withInfo()(() => (
         </Panel>
       </Layout.Section>
       <Layout.Section annotated>
-        <Text as="h4" mb="300">
-          DNS Details
-        </Text>
+        <Layout.SectionTitle>DNS Details</Layout.SectionTitle>
         <Text fontSize="200" color="gray.700">
           Something about these records being successfully placed in Go-Daddy?
         </Text>
