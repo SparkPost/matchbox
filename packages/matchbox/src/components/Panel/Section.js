@@ -23,7 +23,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
   const content = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
   const systemProps = pick(rest, padding.propNames);
-  console.log(paddingContext, systemProps);
+
   return (
     <StyledSection
       borderBottom="400"

@@ -82,9 +82,7 @@ export const MarginAndPaddingSystemProps = () => (
     </Panel>
 
     <Panel padding="200">
-      <Panel.Section>
-        <p>This section should inherit 200 panel padding</p>
-      </Panel.Section>
+      <Panel.Header borderBottom>This Header section should inherit 200 panel padding</Panel.Header>
       <Panel.Section p="800">
         <p>This section should have 800 padding</p>
       </Panel.Section>

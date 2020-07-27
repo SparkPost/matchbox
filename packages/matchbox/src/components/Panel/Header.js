@@ -5,18 +5,21 @@ import { Button } from '../Button';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getChild, excludeChild } from '../../helpers/children';
+import { PanelPaddingContext } from './context';
 
 const Header = React.forwardRef(function Header(props, userRef) {
   const { borderBottom, children, className } = props;
   const actions = getChild('Panel.Action', children);
   const title = excludeChild(['Panel.Action'], children);
+  const paddingContext = React.useContext(PanelPaddingContext);
 
   return (
     <Box
       borderBottom={borderBottom ? '400' : 'none'}
       className={className}
       p="500"
-      pb={borderBottom ? '500' : '0'}
+      pb={borderBottom ? null : '0'} // Null to inherit p="500"
+      {...paddingContext}
       ref={userRef}
       tabIndex="-1"
     >
