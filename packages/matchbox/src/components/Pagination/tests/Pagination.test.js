@@ -28,8 +28,8 @@ describe('Pagination', () => {
   });
 
   it('renders active page styles correctly', () => {
-    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', tokens.color_blue_700);
-    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', tokens.color_white);
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'blue');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', 'white');
   });
 
   it('invokes onChange on page', () => {
