@@ -1,26 +1,25 @@
 import React from 'react';
-// import { withInfo } from '@storybook/addon-info';
-// import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 import { Button, Panel, Columns, Column } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Panel',
 };
 
-export const WithAHeader = () => (
+export const WithAHeader = withInfo()(() => (
   <Panel>
     <Panel.Header>Title</Panel.Header>
     <Panel.Section>Section Content</Panel.Section>
   </Panel>
-);
+));
 
-export const WithAccent = () => (
+export const WithAccent = withInfo()(() => (
   <Panel accent>
     <Panel.Section>This is a highlighted panel with a title</Panel.Section>
   </Panel>
-);
+));
 
-export const WithSections = () => (
+export const WithSections = withInfo()(() => (
   <Panel>
     <Panel.Section>Section Content</Panel.Section>
     <Panel.Section>Section Content</Panel.Section>
@@ -28,9 +27,9 @@ export const WithSections = () => (
       <Button fullWidth>test</Button>
     </Panel.Section>
   </Panel>
-);
+));
 
-export const WithActions = () => (
+export const WithActions = withInfo()(() => (
   <Panel accent="gray">
     <Panel.Header>
       <Panel.Action>Action</Panel.Action>
@@ -43,9 +42,9 @@ export const WithActions = () => (
       reprehenderit, odio temporibus culpa beatae iure!
     </Panel.Section>
   </Panel>
-);
+));
 
-export const HeaderWithBorder = () => (
+export const HeaderWithBorder = withInfo()(() => (
   <Panel accent="red">
     <Panel.Header borderBottom>
       <Panel.Action>Action</Panel.Action>
@@ -58,9 +57,9 @@ export const HeaderWithBorder = () => (
       reprehenderit, odio temporibus culpa beatae iure!
     </Panel.Section>
   </Panel>
-);
+));
 
-export const MarginAndPaddingSystemProps = () => (
+export const MarginAndPaddingSystemProps = withInfo()(() => (
   <>
     <Panel mb="500">
       <p>This panel should have no padding</p>
@@ -91,9 +90,9 @@ export const MarginAndPaddingSystemProps = () => (
       </Panel.Section>
     </Panel>
   </>
-);
+));
 
-export const borderWidthAndHeightProps = () => (
+export const borderWidthAndHeightProps = withInfo()(() => (
   <Columns>
     <Column>
       <Panel p="400" height="100%" borderTop="none">
@@ -123,4 +122,4 @@ export const borderWidthAndHeightProps = () => (
       </Panel>
     </Column>
   </Columns>
-);
+));
