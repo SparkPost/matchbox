@@ -1,7 +1,7 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
 import styled from 'styled-components';
-import { padding, layout, compose } from 'styled-system';
+import { padding, layout, compose, variant } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 import { tokens } from '@sparkpost/design-tokens';
@@ -14,16 +14,29 @@ const StyledContent = styled('div')`
   ${system}
   ${content}
   ${transition}
+  ${'' /* TODO Expand this to include top and bottom */}
+  ${variant({
+    variants: {
+      isLeft: {
+        right: '0',
+        left: 'auto',
+      },
+      isRight: {
+        left: '0',
+        right: 'auto',
+      },
+    },
+  })}
 `;
 
 const Content = React.forwardRef(function Content(props, ref) {
   const {
     children,
     open,
-    top,
-    left,
+    top = false,
+    left = false,
     bottom = true,
-    right = true,
+    // right = true,
     sectioned,
     className = '',
     trigger,
@@ -32,6 +45,15 @@ const Content = React.forwardRef(function Content(props, ref) {
   } = props;
 
   const systemProps = pick(rest);
+
+  // Allows for responsive positioning arrays
+  const horizontalPosition = React.useMemo(() => {
+    if (typeof left === 'object') {
+      return left.map(bool => (bool ? 'isLeft' : 'isRight'));
+    }
+
+    return left ? 'isLeft' : 'isRight';
+  });
 
   return (
     <Transition
@@ -58,8 +80,7 @@ const Content = React.forwardRef(function Content(props, ref) {
             minWidth="13rem" // 208px
             isTop={top}
             isBottom={bottom}
-            isLeft={left}
-            isRight={right}
+            variant={horizontalPosition}
             state={state}
             {...style}
             {...systemProps}

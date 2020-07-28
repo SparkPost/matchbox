@@ -4,7 +4,6 @@ import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import palenight from 'prism-react-renderer/themes/palenight';
-import ResizeContainer from '../ResizeContainer/ResizeContainer';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
 import * as icons from '@sparkpost/matchbox-icons';
@@ -30,6 +29,7 @@ const StyledWrapper = styled(Box)`
     background: ${tokens.color_blue_1000} !important;
   }
 `;
+
 const StyledError = styled(LiveError)`
   background: ${tokens.color_red_800};
   font-size: ${tokens.fontSize_100};
@@ -38,7 +38,7 @@ const StyledError = styled(LiveError)`
 `;
 
 function Content(props) {
-  const { description, disableResize, code, scope } = props;
+  const { description, code, scope } = props;
 
   const formatted = prettier.format(code.trim(), {
     parser: 'babel',
@@ -58,9 +58,9 @@ function Content(props) {
         theme={palenight}
       >
         <div id="live-code-content">
-          <ResizeContainer disableResize={disableResize}>
+          <Box p="600" border={`6px solid ${tokens.color_gray_200}`} mb="500">
             <LivePreview />
-          </ResizeContainer>
+          </Box>
         </div>
         <StyledWrapper p="400" fontSize="100">
           <StyledEditor />

@@ -10,8 +10,8 @@ export default [
     babelrc: false,
     exclude: 'node_modules/**',
     externalHelpers: true,
-    presets: [ '@babel/env', '@babel/react' ],
-    plugins: [ '@babel/proposal-object-rest-spread', '@babel/proposal-class-properties' ]
+    presets: ['@babel/env', '@babel/react'],
+    plugins: ['@babel/proposal-object-rest-spread', '@babel/proposal-class-properties'],
   }),
-  terser()
+  terser(),
 ];

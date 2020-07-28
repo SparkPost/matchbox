@@ -41,7 +41,7 @@ function Footer() {
   return (
     <Wrapper
       as="footer"
-      mt="800"
+      mt="400"
       py="800"
       borderTop={`2px solid ${tokens.color_gray_200}`}
     >

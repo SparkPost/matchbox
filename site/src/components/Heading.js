@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Text } from '@sparkpost/matchbox';
 import { Link as LinkIcon } from '@sparkpost/matchbox-icons';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   text-decoration: none;
   span {
     opacity: 0;
@@ -44,7 +43,7 @@ function Heading(props) {
   }
 
   return (
-    <StyledLink to={pathname}>
+    <StyledLink href={pathname}>
       <Text {...rest} as={as} id={toKebab(children)} position="relative">
         {children}
         <span>

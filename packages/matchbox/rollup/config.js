@@ -16,6 +16,7 @@ export const inputOptions = {
     'react-scrolllock',
     '@sparkpost/matchbox-icons',
     '@sparkpost/design-tokens',
+    '@styled-system/css',
     '@styled-system/prop-types',
     '@styled-system/props',
     'styled-components',

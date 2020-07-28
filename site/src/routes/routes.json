@@ -88,6 +88,12 @@
         "section": "Action"
       },
       {
+        "path": "/components/columns",
+        "label": "Columns",
+        "disabled": false,
+        "section": "Layout"
+      },
+      {
         "path": "/components/emptystate",
         "label": "Empty State",
         "disabled": false,

@@ -32,6 +32,7 @@ export const BasicDatepicker = withInfo({ propTables: [DatePicker] })(() => (
     disabledDays={{ after: new Date() }}
     toMonth={new Date()}
     selectedDays={selectedDays}
+    onDayClick={d => console.log('click', d)}
     m="400"
   />
 ));
