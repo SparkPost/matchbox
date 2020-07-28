@@ -16,13 +16,9 @@ Section.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * The section type (i.e. one column, two columns, or annotated)
+   * Use for annotated sections, sets width to 1/3
    */
   annotated: PropTypes.bool,
-};
-
-Section.defaultProps = {
-  variant: 'oneColumn',
 };
 
 export default Section;

@@ -11,7 +11,7 @@ const Layout = React.forwardRef(function Layout(props, ref) {
   const { children, collapseBelow } = props;
 
   return (
-    <Columns collapseBelow={collapseBelow} space="500" mb="36px" ref={ref}>
+    <Columns collapseBelow={collapseBelow} space={['400', null, '500']} mb="600" ref={ref}>
       {children}
     </Columns>
   );

@@ -1,16 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Text } from '../Text';
 
 function SectionTitle(props) {
-  const { children } = props;
+  const { children, as } = props;
 
   return (
-    <Text as="h4" fontSize={['300', null, '400']} pb="300">
+    <Text as={as} fontSize={['300', null, '400']} pb="300">
       {children}
     </Text>
   );
 }
+
+SectionTitle.propTypes = {
+  as: PropTypes.elementType,
+};
+
+SectionTitle.defaultProps = {
+  as: 'h2',
+};
 
 SectionTitle.displayName = 'Layout.SectionTitle';
 
