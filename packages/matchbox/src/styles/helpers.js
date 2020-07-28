@@ -38,6 +38,11 @@ export const visuallyHidden = `
  * @param string color, defaults to 'color_blue_700'
  * @param modifier CSS selector to target the pseudo-element, defaults to '&:focus'
  * @param offset string, pixel value, defaults to '3px'
+ *
+ * @example
+ * const Styled = styled.div`
+ *   ${focusOutline({ color: 'gray', modifier: '&:focus-within' })}
+ * `;
  */
 export const focusOutline = ({
   color = tokens.color_blue_700,
