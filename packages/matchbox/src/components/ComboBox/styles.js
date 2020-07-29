@@ -16,7 +16,7 @@ export const StyledInputWrapper = styled(Box)`
   border-radius: ${tokens.borderRadius_100};
   min-height: ${inputHeight};
 
-  ${focusOutline({ within: true })}
+  ${focusOutline({ modifier: '&:focus-within' })}
 `;
 
 export const StyledInput = styled('input')`
