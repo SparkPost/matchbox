@@ -14,7 +14,7 @@ import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
 import { getRectFor } from '../../helpers/geometry';
 import { getChild } from '../../helpers/children';
-import { isInIframe } from '../../helpers/window';
+import { getWindow, isInIframe } from '../../helpers/window';
 import { Overlay, Container } from './styles';
 
 const Drawer = React.forwardRef(function Drawer(props, ref) {
@@ -81,6 +81,22 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
     }
   }, [footerRef.current, open]);
 
+  /**
+   * On drawer open, moves focus to the container
+   * Without this, focus gets moved to the close button first
+   */
+  React.useLayoutEffect(() => {
+    let timer;
+    if (open) {
+      timer = getWindow().setTimeout(() => {
+        childrenRef.current.focus();
+      }, secondsToMS(tokens.motionDuration_medium));
+    }
+    return () => {
+      getWindow().clearTimeout(timer);
+    };
+  }, [open]);
+
   return (
     <>
       <ScrollLock isActive={open} />
@@ -95,7 +111,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
           }}
         >
           {state => (
-            <FocusLock returnFocus disabled={!open || isInIframe()}>
+            <FocusLock returnFocus disabled={!open || isInIframe()} autoFocus={false}>
               <Box
                 data-id="drawer-wrapper"
                 height="100vh"
@@ -126,6 +142,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
                   ref={childrenRef}
                   role="dialog"
                   state={state}
+                  tabIndex="-1"
                   viewportPosition={position}
                   bg="white"
                   position="absolute"
