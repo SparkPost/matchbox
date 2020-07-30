@@ -2,7 +2,7 @@
 
 Want to start using tokens? See:
 
-- [Getting Started](https://design.sparkpost.com/design/overview)
+- [Getting Started](https://design.sparkpost.com/design/tokens)
 
 Looking for documentation? See:
 

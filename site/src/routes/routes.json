@@ -17,11 +17,11 @@
   {
     "path": "/design",
     "label": "Design",
-    "indexRoute": "/design/overview",
+    "indexRoute": "/design/tokens",
     "childRoutes": [
       {
-        "path": "/design/overview",
-        "label": "Overview",
+        "path": "/design/tokens",
+        "label": "Tokens",
         "disabled": false
       },
       {
