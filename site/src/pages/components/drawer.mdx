@@ -1,0 +1,121 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Drawer
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Example Drawer"
+    code={`
+      function Example(){
+        const { getDrawerProps, getActivatorProps } = useDrawer();
+        return (
+          <div>
+            <Button {...getActivatorProps()}>Open Drawer</Button>
+            <Drawer {...getDrawerProps()} position="right">
+              <Drawer.Header>Header Title</Drawer.Header>
+              <Drawer.Content>Drawer Content</Drawer.Content>
+              <Drawer.Footer>Footer Content</Drawer.Footer>
+            </Drawer>
+          </div>);
+      }
+      `}
+  />
+
+</LiveCode>
+
+---
+
+### Drawer System Props
+
+None
+
+---
+
+### Drawer API
+
+<Prop name="children" type="React node">
+  Drawer children, only use Drawer namespaced components
+</Prop>
+<Prop name="closeOnEscape" type="bool" defaultValue="true">
+  If true, closes the drawer when the escape key is pressed
+</Prop>
+<Prop name="closeOnOutsideClick" type="bool" defaultValue="true">
+  If true, closes the drawer when the clicking outside the drawer
+</Prop>
+<Prop name="id" type="string" required>
+  Dom element ID of the drawer, provided by <inlineCode>useDrawer</inlineCode>
+</Prop>
+<Prop name="onChange" type="func">
+  Callback function when drawer open state changes
+</Prop>
+<Prop name="onClose" type="func">
+  Callback function to close the drawer, provided by{' '}
+  <inlineCode>useDrawer</inlineCode>
+</Prop>
+<Prop name="open" type="bool" required>
+  Open state of the drawer, provided by <inlineCode>useDrawer</inlineCode>
+</Prop>
+<Prop name="portalId" type="string">
+  Controls the target container ID for the rendering React portal
+</Prop>
+<Prop name="position" type="string" defaultValue="right">
+  <inlineCode>"right"</inlineCode> or <inlineCode>"left"</inlineCode>
+  <br />
+  Position of the drawer
+</Prop>
+<Prop name="portalId" type="string">
+  Controls the target container ID for the rendering React portal
+</Prop>
+
+---
+
+### Drawer.Header System Props
+
+None
+
+---
+
+### Drawer.Header API
+
+<Prop name="children" type="React node">
+  Drawer header title
+</Prop>
+<Prop name="showCloseButton" type="bool" defaultValue="true">
+  Shows the close button in the header
+</Prop>
+<Prop name="onClose" type="func">
+  Callback function to close the drawer, provided by{' '}
+  <inlineCode>useDrawer</inlineCode>
+</Prop>
+
+---
+
+### Drawer.Content System Props
+
+<SystemPropsTags propsList={['padding']} />
+
+---
+
+### Drawer.Content API
+
+<Prop name="children" type="React node">
+  Drawer's main content
+</Prop>
+
+---
+
+### Drawer.Footer System Props
+
+<SystemPropsTags propsList={['padding']} />
+
+---
+
+### Drawer.Footer API
+
+<Prop name="children" type="React node">
+  Drawer Footer's content
+</Prop>

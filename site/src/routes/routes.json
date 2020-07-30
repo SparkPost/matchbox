@@ -64,11 +64,11 @@
   {
     "path": "/components",
     "label": "Components",
-    "indexRoute": "/components/overview",
+    "indexRoute": "/components/getting-started",
     "childRoutes": [
       {
-        "path": "/components/overview",
-        "label": "Overview",
+        "path": "/components/getting-started",
+        "label": "Getting Started",
         "disabled": false
       },
       {
@@ -122,30 +122,6 @@
         "label": "Table",
         "disabled": false,
         "section": "Layout"
-      },
-      {
-        "path": "/components/grid",
-        "label": "Grid",
-        "disabled": false,
-        "section": "Utility"
-      },
-      {
-        "path": "/components/portal",
-        "label": "Portal",
-        "disabled": false,
-        "section": "Utility"
-      },
-      {
-        "path": "/components/screenreaderonly",
-        "label": "ScreenReaderOnly",
-        "disabled": false,
-        "section": "Utility"
-      },
-      {
-        "path": "/components/windowevent",
-        "label": "WindowEvent",
-        "disabled": false,
-        "section": "Utility"
       },
       {
         "path": "/components/banner",
@@ -232,6 +208,12 @@
         "section": "Navigation"
       },
       {
+        "path": "/components/drawer",
+        "label": "Drawer",
+        "disabled": false,
+        "section": "Overlays"
+      },
+      {
         "path": "/components/modal",
         "label": "Modal",
         "disabled": false,
@@ -248,6 +230,30 @@
         "label": "Tooltip",
         "disabled": false,
         "section": "Overlays"
+      },
+      {
+        "path": "/components/grid",
+        "label": "Grid",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/portal",
+        "label": "Portal",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/screenreaderonly",
+        "label": "ScreenReaderOnly",
+        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/windowevent",
+        "label": "WindowEvent",
+        "disabled": false,
+        "section": "Utility"
       }
     ]
   }
