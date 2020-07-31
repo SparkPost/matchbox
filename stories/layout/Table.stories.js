@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Table, Panel, Box } from '@sparkpost/matchbox';
+import { Table, Panel, Box, Popover, Button } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Table',
@@ -10,10 +10,16 @@ const Node = ({ children = 'A react component' }) => <Box minWidth="900">{childr
 const NodeLong = ({
   children = 'A really longgggggggggggggggggggggggggggggggggggggggg react component',
 }) => <Box minWidth="900">{children}</Box>;
+const PopoverNode = () => (
+  <Popover sectioned trigger={<Button>Click</Button>}>
+    Content
+  </Popover>
+);
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
   [<Node />, <Node />, <NodeLong />, <Node />],
   [1, 2, 3, 4],
+  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />],
 ];
 
 export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
@@ -37,6 +43,26 @@ export const TableComponents = withInfo({ propTablesExclude: [Panel] })(() => (
           <Table.Cell>2</Table.Cell>
           <Table.Cell>3</Table.Cell>
         </Table.Row>
+        <Table.TotalsRow>
+          <Table.Cell>Total</Table.Cell>
+          <Table.Cell></Table.Cell>
+          <Table.Cell>100000</Table.Cell>
+        </Table.TotalsRow>
+        <Table.Row>
+          <Table.Cell>1</Table.Cell>
+          <Table.Cell>2</Table.Cell>
+          <Table.Cell>3</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>1</Table.Cell>
+          <Table.Cell>2</Table.Cell>
+          <Table.Cell>3</Table.Cell>
+        </Table.Row>
+        <Table.TotalsRow>
+          <Table.Cell>Total</Table.Cell>
+          <Table.Cell></Table.Cell>
+          <Table.Cell>100000</Table.Cell>
+        </Table.TotalsRow>
       </tbody>
     </Table>
   </Panel>
@@ -81,6 +107,45 @@ export const SystemProps = withInfo()(() => (
           <Table.Cell>Default Padding</Table.Cell>
           <Table.Cell>Default Padding</Table.Cell>
           <Table.Cell>Default Padding</Table.Cell>
+        </Table.Row>
+      </tbody>
+    </Table>
+  </Panel>
+));
+
+export const WithOverflowingElement = () => (
+  <Panel>
+    <Table p="200" data={data} />
+  </Panel>
+);
+
+export const VerticalAligntment = withInfo()(() => (
+  <Panel>
+    <Table>
+      <thead>
+        <Table.Row header alignY="bottom">
+          <Table.HeaderCell>Lorem ipsum</Table.HeaderCell>
+          <Table.HeaderCell>
+            Lorem ipsum A really longgggggggggggggggggggggggggggggg
+          </Table.HeaderCell>
+          <Table.HeaderCell>Lorem ipsum</Table.HeaderCell>
+        </Table.Row>
+      </thead>
+      <tbody>
+        <Table.Row alignY="top">
+          <Table.Cell>Top Aligned</Table.Cell>
+          <Table.Cell>Top Aligned</Table.Cell>
+          <Table.Cell>Top Aligned</Table.Cell>
+        </Table.Row>
+        <Table.Row alignY="center">
+          <Table.Cell>Center Aligned</Table.Cell>
+          <Table.Cell>Center Aligned</Table.Cell>
+          <Table.Cell>Center Aligned</Table.Cell>
+        </Table.Row>
+        <Table.Row alignY="bottom">
+          <Table.Cell>Bottom Aligned</Table.Cell>
+          <Table.Cell>Bottom Aligned</Table.Cell>
+          <Table.Cell>Bottom Aligned</Table.Cell>
         </Table.Row>
       </tbody>
     </Table>

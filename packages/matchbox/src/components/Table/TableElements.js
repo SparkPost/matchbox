@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { cell, row, headerCell } from './styles';
+import { cell, row, headerCell, totalsRow, verticalAlignment } from './styles';
 import { TablePaddingContext } from './context';
 import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '../../helpers/systemProps';
 
 const StyledCell = styled('td')`
   ${cell}
@@ -18,6 +19,14 @@ const StyledHeaderCell = styled('th')`
 
 const StyledRow = styled('tr')`
   ${row}
+  ${padding}
+  td, th {
+    ${verticalAlignment}
+  }
+`;
+
+const StyledTotalsRow = styled('tr')`
+  ${totalsRow}
   ${padding}
 `;
 
@@ -54,19 +63,42 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ rowData, children, className, ...rest }) => {
+const Row = ({ alignY, rowData, children, className, ...rest }) => {
   return (
-    <StyledRow className={className} {...rest}>
+    <StyledRow alignY={alignY} className={className} {...rest}>
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledRow>
   );
 };
 
 Row.propTypes = {
+  alignY: PropTypes.oneOf(['top', 'bottom', 'center']),
   rowData: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
 };
+Row.defaultProps = {
+  alignY: 'center',
+};
 Row.displayName = 'Table.Row';
 
-export { Cell, HeaderCell, Row };
+const TotalsRow = React.forwardRef(function TotalsRow(
+  { rowData, children, className, ...rest },
+  ref,
+) {
+  const paddingProps = pick(rest, padding.propNames);
+  return (
+    <StyledTotalsRow className={className} {...paddingProps} ref={ref} tabIndex="-1">
+      {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
+    </StyledTotalsRow>
+  );
+});
+
+TotalsRow.propTypes = {
+  rowData: PropTypes.array,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+TotalsRow.displayName = 'Table.TotalsRow';
+
+export { Cell, HeaderCell, Row, TotalsRow };

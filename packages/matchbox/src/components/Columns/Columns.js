@@ -48,6 +48,7 @@ const Columns = React.forwardRef(function Columns(props, ref) {
         reverse={reverse}
         gutter={space}
         flexWrap={collapsed ? 'wrap' : 'nowrap'}
+        tabIndex="-1"
       >
         <ColumnsContext.Provider value={{ space, collapsed }}>{children}</ColumnsContext.Provider>
       </StyledColumns>

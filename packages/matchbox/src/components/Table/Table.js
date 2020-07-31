@@ -6,7 +6,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { pick } from '../../helpers/systemProps';
-import { Cell, HeaderCell, Row } from './TableElements';
+import { Cell, HeaderCell, Row, TotalsRow } from './TableElements';
 import { TablePaddingContext } from './context';
 import { table, wrapper, sticky } from './styles';
 
@@ -46,7 +46,11 @@ function Table(props) {
   const marginProps = pick(rest, margin.propNames);
 
   return (
-    <Wrapper onScroll={freezeFirstColumn ? handleScroll : null} {...marginProps}>
+    <Wrapper
+      freezeFirstColumn={freezeFirstColumn}
+      onScroll={freezeFirstColumn ? handleScroll : null}
+      {...marginProps}
+    >
       <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
           {title && (
@@ -64,6 +68,7 @@ function Table(props) {
 Table.Cell = Cell;
 Table.HeaderCell = HeaderCell;
 Table.Row = Row;
+Table.TotalsRow = TotalsRow;
 
 Table.displayName = 'Table';
 Table.propTypes = {
