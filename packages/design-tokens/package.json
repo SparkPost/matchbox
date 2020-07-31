@@ -15,6 +15,7 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
+    "prepublishOnly": "npm run build",
     "build": "gulp && node scripts/scss.js && npm run format",
     "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
     "clean": "rimraf ./dist",
