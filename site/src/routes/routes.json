@@ -76,6 +76,10 @@
         "label": "System Props"
       },
       {
+        "path": "/components/mixins",
+        "label": "Mixins"
+      },
+      {
         "path": "/components/actionlist",
         "label": "ActionList",
         "disabled": false,
