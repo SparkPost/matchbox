@@ -74,7 +74,7 @@ describe('Banner', () => {
       .at(0)
       .simulate('click');
     expect(action.onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', tokens.color_gray_900);
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', 'gray');
   });
 
   it('renders multiple banner actions', () => {
@@ -89,7 +89,7 @@ describe('Banner', () => {
       .at(0)
       .simulate('click');
     expect(actions[0].onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', tokens.color_blue_700);
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', 'blue');
 
     wrapper
       .find('button')

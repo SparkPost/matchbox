@@ -59,9 +59,9 @@ describe('Tooltip', () => {
   });
 
   it('should pass through system props', () => {
-    const wrapper = subject({ bg: '#000', fontSize: '400', pr: '500' });
+    const wrapper = subject({ bg: 'bg', fontSize: '400', pr: '500' });
     wrapper.find('button').simulate('mouseOver');
-    expect(content(wrapper)).toHaveStyleRule('background-color', '#000');
+    expect(content(wrapper)).toHaveStyleRule('background-color', 'bg');
     expect(content(wrapper)).toHaveStyleRule('font-size', '1rem');
     expect(content(wrapper)).toHaveStyleRule('padding-right', '1.5rem');
   });

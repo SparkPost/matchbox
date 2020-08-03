@@ -35,14 +35,19 @@ export const visuallyHidden = `
 
 /**
  * Creates focus styles on an :after pseudo-element. Defaults to blue 700.
- * @param string color
- * @param within boolean
- * @param offset string, pixel value
+ * @param string color, defaults to 'color_blue_700'
+ * @param modifier CSS selector to target the pseudo-element, defaults to '&:focus'
+ * @param offset string, pixel value, defaults to '3px'
+ *
+ * @example
+ * const Styled = styled.div`
+ *   ${focusOutline({ color: 'gray', modifier: '&:focus-within' })}
+ * `;
  */
 export const focusOutline = ({
   color = tokens.color_blue_700,
-  offset = '3px',
   modifier = '&:focus',
+  offset = '3px',
 } = {}) => `
   position: relative;
   outline: none;
@@ -55,7 +60,7 @@ export const focusOutline = ({
     left: -${offset};
     right: -${offset};
     bottom: -${offset};
-    transition: ${tokens.motionDuration_fast};
+    transition: box-shadow ${tokens.motionDuration_fast};
     border-radius: ${tokens.borderRadius_200};
     box-shadow: none;
     pointer-events: none;
@@ -63,7 +68,6 @@ export const focusOutline = ({
 
   ${modifier}:after {
     z-index: ${tokens.zIndex_default};
-    opacity: 1;
     box-shadow: 0 0 0 2px ${color};
   }
 
