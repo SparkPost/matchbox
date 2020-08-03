@@ -108,6 +108,7 @@ const theme = {
       gray: tokens.color_brand_gray,
       blue: tokens.color_brand_blue,
     },
+    white: tokens.color_white,
   },
 
   // Example: <Box marginBottom="400" padding={400} />
