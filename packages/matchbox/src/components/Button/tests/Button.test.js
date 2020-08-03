@@ -10,20 +10,20 @@ describe('Button', () => {
       props: {},
       assert: [
         ['height', '2.5rem'],
-        ['color', '#ffffff'],
-        ['background', '#39444d'],
+        ['color', 'white'],
+        ['background', 'gray'],
       ],
     },
     { name: 'large size', props: { size: 'large' }, assert: ['height', '3.5rem'] },
     { name: 'disabled', props: { disabled: true }, assert: ['opacity', '0.6'] },
-    { name: 'destructive', props: { destructive: true }, assert: ['background', '#d9363e'] },
+    { name: 'destructive', props: { destructive: true }, assert: ['background', 'red'] },
     { name: 'flat', props: { flat: true }, assert: ['background', 'transparent'] },
     {
       name: 'flat with color',
       props: { flat: true, color: 'blue' },
       assert: [
         ['background', 'transparent'],
-        ['color', '#1273e6'],
+        ['color', 'blue'],
       ],
     },
     {
@@ -31,7 +31,7 @@ describe('Button', () => {
       props: { flat: true, color: 'red', disabled: true },
       assert: [
         ['background', 'transparent'],
-        ['color', '#d9363e'],
+        ['color', 'red'],
         ['opacity', '0.6'],
       ],
     },
@@ -39,7 +39,7 @@ describe('Button', () => {
       name: 'outline enabled',
       props: { outlineBorder: true },
       assert: [
-        ['border', '1px solid #39444d'],
+        ['border', '1px solid gray'],
         ['background', 'transparent'],
       ],
     },
@@ -56,7 +56,7 @@ describe('Button', () => {
     {
       name: 'deprecated prop - primary',
       props: { primary: true },
-      assert: ['background', '#1273e6'],
+      assert: ['background', 'blue'],
     },
   ];
 

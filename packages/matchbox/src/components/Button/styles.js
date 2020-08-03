@@ -90,25 +90,25 @@ export const colorVariant = props => {
   switch (props.buttonColor) {
     case 'orange': // To be deprecated
     case 'blue':
-      color = tokens.color_blue_700;
-      darkHoverColor = tokens.color_blue_800;
-      lightActiveColor = tokens.color_blue_200;
-      lightHoverColor = tokens.color_blue_100;
+      color = props.theme.colors.blue['700'];
+      darkHoverColor = props.theme.colors.blue['800'];
+      lightActiveColor = props.theme.colors.blue['300'];
+      lightHoverColor = props.theme.colors.blue['200'];
       break;
 
     case 'red':
-      color = tokens.color_red_700;
-      darkHoverColor = tokens.color_red_800;
-      lightActiveColor = tokens.color_red_200;
-      lightHoverColor = tokens.color_red_100;
+      color = props.theme.colors.red['700'];
+      darkHoverColor = props.theme.colors.red['800'];
+      lightActiveColor = props.theme.colors.red['300'];
+      lightHoverColor = props.theme.colors.red['200'];
       break;
 
     case 'gray':
     default:
-      color = tokens.color_gray_900;
-      darkHoverColor = tokens.color_gray_1000;
-      lightActiveColor = tokens.color_gray_200;
-      lightHoverColor = tokens.color_gray_100;
+      color = props.theme.colors.gray['900'];
+      darkHoverColor = props.theme.colors.gray['1000'];
+      lightActiveColor = props.theme.colors.gray['400'];
+      lightHoverColor = props.theme.colors.gray['300'];
       break;
   }
 
@@ -117,13 +117,13 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           background: ${color};
-          color: ${tokens.color_white};
+          color: ${props.theme.colors.white};
 
           &:hover {
             ${!props.disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${tokens.color_white};
+            color: ${props.theme.colors.white};
           }
           &:active {
             background: ${color};
@@ -151,7 +151,9 @@ export const colorVariant = props => {
     default:
       return `
         &, &:visited {
-          border: 1px solid ${props.visualWeight == 'outline' ? tokens.color_gray_400 : color};
+          border: 1px solid ${
+            props.visualWeight == 'outline' ? props.theme.colors.gray['400'] : color
+          };
           background: transparent;
           color: ${color};
           &:hover {

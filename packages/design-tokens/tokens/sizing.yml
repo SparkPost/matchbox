@@ -24,10 +24,10 @@ props:
   - name: sizing-1000
     value: 20rem
     comment: 320px
+  # The remaining values mirror spacing
   - name: sizing-900
     value: 10rem
     comment: 160px
-  # The remaining values mirror spacing
   - name: sizing-800
     value: 4rem
     comment: 64px

@@ -2,7 +2,7 @@
 
 Want to start using Matchbox? See:
 
-- [Getting Started](https://design.sparkpost.com/components/overview)
+- [Getting Started](https://design.sparkpost.com/components/getting-started)
 
 Looking for documentation? See:
 

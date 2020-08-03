@@ -6,7 +6,7 @@
     "packages/matchbox",
     "packages/matchbox-media"
   ],
-  "version": "4.0.10",
+  "version": "4.0.12",
   "command": {
     "publish": {
       "ignoreChanges": [
