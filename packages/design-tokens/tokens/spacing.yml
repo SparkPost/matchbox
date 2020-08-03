@@ -2,6 +2,9 @@ global:
   category: spacing
   type: spacing
 props:
+  - name: spacing-900
+    value: 10rem
+    comment: 160px
   - name: spacing-800
     value: 4rem
     comment: 64px
