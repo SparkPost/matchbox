@@ -121,7 +121,7 @@ export const DeprecatedVariants = withInfo({ propTables: [Button] })(() => (
         Outline
       </Button>
     </Inline>
-  </Box>
+  </>
 ));
 
 export const Destructive = withInfo()(() => (

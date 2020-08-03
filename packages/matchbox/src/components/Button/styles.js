@@ -153,11 +153,7 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           border: 1px solid ${
-<<<<<<< HEAD
-            props.visualWeight == 'outline' ? props.theme.colors.gray['400'] : color
-=======
             props.buttonVariant == 'mutedOutline' ? theme.colors.gray[400] : color
->>>>>>> dbb96706... UX-263 Add button variant prop
           };
           background: transparent;
           color: ${color};
