@@ -1,19 +1,32 @@
 {
   "lerna": "4.0.9",
-  "packages": ["packages/design-tokens", "packages/matchbox-icons", "packages/matchbox"],
-  "version": "4.0.10",
+  "packages": [
+    "packages/design-tokens",
+    "packages/matchbox-icons",
+    "packages/matchbox"
+  ],
+  "version": "4.0.11",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/tests/**", "**/*.md"],
+      "ignoreChanges": [
+        "**/tests/**",
+        "**/*.md"
+      ],
       "allowBranch": "main"
     },
     "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     },
     "version": {
       "message": "Publish %s",
       "allowBranch": "main"
     }
   },
-  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
+  "ignoreChanges": [
+    "**/matchbox-site/**",
+    "**/tests/**",
+    "**/*.md"
+  ]
 }
