@@ -29,17 +29,19 @@ export function container(props) {
 }
 
 // Overwrites unstyled link colors within Banner content to be color-contrast accessible
-export function childLinks() {
+export function childLinks(props) {
+  console.log(props);
   return `
   p, ul, ol {
-    a, a:visited {
-      color: ${tokens.color_blue_800};
-      &:hover {
-        color: ${tokens.color_blue_900};
-      }
+    font-size: ${props.size === 'small' ? props.theme.fontSizes['200'] : null};
+  a, a: visited {
+    color: ${tokens.color_blue_800};
+      &: hover {
+      color: ${tokens.color_blue_900};
     }
   }
-  `;
+}
+`;
 }
 
 export const statusIcons = {
@@ -71,41 +73,40 @@ export const statusIcons = {
 
 export function dismissBase() {
   return `
-    padding: 0.25rem;
-    transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
-    &:hover {
-      cursor: pointer;
-    }
-  `;
+transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+    &: hover {
+  cursor: pointer;
+}
+`;
 }
 
 export function dismissColor(props) {
   switch (props.status) {
     case 'success':
       return `
-        &:hover {
-          background: ${tokens.color_green_300};
-        }
-      `;
+  &: hover {
+  background: ${tokens.color_green_300};
+}
+`;
     case 'warning':
       return `
-        &:hover {
-          background: ${tokens.color_yellow_300};
-        }
-      `;
+  &: hover {
+  background: ${tokens.color_yellow_300};
+}
+`;
     case 'danger':
       return `
-        &:hover {
-          background: ${tokens.color_red_300};
-        }
-      `;
+  &: hover {
+  background: ${tokens.color_red_300};
+}
+`;
     // Gray banner no longer exists as of 4.0.0
     case 'default':
     default:
       return `
-        &:hover {
-          background: ${tokens.color_blue_300};
-        }
-      `;
+  &: hover {
+  background: ${tokens.color_blue_300};
+}
+`;
   }
 }

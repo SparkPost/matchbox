@@ -22,6 +22,7 @@ function IconSection({ status, size }) {
   const iconSize = size === 'large' ? '3rem' : '1rem';
   const bgColor = size === 'large' ? statusIcon.bg : null;
   const fillColor = size === 'large' ? statusIcon.fill : statusIcon.bg;
+  const iconMargin = size === 'large' ? '500' : '300';
 
   return (
     <Box
@@ -32,7 +33,7 @@ function IconSection({ status, size }) {
       justifyContent="center"
       width={iconSize}
       height={iconSize}
-      mr="500"
+      mr={iconMargin}
     >
       <Box
         position="absolute"
@@ -88,7 +89,14 @@ const Banner = React.forwardRef(function Banner(props, ref) {
 
   const dismissMarkup = onDismiss ? (
     <Box flex={['1', null, '0']} textAlign="right">
-      <StyledDismiss as="button" onClick={onDismiss} status={status} color="gray.800" type="button">
+      <StyledDismiss
+        as="button"
+        onClick={onDismiss}
+        status={status}
+        color="gray.800"
+        type="button"
+        p={size === 'small' ? 0 : '100'}
+      >
         <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
         <Close size={24} />
       </StyledDismiss>
@@ -99,7 +107,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
     <StyledContainer
       display="flex"
       flexWrap={['wrap', null, 'nowrap']}
-      p={size === 'large' ? '500' : '200'}
+      p={size === 'large' ? '500' : '300'}
       borderRadius="100"
       status={status}
       {...rest}
@@ -110,7 +118,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box mb={actionMarkup ? '500' : '0'}>
-          <StyledChildren>{children}</StyledChildren>
+          <StyledChildren size={size}>{children}</StyledChildren>
         </Box>
         {actionMarkup}
       </Box>
