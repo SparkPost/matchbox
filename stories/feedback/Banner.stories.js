@@ -83,6 +83,12 @@ export const DangerBanner = withInfo()(() => (
   </Banner>
 ));
 
+export const SmallBanner = withInfo()(() => (
+  <Banner size="small" onDismiss={action('Dismiss Clicked')}>
+    <p>This is the small banner</p>
+  </Banner>
+));
+
 export const SystemProps = withInfo()(() => (
   <>
     <Banner title="Responsive Margin-Y" status="warning" my={['400', '600', '800', '300']}>

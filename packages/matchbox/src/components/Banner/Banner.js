@@ -12,12 +12,16 @@ import { buttonReset } from '../../styles/helpers';
 import { buttonFrom } from '../Button';
 import { margin } from 'styled-system';
 
-function IconSection({ status }) {
+function IconSection({ status, size }) {
   const statusIcon = React.useMemo(() => {
     return status === 'default' ? statusIcons.info : statusIcons[status];
   }, [statusIcons, status]);
 
   const Icon = statusIcon.iconName;
+
+  const iconSize = size === 'large' ? '3rem' : '1rem';
+  const bgColor = size === 'large' ? statusIcon.bg : null;
+  const fillColor = size === 'large' ? statusIcon.fill : statusIcon.bg;
 
   return (
     <Box
@@ -26,21 +30,21 @@ function IconSection({ status }) {
       flexShrink="0"
       alignItems="center"
       justifyContent="center"
-      width="3rem"
-      height="3rem"
+      width={iconSize}
+      height={iconSize}
       mr="500"
     >
       <Box
         position="absolute"
         top="0"
         left="0"
-        width="3rem"
-        height="3rem"
+        width={iconSize}
+        height={iconSize}
         borderRadius="circle"
-        bg={statusIcon.bg}
+        bg={bgColor}
       />
-      <Box position="relative" color={statusIcon.fill}>
-        <Icon size={30} label={statusIcon.iconLabel} />
+      <Box position="relative" color={fillColor}>
+        <Icon size={size === 'large' ? 30 : 20} label={statusIcon.iconLabel} />
       </Box>
     </Box>
   );
@@ -62,7 +66,7 @@ const StyledDismiss = styled(Box)`
 `;
 
 const Banner = React.forwardRef(function Banner(props, ref) {
-  const { children, title, status, action, actions, onDismiss, ...rest } = props;
+  const { children, title, status, action, actions, onDismiss, size, ...rest } = props;
 
   const titleMarkup = title ? (
     <Box pt={['300', null, '200']} mb="200">
@@ -95,14 +99,14 @@ const Banner = React.forwardRef(function Banner(props, ref) {
     <StyledContainer
       display="flex"
       flexWrap={['wrap', null, 'nowrap']}
-      p="500"
+      p={size === 'large' ? '500' : '200'}
       borderRadius="100"
       status={status}
       {...rest}
       ref={ref}
       tabIndex="-1"
     >
-      <IconSection status={status} />
+      <IconSection status={status} size={size} />
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box mb={actionMarkup ? '500' : '0'}>
@@ -153,11 +157,17 @@ Banner.propTypes = {
    */
   children: PropTypes.node,
 
+  /**
+   * Banner size
+   */
+  size: PropTypes.oneOf(['small', 'large']),
+
   ...createPropTypes(margin.propNames),
 };
 
 Banner.defaultProps = {
   status: 'default',
+  size: 'large',
 };
 
 export default Banner;
