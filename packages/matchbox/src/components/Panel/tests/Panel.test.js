@@ -15,12 +15,12 @@ describe('Panel Components', () => {
     describe('accent colors', () => {
       it('renders a boolean accent correctly', () => {
         let wrapper = subject({ accent: true });
-        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'blue.700');
+        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'blue');
       });
 
       it('renders a blue accent correctly', () => {
         let wrapper = subject({ accent: 'blue' });
-        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'blue.700');
+        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'blue');
       });
 
       it('renders a orange accent correctly', () => {
@@ -40,7 +40,7 @@ describe('Panel Components', () => {
 
       it('renders a red accent correctly', () => {
         let wrapper = subject({ accent: 'red' });
-        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'red.700');
+        expect(wrapper.find(Accent)).toHaveStyleRule('background-color', 'red');
       });
 
       it('renders a gray accent correctly', () => {
