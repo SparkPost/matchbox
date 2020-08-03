@@ -70,15 +70,15 @@ describe('Panel Components', () => {
 
     it('renders with a default padding correctly', () => {
       let wrapper = subject({ children: <Panel.Header>Header Content</Panel.Header> });
-      expect(wrapper.find(Panel.Header)).toHaveStyleRule('padding', '1.5rem');
+      expect(wrapper.find(Panel.Header)).toHaveStyleRule('padding', '1rem');
     });
 
     it('renders with a set padding correctly', () => {
       let wrapper = subject({
-        padding: '400',
+        padding: '500',
         children: <Panel.Header>Header Content</Panel.Header>,
       });
-      expect(wrapper.find(Panel.Header)).toHaveStyleRule('padding', '1rem');
+      expect(wrapper.find(Panel.Header)).toHaveStyleRule('padding', '1.5rem');
     });
 
     it('renders with actions', () => {
@@ -104,15 +104,15 @@ describe('Panel Components', () => {
 
     it('renders with a default padding correctly', () => {
       let wrapper = subject({ children: <Panel.Section>Section Content</Panel.Section> });
-      expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1.5rem');
+      expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1rem');
     });
 
     it('renders with a set padding correctly', () => {
       let wrapper = subject({
-        padding: '400',
+        padding: '500',
         children: <Panel.Section>Section Content</Panel.Section>,
       });
-      expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1rem');
+      expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1.5rem');
     });
 
     it('renders with actions', () => {
