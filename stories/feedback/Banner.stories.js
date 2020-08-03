@@ -84,9 +84,19 @@ export const DangerBanner = withInfo()(() => (
 ));
 
 export const SmallBanner = withInfo()(() => (
-  <Banner size="small" onDismiss={action('Dismiss Clicked')}>
-    <p>This is the small banner</p>
-  </Banner>
+  <>
+    <Banner size="small" onDismiss={action('Dismiss Clicked')} mb="500">
+      <p>This is the small banner</p>
+    </Banner>
+    <Banner size="small" status="warning">
+      <p>
+        This is the small banner with long content. This is the small banner with long content. This
+        is the small banner with long content. This is the small banner with long content. This is
+        the small banner with long content. This is the small banner with long content. This is the
+        small banner with long content.{' '}
+      </p>
+    </Banner>
+  </>
 ));
 
 export const SystemProps = withInfo()(() => (
