@@ -17,13 +17,14 @@ const Header = React.forwardRef(function Header(props, userRef) {
     <Box
       borderBottom={borderBottom ? '400' : 'none'}
       className={className}
-      p="500"
-      pb={borderBottom ? null : '0'} // Null to inherit p="500"
       {...paddingContext}
+      // The array is a hack to override responsive padding context
+      // First null to inherit padding context
+      pb={borderBottom ? null : [0, null, 0]}
       ref={userRef}
       tabIndex="-1"
     >
-      <Columns collapseBelow="xs" space="300">
+      <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>
           <Box fontSize="400" lineHeight="400" fontWeight="semibold">
             {title}

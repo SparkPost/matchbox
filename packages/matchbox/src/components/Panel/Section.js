@@ -33,7 +33,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
       {...paddingContext}
       {...systemProps}
     >
-      <Columns collapseBelow="sm" space="300">
+      <Columns collapseBelow="sm" space="300" alignY="top" align="right">
         <Column>{content}</Column>
         {actions.length ? (
           <Column width="content">

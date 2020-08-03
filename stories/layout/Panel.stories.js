@@ -34,7 +34,7 @@ export const WithActions = withInfo()(() => (
     <Panel.Header>
       <Panel.Action>Action</Panel.Action>
       <Panel.Action>Action</Panel.Action>
-      Header
+      Header Header Header Header Header Header
     </Panel.Header>
     <Panel.Section>
       <Panel.Action>View Details</Panel.Action>
