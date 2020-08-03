@@ -41,9 +41,6 @@
     ]
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "^4.0.10",
-    "@sparkpost/matchbox": "^4.0.12",
-    "@sparkpost/matchbox-icons": "^4.0.12",
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
     "downshift": "^3.2.10",
