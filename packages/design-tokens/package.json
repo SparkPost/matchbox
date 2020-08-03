@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/design-tokens",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "SparkPost Design Tokens",
   "main": "index.js",
   "style": "dist/index.scss",
