@@ -9,7 +9,7 @@ import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
-
+import Icon from './Icon';
 import Group from './Group';
 import {
   base,
@@ -185,6 +185,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
 Button.displayName = 'Button';
 Button.Group = Group;
+Button.Icon = Icon;
 
 Button.propTypes = {
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),
