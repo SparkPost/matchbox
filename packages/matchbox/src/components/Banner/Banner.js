@@ -21,7 +21,7 @@ function IconSection({ status, size }) {
 
   const iconSize = size === 'large' ? '3rem' : '1rem';
   const bgColor = size === 'large' ? statusIcon.bg : null;
-  const fillColor = size === 'large' ? statusIcon.fill : statusIcon.bg;
+  const fillColor = size === 'large' ? statusIcon.fill : statusIcon.fillMobile;
   const iconMargin = size === 'large' ? '500' : '300';
 
   return (
@@ -34,6 +34,7 @@ function IconSection({ status, size }) {
       width={iconSize}
       height={iconSize}
       mr={iconMargin}
+      mt={size === 'large' ? null : '2px'}
     >
       <Box
         position="absolute"
@@ -95,10 +96,10 @@ const Banner = React.forwardRef(function Banner(props, ref) {
         status={status}
         color="gray.800"
         type="button"
-        p={size === 'small' ? 0 : '100'}
+        p={size === 'large' ? '100' : 0}
       >
         <ScreenReaderOnly>Dismiss</ScreenReaderOnly>
-        <Close size={24} />
+        <Close size={size === 'large' ? 24 : 20} />
       </StyledDismiss>
     </Box>
   ) : null;
@@ -108,6 +109,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       display="flex"
       flexWrap={['wrap', null, 'nowrap']}
       p={size === 'large' ? '500' : '300'}
+      py={size === 'large' ? null : '200'}
       borderRadius="100"
       status={status}
       {...rest}
