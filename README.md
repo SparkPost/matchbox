@@ -16,7 +16,7 @@ Matchbox is an open source design system and React component library, built for
 
 Want to start using Matchbox? See:
 
-- [Getting Started](https://design.sparkpost.com/components/overview)
+- [Getting Started](https://design.sparkpost.com/components/getting-started)
 
 Looking for documentation? See:
 
@@ -75,9 +75,10 @@ if you need access.
    `CHANGELOG.md`.
 1. Open and edit `CHANGELOG.md` with correct title and version number of your release.
 1. Push these changes to `main` if you have permissions, or on a new branch.
-1. Run `lerna version`. The Lerna CLI will prompt you for version numbers. See
+1. Run `lerna version --force-publish`. The Lerna CLI will prompt you for version numbers. The
+   `force-publish` flag will force all packages to be bumped to the same version. See
    https://github.com/lerna/lerna/tree/master/commands/version.
-1. Run `lerna publish`. The Lerna CLI will prompt you for a one time password from your
+1. Run `lerna publish from-package`. The Lerna CLI will prompt you for a one time password from your
    authenticator. See https://github.com/lerna/lerna/tree/master/commands/publish.
 
 **What the commands look like:**
@@ -88,7 +89,7 @@ npm run changelog
 git add CHANGELOG.md
 git commit -m "Update CHANGELOG.md"
 git push
-lerna version
-lerna publish
+lerna version --force-publish
+lerna publish from-package
 # That's it!
 ```
