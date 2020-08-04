@@ -12,7 +12,7 @@ function Navbar(props) {
     <Box display="flex" justifyContent="space-between" position="absolute" left="0" right="0">
       <Box flex="0">
         <Button
-          flat
+          variant="text"
           color="blue"
           data-id="datepicker-previous"
           disabled={!showPreviousButton}
@@ -26,7 +26,7 @@ function Navbar(props) {
       </Box>
       <Box flex="0">
         <Button
-          flat
+          variant="text"
           color="blue"
           data-id="datepicker-next"
           disabled={!showNextButton}
