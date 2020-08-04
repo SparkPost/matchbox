@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-media",
-  "version": "4.0.12",
+  "version": "4.0.13",
   "description": "Images and Videos for Matchbox",
   "main": "matchbox-media.js",
   "repository": {
