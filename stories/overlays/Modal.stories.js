@@ -44,7 +44,7 @@ export const ToggleExample = () => {
 
 export const LEGACY = withInfo()(() => (
   <Modal.LEGACY open portalId={PORTAL_ID}>
-    <Panel title="Delete Template" sectioned>
+    <Panel.LEGACY title="Delete Template" sectioned>
       <p>Are you sure you want to delete your template?</p>
 
       <Box mt="500">
@@ -56,6 +56,6 @@ export const LEGACY = withInfo()(() => (
           Cancel
         </Button>
       </Box>
-    </Panel>
+    </Panel.LEGACY>
   </Modal.LEGACY>
 ));

@@ -21,3 +21,16 @@ export function getChild(name, children, passedProps = {}) {
     return null;
   });
 }
+
+export function excludeChild(names, children) {
+  return React.Children.map(children, child => {
+    if (
+      React.isValidElement(child) &&
+      (names.includes(child.type.displayName) || names.includes(child.type.name))
+    ) {
+      return null;
+    }
+
+    return child;
+  });
+}

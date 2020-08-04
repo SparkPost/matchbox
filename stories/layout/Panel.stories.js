@@ -1,114 +1,87 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import { Panel, Columns, Column } from '@sparkpost/matchbox';
+import { Button, Panel, Columns, Column } from '@sparkpost/matchbox';
 
 export default {
   title: 'Layout|Panel',
 };
 
-export const WithATitle = withInfo()(() => (
-  <Panel className="my-class" title="Title" sectioned>
-    This is a panel with a title
-  </Panel>
-));
-
-export const WithAnAccent = withInfo()(() => (
-  <>
-    <Panel mb={300} accent sectioned>
-      This is a highlighted panel with a title
-    </Panel>
-    <Panel mb={300} accent="orange" sectioned>
-      This is a highlighted panel with a title
-    </Panel>
-  </>
-));
-
-export const WithAFooter = withInfo()(() => (
-  <>
-    <Panel title="Title" accent sectioned>
-      This is a panel
-    </Panel>
-    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
-
-    <Panel title="Title" accent sectioned>
-      This is a panel
-    </Panel>
-    <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
-  </>
-));
-
-export const WithMultipleSections = withInfo()(() => (
+export const WithAHeader = withInfo()(() => (
   <Panel>
-    <Panel.Section>This is a panel with sections</Panel.Section>
-    <Panel.Section className="test-class">This is a panel with sections</Panel.Section>
-    <Panel.Section>This is a panel with sections</Panel.Section>
+    <Panel.Header>Title</Panel.Header>
+    <Panel.Section>Section Content</Panel.Section>
   </Panel>
 ));
 
-export const WithActions = withInfo()(() => {
-  const actions = [
-    {
-      content: 'Edit',
-      onClick: action('Edit Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Delete',
-      onClick: action('Delete Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Not Visible',
-      visible: false,
-    },
-  ];
-  const sectionActions = [
-    {
-      content: 'View Details',
-      onClick: action('Details Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Not Visible',
-      visible: false,
-    },
-  ];
-  return (
-    <Panel actions={actions} accent="red" title="Panel with Actions">
-      <Panel.Section actions={sectionActions}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
-          reprehenderit, odio temporibus culpa beatae iure!
-        </p>
-      </Panel.Section>
-    </Panel>
-  );
-});
+export const WithAccent = withInfo()(() => (
+  <Panel accent>
+    <Panel.Section>This is a highlighted panel with a title</Panel.Section>
+  </Panel>
+));
 
-export const SystemProps = withInfo()(() => (
+export const WithSections = withInfo()(() => (
+  <Panel>
+    <Panel.Section>Section Content</Panel.Section>
+    <Panel.Section>Section Content</Panel.Section>
+    <Panel.Section>
+      <Button fullWidth>test</Button>
+    </Panel.Section>
+  </Panel>
+));
+
+export const WithActions = withInfo()(() => (
+  <Panel accent="gray">
+    <Panel.Header>
+      <Panel.Action>Action</Panel.Action>
+      <Panel.Action>Action</Panel.Action>
+      Header Header Header Header Header Header
+    </Panel.Header>
+    <Panel.Section>
+      <Panel.Action>View Details</Panel.Action>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+      reprehenderit, odio temporibus culpa beatae iure!
+    </Panel.Section>
+  </Panel>
+));
+
+export const HeaderWithBorder = withInfo()(() => (
+  <Panel accent="red">
+    <Panel.Header borderBottom>
+      <Panel.Action>Action</Panel.Action>
+      <Panel.Action>Action</Panel.Action>
+      Header
+    </Panel.Header>
+    <Panel.Section>
+      <Panel.Action>View Details</Panel.Action>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+      reprehenderit, odio temporibus culpa beatae iure!
+    </Panel.Section>
+  </Panel>
+));
+
+export const MarginAndPaddingSystemProps = withInfo()(() => (
   <>
-    <Panel mb="400">
+    <Panel mb="500">
       <p>This panel should have no padding</p>
     </Panel>
 
-    <Panel sectioned mb="400">
-      <p>This panel should default to 400 padding</p>
-    </Panel>
-
-    <Panel mb="400">
+    <Panel mb="500">
       <Panel.Section>
-        <p>These sections should default to 400 padding</p>
-      </Panel.Section>
-      <Panel.Section>
-        <p>These sections should default to 400 padding</p>
+        <p>This panel should default to 400 padding</p>
       </Panel.Section>
     </Panel>
 
-    <Panel padding="200" mb="400">
+    <Panel mb="500" padding="300">
       <Panel.Section>
-        <p>This section should inherit 200 panel padding</p>
+        <p>These sections should have 300 padding</p>
       </Panel.Section>
+      <Panel.Section>
+        <p>These sections should have 300 padding</p>
+      </Panel.Section>
+    </Panel>
+
+    <Panel padding="200">
+      <Panel.Header borderBottom>This Header section should inherit 200 panel padding</Panel.Header>
       <Panel.Section p="800">
         <p>This section should have 800 padding</p>
       </Panel.Section>
@@ -119,7 +92,7 @@ export const SystemProps = withInfo()(() => (
   </>
 ));
 
-export const AsCards = withInfo()(() => (
+export const borderWidthAndHeightProps = withInfo()(() => (
   <Columns>
     <Column>
       <Panel p="400" height="100%" borderTop="none">
@@ -149,21 +122,4 @@ export const AsCards = withInfo()(() => (
       </Panel>
     </Column>
   </Columns>
-));
-
-export const ResonsiveSystemProps = withInfo()(() => (
-  <>
-    <Panel sectioned my={['200', '300', '600', '800']} mb="400">
-      <p>Responsive MY</p>
-    </Panel>
-
-    <Panel p={['600', '200', '500', '800']}>
-      <Panel.Section>
-        <p>Responsive padding inherited</p>
-      </Panel.Section>
-      <Panel.Section p={['600', '600', '800', '200']}>
-        <p>Responsive padding on section</p>
-      </Panel.Section>
-    </Panel>
-  </>
 ));

@@ -1,29 +1,39 @@
 import React from 'react';
+import { Box } from '../Box';
 
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { accent } from './styles';
+function Accent({ accentColor }) {
+  const color = React.useMemo(() => {
+    switch (accentColor) {
+      case 'orange':
+        return 'brand.orange';
+      case 'green':
+        return 'green.700';
+      case 'yellow':
+        return 'yellow.400';
+      case 'red':
+        return 'red.700';
+      case 'gray':
+        return 'gray.600';
+      case 'blue':
+      default:
+        return 'blue.700';
+    }
+  }, [accentColor]);
 
-const AccentOuter = styled('div')`
-  ${accent}
-`;
-
-const Accent = ({ accentColor }) => {
-  return <AccentOuter accentColor={accentColor} />;
-};
+  return (
+    <Box
+      bg={color}
+      borderTopLeftRadius="200"
+      borderTopRightRadius="200"
+      position="absolute"
+      height="100"
+      top="-1px"
+      left="-1px"
+      right="-1px"
+    />
+  );
+}
 
 Accent.displayName = 'Panel.Accent';
-Accent.propTypes = {
-  accentColor: PropTypes.oneOf([
-    'orange',
-    'blue',
-    'red',
-    'yellow',
-    'green',
-    'purple',
-    'navy',
-    'gray',
-  ]),
-};
 
 export default Accent;
