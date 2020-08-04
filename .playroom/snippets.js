@@ -3,21 +3,21 @@ export default [
     group: 'Button',
     name: 'Primary',
     code: `
-      <Button color="blue">Primary</Button>
+      <Button color="blue" variant="filled">Primary</Button>
     `,
   },
   {
     group: 'Button',
     name: 'Neutral',
     code: `
-      <Button color="default" outlineBorder>Neutral</Button>
+      <Button color="default" variant="outline">Neutral</Button>
     `,
   },
   {
     group: 'Button',
     name: 'Destructive',
     code: `
-      <Button color="red">Destructive</Button>
+      <Button variant="filled" color="red">Destructive</Button>
     `,
   },
   {
@@ -25,9 +25,9 @@ export default [
     name: 'Button Group',
     code: `
       <Button.Group>
-        <Button outlineBorder>Button</Button>
-        <Button outlineBorder>Button</Button>
-        <Button outlineBorder>Button</Button>
+        <Button variant="outline">Button</Button>
+        <Button variant="outline">Button</Button>
+        <Button variant="outline">Button</Button>
       </Button.Group>
     `,
   },
@@ -37,7 +37,7 @@ export default [
     code: `
       <Inline>
         <Button color="blue">Primary</Button>
-        <Button color="default" outlineBorder>Neutral</Button>
+        <Button color="default" variant="outline">Neutral</Button>
       </Inline>
     `,
   },
@@ -93,7 +93,7 @@ export default [
     code: `
       <Popover
         trigger={
-          <Button outline width="2rem" size="small">
+          <Button variant="outline" width="2rem" size="small">
             <Box as="span"><MoreHoriz /></Box>
           </Button>
         }
@@ -188,8 +188,8 @@ export default [
         label="Label"
         placeholder='Type here'
         suffix={<Search/>}
-        connectLeft={<Select outline options={['Last Hour']}/>}
-        connectRight={<Button outline>Copy</Button>}
+        connectLeft={<Select options={['Last Hour']}/>}
+        connectRight={<Button variant="mutedOutline">Copy</Button>}
       />
     `,
   },
@@ -198,7 +198,7 @@ export default [
     name: 'On a button',
     code: `
       <Tooltip content="Hello I am a tooltip ama">
-        <Button outline>Hover or Focus Me</Button>
+        <Button variant="mutedOutline">Hover or Focus Me</Button>
       </Tooltip>
     `,
   },
