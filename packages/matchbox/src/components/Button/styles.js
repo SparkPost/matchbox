@@ -86,51 +86,52 @@ export const colorVariant = props => {
   let darkHoverColor;
   let lightHoverColor;
   let lightActiveColor;
+  const { theme } = props;
 
   switch (props.buttonColor) {
     case 'orange': // To be deprecated
     case 'blue':
-      color = props.theme.colors.blue['700'];
-      darkHoverColor = props.theme.colors.blue['800'];
-      lightActiveColor = props.theme.colors.blue['300'];
-      lightHoverColor = props.theme.colors.blue['200'];
+      color = theme.colors.blue[700];
+      darkHoverColor = theme.colors.blue[800];
+      lightActiveColor = theme.colors.blue[300];
+      lightHoverColor = theme.colors.blue[200];
       break;
 
     case 'red':
-      color = props.theme.colors.red['700'];
-      darkHoverColor = props.theme.colors.red['800'];
-      lightActiveColor = props.theme.colors.red['300'];
-      lightHoverColor = props.theme.colors.red['200'];
+      color = theme.colors.red[700];
+      darkHoverColor = theme.colors.red[800];
+      lightActiveColor = theme.colors.red[300];
+      lightHoverColor = theme.colors.red[200];
       break;
 
     case 'gray':
     default:
-      color = props.theme.colors.gray['900'];
-      darkHoverColor = props.theme.colors.gray['1000'];
-      lightActiveColor = props.theme.colors.gray['400'];
-      lightHoverColor = props.theme.colors.gray['300'];
+      color = theme.colors.gray[900];
+      darkHoverColor = theme.colors.gray[1000];
+      lightActiveColor = theme.colors.gray[400];
+      lightHoverColor = theme.colors.gray[300];
       break;
   }
 
-  switch (props.visualWeight) {
-    case 'strong':
+  switch (props.buttonVariant) {
+    case 'filled':
       return `
         &, &:visited {
           background: ${color};
-          color: ${props.theme.colors.white};
+          color: ${theme.colors.white};
 
           &:hover {
             ${!props.disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${props.theme.colors.white};
+            color: ${theme.colors.white};
           }
           &:active {
             background: ${color};
           }
         }
       `;
-    case 'weak':
+    case 'text':
       return `
         &, &:visited {
           background: transparent;
@@ -146,13 +147,13 @@ export const colorVariant = props => {
           }
         }
       `;
-    case 'normal':
     case 'outline':
+    case 'mutedOutline':
     default:
       return `
         &, &:visited {
           border: 1px solid ${
-            props.visualWeight == 'outline' ? props.theme.colors.gray['400'] : color
+            props.buttonVariant == 'mutedOutline' ? theme.colors.gray[400] : color
           };
           background: transparent;
           color: ${color};

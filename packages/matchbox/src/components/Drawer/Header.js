@@ -18,7 +18,7 @@ const Header = React.forwardRef(function Header(props, ref) {
           </Text>
         </Box>
         {showCloseButton && (
-          <Button flat size="small" width={tokens.spacing_600} px="0" onClick={onClose}>
+          <Button variant="text" size="small" width={tokens.spacing_600} px="0" onClick={onClose}>
             <ScreenReaderOnly>Close</ScreenReaderOnly>
             <Close size={25} />
           </Button>
