@@ -11,12 +11,20 @@ import { pick } from '@styled-system/props';
 import { omit } from '../../helpers/systemProps';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
-import { StyledLabel, StyledCheck, StyledBox, StyledInput, Wrapper } from './styles';
+import {
+  StyledLabel,
+  StyledCheck,
+  StyledBox,
+  StyledInput,
+  StyledIndeterminate,
+  Wrapper,
+} from './styles';
 
 function Checkbox(props) {
   const {
     id,
     checked,
+    defaultChecked,
     disabled,
     error,
     helpText,
@@ -39,13 +47,18 @@ function Checkbox(props) {
     hasError: !!error,
   });
 
+  const isIndeterminate = checked === 'indeterminate';
+  const indeterminateAttributes = isIndeterminate
+    ? { indeterminate: 'true', 'aria-checked': 'mixed' }
+    : { 'aria-checked': checked, checked };
+
   return (
     <Wrapper {...systemProps}>
       <StyledLabel error={error} htmlFor={id} disabled={disabled}>
         <StyledInput
           id={id}
           value={value}
-          checked={checked}
+          defaultChecked={defaultChecked}
           disabled={disabled}
           onChange={onChange}
           onFocus={onFocus}
@@ -53,6 +66,7 @@ function Checkbox(props) {
           type="checkbox"
           required={required}
           error={error}
+          {...indeterminateAttributes}
           {...describedBy}
           {...componentProps}
         />
@@ -71,8 +85,18 @@ function Checkbox(props) {
             size="1rem"
             lineHeight="200"
             error={error}
+            indeterminate={isIndeterminate}
           />
           <StyledCheck position="absolute" width="1rem" height="1rem" as={Check} />
+          <StyledIndeterminate
+            position="absolute"
+            left="100"
+            right="100"
+            height="2px"
+            bg="white"
+            borderRadius="200"
+            indeterminate={isIndeterminate}
+          />
         </Box>
         <Box flex="1" pl="200">
           <Label
@@ -105,7 +129,11 @@ Checkbox.displayName = 'Checkbox';
 Checkbox.Group = Group;
 Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  checked: PropTypes.oneOf([true, false, 'indeterminate']),
+  /**
+   * 'indeterminate' does not work with defaultChecked
+   */
+  defaultChecked: PropTypes.oneOf([true, false]),
   label: PropTypes.node,
   labelHidden: PropTypes.bool,
   disabled: PropTypes.bool,

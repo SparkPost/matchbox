@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Checkbox, UnstyledLink } from '@sparkpost/matchbox';
+import { Box, Checkbox, UnstyledLink } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|Checkbox',
@@ -65,3 +65,56 @@ export const GroupWithHiddenLabel = withInfo()(() => (
     </Checkbox.Group>
   </div>
 ));
+
+export const IndeterminateGroup = withInfo()(() => {
+  const [checked1, setChecked1] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  const [indeterminate, setIndeterminate] = React.useState(false);
+
+  React.useLayoutEffect(() => {
+    if (checked1 || checked2) {
+      setIndeterminate('indeterminate');
+    }
+    if (checked1 && checked2) {
+      setIndeterminate(true);
+    }
+
+    if (!checked1 && !checked2) {
+      setIndeterminate(false);
+    }
+  }, [checked1, checked2]);
+
+  function handleIndeterminate() {
+    setIndeterminate(!indeterminate);
+    setChecked1(!indeterminate);
+    setChecked2(!indeterminate);
+  }
+
+  function flip(cb, value) {
+    return () => {
+      cb(!value);
+    };
+  }
+
+  return (
+    <div>
+      <Checkbox.Group label="Example">
+        <Checkbox id="id" label="Check Me" checked={indeterminate} onChange={handleIndeterminate} />
+        <Box pl="500">
+          <Checkbox
+            id="child1"
+            onChange={flip(setChecked1, checked1)}
+            checked={checked1}
+            label="Check Me"
+          />
+          <Checkbox
+            id="child2"
+            onChange={flip(setChecked2, checked2)}
+            checked={checked2}
+            label="Check Me"
+          />
+        </Box>
+      </Checkbox.Group>
+    </div>
+  );
+});

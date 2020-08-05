@@ -3,21 +3,26 @@ import { Box } from '../Box';
 import { visuallyHidden } from '../../styles/helpers';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
+import { focusOutline } from '../../styles/helpers';
 
 export const Wrapper = styled('div')`
   ${margin}
-`;
-
-export const StyledBox = styled(Box)`
-  border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_gray_700)};
-  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
-  transition-property: border, background;
 `;
 
 export const StyledCheck = styled(Box)`
   opacity: 0;
   color: ${tokens.color_white};
   transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+
+  input:checked ~ span & {
+    opacity: 1;
+  }
+`;
+
+export const StyledIndeterminate = styled(Box)`
+  ${({ indeterminate }) => `
+    opacity: ${indeterminate ? '1' : '0'};
+  `}
 `;
 
 export const StyledLabel = styled('label')`
@@ -27,41 +32,52 @@ export const StyledLabel = styled('label')`
   padding: 0;
   white-space: nowrap;
   user-select: none;
-
-  &:hover {
-    cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-
-    ${StyledBox} {
-      ${props => (!props.disabled ? `border: 2px solid ${tokens.color_gray_800};` : '')}
-    }
-  }
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
-export const StyledInput = styled('input')`
-  ${visuallyHidden}
+export const StyledBox = styled(Box)`
+  border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_gray_700)};
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
+  transition-property: border, background;
 
-  &:focus ~ span ${StyledBox} {
-    box-shadow: 0 0 0 2px ${tokens.color_white}, 0 0 0 4px ${tokens.color_blue_700}
+  ${focusOutline({ modifier: 'input:focus ~ span &' })}
+
+  ${StyledLabel}:hover & {
+    ${props =>
+      !props.disabled && !props.indeterminate && !props.error
+        ? `border: 2px solid ${tokens.color_gray_800};`
+        : ''}
   }
 
-  &:checked {
-    & ~ span ${StyledBox} {
-      border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
-      background: ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
-    }
+  input:checked ~ span & {
+    border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
+    background: ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
 
-    & ~ span ${StyledCheck} {
-      opacity: 1;
+    ${StyledLabel}:hover & {
+      ${props =>
+        !props.disabled && !props.error ? `border: 2px solid ${tokens.color_blue_700};` : ''}
     }
   }
 
-  &:disabled ~ span ${StyledBox} {
+  input:disabled ~ span & {
     background: ${tokens.color_gray_300};
     border: 2px solid ${tokens.color_gray_600};
   }
 
-  &:disabled:checked ~ span ${StyledBox} {
+  input:disabled:checked ~ span & {
     background: ${tokens.color_gray_600};
     border: 2px solid ${tokens.color_gray_600};
   }
+
+  ${props =>
+    props.indeterminate
+      ? `
+        background: ${tokens.color_blue_700};
+        border: 2px solid ${tokens.color_blue_700};
+      `
+      : null}
+`;
+
+export const StyledInput = styled('input')`
+  ${visuallyHidden}
 `;
