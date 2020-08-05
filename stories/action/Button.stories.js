@@ -1,6 +1,7 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { Button, Inline, Box, Stack } from '@sparkpost/matchbox';
+import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
 
 export default {
   title: 'Action|Button',
@@ -155,6 +156,21 @@ export const Group = withInfo()(() => (
       Sq Rt
     </Button>
   </Button.Group>
+));
+
+export const Icon = withInfo()(() => (
+  <Inline>
+    <Button outlineBorder>
+      <Button.Icon as={Assessment} mr="100"></Button.Icon>
+      Button
+    </Button>
+    <Button outline>
+      Button<Button.Icon as={AddCircleOutline} size={20} ml="100"></Button.Icon>
+    </Button>
+    <Button color="blue">
+      Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
+    </Button>
+  </Inline>
 ));
 
 export const SystemProps = withInfo()(() => (
