@@ -24,14 +24,16 @@ const Footer = React.forwardRef(function Footer({ children }, ref) {
   let buttons = getChild('Button', children);
 
   return (
-    <Panel borderLeft="none" borderRight="none" borderBottom="none" sectioned ref={ref}>
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-          {buttons[0] && React.cloneElement(buttons[0], buttonProps[0])}
-          {buttons[1] && React.cloneElement(buttons[1], buttonProps[1])}
+    <Panel borderLeft="none" borderRight="none" borderBottom="none" ref={ref}>
+      <Panel.Section>
+        <Box display="flex" justifyContent="space-between">
+          <Box>
+            {buttons[0] && React.cloneElement(buttons[0], buttonProps[0])}
+            {buttons[1] && React.cloneElement(buttons[1], buttonProps[1])}
+          </Box>
+          {buttons[2] && <Box>{buttons[2] && React.cloneElement(buttons[2], buttonProps[2])}</Box>}
         </Box>
-        {buttons[2] && <Box>{buttons[2] && React.cloneElement(buttons[2], buttonProps[2])}</Box>}
-      </Box>
+      </Panel.Section>
     </Panel>
   );
 });

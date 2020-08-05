@@ -61,7 +61,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return (
       <Button
         {...action}
-        outlineBorder
+        variant="outline"
         color="blue"
         mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
         ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
@@ -89,7 +89,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
             aria-expanded={isOpen}
             color="blue"
             onClick={() => setIsOpen(!isOpen)}
-            outlineBorder
+            variant="outline"
             p="0"
             width="2.5rem" // Forces a square
           >
@@ -114,7 +114,7 @@ function PrimaryAction({ area, action }) {
   }
 
   return (
-    <Button {...action} color="blue">
+    <Button {...action} color="blue" variant="filled">
       {action.content}
     </Button>
   );

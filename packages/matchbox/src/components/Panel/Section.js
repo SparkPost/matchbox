@@ -1,58 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonsFrom } from '../Button';
 import styled from 'styled-components';
-import { body, sectionContent, actions } from './styles';
 import { padding } from 'styled-system';
-import { PanelPaddingContext } from './context';
 import { createPropTypes } from '@styled-system/prop-types';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Column } from '../Column';
+import { Columns } from '../Columns';
+import { getChild, excludeChild } from '../../helpers/children';
+import { pick } from '../../helpers/systemProps';
+import { PanelPaddingContext } from './context';
 
-const SectionOuter = styled('div')`
-  ${body}
-  ${padding}
+const StyledSection = styled(Box)`
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 
-const SectionContent = styled('div')`
-  ${sectionContent}
-`;
-
-const Actions = styled('div')`
-  ${actions}
-`;
-
-const actionOverrides = { flat: true, size: 'small' };
-
-function Section(props) {
-  const { actions, children, className, ...rest } = props;
-
+const Section = React.forwardRef(function Section(props, userRef) {
+  const { children, className, ...rest } = props;
+  const actions = getChild('Panel.Action', children);
+  const content = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
-
-  const actionMarkup =
-    actions && actions.length ? <Actions>{buttonsFrom(actions, actionOverrides)}</Actions> : null;
+  const systemProps = pick(rest, padding.propNames);
 
   return (
-    <SectionOuter className={className} {...paddingContext} {...rest}>
-      <SectionContent>{children}</SectionContent>
-      {actionMarkup}
-    </SectionOuter>
+    <StyledSection
+      borderBottom="400"
+      className={className}
+      ref={userRef}
+      tabIndex="-1"
+      {...paddingContext}
+      {...systemProps}
+    >
+      <Columns collapseBelow="xs" space="300" alignY="top" align="right">
+        <Column>{content}</Column>
+        {actions.length ? (
+          <Column width="content">
+            <Button.Group>{actions}</Button.Group>
+          </Column>
+        ) : null}
+      </Columns>
+    </StyledSection>
   );
-}
+});
 
 Section.displayName = 'Panel.Section';
 Section.propTypes = {
-  /**
-   * Actions that build buttons. Most button props will work in here.
-   * e.g. { content: 'button label', onClick: callback() }
-   */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.node.isRequired,
-    }),
-  ),
-  /**
-   * Panel Content
-   */
   children: PropTypes.node,
+  className: PropTypes.string,
   ...createPropTypes(padding.propNames),
 };
 
