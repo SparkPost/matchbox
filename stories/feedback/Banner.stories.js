@@ -82,6 +82,59 @@ export const BannerWithActions = withInfo()(() => (
   </Banner>
 ));
 
+export const BannerWithDeprecatedActions = withInfo()(() => (
+  <Banner
+    title="Your account has been suspended due to a billing problem"
+    status="danger"
+    onDismiss={action('Dismiss Clicked')}
+    actions={[
+      {
+        content: 'Update Billing Info',
+        onClick: action('Update Payment Info Clicked'),
+      },
+      {
+        content: 'Close',
+        onClick: action('Close Clicked'),
+        outline: true,
+      },
+    ]}
+  >
+    <p>
+      To reactivate your account and pay your outstanding balance due, please update your payment
+      information.
+    </p>
+    <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
+  </Banner>
+));
+
+export const SmallBanner = withInfo()(() => (
+  <>
+    <Banner size="small" onDismiss={action('Dismiss Clicked')} mb="500">
+      <p>Default Banner</p>
+    </Banner>
+    <Banner size="small" mb="500" status="success" onDismiss={action('Dismiss Clicked')}>
+      <p>Success Banner</p>
+    </Banner>
+    <Banner size="small" mb="500" status="warning" onDismiss={action('Dismiss Clicked')}>
+      <p>Warning Banner</p>
+    </Banner>
+    <Banner size="small" mb="500" status="danger" onDismiss={action('Dismiss Clicked')}>
+      <p>Danger Banner</p>
+    </Banner>
+    <Banner size="small" mb="500" status="info" onDismiss={action('Dismiss Clicked')}>
+      <p>Info Banner</p>
+    </Banner>
+    <Banner size="small" status="warning">
+      <p>
+        This is the small banner with long content. This is the small banner with long content. This
+        is the small banner with long content. This is the small banner with long content. This is
+        the small banner with long content. This is the small banner with long content. This is the
+        small banner with long content.{' '}
+      </p>
+    </Banner>
+  </>
+));
+
 export const SystemProps = withInfo()(() => (
   <>
     <Banner title="Responsive Margin-Y" status="warning" my={['400', '600', '800', '300']}>
