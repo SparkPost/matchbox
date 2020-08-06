@@ -113,13 +113,13 @@ export default `
   a:visited {
     color: ${tokens.color_blue_700};
     text-decoration: underline;
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: ${tokens.color_blue_800}
-      cursor: pointer;
-    }
+    cursor: pointer;
+  }
+  
+  a:hover,
+  a:active,
+  a:focus {
+    color: ${tokens.color_blue_800}    
   }
 
   ul,
