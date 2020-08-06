@@ -11,7 +11,6 @@ describe('Checkbox', () => {
     onFocus: jest.fn(),
   };
   const subject = props => global.mountStyled(<Checkbox id="test-id" {...events} {...props} />);
-  const box = `:checked ~ span ${StyledBox}`;
 
   it('renders with id', () => {
     const wrapper = subject();
@@ -23,13 +22,7 @@ describe('Checkbox', () => {
     const wrapper = subject({ checked: true, value: 'test-value' });
     expect(wrapper.find('input')).toHaveAttributeValue('checked', '');
     expect(wrapper.find('input')).toHaveAttributeValue('value', 'test-value');
-    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'pointer', { modifier: ':hover' });
-
-    // This assertion tests the lack of an error
-    // Not possible to check for checked/unchecked styles since the selectors use html input attributes
-    expect(wrapper.find('input')).toHaveStyleRule('background', tokens.color_blue_700, {
-      modifier: box,
-    });
+    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'pointer');
   });
 
   it('renders a label', () => {
@@ -40,17 +33,14 @@ describe('Checkbox', () => {
   it('renders error', () => {
     const wrapper = subject({ error: 'test-error' });
     expect(wrapper.find(StyledBox)).toHaveStyleRule('border', `2px solid ${tokens.color_red_700}`);
-    expect(wrapper.find('input')).toHaveStyleRule('background', tokens.color_red_700, {
-      modifier: box,
-    });
     expect(wrapper.text()).toEqual('test-error');
     expect(wrapper.find('input')).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(wrapper.find('div').at(2)).toHaveAttributeValue('id', 'test-id-error');
+    expect(wrapper.find('div').at(3)).toHaveAttributeValue('id', 'test-id-error');
   });
 
   it('renders disabled', () => {
     const wrapper = subject({ disabled: true });
-    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'not-allowed', { modifier: ':hover' });
+    expect(wrapper.find('label')).toHaveStyleRule('cursor', 'not-allowed');
     expect(wrapper.find('input')).toBeDisabled();
   });
 
