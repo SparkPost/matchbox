@@ -722,6 +722,7 @@ export { default as RestaurantMenu } from './icons/RestaurantMenu';
 export { default as Restore } from './icons/Restore';
 export { default as RestorePage } from './icons/RestorePage';
 export { default as RingVolume } from './icons/RingVolume';
+export { default as Rocket } from './icons/Rocket';
 export { default as Room } from './icons/Room';
 export { default as RoomService } from './icons/RoomService';
 export { default as Rotate90DegreesCcw } from './icons/Rotate90DegreesCcw';
