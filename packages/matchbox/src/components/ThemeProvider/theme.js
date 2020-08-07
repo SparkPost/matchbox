@@ -126,6 +126,7 @@ const theme = {
     700: tokens.spacing_700,
     750: tokens.spacing_750,
     800: tokens.spacing_800,
+    900: tokens.spacing_900,
   },
 
   // Example: <Box width="1200" height={1/2} />

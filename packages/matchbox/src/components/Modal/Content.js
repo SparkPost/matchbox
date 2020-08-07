@@ -7,7 +7,7 @@ const Content = React.forwardRef(function Content(props, ref) {
   const { children } = props;
 
   return (
-    <Box data-id="modal-content" p="500" ref={ref}>
+    <Box maxHeight="60vh" overflow="scroll" data-id="modal-content" p="500" ref={ref}>
       {children}
     </Box>
   );
