@@ -114,7 +114,7 @@ function PrimaryAction({ area, action }) {
   }
 
   return (
-    <Button {...action} color="blue">
+    <Button color="blue" {...action}>
       {action.content}
     </Button>
   );

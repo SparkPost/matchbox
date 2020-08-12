@@ -47,6 +47,13 @@ describe('Page', () => {
     expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'true');
   });
 
+  it('renders primary action with color', () => {
+    const wrapper = subject({
+      primaryAction: { content: 'test action', color: 'red' },
+    });
+    expect(wrapper.find('button')).toHaveStyleRule('background', 'red');
+  });
+
   it('renders page with empty state', () => {
     const wrapper = subject({ empty: { show: true, content: 'Empty page' } });
     expect(wrapper.text()).toEqual('Empty page');
