@@ -61,7 +61,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return (
       <Button
         {...action}
-        variant="outline"
+        outlineBorder
         color="blue"
         mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
         ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
@@ -114,7 +114,7 @@ function PrimaryAction({ area, action }) {
   }
 
   return (
-    <Button color="blue" variant="filled" {...action}>
+    <Button color="blue" {...action}>
       {action.content}
     </Button>
   );
