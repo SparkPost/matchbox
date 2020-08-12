@@ -47,6 +47,16 @@ describe('Page', () => {
     expect(wrapper.find('button')).toHaveAttributeValue('aria-expanded', 'true');
   });
 
+  it('renders actions with color', () => {
+    const wrapper = subject({
+      primaryAction: { content: 'test action', color: 'red' },
+      secondaryActions: [{ content: 'secondary 1', color: 'red' }],
+    });
+
+    expect(wrapper.find('button').at(0)).toHaveStyleRule('border', '1px solid red');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'red');
+  });
+
   it('renders page with empty state', () => {
     const wrapper = subject({ empty: { show: true, content: 'Empty page' } });
     expect(wrapper.text()).toEqual('Empty page');

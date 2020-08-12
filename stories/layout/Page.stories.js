@@ -76,6 +76,28 @@ export const WithOnlyOneSecondaryAction = withInfo(infoOptions)(() => (
   </Page>
 ));
 
+export const WithColoredActions = withInfo(infoOptions)(() => (
+  <Page
+    primaryAction={{
+      content: 'This should be red',
+      color: 'red',
+    }}
+    secondaryActions={[
+      {
+        content: 'This should be red',
+        color: 'red',
+      },
+    ]}
+    breadcrumbAction={breadcrumbAction}
+    title="Template #3"
+    subtitle="Published"
+  >
+    <Panel>
+      <Panel.Section>Content</Panel.Section>
+    </Panel>
+  </Page>
+));
+
 export const EmbeddedEmptyState = withInfo(infoOptions)(() => (
   <Page
     empty={{
