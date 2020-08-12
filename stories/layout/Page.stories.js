@@ -82,13 +82,6 @@ export const WithColoredActions = withInfo(infoOptions)(() => (
       content: 'This should be red',
       color: 'red',
     }}
-    secondaryActions={[
-      {
-        content: 'This should be red',
-        color: 'red',
-      },
-    ]}
-    breadcrumbAction={breadcrumbAction}
     title="Template #3"
     subtitle="Published"
   >

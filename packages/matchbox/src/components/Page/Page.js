@@ -60,11 +60,11 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
 
     return (
       <Button
+        {...action}
         variant="outline"
         color="blue"
         mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
         ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
-        {...action}
       >
         {action.content}
       </Button>
