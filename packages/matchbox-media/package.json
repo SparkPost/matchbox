@@ -3,6 +3,9 @@
   "version": "4.0.13",
   "description": "Images and Videos for Matchbox",
   "main": "matchbox-media.js",
+  "publicConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SparkPost/matchbox.git"
