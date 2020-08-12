@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { deprecate } from '../../helpers/propTypes';
+import { omit } from '../../helpers/systemProps';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
@@ -9,8 +11,8 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import styled from 'styled-components';
 import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
-import { buttonFrom } from '../Button';
 import { margin } from 'styled-system';
+import Action from './Action';
 
 function IconSection({ status, size }) {
   const statusIcon = React.useMemo(() => {
@@ -79,10 +81,18 @@ const Banner = React.forwardRef(function Banner(props, ref) {
   ) : null;
 
   const actionMarkup = React.useMemo(() => {
-    let result = action ? <div>{buttonFrom(action)}</div> : null;
+    let result = action ? <Action {...omit(action, ['content'])}>{action.content}</Action> : null;
 
     if (actions) {
-      result = <Inline>{actions.map((action, i) => buttonFrom(action, {}, i))}</Inline>;
+      result = (
+        <Inline>
+          {actions.map((action, i) => (
+            <Action key={i} mr="0" {...omit(action, ['content'])}>
+              {action.content}
+            </Action>
+          ))}
+        </Inline>
+      );
     }
 
     return result;
@@ -119,8 +129,8 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       <IconSection status={status} size={size} />
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
-        <Box mb={actionMarkup ? '500' : '0'}>
-          <StyledChildren size={size}>{children}</StyledChildren>
+        <Box>
+          <StyledChildren>{children}</StyledChildren>
         </Box>
         {actionMarkup}
       </Box>
@@ -147,19 +157,27 @@ Banner.propTypes = {
   onDismiss: PropTypes.func,
 
   /**
+   * Deprecated in favor of `Banner.Action`
    * Action that build a button. Most button props will work in here.
    * e.g. { content: 'button label', onClick: callback() }
    */
-  action: PropTypes.shape({ content: PropTypes.string.isRequired }),
+  action: deprecate(
+    PropTypes.shape({ content: PropTypes.string.isRequired }),
+    'Use `Banner.Action` instead',
+  ),
 
   /**
+   * Deprecated in favor of `Banner.Action`
    * List of actions that build buttons. Most button props will work in here.
    * Overrides `action`
    */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.string.isRequired,
-    }),
+  actions: deprecate(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        content: PropTypes.string.isRequired,
+      }),
+    ),
+    'Use `Banner.Action` instead',
   ),
 
   /**
@@ -179,5 +197,7 @@ Banner.defaultProps = {
   status: 'default',
   size: 'large',
 };
+
+Banner.Action = Action;
 
 export default Banner;
