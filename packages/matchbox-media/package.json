@@ -3,7 +3,7 @@
   "version": "4.0.13",
   "description": "Images and Videos for Matchbox",
   "main": "matchbox-media.js",
-  "publicConfig": {
+  "publishConfig": {
     "access": "public"
   },
   "repository": {
