@@ -21,7 +21,7 @@ https://api.sparkpost.com/api/v1/transmissions
 }'`;
 
 export default {
-  title: 'Utility|Code Block',
+  title: 'Utility|CodeBlock',
 };
 
 export const Chevrons = withInfo({ propTables: [CodeBlock] })(() => (

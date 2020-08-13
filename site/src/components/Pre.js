@@ -1,35 +1,41 @@
 import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import palenight from 'prism-react-renderer/themes/palenight';
 import { Box } from '@sparkpost/matchbox';
 
+// See https://github.com/FormidableLabs/prism-react-renderer
 function Pre(props) {
-  const { children } = props;
   let language = '';
+  const { children = '', className = '' } = props.children.props;
 
-  if (!children.props.children) {
+  if (!children) {
     return null;
   }
 
-  if (children.props.className) {
-    language = children.props.className.replace('language-', '');
+  if (children) {
+    language = className.replace('language-', '');
   }
 
   return (
-    <Box bg="gray.100" p="600" mb="400" borderRadius="200" overflow="scroll">
-      <SyntaxHighlighter
+    <Box bg="gray.1000" p="600" mb="400" borderRadius="200" overflow="scroll">
+      <Highlight
+        {...defaultProps}
+        code={children}
         language={language}
-        style={coy}
-        customStyle={{
-          whiteSpace: 'pre-wrap',
-          marginBottom: 0,
-          marginTop: 0,
-          backgroundColor: 'transparent'
-        }}
-        codeTagProps={{}} // Removes <code> inline
+        theme={palenight}
       >
-        {children.props.children}
-      </SyntaxHighlighter>
+        {({ tokens, getLineProps, getTokenProps }) => (
+          <pre style={{ whiteSpace: 'pre-wrap', marginBottom: 0 }}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     </Box>
   );
 }

@@ -8,7 +8,7 @@ export const pre = props => `
   display: grid;
   grid-template-columns: ${tokens.spacing_700} auto;
   font-family: ${tokens.fontFamily_monospace};
-  border-radius: ${tokens.borderRadius_100}
+  border-radius: ${tokens.borderRadius_100};
   background-color: ${props.dark ? tokens.color_gray_900 : tokens.color_gray_100};
   border: 1px solid ${tokens.color_gray_400};
   overflow: scroll;

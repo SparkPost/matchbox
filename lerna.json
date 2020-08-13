@@ -3,9 +3,10 @@
   "packages": [
     "packages/design-tokens",
     "packages/matchbox-icons",
-    "packages/matchbox"
+    "packages/matchbox",
+    "packages/matchbox-media"
   ],
-  "version": "4.0.12",
+  "version": "4.0.14",
   "command": {
     "publish": {
       "ignoreChanges": [

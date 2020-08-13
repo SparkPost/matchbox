@@ -1,0 +1,20 @@
+{
+  "name": "@sparkpost/matchbox-media",
+  "version": "4.0.14",
+  "description": "Images and Videos for Matchbox",
+  "main": "matchbox-media.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparkPost/matchbox.git"
+  },
+  "author": "SparkPost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SparkPost/matchbox/issues"
+  },
+  "homepage": "https://github.com/SparkPost/matchbox#readme",
+  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
+}

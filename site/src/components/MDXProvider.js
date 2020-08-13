@@ -10,6 +10,7 @@ import Heading from './Heading';
 import ExternalLink from './ExternalLink';
 import InlineCode from './InlineCode';
 import Pre from './Pre';
+import { Box } from '@sparkpost/matchbox';
 
 const components = {
   a: props => <Link to={props.href}>{props.children}</Link>,
@@ -27,7 +28,8 @@ const components = {
   h5: props => <Heading as="h5" {...props} />,
   Link,
   inlineCode: InlineCode,
-  pre: Pre
+  pre: Pre,
+  Box
 };
 
 // function Pre(props) {}

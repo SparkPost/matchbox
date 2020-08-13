@@ -26,6 +26,7 @@ module.exports = async ({ config, mode }) => {
       '@sparkpost/matchbox-icons': path.resolve(__dirname, '../packages/matchbox-icons/src'),
       '@sparkpost/matchbox': path.resolve(__dirname, '../packages/matchbox/src'),
       '@sparkpost/design-tokens': path.resolve(__dirname, '../packages/design-tokens'),
+      '@sparkpost/matchbox-media': path.resolve(__dirname, '../packages/matchbox-media'),
     },
     modules: [path.join(__dirname, '../node_modules')],
   };
