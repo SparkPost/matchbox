@@ -1,3 +1,22 @@
+
+## 4.0.14 (2020-08-13)
+
+#### Enhancements
+* `matchbox`
+  * [#586](https://github.com/SparkPost/matchbox/pull/586) UX-297 Support color in Page primary action ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#579](https://github.com/SparkPost/matchbox/pull/579) UX-291 Fix global anchor tag hover styles ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
+
+
+
 ## 4.0.13 (2020-08-04)
 
 #### Features
@@ -11,7 +30,7 @@
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
 
-## 4.0.12 (2020-08-03)
+## 4.0.13 (2020-08-03)
 
 #### Features
 
