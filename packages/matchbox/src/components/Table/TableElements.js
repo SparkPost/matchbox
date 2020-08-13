@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { cell, row, headerCell, verticalAlignment } from './styles';
 import { TablePaddingContext } from './context';
-import { padding } from 'styled-system';
+import { padding, fontSize, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 
+const paddingAndFontSize = compose(padding, fontSize);
 const StyledCell = styled('td')`
   ${cell}
-  ${padding}
+  ${paddingAndFontSize}
 `;
 
 const StyledHeaderCell = styled('th')`
@@ -28,7 +29,7 @@ const Cell = ({ value, children, className, ...rest }) => {
   const paddingContext = React.useContext(TablePaddingContext);
 
   return (
-    <StyledCell {...paddingContext} className={className} {...rest}>
+    <StyledCell {...paddingContext} className={className} fontSize={['200', null, '300']} {...rest}>
       {value || children}
     </StyledCell>
   );

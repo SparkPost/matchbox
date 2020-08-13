@@ -62,5 +62,5 @@ export const verticalAlignment = system({
 });
 
 export const wrapper = ({ freezeFirstColumn }) => `
-   ${freezeFirstColumn ? 'overflow: auto;' : ''}
+  ${freezeFirstColumn ? 'overflow: auto;' : ''}
 `;
