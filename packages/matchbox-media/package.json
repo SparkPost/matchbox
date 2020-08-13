@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/SparkPost/matchbox/issues"
   },
-  "homepage": "https://github.com/SparkPost/matchbox#readme"
+  "homepage": "https://github.com/SparkPost/matchbox#readme",
+  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }
