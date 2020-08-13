@@ -94,7 +94,13 @@ const Modal = React.forwardRef(function Modal(props, ref) {
             role="dialog"
             aria-modal="true"
           >
-            <Box p={['400', null, '700']} size="100%" ref={overlayRef} data-id="modal-overlay">
+            <Box
+              p={['400', null, '700']}
+              pt={['5rem', null]}
+              size="100%"
+              ref={overlayRef}
+              data-id="modal-overlay"
+            >
               <StyledWrapper>
                 <StyledFocusLock disabled={!open || isInIframe()}>
                   <Transition

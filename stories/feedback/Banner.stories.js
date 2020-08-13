@@ -27,15 +27,9 @@ export const SuccessBanner = withInfo()(() => (
 ));
 
 export const InfoBanner = withInfo()(() => (
-  <Banner
-    status="info"
-    title="Verify your email address"
-    action={{
-      content: 'Resend Email',
-      onClick: action('Resend Email Clicked'),
-    }}
-  >
+  <Banner status="info" title="Verify your email address">
     <p>Please click the link in the email we sent you to unlock the higher daily sending limits.</p>
+    <Banner.Action onClick={() => action('Resend Email Clicked')}>Resend Email</Banner.Action>
   </Banner>
 ));
 
@@ -59,6 +53,36 @@ export const WarningBanner = withInfo()(() => (
 ));
 
 export const DangerBanner = withInfo()(() => (
+  <Banner
+    title="Your account has been suspended due to a billing problem"
+    status="danger"
+    onDismiss={action('Dismiss Clicked')}
+  >
+    <p>
+      To reactivate your account and pay your outstanding balance due, please update your payment
+      information.
+    </p>
+    <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
+    <Banner.Action onClick={() => action('Update Payment Info Clicked')}>
+      Update Billing Info
+    </Banner.Action>
+    <Banner.Action outline onClick={() => action('Close Clicked')}>
+      Close
+    </Banner.Action>
+  </Banner>
+));
+
+export const BannerWithActions = withInfo()(() => (
+  <Banner title="Banner Title" status="info" onDismiss={action('Dismiss Clicked')}>
+    <p>Banner content.</p>
+    <Banner.Action onClick={() => action('Action One Clicked')}>Action One</Banner.Action>
+    <Banner.Action outline onClick={() => action('Action Two Clicked')}>
+      Action Two
+    </Banner.Action>
+  </Banner>
+));
+
+export const BannerWithDeprecatedActions = withInfo()(() => (
   <Banner
     title="Your account has been suspended due to a billing problem"
     status="danger"
