@@ -20,6 +20,22 @@ export const Open = withInfo()(() => (
   </Modal>
 ));
 
+export const TallModal = withInfo()(() => (
+  <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal.Header showCloseButton>Modal Title</Modal.Header>
+    <Modal.Content>
+      <Box p="300" height="2000px" bg="blue.300">
+        Tall Modal Content
+      </Box>
+    </Modal.Content>
+    <Modal.Footer>
+      <Button>Primary Button</Button>
+      <Button>Secondary Button</Button>
+      <Button>Tertiary Button</Button>
+    </Modal.Footer>
+  </Modal>
+));
+
 export const ToggleExample = () => {
   const modal = useModal();
 
