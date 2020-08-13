@@ -98,7 +98,11 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
           </Button>
         }
       >
-        <ActionList actions={visibleActions} />
+        <ActionList>
+          {visibleActions.map((action, i) => (
+            <ActionList.Action key={i} {...action} />
+          ))}
+        </ActionList>
       </Popover>
     </Box>
   );

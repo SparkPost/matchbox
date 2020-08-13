@@ -142,7 +142,11 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
                 </Button>
               }
             >
-              <ActionList actions={tabActions} />
+              <ActionList>
+                {tabActions.map((action, i) => (
+                  <ActionList.Action key={i} {...action} />
+                ))}
+              </ActionList>
             </Popover>
           </Box>
         </Box>
