@@ -20,6 +20,13 @@ const buttonProps = {
   },
 };
 
+function getButtonProps(index, element) {
+  return {
+    ...buttonProps[index],
+    ...element.props,
+  };
+}
+
 const Footer = React.forwardRef(function Footer({ children }, ref) {
   let buttons = getChild('Button', children);
 
@@ -28,10 +35,12 @@ const Footer = React.forwardRef(function Footer({ children }, ref) {
       <Panel.Section>
         <Box display="flex" justifyContent="space-between">
           <Box>
-            {buttons[0] && React.cloneElement(buttons[0], buttonProps[0])}
-            {buttons[1] && React.cloneElement(buttons[1], buttonProps[1])}
+            {buttons[0] && React.cloneElement(buttons[0], getButtonProps(0, buttons[0]))}
+            {buttons[1] && React.cloneElement(buttons[1], getButtonProps(1, buttons[1]))}
           </Box>
-          {buttons[2] && <Box>{buttons[2] && React.cloneElement(buttons[2], buttonProps[2])}</Box>}
+          {buttons[2] && (
+            <Box>{buttons[2] && React.cloneElement(buttons[2], getButtonProps(2, buttons[2]))}</Box>
+          )}
         </Box>
       </Panel.Section>
     </Panel>
