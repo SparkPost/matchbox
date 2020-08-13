@@ -45,7 +45,7 @@ export const row = () => `
     border-bottom: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
   }
 
-  tbody &:nth-of-type(even) {
+  tbody &:nth-of-type(odd) {
     background: ${tokens.color_gray_100};
   }
 `;
