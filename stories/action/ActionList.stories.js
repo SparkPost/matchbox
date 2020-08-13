@@ -10,7 +10,9 @@ export const WithinPopovers = withInfo()(() => (
   <Inline space="15rem">
     <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
       <ActionList>
-        <ActionList.Action to="#">Action1</ActionList.Action>
+        <ActionList.Action to="#" helpText="help text">
+          Action1
+        </ActionList.Action>
         <ActionList.Action to="#">Action2</ActionList.Action>
       </ActionList>
     </Popover>

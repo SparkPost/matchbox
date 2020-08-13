@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { deprecate } from '../../helpers/propTypes';
 import { Box } from '../Box';
+import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
 
 const Action = React.forwardRef(function Action(props, userRef) {
@@ -19,32 +20,21 @@ const Action = React.forwardRef(function Action(props, userRef) {
             <CheckBox size={20} />
           </Box>
         )}
-        {helpText && (
-          <Box
-            as="span"
-            color="gray.700"
-            fontSize="200"
-            lineHeight="200"
-            pl="100"
-            pt="100"
-            textAlign="right"
-          >
-            {helpText}
-          </Box>
-        )}
+        {helpText && <HelpText>{helpText}</HelpText>}
       </Box>
     );
   }, [content, selected, helpText]);
+
+  const isAttributes =
+    is === 'checkbox' ? { role: 'checkbox', 'aria-checked': !!selected, tabIndex: '0' } : {};
 
   return (
     <StyledLink
       as={is === 'button' ? 'button' : null}
       type={is === 'button' ? 'button' : null}
       isType={is}
-      {...(is === 'checkbox'
-        ? { role: 'checkbox', 'aria-checked': !!selected, tabIndex: '0' }
-        : {})}
       ref={userRef}
+      {...isAttributes}
       {...action}
     >
       {linkContent}
