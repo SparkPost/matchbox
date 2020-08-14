@@ -133,7 +133,7 @@ Checkbox.propTypes = {
   /**
    * 'indeterminate' does not work with defaultChecked
    */
-  defaultChecked: PropTypes.oneOf([true, false]),
+  defaultChecked: PropTypes.bool,
   label: PropTypes.node,
   labelHidden: PropTypes.bool,
   disabled: PropTypes.bool,
