@@ -6,3 +6,5 @@ props:
     value: '0'
   - name: border-width-100
     value: '1px'
+  - name: border-width-200
+    value: '2px'

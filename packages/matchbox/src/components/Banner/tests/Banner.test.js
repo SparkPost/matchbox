@@ -10,12 +10,14 @@ describe('Banner', () => {
     onDismiss: jest.fn(),
     action: null,
     actions: null,
+    onClick: jest.fn(),
   };
 
   const subject = newProps =>
     global.mountStyled(
       <Banner {...props} {...newProps}>
         <p>You know this is a banner</p>
+        <Banner.Action onClick={props.onClick}>Banner Action</Banner.Action>
       </Banner>,
     );
 
@@ -24,7 +26,12 @@ describe('Banner', () => {
     expect(wrapper.find('[aria-label="Info"]')).toExist();
     expect(wrapper.find('h5').text()).toEqual('Test Banner');
     expect(wrapper.find('p').text()).toEqual('You know this is a banner');
-    expect(wrapper.find('button').text()).toEqual('Dismiss');
+    expect(
+      wrapper
+        .find('button')
+        .at(1)
+        .text(),
+    ).toEqual('Dismiss');
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
@@ -62,22 +69,25 @@ describe('Banner', () => {
 
   it('dismisses banner correctly upon clicking dismiss icon', () => {
     let wrapper = subject();
-    wrapper.find('button').simulate('click');
+    wrapper
+      .find('button')
+      .at(1)
+      .simulate('click');
     expect(props.onDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('creats a clickable primary action', () => {
+  it('creats a clickable primary action if deprecated action prop is passed', () => {
     const action = { content: 'Click me', onClick: jest.fn() };
     const wrapper = subject({ action });
     wrapper
       .find('button')
-      .at(0)
+      .at(1)
       .simulate('click');
     expect(action.onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', 'gray');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'gray');
   });
 
-  it('renders multiple banner actions', () => {
+  it('renders multiple banner actions if deprecated actions prop is passed', () => {
     const actions = [
       { content: 'Click Me 1', onClick: jest.fn(), color: 'blue' },
       { content: 'Click Me 2', onClick: jest.fn(), outline: true },
@@ -86,17 +96,17 @@ describe('Banner', () => {
     const wrapper = subject({ actions });
     wrapper
       .find('button')
-      .at(0)
+      .at(1)
       .simulate('click');
     expect(actions[0].onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('background', 'blue');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'blue');
 
     wrapper
       .find('button')
-      .at(1)
+      .at(2)
       .simulate('click');
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'transparent');
+    expect(wrapper.find('button').at(2)).toHaveStyleRule('background', 'transparent');
   });
 
   it('renders with with a ref', () => {
@@ -115,5 +125,23 @@ describe('Banner', () => {
     global.mountStyled(<Test />);
     expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
     expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
+  });
+
+  it('renders Banner.Action', () => {
+    const onClick = jest.fn();
+
+    const wrapper = subject({ onClick });
+
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
+    expect(
+      wrapper
+        .find('button')
+        .at(0)
+        .text(),
+    ).toEqual('Banner Action');
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

@@ -55,7 +55,9 @@ export const BasicExample = withInfo(infoOptions)(() => (
     title="Template #3"
     subtitle="Published"
   >
-    <Panel sectioned>Content</Panel>
+    <Panel>
+      <Panel.Section>Content</Panel.Section>
+    </Panel>
   </Page>
 ));
 
@@ -72,7 +74,9 @@ export const WithOnlyOneSecondaryAction = withInfo(infoOptions)(() => (
     title="Template #3"
     subtitle="Published"
   >
-    <Panel sectioned>Content</Panel>
+    <Panel>
+      <Panel.Section>Content</Panel.Section>
+    </Panel>
   </Page>
 ));
 

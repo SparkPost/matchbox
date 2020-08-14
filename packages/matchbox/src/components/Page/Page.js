@@ -61,7 +61,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
     return (
       <Button
         {...action}
-        outlineBorder
+        variant="outline"
         color="blue"
         mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
         ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
@@ -89,7 +89,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
             aria-expanded={isOpen}
             color="blue"
             onClick={() => setIsOpen(!isOpen)}
-            outlineBorder
+            variant="outline"
             p="0"
             width="2.5rem" // Forces a square
           >
@@ -98,7 +98,11 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
           </Button>
         }
       >
-        <ActionList actions={visibleActions} />
+        <ActionList>
+          {visibleActions.map((action, i) => (
+            <ActionList.Action key={i} {...action} />
+          ))}
+        </ActionList>
       </Popover>
     </Box>
   );
@@ -114,7 +118,7 @@ function PrimaryAction({ area, action }) {
   }
 
   return (
-    <Button color="blue" {...action}>
+    <Button color="blue" variant="filled" {...action}>
       {action.content}
     </Button>
   );

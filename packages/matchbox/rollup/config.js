@@ -7,6 +7,7 @@ export const inputOptions = {
   input: 'src/index.js',
   plugins: [...jsPlugins],
   external: [
+    'copy-to-clipboard',
     'react',
     'react-dom',
     'prop-types',
@@ -14,6 +15,7 @@ export const inputOptions = {
     'react-transition-group',
     'react-focus-lock',
     'react-scrolllock',
+    'resize-observer-polyfill',
     '@sparkpost/matchbox-icons',
     '@sparkpost/design-tokens',
     '@styled-system/css',
