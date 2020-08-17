@@ -9,7 +9,7 @@ import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
-
+import Icon from './Icon';
 import Group from './Group';
 import {
   base,
@@ -43,6 +43,28 @@ const ChildWrapper = styled.span`
   ${childwrapper}
 `;
 
+// Handles deprecated button variant props
+// TODO Remove in 5.0
+function getVariant({ outline, outlineBorder, plain, flat, variant }) {
+  if (variant) {
+    return variant;
+  }
+
+  if (outlineBorder) {
+    return 'outline';
+  }
+
+  if (outline) {
+    return 'mutedOutline';
+  }
+
+  if (plain || flat) {
+    return 'text';
+  }
+
+  return 'filled';
+}
+
 const Button = React.forwardRef(function Button(props, ref) {
   const {
     children,
@@ -55,11 +77,12 @@ const Button = React.forwardRef(function Button(props, ref) {
     loading,
     loadingLabel,
 
-    // Below 3 props to be deprecated for a 'weight' prop
+    // Below 3 props to be deprecated for a 'variant' prop
     plain, // Deprecate in favor of flat
     flat,
     outline,
     outlineBorder,
+    variant,
 
     // Options
     // Renaming to prevent `width` and `height` pass through
@@ -92,22 +115,9 @@ const Button = React.forwardRef(function Button(props, ref) {
   // Polyfills to be deprecrated 'primary' and 'destructive' prop
   const buttonColor = primary ? 'blue' : destructive ? 'red' : color;
 
-  // Experimenting with a weight prop to replace outline, plain, and flat in the future
-  const visualWeight = React.useMemo(() => {
-    if (outlineBorder) {
-      return 'normal';
-    }
-
-    if (outline) {
-      return 'outline';
-    }
-
-    if (plain || flat) {
-      return 'weak';
-    }
-
-    return 'strong';
-  }, [outline, outlineBorder, plain, flat]);
+  const buttonVariant = React.useMemo(() => {
+    return getVariant({ variant, outline, outlineBorder, plain, flat });
+  }, [variant, outline, outlineBorder, plain, flat, getVariant]);
 
   const loadingIndicator = React.useMemo(() => {
     return (
@@ -134,7 +144,7 @@ const Button = React.forwardRef(function Button(props, ref) {
     onFocus,
     onBlur,
     buttonSize,
-    visualWeight,
+    buttonVariant,
     buttonColor,
     ref,
     loading,
@@ -185,27 +195,31 @@ const Button = React.forwardRef(function Button(props, ref) {
 
 Button.displayName = 'Button';
 Button.Group = Group;
+Button.Icon = Icon;
 
 Button.propTypes = {
+  children: PropTypes.node,
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),
+  component: PropTypes.elementType,
   disabled: PropTypes.bool,
-  destructive: PropTypes.bool,
-  flat: PropTypes.bool,
-  plain: deprecate(PropTypes.bool, 'Use `flat` instead'),
-  outline: PropTypes.bool,
-  outlineBorder: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'large', 'default']),
+  external: PropTypes.bool,
   fullWidth: PropTypes.bool,
+  loading: PropTypes.bool,
+  loadingLabel: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'large', 'default']),
   submit: PropTypes.bool,
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   title: PropTypes.string,
-  external: PropTypes.bool,
-  component: PropTypes.elementType,
+  variant: PropTypes.oneOf(['filled', 'outline', 'text', 'mutedOutline']),
+
+  // Deprecated props
   Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
-  children: PropTypes.node,
+  destructive: deprecate(PropTypes.bool, 'Use the `color` prop instead'),
+  flat: deprecate(PropTypes.bool, 'Use `variant` instead'),
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
-  loading: PropTypes.bool,
-  loadingLabel: PropTypes.string,
+  outline: deprecate(PropTypes.bool, 'Use `variant` instead'),
+  outlineBorder: deprecate(PropTypes.bool, 'Use `variant` instead'),
+  plain: deprecate(PropTypes.bool, 'Use `variant` instead'),
 
   // Undocumented helper function
   // https://github.com/styled-system/styled-system/issues/618

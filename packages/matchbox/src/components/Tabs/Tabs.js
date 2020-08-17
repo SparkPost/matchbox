@@ -134,7 +134,7 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
                   aria-controls="tab-options"
                   aria-expanded={popoverOpen}
                   data-id="tab-options-button"
-                  flat
+                  variant="text"
                   onClick={() => setPopoverOpen(!popoverOpen)}
                 >
                   <MoreHoriz size={20} />
@@ -142,7 +142,11 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
                 </Button>
               }
             >
-              <ActionList actions={tabActions} />
+              <ActionList>
+                {tabActions.map((action, i) => (
+                  <ActionList.Action key={i} {...action} />
+                ))}
+              </ActionList>
             </Popover>
           </Box>
         </Box>

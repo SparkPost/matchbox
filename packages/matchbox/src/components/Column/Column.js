@@ -34,6 +34,7 @@ const Column = React.forwardRef(function Column(props, ref) {
       pt={collapsed ? space : null}
       gutter={space}
       ref={ref}
+      tabIndex="-1"
     >
       {children}
     </StyledColumn>

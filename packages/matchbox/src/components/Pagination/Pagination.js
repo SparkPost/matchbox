@@ -104,7 +104,12 @@ function Pagination(props) {
   const firstButton =
     !marginsHidden && start > 1 ? (
       <span>
-        <Button flat width={tokens.spacing_600} size="small" onClick={() => handlePageChange(0)}>
+        <Button
+          variant="text"
+          width={tokens.spacing_600}
+          size="small"
+          onClick={() => handlePageChange(0)}
+        >
           1
         </Button>
         <Box display="inline" pl={200} pr={200}>
@@ -120,7 +125,7 @@ function Pagination(props) {
           <StyledMoreHoriz size={24} />
         </Box>
         <Button
-          flat
+          variant="text"
           size="small"
           width={pages + 1 < 100 ? tokens.spacing_600 : 'auto'}
           onClick={() => handlePageChange(pages - 1)}

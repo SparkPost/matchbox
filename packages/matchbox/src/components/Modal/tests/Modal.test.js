@@ -1,11 +1,19 @@
 import React from 'react';
 import 'jest-styled-components';
 import Modal from '../Modal';
+import { Button } from '../../Button';
+import { onKey } from '../../../helpers/keyEvents';
 
 const subject = props =>
   global.mountStyled(
     <Modal {...props}>
-      <div data-id="child-content">I am some child content</div>
+      <Modal.Header showCloseButton={props.showCloseButton}>Modal Header</Modal.Header>
+      <Modal.Content>Modal Content</Modal.Content>
+      <Modal.Footer>
+        <Button>Primary Button</Button>
+        <Button>Secondary Button</Button>
+        <Button>Tertiary Button</Button>
+      </Modal.Footer>
     </Modal>,
   );
 
@@ -18,13 +26,13 @@ describe('Modal', () => {
   it('renders content as hidden when the "open" prop is false', () => {
     const wrapper = subject({ open: false });
 
-    expect(wrapper.find('[data-id="child-content"]')).not.toExist();
+    expect(wrapper.find('[data-id="modal-content-wrapper"]')).not.toExist();
   });
 
   it('renders content visible when the "open" prop is true', () => {
     const wrapper = subject({ open: true });
 
-    expect(wrapper.find('[data-id="child-content"]')).toExist();
+    expect(wrapper.find('[data-id="modal-content-wrapper"]')).toExist();
   });
 
   it('renders with relevant ARIA attributes', () => {
@@ -44,6 +52,14 @@ describe('Modal', () => {
     const mockOnClose = jest.fn();
     const wrapper = subject({ open: true, showCloseButton: true, onClose: mockOnClose });
     wrapper.find('button[data-id="modal-close"]').simulate('click');
+
+    expect(mockOnClose).toHaveBeenCalled();
+  });
+
+  it('invokes "onClose" when pressing the escape key', () => {
+    const mockOnClose = jest.fn();
+    subject({ open: true, closeOnEscape: true, onClose: mockOnClose });
+    onKey('escape', mockOnClose)({ key: 'Escape', shiftKey: false });
 
     expect(mockOnClose).toHaveBeenCalled();
   });

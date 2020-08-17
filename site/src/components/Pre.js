@@ -24,17 +24,25 @@ function Pre(props) {
         language={language}
         theme={palenight}
       >
-        {({ tokens, getLineProps, getTokenProps }) => (
-          <pre style={{ whiteSpace: 'pre-wrap', marginBottom: 0 }}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
+        {({ tokens, getLineProps, getTokenProps }) => {
+          const lines = tokens.slice(0, tokens.length - 1);
+          return (
+            <Box
+              as="pre"
+              style={{ whiteSpace: 'pre-wrap' }}
+              mb="0"
+              lineHeight="300"
+            >
+              {lines.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </Box>
+          );
+        }}
       </Highlight>
     </Box>
   );

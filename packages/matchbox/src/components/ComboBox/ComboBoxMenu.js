@@ -20,7 +20,11 @@ function ComboBoxMenu(props) {
     <Box ref={menuRef} {...rest} position="relative" zIndex="overlay">
       <PopoverContent open={isOpen} width="100%">
         {items.length > 0 ? (
-          <ActionList actions={items} maxHeight={maxHeight} />
+          <ActionList maxHeight={maxHeight}>
+            {items.map((action, i) => (
+              <ActionList.Action key={i} {...action} />
+            ))}
+          </ActionList>
         ) : (
           <Box p="200" color="gray.700">
             {emptyMessage}

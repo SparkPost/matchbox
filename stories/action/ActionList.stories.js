@@ -6,7 +6,32 @@ export default {
   title: 'Action|ActionList',
 };
 
-export const WithinPopovers = withInfo({ propTables: [ActionList] })(() => (
+export const WithinPopovers = withInfo()(() => (
+  <Inline space="15rem">
+    <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
+      <ActionList>
+        <ActionList.Action to="#" helpText="help text">
+          Action1
+        </ActionList.Action>
+        <ActionList.Action to="#">Action2</ActionList.Action>
+      </ActionList>
+    </Popover>
+    <Popover open trigger={<Button>Sections</Button>} style={{ width: '200px' }}>
+      <ActionList>
+        <ActionList.Section>
+          <ActionList.Action to="#">Sectioned1</ActionList.Action>
+          <ActionList.Action to="#">Testing really really really long text</ActionList.Action>
+        </ActionList.Section>
+        <ActionList.Section>
+          <ActionList.Action to="#">Sectioned3</ActionList.Action>
+          <ActionList.Action to="#">Sectioned4</ActionList.Action>
+        </ActionList.Section>
+      </ActionList>
+    </Popover>
+  </Inline>
+));
+
+export const DeprecatedUsage = withInfo({ propTables: [ActionList] })(() => (
   <Inline space="15rem">
     <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
       <ActionList
@@ -87,13 +112,17 @@ export const WithinPopovers = withInfo({ propTables: [ActionList] })(() => (
 export const SelectedActions = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>
-      <ActionList
-        actions={[
-          { content: 'Action1', to: '#', selected: true },
-          { content: 'Action2', to: '#', selected: true },
-          { content: 'Action3', to: '#', selected: false },
-        ]}
-      />
+      <ActionList>
+        <ActionList.Action to="#" selected={true}>
+          Action1
+        </ActionList.Action>
+        <ActionList.Action to="#" selected={true}>
+          Action2
+        </ActionList.Action>
+        <ActionList.Action to="#" selected={false}>
+          Action3
+        </ActionList.Action>
+      </ActionList>
     </Panel>
   </Box>
 ));
@@ -101,13 +130,17 @@ export const SelectedActions = withInfo({ propTables: [ActionList] })(() => (
 export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>
-      <ActionList
-        actions={[
-          { content: 'Action1', to: '#', highlighted: true },
-          { content: 'Action2', to: '#', highlighted: true },
-          { content: 'Action3', to: '#', selected: false },
-        ]}
-      />
+      <ActionList>
+        <ActionList.Action to="#" highlighted={true}>
+          Action1
+        </ActionList.Action>
+        <ActionList.Action to="#" highlighted={true}>
+          Action2
+        </ActionList.Action>
+        <ActionList.Action to="#" highlighted={false}>
+          Action3
+        </ActionList.Action>
+      </ActionList>
     </Panel>
   </Box>
 ));
@@ -115,13 +148,17 @@ export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
 export const WithHelpText = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>
-      <ActionList
-        actions={[
-          { content: 'mail.example.com', to: '#', helpText: 'Sending Domain' },
-          { content: 'bobs pizza shop', to: '#', helpText: 'Subaccount' },
-          { content: 'welcome-email-ab-test-12', to: '#', helpText: 'Template' },
-        ]}
-      />
+      <ActionList>
+        <ActionList.Action to="#" helpText="Sending Domain">
+          Action1
+        </ActionList.Action>
+        <ActionList.Action to="#" helpText="Subaccount">
+          Action2
+        </ActionList.Action>
+        <ActionList.Action to="#" helpText="Template">
+          Action3
+        </ActionList.Action>
+      </ActionList>
     </Panel>
   </Box>
 ));
@@ -129,14 +166,26 @@ export const WithHelpText = withInfo({ propTables: [ActionList] })(() => (
 export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>
-      <ActionList
-        actions={[
+      <ActionList>
+        {/* actions={[
           { content: 'Checkbox', selected: true, is: 'checkbox' },
           { content: 'Checkbox', is: 'checkbox' },
           { content: 'Button', selected: false, is: 'button' },
           { content: 'Link', is: 'link', to: '#', external: true },
-        ]}
-      />
+        ]} */}
+        <ActionList.Action to="#" selected={true} is="checkbox">
+          Checkbox
+        </ActionList.Action>
+        <ActionList.Action to="#" selected={false} is="checkbox">
+          Checkbox
+        </ActionList.Action>
+        <ActionList.Action to="#" is="button">
+          Button
+        </ActionList.Action>
+        <ActionList.Action to="#" is="link" external>
+          External Link
+        </ActionList.Action>
+      </ActionList>
     </Panel>
   </Box>
 ));
@@ -144,14 +193,10 @@ export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() 
 export const SystemProps = withInfo({ propTables: [ActionList] })(() => (
   <Box maxWidth="20rem">
     <Panel>
-      <ActionList
-        m="400"
-        width={1 / 2}
-        actions={[
-          { content: 'Action1', to: '#' },
-          { content: 'Action2', to: '#' },
-        ]}
-      />
+      <ActionList m="400" width={1 / 2}>
+        <ActionList.Action to="#">Action1</ActionList.Action>
+        <ActionList.Action to="#">Action2</ActionList.Action>
+      </ActionList>
     </Panel>
   </Box>
 ));

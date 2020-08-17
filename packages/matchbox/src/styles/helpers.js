@@ -70,4 +70,5 @@ export const focusOutline = ({
     z-index: ${tokens.zIndex_default};
     box-shadow: 0 0 0 2px ${color};
   }
+
 `;

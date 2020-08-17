@@ -1,6 +1,7 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { Button, Inline, Box, Stack } from '@sparkpost/matchbox';
+import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
 
 export default {
   title: 'Action|Button',
@@ -14,8 +15,65 @@ export const Sizing = withInfo()(() => (
   </Inline>
 ));
 
-export const Colors = withInfo({ propTables: [Button] })(() => (
-  <Box bg="gray.100">
+export const Variants = withInfo({ propTables: [Button] })(() => (
+  <>
+    <Inline>
+      <Button variant="filled">Filled</Button>
+      <Button disabled>Filled</Button>
+      <Button variant="text">Text</Button>
+      <Button variant="text" disabled>
+        Text Disabled
+      </Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="mutedOutline">Muted Outline</Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button variant="filled" color="red">
+        Filled
+      </Button>
+      <Button variant="filled" color="red" disabled>
+        Filled
+      </Button>
+      <Button color="red" variant="text">
+        Text
+      </Button>
+      <Button color="red" variant="text" disabled>
+        Text Disabled
+      </Button>
+      <Button color="red" variant="outline">
+        Outline
+      </Button>
+      <Button color="red" variant="mutedOutline">
+        Muted Outline
+      </Button>
+    </Inline>
+    <br />
+    <Inline>
+      <Button variant="filled" color="blue">
+        Filled
+      </Button>
+      <Button variant="filled" color="blue" disabled>
+        Filled
+      </Button>
+      <Button color="blue" variant="text">
+        Text
+      </Button>
+      <Button color="blue" variant="text" disabled>
+        Text Disabled
+      </Button>
+      <Button color="blue" variant="outline">
+        Outline
+      </Button>
+      <Button color="blue" variant="mutedOutline">
+        Muted Outline
+      </Button>
+    </Inline>
+  </>
+));
+
+export const DeprecatedVariants = withInfo({ propTables: [Button] })(() => (
+  <>
     <Inline>
       <Button>Button</Button>
       <Button disabled>Disabled</Button>
@@ -64,7 +122,7 @@ export const Colors = withInfo({ propTables: [Button] })(() => (
         Outline
       </Button>
     </Inline>
-  </Box>
+  </>
 ));
 
 export const Destructive = withInfo()(() => (
@@ -155,6 +213,21 @@ export const Group = withInfo()(() => (
       Sq Rt
     </Button>
   </Button.Group>
+));
+
+export const Icon = withInfo()(() => (
+  <Inline>
+    <Button outlineBorder>
+      <Button.Icon as={Assessment} mr="100"></Button.Icon>
+      Button
+    </Button>
+    <Button outline>
+      Button<Button.Icon as={AddCircleOutline} size={20} ml="100"></Button.Icon>
+    </Button>
+    <Button color="blue">
+      Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
+    </Button>
+  </Inline>
 ));
 
 export const SystemProps = withInfo()(() => (

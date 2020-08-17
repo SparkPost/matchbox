@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
+import { Box } from '../../Box';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 
@@ -31,7 +31,7 @@ function Footer(props) {
   );
 }
 
-Footer.displayName = 'Panel.Footer';
+Footer.displayName = 'Panel.LEGACY.Footer';
 Footer.propTypes = {
   left: PropTypes.node,
   right: PropTypes.node,

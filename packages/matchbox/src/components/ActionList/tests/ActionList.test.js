@@ -7,6 +7,73 @@ describe('ActionList', () => {
 
   it('renders actions correctly', () => {
     const wrapper = subject({
+      children: (
+        <>
+          <ActionList.Action>Action</ActionList.Action>
+          <ActionList.Action>Action 2</ActionList.Action>
+        </>
+      ),
+    });
+    expect(
+      wrapper
+        .find('a')
+        .at(0)
+        .text(),
+    ).toEqual('Action');
+  });
+
+  it('renders help text correctly', () => {
+    const wrapper = subject({
+      children: (
+        <>
+          <ActionList.Action helpText="help1">Action</ActionList.Action>
+          <ActionList.Action>Action 2</ActionList.Action>
+        </>
+      ),
+    });
+    expect(
+      wrapper
+        .find('a')
+        .at(0)
+        .text(),
+    ).toEqual('Actionhelp1');
+  });
+
+  it('renders sections correctly', () => {
+    const wrapper = subject({
+      children: (
+        <>
+          <ActionList.Section>
+            <ActionList.Action>Sectioned1</ActionList.Action>
+            <ActionList.Action>Sectioned2</ActionList.Action>
+          </ActionList.Section>
+          <ActionList.Section>
+            <ActionList.Action>Sectioned3</ActionList.Action>
+            <ActionList.Action>Sectioned4</ActionList.Action>
+          </ActionList.Section>
+        </>
+      ),
+    });
+    expect(
+      wrapper
+        .find('div')
+        .at(1)
+        .text(),
+    ).toEqual('Sectioned1Sectioned2');
+    expect(
+      wrapper
+        .find('div')
+        .at(2)
+        .text(),
+    ).toEqual('Sectioned3Sectioned4');
+  });
+});
+
+describe('Legacy ActionList', () => {
+  const subject = props => global.mountStyled(<ActionList {...props} />);
+
+  it('renders actions correctly', () => {
+    const wrapper = subject({
       actions: [{ content: 'Action' }, { content: 'Action 2' }],
     });
     expect(
