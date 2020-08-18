@@ -1,13 +1,8 @@
 import React from 'react';
-import Critical from './Critical';
+import './Critical.css';
 
 function PageElement(props) {
-  return (
-    <>
-      <Critical />
-      {props.children}
-    </>
-  );
+  return <div>{props.children}</div>;
 }
 
 export default PageElement;
