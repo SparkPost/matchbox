@@ -10,7 +10,7 @@ function Template({ data }) {
   const { body, frontmatter = {} } = data.mdx;
 
   return (
-    <Layout maxWidth="1200">
+    <Layout maxWidth="1200" noSidebar>
       <Helmet>
         <title>{frontmatter.title}</title>
       </Helmet>

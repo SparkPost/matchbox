@@ -12,6 +12,12 @@ import InlineCode from './InlineCode';
 import Pre from './Pre';
 import { Box } from '@sparkpost/matchbox';
 
+function Image(props) {
+  return (
+    <Box as="img" display="block" src={props.src} width="100%" {...props} />
+  );
+}
+
 const components = {
   a: props => <Link to={props.href}>{props.children}</Link>,
   ExternalLink,
@@ -29,10 +35,10 @@ const components = {
   Link,
   inlineCode: InlineCode,
   pre: Pre,
-  Box
+  Box,
+  Image
 };
 
-// function Pre(props) {}
 export default ({ children }) => (
   <MDXProvider components={components}>{children}</MDXProvider>
 );
