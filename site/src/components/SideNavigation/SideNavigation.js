@@ -33,11 +33,7 @@ function List(props) {
     <Box as="ul" mb="600" p="0">
       {items.map(item => (
         <StyledListItem key={item.path} selected={item.selected}>
-          <StyledLink
-            to={item.path}
-            disabled={item.disabled}
-            selected={item.selected}
-          >
+          <StyledLink to={item.path} selected={item.selected}>
             {item.label}
           </StyledLink>
         </StyledListItem>
@@ -49,9 +45,8 @@ function List(props) {
 function SideNavigation(props) {
   const { navItems = [] } = props;
 
-  const onlyActive = navItems.filter(({ disabled }) => !disabled);
-  const rootItems = onlyActive.filter(({ section }) => !section);
-  const sectionedItems = onlyActive.filter(({ section }) => !!section);
+  const rootItems = navItems.filter(({ section }) => !section);
+  const sectionedItems = navItems.filter(({ section }) => !!section);
   const sections = _.uniq(
     sectionedItems.map(({ section }) => section || 'rootList')
   );
