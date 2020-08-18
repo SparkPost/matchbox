@@ -34,7 +34,11 @@ import { LiveCode } from '../../components/LiveCode';
 <Prop name="completed" type="number" required>
   Percentage completed
 </Prop>
-<Prop name="size" type="string" defaultValue="normal">
-  <div>"small" | "normal"</div>
-  <div>Percentage completed</div>
+<Prop
+  name="size"
+  type="string"
+  defaultValue="normal"
+  values={['small', 'normal']}
+>
+  Percentage completed
 </Prop>

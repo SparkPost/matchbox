@@ -8,8 +8,8 @@ import { Banner } from '@sparkpost/matchbox';
 ### Usage
 
 <LiveCode>
-  <LiveCode.Content 
-    title="Default" 
+  <LiveCode.Content
+    title="Default"
     code={`
       <Banner title="Heads up!">
         <p>
@@ -19,8 +19,8 @@ import { Banner } from '@sparkpost/matchbox';
       </Banner>
     `}
   />
-  <LiveCode.Content 
-    title="Success" 
+  <LiveCode.Content
+    title="Success"
     code={`
       <Banner
         title="Thank you for your dedicated IP purchase"
@@ -30,8 +30,8 @@ import { Banner } from '@sparkpost/matchbox';
       </Banner>
     `}
   />
-  <LiveCode.Content 
-    title="Info" 
+  <LiveCode.Content
+    title="Info"
     code={`
       <Banner
         status="info"
@@ -44,8 +44,8 @@ import { Banner } from '@sparkpost/matchbox';
       </Banner>
     `}
   />
-  <LiveCode.Content 
-    title="Warning" 
+  <LiveCode.Content
+    title="Warning"
     code={`
       <Banner
         title="New IPs need to be warmed up"
@@ -64,8 +64,8 @@ import { Banner } from '@sparkpost/matchbox';
       </Banner>
     `}
   />
-  <LiveCode.Content 
-    title="Danger" 
+  <LiveCode.Content
+    title="Danger"
     code={`
       <Banner
         title="Your account has been suspended due to a billing problem"
@@ -88,8 +88,8 @@ import { Banner } from '@sparkpost/matchbox';
       </Banner>
     `}
   />
-  <LiveCode.Content 
-    title="System Props" 
+  <LiveCode.Content
+    title="System Props"
     code={`
       <>
         <Banner title="Responsive Margin-Y" status="warning" my={['400', '600', '800', '300']}>
@@ -116,48 +116,27 @@ import { Banner } from '@sparkpost/matchbox';
 <Prop
   name="status"
   type="string"
-> 
-  default, success, warning, danger, info <br /> The status of the banner, determines the color scheme. 
-success = green; 
-warning = yellow; 
-danger = red; 
-info = blue; 
-default = blue;
+  values={['default', 'success', 'warning', 'danger', 'info']}
+>
+  The status of the banner, determines the color scheme.
 </Prop>
 
-<Prop
-  name="title"
-  type="string"
-> 
+<Prop name="title" type="string">
   The title of the banner
 </Prop>
 
-<Prop
-  name="onDismiss"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onDismiss" type="function" defaultValue="(e) => void">
   Callback for when the banner is dismissed
 </Prop>
 
-<Prop
-  name="action"
-  type="object"
-  required
-> 
+<Prop name="action" type="object" required>
   Used for single action button
 </Prop>
 
-<Prop
-  name="actions"
-  type="array"
-> 
+<Prop name="actions" type="array">
   Renders multiple action buttons
 </Prop>
 
-<Prop
-  name="children"
-  type="node"
-> 
+<Prop name="children" type="node">
   Content to be displayed inside the banner
 </Prop>

@@ -81,7 +81,7 @@ function Layout(props) {
     );
     return _.get(selectedRoute, 'label', '');
   }, [allRoutes, pathname]);
-
+  console.log(props);
   return (
     <ThemeProvider>
       <GlobalStyle />
@@ -95,12 +95,7 @@ function Layout(props) {
         )}
         <Box display="flex" maxWidth={props.maxWidth || '1240px'} m="0 auto">
           {Boolean(sideItems && sideItems.length) && (
-            <Box
-              display={['none', null, 'flex']}
-              as="aside"
-              flex="0 0 0"
-              minWidth="300px"
-            >
+            <Box display={['none', null, 'flex']} as="aside" minWidth="300px">
               <SideNavigation navItems={sideItems} />
             </Box>
           )}
@@ -109,9 +104,13 @@ function Layout(props) {
             flex="1 0 0"
             pb={['400', null, '800']}
             pt="400"
-            width="100%"
+            maxWidth={
+              props.noSidebar ? null : ['100%', null, 'calc(100% - 300px)']
+            }
           >
-            <MDXProvider>{props.children}</MDXProvider>
+            <Box>
+              <MDXProvider>{props.children}</MDXProvider>
+            </Box>
           </Box>
         </Box>
         <Footer />

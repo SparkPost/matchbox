@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import palenight from 'prism-react-renderer/themes/palenight';
+import github from 'prism-react-renderer/themes/github';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
 import * as icons from '@sparkpost/matchbox-icons';
@@ -11,22 +11,10 @@ import * as icons from '@sparkpost/matchbox-icons';
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
 
-const StyledEditor = styled(LiveEditor)`
-  font-size: ${tokens.fontSize_100};
-  ${'' /* // controls the blinking cursor color */}
-  color: ${tokens.color_blue_200};
-  textarea:focus { 
-    outline: none;
-    box-shadow: 0 0 2px ${tokens.color_white}, 0 0 0 2px ${
-  tokens.color_blue_800
-};
-  }
-`;
-
 const StyledWrapper = styled(Box)`
-  &,
-  * {
-    background: ${tokens.color_blue_1000} !important;
+  background: ${tokens.color_gray_100} !important;
+  textarea:focus {
+    outline: none;
   }
 `;
 
@@ -53,9 +41,9 @@ function Content(props) {
         {description}
       </Box>
       <LiveProvider
-        code={formatted.trim()}
+        code={formatted}
         scope={{ ...icons, ...components, ...scope }}
-        theme={palenight}
+        theme={github}
       >
         <div id="live-code-content">
           <Box p="600" border={`6px solid ${tokens.color_gray_200}`} mb="500">
@@ -63,7 +51,7 @@ function Content(props) {
           </Box>
         </div>
         <StyledWrapper p="400" fontSize="100">
-          <StyledEditor />
+          <LiveEditor />
         </StyledWrapper>
         <StyledError />
       </LiveProvider>

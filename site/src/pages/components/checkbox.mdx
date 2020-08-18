@@ -89,91 +89,51 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Checkbox API
 
-<Prop
-  name="id"
-  type="string"
-  required
-> 
+<Prop name="id" type="string" required>
   The ID for the form input
 </Prop>
 
-<Prop
-  name="checked"
-  type="bool"
-> 
+<Prop name="checked" type="bool">
   Whether the input is selected or not
 </Prop>
 
-<Prop
-  name="label"
-  type="node"
-> 
+<Prop name="label" type="node">
   The label for the Checkbox
 </Prop>
 
-<Prop
-  name="labelHidden"
-  type="bool"
-> 
+<Prop name="labelHidden" type="bool">
   Hides the label visually, but still accessible to screen readers
 </Prop>
 
-<Prop
-  name="disabled"
-  type="bool"
-> 
+<Prop name="disabled" type="bool">
   Whether the input is disabled or not
 </Prop>
 
-<Prop
-  name="required"
-  type="bool"
-> 
+<Prop name="required" type="bool">
   Whether the input is required or not
 </Prop>
 
-<Prop
-  name="value"
-  type="string"
-> 
+<Prop name="value" type="string">
   Value for the input
 </Prop>
 
-<Prop
-  name="error"
-  type="string"
-> 
+<Prop name="error" type="string">
   Renders an error message message below the input
 </Prop>
 
-<Prop
-  name="onChange"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onChange" type="function" defaultValue="(e) => void">
   Callback when input checked state changes
 </Prop>
 
-<Prop
-  name="onFocus"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onFocus" type="function" defaultValue="(e) => void">
   Callback when input becomes focused
 </Prop>
 
-<Prop
-  name="onBlur"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onBlur" type="function" defaultValue="(e) => void">
   Callback when input loses focus
 </Prop>
 
-<Prop
-  name="helpText"
-  type="node"
-> 
+<Prop name="helpText" type="node">
   Additional text to help the user that renders below the input
 </Prop>
 
@@ -187,32 +147,18 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Checkbox.Group API
 
-<Prop
-  name="children"
-  type="node"
-  required
-> 
+<Prop name="children" type="node" required>
   Children of the checkbox group fieldset wrapper
 </Prop>
 
-<Prop
-  name="label"
-  type="node"
-  required
-> 
+<Prop name="label" type="node" required>
   A legend label for checkbox group
 </Prop>
 
-<Prop
-  name="labelHidden"
-  type="bool"
-> 
+<Prop name="labelHidden" type="bool">
   Hides the label visually, but still accessible to screen readers
 </Prop>
 
-<Prop
-  name="required"
-  type="bool"
-> 
+<Prop name="required" type="bool">
   Whether this fieldset is required or not
 </Prop>

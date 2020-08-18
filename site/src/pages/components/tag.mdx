@@ -91,11 +91,22 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Tabs API
 
-<Prop name="color" type="string">
-  <div>
-    blue | yellow | red | purple | green | magenta | teal | lightGray | darkGray
-  </div>
-  <div>Sets the Tag color</div>
+<Prop
+  name="color"
+  type="string"
+  values={[
+    'blue',
+    'yellow',
+    'red',
+    'purple',
+    'green',
+    'magenta',
+    'teal',
+    'lightGray',
+    'darkGray'
+  ]}
+>
+  Sets the Tag color
 </Prop>
 <Prop name="onRemove" type="function">
   Renders a remove button and is called when the button is clicked
