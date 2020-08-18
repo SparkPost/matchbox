@@ -81,7 +81,7 @@ function Layout(props) {
     );
     return _.get(selectedRoute, 'label', '');
   }, [allRoutes, pathname]);
-  console.log(props);
+
   return (
     <ThemeProvider>
       <GlobalStyle />
