@@ -55,11 +55,6 @@
         "disabled": false
       },
       {
-        "path": "/design/video",
-        "label": "Video",
-        "disabled": false
-      },
-      {
         "path": "/design/datavisualization",
         "label": "Data Visualization",
         "disabled": true
