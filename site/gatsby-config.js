@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     title: 'Matchbox',
@@ -17,7 +15,11 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/Layout/Layout.js')
+          default: require.resolve('./src/components/Layout/Layout.js'),
+          components: require.resolve(
+            './src/components/Layout/SideBarLayout.js'
+          ),
+          design: require.resolve('./src/components/Layout/SideBarLayout.js')
         }
       }
     },
@@ -34,6 +36,22 @@ module.exports = {
       options: {
         name: 'updates',
         path: `${__dirname}/src/updates`
+      }
+    },
+    {
+      // Sources mdx component pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'components',
+        path: `${__dirname}/src/pages/components`
+      }
+    },
+    {
+      // Sources mdx component pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'design',
+        path: `${__dirname}/src/pages/design`
       }
     },
     'gatsby-transformer-json',
@@ -56,13 +74,6 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/favicon.png' // This path is relative to the root of the site.
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'components',
-        path: path.resolve(__dirname, '../packages/matchbox/src/components')
       }
     },
     {
