@@ -1,0 +1,54 @@
+import { LiveCode } from '../../components/LiveCode';
+
+# Stack
+
+The Stack component distributes its children vertically down a page with equal spacing in between.
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Default Stack"
+    code={`
+      <Stack>
+        <Box p="200" bg="gray.200">Box</Box>
+        <Box p="200" bg="gray.200">Box</Box>
+        <Box p="200" bg="gray.200">Box</Box>
+      </Stack>
+    `}
+  />
+  <LiveCode.Content
+    title="Center Aligned Stack"
+    code={`
+      <Stack align="center" space="300">
+        <Box p="200" bg="gray.200">Box</Box>
+        <Box p="200" bg="gray.200">Box</Box>
+        <Box p="200" bg="gray.200">Box</Box>
+      </Stack>
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+None
+
+---
+
+### Stack API
+
+<Prop
+  name="align"
+  type="string | array"
+  values={['"center"', '"left"', '"right"', 'null']}
+>
+  Positions children horizontally. Also accepts responsive arrays.
+</Prop>
+
+<Prop name="space" type="string | array">
+  Sets the gutter space between children. Also accepts responsive arrays.
+</Prop>
