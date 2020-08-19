@@ -42,11 +42,6 @@
         "label": "Illustration"
       },
       {
-        "path": "/design/datavisualization",
-        "label": "Data Visualization",
-        "disabled": true
-      },
-      {
         "path": "/design/tokenreference",
         "label": "Token API Reference"
       }
@@ -102,6 +97,11 @@
       {
         "path": "/components/panel",
         "label": "Panel",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/stack",
+        "label": "Stack",
         "section": "Layout"
       },
       {
