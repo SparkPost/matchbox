@@ -1,35 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import github from 'prism-react-renderer/themes/github';
-import { Box, useCopyToClipboard, styles } from '@sparkpost/matchbox';
-import { tokens } from '@sparkpost/design-tokens';
-
-const StyledButton = styled(Box)`
-  ${styles.buttonReset};
-  ${styles.focusOutline({ offset: '0px', color: tokens.color_gray_700 })};
-  cursor: pointer;
-  ${({ theme }) => `
-    background: transparent;
-    color: ${theme.colors.gray[700]};
-    padding: ${theme.space[200]} ${theme.space[300]};
-    font-size: ${theme.fontSizes[100]}
-    &:hover {
-      color: ${theme.colors.gray[900]};
-    }
-  `}
-`;
-
-function CopyButton(props) {
-  return (
-    <StyledButton
-      as="button"
-      background="gray.300"
-      color="red.200"
-      {...props}
-    />
-  );
-}
+import { Box, useCopyToClipboard } from '@sparkpost/matchbox';
+import EditorButton from './EditorButton';
 
 // See https://github.com/FormidableLabs/prism-react-renderer
 function Pre(props) {
@@ -77,9 +50,9 @@ function Pre(props) {
         }}
       </Highlight>
       <Box position="absolute" top="3px" right=" 3px">
-        <CopyButton onClick={() => copy(children)}>
+        <EditorButton onClick={() => copy(children)}>
           {copied ? 'Copied' : 'Copy'}
-        </CopyButton>
+        </EditorButton>
       </Box>
     </Box>
   );

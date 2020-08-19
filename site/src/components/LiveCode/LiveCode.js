@@ -24,7 +24,7 @@ function LiveCode(props) {
   return (
     <div>
       <Box display="flex" alignItems="center">
-        <Box as="h6" m="0">
+        <Box as="h6" m="0" p="0">
           Examples
         </Box>
         <Box pl={500} flex="1">

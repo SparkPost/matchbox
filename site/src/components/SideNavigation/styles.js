@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 const listItem = props => {
   const baseStyles = `
     display: block;
-    margin: 0 0 spacing(300) 0;
+    margin: 0 0 ${tokens.spacing_200} 0;
     position: relative;
     list-style-type: none;
   `;
