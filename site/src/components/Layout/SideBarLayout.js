@@ -16,7 +16,7 @@ function Layout(props) {
   }, [navItems]);
 
   return (
-    <Wrapper>
+    <Wrapper location={props.location}>
       <Box display={['flex', null, 'none']} pb="700">
         <SecondaryNavigation navItems={navItems} />
       </Box>

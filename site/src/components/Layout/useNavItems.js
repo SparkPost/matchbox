@@ -30,7 +30,9 @@ function useNavItems(props) {
   const allRoutes = data.allRoutesJson.nodes;
 
   function selected(locationPath, path, strict) {
-    return strict ? locationPath === path : locationPath.includes(path);
+    return strict
+      ? locationPath === path || locationPath === `${path}/`
+      : locationPath.includes(path);
   }
 
   const navItems = useMemo(() => {
@@ -56,14 +58,22 @@ function useNavItems(props) {
       .map(mapRoute);
   }, [allRoutes, pathname]);
 
-  const pageTitle = useMemo(() => {
-    const selectedRoute = _.findLast(allRoutes, ({ path }) =>
-      selected(pathname, path, false)
-    );
-    return _.get(selectedRoute, 'label', '');
+  const page = useMemo(() => {
+    let route;
+    const parent = _.findLast(allRoutes, ({ path }) => {
+      return selected(pathname, path, false);
+    });
+
+    if (parent && parent.childRoutes) {
+      route = _.findLast(parent.childRoutes, ({ path }) =>
+        selected(pathname, path, false)
+      );
+    }
+
+    return _.get(route || parent, 'label', '');
   }, [allRoutes, pathname]);
 
-  return { pageTitle, navItems, data };
+  return { pageTitle: page, navItems, data };
 }
 
 export default useNavItems;
