@@ -12,7 +12,8 @@ const StyledLink = styled.a`
   color: ${tokens.color_gray_900};
 
   &:hover,
-  &:visited {
+  &:visited,
+  &:visited:hover {
     color: ${tokens.color_gray_900};
   }
 

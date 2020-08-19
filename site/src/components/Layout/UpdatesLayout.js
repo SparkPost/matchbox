@@ -3,10 +3,10 @@ import { MDXProvider } from '../';
 import { Box } from '@sparkpost/matchbox';
 import Wrapper from './Wrapper';
 
-function Layout(props) {
+function UpdatesLayout(props) {
   return (
     <Wrapper>
-      <Box maxWidth="1400" m="0 auto">
+      <Box maxWidth="1200" m="0 auto">
         <Box as="main" pb={['400', null, '800']} pt="400" px="500">
           <MDXProvider>{props.children}</MDXProvider>
         </Box>
@@ -15,4 +15,4 @@ function Layout(props) {
   );
 }
 
-export default Layout;
+export default UpdatesLayout;
