@@ -27,12 +27,10 @@ function Layout(props) {
           label
           path
           indexRoute
-          disabled
           hiddenFromNav
           childRoutes {
             label
             path
-            disabled
             section
           }
         }

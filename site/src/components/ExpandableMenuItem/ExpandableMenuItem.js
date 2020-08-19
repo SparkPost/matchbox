@@ -41,7 +41,7 @@ function ExpandableMenuItem(props) {
           mb="300"
           onClick={toggleExpanded}
         >
-          <Box fontSize="300" fontWeight="500" color="gray.500">
+          <Box fontSize="300" fontWeight="500" color="gray.700">
             {value}
           </Box>
           <Box color="gray.500">

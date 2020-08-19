@@ -17,11 +17,9 @@ export default `
   h6 {
     font-weight: 600;
     margin-top: 0;
-    padding-top: ${tokens.spacing_400};
-    margin-bottom: ${tokens.spacing_400};
-    color: ${tokens.color_gray_900};
   }
 
+  
   h1,
   h2 {
     font-size: ${tokens.fontSize_800};

@@ -6,13 +6,7 @@
   },
   {
     "path": "/updates",
-    "label": "Updates",
-    "disabled": false
-  },
-  {
-    "path": "/brand",
-    "label": "Brand",
-    "disabled": true
+    "label": "Updates"
   },
   {
     "path": "/design",
@@ -21,38 +15,31 @@
     "childRoutes": [
       {
         "path": "/design/tokens",
-        "label": "Tokens",
-        "disabled": false
+        "label": "Tokens"
       },
       {
         "path": "/design/color",
-        "label": "Color",
-        "disabled": false
+        "label": "Color"
       },
       {
         "path": "/design/typography",
-        "label": "Typography",
-        "disabled": false
+        "label": "Typography"
       },
       {
         "path": "/design/spacing",
-        "label": "Spacing",
-        "disabled": false
+        "label": "Spacing"
       },
       {
         "path": "/design/elevation",
-        "label": "Elevation",
-        "disabled": false
+        "label": "Elevation"
       },
       {
         "path": "/design/motion",
-        "label": "Motion",
-        "disabled": false
+        "label": "Motion"
       },
       {
         "path": "/design/illustration",
-        "label": "Illustration",
-        "disabled": false
+        "label": "Illustration"
       },
       {
         "path": "/design/datavisualization",
@@ -61,8 +48,7 @@
       },
       {
         "path": "/design/tokenreference",
-        "label": "Token API Reference",
-        "disabled": false
+        "label": "Token API Reference"
       }
     ]
   },
@@ -73,8 +59,7 @@
     "childRoutes": [
       {
         "path": "/components/getting-started",
-        "label": "Getting Started",
-        "disabled": false
+        "label": "Getting Started"
       },
       {
         "path": "/components/system-props",
@@ -87,181 +72,156 @@
       {
         "path": "/components/actionlist",
         "label": "ActionList",
-        "disabled": false,
         "section": "Action"
       },
       {
         "path": "/components/button",
         "label": "Button",
-        "disabled": false,
         "section": "Action"
       },
       {
         "path": "/components/columns",
         "label": "Columns",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/emptystate",
         "label": "Empty State",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/expandable",
         "label": "Expandable",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/page",
         "label": "Page",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/panel",
         "label": "Panel",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/table",
         "label": "Table",
-        "disabled": false,
         "section": "Layout"
       },
       {
         "path": "/components/banner",
         "label": "Banner",
-        "disabled": false,
         "section": "Feedback"
       },
       {
         "path": "/components/progressbar",
         "label": "ProgressBar",
-        "disabled": false,
         "section": "Feedback"
       },
       {
         "path": "/components/snackbar",
         "label": "Snackbar",
-        "disabled": false,
         "section": "Feedback"
       },
       {
         "path": "/components/tag",
         "label": "Tag",
-        "disabled": false,
         "section": "Feedback"
       },
       {
         "path": "/components/checkbox",
         "label": "Checkbox",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/combobox",
         "label": "ComboBox",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/radio",
         "label": "Radio",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/select",
         "label": "Select",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/slider",
         "label": "Slider",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/textfield",
         "label": "TextField",
-        "disabled": false,
         "section": "Form"
       },
       {
         "path": "/components/pager",
         "label": "Pager",
-        "disabled": false,
         "section": "Navigation"
       },
       {
         "path": "/components/pagination",
         "label": "Pagination",
-        "disabled": false,
         "section": "Navigation"
       },
       {
         "path": "/components/tabs",
         "label": "Tabs",
-        "disabled": false,
         "section": "Navigation"
       },
       {
         "path": "/components/unstyledlink",
         "label": "UnstyledLink",
-        "disabled": false,
         "section": "Navigation"
       },
       {
         "path": "/components/drawer",
         "label": "Drawer",
-        "disabled": false,
         "section": "Overlays"
       },
       {
         "path": "/components/modal",
         "label": "Modal",
-        "disabled": false,
         "section": "Overlays"
       },
       {
         "path": "/components/popover",
         "label": "Popover",
-        "disabled": false,
         "section": "Overlays"
       },
       {
         "path": "/components/tooltip",
         "label": "Tooltip",
-        "disabled": false,
         "section": "Overlays"
       },
       {
         "path": "/components/grid",
         "label": "Grid",
-        "disabled": false,
         "section": "Utility"
       },
       {
         "path": "/components/portal",
         "label": "Portal",
-        "disabled": false,
         "section": "Utility"
       },
       {
         "path": "/components/screenreaderonly",
         "label": "ScreenReaderOnly",
-        "disabled": false,
+        "section": "Utility"
+      },
+      {
+        "path": "/components/themeprovider",
+        "label": "ThemeProvider",
         "section": "Utility"
       },
       {
         "path": "/components/windowevent",
         "label": "WindowEvent",
-        "disabled": false,
         "section": "Utility"
       }
     ]

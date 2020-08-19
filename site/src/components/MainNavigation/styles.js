@@ -32,8 +32,6 @@ export const link = props => `
   font-weight: ${tokens.fontWeight_medium};
 
   padding: ${tokens.spacing_200} 0;
-  opacity: ${props.disabled ? 0.4 : 1};
-  pointer-events: ${props.disabled ? 'none' : 'auto'};
 
   &, &:visited {
     color: ${props.selected ? tokens.color_blue_700 : tokens.color_gray_900};

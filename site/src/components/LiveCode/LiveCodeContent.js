@@ -7,9 +7,9 @@ import github from 'prism-react-renderer/themes/github';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
 import * as icons from '@sparkpost/matchbox-icons';
-
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
+import EditorButton from '../EditorButton';
 
 const StyledWrapper = styled(Box)`
   background: ${tokens.color_gray_100} !important;
@@ -27,6 +27,7 @@ const StyledError = styled(LiveError)`
 
 function Content(props) {
   const { description, code, scope } = props;
+  const { copy, copied } = components.useCopyToClipboard();
 
   const formatted = prettier.format(code.trim(), {
     parser: 'babel',
@@ -50,8 +51,13 @@ function Content(props) {
             <LivePreview />
           </Box>
         </div>
-        <StyledWrapper p="400" fontSize="100">
+        <StyledWrapper position="relative" p="400" fontSize="100">
           <LiveEditor />
+          <Box position="absolute" top="0" right="0">
+            <EditorButton onClick={() => copy(code)}>
+              {copied ? 'Copied' : 'Copy'}
+            </EditorButton>
+          </Box>
         </StyledWrapper>
         <StyledError />
       </LiveProvider>

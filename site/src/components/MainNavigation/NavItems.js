@@ -14,9 +14,7 @@ const StyledLink = styled(Link)`
 `;
 
 function NavItems(props) {
-  const list = props.items.filter(({ disabled }) => !disabled);
-
-  return list.map(item => (
+  return props.items.map(item => (
     <Box display="block">
       <StyledListItem
         as="li"
@@ -24,12 +22,7 @@ function NavItems(props) {
         key={item.path}
         selected={item.selected}
       >
-        <StyledLink
-          as={Link}
-          to={item.path}
-          disabled={item.disabled}
-          selected={item.selected}
-        >
+        <StyledLink as={Link} to={item.path} selected={item.selected}>
           {item.label}
         </StyledLink>
       </StyledListItem>
