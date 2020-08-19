@@ -39,10 +39,10 @@ function Prop(props) {
       {values && (
         <Inline space="100">
           Possible values:
-          {values.map(value => (
-            <Box>
+          {values.map((value, i) => (
+            <div key={i}>
               <InlineCode>{value}</InlineCode>
-            </Box>
+            </div>
           ))}
         </Inline>
       )}

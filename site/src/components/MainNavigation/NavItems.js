@@ -14,8 +14,8 @@ const StyledLink = styled(Link)`
 `;
 
 function NavItems(props) {
-  return props.items.map(item => (
-    <Box display="block">
+  return props.items.map((item, i) => (
+    <Box display="block" key={i}>
       <StyledListItem
         as="li"
         ml={['0', null, '800']}

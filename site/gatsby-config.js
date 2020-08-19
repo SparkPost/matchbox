@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Matchbox',
-    description: 'SparkPost Design System',
-    author: '@sparkpost'
+    description:
+      'Matchbox is the design system for SparkPost products. It is a collection of styles, components, patterns and guidelines used for building interfaces.',
+    author: '@sparkpost',
+    keywords:
+      'SparkPost, design, system, Matchbox, design system, styleguide, style, guide, components, library, pattern, kit, component'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
