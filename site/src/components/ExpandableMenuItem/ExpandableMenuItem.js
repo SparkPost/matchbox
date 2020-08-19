@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ChevronRight } from '@sparkpost/matchbox-icons';
-import { Box, styles } from '@sparkpost/matchbox';
+import { Box, ScreenReaderOnly, styles } from '@sparkpost/matchbox';
 import { Link } from 'gatsby';
 import { tokens } from '@sparkpost/design-tokens';
 
@@ -56,6 +56,7 @@ function ExpandableMenuItem(props) {
         <Box flex="0" pr="100" color="gray.500">
           <StyledChevronButton as="button" px="300" onClick={toggleExpanded}>
             <StyledChevronRight expanded={expanded} />
+            <ScreenReaderOnly>Toggle Menu Item</ScreenReaderOnly>
           </StyledChevronButton>
         </Box>
       </Box>
