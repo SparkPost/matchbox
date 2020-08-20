@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line
 import './Critical.css';
 
 function PageElement(props) {
-  return <div>{props.children}</div>;
+  return <>{props.children}</>;
 }
 
 export default PageElement;

@@ -90,6 +90,11 @@
         "section": "Layout"
       },
       {
+        "path": "/components/inline",
+        "label": "Inline",
+        "section": "Layout"
+      },
+      {
         "path": "/components/page",
         "label": "Page",
         "section": "Layout"
