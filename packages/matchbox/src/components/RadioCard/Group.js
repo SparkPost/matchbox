@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { getChild } from '../../helpers/children';
-import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Label } from '../Label';
@@ -25,7 +24,6 @@ const Group = React.forwardRef(function Group(props, userRef) {
   const {
     children,
     collapseBelow,
-    disabled,
     id,
     label,
     labelHidden,
@@ -35,7 +33,7 @@ const Group = React.forwardRef(function Group(props, userRef) {
     ...rest
   } = props;
 
-  const items = getChild('RadioCard', children, { disabled, weight });
+  const items = getChild('RadioCard', children, { weight });
   const systemProps = pick(rest, margin.propNames);
 
   return (
@@ -68,7 +66,6 @@ Group.displayName = 'RadioCard.Group';
 Group.propTypes = {
   collapseBelow: PropTypes.oneOf(breakpoints),
   'data-id': PropTypes.string,
-  disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
   optional: PropTypes.bool,

@@ -73,4 +73,35 @@ describe('RadioCard', () => {
     global.mountStyled(<Test />);
     expect(document.activeElement.id).toEqual('test-card');
   });
+
+  describe('Group', () => {
+    it('renders disabled in a group', () => {
+      const wrapper = global.mountStyled(
+        <RadioCard.Group label="label">
+          <RadioCard id="test-id1" disabled />
+          <RadioCard id="test-id2" />
+        </RadioCard.Group>,
+      );
+      expect(wrapper.find('input').at(0)).toBeDisabled();
+      expect(wrapper.find('input').at(1)).not.toBeDisabled();
+    });
+
+    it('renders an optional and label', () => {
+      const wrapper = global.mountStyled(
+        <RadioCard.Group label="label" optional>
+          <RadioCard id="test-id" />
+        </RadioCard.Group>,
+      );
+      expect(wrapper.text()).toEqual('labelOptional');
+    });
+
+    it('renders an horizontal orientation', () => {
+      const wrapper = global.mountStyled(
+        <RadioCard.Group label="label" orientation="horizontal">
+          <RadioCard id="test-id" />
+        </RadioCard.Group>,
+      );
+      expect(wrapper.find('#test-id')).toExist();
+    });
+  });
 });
