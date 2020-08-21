@@ -9,11 +9,13 @@
     "@sparkpost/matchbox": "^4.1.0",
     "@sparkpost/matchbox-icons": "^4.1.0",
     "@sparkpost/matchbox-media": "^4.1.0",
+    "algoliasearch": "^4.4.0",
     "babel-plugin-styled-components": "^1.10.7",
     "color": "^3.1.2",
     "copy-to-clipboard": "^3.2.0",
     "gatsby": "^2.24.3",
     "gatsby-image": "^2.2.7",
+    "gatsby-plugin-algolia": "^0.11.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^2.2.4",
@@ -22,7 +24,7 @@
     "gatsby-plugin-styled-components": "^3.3.8",
     "gatsby-source-filesystem": "^2.1.6",
     "gatsby-transformer-sharp": "^2.5.5",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "normalize.css": "^8.0.1",
     "prettier": "^2.0.5",
     "prism-react-renderer": "^1.1.1",
@@ -30,6 +32,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-instantsearch-dom": "^6.7.0",
     "react-live": "^2.2.2",
     "styled-components": "^4.4.1"
   },
@@ -52,7 +55,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "index": "GATSBY_ACTIVE_ENV=index gatsby build"
   },
   "repository": {
     "type": "git",

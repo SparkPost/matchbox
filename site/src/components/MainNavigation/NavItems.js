@@ -18,7 +18,7 @@ function NavItems(props) {
     <Box display="block" key={i}>
       <StyledListItem
         as="li"
-        ml={['0', null, '800']}
+        ml={['0', null, '700']}
         key={item.path}
         selected={item.selected}
       >

@@ -1,16 +1,33 @@
+---
+title: Expandable
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 export function Slack() {
   return (
     <svg width="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <path fill="#e01e5a" d="M23.33 62.14a9.67 9.67 0 1 1-9.67-9.67h9.67z" />
-      <path fill="#e01e5a" d="M28.2 62.14a9.67 9.67 0 1 1 19.33 0v24.2a9.67 9.67 0 0 1-19.33 0z" />
+      <path
+        fill="#e01e5a"
+        d="M28.2 62.14a9.67 9.67 0 1 1 19.33 0v24.2a9.67 9.67 0 0 1-19.33 0z"
+      />
       <path fill="#36c5f0" d="M37.86 23.33a9.67 9.67 0 1 1 9.67-9.67v9.67z" />
-      <path fill="#36c5f0" d="M37.86 28.2a9.67 9.67 0 1 1 0 19.33h-24.2a9.67 9.67 0 0 1 0-19.33z" />
+      <path
+        fill="#36c5f0"
+        d="M37.86 28.2a9.67 9.67 0 1 1 0 19.33h-24.2a9.67 9.67 0 0 1 0-19.33z"
+      />
       <path fill="#2eb67d" d="M76.67 37.86a9.67 9.67 0 1 1 9.67 9.67h-9.67z" />
-      <path fill="#2eb67d" d="M71.8 37.86a9.67 9.67 0 1 1-19.33 0v-24.2a9.67 9.67 0 0 1 19.33 0z" />
+      <path
+        fill="#2eb67d"
+        d="M71.8 37.86a9.67 9.67 0 1 1-19.33 0v-24.2a9.67 9.67 0 0 1 19.33 0z"
+      />
       <path fill="#ecb22e" d="M62.14 76.67a9.67 9.67 0 1 1-9.67 9.67v-9.67z" />
-      <path fill="#ecb22e" d="M62.14 71.8a9.67 9.67 0 1 1 0-19.33h24.2a9.67 9.67 0 0 1 0 19.33z" />
+      <path
+        fill="#ecb22e"
+        d="M62.14 71.8a9.67 9.67 0 1 1 0-19.33h24.2a9.67 9.67 0 0 1 0 19.33z"
+      />
     </svg>
   );
 }
@@ -24,7 +41,7 @@ export function Slack() {
 <LiveCode>
   <LiveCode.Content
     title="With Image, Title and Subtitle"
-    scope={{Slack}}
+    scope={{ Slack }}
     code={`
       <Panel sectioned>
         <Expandable
@@ -41,7 +58,7 @@ export function Slack() {
   />
   <LiveCode.Content
     title="With an Accent"
-    scope={{Slack}}
+    scope={{ Slack }}
     code={`
       <Panel sectioned>
         <Expandable mb={400} title="Orange" id="orange" accent="orange">
@@ -77,61 +94,38 @@ export function Slack() {
 
 ### Expandable API
 
-<Prop
-  name="defaultOpen"
-  type="bool"
-> 
+<Prop name="defaultOpen" type="bool">
   Default open state when not controlled
 </Prop>
 
-<Prop
-  name="icon"
-  type="node"
-> 
-  Optional React node for an image or icon. Works best with an SVG optimized for 40x40
+<Prop name="icon" type="node">
+  Optional React node for an image or icon. Works best with an SVG optimized for
+  40x40
 </Prop>
 
-<Prop
-  name="id"
-  type="string"
-  required
-> 
+<Prop name="id" type="string" required>
   Required for accessibility between header and content
 </Prop>
 
-<Prop
-  name="open"
-  type="bool"
-> 
+<Prop name="open" type="bool">
   Controls the open state
 </Prop>
 
-<Prop
-  name="onToggle"
-  type="function"
-  defaultValue="(e) => void"
-> 
-  Callback for when expandable is toggled. Optional, but required when controlling open state
+<Prop name="onToggle" type="function" defaultValue="(e) => void">
+  Callback for when expandable is toggled. Optional, but required when
+  controlling open state
 </Prop>
 
-<Prop
-  name="subtitle"
-  type="node"
-> 
+<Prop name="subtitle" type="node">
   Content area beneath header title
 </Prop>
 
-<Prop
-  name="title"
-  type="string"
-> 
+<Prop name="title" type="string">
   The header title
 </Prop>
 
-<Prop
-  name="accent"
-  type="bool | string"
-> 
-  orange, blue, red, yellow, green, purple, navy, gray <br/>
-  Renders an accent border at the top of the expandable panel. If bool is used it defaults to blue
+<Prop name="accent" type="bool | string">
+  orange, blue, red, yellow, green, purple, navy, gray <br />
+  Renders an accent border at the top of the expandable panel. If bool is used it
+  defaults to blue
 </Prop>

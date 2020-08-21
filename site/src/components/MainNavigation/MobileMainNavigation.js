@@ -14,7 +14,7 @@ function MobileMainNavigation(props) {
     <Box flex="1">
       <Button
         data-id="main-navigation-button"
-        flat
+        variant="text"
         p="0"
         {...getActivatorProps()}
       >

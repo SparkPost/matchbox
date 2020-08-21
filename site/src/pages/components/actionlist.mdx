@@ -1,5 +1,9 @@
+---
+title: ActionList
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
-import { Box, Popover } from '@sparkpost/matchbox';
 
 # ActionList
 
@@ -8,8 +12,8 @@ import { Box, Popover } from '@sparkpost/matchbox';
 ### Usage
 
 <LiveCode>
-  <LiveCode.Content 
-    title="Inside Popover" 
+  <LiveCode.Content
+    title="Inside Popover"
     code={`
       <Box display="flex" height="250px">
         <Popover
@@ -69,8 +73,8 @@ import { Box, Popover } from '@sparkpost/matchbox';
       </Box>
     `}
   />
-  <LiveCode.Content 
-    title="Selected Actions" 
+  <LiveCode.Content
+    title="Selected Actions"
     code={`
       <Box maxWidth="20rem">
         <Panel>
@@ -97,8 +101,8 @@ import { Box, Popover } from '@sparkpost/matchbox';
       </Box>
     `}
   />
-  <LiveCode.Content 
-    title="Highlighted Actions" 
+  <LiveCode.Content
+    title="Highlighted Actions"
     code={`
       <Box maxWidth="20rem">
         <Panel>
@@ -125,9 +129,9 @@ import { Box, Popover } from '@sparkpost/matchbox';
       </Box>
     `}
   />
-  <LiveCode.Content 
-      title="As Buttons and Checkboxes" 
-      code={`
+  <LiveCode.Content
+    title="As Buttons and Checkboxes"
+    code={`
         <Box maxWidth="20rem">
           <Panel>
             <ActionList
@@ -157,10 +161,10 @@ import { Box, Popover } from '@sparkpost/matchbox';
           </Panel>
         </Box>
       `}
-    />
-    <LiveCode.Content 
-      title="System Props" 
-      code={`
+  />
+  <LiveCode.Content
+    title="System Props"
+    code={`
         <Box maxWidth="20rem">
           <Panel>
             <ActionList
@@ -180,7 +184,7 @@ import { Box, Popover } from '@sparkpost/matchbox';
           </Panel>
         </Box>
       `}
-    />
+  />
 </LiveCode>
 
 ---
@@ -192,28 +196,19 @@ import { Box, Popover } from '@sparkpost/matchbox';
 ---
 
 ### ActionList API
-<Prop
-  name="actions"
-  type="[{content: ReactNode, ...}]"
-> 
-  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;] Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
+
+<Prop name="actions" type="[{content: ReactNode, ...}]">
+  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;]
+  Note: each item can include an optional "section" key that will be used to
+  auto group into sections, declaratively
 </Prop>
-<Prop
-  name="sections"
-  type="[[{content: ReactNode, ...}]]"
-> 
-  Creates sections e.g. [[&#123; content: 'action label', onClick: callback() &#125;]]
+<Prop name="sections" type="[[{content: ReactNode, ...}]]">
+  Creates sections e.g. [[&#123; content: 'action label', onClick: callback()
+  &#125;]]
 </Prop>
-<Prop
-  name="maxHeight"
-  type="string | number"
-> 
+<Prop name="maxHeight" type="string | number">
   Max height of list
 </Prop>
-<Prop
-  name="groupByKey"
-  type="string"
-  defaultvalue="'section'"
-> 
+<Prop name="groupByKey" type="string" defaultvalue="'section'">
   Group by key used to auto group actions into sections, defaults to "section"
 </Prop>

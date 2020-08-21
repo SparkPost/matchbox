@@ -1,9 +1,15 @@
+---
+title: Color
+category: Design
+---
+
 import ColorDescription from '../../components/Color/ColorDescription';
 import ColorDescriptionGrid from '../../components/Color/ColorDescriptionGrid';
 import Palette from '../../components/Color/Palette';
 import ContrastChecker from '../../components/Color/ContrastChecker';
 
 # Color
+
 Matchbox uses colors to visually describe how things function in a UI. By giving meaning to colors, we create consistent visual patterns that help make interactions more predictable.
 
 - [SparkPost Brand Colors](/design/color/#sparkpost-brand)
@@ -19,8 +25,8 @@ Matchbox uses colors to visually describe how things function in a UI. By giving
   <ColorDescription name='color-brand-orange'>
   </ColorDescription>
 
-  <ColorDescription name='color-brand-blue'>
-  </ColorDescription>
+{' '}
+<ColorDescription name="color-brand-blue"></ColorDescription>
 
   <ColorDescription name='color-brand-gray'>
   </ColorDescription>
@@ -29,7 +35,6 @@ Matchbox uses colors to visually describe how things function in a UI. By giving
 ---
 
 ### Core Product
-
 
 ##### Actions
 
@@ -41,17 +46,20 @@ Matchbox uses colors to visually describe how things function in a UI. By giving
     Alternative to the primary blue for use in high contrast situations.
   </ColorDescription>
 
-  <ColorDescription name='color-green-700' title='Success'>
-    Represents a positive or congratulatory tone.
-  </ColorDescription>
+{' '}
+<ColorDescription name="color-green-700" title="Success">
+  Represents a positive or congratulatory tone.
+</ColorDescription>
 
-  <ColorDescription name='color-green-800' title='Success – Alternative'>
-    Alternative to the primary green for use in high contrast situations.
-  </ColorDescription>
+{' '}
+<ColorDescription name="color-green-800" title="Success – Alternative">
+  Alternative to the primary green for use in high contrast situations.
+</ColorDescription>
 
-  <ColorDescription name='color-red-700' title='Destructive'>
-    Represents a negative or destructive tone.
-  </ColorDescription>
+{' '}
+<ColorDescription name="color-red-700" title="Destructive">
+  Represents a negative or destructive tone.
+</ColorDescription>
 
   <ColorDescription name='color-yellow-400' title='Warning'>
     Represents a warning or cautionary tone.
@@ -64,8 +72,11 @@ Matchbox uses colors to visually describe how things function in a UI. By giving
   <ColorDescription name='color-white' title='Application Background'>
   </ColorDescription>
 
-  <ColorDescription name='color-gray-400' title='Container Borders'>
-  </ColorDescription>
+{' '}
+<ColorDescription
+  name="color-gray-400"
+  title="Container Borders"
+></ColorDescription>
 
   <ColorDescription name='color-gray-900' title='Body Text'>
   </ColorDescription>
@@ -76,31 +87,40 @@ Matchbox uses colors to visually describe how things function in a UI. By giving
 ### Color Palettes
 
 ##### Gray
-<Palette colors='grayscale' />
+
+<Palette colors="grayscale" />
 
 ##### Blue
-<Palette colors='blue' />
+
+<Palette colors="blue" />
 
 ##### Teal
-<Palette colors='teal' />
+
+<Palette colors="teal" />
 
 ##### Green
-<Palette colors='green' />
+
+<Palette colors="green" />
 
 ##### Yellow
-<Palette colors='yellow' />
+
+<Palette colors="yellow" />
 
 ##### Red
-<Palette colors='red' />
+
+<Palette colors="red" />
 
 ##### Magenta
-<Palette colors='magenta' />
+
+<Palette colors="magenta" />
 
 ##### Purple
-<Palette colors='purple' />
+
+<Palette colors="purple" />
 
 ##### Brand
-<Palette colors='brand' />
+
+<Palette colors="brand" />
 
 ---
 
@@ -110,6 +130,5 @@ Use this contrast checker to find accessible text and background pairings. See <
 
 - Contrast ratio must be at least **4.5** for normal text
 - Contrast ratio must be at least **3.0** for large text _(18px, or <Token name='font-size-300' />)_
-
 
 <ContrastChecker />
