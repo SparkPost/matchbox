@@ -130,6 +130,11 @@
         "section": "Feedback"
       },
       {
+        "path": "/components/spinner",
+        "label": "Spinner",
+        "section": "Feedback"
+      },
+      {
         "path": "/components/tag",
         "label": "Tag",
         "section": "Feedback"
