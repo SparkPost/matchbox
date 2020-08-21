@@ -150,6 +150,11 @@
         "section": "Form"
       },
       {
+        "path": "/components/datepicker",
+        "label": "DatePicker",
+        "section": "Form"
+      },
+      {
         "path": "/components/radio",
         "label": "Radio",
         "section": "Form"

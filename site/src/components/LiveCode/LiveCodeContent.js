@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
+import { DateUtils } from 'react-day-picker';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import github from 'prism-react-renderer/themes/github';
 import { Box } from '@sparkpost/matchbox';
@@ -43,7 +44,7 @@ function Content(props) {
       </Box>
       <LiveProvider
         code={formatted}
-        scope={{ ...icons, ...components, ...scope }}
+        scope={{ ...icons, ...components, ...scope, DateUtils }}
         theme={github}
       >
         <div id="live-code-content">
