@@ -1,0 +1,85 @@
+---
+title: Spinner
+category: Component
+---
+
+import { LiveCode } from '../../components/LiveCode';
+
+# Spinner
+
+This component is used to inform users a page is loading or an action is being processed.
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Default Medium Spinner"
+    code={`
+      <Spinner label="loading"/>
+    `}
+  />
+  <LiveCode.Content
+    title="Large Spinner"
+    code={`
+      <Spinner size="large" label="loading"/>
+    `}
+  />
+  <LiveCode.Content
+    title="Small Spinner"
+    code={`<Spinner size="small" label="loading"/>`}
+  />
+  <LiveCode.Content
+    title="Rotation Only"
+    code={`<Spinner rotationOnly label="loading"/>`}
+  />
+  <LiveCode.Content
+    title="Orange Spinner"
+    code={`<Spinner color="orange" label="loading"/>`}
+  />
+  <LiveCode.Content
+    title="Gray Spinner"
+    code={`<Spinner color="gray" label="loading"/>`}
+  />
+  <LiveCode.Content
+    title="White Spinner"
+    code={`<Box p="400" bg="gray.900"><Spinner color="white" label="loading"/></Box>`}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['margin', 'position']} />
+
+---
+
+### Spinner API
+
+<Prop
+  name="color"
+  type="string"
+  defaultValue='"blue"'
+  values={['"blue"', '"gray"', '"orange"', '"white"']}
+>
+  Color of the spinner
+</Prop>
+
+<Prop name="label" type="string" required>
+  Screen reader accessible label
+</Prop>
+
+<Prop name="rotationOnly" type="bool">
+  When true, disabled the stroke fill animation
+</Prop>
+
+<Prop
+  name="size"
+  type="string"
+  defaultValue='"medium"'
+  values={['"small"', '"medium"', '"large"']}
+>
+  Size of the spinner
+</Prop>

@@ -95,6 +95,11 @@
         "section": "Layout"
       },
       {
+        "path": "/components/layout",
+        "label": "Layout",
+        "section": "Layout"
+      },
+      {
         "path": "/components/page",
         "label": "Page",
         "section": "Layout"
@@ -130,6 +135,11 @@
         "section": "Feedback"
       },
       {
+        "path": "/components/spinner",
+        "label": "Spinner",
+        "section": "Feedback"
+      },
+      {
         "path": "/components/tag",
         "label": "Tag",
         "section": "Feedback"
@@ -142,6 +152,11 @@
       {
         "path": "/components/combobox",
         "label": "ComboBox",
+        "section": "Form"
+      },
+      {
+        "path": "/components/datepicker",
+        "label": "DatePicker",
         "section": "Form"
       },
       {
