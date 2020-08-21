@@ -54,19 +54,29 @@ function PageHit({ hit }) {
           <Box
             as="h6"
             flex="1"
-            fontSize="400"
-            lineHeight="400"
-            fontWeight="normal"
+            fontSize="300"
+            lineHeight="300"
+            fontWeight="500"
           >
             <Highlight attribute="title" hit={hit} tagName="mark" />
           </Box>
           <Box
             flex="0"
-            color="blue.700"
-            fontSize="200"
-            style={{ whiteSpace: 'nowrap' }}
+            style={{
+              whiteSpace: 'nowrap'
+            }}
           >
-            {hit.category}
+            <Box
+              bg="gray.200"
+              px="100"
+              py="2px"
+              borderRadius="3px"
+              color="gray.700"
+              fontSize="100"
+              lineHeight="100"
+            >
+              {hit.category}
+            </Box>
           </Box>
         </Box>
         <Box fontSize="200" lineHeight="200" color="gray.700">
@@ -85,7 +95,7 @@ const StyledHitsWrapper = styled.div`
   .ais-Highlight-highlighted,
   .ais-Snippet-highlighted {
     font-weight: 600;
-    background: transparent;
+    background: ${({ theme }) => theme.colors.yellow[100]};
     color: inherit;
   }
 

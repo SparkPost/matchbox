@@ -20,7 +20,7 @@ function SecondaryNavigation(props) {
 
   return (
     <Box flex="1">
-      <Button fullWidth flat p="0" {...getActivatorProps()}>
+      <Button fullWidth flat p="0" px="500" {...getActivatorProps()}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <span>
             <Box as="span" color="gray.700" p="0">

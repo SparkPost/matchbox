@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@sparkpost/matchbox';
+import { Box, useWindowEvent } from '@sparkpost/matchbox';
 import Search from './Search';
 import SearchResults from './SearchResults';
 import { InstantSearch } from 'react-instantsearch-dom';
@@ -10,8 +10,19 @@ import NavItems from './NavItems';
 function MainNavigation(props) {
   const { navItems } = props;
   const indices = [{ name: `matchbox`, title: `Pages` }];
+  const container = React.useRef();
   const [query, setQuery] = React.useState();
   const [hasFocus, setHasFocus] = React.useState();
+
+  useWindowEvent('click', function(e) {
+    const isOutside =
+      !container.current || !container.current.contains(e.target);
+
+    if (hasFocus && isOutside) {
+      setHasFocus(false);
+    }
+  });
+
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -31,7 +42,7 @@ function MainNavigation(props) {
         </Box>
       </nav>
       <Box ml="600">
-        <Box position="relative">
+        <Box position="relative" ref={container}>
           <InstantSearch
             searchClient={searchClient}
             indexName={indices[0].name}
