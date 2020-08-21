@@ -27,7 +27,7 @@ export const listItem = props => {
 
 export const link = props => `
   font-size: ${tokens.fontSize_400};
-  line-height: ${tokens.lineHeight_400};
+  line-height: ${tokens.lineHeight_500};
   text-decoration: none;
   font-weight: ${tokens.fontWeight_medium};
 
