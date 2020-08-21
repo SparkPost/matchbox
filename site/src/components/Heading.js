@@ -55,7 +55,13 @@ function Heading(props) {
 
   return (
     <StyledLink href={pathname}>
-      <Text {...rest} as={as} id={toKebab(children)} position="relative">
+      <Text
+        {...rest}
+        as={as}
+        id={toKebab(children)}
+        position="relative"
+        className="heading-link"
+      >
         {children}
         <span>
           {' '}
