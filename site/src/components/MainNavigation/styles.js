@@ -26,12 +26,12 @@ export const listItem = props => {
 };
 
 export const link = props => `
+  display: inline-block;
   font-size: ${tokens.fontSize_400};
   line-height: ${tokens.lineHeight_500};
   text-decoration: none;
   font-weight: ${tokens.fontWeight_medium};
-
-  padding: ${tokens.spacing_200} 0;
+  margin-top: 0.2rem;
 
   &, &:visited {
     color: ${props.selected ? tokens.color_blue_700 : tokens.color_gray_900};

@@ -41,7 +41,7 @@ function MainNavigation(props) {
           <NavItems items={navItems} />
         </Box>
       </nav>
-      <Box ml="600">
+      <Box ml="700">
         <Box position="relative" ref={container}>
           <InstantSearch
             searchClient={searchClient}
