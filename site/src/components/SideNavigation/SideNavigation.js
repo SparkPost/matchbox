@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { StyledListItem, StyledLink } from './styles';
 
 import { ExpandableMenuItem } from '../ExpandableMenuItem';
-import { Box } from '@sparkpost/matchbox';
+import { Box, Inline } from '@sparkpost/matchbox';
 
 function Section(props) {
   const { value, navItems } = props;
@@ -26,6 +26,38 @@ function Section(props) {
   );
 }
 
+function Deprecated() {
+  return (
+    <Box
+      as="span"
+      fontSize="200"
+      lineHeight="200"
+      bg="yellow.200"
+      px="100"
+      color="yellow.800"
+      borderRadius="3px"
+    >
+      Deprecated
+    </Box>
+  );
+}
+
+function New() {
+  return (
+    <Box
+      as="span"
+      fontSize="200"
+      lineHeight="0"
+      bg="green.300"
+      px="100"
+      color="green.900"
+      borderRadius="3px"
+    >
+      New
+    </Box>
+  );
+}
+
 function List(props) {
   const { items } = props;
 
@@ -33,9 +65,13 @@ function List(props) {
     <Box as="ul" mb="600" p="0">
       {items.map(item => (
         <StyledListItem key={item.path} selected={item.selected}>
-          <StyledLink to={item.path} selected={item.selected}>
-            {item.label}
-          </StyledLink>
+          <Inline>
+            <StyledLink to={item.path} selected={item.selected}>
+              <span>{item.label}</span>
+            </StyledLink>
+            {item.tag === 'deprecated' && <Deprecated />}
+            {item.tag === 'new' && <New />}
+          </Inline>
         </StyledListItem>
       ))}
     </Box>

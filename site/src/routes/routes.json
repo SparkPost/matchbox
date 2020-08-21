@@ -97,6 +97,7 @@
       {
         "path": "/components/layout",
         "label": "Layout",
+        "tag": "new",
         "section": "Layout"
       },
       {
@@ -105,8 +106,9 @@
         "section": "Layout"
       },
       {
-        "path": "/components/panel",
-        "label": "Panel",
+        "path": "/components/panel-legacy",
+        "label": "Legacy Panel",
+        "tag": "deprecated",
         "section": "Layout"
       },
       {
@@ -137,6 +139,7 @@
       {
         "path": "/components/spinner",
         "label": "Spinner",
+        "tag": "new",
         "section": "Feedback"
       },
       {
@@ -210,6 +213,12 @@
         "section": "Overlays"
       },
       {
+        "path": "/components/modal-legacy",
+        "label": "Legacy Modal",
+        "tag": "deprecated",
+        "section": "Overlays"
+      },
+      {
         "path": "/components/popover",
         "label": "Popover",
         "section": "Overlays"
@@ -222,6 +231,7 @@
       {
         "path": "/components/grid",
         "label": "Grid",
+        "tag": "deprecated",
         "section": "Utility"
       },
       {
