@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { flatten } = require('lodash');
 
 module.exports = {
   siteMetadata: {
@@ -9,7 +10,7 @@ module.exports = {
     keywords:
       'SparkPost, design, system, Matchbox, design system, styleguide, style, guide, components, library, pattern, kit, component'
   },
-  plugins: [
+  plugins: flatten([
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -99,16 +100,21 @@ module.exports = {
         // extensions: []
       }
     },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: require('./src/utils/algolia-queries')
-      }
-    }
+    process.env.GATSBY_ACTIVE_ENV === 'index'
+      ? [
+          {
+            resolve: `gatsby-plugin-algolia`,
+            options: {
+              enablePartialUpdates: true,
+              appId: process.env.GATSBY_ALGOLIA_APP_ID,
+              apiKey: process.env.ALGOLIA_ADMIN_KEY,
+              queries: require('./src/utils/algolia-queries')
+            }
+          }
+        ]
+      : []
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ]
+  ])
 };
