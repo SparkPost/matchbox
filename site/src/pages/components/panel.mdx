@@ -1,3 +1,8 @@
+---
+title: Panel
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 export const actions = `[
@@ -29,6 +34,7 @@ export const sectionActions = `[
   ]`;
 
 # Panel
+
 A panel is a visual grouping of similar content or tasks in order create readable and clear experiences for SparkPost's users.
 
 ---
@@ -163,46 +169,28 @@ A panel is a visual grouping of similar content or tasks in order create readabl
 
 ### Panel API
 
-<Prop
-  name="title"
-  type="node"
-> 
+<Prop name="title" type="node">
   The title of the panel
 </Prop>
 
-<Prop
-  name="className"
-  type="string"
-> 
+<Prop name="className" type="string">
   Optional class name for the panel
 </Prop>
 
-<Prop
-  name="accent"
-  type="bool | string"
-> 
-  orange, blue, red, yellow, green, purple, navy, gray <br/>
+<Prop name="accent" type="bool | string">
+  orange, blue, red, yellow, green, purple, navy, gray <br />
   Renders an accent border on top of the panel
 </Prop>
 
-<Prop
-  name="sectioned"
-  type="bool"
-> 
+<Prop name="sectioned" type="bool">
   Whether or not the panel will have sections
 </Prop>
 
-<Prop
-  name="actions"
-  type="array"
-> 
+<Prop name="actions" type="array">
   Lost of actions for the panel. Accepts objects with button props
 </Prop>
 
-<Prop
-  name="children"
-  type="node"
-> 
+<Prop name="children" type="node">
   The panel content
 </Prop>
 
@@ -216,41 +204,27 @@ A panel is a visual grouping of similar content or tasks in order create readabl
 
 ### Panel.Section API
 
-<Prop
-  name="actions"
-  type="array"
-> 
+<Prop name="actions" type="array">
   Lost of actions for the panel section. Accepts objects with button props
 </Prop>
 
-<Prop
-  name="children"
-  type="node"
-> 
+<Prop name="children" type="node">
   The section content
 </Prop>
 
-<Prop
-  name="rootRef"
-  type="function"
-> 
-  Maps to Downshift's refKey set in getRootProps. refKey must be set to "rootRef"
+<Prop name="rootRef" type="function">
+  Maps to Downshift's refKey set in getRootProps. refKey must be set to
+  "rootRef"
 </Prop>
 
 ---
 
 ### Panel.Footer API
 
-<Prop
-  name="left"
-  type="node"
-> 
+<Prop name="left" type="node">
   The content for the left side of the footer
 </Prop>
 
-<Prop
-  name="right"
-  type="node"
-> 
+<Prop name="right" type="node">
   The content for the right side of the footer
 </Prop>
