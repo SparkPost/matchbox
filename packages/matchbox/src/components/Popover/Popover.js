@@ -10,7 +10,17 @@ import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 
 const Popover = React.forwardRef(function Popover(props, ref) {
-  const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
+  const {
+    as,
+    id,
+    open: controlledOpen,
+    onClose,
+    children,
+    trigger,
+    wrapper,
+    portalId,
+    ...rest
+  } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
   const activatorRef = React.useRef();
@@ -117,12 +127,12 @@ const Popover = React.forwardRef(function Popover(props, ref) {
 
   return (
     <PopoverOverlay
-      as={Wrapper}
       id={id}
       open={shouldBeOpen}
       renderActivator={renderActivator}
       renderPopover={renderPopover}
       activatorRef={activatorRef}
+      portalId={portalId}
     />
   );
 });
@@ -158,7 +168,7 @@ Popover.propTypes = {
   children: PropTypes.node,
   as: PropTypes.oneOf(['div', 'span']),
   wrapper: deprecate(PropTypes.oneOf(['div', 'span']), 'Use `as` prop instead'),
-  portalId: deprecate(PropTypes.string, 'Portals are no longer used in Popovers'),
+  portalId: PropTypes.string,
   ...createPropTypes(padding.propNames),
   ...createPropTypes(layout.propNames),
 };
