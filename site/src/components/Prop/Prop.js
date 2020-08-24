@@ -4,7 +4,15 @@ import InlineCode from '../InlineCode';
 import { Box, Inline } from '@sparkpost/matchbox';
 
 function Prop(props) {
-  const { children, name, type, defaultValue, required, values } = props;
+  const {
+    children,
+    deprecated,
+    name,
+    type,
+    defaultValue,
+    required,
+    values
+  } = props;
 
   return (
     <Box mb="600">
@@ -33,6 +41,11 @@ function Prop(props) {
         {required && (
           <Box as="span" fontSize="200" color="blue.700">
             Required
+          </Box>
+        )}
+        {deprecated && (
+          <Box as="span" fontSize="200" color="yellow.600">
+            Deprecated
           </Box>
         )}
       </Inline>
