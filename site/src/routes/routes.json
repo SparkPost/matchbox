@@ -106,6 +106,12 @@
         "section": "Layout"
       },
       {
+        "path": "/components/panel",
+        "label": "Panel",
+        "tag": "new",
+        "section": "Layout"
+      },
+      {
         "path": "/components/panel-legacy",
         "label": "Legacy Panel",
         "tag": "deprecated",
@@ -210,6 +216,7 @@
       {
         "path": "/components/modal",
         "label": "Modal",
+        "tag": "new",
         "section": "Overlays"
       },
       {
