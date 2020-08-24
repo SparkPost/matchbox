@@ -39,7 +39,7 @@ export const cell = () => `
 `;
 
 const zebra = theme => `
-  tbody &:nth-of-type(even) {
+  tbody &:nth-of-type(odd) {
     background: ${theme.colors.gray['100']};
   }
 `;
