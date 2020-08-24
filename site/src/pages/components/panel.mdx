@@ -5,34 +5,6 @@ category: Component
 
 import { LiveCode } from '../../components/LiveCode';
 
-export const actions = `[
-    {
-      content: 'Edit',
-      onClick: () => console.log('Edit Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Delete',
-      onClick: () => console.log('Delete Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Not Visible',
-      visible: false,
-    },
-  ]`;
-export const sectionActions = `[
-    {
-      content: 'View Details',
-      onClick: () => console.log('Details Clicked'),
-      color: 'red',
-    },
-    {
-      content: 'Not Visible',
-      visible: false,
-    },
-  ]`;
-
 # Panel
 
 A panel is a visual grouping of similar content or tasks in order create readable and clear experiences for SparkPost's users.
@@ -45,116 +17,67 @@ A panel is a visual grouping of similar content or tasks in order create readabl
   <LiveCode.Content
     title="With a Title"
     code={`
-      <Panel className="my-class" title="Title" sectioned>
-        This is a panel with a title
+      <Panel>
+        <Panel.Header>Title</Panel.Header>
+        <Panel.Section>Section Content</Panel.Section>
       </Panel>
     `}
   />
   <LiveCode.Content
-    title="With an Accent"
+    title="With an accent bar"
     code={`
-      <>
-        <Panel mb={300} accent sectioned>
-          This is a highlighted panel with a title
-        </Panel>
-        <Panel mb={300} accent="orange" sectioned>
-          This is a highlighted panel with a title
-        </Panel>
-      </>
+      <Panel accent>
+        <Panel.Header>Title</Panel.Header>
+        <Panel.Section>Section Content</Panel.Section>
+      </Panel>
     `}
   />
   <LiveCode.Content
-    title="With a Footer"
+    title="With multiple sections"
     code={`
-      <>
-        <Panel title="Title" accent sectioned>
-          This is a panel
-        </Panel>
-        <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
-        <Panel title="Title" accent sectioned>
-          This is a panel
-        </Panel>
-        <Panel.Footer mb={400} left="Left aligned" right="Right aligned"></Panel.Footer>
-      </>
+      <Panel>
+        <Panel.Header>Title</Panel.Header>
+        <Panel.Section>Section Content</Panel.Section>
+        <Panel.Section>Section Content</Panel.Section>
+        <Panel.Section>Section Content</Panel.Section>
+      </Panel>
     `}
   />
   <LiveCode.Content
-    title="With Actions"
+    title="With actions"
     code={`
-      <Panel actions={${actions}} accent="red" title="Panel with Actions">
-        <Panel.Section actions={${sectionActions}}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
-            reprehenderit, odio temporibus culpa beatae iure!
-          </p>
+      <Panel>
+        <Panel.Header>
+          Title
+          <Panel.Action>Action</Panel.Action>
+          <Panel.Action>Action</Panel.Action>
+        </Panel.Header>
+        <Panel.Section>
+          Section Content
+        </Panel.Section>
+        <Panel.Section>
+          Section Content
+          <Panel.Action>Action</Panel.Action>
+          <Panel.Action>Action</Panel.Action>
         </Panel.Section>
       </Panel>
     `}
   />
   <LiveCode.Content
-    title="With a Title"
+    title="With a border underneath the header"
     code={`
-      <Panel className="my-class" title="Title" sectioned>
-      This is a panel with a title
-    </Panel>
-    `}
-  />
-  <LiveCode.Content
-    title="With a Title"
-    code={`
-      <Panel className="my-class" title="Title" sectioned>
-      This is a panel with a title
-    </Panel>
-    `}
-  />
-  <LiveCode.Content
-    title="System Props"
-    code={`
-      <>
-        <Panel mb="400">
-          <p>This panel should have no padding</p>
-        </Panel>
-        <Panel sectioned mb="400">
-          <p>This panel should default to 400 padding</p>
-        </Panel>
-        <Panel mb="400">
-          <Panel.Section>
-            <p>These sections should default to 400 padding</p>
-          </Panel.Section>
-          <Panel.Section>
-            <p>These sections should default to 400 padding</p>
-          </Panel.Section>
-        </Panel>
-        <Panel padding="200" mb="400">
-          <Panel.Section>
-            <p>This section should inherit 200 panel padding</p>
-          </Panel.Section>
-          <Panel.Section p="800">
-            <p>This section should have 800 padding</p>
-          </Panel.Section>
-          <Panel.Section py="700">
-            <p>This section should inherit 200 px but overried 700 py</p>
-          </Panel.Section>
-        </Panel>
-      </>
-    `}
-  />
-  <LiveCode.Content
-    title="Responsive System Props"
-    code={`
-      <>
-        <Panel sectioned my={['200', '300', '600', '800']} mb="400">
-          <p>Responsive MY</p>
-        </Panel>
-        <Panel p={['600', '200', '500', '800']}>
-          <Panel.Section>
-            <p>Responsive padding inherited</p>
-          </Panel.Section>
-          <Panel.Section p={['600', '600', '800', '200']}>
-            <p>Responsive padding on section</p>
-          </Panel.Section>
-        </Panel>
-      </>
+      <Panel>
+        <Panel.Header borderBottom>
+          Title
+          <Panel.Action>Action</Panel.Action>
+          <Panel.Action>Action</Panel.Action>
+        </Panel.Header>
+        <Panel.Section>
+          Section Content
+          <Panel.Action>Action</Panel.Action>
+          <Panel.Action>Action</Panel.Action>
+        </Panel.Section>
+      </Panel>
     `}
   />
 </LiveCode>
@@ -163,35 +86,42 @@ A panel is a visual grouping of similar content or tasks in order create readabl
 
 ### Panel System Props
 
-<SystemPropsTags propsList={['margin', 'padding']} />
-
----
+<SystemPropsTags
+  propsList={['margin', 'padding', 'border', 'height', 'width']}
+/>
 
 ### Panel API
 
-<Prop name="title" type="node">
-  The title of the panel
-</Prop>
-
-<Prop name="className" type="string">
-  Optional class name for the panel
-</Prop>
-
-<Prop name="accent" type="bool | string">
-  orange, blue, red, yellow, green, purple, navy, gray <br />
+<Prop
+  name="accent"
+  type="bool | string"
+  values={['"orange"', '"blue"', '"red"', '"yellow"', '"green"', '"gray"']}
+>
   Renders an accent border on top of the panel
-</Prop>
-
-<Prop name="sectioned" type="bool">
-  Whether or not the panel will have sections
-</Prop>
-
-<Prop name="actions" type="array">
-  Lost of actions for the panel. Accepts objects with button props
 </Prop>
 
 <Prop name="children" type="node">
   The panel content
+</Prop>
+
+<Prop name="className" type="string">
+  Optional class name for the panel wrapper
+</Prop>
+
+---
+
+### Panel.Header System Props
+
+None
+
+### Panel.Header API
+
+<Prop name="children" type="node">
+  Panel header content
+</Prop>
+
+<Prop name="className" type="string">
+  Optional class name for the panel header wrapper
 </Prop>
 
 ---
@@ -200,31 +130,18 @@ A panel is a visual grouping of similar content or tasks in order create readabl
 
 <SystemPropsTags propsList={['padding']} />
 
----
-
 ### Panel.Section API
 
-<Prop name="actions" type="array">
-  Lost of actions for the panel section. Accepts objects with button props
-</Prop>
-
 <Prop name="children" type="node">
-  The section content
+  Panel section content
 </Prop>
 
-<Prop name="rootRef" type="function">
-  Maps to Downshift's refKey set in getRootProps. refKey must be set to
-  "rootRef"
+<Prop name="className" type="string">
+  Optional class name for the panel section wrapper
 </Prop>
 
 ---
 
-### Panel.Footer API
+### Panel.Action System Props and API
 
-<Prop name="left" type="node">
-  The content for the left side of the footer
-</Prop>
-
-<Prop name="right" type="node">
-  The content for the right side of the footer
-</Prop>
+This component is a light wrapper around the Button component that sets size and color. See <Link to='/components/button'>the Button component page</Link> for API documentation and usage.

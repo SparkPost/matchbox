@@ -44,7 +44,8 @@ function SystemPropsTags(props) {
         as={Link}
         display="inline-block"
         fontSize="200"
-        mt="400"
+        mt="200"
+        mb="400"
         to="/components/system-props"
       >
         Learn More

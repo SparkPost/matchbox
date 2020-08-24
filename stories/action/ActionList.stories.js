@@ -167,12 +167,6 @@ export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() 
   <Box maxWidth="20rem">
     <Panel>
       <ActionList>
-        {/* actions={[
-          { content: 'Checkbox', selected: true, is: 'checkbox' },
-          { content: 'Checkbox', is: 'checkbox' },
-          { content: 'Button', selected: false, is: 'button' },
-          { content: 'Link', is: 'link', to: '#', external: true },
-        ]} */}
         <ActionList.Action to="#" selected={true} is="checkbox">
           Checkbox
         </ActionList.Action>

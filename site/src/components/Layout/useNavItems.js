@@ -18,6 +18,7 @@ function useNavItems(props) {
           hiddenFromNav
           childRoutes {
             label
+            tag
             path
             section
           }
