@@ -61,76 +61,74 @@ import { LiveCode } from '../../components/LiveCode';
     `}
   />
   <LiveCode.Content
-    title="Flat"
+    title="Text Variant"
     code={`
       <Inline>
-        <Button flat>
-          Flat
+        <Button variant="text">
+          Text
         </Button>
-        <Button flat color="blue">
-          Flat
+        <Button variant="text" color="blue">
+          Text
         </Button>
-        <Button flat color="red">
-          Flat
+        <Button variant="text" color="red">
+          Text
         </Button>
       </Inline>
     `}
   />
   <LiveCode.Content
-    title="Outline Border"
+    title="Muted Outline Variant"
     code={`
       <Inline>
-        <Button outlineBorder>
-          Outline Border
+        <Button variant="mutedOutline">
+          Muted Outline
         </Button>
-        <Button outlineBorder color="blue">
-          Outline Border
+        <Button variant="mutedOutline" color="blue">
+          Muted Outline
         </Button>
-        <Button outlineBorder color="red">
-          Outline Border
+        <Button variant="mutedOutline" color="red">
+          Muted Outline
         </Button>
       </Inline>
     `}
   />
   <LiveCode.Content
-    title="Outline"
+    title="Outline Variant"
     code={`
       <Inline>
-        <Button outline>
+        <Button variant="outline">
           Outline
         </Button>
-        <Button outline color="blue">
+        <Button variant="outline" color="blue">
           Outline
         </Button>
-        <Button outline color="red">
+        <Button variant="outline" color="red">
           Outline
         </Button>
       </Inline>
+    `}
+  />
+  <LiveCode.Content
+    title="With an Icon"
+    code={`
+        <Inline>
+          <Button variant="mutedOutline">
+            <Button.Icon as={Assessment} mr="100"></Button.Icon>
+            Button
+          </Button>
+          <Button variant="outline">
+            Button<Button.Icon as={AddCircleOutline} size={20} ml="100"></Button.Icon>
+          </Button>
+          <Button color="blue">
+            Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
+          </Button>
+        </Inline>
     `}
   />
   <LiveCode.Content
     title="Full Width"
     code={`
       <Button fullWidth color="blue">Full Width</Button>
-    `}
-  />
-  <LiveCode.Content
-    title="Destructive"
-    code={`
-      <Inline>
-        <Button destructive size="small">
-          Delete Domain
-        </Button>
-        <Button destructive size="default">
-          Delete Domain
-        </Button>
-        <Button destructive size="large">
-          Delete Domain
-        </Button>
-        <Button destructive disabled>
-          Delete Domain
-        </Button>
-      </Inline>
     `}
   />
   <LiveCode.Content
@@ -164,46 +162,13 @@ import { LiveCode } from '../../components/LiveCode';
       </Button.Group>
     `}
   />
-  <LiveCode.Content
-    title="System Props"
-    code={`
-      <Inline>
-        <Button
-          color="blue"
-          mb="200"
-          mr="200"
-          paddingLeft={800}
-          size="default"
-        >
-          Submit
-        </Button>
-        <Button
-          mb="200"
-          mr="200"
-          outlineBorder
-          size="default"
-        >
-          Cancel
-        </Button>
-        <Button
-          flat
-          mb="200"
-          size="default"
-        >
-          Reset
-        </Button>
-      </Inline>
-    `}
-  />
 </LiveCode>
 
 ---
 
-### System Props
+### Button System Props
 
-<SystemPropsTags propsList={['margin', 'width']} />
-
----
+<SystemPropsTags propsList={['margin', 'padding', 'width']} />
 
 ### Button API
 
@@ -211,27 +176,40 @@ import { LiveCode } from '../../components/LiveCode';
   The color of the button
 </Prop>
 
+<Prop name="children" type="react node">
+  Children of the button
+</Prop>
+
+<Prop name="component" type="elementType">
+  Component to render the button as. (i.e. 'span')
+</Prop>
+
 <Prop name="disabled" type="bool">
   Whether the button is disabled or not
 </Prop>
 
-<Prop name="destructive" type="bool">
-  Whether the button is used for destructive action or not (i.e. delete) - Will
-  be the destructive red color
+<Prop name="destructive" type="bool" deprecated>
+  Use the color prop instead
 </Prop>
 
-<Prop name="flat" type="bool">
-  The button will have a transparent background and the text color will
-  correspond with the color prop
+<Prop name="external" type="bool">
+  Whether the button takes you to an external link or not
 </Prop>
 
-<Prop name="outline" type="bool">
-  The button will have a gray border and text corresponding with the color prop
+<Prop name="flat" type="bool" deprecated>
+  Use the variant prop instead
 </Prop>
 
-<Prop name="outlineBorder" type="bool">
-  The button will have a border matching the color of text corresponding with
-  the color prop
+<Prop name="fullWidth" type="bool">
+  Whether the button is the full width of its parent
+</Prop>
+
+<Prop name="outline" type="bool" deprecated>
+  Use the variant prop instead
+</Prop>
+
+<Prop name="outlineBorder" type="bool" deprecated>
+  Use the variant prop instead
 </Prop>
 
 <Prop
@@ -241,10 +219,6 @@ import { LiveCode } from '../../components/LiveCode';
   values={['small', 'large', 'default']}
 >
   The size of the button
-</Prop>
-
-<Prop name="fullWidth" type="bool">
-  Whether the button is the full width of its parent
 </Prop>
 
 <Prop name="submit" type="bool">
@@ -259,14 +233,31 @@ import { LiveCode } from '../../components/LiveCode';
   The title of the button
 </Prop>
 
-<Prop name="external" type="bool">
-  Whether the button takes you to an external link or not
+<Prop
+  name="variant"
+  type="string"
+  defaultValue='"filled"'
+  values={['"filled"', '"outline"', '"mutedOutline"', '"text"']}
+>
+  Button style variant
 </Prop>
 
-<Prop name="component" type="element type">
-  Component to render the button as. (i.e. 'span')
+---
+
+### Button.Icon System Props
+
+<SystemPropsTags propsList={['margin', 'padding', 'width']} />
+
+### Button.Icon API
+
+<Prop name="as" type="elementType">
+  Pass an icon through this prop to render it
 </Prop>
 
-<Prop name="children" type="react node">
-  Children of the button
+<Prop name="size" type="number | string" defaultValue="18">
+  Size of the icon
+</Prop>
+
+<Prop name="label" type="string">
+  Adds an aria-label attribute for the icon
 </Prop>
