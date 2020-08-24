@@ -10,12 +10,15 @@ export const HeavyWeight = withInfo()(() => <RadioCard id="id1" label="Check Me"
 export const LightWeight = withInfo()(() => <RadioCard id="id1" label="Check Me" weight="light" />);
 
 export const DisabledRadio = withInfo()(() => (
-  <RadioCard.Group label="Radio Card Group" disabled>
+  <RadioCard.Group label="Radio Card Group">
     <RadioCard id="id1" label="Check Me 1" disabled>
-      I am help text
+      This one is disabled
     </RadioCard>
-    <RadioCard id="id1" label="Check Me 2" disabled defaultChecked>
-      I am help text
+    <RadioCard id="id2" label="Check Me 2" disabled defaultChecked>
+      This one is disabled
+    </RadioCard>
+    <RadioCard id="id3" label="Check Me 3">
+      This one is not disabled
     </RadioCard>
   </RadioCard.Group>
 ));
