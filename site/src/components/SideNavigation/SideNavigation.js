@@ -95,6 +95,7 @@ function SideNavigation(props) {
     <Box
       height="100vh"
       pt="400"
+      pr="200"
       position="sticky"
       top="0"
       overflow="scroll"
