@@ -67,11 +67,13 @@
       {
         "path": "/components/actionlist",
         "label": "ActionList",
+        "tag": "new",
         "section": "Action"
       },
       {
         "path": "/components/button",
         "label": "Button",
+        "tag": "new",
         "section": "Action"
       },
       {
