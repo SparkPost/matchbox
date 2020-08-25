@@ -30,7 +30,6 @@ function useBreakpoints() {
       };
     }, {});
   }, [tokens, windowWidth]);
-  console.log(mediaQueries);
   return mediaQueries;
 }
 
