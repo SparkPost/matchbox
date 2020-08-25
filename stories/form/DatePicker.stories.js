@@ -31,14 +31,14 @@ export const BasicDatepicker = withInfo({
   const breakpoints = useBreakpoints(500);
 
   const months = React.useMemo(() => {
-    return !breakpoints.md ? 1 : 2;
+    return breakpoints.md ? 2 : 1;
   }, [breakpoints]);
 
   const to = new Date();
   const from = new Date(new Date().setDate(new Date().getDate() - 15));
-  const initial = !breakpoints.md
-    ? new Date()
-    : new Date(new Date().setDate(new Date().getDate() - 30));
+  const initial = breakpoints.md
+    ? new Date(new Date().setDate(new Date().getDate() - 30))
+    : new Date();
 
   const selectedDays = {
     to,
@@ -69,14 +69,14 @@ export const BasicDatepicker = withInfo({
 `,
 })(() => {
   const breakpoints = useBreakpoints(500);
-
+  console.log(breakpoints);
   const months = React.useMemo(() => {
-    return !breakpoints.md ? 1 : 2;
+    return breakpoints.md ? 2 : 1;
   }, [breakpoints]);
 
-  const initial = !breakpoints.md
-    ? new Date()
-    : new Date(new Date().setDate(new Date().getDate() - 30));
+  const initial = breakpoints.md
+    ? new Date(new Date().setDate(new Date().getDate() - 30))
+    : new Date();
 
   return (
     <DatePicker
