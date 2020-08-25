@@ -45,6 +45,7 @@ DatePicker.propTypes = {
 DatePicker.defaultProps = {
   fixedWeeks: false,
   enableOutsideDaysClick: false,
+  numberOfMonths: 2,
   showOutsideDays: false,
 };
 
