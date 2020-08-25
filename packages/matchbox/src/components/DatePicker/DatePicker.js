@@ -6,7 +6,6 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
 import { omit } from '../../helpers/systemProps';
-import useBreakpoints from '../../hooks/useBreakpoints';
 import Navbar from './Navbar';
 import Caption from './Caption';
 import Weekday from './Weekday';
@@ -21,26 +20,15 @@ export const Wrapper = styled.div`
 const DatePicker = React.forwardRef(function DatePicker(props, ref) {
   const systemProps = pick(props);
   const componentProps = omit(props, margin.propNames);
-  const breakpoints = useBreakpoints();
-
-  const monthNum = React.useMemo(() => {
-    return !breakpoints.md ? 1 : 2;
-  }, [breakpoints]);
 
   return (
-    <Wrapper
-      ref={ref}
-      {...systemProps}
-      data-id="datepicker"
-      numberOfMonths={props.numberOfMonths || monthNum}
-    >
+    <Wrapper ref={ref} {...systemProps} data-id="datepicker" numberOfMonths={props.numberOfMonths}>
       <DayPicker
         captionElement={Caption}
         weekdayElement={Weekday}
         renderDay={renderDay}
         navbarElement={Navbar}
         {...componentProps}
-        numberOfMonths={props.numberOfMonths || monthNum}
       />
     </Wrapper>
   );
