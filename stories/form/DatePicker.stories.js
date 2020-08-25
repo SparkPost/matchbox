@@ -27,7 +27,6 @@ const modifiers = {
 export const BasicDatepicker = withInfo({ propTables: [DatePicker] })(() => (
   <DatePicker
     modifiers={modifiers}
-    numberOfMonths={2}
     initialMonth={initial}
     disabledDays={{ after: new Date() }}
     toMonth={new Date()}
