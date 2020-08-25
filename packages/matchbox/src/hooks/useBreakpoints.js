@@ -6,7 +6,7 @@ import { useWindowSize } from '../helpers/geometry';
  * Hook that returns token breakpoint status based on window width
  *
  * @example
- * const breakpoints = useBreakpoints();
+ * const breakpoints = useBreakpoints(100);
  *
  * breakpoints = {
  *    xs: true,
@@ -16,8 +16,8 @@ import { useWindowSize } from '../helpers/geometry';
  *    xl: false,
  * }
  */
-function useBreakpoints() {
-  const { width: windowWidth } = useWindowSize();
+function useBreakpoints(wait = 100) {
+  const { width: windowWidth } = useWindowSize(wait);
 
   const mediaQueries = React.useMemo(() => {
     const mediaQueriesKeys = Object.keys(tokens).filter(key => key.includes('mediaQuery_'));
