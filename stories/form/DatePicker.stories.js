@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { DatePicker, useBreakpoints } from '@sparkpost/matchbox';
+import { DatePicker, useBreakpoint } from '@sparkpost/matchbox';
 import { DateUtils } from 'react-day-picker';
 
 export default {
@@ -28,17 +28,15 @@ export const BasicDatepicker = withInfo({
   source: false,
   text: `
   ~~~jsx
-  const breakpoints = useBreakpoints(500);
+  const breakpoint = useBreakpoint();
 
   const months = React.useMemo(() => {
-    return breakpoints.md ? 2 : 1;
-  }, [breakpoints]);
+    return breakpoint === 'md' ? 2 : 1;
+  }, [breakpoint]);
 
   const to = new Date();
   const from = new Date(new Date().setDate(new Date().getDate() - 15));
-  const initial = breakpoints.md
-    ? new Date(new Date().setDate(new Date().getDate() - 30))
-    : new Date();
+  const initial = breakpoint === 'md' ? new Date(new Date().setDate(new Date().getDate() - 30)) : new Date();
 
   const selectedDays = {
     to,
@@ -68,15 +66,14 @@ export const BasicDatepicker = withInfo({
   ~~~
 `,
 })(() => {
-  const breakpoints = useBreakpoints(500);
-  console.log(breakpoints);
-  const months = React.useMemo(() => {
-    return breakpoints.md ? 2 : 1;
-  }, [breakpoints]);
+  const breakpoint = useBreakpoint();
 
-  const initial = breakpoints.md
-    ? new Date(new Date().setDate(new Date().getDate() - 30))
-    : new Date();
+  const months = React.useMemo(() => {
+    return breakpoint === 'md' ? 2 : 1;
+  }, [breakpoint]);
+
+  const initial =
+    breakpoint === 'md' ? new Date(new Date().setDate(new Date().getDate() - 30)) : new Date();
 
   return (
     <DatePicker
