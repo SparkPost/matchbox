@@ -24,8 +24,8 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     ...rest
   } = props;
 
-  let list = actions.length ? groupByValues(actions, groupByKey) : [];
-  if (sections.length) {
+  let list = actions && actions.length ? groupByValues(actions, groupByKey) : [];
+  if (sections && sections.length) {
     list = list.concat(sections);
   }
 
