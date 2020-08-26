@@ -1,3 +1,31 @@
+## 4.1.1 (2020-08-26)
+
+#### Features
+
+- `matchbox-icons`
+  - [#587](https://github.com/SparkPost/matchbox/pull/587) UX-298 Add rocket icon
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#578](https://github.com/SparkPost/matchbox/pull/578) UX-286 Add indeterminate checkbox support
+    ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#610](https://github.com/SparkPost/matchbox/pull/610) UX-324 Page and Actionlist actions render
+    with null actions ([@jonambas](https://github.com/jonambas))
+  - [#600](https://github.com/SparkPost/matchbox/pull/600) UX-318 Remove RadioCard.Group disabled
+    prop ([@jonambas](https://github.com/jonambas))
+  - [#592](https://github.com/SparkPost/matchbox/pull/592) UX-295 Zebra stripes begin on odd rows
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.1.0 (2020-08-14)
 
 #### Features
