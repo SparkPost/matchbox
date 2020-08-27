@@ -28,6 +28,7 @@
     "build-storybook": "build-storybook",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
     "lintfix": "npm run lint -- --fix",
+    "lint:css": "stylelint './packages/**/*.js'",
     "precommit": "lint-staged",
     "coverage:all": "npm run coverage:copy && npm run coverage:merge",
     "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
@@ -119,6 +120,10 @@
     "resize-observer-polyfill": "^1.5.1",
     "start-server-and-test": "^1.10.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "theo": "^8.1.5",
     "webpack": "^4.41.2"
   },
