@@ -176,6 +176,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/radiocard",
+        "label": "RadioCard",
+        "tag": "new",
+        "section": "Form"
+      },
+      {
         "path": "/components/select",
         "label": "Select",
         "section": "Form"

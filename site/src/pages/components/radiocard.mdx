@@ -1,0 +1,156 @@
+---
+title: RadioCard
+category: Component
+---
+
+import { LiveCode } from '../../components/LiveCode';
+
+# RadioCard
+
+Use this component to group options that are mutually exclusive.
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Horizontal Group"
+    code={`
+      <RadioCard.Group orientation="horizontal">
+        <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
+            I am help text
+          </RadioCard>
+      <RadioCard id="id2" label="Check Me 2" name="group">
+            I am help text
+          </RadioCard>
+      <RadioCard id="id3" label="Check Me 3" name="group">
+            I am help text
+          </RadioCard>
+      </RadioCard.Group>`}
+  />
+  <LiveCode.Content
+    title="Vertical Group"
+    code={`
+      <RadioCard.Group orientation="vertical">
+        <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
+            I am help text
+          </RadioCard>
+      <RadioCard id="id2" label="Check Me 2" name="group">
+            I am help text
+          </RadioCard>
+      <RadioCard id="id3" label="Check Me 3" name="group">
+            I am help text
+          </RadioCard>
+      </RadioCard.Group>`}
+  />
+  <LiveCode.Content
+    title="Collapsing Horizontal Group"
+    code={`
+      <RadioCard.Group
+        collapseBelow="md"
+        label="Radio Card Group"
+        orientation="horizontal"
+        weight="light"
+      >
+        <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
+          I am help text
+        </RadioCard>
+        <RadioCard id="id2" label="Check Me 2" name="group">
+          I am help text
+        </RadioCard>
+      </RadioCard.Group>`}
+  />
+</LiveCode>
+
+---
+
+### RadioCard.Group System Props
+
+<SystemPropsTags propsList={['margin']} />
+
+### RadioCard.Group API
+
+<Prop
+  name="collpaseBelow"
+  type="string"
+  values={['"xs"', '"sm"', '"md"', '"lg"', '"xl"']}
+>
+  Cards vertically stack below this breakpoint
+</Prop>
+<Prop name="children" type="node">
+  The content of the Group
+</Prop>
+<Prop name="label" type="string" required>
+  Label of the group
+</Prop>
+<Prop name="labelHidden" type="bool">
+  Hides the label visually
+</Prop>
+<Prop name="optional" type="bool">
+  Adds an optional indicator to the label
+</Prop>
+<Prop
+  name="orientation"
+  type="string"
+  values={['"vertical"', '"horizontal"']}
+  defaultValue='"vertical"'
+>
+  Orientation of the child cards
+</Prop>
+<Prop
+  name="weight"
+  type="string"
+  values={['"light"', '"heavy"']}
+  defaultValue='"light"'
+>
+  Visual weight of the child cards
+</Prop>
+
+---
+
+### RadioCard System Props
+
+None
+
+### RadioCard API
+
+<Prop name="checked" type="bool">
+  Whether the input is selected or not
+</Prop>
+
+<Prop name="defaultChecked" type="bool">
+  Whether the input is selected or not
+</Prop>
+
+<Prop name="disabled" type="bool">
+  Whether the input is disabled or not
+</Prop>
+
+<Prop name="id" type="string" required>
+  The ID for the form input
+</Prop>
+
+<Prop name="label" type="node">
+  Label for the form input
+</Prop>
+
+<Prop name="name" type="string">
+  The name of the form input
+</Prop>
+
+<Prop name="onChange" type="function" defaultValue="(e) => void">
+  Callback when the input state changes
+</Prop>
+
+<Prop name="onFocus" type="function" defaultValue="(e) => void">
+  Callback when the input becomes focused
+</Prop>
+
+<Prop name="onBlur" type="function" defaultValue="(e) => void">
+  Callback when the input loses focus
+</Prop>
+
+<Prop name="value" type="string">
+  Value for the form input
+</Prop>
