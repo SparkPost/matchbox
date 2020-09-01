@@ -6,6 +6,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import { pick } from '@styled-system/props';
+import { useBreakpoint } from '@sparkpost/matchbox';
 
 import { Box } from '../Box';
 import { Button, buttonsFrom } from '../Button';
@@ -25,6 +26,8 @@ function Pagination(props) {
   const [hasPrevious, setHasPrevious] = React.useState(false);
   const [hasNext, setHasNext] = React.useState(false);
 
+  const breakpoint = useBreakpoint();
+
   const {
     currentPage,
     pages,
@@ -37,6 +40,10 @@ function Pagination(props) {
   } = props;
 
   const systemProps = pick(rest);
+
+  const calculatedPageRange = React.useMemo(() => {
+    return ['default', 'xs', 'sm'].includes(breakpoint) ? 3 : pageRange;
+  }, [breakpoint]);
 
   function handlePageChange(index) {
     setIndex(index);
@@ -56,14 +63,14 @@ function Pagination(props) {
 
   function _getStart() {
     let start = 0;
-    const half = Math.floor(pageRange / 2);
+    const half = Math.floor(calculatedPageRange / 2);
 
     if (index > half) {
       start = index - half;
     }
 
     if (index + half + 1 > pages) {
-      start = pages - pageRange;
+      start = pages - calculatedPageRange;
     }
 
     return start;
@@ -71,7 +78,7 @@ function Pagination(props) {
 
   React.useEffect(() => {
     handlePageChange(currentPage - 1);
-  }, [pages, pageRange, currentPage]);
+  }, [pages, calculatedPageRange, currentPage]);
 
   const start = _getStart();
 
@@ -94,12 +101,12 @@ function Pagination(props) {
       return buttonsFrom(buttons);
     }
 
-    if (pages <= pageRange) {
+    if (pages <= calculatedPageRange) {
       return _createButtons(0, pages);
     } else {
-      return _createButtons(start, start + pageRange);
+      return _createButtons(start, start + calculatedPageRange);
     }
-  }, [index, pages, pageRange]);
+  }, [index, pages, calculatedPageRange]);
 
   const firstButton =
     !marginsHidden && start > 1 ? (
@@ -119,7 +126,7 @@ function Pagination(props) {
     ) : null;
 
   const lastButton =
-    !marginsHidden && start + pageRange < pages ? (
+    !marginsHidden && start + calculatedPageRange < pages ? (
       <span>
         <Box display="inline" pl={200} pr={200}>
           <StyledMoreHoriz size={24} />
