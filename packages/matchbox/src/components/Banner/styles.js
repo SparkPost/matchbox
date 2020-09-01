@@ -30,7 +30,6 @@ export function container(props) {
 
 // Overwrites unstyled link colors within Banner content to be color-contrast accessible
 export function childLinks(props) {
-  console.log(props);
   return `
   p, ul, ol {
     font-size: ${props.size === 'small' ? props.theme.fontSizes['200'] : null};
