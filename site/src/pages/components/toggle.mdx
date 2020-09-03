@@ -1,5 +1,9 @@
+---
+title: Toggle
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
-import { Box, Toggle } from '@sparkpost/matchbox';
 
 # Toggle
 
@@ -8,8 +12,8 @@ import { Box, Toggle } from '@sparkpost/matchbox';
 ### Usage
 
 <LiveCode>
-  <LiveCode.Content 
-    title="Basic Toggle" 
+  <LiveCode.Content
+    title="Basic Toggle"
     code={`
       <Toggle
         data-id="toggle-input"
@@ -17,8 +21,8 @@ import { Box, Toggle } from '@sparkpost/matchbox';
       />
     `}
   />
-  <LiveCode.Content 
-    title="Disabled Toggle" 
+  <LiveCode.Content
+    title="Disabled Toggle"
     code={`
       <Toggle
         data-id="toggle-input"
@@ -27,8 +31,8 @@ import { Box, Toggle } from '@sparkpost/matchbox';
       />
     `}
   />
-  <LiveCode.Content 
-    title="Required Toggle" 
+  <LiveCode.Content
+    title="Required Toggle"
     code={`
       <Toggle
         data-id="toggle-input"
@@ -37,8 +41,8 @@ import { Box, Toggle } from '@sparkpost/matchbox';
       />
     `}
   />
-  <LiveCode.Content 
-    title="System Props" 
+  <LiveCode.Content
+    title="System Props"
     code={`
       <Box>
         <Toggle
@@ -69,67 +73,34 @@ import { Box, Toggle } from '@sparkpost/matchbox';
 ---
 
 ### Toggle API
-<Prop
-  name="checked"
-  type="bool | string"
-> 
+
+<Prop name="checked" type="bool | string">
   Whether the input is checked or not
 </Prop>
-<Prop
-  name="defaultChecked"
-  type="bool | string"
-> 
+<Prop name="defaultChecked" type="bool | string">
   Whether the input is checked by default or not
 </Prop>
-<Prop
-  name="disabled"
-  type="bool"
-> 
+<Prop name="disabled" type="bool">
   Whether the input is disabled or not
 </Prop>
-<Prop
-  name="id"
-  type="string"
-  required
-> 
+<Prop name="id" type="string" required>
   The ID for the form input
 </Prop>
-<Prop
-  name="label"
-  type="string"
-> 
+<Prop name="label" type="string">
   Label for the toggle
 </Prop>
-<Prop
-  name="onChange"
-  type="function"
-  defaultValue="(event) => void"
-> 
+<Prop name="onChange" type="function" defaultValue="(event) => void">
   Callback when input checked state changes
 </Prop>
-<Prop
-  name="onFocus"
-  type="function"
-  defaultValue="(event) => void"
-> 
+<Prop name="onFocus" type="function" defaultValue="(event) => void">
   Callback when input becomes focused
 </Prop>
-<Prop
-  name="onBlur"
-  type="function"
-  defaultValue="(event) => void"
-> 
+<Prop name="onBlur" type="function" defaultValue="(event) => void">
   Callback when input loses focus
 </Prop>
-<Prop
-  name="required"
-  type="bool"
-> 
+<Prop name="required" type="bool">
   Whether the input is required or not
 </Prop>
-<Prop
-  name="value"
-  type="bool | string"
-> 
+<Prop name="value" type="bool | string">
   Value for the form input
 </Prop>

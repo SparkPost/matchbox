@@ -4,13 +4,13 @@ import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Helmet from 'react-helmet';
 import { Box, Text } from '@sparkpost/matchbox';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout/UpdatesLayout';
 
 function Template({ data }) {
   const { body, frontmatter = {} } = data.mdx;
 
   return (
-    <Layout maxWidth="1200">
+    <Layout>
       <Helmet>
         <title>{frontmatter.title}</title>
       </Helmet>

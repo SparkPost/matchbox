@@ -1,3 +1,8 @@
+---
+title: Drawer
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # Drawer
@@ -62,9 +67,12 @@ None
 <Prop name="portalId" type="string">
   Controls the target container ID for the rendering React portal
 </Prop>
-<Prop name="position" type="string" defaultValue="right">
-  <inlineCode>"right"</inlineCode> or <inlineCode>"left"</inlineCode>
-  <br />
+<Prop
+  name="position"
+  type="string"
+  defaultValue="right"
+  values={['"right"', '"left"']}
+>
   Position of the drawer
 </Prop>
 <Prop name="portalId" type="string">

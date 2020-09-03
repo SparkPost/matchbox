@@ -1,3 +1,8 @@
+---
+title: Snackbar
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # Snackbar
@@ -59,12 +64,12 @@ This component is used for real-time confirmation or feedback that a user-initia
 
 ### Snackbar API
 
-<Prop name="status" type="string">
-  <div>
-    One of <inlineCode>default</inlineCode> <inlineCode>success</inlineCode>{' '}
-    <inlineCode>error</inlineCode> <inlineCode>warning</inlineCode>
-  </div>
-  <div>The status of the banner, determines the color scheme</div>
+<Prop
+  name="status"
+  type="string"
+  values={['default', 'success', 'error', 'warning']}
+>
+  The status of the banner, determines the color scheme
 </Prop>
 <Prop name="maxWidth" type="number">
   The maximum width of the snackbar

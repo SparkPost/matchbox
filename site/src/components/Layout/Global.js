@@ -17,28 +17,27 @@ export default `
   h6 {
     font-weight: 600;
     margin-top: 0;
-    margin-bottom: ${tokens.spacing_400};
-    color: ${tokens.color_gray_900};
   }
 
-  h1,
-  h2 {
+  
+  h1.heading-link,
+  h2.heading-link {
     font-size: ${tokens.fontSize_800};
     line-height: ${tokens.lineHeight_800};
   }
 
-  h3,
-  h4 {
+  h3.heading-link,
+  h4.heading-link {
     font-size: ${tokens.fontSize_600};
     line-height: ${tokens.lineHeight_600};
   }
 
-  h5 {
+  h5.heading-link {
     font-size: ${tokens.fontSize_500};
     line-height: ${tokens.lineHeight_500};
   }
 
-  h6 {
+  h6.heading-link {
     font-size: ${tokens.fontSize_400};
     line-height: ${tokens.lineHeight_400};
   }
@@ -92,10 +91,12 @@ export default `
       color: ${tokens.color_blue_700};
       font-weight: 400;
       text-decoration: underline;
+      text-decoration-color: ${tokens.color_blue_400};
 
       &:hover {
         color: ${tokens.color_blue_700};
         text-decoration: underline;
+        text-decoration-color: ${tokens.color_blue_600};
       }
     }
 

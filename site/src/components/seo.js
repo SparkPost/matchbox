@@ -9,6 +9,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import Calibre from '../../static/fonts/calibre/Calibre.woff2';
+import CalibreMedium from '../../static/fonts/calibre/Calibre-Medium.woff2';
+import CalibreSemiBold from '../../static/fonts/calibre/Calibre-SemiBold.woff2';
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -19,6 +22,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            keywords
           }
         }
       }
@@ -38,6 +42,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: 'description',
           content: metaDescription
+        },
+        {
+          name: 'keywords',
+          content: site.siteMetadata.keywords
         },
         {
           property: 'og:title',
@@ -68,7 +76,29 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription
         }
       ].concat(meta)}
-    />
+    >
+      <link
+        rel="preload"
+        as="font"
+        href={Calibre}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        as="font"
+        href={CalibreMedium}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        as="font"
+        href={CalibreSemiBold}
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    </Helmet>
   );
 }
 

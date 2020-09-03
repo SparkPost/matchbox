@@ -1,3 +1,8 @@
+---
+title: Modal
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # Modal
@@ -10,52 +15,100 @@ import { LiveCode } from '../../components/LiveCode';
   <LiveCode.Content
     title="Example Modal"
     code={`
-      function Component() {
-        const [open, setOpen] = React.useState(false);
-        return (
-          <>
-            <Modal open={open} onClose={() => setOpen(false)} showCloseButton>
-              <Box maxWidth="1200">
-                <Panel sectioned title="Modal Title">
-                  <p>This is modal content lorem ipsum dolor sit amet</p>
-                  <Button onClick={() => setOpen(false)}>Close Modal</Button>
-                </Panel>
-              </Box>
-            </Modal>
-            <Button onClick={() => setOpen(true)}>Open Modal</Button>
-          </>
-        );
-      }
-    `}
-  />
+    function Component() {
+      const { getActivatorProps, getModalProps } = useModal();
+      return (
+        <>
+          <Button {...getActivatorProps()}>
+            Open Modal
+          </Button>
+          <Modal {...getModalProps()}>
+            <Modal.Header showCloseButton>Modal Title</Modal.Header>
+            <Modal.Content>Modal Content</Modal.Content>
+            <Modal.Footer>
+              <Button>Primary Button</Button>
+              <Button>Secondary Button</Button>
+              <Button>Tertiary Button</Button>
+            </Modal.Footer>
+          </Modal>
+        </>
+      );}`}
+/>
+
 </LiveCode>
 
 ---
 
-### System Props
+### Modal System Props
 
-<SystemPropsTags propsList={['padding', 'maxWidth']} />
-
----
+<SystemPropsTags propsList={['maxWidth']} />
 
 ### Modal API
 
-<Prop name="open" type="bool">
-  Controlled open state of the modal
+<Prop name="open" type="bool" required>
+  Controlled open state of the modal. Provided by the useModal hook.
 </Prop>
-<Prop name="onClose" type="function" defaultValue="(e) => void">
-  Optional callback that is called on key down 'Escape' and on click outside
-  modal content
+<Prop name="onClose" type="function">
+  Callback that is called on key down 'Escape' and on click outside modal
+  content. Provided by the useModal hook.
 </Prop>
 <Prop name="children" type="node">
-  The content of the modal
+  The content of the modal overlay
 </Prop>
-<Prop name="showCloseButton" type="bool">
-  Whether or not to show a close button
+<Prop name="closeOnEscape" type="bool" defaultProps="true">
+  Whether or not the modal should close when the escape key is pressed
 </Prop>
-<Prop name="maxWidth" type="number" defaultValue="800px">
-  The maximum width of the modal
+<Prop name="closeOnOutsideClick" type="bool" defaultProps="true">
+  Whether or not the modal should close when clicking outside the modal
+</Prop>
+<Prop name="maxWidth" type="number" defaultValue="1200">
+  The maximum width of the modal content
 </Prop>
 <Prop name="portalId" type="string">
   Controls the target container ID for the rendering React portal
+</Prop>
+
+---
+
+### Modal.Header System Props
+
+None
+
+### Modal.Header API
+
+<Prop name="children" type="node">
+  The content of the modal header
+</Prop>
+<Prop name="showCloseButton" type="bool" defaultProps="true">
+  Whether or not to show the close button
+</Prop>
+<Prop name="onClose" type="function">
+  Callback to close the modal when the close button is clicked. Provided by the
+  useModal hook.
+</Prop>
+
+---
+
+### Modal.Content System Props
+
+None
+
+### Modal.Content API
+
+<Prop name="children" type="node">
+  The main content of the modal's panel
+</Prop>
+
+---
+
+### Modal.Footer System Props
+
+None
+
+### Modal.Footer API
+
+<Prop name="children" type="node">
+  The content of the modal's footer. This component applies styling
+  automatically to any child <Link to="/components/button">Button</Link>{' '}
+  components.
 </Prop>

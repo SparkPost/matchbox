@@ -57,7 +57,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   // Creates slug fields and urls for MDX updates
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode });
+    let value = createFilePath({ node, getNode });
+    const path = node.fileAbsolutePath;
+
+    // This is hacky but we need to get generate slugs for all mdx pages
+    if (path.includes('/components/')) {
+      value = `/components${value}`;
+    }
+
+    if (path.includes('/updates/')) {
+      value = `/updates${value}`;
+    }
+
+    if (path.includes('/design/')) {
+      value = `/design${value}`;
+    }
+
     createNodeField({
       node,
       // Name of the field to be created
@@ -65,7 +80,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Generated value based on filepath with "updates" prefix. you
       // don't need a separating "/" before the value because
       // createFilePath returns a path with the leading "/".
-      value: `/updates${value}`
+      // value: `/updates${value}`
+      value: value
     });
   }
 };

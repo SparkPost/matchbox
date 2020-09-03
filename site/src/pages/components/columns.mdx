@@ -1,3 +1,8 @@
+---
+title: Columns
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # Columns
@@ -123,15 +128,17 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Columns API
 
-<Prop name="align" type="string">
-  "left" | "right" | "center" <br /> Horizontal alignment of the columns
+<Prop name="align" type="string" values={['"left"', '"right"', '"center"']}>
+  Horizontal alignment of the columns
 </Prop>
-<Prop name="alignY" type="function">
-  "top" | "bottom" | "center" <br />
+<Prop name="alignY" type="string" values={['"top"', '"bottom"', '"center"']}>
   Vertical alignment of the columns
 </Prop>
-<Prop name="collpaseBelow" type="string">
-  "xs" | "sm" | "md" | "lg" | "xl" <br />
+<Prop
+  name="collpaseBelow"
+  type="string"
+  values={['"xs"', '"sm"', '"md"', '"lg"', '"xl"']}
+>
   Child columns vertically stack below this breakpoint
 </Prop>
 <Prop name="children" type="node">

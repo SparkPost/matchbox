@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "4.0.14",
+  "version": "4.1.1",
   "description": "A React UI component library",
   "main": "matchbox.js",
   "module": "matchbox.esm.js",
@@ -25,9 +25,10 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@sparkpost/design-tokens": "^4.0.14",
+    "@sparkpost/design-tokens": "^4.1.1",
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
+    "copy-to-clipboard": "^3.3.1",
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
@@ -50,7 +51,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
-    "@sparkpost/matchbox-icons": "^4.0.14",
+    "@sparkpost/matchbox-icons": "^4.1.1",
     "autoprefixer": "^7.2.5",
     "change-case": "^3.0.1",
     "cssnano": "^4.1.10",

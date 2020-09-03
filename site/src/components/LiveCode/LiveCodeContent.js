@@ -2,31 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
+import { DateUtils } from 'react-day-picker';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import palenight from 'prism-react-renderer/themes/palenight';
+import github from 'prism-react-renderer/themes/github';
 import { Box } from '@sparkpost/matchbox';
 import * as components from '@sparkpost/matchbox';
 import * as icons from '@sparkpost/matchbox-icons';
-
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babel';
-
-const StyledEditor = styled(LiveEditor)`
-  font-size: ${tokens.fontSize_100};
-  ${'' /* // controls the blinking cursor color */}
-  color: ${tokens.color_blue_200};
-  textarea:focus { 
-    outline: none;
-    box-shadow: 0 0 2px ${tokens.color_white}, 0 0 0 2px ${
-  tokens.color_blue_800
-};
-  }
-`;
+import EditorButton from '../EditorButton';
 
 const StyledWrapper = styled(Box)`
-  &,
-  * {
-    background: ${tokens.color_blue_1000} !important;
+  background: ${tokens.color_gray_100} !important;
+  textarea:focus {
+    outline: none;
   }
 `;
 
@@ -39,6 +28,7 @@ const StyledError = styled(LiveError)`
 
 function Content(props) {
   const { description, code, scope } = props;
+  const { copy, copied } = components.useCopyToClipboard();
 
   const formatted = prettier.format(code.trim(), {
     parser: 'babel',
@@ -53,17 +43,22 @@ function Content(props) {
         {description}
       </Box>
       <LiveProvider
-        code={formatted.trim()}
-        scope={{ ...icons, ...components, ...scope }}
-        theme={palenight}
+        code={formatted}
+        scope={{ ...icons, ...components, ...scope, DateUtils }}
+        theme={github}
       >
         <div id="live-code-content">
           <Box p="600" border={`6px solid ${tokens.color_gray_200}`} mb="500">
             <LivePreview />
           </Box>
         </div>
-        <StyledWrapper p="400" fontSize="100">
-          <StyledEditor />
+        <StyledWrapper position="relative" p="400" fontSize="100">
+          <LiveEditor />
+          <Box position="absolute" top="0" right="0">
+            <EditorButton onClick={() => copy(code)}>
+              {copied ? 'Copied' : 'Copy'}
+            </EditorButton>
+          </Box>
         </StyledWrapper>
         <StyledError />
       </LiveProvider>

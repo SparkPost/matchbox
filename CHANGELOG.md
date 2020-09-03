@@ -1,21 +1,99 @@
+## 4.1.1 (2020-08-26)
+
+#### Features
+
+- `matchbox-icons`
+  - [#587](https://github.com/SparkPost/matchbox/pull/587) UX-298 Add rocket icon
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#578](https://github.com/SparkPost/matchbox/pull/578) UX-286 Add indeterminate checkbox support
+    ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#610](https://github.com/SparkPost/matchbox/pull/610) UX-324 Page and Actionlist actions render
+    with null actions ([@jonambas](https://github.com/jonambas))
+  - [#600](https://github.com/SparkPost/matchbox/pull/600) UX-318 Remove RadioCard.Group disabled
+    prop ([@jonambas](https://github.com/jonambas))
+  - [#592](https://github.com/SparkPost/matchbox/pull/592) UX-295 Zebra stripes begin on odd rows
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+## 4.1.0 (2020-08-14)
+
+#### Features
+
+- `matchbox`
+  - [#584](https://github.com/SparkPost/matchbox/pull/584) UX-224 Support composable ActionList
+    components ([@jonambas](https://github.com/jonambas))
+  - [#577](https://github.com/SparkPost/matchbox/pull/577) UX-236 Banner.Action Component
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#576](https://github.com/SparkPost/matchbox/pull/576) UX-292 Add Button.Icon
+    ([@jonambas](https://github.com/jonambas))
+  - [#563](https://github.com/SparkPost/matchbox/pull/563) UX-237 Add new Panel, Panel.Header,
+    Panel.Section, Panel.Action components ([@jonambas](https://github.com/jonambas))
+  - [#562](https://github.com/SparkPost/matchbox/pull/562) UX-270 Create Layout Component
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#554](https://github.com/SparkPost/matchbox/pull/554) UX-226 Add RadioCard and RadioCard.Group
+    components ([@jonambas](https://github.com/jonambas))
+  - [#558](https://github.com/SparkPost/matchbox/pull/558) UX-230 Add useResizeObserver hook
+    ([@jonambas](https://github.com/jonambas))
+  - [#533](https://github.com/SparkPost/matchbox/pull/533) UX-247 Add useCopyToClipboard hook
+    ([@jonambas](https://github.com/jonambas))
+- `design-tokens`, `matchbox`
+  - [#535](https://github.com/SparkPost/matchbox/pull/535) UX-225 Add new Table.TotalsRow component
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#581](https://github.com/SparkPost/matchbox/pull/581) UX-287 Limit Modal Content Height
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#574](https://github.com/SparkPost/matchbox/pull/574) UX-271 Compact Banner
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#573](https://github.com/SparkPost/matchbox/pull/573) UX-263 Adds Button variant prop
+    ([@jonambas](https://github.com/jonambas))
+  - [#544](https://github.com/SparkPost/matchbox/pull/544) UX-222 Modal component update
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#583](https://github.com/SparkPost/matchbox/pull/583) Closes
+    [#582](https://github.com/SparkPost/matchbox/issues/582) - Adds missing semicolon to CodeBlock
+    component styles ([@nicklemmon](https://github.com/nicklemmon))
+
+#### Committers: 3
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+- Nick Lemmon ([@nicklemmon](https://github.com/nicklemmon))
 
 ## 4.0.14 (2020-08-13)
 
 #### Enhancements
-* `matchbox`
-  * [#586](https://github.com/SparkPost/matchbox/pull/586) UX-297 Support color in Page primary action ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#586](https://github.com/SparkPost/matchbox/pull/586) UX-297 Support color in Page primary
+    action ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-* `matchbox`
-  * [#579](https://github.com/SparkPost/matchbox/pull/579) UX-291 Fix global anchor tag hover styles ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#579](https://github.com/SparkPost/matchbox/pull/579) UX-291 Fix global anchor tag hover styles
+    ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
+
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
-
-
-
-
 
 ## 4.0.13 (2020-08-04)
 

@@ -15,10 +15,11 @@
  *   2: [ { name: 'b', section: 2 } ]
  * }
  */
-export const groupBy = (list, groupingKey) => list.reduce((acc, item) => {
-  const index = item[groupingKey];
-  return { ...acc, [index]: [ ...(acc[index] || []), item ]};
-}, {});
+export const groupBy = (list, groupingKey) =>
+  list.reduce((acc, item) => {
+    const index = item[groupingKey];
+    return { ...acc, [index]: [...(acc[index] || []), item] };
+  }, {});
 
 export const groupByValues = (list, groupingKey) => Object.values(groupBy(list, groupingKey));
 
@@ -32,9 +33,15 @@ export const groupByValues = (list, groupingKey) => Object.values(groupBy(list, 
  * // returns
  * [{ name: 'a' }, { name: 'c' }]
  */
-export const filterByVisible = (actions) => actions.reduce((acc, { visible = true, ...action }) => {
-  if (visible) {
-    acc.push(action);
+export const filterByVisible = actions => {
+  if (!actions) {
+    return [];
   }
-  return acc;
-}, []);
+
+  return actions.reduce((acc, { visible = true, ...action }) => {
+    if (visible) {
+      acc.push(action);
+    }
+    return acc;
+  }, []);
+};

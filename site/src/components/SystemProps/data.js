@@ -104,7 +104,8 @@ export const propData = {
   },
   borderWidths: {
     '0': 'borderWidth_0',
-    '100': 'borderWidth_100'
+    '100': 'borderWidth_100',
+    '200': 'borderWidth_200'
   },
   shadows: {
     '0': 'boxShadow_0',
@@ -153,6 +154,7 @@ export const propData = {
     'mediaQuery_xl'
   ],
   borders: {
-    '400': '${borderWidth_100} solid ${color_gray_400}' // eslint-disable-line no-template-curly-in-string
+    '400': '${borderWidth_100} solid ${color_gray_400}', // eslint-disable-line no-template-curly-in-string
+    '500': '${borderWidth_200} solid ${color_gray_400}' // eslint-disable-line no-template-curly-in-string
   }
 };

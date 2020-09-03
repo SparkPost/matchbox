@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { WindowEvent } from '../WindowEvent';
+import { Portal } from '../Portal';
 import { Box } from '../Box';
 import { getPositionFor } from '../../helpers/geometry';
 
@@ -14,7 +15,7 @@ const defaultPosition = {
 function PopoverOverlay(props) {
   const [position, setPosition] = React.useState(defaultPosition);
   const activatorRef = React.useRef(null);
-  const { as, id, open, renderPopover, renderActivator } = props;
+  const { id, open, renderPopover, renderActivator, portalId } = props;
 
   function handleMeasurement() {
     setPosition(getPositionFor(activatorRef.current));
@@ -27,23 +28,20 @@ function PopoverOverlay(props) {
   return (
     <>
       {open && <WindowEvent event="resize" handler={handleMeasurement} />}
-      <Box
-        as={as}
-        // Inline block is required to measure and set height correctly on spans
-        display={as === 'span' ? 'inline-block' : null}
-        position="relative"
-      >
-        {renderActivator({
-          activatorRef: node => {
-            activatorRef.current = node;
-          },
-        })}
+
+      {renderActivator({
+        activatorRef: node => {
+          activatorRef.current = node;
+        },
+      })}
+
+      <Portal containerId={portalId}>
         <Box
           {...(!open ? { 'aria-hidden': true } : {})}
           id={id}
           position="absolute"
-          top="0"
-          left="0"
+          top={`${position.top}px`}
+          left={`${position.left}px`}
           height={`${position.height}px`}
           width={`${position.width}px`}
           zIndex="overlay"
@@ -51,7 +49,7 @@ function PopoverOverlay(props) {
         >
           {renderPopover()}
         </Box>
-      </Box>
+      </Portal>
     </>
   );
 }

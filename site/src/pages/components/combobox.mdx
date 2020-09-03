@@ -1,3 +1,8 @@
+---
+title: ComboBox
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # ComboBox
@@ -43,25 +48,18 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### ComboBox API
 
-<Prop
-  name="children"
-  type="node"
-> 
-  The ComboBox wrapper's children. Only ComboBoxMenu and ComboBoxTextField are allowed
+<Prop name="children" type="node">
+  The ComboBox wrapper's children. Only ComboBoxMenu and ComboBoxTextField are
+  allowed
 </Prop>
 
-<Prop
-  name="style"
-  type="object"
-> 
+<Prop name="style" type="object">
   Optional styles object for the wrapper
 </Prop>
 
-<Prop
-  name="rootRef"
-  type="function"
-> 
-  Maps to Downshift's refKey set in getRootProps. refKey must be set to "rootRef"
+<Prop name="rootRef" type="function">
+  Maps to Downshift's refKey set in getRootProps. refKey must be set to
+  "rootRef"
 </Prop>
 
 ---
@@ -74,34 +72,21 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### ComboBoxMenu API
 
-<Prop
-  name="emptyMessage"
-  type="string"
-  defaultValue="No Results"
-> 
+<Prop name="emptyMessage" type="string" defaultValue="'No Results'">
   String displayed when item length is 0
 </Prop>
 
-<Prop
-  name="items"
-  type="array"
-  defaultValue="[]"
-> 
+<Prop name="items" type="array" defaultValue="[]">
   List of items inside the menu. See ActionList action prop types
 </Prop>
 
-<Prop
-  name="isOpen"
-  type="bool"
-> 
+<Prop name="isOpen" type="bool">
   Controls the menu's visibility
 </Prop>
 
-<Prop
-  name="menuRef"
-  type="function"
-> 
-  Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
+<Prop name="menuRef" type="function">
+  Maps to Downshift's refKey set in getMenuProps. refKey must be set to
+  "menuRef"
 </Prop>
 
 ---
@@ -114,141 +99,78 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### ComboBoxTextField API
 
-<Prop
-  name="autoFocus"
-  type="bool"
-> 
+<Prop name="autoFocus" type="bool">
   Automatically focuses on the input when mounted
 </Prop>
 
-<Prop
-  name="disabled"
-  type="bool"
-> 
+<Prop name="disabled" type="bool">
   Whether the input is disabled or not. Disables tag removal
 </Prop>
 
-<Prop
-  name="error"
-  type="string"
-> 
+<Prop name="error" type="string">
   Renders an error message below the input
 </Prop>
 
-<Prop
-  name="errorInLabel"
-  type="bool"
-> 
+<Prop name="errorInLabel" type="bool">
   Optionally renders the error message to the right of the input's label
 </Prop>
 
-<Prop
-  name="helpText"
-  type="node"
-> 
+<Prop name="helpText" type="node">
   Additional text to help the user that renders below the input
 </Prop>
 
-<Prop
-  name="id"
-  type="string"
-> 
+<Prop name="id" type="string">
   The ID for the form input
 </Prop>
 
-<Prop
-  name="itemToString"
-  type="function"
-  defaultValue="(item) => identity"
-> 
+<Prop name="itemToString" type="function" defaultValue="(item) => identity">
   Function that transforms selected items to render tag content
 </Prop>
 
-<Prop
-  name="label"
-  type="string"
-> 
+<Prop name="label" type="string">
   Label for the textfield
 </Prop>
 
-<Prop
-  name="labelHidden"
-  type="bool"
-> 
+<Prop name="labelHidden" type="bool">
   Hides the label visually, but still accessible to screen readers
 </Prop>
 
-<Prop
-  name="name"
-  type="string"
-> 
+<Prop name="name" type="string">
   The name of the form input
 </Prop>
 
-<Prop
-  name="onChange"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onChange" type="function" defaultValue="(e) => void">
   Callback when the input value state changes
 </Prop>
 
-<Prop
-  name="onFocus"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onFocus" type="function" defaultValue="(e) => void">
   Callback when the input is focused
 </Prop>
 
-<Prop
-  name="onBlur"
-  type="function"
-  defaultValue="(e) => void"
-> 
+<Prop name="onBlur" type="function" defaultValue="(e) => void">
   Callback when the input loses focus
 </Prop>
 
-<Prop
-  name="placeholder"
-  type="string"
-> 
+<Prop name="placeholder" type="string">
   Placeholder text of the input
 </Prop>
 
-<Prop
-  name="readOnly"
-  type="bool"
-> 
+<Prop name="readOnly" type="bool">
   Whether the input is read only. Does not disable tag removal
 </Prop>
 
-<Prop
-  name="removeItem"
-  type="function"
-  defaultValue="(item) => noop"
-> 
+<Prop name="removeItem" type="function" defaultValue="(item) => noop">
   Callback when a selected item is removed
 </Prop>
 
-<Prop
-  name="required"
-  type="bool"
-> 
+<Prop name="required" type="bool">
   Whether the input is required or not
 </Prop>
 
-<Prop
-  name="selectedItems"
-  type="array"
-  defaultValue="[]"
-> 
+<Prop name="selectedItems" type="array" defaultValue="[]">
   Array of selected items that render as Tags
 </Prop>
 
-<Prop
-  name="value"
-  type="string"
-> 
+<Prop name="value" type="string">
   Value of the input (NOTE: this is missing from prototypes)
 </Prop>

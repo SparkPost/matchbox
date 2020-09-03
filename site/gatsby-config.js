@@ -1,12 +1,16 @@
-const path = require('path');
+require('dotenv').config();
+const { flatten } = require('lodash');
 
 module.exports = {
   siteMetadata: {
     title: 'Matchbox',
-    description: 'SparkPost Design System',
-    author: '@sparkpost'
+    description:
+      'Matchbox is the design system for SparkPost products. It is a collection of styles, components, patterns and guidelines used for building interfaces.',
+    author: '@sparkpost',
+    keywords:
+      'SparkPost, design, system, Matchbox, design system, styleguide, style, guide, components, library, pattern, kit, component'
   },
-  plugins: [
+  plugins: flatten([
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -17,7 +21,11 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/Layout/Layout.js')
+          default: require.resolve('./src/components/Layout/Layout.js'),
+          components: require.resolve(
+            './src/components/Layout/SideBarLayout.js'
+          ),
+          design: require.resolve('./src/components/Layout/SideBarLayout.js')
         }
       }
     },
@@ -34,6 +42,22 @@ module.exports = {
       options: {
         name: 'updates',
         path: `${__dirname}/src/updates`
+      }
+    },
+    {
+      // Sources mdx component pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'components',
+        path: `${__dirname}/src/pages/components`
+      }
+    },
+    {
+      // Sources mdx component pages
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'design',
+        path: `${__dirname}/src/pages/design`
       }
     },
     'gatsby-transformer-json',
@@ -59,13 +83,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'components',
-        path: path.resolve(__dirname, '../packages/matchbox/src/components')
-      }
-    },
-    {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         // Uncomment these aliases if you want to reference local matchbox packages
@@ -82,9 +99,22 @@ module.exports = {
         // },
         // extensions: []
       }
-    }
+    },
+    process.env.GATSBY_ACTIVE_ENV === 'index'
+      ? [
+          {
+            resolve: `gatsby-plugin-algolia`,
+            options: {
+              enablePartialUpdates: true,
+              appId: process.env.GATSBY_ALGOLIA_APP_ID,
+              apiKey: process.env.ALGOLIA_ADMIN_KEY,
+              queries: require('./src/utils/algolia-queries')
+            }
+          }
+        ]
+      : []
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ]
+  ])
 };

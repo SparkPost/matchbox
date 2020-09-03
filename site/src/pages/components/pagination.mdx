@@ -1,3 +1,8 @@
+---
+title: Pagination
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
 
 # Pagination
@@ -53,40 +58,22 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Pagination API
 
-<Prop
-  name="currentPage"
-  type="number"
-> 
+<Prop name="currentPage" type="number">
   Programatically sets the current page number
 </Prop>
 
-<Prop
-  name="pages"
-  type="number"
-  required
-> 
+<Prop name="pages" type="number" required>
   The total number of pages
 </Prop>
 
-<Prop
-  name="pageRange"
-  type="number"
-  required
-> 
+<Prop name="pageRange" type="number" required>
   The number of page buttons to display. Odd numbers look better.
 </Prop>
 
-<Prop
-  name="onChange"
-  type="function"
-  defaultValue="(index) => void"
-> 
+<Prop name="onChange" type="function" defaultValue="(index) => void">
   Callback for when the page is changed
 </Prop>
 
-<Prop
-  name="marginsHidden"
-  type="bool"
-> 
+<Prop name="marginsHidden" type="bool">
   Hides first and last buttons
 </Prop>

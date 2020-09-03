@@ -1,72 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Box } from '@sparkpost/matchbox';
+import InlineCode from '../InlineCode';
+import { Box, Inline } from '@sparkpost/matchbox';
 
 function Prop(props) {
-  const { children, name, type, defaultValue, required } = props;
+  const {
+    children,
+    deprecated,
+    name,
+    type,
+    defaultValue,
+    required,
+    values
+  } = props;
 
   return (
-    <Box mb="700">
-      <Box display="flex" alignItems="center">
-        <Box as="h6" fontSize="400" m="0" mr="400" color="blue.700">
+    <Box mb="600">
+      <Inline space="500">
+        <Box
+          as="h6"
+          p="0"
+          display="inline-block"
+          fontSize="400"
+          m="0"
+          color="gray.900"
+        >
           {name}
         </Box>
-        {required && (
-          <Box as="span" fontSize="200" fontStyle="italic" color="gray.700">
-            required
-          </Box>
-        )}
-      </Box>
-      <Box display="flex" mb="200">
-        <Box mr="800">
-          <Box
-            as="label"
-            display="inline"
-            mr="300"
-            fontSize="200"
-            fontWeight="semibold"
-          >
-            Type
-          </Box>
-          <Box
-            as="p"
-            display="inline"
-            mb="200"
-            fontWeight="regular"
-            fontSize="100"
-            fontFamily="monospace"
-            color="magenta.700"
-          >
-            {type}
-          </Box>
+
+        <Box fontSize="300" color="gray.700">
+          {type}
         </Box>
         {defaultValue && (
-          <Box mr="800">
-            <Box
-              as="label"
-              display="inline"
-              mr="300"
-              fontSize="200"
-              fontWeight="semibold"
-            >
-              Default Value
-            </Box>
-            <Box
-              as="p"
-              display="inline"
-              mb="200"
-              fontWeight="regular"
-              fontSize="100"
-              fontFamily="monospace"
-              color="magenta.700"
-            >
-              {defaultValue}
+          <Box>
+            <Box fontSize="300" color="gray.700">
+              default: {defaultValue}
             </Box>
           </Box>
         )}
-      </Box>
-      <Box m="0" color="gray.700">
+        {required && (
+          <Box as="span" fontSize="200" color="blue.700">
+            Required
+          </Box>
+        )}
+        {deprecated && (
+          <Box as="span" fontSize="200" color="yellow.600">
+            Deprecated
+          </Box>
+        )}
+      </Inline>
+      {values && (
+        <Inline space="100">
+          Possible values:
+          {values.map((value, i) => (
+            <div key={i}>
+              <InlineCode>{value}</InlineCode>
+            </div>
+          ))}
+        </Inline>
+      )}
+      <Box m="0" mt="100">
         {children}
       </Box>
     </Box>
@@ -80,7 +73,8 @@ Prop.propTypes = {
   required: PropTypes.bool,
   children: PropTypes.node,
   type: PropTypes.string,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  values: PropTypes.array
 };
 
 export default Prop;

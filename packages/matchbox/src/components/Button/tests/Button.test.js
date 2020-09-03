@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import cases from 'jest-in-case';
 import 'jest-styled-components';
+import { Assessment } from '@sparkpost/matchbox-icons';
 
 describe('Button', () => {
   const styleCases = [
@@ -145,5 +146,30 @@ describe('wrappers', () => {
     );
     expect(wrapper.find('span').first()).toExist();
     expect(wrapper.find('span').first()).toHaveAttributeValue('to', '/test');
+  });
+});
+
+describe('Button.Icon', () => {
+  it('should render correctly', () => {
+    const wrapper = global.mountStyled(
+      <Button to="/test" component="span">
+        Hola!
+        <Button.Icon as={Assessment} />
+      </Button>,
+    );
+    expect(wrapper.find('svg')).toExist();
+    expect(wrapper.find('Assessment')).toExist();
+  });
+
+  it('should renders label and size correctly', () => {
+    const wrapper = global.mountStyled(
+      <Button to="/test" component="span">
+        Hola!
+        <Button.Icon as={Assessment} label="test-label" size={24} />
+      </Button>,
+    );
+    expect(wrapper.find('[aria-label="test-label"]')).toExist();
+    expect(wrapper.find('[aria-label="test-label"]').props().width).toEqual(24);
+    expect(wrapper.find('[aria-label="test-label"]').props().height).toEqual(24);
   });
 });

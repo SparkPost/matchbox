@@ -1,12 +1,14 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import palenight from 'prism-react-renderer/themes/palenight';
-import { Box } from '@sparkpost/matchbox';
+import github from 'prism-react-renderer/themes/github';
+import { Box, useCopyToClipboard } from '@sparkpost/matchbox';
+import EditorButton from './EditorButton';
 
 // See https://github.com/FormidableLabs/prism-react-renderer
 function Pre(props) {
   let language = '';
   const { children = '', className = '' } = props.children.props;
+  const { copy, copied } = useCopyToClipboard();
 
   if (!children) {
     return null;
@@ -17,25 +19,41 @@ function Pre(props) {
   }
 
   return (
-    <Box bg="gray.1000" p="600" mb="400" borderRadius="200" overflow="scroll">
+    <Box position="relative" mb="400" borderRadius="200">
       <Highlight
         {...defaultProps}
         code={children}
         language={language}
-        theme={palenight}
+        theme={github}
       >
-        {({ tokens, getLineProps, getTokenProps }) => (
-          <pre style={{ whiteSpace: 'pre-wrap', marginBottom: 0 }}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
+        {({ tokens, getLineProps, getTokenProps }) => {
+          const lines = tokens.slice(0, tokens.length - 1);
+          return (
+            <Box
+              as="pre"
+              overflow="scroll"
+              bg="gray.100"
+              p="600"
+              mb="0"
+              lineHeight="300"
+              borderRadius="200"
+            >
+              {lines.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </Box>
+          );
+        }}
       </Highlight>
+      <Box position="absolute" top="3px" right=" 3px">
+        <EditorButton onClick={() => copy(children)}>
+          {copied ? 'Copied' : 'Copy'}
+        </EditorButton>
+      </Box>
     </Box>
   );
 }

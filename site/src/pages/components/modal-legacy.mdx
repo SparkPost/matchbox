@@ -1,0 +1,64 @@
+---
+title: Modal Legacy
+category: Component
+---
+
+import { LiveCode } from '../../components/LiveCode';
+
+# Modal
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Example Modal"
+    code={`
+      function Component() {
+        const [open, setOpen] = React.useState(false);
+        return (
+          <>
+            <Modal.LEGACY open={open} onClose={() => setOpen(false)} showCloseButton>
+                <Panel.LEGACY sectioned title="Modal Title">
+                  <p>This is modal content lorem ipsum dolor sit amet</p>
+                  <Button onClick={() => setOpen(false)}>Close Modal</Button>
+                </Panel.LEGACY>
+            </Modal.LEGACY>
+            <Button onClick={() => setOpen(true)}>Open Modal</Button>
+          </>
+        );
+      }
+    `}
+  />
+</LiveCode>
+
+---
+
+### System Props
+
+<SystemPropsTags propsList={['padding', 'maxWidth']} />
+
+---
+
+### Modal API
+
+<Prop name="open" type="bool">
+  Controlled open state of the modal
+</Prop>
+<Prop name="onClose" type="function" defaultValue="(e) => void">
+  Optional callback that is called on key down 'Escape' and on click outside
+  modal content
+</Prop>
+<Prop name="children" type="node">
+  The content of the modal
+</Prop>
+<Prop name="showCloseButton" type="bool">
+  Whether or not to show a close button
+</Prop>
+<Prop name="maxWidth" type="number" defaultValue="800px">
+  The maximum width of the modal
+</Prop>
+<Prop name="portalId" type="string">
+  Controls the target container ID for the rendering React portal
+</Prop>

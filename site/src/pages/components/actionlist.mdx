@@ -1,5 +1,9 @@
+---
+title: ActionList
+category: Component
+---
+
 import { LiveCode } from '../../components/LiveCode';
-import { Box, Popover } from '@sparkpost/matchbox';
 
 # ActionList
 
@@ -8,212 +12,132 @@ import { Box, Popover } from '@sparkpost/matchbox';
 ### Usage
 
 <LiveCode>
-  <LiveCode.Content 
-    title="Inside Popover" 
+  <LiveCode.Content
+    title="Inside Popovers"
     code={`
       <Box display="flex" height="250px">
         <Popover
           open
-          style={{
-            width: '200px'
-          }}
           trigger={<Button size="default">Actions</Button>}
         >
-          <ActionList
-            actions={[
-              {
-                content: 'Action1',
-                to: '#'
-              },
-              {
-                content: 'Action2',
-                to: '#'
-              }
-            ]}
-          />
+          <ActionList>
+            <ActionList.Action to="#" helpText="I am help text">
+              Action 1
+            </ActionList.Action>
+            <ActionList.Action to="#">Action 2</ActionList.Action>
+          </ActionList>
         </Popover>
         <Box ml="10rem">
           <Popover
             open
-            style={{
-              width: '200px'
-            }}
             trigger={<Button size="default">Actions with Sections</Button>}
           >
-            <ActionList
-              actions={[
-                {
-                  content: 'Action1',
-                  to: '#'
-                },
-                {
-                  content: 'Action2',
-                  to: '#'
-                }
-              ]}
-              sections={[
-                [
-                  {
-                    content: 'Sectioned1',
-                    to: '#'
-                  },
-                  {
-                    content: 'Sectioned2',
-                    to: '#'
-                  }
-                ]
-              ]}
-            />
+            <ActionList>
+              <ActionList.Section>
+                <ActionList.Action to="#">Sectioned 1</ActionList.Action>
+                <ActionList.Action to="#">Sectioned 2</ActionList.Action>
+              </ActionList.Section>
+              <ActionList.Section>
+                <ActionList.Action to="#">Sectioned 3</ActionList.Action>
+                <ActionList.Action to="#">Sectioned 4</ActionList.Action>
+              </ActionList.Section>
+            </ActionList>
           </Popover>
         </Box>
       </Box>
     `}
   />
-  <LiveCode.Content 
-    title="Selected Actions" 
+  <LiveCode.Content
+    title="With actions as Buttons"
     code={`
-      <Box maxWidth="20rem">
-        <Panel>
-          <ActionList
-            actions={[
-              {
-                content: 'Action1',
-                selected: true,
-                to: '#'
-              },
-              {
-                content: 'Action2',
-                selected: true,
-                to: '#'
-              },
-              {
-                content: 'Action3',
-                selected: false,
-                to: '#'
-              }
-            ]}
-          />
-        </Panel>
-      </Box>
-    `}
-  />
-  <LiveCode.Content 
-    title="Highlighted Actions" 
-    code={`
-      <Box maxWidth="20rem">
-        <Panel>
-          <ActionList
-            actions={[
-              {
-                content: 'Action1',
-                highlighted: true,
-                to: '#'
-              },
-              {
-                content: 'Action2',
-                highlighted: true,
-                to: '#'
-              },
-              {
-                content: 'Action3',
-                selected: false,
-                to: '#'
-              }
-            ]}
-          />
-        </Panel>
-      </Box>
-    `}
-  />
-  <LiveCode.Content 
-      title="As Buttons and Checkboxes" 
-      code={`
         <Box maxWidth="20rem">
           <Panel>
-            <ActionList
-              actions={[
-                {
-                  content: 'Checkbox',
-                  is: 'checkbox',
-                  selected: true
-                },
-                {
-                  content: 'Checkbox',
-                  is: 'checkbox'
-                },
-                {
-                  content: 'Button',
-                  is: 'button',
-                  selected: false
-                },
-                {
-                  content: 'Link',
-                  external: true,
-                  is: 'link',
-                  to: '#'
-                }
-              ]}
-            />
+            <ActionList>
+              <ActionList.Action is="button">
+                Is A Focusable Button
+              </ActionList.Action>
+              <ActionList.Action is="button" >
+                Is A Focusable Button
+              </ActionList.Action>
+            </ActionList>
           </Panel>
         </Box>
       `}
-    />
-    <LiveCode.Content 
-      title="System Props" 
-      code={`
-        <Box maxWidth="20rem">
-          <Panel>
-            <ActionList
-              actions={[
-                {
-                  content: 'Action1',
-                  to: '#'
-                },
-                {
-                  content: 'Action2',
-                  to: '#'
-                }
-              ]}
-              m="400"
-              width={0.5}
-            />
-          </Panel>
-        </Box>
-      `}
-    />
+  />
+
 </LiveCode>
 
 ---
 
-### System Props
+### ActionList System Props
 
 <SystemPropsTags propsList={['margin', 'layout']} />
 
----
-
 ### ActionList API
-<Prop
-  name="actions"
-  type="[{content: ReactNode, ...}]"
-> 
-  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;] Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
+
+<Prop name="actions" type="[{content: ReactNode, ...}]" deprecated>
+  Actions e.g. [&#123; content: 'action label', onClick: callback() &#125;]
+  Note: each item can include an optional "section" key that will be used to
+  auto group into sections, declaratively
 </Prop>
-<Prop
-  name="sections"
-  type="[[{content: ReactNode, ...}]]"
-> 
-  Creates sections e.g. [[&#123; content: 'action label', onClick: callback() &#125;]]
+<Prop name="children" type="node">
+  Content of the ActionList
 </Prop>
-<Prop
-  name="maxHeight"
-  type="string | number"
-> 
+<Prop name="sections" type="[[{content: ReactNode, ...}]]" deprecated>
+  Creates sections e.g. [[&#123; content: 'action label', onClick: callback()
+  &#125;]]
+</Prop>
+<Prop name="maxHeight" type="string | number">
   Max height of list
 </Prop>
-<Prop
-  name="groupByKey"
-  type="string"
-  defaultvalue="'section'"
-> 
+<Prop name="groupByKey" type="string" defaultvalue="'section'" deprecated>
   Group by key used to auto group actions into sections, defaults to "section"
+</Prop>
+
+---
+
+### ActionList.Section System Props
+
+None
+
+### ActionList.Section API
+
+<Prop name="children" type="node">
+  Content of the ActionList Section
+</Prop>
+
+---
+
+### ActionList.Action System Props
+
+None
+
+### ActionList.Action API
+
+<Prop name="children" type="node">
+  Content of the ActionList Action
+</Prop>
+
+<Prop name="helpText" type="string">
+  Renders a string of secondary text
+</Prop>
+
+<Prop name="highlighted" type="bool">
+  Highlights the action. Useful for wrappers that manage focus or keyboard
+  navigation, such as downshift
+</Prop>
+
+<Prop
+  name="is"
+  type="string"
+  values={['"link"', '"button"']}
+  defaultValue='"link"'
+>
+  If set to "button", renders the action as a button in the DOM, otherwise,
+  renders an acnhor element
+</Prop>
+
+<Prop name="selected" type="bool" deprecated>
+  Use <Link to="/components/checkbox">the checkbox component</Link> inside a
+  popover instead
 </Prop>
