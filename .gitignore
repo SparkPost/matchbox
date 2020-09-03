@@ -6,6 +6,7 @@ node_modules
 # testing
 /coverage
 /cypress/videos
+/cypress/screenshots
 .nyc_output
 /cypress-coverage
 /jest-coverage
