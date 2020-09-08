@@ -156,5 +156,18 @@ export const propData = {
   borders: {
     '400': '${borderWidth_100} solid ${color_gray_400}', // eslint-disable-line no-template-curly-in-string
     '500': '${borderWidth_200} solid ${color_gray_400}' // eslint-disable-line no-template-curly-in-string
+  },
+  zIndices: {
+    below: 'zIndex_below',
+    default: 'zIndex_default',
+    overlay: 'zIndex_overlay'
+  },
+  motion: {
+    'duration.fast': 'motionDuration_fast',
+    'duration.me': 'motionDuration_medium',
+    'duration._slow': 'motionDuration_slow',
+    'ease.in': 'motionEase_in',
+    'ease.out': 'motionEase_out',
+    'ease.inOut': 'motionEase_in_out'
   }
 };

@@ -238,6 +238,19 @@ const theme = {
     default: tokens.zIndex_default,
     overlay: tokens.zIndex_overlay,
   },
+
+  motion: {
+    duration: {
+      fast: tokens.motionDuration_fast,
+      medium: tokens.motionDuration_medium,
+      slow: tokens.motionDuration_slow,
+    },
+    ease: {
+      in: tokens.motionEase_in,
+      out: tokens.motionEase_out,
+      inOut: tokens.motionEase_in_out,
+    },
+  },
 };
 
 export default theme;
