@@ -33,6 +33,7 @@
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
     "react-transition-group": "^2.3.0",
+    "resize-observer-polyfill": "^1.5.1",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
