@@ -39,7 +39,7 @@ const Option = React.forwardRef(function Option(props, ref) {
 Option.displayName = 'ListBox.Option';
 Option.propTypes = {
   selected: PropTypes.string,
-  value: PropTypes.oneOf([PropTypes.string, PropTypes.numbrer]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   disabled: PropTypes.bool,
   index: PropTypes.number,
   setSize: PropTypes.number,

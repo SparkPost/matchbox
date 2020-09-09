@@ -28,8 +28,8 @@ export const WithError = withInfo()(() => (
   <ListBox
     id="listbox-3"
     label="Select an option"
-    placeholder="Select One"
     error="You must select an option"
+    value="option-1"
   >
     <ListBox.Option value="option-1">Option 1</ListBox.Option>
     <ListBox.Option value="option-2">Option 2</ListBox.Option>

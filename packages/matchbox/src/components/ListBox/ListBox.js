@@ -61,6 +61,7 @@ function ListBox(props) {
     optional,
     helpText,
     defaultValue,
+    value,
     onChange,
     ...rest
   } = props;
@@ -69,8 +70,8 @@ function ListBox(props) {
   const componentProps = omit(rest);
 
   const [open, setOpen] = useState(false);
-  const [value, setValue] = React.useState(
-    value || defaultValue != null ? defaultValue : placeholder,
+  const [currentValue, setCurrentValue] = React.useState(
+    value ? value : defaultValue != null ? defaultValue : placeholder,
   );
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
@@ -100,17 +101,17 @@ function ListBox(props) {
     }
 
     setOpen(false);
-    setValue(value);
+    setCurrentValue(value);
   }
 
   const contentFromValue = React.useMemo(() => {
     let options = getChild('ListBox.Option', children);
     let activeOption = options.find(option => {
-      return option.props.value === value;
+      return option.props.value === currentValue;
     });
 
-    return activeOption ? activeOption.props.children : value;
-  }, [value]);
+    return activeOption ? activeOption.props.children : currentValue;
+  }, [currentValue]);
 
   const labelMarkup = (
     <Label id={id} label={label} labelHidden={labelHidden}>
@@ -130,7 +131,7 @@ function ListBox(props) {
 
   const { optionsMarkup, focusContainerProps } = useOptionConstructor({
     options,
-    value,
+    value: currentValue,
     onSelect,
     open,
     placeholder,
@@ -171,7 +172,7 @@ function ListBox(props) {
       >
         <StyledList
           as="ul"
-          aria-activedescendant={value}
+          aria-activedescendant={currentValue}
           width="100%"
           role="listbox"
           aria-labelledby={id}
