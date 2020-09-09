@@ -7,7 +7,7 @@ export default {
 };
 
 export const WithAHeader = withInfo()(() => (
-  <Panel>
+  <Panel data-id="my-panel">
     <Panel.Header>Title</Panel.Header>
     <Panel.Section>Section Content</Panel.Section>
   </Panel>
