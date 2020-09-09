@@ -10,12 +10,23 @@ import { Error } from '../Error';
 import { OptionalLabel } from '../OptionalLabel';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
+import { compose, margin, maxWidth } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { omit } from '@styled-system/props';
+import { pick } from '../../helpers/systemProps';
+import useOptionConstructor from './useOptionConstructor';
 
 import { Button } from '../Button';
 import { Box } from '../Box';
 import { Popover } from '../Popover';
 
 import Option from './Option';
+
+const system = compose(margin, maxWidth);
+
+const StyledWrapper = styled(Box)`
+  ${system}
+`;
 
 const StyledChevron = styled(KeyboardArrowDown)`
   ${chevron}
@@ -43,6 +54,7 @@ function ListBox(props) {
     disabled,
     id,
     label,
+    labelHidden,
     error,
     errorInLabel,
     required,
@@ -52,6 +64,9 @@ function ListBox(props) {
     onChange,
     ...rest
   } = props;
+
+  const systemProps = pick(rest, system.propNames);
+  const componentProps = omit(rest);
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = React.useState(
@@ -70,7 +85,8 @@ function ListBox(props) {
     </Box>
   ) : null;
 
-  function togglePopover() {
+  function togglePopover(event) {
+    event.stopPropagation();
     setOpen(!open);
   }
 
@@ -79,31 +95,25 @@ function ListBox(props) {
   }
 
   function onSelect(value) {
-    onChange && onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
+
     setOpen(false);
     setValue(value);
   }
 
-  function getContentFromValue(value) {
-    console.log(value);
+  const contentFromValue = React.useMemo(() => {
     let options = getChild('ListBox.Option', children);
     let activeOption = options.find(option => {
-      return option.props.value == value;
+      return option.props.value === value;
     });
 
     return activeOption ? activeOption.props.children : value;
-  }
-
-  let options = React.useMemo(() => {
-    return getChild('ListBox.Option', children);
-  }, [children]);
+  }, [value]);
 
   const labelMarkup = (
-    <Label
-      id={id}
-      label={label}
-      // labelHidden={labelHidden} TODO Add this back in after hibana cutover
-    >
+    <Label id={id} label={label} labelHidden={labelHidden}>
       {requiredIndicator}
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
@@ -114,8 +124,20 @@ function ListBox(props) {
 
   const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
 
+  let options = React.useMemo(() => {
+    return getChild('ListBox.Option', children);
+  }, [children]);
+
+  const { optionsMarkup, focusContainerProps } = useOptionConstructor({
+    options,
+    value,
+    onSelect,
+    open,
+    placeholder,
+  });
+
   return (
-    <Box tabIndex="-1">
+    <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
       <Popover
         id="listbox-popover"
@@ -127,20 +149,21 @@ function ListBox(props) {
         trigger={
           <Box position="relative">
             <StyledButton
+              id={id}
+              data-id="open-listbox"
               textAlign="left"
               fullWidth
               variant="mutedOutline"
               aria-haspopup="listbox"
-              aria-describedby="listbox-popover"
               aria-pressed={open}
               aria-expanded={open}
               aria-labelledby={id}
               onClick={togglePopover}
               disabled={disabled}
-              {...rest}
+              {...componentProps}
               {...describedBy}
             >
-              {getContentFromValue(value)}
+              {contentFromValue}
             </StyledButton>
             <StyledChevron size={24} disabled={disabled} />
           </Box>
@@ -153,21 +176,12 @@ function ListBox(props) {
           role="listbox"
           aria-labelledby={id}
         >
-          {placeholder && (
-            <Option value="" disabled>
-              {placeholder}
-            </Option>
-          )}
-          {getChild('ListBox.Option', children, {
-            selected: value,
-            setSize: options.length,
-            onSelect,
-          })}
+          {optionsMarkup}
         </StyledList>
       </Popover>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
-    </Box>
+    </StyledWrapper>
   );
 }
 
@@ -188,6 +202,8 @@ ListBox.propTypes = {
   onBlur: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  ...createPropTypes(margin.propNames),
+  ...createPropTypes(maxWidth.propNames),
 };
 
 ListBox.Option = Option;

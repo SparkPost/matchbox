@@ -5,8 +5,8 @@ import { StyledLink } from './styles';
 
 import { Box } from '../Box';
 
-function Option(props) {
-  const { value, index, disabled, setSize, selected, children, onSelect } = props;
+const Option = React.forwardRef(function Option(props, ref) {
+  const { value, index, disabled, setSize, selected, children, onSelect, tabIndex } = props;
 
   const isActive = React.useMemo(() => {
     return selected === value;
@@ -27,13 +27,14 @@ function Option(props) {
         as="button"
         disabled={disabled}
         onClick={() => onSelect(value)}
-        tabIndex="0"
+        tabIndex={tabIndex}
+        ref={ref}
       >
         {children}
       </StyledLink>
     </Box>
   );
-}
+});
 
 Option.displayName = 'ListBox.Option';
 Option.propTypes = {
