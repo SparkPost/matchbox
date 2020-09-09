@@ -14,7 +14,7 @@ const StyledColumn = styled(Box)`
 `;
 
 const Column = React.forwardRef(function Column(props, ref) {
-  const { width, children } = props;
+  const { width, children, className } = props;
   const { space, collapsed } = React.useContext(ColumnsContext);
 
   let columnWidth = width;
@@ -29,6 +29,7 @@ const Column = React.forwardRef(function Column(props, ref) {
 
   return (
     <StyledColumn
+      className={className}
       width={columnWidth}
       flex={!width && !collapsed ? '1' : ''}
       pt={collapsed ? space : null}
@@ -46,6 +47,7 @@ Column.displayName = 'Column';
 Column.propTypes = {
   children: PropTypes.node,
   width: PropTypes.oneOfType([PropTypes.oneOf(['content']), PropTypes.number]),
+  className: PropTypes.string,
 };
 
 export default Column;
