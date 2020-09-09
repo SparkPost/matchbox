@@ -60,4 +60,14 @@ describe('Columns', () => {
 
     expect(wrapper.find('.foo')).toExist();
   });
+
+  it('accepts passed the passed in `display` prop', () => {
+    const wrapper = global.mountStyled(
+      <Columns>
+        <Column display="none" />
+      </Columns>,
+    );
+
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('display', 'none');
+  });
 });
