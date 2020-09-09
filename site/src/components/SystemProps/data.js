@@ -164,8 +164,8 @@ export const propData = {
   },
   motion: {
     'duration.fast': 'motionDuration_fast',
-    'duration.me': 'motionDuration_medium',
-    'duration._slow': 'motionDuration_slow',
+    'duration.medium': 'motionDuration_medium',
+    'duration.slow': 'motionDuration_slow',
     'ease.in': 'motionEase_in',
     'ease.out': 'motionEase_out',
     'ease.inOut': 'motionEase_in_out'
