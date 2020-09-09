@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 
-import Select from '../../Select';
+import { Select } from '../../Select';
 
 describe('Select', () => {
   const subject = props => global.mountStyled(<Select options={['option 1']} {...props} />);
