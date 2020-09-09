@@ -171,6 +171,12 @@
         "section": "Form"
       },
       {
+        "path": "/components/listbox",
+        "label": "ListBox",
+        "tag": "new",
+        "section": "Form"
+      },
+      {
         "path": "/components/radio",
         "label": "Radio",
         "section": "Form"
