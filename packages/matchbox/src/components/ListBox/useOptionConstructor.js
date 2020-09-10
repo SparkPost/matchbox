@@ -68,7 +68,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
           selected: value,
           setSize: options.length,
           onSelect,
-          tabIndex: focused === i ? '0' : '-1',
           ref: n => {
             optionRefs.current[i] = n;
           },

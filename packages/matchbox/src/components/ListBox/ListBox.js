@@ -10,7 +10,7 @@ import { Error } from '../Error';
 import { OptionalLabel } from '../OptionalLabel';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
-import { compose, margin, maxWidth } from 'styled-system';
+import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
@@ -42,6 +42,7 @@ const StyledButton = styled(Button)`
 `;
 
 const StyledList = styled(Box)`
+  ${maxHeight}
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -63,10 +64,12 @@ function ListBox(props) {
     defaultValue,
     value,
     onChange,
+    portalId,
     ...rest
   } = props;
 
   const systemProps = pick(rest, system.propNames);
+  const maxHeightProps = pick(rest, maxHeight.propNames);
   const componentProps = omit(rest);
 
   const [open, setOpen] = useState(false);
@@ -147,6 +150,7 @@ function ListBox(props) {
         open={open}
         as="div"
         width="100%"
+        portalId={portalId}
         trigger={
           <Box position="relative">
             <StyledButton
@@ -176,6 +180,8 @@ function ListBox(props) {
           width="100%"
           role="listbox"
           aria-labelledby={id}
+          {...maxHeightProps}
+          overflowY="scroll"
         >
           {optionsMarkup}
         </StyledList>
@@ -201,10 +207,16 @@ ListBox.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  portalId: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ...createPropTypes(margin.propNames),
   ...createPropTypes(maxWidth.propNames),
+  ...createPropTypes(maxHeight.propNames),
+};
+
+ListBox.defaultProps = {
+  maxHeight: '400px',
 };
 
 ListBox.Option = Option;

@@ -29,9 +29,17 @@ export const StyledLink = styled(UnstyledLink)`
   line-height: ${tokens.lineHeight_300};
   text-align: left;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')}
-  background: ${props =>
-    props.disabled ? tokens.color_gray_300 : props.active ? tokens.color_blue_700 : ''};
-  color: ${props => (props.active ? tokens.color_white : '')};
+  background: ${props => (props.active ? tokens.color_blue_700 : '')};
+  color: ${props =>
+    props.disabled ? tokens.color_gray_600 : props.active ? tokens.color_white : ''};
+  
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0;
+    background: ${props =>
+      props.disabled ? '' : props.active ? tokens.color_blue_700 : tokens.color_blue_100};
+  }
   
   &:hover {
     background: ${props =>

@@ -6,7 +6,7 @@ import { StyledLink } from './styles';
 import { Box } from '../Box';
 
 const Option = React.forwardRef(function Option(props, ref) {
-  const { value, index, disabled, setSize, selected, children, onSelect, tabIndex } = props;
+  const { value, index, disabled, setSize, selected, children, onSelect } = props;
 
   const isActive = React.useMemo(() => {
     return selected === value;
@@ -27,7 +27,7 @@ const Option = React.forwardRef(function Option(props, ref) {
         as="button"
         disabled={disabled}
         onClick={() => onSelect(value)}
-        tabIndex={tabIndex}
+        tabIndex={0}
         ref={ref}
       >
         {children}
