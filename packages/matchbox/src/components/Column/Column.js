@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { display } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { ColumnsContext } from '../Columns/context';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { gutter } from './styles';
 
 const StyledColumn = styled(Box)`
+  ${display}
   ${gutter}
 
   &:first-child {
@@ -14,7 +17,7 @@ const StyledColumn = styled(Box)`
 `;
 
 const Column = React.forwardRef(function Column(props, ref) {
-  const { width, children } = props;
+  const { width, children, className, display } = props;
   const { space, collapsed } = React.useContext(ColumnsContext);
 
   let columnWidth = width;
@@ -29,6 +32,8 @@ const Column = React.forwardRef(function Column(props, ref) {
 
   return (
     <StyledColumn
+      display={display}
+      className={className}
       width={columnWidth}
       flex={!width && !collapsed ? '1' : ''}
       pt={collapsed ? space : null}
@@ -46,6 +51,8 @@ Column.displayName = 'Column';
 Column.propTypes = {
   children: PropTypes.node,
   width: PropTypes.oneOfType([PropTypes.oneOf(['content']), PropTypes.number]),
+  className: PropTypes.string,
+  ...createPropTypes(display.propNames),
 };
 
 export default Column;
