@@ -122,4 +122,20 @@ describe('Select', () => {
     expect(events.onBlur).toHaveBeenCalled();
     expect(events.onFocus).toHaveBeenCalled();
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Select ref={ref} id="test-select" options={[]}></Select>
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.id).toEqual('test-select');
+  });
 });
