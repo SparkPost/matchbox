@@ -26,7 +26,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
   const { p: contextP, padding: contextPadding, ...context } = pick(rest, padding.propNames);
 
   return (
-    <Box {...outerSystemProps} ref={userRef} tabIndex="-1">
+    <Box {...outerSystemProps} ref={userRef} tabIndex="-1" data-id={props['data-id']}>
       <Box
         border="400"
         borderRadius="100"
@@ -54,6 +54,7 @@ Panel.propTypes = {
   ]),
   children: PropTypes.node,
   className: PropTypes.string,
+  'data-id': PropTypes.string,
   ...createPropTypes(border.propNames),
   ...createPropTypes(height.propNames),
   ...createPropTypes(margin.propNames),

@@ -54,12 +54,6 @@ export const StyledInput = styled('input')`
     box-shadow: 0 0 0 0px ${tokens.color_white}, 0 0 0 2px ${tokens.color_blue_700};
   }
 
-  &:hover:not(:disabled) {
-    & ~ span ${StyledUnchecked} {
-      fill: ${tokens.color_gray_800};
-    }
-  }
-
   &:checked {
     & ~ span ${StyledUnchecked} {
       opacity: 0;
@@ -67,6 +61,12 @@ export const StyledInput = styled('input')`
 
     & ~ span ${StyledChecked} {
       opacity: 1;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    & ~ span ${StyledUnchecked} {
+      fill: ${tokens.color_gray_800};
     }
   }
 

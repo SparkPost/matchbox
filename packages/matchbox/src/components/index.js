@@ -32,6 +32,7 @@ export * from './Radio';
 export * from './RadioCard';
 export * from './ScreenReaderOnly';
 export * from './Select';
+export * from './Skeleton';
 export * from './Slider';
 export * from './Snackbar';
 export * from './Spinner';

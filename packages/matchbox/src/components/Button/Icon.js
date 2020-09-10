@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { pick } from '../../helpers/systemProps';
 
@@ -33,6 +34,7 @@ Icon.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string,
+  ...createPropTypes(margin.propNames),
 };
 
 export default Icon;

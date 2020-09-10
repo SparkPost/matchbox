@@ -26,6 +26,16 @@ const IMAGES_PNG = {
   'Sending-Mail.png': require('@sparkpost/matchbox-media/images/Sending-Mail.png'),
 };
 
+const IMAGES_WEBP = {
+  'Accounts.webp': require('@sparkpost/matchbox-media/images/Accounts.webp'),
+  'Billing.webp': require('@sparkpost/matchbox-media/images/Billing.webp'),
+  'Configuration.webp': require('@sparkpost/matchbox-media/images/Configuration.webp'),
+  'Email-Template.webp': require('@sparkpost/matchbox-media/images/Email-Template.webp'),
+  'Error.webp': require('@sparkpost/matchbox-media/images/Error.webp'),
+  'Flagging.webp': require('@sparkpost/matchbox-media/images/Flagging.webp'),
+  'Sending-Mail.webp': require('@sparkpost/matchbox-media/images/Sending-Mail.webp'),
+};
+
 const IMAGES_JPG_MEDIUM = {
   'Accounts@medium.jpg': require('@sparkpost/matchbox-media/images/Accounts@medium.jpg'),
   'Billing@medium.jpg': require('@sparkpost/matchbox-media/images/Billing@medium.jpg'),
@@ -46,6 +56,16 @@ const IMAGES_PNG_MEDIUM = {
   'Sending-Mail@medium.png': require('@sparkpost/matchbox-media/images/Sending-Mail@medium.png'),
 };
 
+const IMAGES_WEBP_MEDIUM = {
+  'Accounts@medium.webp': require('@sparkpost/matchbox-media/images/Accounts@medium.webp'),
+  'Billing@medium.webp': require('@sparkpost/matchbox-media/images/Billing@medium.webp'),
+  'Configuration@medium.webp': require('@sparkpost/matchbox-media/images/Configuration@medium.webp'),
+  'Email-Template@medium.webp': require('@sparkpost/matchbox-media/images/Email-Template@medium.webp'),
+  'Error@medium.webp': require('@sparkpost/matchbox-media/images/Error@medium.webp'),
+  'Flagging@medium.webp': require('@sparkpost/matchbox-media/images/Flagging@medium.webp'),
+  'Sending-Mail@medium.webp': require('@sparkpost/matchbox-media/images/Sending-Mail@medium.webp'),
+};
+
 const IMAGES_JPG_SMALL = {
   'Accounts@small.jpg': require('@sparkpost/matchbox-media/images/Accounts@small.jpg'),
   'Billing@small.jpg': require('@sparkpost/matchbox-media/images/Billing@small.jpg'),
@@ -64,6 +84,16 @@ const IMAGES_PNG_SMALL = {
   'Error@small.png': require('@sparkpost/matchbox-media/images/Error@small.png'),
   'Flagging@small.png': require('@sparkpost/matchbox-media/images/Flagging@small.png'),
   'Sending-Mail@small.png': require('@sparkpost/matchbox-media/images/Sending-Mail@small.png'),
+};
+
+const IMAGES_WEBP_SMALL = {
+  'Accounts@small.webp': require('@sparkpost/matchbox-media/images/Accounts@small.webp'),
+  'Billing@small.webp': require('@sparkpost/matchbox-media/images/Billing@small.webp'),
+  'Configuration@small.webp': require('@sparkpost/matchbox-media/images/Configuration@small.webp'),
+  'Email-Template@small.webp': require('@sparkpost/matchbox-media/images/Email-Template@small.webp'),
+  'Error@small.webp': require('@sparkpost/matchbox-media/images/Error@small.webp'),
+  'Flagging@small.webp': require('@sparkpost/matchbox-media/images/Flagging@small.webp'),
+  'Sending-Mail@small.webp': require('@sparkpost/matchbox-media/images/Sending-Mail@small.webp'),
 };
 
 storiesOf('Media|Images', module)
@@ -99,6 +129,17 @@ storiesOf('Media|Images', module)
           })}
         </Box>
         <Box mb="800">
+          <Text as="h4">WEBP - Full Size</Text>
+          {Object.keys(IMAGES_WEBP).map(image => {
+            return (
+              <Box display="inline-block" width="25%" textAlign="center">
+                <Box title={image} as="img" width="100%" src={IMAGES_WEBP[image]} />
+                <Text>{image}</Text>
+              </Box>
+            );
+          })}
+        </Box>
+        <Box mb="800">
           <Text as="h4">JPG - Medium</Text>
           {Object.keys(IMAGES_JPG_MEDIUM).map(image => {
             return (
@@ -121,6 +162,17 @@ storiesOf('Media|Images', module)
           })}
         </Box>
         <Box mb="800">
+          <Text as="h4">WEBP - Medium</Text>
+          {Object.keys(IMAGES_WEBP_MEDIUM).map(image => {
+            return (
+              <Box display="inline-block" width="25%" textAlign="center">
+                <Box title={image} as="img" width="100%" src={IMAGES_WEBP_MEDIUM[image]} />
+                <Text>{image}</Text>
+              </Box>
+            );
+          })}
+        </Box>
+        <Box mb="800">
           <Text as="h4">JPG - Small</Text>
           {Object.keys(IMAGES_JPG_SMALL).map(image => {
             return (
@@ -137,6 +189,17 @@ storiesOf('Media|Images', module)
             return (
               <Box display="inline-block" width="25%" textAlign="center">
                 <Box title={image} as="img" width="100%" src={IMAGES_PNG_SMALL[image]} />
+                <Text>{image}</Text>
+              </Box>
+            );
+          })}
+        </Box>
+        <Box mb="800">
+          <Text as="h4">WEBP - Small</Text>
+          {Object.keys(IMAGES_WEBP_SMALL).map(image => {
+            return (
+              <Box display="inline-block" width="25%" textAlign="center">
+                <Box title={image} as="img" width="100%" src={IMAGES_WEBP_SMALL[image]} />
                 <Text>{image}</Text>
               </Box>
             );

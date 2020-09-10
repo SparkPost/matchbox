@@ -63,6 +63,7 @@ describe('Uncontrolled Popover with Actionlist', () => {
     // So we reset to start at the button instead
     cy.get('body').tab();
     cy.focused().tab();
+    cy.focused().tab();
     cy.focused().should('have.text', 'Edit');
     cy.focused().tab();
     cy.focused().should('have.text', 'Delete');
