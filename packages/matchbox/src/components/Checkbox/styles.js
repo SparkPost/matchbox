@@ -52,11 +52,6 @@ export const StyledBox = styled(Box)`
   input:checked ~ span & {
     border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
     background: ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
-
-    ${StyledLabel}:hover & {
-      ${props =>
-        !props.disabled && !props.error ? `border: 2px solid ${tokens.color_blue_700};` : ''}
-    }
   }
 
   input:disabled ~ span & {
@@ -67,6 +62,10 @@ export const StyledBox = styled(Box)`
   input:disabled:checked ~ span & {
     background: ${tokens.color_gray_600};
     border: 2px solid ${tokens.color_gray_600};
+  }
+
+  ${StyledLabel}:hover input:checked:not(:disabled) ~ span & {
+    ${props => (!props.error ? `border: 2px solid ${tokens.color_blue_700};` : '')}
   }
 
   ${props =>
