@@ -72,7 +72,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     defaultValue,
     value,
     onChange,
-    portalId,
     ...rest
   } = props;
 
@@ -162,7 +161,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
         open={open}
         as="div"
         width="100%"
-        portalId={portalId}
         trigger={
           <Box position="relative">
             <ListBoxButton
@@ -220,7 +218,6 @@ ListBox.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  portalId: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ...createPropTypes(margin.propNames),
