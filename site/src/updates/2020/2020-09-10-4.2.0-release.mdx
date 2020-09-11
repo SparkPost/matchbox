@@ -1,0 +1,54 @@
+---
+title: Matchbox 4.2.0
+date: 2020-09-10
+published: true
+category: Release Notes
+---
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v4.2.0">view the release notes on Github</ExternalLink>.
+
+### New Features
+
+##### Skeleton Components
+
+The new Skeleton components are used as an alternative to the Spinner component to preview document structure while content is loading.
+
+- <ExternalLink to="https://matchbox-storybook.netlify.app/?path=/story/feedback-skeleton--as-a-box">
+    Skeleton stories
+  </ExternalLink>
+
+```jsx
+<Skeleton.Header looksLike="h1" width="900" />
+<Skeleton.Body lines={3} />
+<Skeleton.Box borderRadius="circle" size="7rem" />
+```
+
+##### useBreakpoint Hook
+
+A new hook that taps into `window.matchMedia` and returns token breakpoint state.
+
+```jsx
+const breakpoint = useBreakpoint();
+// Possible `breakpoint` values:
+// ['xl', 'lg', 'md', 'sm', 'xs', 'default'];
+
+if (['default', 'xs', 'sm'].includes(breakpoint)) {
+  // Do somthing!
+}
+```
+
+##### WebP Image Formats
+
+Matchbox media now includes <ExternalLink to="https://developers.google.com/speed/webp" />Webp, a compression image format developed by Google.
+
+![](https://i.imgur.com/Wf3ywQD.png)
+
+- <ExternalLink to="https://matchbox-storybook.netlify.app/?path=/story/media-images--all-images">
+    View images
+  </ExternalLink>
+
+### Other Enhancements
+
+- Columns support `className` and `display`
+- Motion tokens have been added to the `ThemeProvider` theme
+- Popover reintroduces `portalId`
