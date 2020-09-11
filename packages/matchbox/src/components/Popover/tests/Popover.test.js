@@ -11,6 +11,7 @@ describe('Popover', () => {
     it('should render its wrapper as a span', () => {
       const wrapper = subject();
       expect(wrapper.find('span').at(0)).toHaveStyleRule('display', 'inline-block');
+      expect(wrapper.find('span').at(1)).toHaveStyleRule('display', 'inline-block');
     });
 
     it('should render its wrapper as a div', () => {
