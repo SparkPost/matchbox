@@ -46,11 +46,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
 
   // Focuses on option when focused index changes
   React.useLayoutEffect(() => {
-    // Does not continue when focus is reset, when moving focus outside the container
-    if (focusContainerRef.current && !focusContainerRef.current.contains(document.activeElement)) {
-      return;
-    }
-
     if (optionRefs.current[focused]) {
       optionRefs.current[focused].focus();
     }

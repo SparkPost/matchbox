@@ -41,6 +41,14 @@ const StyledButton = styled(Button)`
   ${focusOutline()}
 `;
 
+const ListBoxButton = React.forwardRef(function ListBoxButton(props, userRef) {
+  return (
+    <StyledButton {...props} ref={userRef}>
+      {props.children}
+    </StyledButton>
+  );
+});
+
 const StyledList = styled(Box)`
   ${maxHeight}
   list-style-type: none;
@@ -48,7 +56,7 @@ const StyledList = styled(Box)`
   margin: 0;
 `;
 
-function ListBox(props) {
+const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const {
     children,
     placeholder,
@@ -100,7 +108,11 @@ function ListBox(props) {
 
   function onSelect(value) {
     if (onChange) {
-      onChange(value);
+      onChange({
+        currentTarget: {
+          value,
+        },
+      });
     }
 
     setOpen(false);
@@ -153,7 +165,7 @@ function ListBox(props) {
         portalId={portalId}
         trigger={
           <Box position="relative">
-            <StyledButton
+            <ListBoxButton
               id={id}
               data-id="open-listbox"
               textAlign="left"
@@ -167,9 +179,10 @@ function ListBox(props) {
               disabled={disabled}
               {...componentProps}
               {...describedBy}
+              ref={userRef}
             >
               {contentFromValue}
-            </StyledButton>
+            </ListBoxButton>
             <StyledChevron size={24} disabled={disabled} />
           </Box>
         }
@@ -190,7 +203,7 @@ function ListBox(props) {
       {helpMarkup}
     </StyledWrapper>
   );
-}
+});
 
 ListBox.displayName = 'ListBox';
 ListBox.propTypes = {
