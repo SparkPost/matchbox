@@ -7,6 +7,7 @@ import { Box } from '../Box';
 import Accent from './Accent';
 import Action from './Action';
 import Header from './Header';
+import SubHeader from './SubHeader';
 import Section from './Section';
 import { pick } from '../../helpers/systemProps';
 import { PanelPaddingContext } from './context';
@@ -64,6 +65,7 @@ Panel.propTypes = {
 
 Panel.LEGACY = Legacy;
 Panel.Header = Header;
+Panel.SubHeader = SubHeader;
 Panel.Action = Action;
 Panel.Section = Section;
 
