@@ -13,7 +13,7 @@ import { margin } from 'styled-system';
 import Group from './Group';
 import { Wrapper, StyledLabel, StyledInput, StyledChecked, StyledUnchecked } from './styles';
 
-function Radio(props) {
+const Radio = React.forwardRef(function Radio(props, userRef) {
   const {
     id,
     name,
@@ -53,6 +53,7 @@ function Radio(props) {
           onBlur={onBlur}
           type="radio"
           error={error}
+          ref={userRef}
           {...describedBy}
           {...componentProps}
         />
@@ -85,7 +86,7 @@ function Radio(props) {
       )}
     </Wrapper>
   );
-}
+});
 
 Radio.displayName = 'Radio';
 

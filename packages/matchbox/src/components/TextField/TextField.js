@@ -29,7 +29,7 @@ const StyledInput = styled(Box)`
   outline: none;
 `;
 
-const FieldBox = props => {
+const FieldBox = React.forwardRef(function FieldBox(props, userRef) {
   return (
     <StyledInputWrapper>
       <StyledInput
@@ -46,10 +46,11 @@ const FieldBox = props => {
         lineHeight={props.lineHeight}
         py={props.py}
         required={props.required}
+        ref={userRef}
       />
     </StyledInputWrapper>
   );
-};
+});
 
 function PrefixOrSuffix({ content, className, forwardedRef, ...rest }) {
   if (!content) {
@@ -73,7 +74,7 @@ function PrefixOrSuffix({ content, className, forwardedRef, ...rest }) {
   );
 }
 
-function TextField(props) {
+const TextField = React.forwardRef(function TextField(props, userRef) {
   const {
     align,
     autoFocus,
@@ -175,7 +176,7 @@ function TextField(props) {
             forwardedRef={prefixRef}
             left="300"
           />
-          <FieldBox {...inputProps} />
+          <FieldBox ref={userRef} {...inputProps} />
           <PrefixOrSuffix
             content={suffix}
             className={suffixClassname}
@@ -188,7 +189,7 @@ function TextField(props) {
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
     </StyledWrapper>
   );
-}
+});
 
 TextField.displayName = 'TextField';
 TextField.propTypes = {

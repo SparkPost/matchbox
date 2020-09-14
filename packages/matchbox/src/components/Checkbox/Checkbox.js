@@ -20,7 +20,7 @@ import {
   Wrapper,
 } from './styles';
 
-function Checkbox(props) {
+const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
   const {
     id,
     checked,
@@ -66,6 +66,7 @@ function Checkbox(props) {
           type="checkbox"
           required={required}
           error={error}
+          ref={userRef}
           {...indeterminateAttributes}
           {...describedBy}
           {...componentProps}
@@ -123,7 +124,7 @@ function Checkbox(props) {
       )}
     </Wrapper>
   );
-}
+});
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.Group = Group;

@@ -57,7 +57,7 @@ const StyledInput = styled(Box)`
   outline: none;
 `;
 
-const SelectBox = props => {
+const SelectBox = React.forwardRef(function SelectBox(props, userRef) {
   return (
     <StyledInputWrapper>
       <StyledInput
@@ -73,10 +73,11 @@ const SelectBox = props => {
         height="2.5rem"
         color="gray.900"
         {...props}
+        ref={userRef}
       />
     </StyledInputWrapper>
   );
-};
+});
 
 const system = compose(margin, maxWidth);
 
@@ -92,7 +93,7 @@ const StyledWrapper = styled('div')`
   ${system}
 `;
 
-function Select(props) {
+const Select = React.forwardRef(function Select(props, userRef) {
   const {
     id,
     options,
@@ -149,6 +150,7 @@ function Select(props) {
           hasError={!!error}
           {...componentProps}
           {...describedBy}
+          ref={userRef}
         >
           <Options
             options={options}
@@ -162,7 +164,7 @@ function Select(props) {
       {helpMarkup}
     </StyledWrapper>
   );
-}
+});
 
 Select.displayName = 'Select';
 Select.propTypes = {

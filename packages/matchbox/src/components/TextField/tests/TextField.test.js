@@ -143,4 +143,20 @@ describe('TextField', () => {
     expect(events.onBlur).toHaveBeenCalledTimes(1);
     expect(events.onFocus).toHaveBeenCalledTimes(1);
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <TextField ref={ref} id="test-field"></TextField>
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.id).toEqual('test-field');
+  });
 });

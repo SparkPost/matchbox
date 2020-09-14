@@ -87,4 +87,20 @@ describe('Radio', () => {
     expect(events.onBlur).toHaveBeenCalled();
     expect(events.onFocus).toHaveBeenCalled();
   });
+
+  it('renders with with a ref', () => {
+    function Test() {
+      const ref = React.useRef();
+      React.useEffect(() => {
+        ref.current.focus();
+      }, []);
+      return (
+        <>
+          <Radio ref={ref} id="test-radio"></Radio>
+        </>
+      );
+    }
+    global.mountStyled(<Test />);
+    expect(document.activeElement.id).toEqual('test-radio');
+  });
 });
