@@ -49,8 +49,8 @@ const commonCheckStyle = props => `
 export const StyledUnchecked = styled.svg`
   ${props => commonCheckStyle(props)}
   opacity: 1;
-  fill: ${props => props.theme.colors.gray['700']}
-  
+  fill: ${props => props.theme.colors.gray['700']};
+
   input:checked ~ ${StyledLabel} & {
     opacity: 0;
   }

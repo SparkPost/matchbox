@@ -94,6 +94,12 @@ describe('Panel Components', () => {
       wrapper.find('button').simulate('click');
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
+
+    it('renders with the passed in "data-id"', () => {
+      let wrapper = subject({ 'data-id': 'my-panel' });
+
+      expect(wrapper.find('[data-id="my-panel"]')).toExist();
+    });
   });
 
   describe('Panel.Section', () => {

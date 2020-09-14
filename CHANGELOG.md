@@ -1,3 +1,54 @@
+## 4.2.0 (2020-09-10)
+
+#### Features
+
+- `matchbox-media`
+  - [#631](https://github.com/SparkPost/matchbox/pull/631) UX-322 Include Webp Image Formats
+    ([@logansparlin](https://github.com/logansparlin))
+- `matchbox`
+  - [#588](https://github.com/SparkPost/matchbox/pull/588) UX-313 Add Skeleton Components
+    ([@jonambas](https://github.com/jonambas))
+  - [#609](https://github.com/SparkPost/matchbox/pull/609) UX-288 Add useBreakpoint hook
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#627](https://github.com/SparkPost/matchbox/pull/627) Closes
+    [#624](https://github.com/SparkPost/matchbox/issues/624) - Add support for data-id for the Panel
+    component ([@nicklemmon](https://github.com/nicklemmon))
+  - [#626](https://github.com/SparkPost/matchbox/pull/626) Closes
+    [#625](https://github.com/SparkPost/matchbox/issues/625) - Add support for the className prop
+    for the Column component ([@nicklemmon](https://github.com/nicklemmon))
+  - [#621](https://github.com/SparkPost/matchbox/pull/621) Issue-608 Add motion to theme
+    ([@jonambas](https://github.com/jonambas))
+  - [#591](https://github.com/SparkPost/matchbox/pull/591) UX-296 Lower table cell font size on
+    mobile ([@jonambas](https://github.com/jonambas))
+  - [#606](https://github.com/SparkPost/matchbox/pull/606) UX-314 Add portalId to the Popover
+    component to fix placement in tables ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#623](https://github.com/SparkPost/matchbox/pull/623) UX-328 Add resize observer polyfill as
+    runtime dependency ([@jonambas](https://github.com/jonambas))
+  - [#622](https://github.com/SparkPost/matchbox/pull/622) Issue 617 Set Modal.Content overflow-y to
+    auto ([@jonambas](https://github.com/jonambas))
+  - [#613](https://github.com/SparkPost/matchbox/pull/613) UX-323 Add margin prop to Button.Icon
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#614](https://github.com/SparkPost/matchbox/pull/614) UX-320 Specify Layout.SectionTitle line
+    height ([@jonambas](https://github.com/jonambas))
+- Other
+  - [#619](https://github.com/SparkPost/matchbox/pull/619) Closes
+    [#618](https://github.com/SparkPost/matchbox/issues/618) - Fixes incorrect link to Matchbox
+    Storybook site ([@nicklemmon](https://github.com/nicklemmon))
+
+#### Committers: 3
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+- Nick Lemmon ([@nicklemmon](https://github.com/nicklemmon))
+
 ## 4.1.1 (2020-08-26)
 
 #### Features

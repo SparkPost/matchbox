@@ -132,6 +132,15 @@ import { LiveCode } from '../../components/LiveCode';
 
 ### Popover API
 
+<Prop
+  name="as"
+  type="string"
+  values={['"div"', '"span"']}
+  defaultValue='"span"'
+>
+  Whether to render the popover as a div or a span (block or inline)
+</Prop>
+
 <Prop name="id" type="string">
   The popover ID
 </Prop>
@@ -173,7 +182,7 @@ import { LiveCode } from '../../components/LiveCode';
   The content of the popover
 </Prop>
 
-<Prop name="as" type="string">
-  div, span <br />
-  Whether to render the popover as a div or a span (block or inline)
+<Prop name="portalId" type="string">
+  Element ID for the portal that will house the Popover. Appends to body if not
+  provided.
 </Prop>
