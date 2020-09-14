@@ -34,6 +34,8 @@ const StyledChevron = styled(KeyboardArrowDown)`
 
 const StyledButton = styled(Button)`
   text-align: left;
+  font-size: ${props => props.theme.fontSizes['200']};
+  font-weight: ${props => props.theme.fontWeights['medium']};
   background: ${props => (props.disabled ? props.theme.colors.gray['200'] : '')};
   &:hover {
     background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
