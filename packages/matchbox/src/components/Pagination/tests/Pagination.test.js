@@ -5,6 +5,15 @@ import 'jest-styled-components';
 
 import Pagination from '../Pagination';
 
+global.matchMedia = function() {
+  return {
+    matches: true,
+    media: '(max-width: 1080px)',
+    onChange: jest.fn(),
+    addListener: jest.fn(),
+  };
+};
+
 describe('Pagination', () => {
   const props = {
     currentPage: 1,
