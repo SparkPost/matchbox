@@ -7,58 +7,55 @@ import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 const system = compose(layout, margin);
-
-const StyledImage = styled.img`
+const StyledFigure = styled.figure`
   ${system};
   ${({ seeThrough }) => (seeThrough ? 'mix-blend-mode: multiply;' : '')}
 `;
 
+// Picture Component
 const Picture = React.forwardRef(function Picture(props, userRef) {
-  const {
-    alt = '', // All images require an alt, even if its an empty string
-    children,
-    className,
-    seeThrough,
-    src,
-    role,
-    ...rest
-  } = props;
-
-  const altText = role === 'presentation' ? '' : alt;
+  const { children, seeThrough, role, ...rest } = props;
   const systemProps = pick(rest, system.propNames);
-
-  if (!alt && role !== 'presentation') {
-    console.warn(
-      'Matchbox Picture: Please supply a valid image for `alt` if the image has meaningful content. Otherwise, please set `role` to "presentation"',
-    );
-  }
-
   return (
-    <Box as="figure" m="0" role={role} ref={userRef}>
-      <picture>
-        {children}
-        <StyledImage
-          alt={altText}
-          className={className}
-          seeThrough={seeThrough}
-          src={src}
-          width="100%"
-          {...systemProps}
-        />
-      </picture>
-    </Box>
+    <StyledFigure
+      as="figure"
+      m="0"
+      role={role}
+      ref={userRef}
+      seeThrough={seeThrough}
+      {...systemProps}
+    >
+      <picture>{children}</picture>
+    </StyledFigure>
   );
 });
 
 Picture.displayName = 'Picture';
 Picture.propTypes = {
-  alt: PropTypes.string,
   children: PropTypes.node, // For passing in child `<source />` elements - may have additional uses in the future, so not restricting that now
   role: PropTypes.string,
   seeThrough: PropTypes.bool,
-  src: PropTypes.string.isRequired,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(layout.propNames),
 };
 
+// Picture.Image Component
+const Image = React.forwardRef(function Image(props, userRef) {
+  const { alt, className, src } = props;
+  return <Box as="img" alt={alt} className={className} src={src} ref={userRef} width="100%" />;
+});
+
+Image.displayName = 'Picture.Image';
+
+Image.propTypes = {
+  alt: PropTypes.string,
+  className: PropTypes.string,
+  src: PropTypes.string.isRequired,
+};
+
+Image.defaultProps = {
+  alt: '',
+};
+
+Picture.Image = Image;
 export default Picture;

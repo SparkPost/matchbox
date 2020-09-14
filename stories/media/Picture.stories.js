@@ -9,20 +9,21 @@ export default {
 };
 
 export const BasicImage = withInfo({ propTables: [Picture] })(() => (
-  <Picture src={Image} alt="Sparky!"></Picture>
+  <Picture>
+    <Picture.Image src={Image} />
+  </Picture>
 ));
 
 export const MultiplyBackground = withInfo({ propTables: [Picture] })(() => (
   <Box bg="blue.100">
-    <Picture src={Image} seeThrough></Picture>
+    <Picture seeThrough>
+      <Picture.Image src={Image} />
+    </Picture>
   </Box>
 ));
 
 export const SystemProps = withInfo({ propTables: [Picture] })(() => (
-  <Picture
-    src={Image}
-    mx="500"
-    width={['200px', '400px', '500px', '600px']}
-    role="presentation"
-  ></Picture>
+  <Picture mx="500" width={['200px', '400px', '500px', '600px']} role="presentation">
+    <Picture.Image src={Image} />
+  </Picture>
 ));
