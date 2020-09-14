@@ -118,5 +118,9 @@ export default `
     pre {
       margin-bottom: ${tokens.spacing_400};
     }
+    
+    img {
+      width: 100%;
+    }
   }
 `;
