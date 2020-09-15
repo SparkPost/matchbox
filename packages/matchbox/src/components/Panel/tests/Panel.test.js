@@ -56,6 +56,27 @@ describe('Panel Components', () => {
     });
   });
 
+  describe('Panel.SubHeader', () => {
+    it('renders SubHeader correctly', () => {
+      let wrapper = subject({ children: <Panel.SubHeader>The SubHeader</Panel.SubHeader> });
+      expect(wrapper.text()).toEqual('The SubHeader');
+    });
+
+    it('renders with a default padding correctly', () => {
+      let wrapper = subject({ children: <Panel.SubHeader>SubHeader Content</Panel.SubHeader> });
+      expect(wrapper.find(Panel.SubHeader)).toHaveStyleRule('padding', '1rem');
+      expect(wrapper.find(Panel.SubHeader)).toHaveStyleRule('padding-bottom', '0');
+    });
+
+    it('renders with a set padding correctly', () => {
+      let wrapper = subject({
+        padding: '500',
+        children: <Panel.SubHeader>SubHeader Content</Panel.SubHeader>,
+      });
+      expect(wrapper.find(Panel.SubHeader)).toHaveStyleRule('padding', '1.5rem');
+    });
+  });
+
   describe('Panel.Header', () => {
     it('renders children correctly', () => {
       let wrapper = subject({ children: <Panel.Header>Header Content</Panel.Header> });

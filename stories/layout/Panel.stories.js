@@ -13,6 +13,13 @@ export const WithAHeader = withInfo()(() => (
   </Panel>
 ));
 
+export const WithASubheader = withInfo()(() => (
+  <Panel data-id="my-panel">
+    <Panel.SubHeader>Details and Definition</Panel.SubHeader>
+    <Panel.Section>Section Content</Panel.Section>
+  </Panel>
+));
+
 export const WithAccent = withInfo()(() => (
   <Panel accent>
     <Panel.Section>This is a highlighted panel with a title</Panel.Section>
