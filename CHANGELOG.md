@@ -1,3 +1,21 @@
+## 4.2.1 (2020-09-15)
+
+#### Enhancements
+
+- `matchbox`
+  - [#632](https://github.com/SparkPost/matchbox/pull/632) Issue 630 - Forward refs to Radio,
+    Checkbox, Textfield and Select ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#635](https://github.com/SparkPost/matchbox/pull/635) UX-330 Revert UX-314
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.2.0 (2020-09-10)
 
 #### Features
