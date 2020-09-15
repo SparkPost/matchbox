@@ -2,6 +2,8 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const select = props => `
   appearance: none;
+  font-weight: ${tokens.fontWeight_medium};
+  font-size: ${tokens.fontSize_200};
   &:hover {
     cursor: ${props.disabled ? 'not-allowed;' : 'pointer;'}
   }
