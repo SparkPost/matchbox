@@ -1,0 +1,184 @@
+---
+title: ListBox
+category: Component
+---
+
+import { LiveCode } from '../../components/LiveCode';
+
+# ListBox
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="Basic"
+    code={`
+      <ListBox id="listbox-1" defaultValue="option-1" label="Select an option">
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="Placeholder"
+    code={`
+      <ListBox id="listbox-2" label="Select an option" placeholder="Select One">
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="With Error"
+    code={`
+      <ListBox
+        id="listbox-3"
+        label="Select an option"
+        placeholder="Select One"
+        error="You must select an option"
+      >
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="With Help Text and Error"
+    code={`
+      <ListBox
+        id="listbox-4"
+        label="Select an option"
+        placeholder="Select One"
+        error="You must select an option"
+        helpText="Remember to select an option"
+      >
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="With Required and Error in Label"
+    code={`
+      <ListBox
+        id="listbox-4"
+        label="Select an option"
+        placeholder="Select One"
+        error="You must select an option"
+        required
+        errorInLabel
+      >
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="Optional"
+    code={`
+      <ListBox id="listbox-4" label="Select an option" placeholder="Select One" optional>
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+  <LiveCode.Content
+    title="Disabled"
+    code={`
+      <ListBox id="listbox-4" label="Select an option" placeholder="Select One" disabled>
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    `}
+  />
+</LiveCode>
+
+---
+
+### ListBox System Props
+
+<SystemPropsTags propsList={['margin', 'maxWidth']} />
+
+---
+
+### ListBox API
+
+<Prop name="id" type="string">
+  The ID for the listbox
+</Prop>
+
+<Prop name="value" type="string | number">
+  The value of the listbox
+</Prop>
+
+<Prop name="defaultValue" type="string | number">
+  The default value of the listbox
+</Prop>
+
+<Prop name="disabled" type="bool">
+  Whether the listbox is disabled or not
+</Prop>
+
+<Prop name="required" type="bool">
+  Whether the listbox is required or not
+</Prop>
+
+<Prop name="label" type="string">
+  Label for the listbox
+</Prop>
+
+<Prop name="labelHidden" type="bool">
+  Whether the label is hidden or not
+</Prop>
+
+<Prop name="helpText" type="node">
+  Addition text to help the user that renders below the listbox
+</Prop>
+
+<Prop name="error" type="string">
+  Renders an error message below the listbox
+</Prop>
+
+<Prop name="errorInLabel" type="bool">
+  Optionally renders the error message to the right of the listbox's label
+</Prop>
+
+<Prop name="onChange" type="function" defaultValue="(e) => void">
+  Callback when listbox value state changes
+</Prop>
+
+<Prop name="onFocus" type="function" defaultValue="(e) => void">
+  Callback when listbox becomes focused
+</Prop>
+
+<Prop name="onBlur" type="function" defaultValue="(e) => void">
+  Callback when listbox loses focus
+</Prop>
+
+---
+
+### ListBox.Option
+
+<Prop name="disabled" type="bool">
+  Whether the option is disabled or not
+</Prop>
+
+<Prop name="value" type="string | number">
+  The value of the option
+</Prop>

@@ -15,15 +15,15 @@ export const Animator = styled(Box)`
   overflow: hidden;
   &:after {
     position: absolute;
-    background: ${tokens.color_gray_200}
+    background: ${tokens.color_gray_200};
     content: '';
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.5
-    animation: ${tokens.motionDuration_slow} infinite alternate
-               ${Shimmer} ${tokens.motionEase_in_out};
+    opacity: 0.5;
+    animation: ${tokens.motionDuration_slow} infinite alternate ${Shimmer}
+      ${tokens.motionEase_in_out};
     animation-delay: ${props => props.delay};
     will-change: opacity;
   }
