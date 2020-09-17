@@ -1,0 +1,268 @@
+---
+title: ActionList
+category: Component
+---
+
+# Hooks
+
+- [useCopyToClipboard](/components/hooks#usecopytoclipboard)
+- [useDrawer](/components/hooks#usedrawer)
+- [useModal](/components/hooks#usemodal)
+- [useResizeObserver](/components/hooks#useresizeobserver)
+- [useTabs](/components/hooks#usetabs)
+- [useWindowEvent](/components/hooks#usewindowevent)
+
+---
+
+### useCopyToClipboard
+
+This hook copies a string to the clipboard and provides copied state.
+
+```jsx
+import { useCopyToClipboard } from '@sparkpost/matchbox';
+
+function Component() {
+  const { copy, copied } = useCopyToClipboard({ timeout: 2000 });
+
+  return (
+    <button onClick={() => copy('string')}>
+      {copied ? 'String has been copied' : 'Copy to clipboard'}
+    </button>;
+  );
+}
+```
+
+##### Return Object
+
+<Prop name="copy" type="function">
+  Copies the string passed as an argument to the clipboard
+</Prop>
+<Prop name="copied" type="bool">
+  Copied state
+</Prop>
+
+##### Options Object
+
+<Prop name="timeout" type="number" defaultValue="1000">
+  How long the hook should wait after copying before resetting copied state
+</Prop>
+
+---
+
+### useDrawer
+
+Hook that is built to be paired with the [drawer component](/components/drawer)
+
+```jsx
+import { Drawer, useDrawer } from '@sparkpost/matchbox';
+
+function Example() {
+  const { getDrawerProps, getActivatorProps } = useDrawer();
+
+  return (
+    <div>
+      <button {...getActivatorProps()}>Open Drawer</button>
+      <Drawer {...getDrawerProps()} position="right">
+        <Drawer.Header>Header Title</Drawer.Header>
+        <Drawer.Content>Drawer Content</Drawer.Content>
+        <Drawer.Footer>Footer Content</Drawer.Footer>
+      </Drawer>
+    </div>
+  );
+}
+```
+
+##### Return Object
+
+<Prop name="isOpen" type="bool">
+  Open state
+</Prop>
+<Prop name="closeDrawer" type="function">
+  Function to close the drawer
+</Prop>
+<Prop name="openDrawer" type="function">
+  Function to open the drawer
+</Prop>
+<Prop name="toggleDrawer" type="function">
+  Function to toggle the drawer's open state
+</Prop>
+<Prop name="getDrawerProps" type="function">
+  Passes through open state, event handlers, a11y attributes
+</Prop>
+<Prop name="getActivatorProps" type="function">
+  Passes through a11y attributes
+</Prop>
+
+##### Options Object
+
+<Prop name="id" type="string" defaultValue="matchbox-drawer" required>
+  Specifies a unique id
+</Prop>
+<Prop name="initialOpen" type="bool">
+  Sets initial open states
+</Prop>
+
+---
+
+### useModal
+
+Hook that is built to be paired with the [modal component](/components/modal)
+
+```jsx
+import { Modal, useModal } from '@sparkpost/matchbox';
+
+function Example() {
+  const { getModal, getActivatorProps } = useModal();
+
+  return (
+    <div>
+      <button {...getActivatorProps()}>Open Modal</button>
+      <Modal {...getModalProps()}>
+        <Modal.Header>Modal Title</Modal.Header>
+        <Modal.Content>Modal Content</Modal.Content>
+        <Modal.Footer>
+          <Button>Button</Button>
+          <Button>Button</Button>
+          <Button>Button</Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+}
+```
+
+##### Return Object
+
+<Prop name="isOpen" type="bool">
+  Open state
+</Prop>
+<Prop name="closeModal" type="function">
+  Function to close the modal
+</Prop>
+<Prop name="openModal" type="function">
+  Function to open the modal
+</Prop>
+<Prop name="toggleModal" type="function">
+  Function to toggle the modal's open state
+</Prop>
+<Prop name="getModalProps" type="function">
+  Passes through open state, event handlers, a11y attributes
+</Prop>
+<Prop name="getActivatorProps" type="function">
+  Passes through a11y attributes
+</Prop>
+
+##### Options Object
+
+<Prop name="id" type="string" defaultValue="matchbox-modal" required>
+  Specifies a unique id
+</Prop>
+<Prop name="initialOpen" type="bool">
+  Sets initial open states
+</Prop>
+
+---
+
+### useResizeObserver
+
+Returns content rect dimensions for the provided DOM element
+
+```jsx
+import { useResizeObserver } from '@sparkpost/matchbox';
+
+function Example() {
+  const [ref, entry] = useResizeObserver();
+
+  console.log(entry.contentRect);
+
+  return <div ref={ref} />;
+}
+```
+
+##### Return Object
+
+<Prop name="ref" type="React ref">
+  Ref of the DOM element
+</Prop>
+<Prop name="contentRect" type="object">
+  Content rect of the DOM element referenced
+</Prop>
+
+---
+
+### useTabs
+
+Hook that is built to be paired with the [tabs component](/components/tabs)
+
+```jsx
+import { Tabs, useTabs } from '@sparkpost/matchbox';
+
+function Example() {
+  const { getTabsProps } = useTabs({
+    tabs: [
+      {
+        content: 'Tab 1'
+      },
+      {
+        content: 'Tab 2'
+      }
+    ]
+  });
+
+  return <Tabs {...getTabProps()} />;
+}
+```
+
+##### Return Object
+
+<Prop name="getTabsProps" type="function">
+  Provides required tab props, onSelect, selected, and constructed tabs with
+  onClick handlers
+</Prop>
+<Prop name="tabIndex" type="number">
+  The selected tab index
+</Prop>
+<Prop name="tabs" type="array">
+  The constructed tabs with onClick handlers
+</Prop>
+<Prop name="setTabIndex" type="function">
+  Callback function to programatically set tab index
+</Prop>
+
+##### Options Object
+
+<Prop name="tabs" type="array" required defaultValue="[]">
+  Your tabs array
+</Prop>
+<Prop name="initialSelected" type="number" defaultValue="0">
+  Sets initial selected tab
+</Prop>
+
+---
+
+### useWindowEvent
+
+SSR-friendly hook that handles global window events
+
+```jsx
+import { useWindowEvent } from '@sparkpost/matchbox';
+
+function Example() {
+  function handler() {
+    // do something!
+  }
+
+  useWindowEvent('resize', handler);
+
+  return 'example';
+}
+```
+
+##### Arguments
+
+<Prop name="event" type="string" required>
+  Event type to listen to
+</Prop>
+<Prop name="callback" type="function" required>
+  Callback to run on the provided event
+</Prop>
