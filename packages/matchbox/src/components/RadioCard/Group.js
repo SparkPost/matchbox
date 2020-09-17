@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { getChild } from '../../helpers/children';
+import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Label } from '../Label';
@@ -57,6 +58,14 @@ const Group = React.forwardRef(function Group(props, userRef) {
           ))}
         </Stack>
       )}
+
+      {orientation === 'grid' && (
+        <Box display="grid" gridTemplateColumns={['1fr', null, '1fr 1fr']} gridGap="300">
+          {items.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
+        </Box>
+      )}
     </Fieldset>
   );
 });
@@ -69,7 +78,7 @@ Group.propTypes = {
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
   optional: PropTypes.bool,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical', 'grid']),
   weight: PropTypes.oneOf(['light', 'heavy']),
   ...createPropTypes(margin.propNames),
 };

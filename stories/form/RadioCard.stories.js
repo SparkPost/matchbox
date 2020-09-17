@@ -37,6 +37,23 @@ export const LightVerticalGroup = withInfo()(() => (
   </RadioCard.Group>
 ));
 
+export const GridOrientationGroup = withInfo()(() => (
+  <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="grid" weight="heavy">
+    <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
+      I am help text
+    </RadioCard>
+    <RadioCard id="id2" label="Check Me 2" name="group">
+      I am help text
+    </RadioCard>
+    <RadioCard id="id3" label="Check Me 3" name="group" defaultChecked>
+      I am help text
+    </RadioCard>
+    <RadioCard id="id4" label="Check Me 4" name="group">
+      I am help text
+    </RadioCard>
+  </RadioCard.Group>
+));
+
 export const HeavyCollapsingHorizontalGroup = withInfo()(() => (
   <RadioCard.Group
     collapseBelow="sm"
