@@ -22,19 +22,9 @@ const Fieldset = styled.fieldset`
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const Group = React.forwardRef(function Group(props, userRef) {
-  const {
-    children,
-    collapseBelow,
-    id,
-    label,
-    labelHidden,
-    orientation,
-    optional,
-    weight,
-    ...rest
-  } = props;
+  const { children, collapseBelow, id, label, labelHidden, orientation, optional, ...rest } = props;
 
-  const items = getChild('RadioCard', children, { weight });
+  const items = getChild('RadioCard', children);
   const systemProps = pick(rest, margin.propNames);
 
   return (
@@ -79,13 +69,11 @@ Group.propTypes = {
   labelHidden: PropTypes.bool,
   optional: PropTypes.bool,
   orientation: PropTypes.oneOf(['horizontal', 'vertical', 'grid']),
-  weight: PropTypes.oneOf(['light', 'heavy']),
   ...createPropTypes(margin.propNames),
 };
 
 Group.defaultProps = {
   orientation: 'vertical',
-  weight: 'light',
 };
 
 export default Group;

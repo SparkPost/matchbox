@@ -23,8 +23,8 @@ export const DisabledRadio = withInfo()(() => (
   </RadioCard.Group>
 ));
 
-export const LightVerticalGroup = withInfo()(() => (
-  <RadioCard.Group label="Radio Card Group" weight="light">
+export const VerticalGroup = withInfo()(() => (
+  <RadioCard.Group label="Radio Card Group">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
@@ -38,7 +38,7 @@ export const LightVerticalGroup = withInfo()(() => (
 ));
 
 export const GridOrientationGroup = withInfo()(() => (
-  <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="grid" weight="heavy">
+  <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="grid">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
@@ -54,13 +54,8 @@ export const GridOrientationGroup = withInfo()(() => (
   </RadioCard.Group>
 ));
 
-export const HeavyCollapsingHorizontalGroup = withInfo()(() => (
-  <RadioCard.Group
-    collapseBelow="sm"
-    label="Radio Card Group"
-    orientation="horizontal"
-    weight="heavy"
-  >
+export const CollapsingHorizontalGroup = withInfo()(() => (
+  <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="horizontal">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
@@ -71,7 +66,7 @@ export const HeavyCollapsingHorizontalGroup = withInfo()(() => (
 ));
 
 export const GroupWithHiddenLabel = withInfo()(() => (
-  <RadioCard.Group label="Radio Card Group" weight="light" labelHidden>
+  <RadioCard.Group label="Radio Card Group" labelHidden>
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
@@ -85,7 +80,7 @@ export const GroupWithHiddenLabel = withInfo()(() => (
 ));
 
 export const GroupWithOptionalLabel = withInfo()(() => (
-  <RadioCard.Group label="Radio Card Group" weight="light" optional>
+  <RadioCard.Group label="Radio Card Group" optional>
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
@@ -99,7 +94,7 @@ export const GroupWithOptionalLabel = withInfo()(() => (
 ));
 
 export const GroupWithSystemProps = withInfo()(() => (
-  <RadioCard.Group label="Radio Card Group" weight="light" my="500" mx="700">
+  <RadioCard.Group label="Radio Card Group" my="500" mx="700">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
