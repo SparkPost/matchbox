@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { getChild } from '../../helpers/children';
 import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
@@ -24,7 +23,7 @@ const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 const Group = React.forwardRef(function Group(props, userRef) {
   const { children, collapseBelow, id, label, labelHidden, orientation, optional, ...rest } = props;
 
-  const items = getChild('RadioCard', children);
+  const items = React.Children.toArray(children);
   const systemProps = pick(rest, margin.propNames);
 
   return (
