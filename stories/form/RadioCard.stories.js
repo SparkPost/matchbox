@@ -38,7 +38,7 @@ export const VerticalGroup = withInfo()(() => (
 ));
 
 export const GridOrientationGroup = withInfo()(() => (
-  <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="grid">
+  <RadioCard.Group label="Radio Card Group" orientation="grid">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
     </RadioCard>
