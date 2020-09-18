@@ -15,6 +15,15 @@ export const BasicListbox = withInfo()(() => (
   </ListBox>
 ));
 
+export const PrintableCharacter = withInfo()(() => (
+  <ListBox id="listbox-1" defaultValue="beta" label="Select an option">
+    <ListBox.Option value="alpha">Alpha</ListBox.Option>
+    <ListBox.Option value="beta">Beta</ListBox.Option>
+    <ListBox.Option value="chip">Chip</ListBox.Option>
+    <ListBox.Option value="dip">Dip</ListBox.Option>
+  </ListBox>
+));
+
 export const WithPlaceholder = withInfo()(() => (
   <ListBox id="listbox-2" label="Select an option" placeholder="Select One">
     <ListBox.Option value="option-1">Option 1</ListBox.Option>

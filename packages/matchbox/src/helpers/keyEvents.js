@@ -71,7 +71,7 @@ function compareEvent(event, e) {
 
 /**
  * Key down event handler
- * @example onKey('escape', () => foo()])(e)
+ * @example onKey('escape', () => foo())(e)
  */
 export function onKey(event, callback) {
   return function handleEvent(e) {
@@ -83,7 +83,7 @@ export function onKey(event, callback) {
 
 /**
  * Multiple key down event handler
- * @example onKeys(['escape', 'enter'], () => foo()])(e)
+ * @example onKeys(['escape', 'enter'], () => foo())(e)
  */
 export function onKeys(events, callback) {
   return function handleEvents(e) {

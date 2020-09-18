@@ -37,8 +37,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       onSelect(options[focused].props.value);
     })(e);
 
-    const character = e.key || e.keyCode;
-    setKeysSoFar(keysSoFar + character);
+    setKeysSoFar(keysSoFar + e.key.toLowerCase());
     clearKeysSoFarAfterDelay();
   }
 
@@ -77,6 +76,17 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
     }
   }, [focused]);
 
+  React.useLayoutEffect(() => {
+    if (keysSoFar) {
+      const index = options.findIndex(option =>
+        option.props.value.toLowerCase().includes(keysSoFar),
+      );
+      if (index >= 0) {
+        setFocused(index);
+      }
+    }
+  }, [keysSoFar]);
+
   const optionsMarkup = (
     <>
       {placeholder && (
@@ -103,7 +113,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       ref: focusContainerRef,
       onKeyDown: onFocusContainerKeyDown,
     },
-    keysSoFar,
   };
 }
 
