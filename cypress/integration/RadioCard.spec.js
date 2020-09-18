@@ -3,7 +3,7 @@
 describe('The RadioCard component', () => {
   describe('Basic', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?path=/story/form-radiocard--light-vertical-group');
+      cy.visit('/iframe.html?path=/story/form-radiocard--vertical-group');
     });
 
     it('selects on click', () => {
