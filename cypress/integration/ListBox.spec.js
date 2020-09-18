@@ -40,4 +40,30 @@ describe('The ListBox component', () => {
 
     cy.contains('Alpha').should('be.visible');
   });
+
+  it('changes focus when navigating with up and down arrows', () => {
+    cy.get('label').click();
+
+    cy.get('[data-id="open-listbox"]').trigger('keydown', {
+      key: 'ArrowUp',
+      keycode: 38,
+      shiftKey: false,
+    });
+
+    cy.focused().should('have.text', 'Alpha');
+
+    cy.get('[data-id="open-listbox"]').trigger('keydown', {
+      key: 'ArrowDown',
+      keycode: 40,
+      shiftKey: false,
+    });
+
+    cy.get('[data-id="open-listbox"]').trigger('keydown', {
+      key: 'ArrowDown',
+      keycode: 40,
+      shiftKey: false,
+    });
+
+    cy.focused().should('have.text', 'Charlie');
+  });
 });
