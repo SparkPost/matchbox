@@ -16,11 +16,11 @@ export const BasicListbox = withInfo()(() => (
 ));
 
 export const PrintableCharacter = withInfo()(() => (
-  <ListBox id="listbox-1" defaultValue="beta" label="Select an option">
+  <ListBox id="listbox-1" defaultValue="bravo" label="Select an option">
     <ListBox.Option value="alpha">Alpha</ListBox.Option>
-    <ListBox.Option value="beta">Beta</ListBox.Option>
-    <ListBox.Option value="chip">Chip</ListBox.Option>
-    <ListBox.Option value="dip">Dip</ListBox.Option>
+    <ListBox.Option value="bravo">Bravo</ListBox.Option>
+    <ListBox.Option value="charlie">Charlie</ListBox.Option>
+    <ListBox.Option value="delta">Delta</ListBox.Option>
   </ListBox>
 ));
 
