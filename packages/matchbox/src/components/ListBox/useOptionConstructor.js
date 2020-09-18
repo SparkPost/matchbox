@@ -7,12 +7,17 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const [focused, setFocused] = React.useState(
     value ? options.findIndex(option => option.props.value === value) : 0,
   );
+  const [keysSoFar, setKeysSoFar] = React.useState('');
+  const [keyClear, setKeyClear] = React.useState();
+
   const focusContainerRef = React.useRef({});
   const optionRefs = React.useRef({ current: new Array(options.length) });
 
   function onFocusContainerKeyDown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
     onKey('arrowDown', () => {
-      e.preventDefault();
       if (focused === options.length - 1) {
         setFocused(0);
       } else {
@@ -21,13 +26,34 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
     })(e);
 
     onKey('arrowUp', () => {
-      e.preventDefault();
       if (focused === 0) {
         setFocused(options.length - 1);
       } else {
         setFocused(focused - 1);
       }
     })(e);
+
+    onKey('enter', () => {
+      onSelect(options[focused].props.value);
+    })(e);
+
+    const character = e.key || e.keyCode;
+    setKeysSoFar(keysSoFar + character);
+    clearKeysSoFarAfterDelay();
+  }
+
+  function clearKeysSoFarAfterDelay() {
+    if (keyClear) {
+      clearTimeout(timeout);
+      setKeyClear(null);
+    }
+
+    setKeyClear(true);
+
+    let timeout = setTimeout(function() {
+      setKeysSoFar('');
+      setKeyClear(false);
+    }, 700);
   }
 
   // Preps array of option refs
@@ -77,6 +103,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       ref: focusContainerRef,
       onKeyDown: onFocusContainerKeyDown,
     },
+    keysSoFar,
   };
 }
 

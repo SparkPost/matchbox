@@ -145,7 +145,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     return getChild('ListBox.Option', children);
   }, [children]);
 
-  const { optionsMarkup, focusContainerProps } = useOptionConstructor({
+  const { optionsMarkup, focusContainerProps, keysSoFar } = useOptionConstructor({
     options,
     value: currentValue,
     onSelect,
@@ -155,6 +155,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   return (
     <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
+      {keysSoFar}
       {labelMarkup}
       <Popover
         id="listbox-popover"
