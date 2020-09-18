@@ -18,7 +18,7 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
     onFocus,
     onBlur,
     value,
-    weight,
+    weight = 'light',
     ...rest
   } = props;
 

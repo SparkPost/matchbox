@@ -103,5 +103,14 @@ describe('RadioCard', () => {
       );
       expect(wrapper.find('#test-id')).toExist();
     });
+
+    it('renders a grid orientation', () => {
+      const wrapper = global.mountStyled(
+        <RadioCard.Group label="label" orientation="grid">
+          <RadioCard id="test-id" />
+        </RadioCard.Group>,
+      );
+      expect(wrapper.find('#test-id')).toExist();
+    });
   });
 });
