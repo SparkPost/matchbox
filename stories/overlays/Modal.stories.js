@@ -93,3 +93,19 @@ export const LEGACY = withInfo()(() => (
     </Panel.LEGACY>
   </Modal.LEGACY>
 ));
+
+export const SystemProps = withInfo()(() => (
+  <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal.Header showCloseButton>Modal Title</Modal.Header>
+    <Modal.Content p="800">
+      <Box bg="blue.300" p="300">
+        Modal Content
+      </Box>
+    </Modal.Content>
+    <Modal.Footer>
+      <Button>Primary Button</Button>
+      <Button>Secondary Button</Button>
+      <Button>Tertiary Button</Button>
+    </Modal.Footer>
+  </Modal>
+));
