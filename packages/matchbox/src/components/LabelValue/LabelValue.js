@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
+import { tokens } from '@sparkpost/design-tokens';
 import { margin } from 'styled-system';
 import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
@@ -20,7 +21,7 @@ const LabelValue = React.forwardRef(function LabelValue(props, userRef) {
       <Box
         display={orientation === 'horizontal' ? 'grid' : 'block'}
         gridGap={orientation === 'horizontal' ? '300' : ''}
-        gridTemplateColumns={orientation === 'horizontal' ? '11rem 1fr' : ''}
+        gridTemplateColumns={orientation === 'horizontal' ? `${tokens.spacing_900} 1fr` : ''}
       >
         <Box fontSize="200" fontWeight="semibold" mb={orientation === 'vertical' ? '100' : ''}>
           {label}
