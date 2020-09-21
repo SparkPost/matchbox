@@ -6,7 +6,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import { pick } from '@styled-system/props';
-import { useBreakpoint } from '@sparkpost/matchbox';
+import { useBreakpoint } from '../../hooks';
 
 import { Box } from '../Box';
 import { Button, buttonsFrom } from '../Button';
