@@ -80,6 +80,16 @@ A panel is a visual grouping of similar content or tasks in order create readabl
       </Panel>
     `}
   />
+  <LiveCode.Content
+    title="With a subheader"
+    code={`
+        <Panel>
+          <Panel.SubHeader>Subheader</Panel.SubHeader>
+          <Panel.Section>Section Content</Panel.Section>
+        </Panel>
+    `}
+  />
+
 </LiveCode>
 
 ---
@@ -122,6 +132,22 @@ None
 
 <Prop name="className" type="string">
   Optional class name for the panel header wrapper
+</Prop>
+
+---
+
+### Panel.SubHeader System Props
+
+None
+
+### Panel.SubHeader API
+
+<Prop name="children" type="node">
+  Panel subheader content
+</Prop>
+
+<Prop name="className" type="string">
+  Optional class name for the panel subheader wrapper
 </Prop>
 
 ---
