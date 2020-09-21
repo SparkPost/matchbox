@@ -1,3 +1,15 @@
+## 4.3.1 (2020-09-21)
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#644](https://github.com/SparkPost/matchbox/pull/644) Fix breakpoint hook import
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.3.0 (2020-09-21)
 
 #### Features
