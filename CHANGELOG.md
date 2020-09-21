@@ -1,3 +1,28 @@
+## 4.3.0 (2020-09-21)
+
+#### Features
+
+- `matchbox`
+  - [#628](https://github.com/SparkPost/matchbox/pull/628) UX-264 Create ListBox Component
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#636](https://github.com/SparkPost/matchbox/pull/636) UX-325 Create Panel.SubHeader Component
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Enhancements
+
+- `matchbox`
+  - [#640](https://github.com/SparkPost/matchbox/pull/640) UX-334 Support grid orientation & Allow
+    non RadioCard children ([@jonambas](https://github.com/jonambas))
+  - [#641](https://github.com/SparkPost/matchbox/pull/641) UX-336 Add Padding system prop to
+    Modal.Content ([@logansparlin](https://github.com/logansparlin))
+  - [#615](https://github.com/SparkPost/matchbox/pull/615) UX-289 Set Pagination pageRange to 3 on
+    mobile ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.2.1 (2020-09-15)
 
 #### Enhancements
