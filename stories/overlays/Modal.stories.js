@@ -97,7 +97,7 @@ export const LEGACY = withInfo()(() => (
 export const SystemProps = withInfo()(() => (
   <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
     <Modal.Header showCloseButton>Modal Title</Modal.Header>
-    <Modal.Content p="800">
+    <Modal.Content padding="800">
       <Box bg="blue.300" p="300">
         Modal Content
       </Box>
