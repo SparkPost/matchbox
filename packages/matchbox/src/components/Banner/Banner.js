@@ -13,6 +13,7 @@ import { container, childLinks, statusIcons, dismissBase, dismissColor } from '.
 import { buttonReset } from '../../styles/helpers';
 import { margin } from 'styled-system';
 import Action from './Action';
+import Media from './Media';
 
 function IconSection({ status, size }) {
   const statusIcon = React.useMemo(() => {
@@ -199,5 +200,6 @@ Banner.defaultProps = {
 };
 
 Banner.Action = Action;
+Banner.Media = Media;
 
 export default Banner;
