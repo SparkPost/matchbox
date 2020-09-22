@@ -6,8 +6,8 @@
   "author": "SparkPost",
   "dependencies": {
     "@sparkpost/design-tokens": "^4.3.0",
-    "@sparkpost/matchbox": "^4.3.1",
-    "@sparkpost/matchbox-icons": "^4.1.0",
+    "@sparkpost/matchbox": "^4.3.2-beta.1",
+    "@sparkpost/matchbox-icons": "^4.3.0",
     "@sparkpost/matchbox-media": "^4.3.0",
     "algoliasearch": "^4.4.0",
     "babel-plugin-styled-components": "^1.10.7",
