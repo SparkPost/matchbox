@@ -59,6 +59,11 @@ const keys = {
     keyCode: 34,
     shiftKey: false,
   },
+  tab: {
+    key: 'Tab',
+    keyCode: 9,
+    shiftKey: false,
+  },
 };
 
 function compareEvent(event, e) {
