@@ -6,7 +6,7 @@
   "author": "SparkPost",
   "dependencies": {
     "@sparkpost/design-tokens": "^4.3.0",
-    "@sparkpost/matchbox": "^4.3.2-beta.1",
+    "@sparkpost/matchbox": "^4.3.2",
     "@sparkpost/matchbox-icons": "^4.3.0",
     "@sparkpost/matchbox-media": "^4.3.0",
     "algoliasearch": "^4.4.0",
