@@ -123,4 +123,8 @@ export default `
       width: 100%;
     }
   }
+
+  #live-code-content p {
+    margin-bottom: unset;
+  }
 `;

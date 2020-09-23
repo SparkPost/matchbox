@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { getChild } from '../../helpers/children';
+import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Label } from '../Label';
@@ -21,19 +21,9 @@ const Fieldset = styled.fieldset`
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const Group = React.forwardRef(function Group(props, userRef) {
-  const {
-    children,
-    collapseBelow,
-    id,
-    label,
-    labelHidden,
-    orientation,
-    optional,
-    weight,
-    ...rest
-  } = props;
+  const { children, collapseBelow, id, label, labelHidden, orientation, optional, ...rest } = props;
 
-  const items = getChild('RadioCard', children, { weight });
+  const items = React.Children.toArray(children);
   const systemProps = pick(rest, margin.propNames);
 
   return (
@@ -57,6 +47,14 @@ const Group = React.forwardRef(function Group(props, userRef) {
           ))}
         </Stack>
       )}
+
+      {orientation === 'grid' && (
+        <Box display="grid" gridTemplateColumns={['1fr', null, '1fr 1fr']} gridGap="300">
+          {items.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
+        </Box>
+      )}
     </Fieldset>
   );
 });
@@ -69,14 +67,12 @@ Group.propTypes = {
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
   optional: PropTypes.bool,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-  weight: PropTypes.oneOf(['light', 'heavy']),
+  orientation: PropTypes.oneOf(['horizontal', 'vertical', 'grid']),
   ...createPropTypes(margin.propNames),
 };
 
 Group.defaultProps = {
   orientation: 'vertical',
-  weight: 'light',
 };
 
 export default Group;
