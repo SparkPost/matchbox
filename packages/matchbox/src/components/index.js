@@ -25,6 +25,7 @@ export * from './Page';
 export * from './Pager';
 export * from './Pagination';
 export * from './Panel';
+export * from './Picture';
 export * from './Popover';
 export * from './Portal';
 export * from './ProgressBar';
