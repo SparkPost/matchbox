@@ -1,3 +1,17 @@
+## 4.3.2 (2020-09-23)
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#647](https://github.com/SparkPost/matchbox/pull/647) UX-342 Support prop on Modal.Content
+    ([@jonambas](https://github.com/jonambas))
+  - [#649](https://github.com/SparkPost/matchbox/pull/649) UX-343 useBreakpoint supports SSR builds
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.3.1 (2020-09-21)
 
 #### Bug Fixes
