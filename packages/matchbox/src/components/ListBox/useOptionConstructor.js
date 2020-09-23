@@ -1,5 +1,5 @@
 import React from 'react';
-import { onKey } from '../../helpers/keyEvents';
+import { onKey, onKeys } from '../../helpers/keyEvents';
 
 import Option from './Option';
 
@@ -7,12 +7,17 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const [focused, setFocused] = React.useState(
     value ? options.findIndex(option => option.props.value === value) : 0,
   );
+  const [keysSoFar, setKeysSoFar] = React.useState('');
+  const [keyClear, setKeyClear] = React.useState();
+
   const focusContainerRef = React.useRef({});
   const optionRefs = React.useRef({ current: new Array(options.length) });
 
   function onFocusContainerKeyDown(e) {
-    onKey('arrowDown', () => {
-      e.preventDefault();
+    e.preventDefault();
+    e.stopPropagation();
+
+    onKeys(['arrowDown', 'tab'], () => {
       if (focused === options.length - 1) {
         setFocused(0);
       } else {
@@ -21,13 +26,33 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
     })(e);
 
     onKey('arrowUp', () => {
-      e.preventDefault();
       if (focused === 0) {
         setFocused(options.length - 1);
       } else {
         setFocused(focused - 1);
       }
     })(e);
+
+    onKey('enter', () => {
+      onSelect(options[focused].props.value);
+    })(e);
+
+    setKeysSoFar(keysSoFar + e.key.toLowerCase());
+    clearKeysSoFarAfterDelay();
+  }
+
+  function clearKeysSoFarAfterDelay() {
+    if (keyClear) {
+      clearTimeout(timeout);
+      setKeyClear(null);
+    }
+
+    setKeyClear(true);
+
+    let timeout = setTimeout(function() {
+      setKeysSoFar('');
+      setKeyClear(false);
+    }, 700);
   }
 
   // Preps array of option refs
@@ -50,6 +75,17 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       optionRefs.current[focused].focus();
     }
   }, [focused]);
+
+  React.useLayoutEffect(() => {
+    if (keysSoFar) {
+      const index = options.findIndex(option =>
+        option.props.value.toLowerCase().startsWith(keysSoFar),
+      );
+      if (index >= 0) {
+        setFocused(index);
+      }
+    }
+  }, [keysSoFar]);
 
   const optionsMarkup = (
     <>

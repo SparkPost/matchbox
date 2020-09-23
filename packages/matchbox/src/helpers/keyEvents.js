@@ -59,6 +59,11 @@ const keys = {
     keyCode: 34,
     shiftKey: false,
   },
+  tab: {
+    key: 'Tab',
+    keyCode: 9,
+    shiftKey: false,
+  },
 };
 
 function compareEvent(event, e) {
@@ -71,7 +76,7 @@ function compareEvent(event, e) {
 
 /**
  * Key down event handler
- * @example onKey('escape', () => foo()])(e)
+ * @example onKey('escape', () => foo())(e)
  */
 export function onKey(event, callback) {
   return function handleEvent(e) {
@@ -83,7 +88,7 @@ export function onKey(event, callback) {
 
 /**
  * Multiple key down event handler
- * @example onKeys(['escape', 'enter'], () => foo()])(e)
+ * @example onKeys(['escape', 'enter'], () => foo())(e)
  */
 export function onKeys(events, callback) {
   return function handleEvents(e) {
