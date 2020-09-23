@@ -7,7 +7,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const [focused, setFocused] = React.useState(
     value ? options.findIndex(option => option.props.value === value) : 0,
   );
-  const [startsWith, setStartsWith] = React.useState('');
+  const [keysSoFar, setKeysSoFar] = React.useState('');
   const [keyClear, setKeyClear] = React.useState();
 
   const focusContainerRef = React.useRef({});
@@ -37,11 +37,11 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       onSelect(options[focused].props.value);
     })(e);
 
-    setStartsWith(startsWith + e.key.toLowerCase());
-    clearStartsWithAfterDelay();
+    setKeysSoFar(keysSoFar + e.key.toLowerCase());
+    clearKeysSoFarAfterDelay();
   }
 
-  function clearStartsWithAfterDelay() {
+  function clearKeysSoFarAfterDelay() {
     if (keyClear) {
       clearTimeout(timeout);
       setKeyClear(null);
@@ -50,7 +50,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
     setKeyClear(true);
 
     let timeout = setTimeout(function() {
-      setStartsWith('');
+      setKeysSoFar('');
       setKeyClear(false);
     }, 700);
   }
@@ -77,15 +77,15 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   }, [focused]);
 
   React.useLayoutEffect(() => {
-    if (startsWith) {
+    if (keysSoFar) {
       const index = options.findIndex(option =>
-        option.props.value.toLowerCase().includes(startsWith),
+        option.props.value.toLowerCase().startsWith(keysSoFar),
       );
       if (index >= 0) {
         setFocused(index);
       }
     }
-  }, [startsWith]);
+  }, [keysSoFar]);
 
   const optionsMarkup = (
     <>

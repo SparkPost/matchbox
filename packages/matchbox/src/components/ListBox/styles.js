@@ -13,7 +13,7 @@ export const chevron = props => `
   fill: ${props.theme.colors.blue['700']};
   user-select: none;
   pointer-events: none;
-  ${props.disabled ? 'display: none' : ''}
+  ${props.disabled ? 'display: none' : ''};
 `;
 
 export const StyledLink = styled(UnstyledLink)`
