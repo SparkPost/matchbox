@@ -1,5 +1,5 @@
 import React from 'react';
-import { onKey, onKeys } from '../../helpers/keyEvents';
+import { onKey } from '../../helpers/keyEvents';
 
 import Option from './Option';
 
@@ -14,31 +14,32 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const optionRefs = React.useRef({ current: new Array(options.length) });
 
   function onFocusContainerKeyDown(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    if (open) {
+      onKey('arrowDown', () => {
+        e.preventDefault();
+        if (focused === options.length - 1) {
+          setFocused(0);
+        } else {
+          setFocused(focused + 1);
+        }
+      })(e);
 
-    onKeys(['arrowDown', 'tab'], () => {
-      if (focused === options.length - 1) {
-        setFocused(0);
-      } else {
-        setFocused(focused + 1);
-      }
-    })(e);
+      onKey('arrowUp', () => {
+        e.preventDefault();
+        if (focused === 0) {
+          setFocused(options.length - 1);
+        } else {
+          setFocused(focused - 1);
+        }
+      })(e);
 
-    onKey('arrowUp', () => {
-      if (focused === 0) {
-        setFocused(options.length - 1);
-      } else {
-        setFocused(focused - 1);
-      }
-    })(e);
+      onKey('enter', () => {
+        onSelect(options[focused].props.value);
+      })(e);
 
-    onKey('enter', () => {
-      onSelect(options[focused].props.value);
-    })(e);
-
-    setKeysSoFar(keysSoFar + e.key.toLowerCase());
-    clearKeysSoFarAfterDelay();
+      setKeysSoFar(keysSoFar + e.key.toLowerCase());
+      clearKeysSoFarAfterDelay();
+    }
   }
 
   function clearKeysSoFarAfterDelay() {

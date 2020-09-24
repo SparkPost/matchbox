@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
@@ -81,7 +81,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const maxHeightProps = pick(rest, maxHeight.propNames);
   const componentProps = omit(rest);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const [currentValue, setCurrentValue] = React.useState(
     value ? value : defaultValue != null ? defaultValue : placeholder,
   );
@@ -109,6 +109,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   function onSelect(value) {
     if (onChange) {
+      // This is a fake event, because buttons do not inherently have a change event
       onChange({
         currentTarget: {
           value,

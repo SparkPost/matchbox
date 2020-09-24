@@ -66,4 +66,20 @@ describe('The ListBox component', () => {
 
     cy.focused().should('have.text', 'Charlie');
   });
+
+  it('tabs through properly without opening', () => {
+    cy.wait(100);
+    cy.get('body').tab();
+    cy.focused().should('have.attr', 'id', 'listbox-1');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Copy'); // The storybook info button
+  });
+
+  it('tabs through properly while open', () => {
+    cy.get('label').click();
+    cy.get('body').tab();
+    cy.focused().should('have.text', 'Bravo');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Copy');
+  });
 });

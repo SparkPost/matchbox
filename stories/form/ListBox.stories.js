@@ -7,7 +7,12 @@ export default {
 };
 
 export const BasicListbox = withInfo()(() => (
-  <ListBox id="listbox-1" defaultValue="option-1" label="Select an option">
+  <ListBox
+    id="listbox-1"
+    defaultValue="option-1"
+    label="Select an option"
+    onChange={e => console.log(e)}
+  >
     <ListBox.Option value="option-1">Option 1</ListBox.Option>
     <ListBox.Option value="option-2">Option 2</ListBox.Option>
     <ListBox.Option value="option-3">Option 3</ListBox.Option>

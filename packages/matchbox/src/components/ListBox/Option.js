@@ -21,15 +21,9 @@ const Option = React.forwardRef(function Option(props, ref) {
       aria-posinset={index}
       aria-selected={isActive}
       disabled={disabled}
+      onClick={() => onSelect(value)}
     >
-      <StyledLink
-        active={isActive}
-        as="button"
-        disabled={disabled}
-        onClick={() => onSelect(value)}
-        tabIndex={0}
-        ref={ref}
-      >
+      <StyledLink active={isActive} as="button" disabled={disabled} tabIndex="-1" ref={ref}>
         {children}
       </StyledLink>
     </Box>
