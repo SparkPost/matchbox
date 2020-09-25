@@ -72,7 +72,7 @@ describe('The ListBox component', () => {
     cy.get('body').tab();
     cy.focused().should('have.attr', 'id', 'listbox-1');
     cy.focused().tab();
-    cy.focused().should('have.text', 'Copy'); // The storybook info button
+    cy.focused().should('have.text', 'Copy'); // The storybook info button after the listbox
   });
 
   it('tabs through properly while open', () => {
@@ -80,14 +80,26 @@ describe('The ListBox component', () => {
     cy.get('body').tab();
     cy.focused().should('have.text', 'Bravo');
     cy.focused().tab();
-    cy.focused().should('have.text', 'Copy');
+    cy.focused().should('have.text', 'Copy'); // The storybook info button after the listbox
   });
 
   it('opens the menu when focused and closed with keyboard arrows', () => {
-    cy.get('label').click();
+    cy.wait(100);
     cy.get('body').tab();
-    cy.focused().should('have.text', 'Bravo');
-    cy.focused().tab();
-    cy.focused().should('have.text', 'Copy');
+    cy.focused().trigger('keydown', {
+      key: 'ArrowDown',
+      keycode: 40,
+      shiftKey: false,
+    });
+    cy.contains('Alpha').should('be.visible');
+  });
+
+  it('selects item on click and returns focus to button', () => {
+    cy.get('label').click();
+    cy.get('button')
+      .eq(3)
+      .click();
+    cy.wait(100);
+    cy.focused().should('have.text', 'Charlie');
   });
 });

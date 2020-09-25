@@ -32,10 +32,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
         }
       })(e);
 
-      onKey('enter', () => {
-        onSelect(options[focused].props.value);
-      })(e);
-
       setKeysSoFar(keysSoFar + e.key.toLowerCase());
       clearKeysSoFarAfterDelay();
     }
@@ -62,12 +58,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       optionRefs.current = [];
     };
   }, [options]);
-
-  React.useEffect(() => {
-    if (!open && value) {
-      setFocused(options.findIndex(option => option.props.value === value));
-    }
-  }, [open, value]);
 
   // Focuses on option when focused index changes
   React.useLayoutEffect(() => {

@@ -86,6 +86,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const [currentValue, setCurrentValue] = React.useState(
     value ? value : defaultValue != null ? defaultValue : placeholder,
   );
+  const buttonRef = React.useRef();
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -120,6 +121,9 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
     setOpen(false);
     setCurrentValue(value);
+
+    // Returns focus to the button when closing the popover
+    buttonRef.current.focus();
   }
 
   const contentFromValue = React.useMemo(() => {
@@ -165,6 +169,13 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     }
   }
 
+  function assignRefs(node) {
+    buttonRef.current = node;
+    if (userRef) {
+      userRef.current = node;
+    }
+  }
+
   return (
     <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
@@ -192,7 +203,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               disabled={disabled}
               {...componentProps}
               {...describedBy}
-              ref={userRef}
+              ref={assignRefs}
             >
               {contentFromValue}
             </ListBoxButton>
