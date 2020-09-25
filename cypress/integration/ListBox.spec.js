@@ -82,4 +82,12 @@ describe('The ListBox component', () => {
     cy.focused().tab();
     cy.focused().should('have.text', 'Copy');
   });
+
+  it('opens the menu when focused and closed with keyboard arrows', () => {
+    cy.get('label').click();
+    cy.get('body').tab();
+    cy.focused().should('have.text', 'Bravo');
+    cy.focused().tab();
+    cy.focused().should('have.text', 'Copy');
+  });
 });

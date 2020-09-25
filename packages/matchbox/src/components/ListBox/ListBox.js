@@ -14,6 +14,7 @@ import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
+import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
 
 import { Button } from '../Button';
@@ -154,6 +155,16 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     placeholder,
   });
 
+  // Opens the popover when hitting up or down when focused and closed
+  function activatorKeyDown(e) {
+    if (!open) {
+      onKeys(['arrowDown', 'arrowUp'], () => {
+        e.preventDefault();
+        togglePopover(e);
+      })(e);
+    }
+  }
+
   return (
     <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
@@ -177,6 +188,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               aria-expanded={open}
               aria-labelledby={id}
               onClick={togglePopover}
+              onKeyDown={activatorKeyDown}
               disabled={disabled}
               {...componentProps}
               {...describedBy}

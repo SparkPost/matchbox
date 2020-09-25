@@ -10,7 +10,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const [keysSoFar, setKeysSoFar] = React.useState('');
   const [keyClear, setKeyClear] = React.useState();
 
-  const focusContainerRef = React.useRef({});
   const optionRefs = React.useRef({ current: new Array(options.length) });
 
   function onFocusContainerKeyDown(e) {
@@ -111,7 +110,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   return {
     optionsMarkup,
     focusContainerProps: {
-      ref: focusContainerRef,
       onKeyDown: onFocusContainerKeyDown,
     },
   };
