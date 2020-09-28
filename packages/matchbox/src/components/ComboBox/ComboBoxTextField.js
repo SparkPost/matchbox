@@ -24,6 +24,7 @@ function ComboBoxTextField(props) {
   const {
     autoFocus,
     disabled,
+    delimiter,
     children,
     error,
     errorInLabel,
@@ -85,11 +86,25 @@ function ComboBoxTextField(props) {
         {selectedItems.length > 0 && (
           <Box display="flex" pl="200" pt="0.375rem">
             <Inline space="100">
-              {selectedItems.map((item, i) => (
-                <Tag key={i} onRemove={!disabled ? () => removeItem(item) : null}>
-                  {itemToString(item)}
-                </Tag>
-              ))}
+              {selectedItems.map((item, i) => {
+                return (
+                  <span key={i}>
+                    <Tag onRemove={!disabled ? () => removeItem(item) : null}>
+                      {itemToString(item)}
+                    </Tag>
+                    {delimiter && i < selectedItems.length - 1 ? (
+                      <Box
+                        as="span"
+                        ml="100"
+                        fontWeight="medium"
+                        style={{ textTransform: 'uppercase', fontStyle: 'italic' }}
+                      >
+                        {delimiter}
+                      </Box>
+                    ) : null}
+                  </span>
+                );
+              })}
             </Inline>
           </Box>
         )}
@@ -122,8 +137,9 @@ function ComboBoxTextField(props) {
 
 ComboBoxTextField.propTypes = {
   autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
   children: PropTypes.node,
+  disabled: PropTypes.bool,
+  delimiter: PropTypes.node,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
   helpText: PropTypes.node,
