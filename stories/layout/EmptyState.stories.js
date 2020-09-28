@@ -9,7 +9,13 @@ export default {
 };
 
 export const BasicEmptyState = withInfo()(() => (
-  <EmptyState
+  <EmptyState>
+    <EmptyState.Header>The Header</EmptyState.Header>
+  </EmptyState>
+));
+
+export const LEGACY = withInfo()(() => (
+  <EmptyState.LEGACY
     title="Manage your email templates"
     image={TemplatesImage}
     primaryAction={{
@@ -20,5 +26,5 @@ export const BasicEmptyState = withInfo()(() => (
     secondaryAction={{ content: 'Learn More', onClick: action('Learn More') }}
   >
     <p>Build, test, preview and send your transmissions.</p>
-  </EmptyState>
+  </EmptyState.LEGACY>
 ));

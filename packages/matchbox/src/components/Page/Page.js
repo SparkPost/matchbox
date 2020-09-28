@@ -139,9 +139,9 @@ function Page(props) {
 
   if (show) {
     return (
-      <EmptyState title={title} primaryAction={primaryAction} {...emptyProps}>
+      <EmptyState.LEGACY title={title} primaryAction={primaryAction} {...emptyProps}>
         {content}
-      </EmptyState>
+      </EmptyState.LEGACY>
     );
   }
 

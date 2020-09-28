@@ -8,9 +8,9 @@ describe('EmptyState', () => {
 
   const subject = props =>
     global.mountStyled(
-      <EmptyState {...props}>
+      <EmptyState.LEGACY {...props}>
         <p>Nothing here yet!</p>
-      </EmptyState>,
+      </EmptyState.LEGACY>,
     );
 
   it('renders with title', () => {
