@@ -1,5 +1,5 @@
 import React from 'react';
-import { onKey, onKeys } from '../../helpers/keyEvents';
+import { onKey } from '../../helpers/keyEvents';
 
 import Option from './Option';
 
@@ -10,35 +10,31 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   const [keysSoFar, setKeysSoFar] = React.useState('');
   const [keyClear, setKeyClear] = React.useState();
 
-  const focusContainerRef = React.useRef({});
   const optionRefs = React.useRef({ current: new Array(options.length) });
 
   function onFocusContainerKeyDown(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    if (open) {
+      onKey('arrowDown', () => {
+        e.preventDefault();
+        if (focused === options.length - 1) {
+          setFocused(0);
+        } else {
+          setFocused(focused + 1);
+        }
+      })(e);
 
-    onKeys(['arrowDown', 'tab'], () => {
-      if (focused === options.length - 1) {
-        setFocused(0);
-      } else {
-        setFocused(focused + 1);
-      }
-    })(e);
+      onKey('arrowUp', () => {
+        e.preventDefault();
+        if (focused === 0) {
+          setFocused(options.length - 1);
+        } else {
+          setFocused(focused - 1);
+        }
+      })(e);
 
-    onKey('arrowUp', () => {
-      if (focused === 0) {
-        setFocused(options.length - 1);
-      } else {
-        setFocused(focused - 1);
-      }
-    })(e);
-
-    onKey('enter', () => {
-      onSelect(options[focused].props.value);
-    })(e);
-
-    setKeysSoFar(keysSoFar + e.key.toLowerCase());
-    clearKeysSoFarAfterDelay();
+      setKeysSoFar(keysSoFar + e.key.toLowerCase());
+      clearKeysSoFarAfterDelay();
+    }
   }
 
   function clearKeysSoFarAfterDelay() {
@@ -62,12 +58,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
       optionRefs.current = [];
     };
   }, [options]);
-
-  React.useEffect(() => {
-    if (!open && value) {
-      setFocused(options.findIndex(option => option.props.value === value));
-    }
-  }, [open, value]);
 
   // Focuses on option when focused index changes
   React.useLayoutEffect(() => {
@@ -110,7 +100,6 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   return {
     optionsMarkup,
     focusContainerProps: {
-      ref: focusContainerRef,
       onKeyDown: onFocusContainerKeyDown,
     },
   };
