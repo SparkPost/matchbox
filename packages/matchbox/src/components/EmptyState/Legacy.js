@@ -5,7 +5,7 @@ import { buttonFrom } from '../Button';
 import { Inline } from '../Inline';
 import { linkFrom } from '../UnstyledLink';
 import { Stack } from '../Stack';
-import { StyledContent, StyledImage } from './styles';
+import { StyledContent, StyledImageLegacy } from './styles';
 
 function EmptyState(props) {
   const { title, primaryAction, secondaryAction, image: Image, children } = props;
@@ -37,7 +37,7 @@ function EmptyState(props) {
         </Box>
       </Stack>
       {Image && (
-        <StyledImage
+        <StyledImageLegacy
           display={['none', null, 'block']}
           top="45%"
           left="48%"
@@ -47,7 +47,7 @@ function EmptyState(props) {
           position="absolute"
         >
           <Image />
-        </StyledImage>
+        </StyledImageLegacy>
       )}
     </Box>
   );
