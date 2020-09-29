@@ -3,15 +3,29 @@ import { withInfo } from '@storybook/addon-info';
 
 import { Video } from '@sparkpost/matchbox';
 import Analytics from '@sparkpost/matchbox-media/videos/Analytics.webm';
+import Analytics2 from '@sparkpost/matchbox-media/videos/Analytics.mp4';
+
+import { Box } from '@sparkpost/matchbox';
 
 export default {
   title: 'media|Video',
 };
 
 export const BasicVideo = withInfo({ propTables: [Video] })(() => (
-  <Video>
-    <Video.Source src={Analytics} type="video/webm" />
-  </Video>
+  <Box display="flex">
+    <Box>
+      <Box as="h4">webm</Box>
+      <Video>
+        <Video.Source src={Analytics} type="video/webm" />
+      </Video>
+    </Box>
+    <Box>
+      <Box as="h4">mp4</Box>
+      <Video>
+        <Video.Source src={Analytics2} type="video/mp4" />
+      </Video>
+    </Box>
+  </Box>
 ));
 
 export const WithControlsAndLoop = withInfo({ propTables: [Video] })(() => (
