@@ -13,6 +13,7 @@ import { container, childLinks, statusIcons, dismissBase, dismissColor } from '.
 import { buttonReset } from '../../styles/helpers';
 import { margin } from 'styled-system';
 import Action from './Action';
+import Media from './Media';
 
 function IconSection({ status, size }) {
   const statusIcon = React.useMemo(() => {
@@ -126,10 +127,10 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       ref={ref}
       tabIndex="-1"
     >
-      <IconSection status={status} size={size} />
+      {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
-        <Box>
+        <Box maxWidth="800px">
           <StyledChildren>{children}</StyledChildren>
         </Box>
         {actionMarkup}
@@ -144,7 +145,7 @@ Banner.propTypes = {
   /**
    * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
    */
-  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info']),
+  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info', 'muted']),
 
   /**
    * The banner's title
@@ -199,5 +200,6 @@ Banner.defaultProps = {
 };
 
 Banner.Action = Action;
+Banner.Media = Media;
 
 export default Banner;
