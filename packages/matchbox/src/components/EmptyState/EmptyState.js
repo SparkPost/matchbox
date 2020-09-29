@@ -15,13 +15,13 @@ import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Inline } from '../Inline';
 
-function EmptyState(props) {
+const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
   const { children, ...rest } = props;
 
   const systemProps = pick(rest, margin.propNames);
 
   return (
-    <Columns space="500" alignY="center" {...systemProps}>
+    <Columns collapseBelow="sm" space="500" alignY="center" {...systemProps} ref={userRef}>
       <Column width={1 / 2}>
         {getChild('EmptyState.Header', children)}
         {getChild('EmptyState.Content', children)}
@@ -32,7 +32,7 @@ function EmptyState(props) {
       <Column width={1 / 2}>{getChild('EmptyState.Image', children)}</Column>
     </Columns>
   );
-}
+});
 
 EmptyState.displayName = 'EmptyState';
 

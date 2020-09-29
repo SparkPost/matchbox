@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledContent } from './styles';
 
-function Content(props) {
+const Content = React.forwardRef(function Content(props, userRef) {
   const { children } = props;
 
-  return <StyledContent>{children}</StyledContent>;
-}
+  return <StyledContent ref={userRef}>{children}</StyledContent>;
+});
 
 Content.displayName = 'EmptyState.Content';
 

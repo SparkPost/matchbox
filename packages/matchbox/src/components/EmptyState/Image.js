@@ -4,17 +4,23 @@ import { StyledImage } from './styles';
 
 import { Picture } from '../Picture';
 
-function Image(props) {
+const Image = React.forwardRef(function Image(props, userRef) {
   const { src } = props;
 
   return (
-    <StyledImage display={['none', null, 'block']} width="100%" maxWidth="600px" height="auto">
+    <StyledImage
+      display={['none', null, 'block']}
+      width="100%"
+      maxWidth="600px"
+      height="auto"
+      ref={userRef}
+    >
       <Picture>
         <Picture.Image src={src} />
       </Picture>
     </StyledImage>
   );
-}
+});
 
 Image.displayName = 'EmptyState.Image';
 
