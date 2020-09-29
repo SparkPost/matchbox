@@ -139,7 +139,7 @@ ComboBoxTextField.propTypes = {
   autoFocus: PropTypes.bool,
   children: PropTypes.node,
   disabled: PropTypes.bool,
-  delimiter: PropTypes.node,
+  delimiter: PropTypes.string,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,
   helpText: PropTypes.node,
