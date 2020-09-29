@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
@@ -14,6 +14,7 @@ import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/systemProps';
+import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
 
 import { Button } from '../Button';
@@ -81,10 +82,11 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const maxHeightProps = pick(rest, maxHeight.propNames);
   const componentProps = omit(rest);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const [currentValue, setCurrentValue] = React.useState(
     value ? value : defaultValue != null ? defaultValue : placeholder,
   );
+  const buttonRef = React.useRef();
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -109,6 +111,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   function onSelect(value) {
     if (onChange) {
+      // This is a fake event, because buttons do not inherently have a change event
       onChange({
         currentTarget: {
           value,
@@ -118,6 +121,9 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
     setOpen(false);
     setCurrentValue(value);
+
+    // Returns focus to the button when closing the popover
+    buttonRef.current.focus();
   }
 
   const contentFromValue = React.useMemo(() => {
@@ -153,6 +159,23 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     placeholder,
   });
 
+  // Opens the popover when hitting up or down when focused and closed
+  function activatorKeyDown(e) {
+    if (!open) {
+      onKeys(['arrowDown', 'arrowUp'], () => {
+        e.preventDefault();
+        togglePopover(e);
+      })(e);
+    }
+  }
+
+  function assignRefs(node) {
+    buttonRef.current = node;
+    if (userRef) {
+      userRef.current = node;
+    }
+  }
+
   return (
     <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
@@ -176,10 +199,11 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               aria-expanded={open}
               aria-labelledby={id}
               onClick={togglePopover}
+              onKeyDown={activatorKeyDown}
               disabled={disabled}
               {...componentProps}
               {...describedBy}
-              ref={userRef}
+              ref={assignRefs}
             >
               {contentFromValue}
             </ListBoxButton>
