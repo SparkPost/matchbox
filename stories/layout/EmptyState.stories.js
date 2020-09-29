@@ -10,7 +10,13 @@ export default {
 
 export const BasicEmptyState = withInfo()(() => (
   <EmptyState>
-    <EmptyState.Header>The Header</EmptyState.Header>
+    <EmptyState.Header>Manage your email templates</EmptyState.Header>
+    <EmptyState.Content>
+      <p>Build, test, preview and send your transmissions.</p>
+    </EmptyState.Content>
+    <EmptyState.Image source={TemplatesImage} />
+    <EmptyState.Action>Create Template</EmptyState.Action>
+    <EmptyState.Action variant="outline">Learn More</EmptyState.Action>
   </EmptyState>
 ));
 
