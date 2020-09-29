@@ -17,6 +17,7 @@ export * from './HelpText';
 export * from './Inline';
 export * from './KeyboardKey';
 export * from './Label';
+export * from './LabelValue';
 export * from './Layout';
 export * from './ListBox';
 export * from './Modal';
