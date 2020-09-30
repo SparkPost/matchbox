@@ -48,4 +48,5 @@ export * from './Toggle';
 export * from './ThemeProvider';
 export * from './Tooltip';
 export * from './UnstyledLink';
+export * from './Video';
 export * from './WindowEvent';
