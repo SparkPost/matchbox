@@ -97,7 +97,8 @@ function ComboBoxTextField(props) {
                         as="span"
                         ml="100"
                         fontWeight="medium"
-                        style={{ textTransform: 'uppercase', fontStyle: 'italic' }}
+                        fontStyle="italic"
+                        style={{ textTransform: 'uppercase' }}
                       >
                         {delimiter}
                       </Box>
