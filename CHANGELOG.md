@@ -1,3 +1,30 @@
+## 4.4.0 (2020-09-30)
+
+#### Features
+
+- `matchbox`
+  - [#646](https://github.com/SparkPost/matchbox/pull/646) UX-327 Video Component
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#643](https://github.com/SparkPost/matchbox/pull/643) UX-331 Add LabelValue component
+    ([@jonambas](https://github.com/jonambas))
+  - [#637](https://github.com/SparkPost/matchbox/pull/637) UX-223 Add Picture Component
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#652](https://github.com/SparkPost/matchbox/pull/652) UX-335 Add ComboBoxTextField delimiter
+    prop ([@jonambas](https://github.com/jonambas))
+  - [#651](https://github.com/SparkPost/matchbox/pull/651) UX-345 Support additional ListBox
+    keyboard interactions ([@jonambas](https://github.com/jonambas))
+  - [#642](https://github.com/SparkPost/matchbox/pull/642) UX-333 Add ListBox Printable Character
+    Searching ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.3.2 (2020-09-23)
 
 #### Bug Fixes
