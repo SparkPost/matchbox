@@ -116,6 +116,11 @@ describe('ComboBoxTextField', () => {
       expect(tags(wrapper).text()).toEqual('fooRemovebarRemove');
     });
 
+    it('should render selected items with a delimiter correctly', () => {
+      const wrapper = subject({ delimiter: 'or' });
+      expect(tags(wrapper).text()).toEqual('fooRemoveorbarRemove');
+    });
+
     it('should handle remove on a tag correctly', () => {
       const removeItem = jest.fn();
       const wrapper = subject({ removeItem });
