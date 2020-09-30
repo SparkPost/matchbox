@@ -13,7 +13,7 @@ function getItems() {
 }
 
 function TypeaheadExample(props) {
-  const { error } = props;
+  const { error, delimiter } = props;
   const [selected, setSelected] = React.useState([]);
 
   function stateReducer(state, changes) {
@@ -87,6 +87,7 @@ function TypeaheadExample(props) {
       error: error && !isOpen ? 'test' : null,
       placeholder: 'Type to search',
       helpText: 'Help text',
+      delimiter,
     });
 
     const menuProps = getMenuProps({
@@ -168,3 +169,7 @@ export const TextFieldWhileDisabled = withInfo({
     disabled
   />
 ));
+
+export const WithDelimiter = withInfo({
+  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
+})(() => <TypeaheadExample delimiter="or" />);
