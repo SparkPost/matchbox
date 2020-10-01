@@ -116,6 +116,23 @@ const Banner = React.forwardRef(function Banner(props, ref) {
     </Box>
   ) : null;
 
+  const hasMedia = React.useMemo(() => {
+    return getChild('Banner.Media', children);
+  }, [children]);
+
+  const mediaMarkup =
+    hasMedia && hasMedia.length ? (
+      <Box
+        width="100%"
+        maxWidth="600px"
+        pl="200"
+        display={['none', null, 'block']}
+        position="relative"
+      >
+        {getChild('Banner.Media', children)}
+      </Box>
+    ) : null;
+
   return (
     <StyledContainer
       display="flex"
@@ -136,15 +153,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
         </Box>
         {actionMarkup}
       </Box>
-      <Box
-        width="100%"
-        maxWidth="600px"
-        pl="200"
-        display={['none', null, 'block']}
-        position="relative"
-      >
-        {getChild('Banner.Media', children)}
-      </Box>
+      {mediaMarkup}
       {dismissMarkup}
     </StyledContainer>
   );
