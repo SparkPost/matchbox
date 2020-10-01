@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { margin } from 'styled-system';
+import { getChild, excludeChild } from '../../helpers/children';
 import Action from './Action';
 import Media from './Media';
 
@@ -130,10 +131,19 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
-        <Box maxWidth="800px">
-          <StyledChildren>{children}</StyledChildren>
+        <Box>
+          <StyledChildren>{excludeChild('Banner.Media', children)}</StyledChildren>
         </Box>
         {actionMarkup}
+      </Box>
+      <Box
+        width="100%"
+        maxWidth="600px"
+        pl="200"
+        display={['none', null, 'block']}
+        position="relative"
+      >
+        {getChild('Banner.Media', children)}
       </Box>
       {dismissMarkup}
     </StyledContainer>

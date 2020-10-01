@@ -1,7 +1,9 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Banner } from '@sparkpost/matchbox';
+import { Banner, Picture } from '@sparkpost/matchbox';
+
+import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
 
 export default {
   title: 'Feedback|Banner',
@@ -30,7 +32,11 @@ export const EmptyBanner = withInfo()(() => (
     >
       Sending Domain Documentation
     </Banner.Action>
-    <Banner.Media>The Media</Banner.Media>
+    <Banner.Media>
+      <Picture seeThrough>
+        <Picture.Image src={Image} />
+      </Picture>
+    </Banner.Media>
   </Banner>
 ));
 

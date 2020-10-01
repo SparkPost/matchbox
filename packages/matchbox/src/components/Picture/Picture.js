@@ -9,7 +9,7 @@ import { Box } from '../Box';
 const system = compose(layout, margin);
 const StyledFigure = styled.figure`
   ${system};
-  ${({ seeThrough }) => (seeThrough ? 'mix-blend-mode: multiply;' : '')}
+  ${({ seeThrough }) => (seeThrough ? 'mix-blend-mode: multiply;' : '')};
 `;
 
 // Picture Component
