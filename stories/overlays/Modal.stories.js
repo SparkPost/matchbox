@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { Modal, useModal, Panel, Button, Box } from '@sparkpost/matchbox';
+import { Modal, useModal, Panel, Button, Box, Tabs } from '@sparkpost/matchbox';
 
 const PORTAL_ID = 'modal-portal';
 
@@ -97,7 +97,8 @@ export const LEGACY = withInfo()(() => (
 export const SystemProps = withInfo()(() => (
   <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
     <Modal.Header showCloseButton>Modal Title</Modal.Header>
-    <Modal.Content padding="800">
+    <Modal.Content padding="0">
+      <Tabs tabs={[{ content: 'tab' }, { content: 'tab' }]} fitted />
       <Box bg="blue.300" p="300">
         Modal Content
       </Box>

@@ -1,8 +1,9 @@
-import { buttonReset } from '../../styles/helpers';
+import { buttonReset, focusOutline } from '../../styles/helpers';
 import { tokens } from '@sparkpost/design-tokens';
 
 export const tabStyles = ({ selected, fitted }) => `
   ${buttonReset}
+  ${focusOutline({ offset: '0px' })}
   display: inline-block;
   cursor: pointer;
   position: relative;
@@ -22,7 +23,7 @@ export const tabStyles = ({ selected, fitted }) => `
     color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
   }
 
-  &:after, &:before {
+  &:before {
     display: block;
     position: absolute;
     content: '';
@@ -31,7 +32,7 @@ export const tabStyles = ({ selected, fitted }) => `
     right: 0;
   }
 
-  &:after {
+  &:before {
     height: ${tokens.spacing_100};
     background: ${selected ? tokens.color_blue_700 : 'transparent'};
     transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
@@ -39,22 +40,13 @@ export const tabStyles = ({ selected, fitted }) => `
 
   &:hover {
     ${!selected ? `color: ${tokens.color_gray_900};` : ''};
-    &:after {
+    &:before {
       ${!selected ? `background: ${tokens.color_gray_400};` : ''}
     }
   }
-
-  &:before {
-    top: 0;
-    border-radius: ${tokens.borderRadius_100};
-    box-shadow:  0 0 0 2px ${tokens.color_white}, 0 0 0 4px ${tokens.color_blue_700};
-    opacity: 0;
-  }
-
-  &:focus, &:active {
-    &:before {
-      opacity: 1;
-    }
+  
+  &:after {
+    top: 2px;
   }
 `;
 
