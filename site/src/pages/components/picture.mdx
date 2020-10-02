@@ -1,0 +1,64 @@
+---
+title: Picture
+category: Component
+---
+
+import { LiveCode } from '../../components/LiveCode';
+
+# Picture
+
+---
+
+### Usage
+
+<LiveCode>
+  <LiveCode.Content
+    title="With an Image"
+    code={`
+      <Picture>
+        <source srcset="https://unpkg.com/@sparkpost/matchbox-media@4.4.0/images/Accounts.webp" type="image/webp" />
+        <Picture.Image src="https://unpkg.com/@sparkpost/matchbox-media@4.4.0/images/Accounts.jpg" />
+      </Picture>
+    `}
+  />
+</LiveCode>
+
+---
+
+### Picture System Props
+
+<SystemPropsTags propsList={['margin', 'layout']} />
+
+### Picture API
+
+<Prop name="children" type="node">
+  Contents of the picture element
+</Prop>
+
+<Prop name="role" type="string">
+  The role attribute of the picture element
+</Prop>
+
+<Prop name="seeThrough" type="bool">
+  Applies a multiply blend mode to the picture
+</Prop>
+
+---
+
+### Picture.Image System Props
+
+None
+
+### Picture.Image API
+
+<Prop name="alt" type="string" defaultValue='""'>
+  Alt text for the image
+</Prop>
+
+<Prop name="className" type="string">
+  Optional class name for the image
+</Prop>
+
+<Prop name="src" type="string" required>
+  Source of the image
+</Prop>

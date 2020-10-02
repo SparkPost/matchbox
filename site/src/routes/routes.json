@@ -82,59 +82,6 @@
         "section": "Action"
       },
       {
-        "path": "/components/columns",
-        "label": "Columns",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/emptystate",
-        "label": "Empty State",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/expandable",
-        "label": "Expandable",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/inline",
-        "label": "Inline",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/layout",
-        "label": "Layout",
-        "tag": "new",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/page",
-        "label": "Page",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/panel",
-        "label": "Panel",
-        "tag": "new",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/panel-legacy",
-        "label": "Legacy Panel",
-        "tag": "deprecated",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/stack",
-        "label": "Stack",
-        "section": "Layout"
-      },
-      {
-        "path": "/components/table",
-        "label": "Table",
-        "section": "Layout"
-      },
-      {
         "path": "/components/banner",
         "label": "Banner",
         "section": "Feedback"
@@ -206,6 +153,71 @@
         "path": "/components/textfield",
         "label": "TextField",
         "section": "Form"
+      },
+      {
+        "path": "/components/columns",
+        "label": "Columns",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/emptystate",
+        "label": "Empty State",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/expandable",
+        "label": "Expandable",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/inline",
+        "label": "Inline",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/layout",
+        "label": "Layout",
+        "tag": "new",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/page",
+        "label": "Page",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/panel",
+        "label": "Panel",
+        "tag": "new",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/panel-legacy",
+        "label": "Legacy Panel",
+        "tag": "deprecated",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/stack",
+        "label": "Stack",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/table",
+        "label": "Table",
+        "section": "Layout"
+      },
+      {
+        "path": "/components/picture",
+        "label": "Picture",
+        "section": "Media",
+        "tag": "new"
+      },
+      {
+        "path": "/components/video",
+        "label": "Video",
+        "section": "Media",
+        "tag": "new"
       },
       {
         "path": "/components/pager",
