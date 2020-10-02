@@ -210,7 +210,8 @@
       {
         "path": "/components/picture",
         "label": "Picture",
-        "section": "Media"
+        "section": "Media",
+        "tag": "new"
       },
       {
         "path": "/components/pager",
