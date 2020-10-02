@@ -26,7 +26,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
 
   return (
     <StyledSection
-      borderBottom="400"
+      borderBottom="300"
       className={className}
       ref={userRef}
       tabIndex="-1"

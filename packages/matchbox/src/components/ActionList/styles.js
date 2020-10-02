@@ -5,7 +5,7 @@ import { Box } from '../Box';
 import { buttonReset } from '../../styles/helpers';
 
 export const StyledSection = styled(Box)`
-  border-top: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+  border-top: ${props => props.theme.borders['300']};
   padding-bottom: ${tokens.spacing_200};
   padding-top: ${tokens.spacing_200};
 

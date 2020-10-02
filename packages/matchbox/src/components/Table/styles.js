@@ -49,7 +49,7 @@ export const row = ({ theme }) => `
   border: none;
 
   thead & {
-    border-bottom:${theme.borders['400']};
+    border-bottom:${theme.borders['300']};
   }
 
   ${zebra(theme)}
