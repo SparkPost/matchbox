@@ -4,10 +4,10 @@ import { Box } from '../Box';
 
 export const StyledContent = styled(Box)`
   p {
-    color: ${props => props.theme.colors.gray['700']};
+    color: ${props => props.theme.colors.gray['900']};
     ${css({
-      fontSize: '400',
-      lineHeight: '400',
+      fontSize: '300',
+      lineHeight: '300',
     })};
   }
 `;

@@ -5,17 +5,12 @@ import { StyledImage } from './styles';
 import { Picture } from '../Picture';
 
 const Image = React.forwardRef(function Image(props, userRef) {
-  const { src } = props;
+  const { src, className, children } = props;
 
   return (
-    <StyledImage
-      display={['none', null, 'block']}
-      width="100%"
-      maxWidth="600px"
-      height="auto"
-      ref={userRef}
-    >
-      <Picture>
+    <StyledImage display={['none', null, 'block']} width="100%" height="auto" ref={userRef}>
+      <Picture className={className}>
+        {children}
         <Picture.Image src={src} />
       </Picture>
     </StyledImage>
@@ -25,6 +20,8 @@ const Image = React.forwardRef(function Image(props, userRef) {
 Image.displayName = 'EmptyState.Image';
 
 Image.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
   src: PropTypes.string.isRequired,
 };
 
