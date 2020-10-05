@@ -1,9 +1,11 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Banner, Picture } from '@sparkpost/matchbox';
+import { Banner, Picture, Video } from '@sparkpost/matchbox';
 
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
+import Analytics from '@sparkpost/matchbox-media/videos/Analytics.webm';
+import Analytics2 from '@sparkpost/matchbox-media/videos/Analytics.mp4';
 
 export default {
   title: 'Feedback|Banner',
@@ -36,6 +38,29 @@ export const EmptyBanner = withInfo()(() => (
       <Picture seeThrough>
         <Picture.Image src={Image} />
       </Picture>
+    </Banner.Media>
+  </Banner>
+));
+
+export const EmptyBannerWithVideo = withInfo()(() => (
+  <Banner status="muted" title="Sending Domains" onDismiss={action('Dismiss Clicked')}>
+    <p>
+      Sending domains are used to indicate who an email is from via the "From:" header. DNS records
+      can be configured for a sending domain, which allows recipient mail servers to authenticate
+      your messages.
+    </p>
+    <Banner.Action
+      variant="outline"
+      color="blue"
+      onClick={() => action('Sending Domain Documentation Clicked')}
+    >
+      Sending Domain Documentation
+    </Banner.Action>
+    <Banner.Media>
+      <Video>
+        <Video.Source src={Analytics} type="video/webm" />
+        <Video.Source src={Analytics2} type="video/mp4" />
+      </Video>
     </Banner.Media>
   </Banner>
 ));

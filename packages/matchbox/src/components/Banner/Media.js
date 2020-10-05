@@ -5,7 +5,8 @@ import { Box } from '../Box';
 
 const StyledMedia = styled(Box)`
   figure,
-  img {
+  img,
+  video {
     position: absolute;
     height: 100%;
     width: auto;
@@ -15,14 +16,19 @@ const StyledMedia = styled(Box)`
 `;
 
 const Media = React.forwardRef(function Media(props, userRef) {
-  const { children } = props;
+  const { children, className } = props;
 
-  return <StyledMedia ref={userRef}>{children}</StyledMedia>;
+  return (
+    <StyledMedia className={className} ref={userRef}>
+      {children}
+    </StyledMedia>
+  );
 });
 
 Media.displayName = 'Banner.Media';
 Media.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default Media;
