@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { ChevronLeft, MoreHoriz } from '@sparkpost/matchbox-icons';
 import { ActionList } from '../ActionList';
@@ -233,10 +234,13 @@ Page.propTypes = {
   /**
    * Optional empty state object
    */
-  empty: PropTypes.shape({
-    show: PropTypes.bool,
-    content: PropTypes.node,
-  }),
+  empty: deprecate(
+    PropTypes.shape({
+      show: PropTypes.bool,
+      content: PropTypes.node,
+    }),
+    'Use <EmptyState/> component instead',
+  ),
 
   /**
    * Page Children
