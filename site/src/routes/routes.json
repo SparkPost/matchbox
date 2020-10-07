@@ -1,5 +1,4 @@
-[
-  {
+[{
     "path": "/",
     "label": "Home",
     "hiddenFromNav": true
@@ -12,8 +11,7 @@
     "path": "/design",
     "label": "Design",
     "indexRoute": "/design/tokens",
-    "childRoutes": [
-      {
+    "childRoutes": [{
         "path": "/design/tokens",
         "label": "Tokens"
       },
@@ -51,8 +49,7 @@
     "path": "/components",
     "label": "Components",
     "indexRoute": "/components/getting-started",
-    "childRoutes": [
-      {
+    "childRoutes": [{
         "path": "/components/getting-started",
         "label": "Getting Started"
       },
