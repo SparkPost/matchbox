@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner';
+import { Picture } from '../../Picture';
 import { tokens } from '@sparkpost/design-tokens';
 
 import 'jest-styled-components';
@@ -18,6 +19,11 @@ describe('Banner', () => {
       <Banner {...props} {...newProps}>
         <p>You know this is a banner</p>
         <Banner.Action onClick={props.onClick}>Banner Action</Banner.Action>
+        <Banner.Media>
+          <Picture seeThrough>
+            <Picture.Image src="/test.jpg" />
+          </Picture>
+        </Banner.Media>
       </Banner>,
     );
 
@@ -53,6 +59,11 @@ describe('Banner', () => {
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
+  it('renders media correctly', () => {
+    let wrapper = subject();
+    expect(wrapper.find('img').props().src).toEqual('/test.jpg');
+  });
+
   it('renders responsive styles correctly', () => {
     let wrapper = subject();
     // targets content container
@@ -63,8 +74,8 @@ describe('Banner', () => {
     expect(wrapper.find('Box').at(3)).toHaveStyleRule('order', '0', { media });
 
     // targets dismiss
-    expect(wrapper.find('Box').at(6)).toHaveStyleRule('flex', '1');
-    expect(wrapper.find('Box').at(6)).toHaveStyleRule('flex', '0', { media });
+    expect(wrapper.find('Box').at(8)).toHaveStyleRule('flex', '1');
+    expect(wrapper.find('Box').at(8)).toHaveStyleRule('flex', '0', { media });
   });
 
   it('dismisses banner correctly upon clicking dismiss icon', () => {

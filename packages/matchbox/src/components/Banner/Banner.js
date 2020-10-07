@@ -12,7 +12,9 @@ import styled from 'styled-components';
 import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { margin } from 'styled-system';
+import { getChild, excludeChild } from '../../helpers/children';
 import Action from './Action';
+import Media from './Media';
 
 function IconSection({ status, size }) {
   const statusIcon = React.useMemo(() => {
@@ -114,6 +116,23 @@ const Banner = React.forwardRef(function Banner(props, ref) {
     </Box>
   ) : null;
 
+  const hasMedia = React.useMemo(() => {
+    return getChild('Banner.Media', children);
+  }, [children]);
+
+  const mediaMarkup =
+    hasMedia && hasMedia.length ? (
+      <Box
+        width="100%"
+        maxWidth="600px"
+        pl="200"
+        display={['none', null, 'block']}
+        position="relative"
+      >
+        {getChild('Banner.Media', children)}
+      </Box>
+    ) : null;
+
   return (
     <StyledContainer
       display="flex"
@@ -126,14 +145,15 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       ref={ref}
       tabIndex="-1"
     >
-      <IconSection status={status} size={size} />
+      {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box>
-          <StyledChildren>{children}</StyledChildren>
+          <StyledChildren>{excludeChild('Banner.Media', children)}</StyledChildren>
         </Box>
         {actionMarkup}
       </Box>
+      {mediaMarkup}
       {dismissMarkup}
     </StyledContainer>
   );
@@ -144,7 +164,7 @@ Banner.propTypes = {
   /**
    * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
    */
-  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info']),
+  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info', 'muted']),
 
   /**
    * The banner's title
@@ -199,5 +219,6 @@ Banner.defaultProps = {
 };
 
 Banner.Action = Action;
+Banner.Media = Media;
 
 export default Banner;

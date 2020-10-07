@@ -18,7 +18,11 @@ export function container(props) {
         background: ${tokens.color_red_100};
         border: 1px solid ${tokens.color_red_700};
       `;
-    // Gray banner no longer exists as of 4.0.0
+    case 'muted':
+      return `
+        background: ${tokens.color_gray_100}
+        border: 1px solid ${tokens.color_gray_400};
+      `;
     case 'default':
     default:
       return `
