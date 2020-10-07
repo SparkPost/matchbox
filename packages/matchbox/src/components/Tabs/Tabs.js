@@ -16,7 +16,7 @@ import Tab from './Tab';
 import { containerStyles, overflowTabs } from './styles';
 import { useResizeObserver } from '../../hooks';
 
-import { getPositionFor, useWindowSize } from '../../helpers/geometry';
+import { getPositionFor } from '../../helpers/geometry';
 
 const OverflowTabContainer = styled('div')`
   ${overflowTabs}
@@ -43,10 +43,8 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
 
   const wrapperRef = React.useRef();
   const overflowRef = React.useRef();
-  const windowSize = useWindowSize();
 
-  const [resizeRef, entry] = useResizeObserver();
-  console.log(entry);
+  const [resizeRef, { contentRect }] = useResizeObserver();
 
   function handleClick(event, index) {
     const { onClick } = tabs[index];
@@ -76,7 +74,7 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
         setIsOverflowing(false);
       }
     }
-  }, [wrapperRef, overflowRef, windowSize]);
+  }, [wrapperRef, overflowRef, contentRect]);
 
   // Constructs the tabs, their props and handles tab keyboard navigation
   const { tabMarkup, tabActions, focusContainerProps } = useTabConstructor({
@@ -93,11 +91,11 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
     if (wrapperRef) {
       wrapperRef.current = node;
     }
-    if (resizeRef) {
-      resizeRef.current = node;
-    }
     if (userRef) {
       userRef.current = node;
+    }
+    if (resizeRef) {
+      resizeRef(node);
     }
   };
 
