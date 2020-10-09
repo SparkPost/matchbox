@@ -44,6 +44,7 @@ function Expandable(props) {
     subtitle,
     title,
     accent,
+    variant,
     ...rest
   } = props;
 
@@ -95,7 +96,7 @@ function Expandable(props) {
   return (
     <Box {...rest}>
       {accentMarkup}
-      <StyledExpandable accent={accent}>
+      <StyledExpandable accent={accent} variant={variant}>
         <StyledHeader
           aria-controls={id}
           aria-expanded={isOpen}
@@ -104,6 +105,7 @@ function Expandable(props) {
           ref={header}
           data-id="expandable-toggle"
           type="button"
+          variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
@@ -121,6 +123,7 @@ function Expandable(props) {
           isOpen={isOpen}
           id={id}
           data-id="expandable-content"
+          variant={variant}
         >
           {contentSpacer}
           <Box flex="1">{children}</Box>
@@ -130,16 +133,9 @@ function Expandable(props) {
   );
 }
 
-Expandable.Accent = Accent;
-Expandable.Icon = StyledIcon;
-Expandable.Title = StyledTitle;
-Expandable.Subtitle = StyledSubtitle;
-Expandable.ContentWrapper = StyledContentWrapper;
-Expandable.Arrow = StyledArrow;
-Expandable.Header = StyledHeader;
-
 Expandable.defaultProps = {
   defaultOpen: false,
+  variant: 'bordered',
 };
 
 Expandable.propTypes = {
@@ -178,6 +174,8 @@ Expandable.propTypes = {
     Proptypes.bool,
     Proptypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
   ]),
+
+  variant: Proptypes.oneOf(['bordered', 'borderless']),
   /**
    * Margin props
    */

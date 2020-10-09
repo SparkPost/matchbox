@@ -6,7 +6,7 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  padding: ${tokens.spacing_300};
+  padding: ${({ variant, theme }) => (variant === 'borderless' ? '0' : theme.space[300])};
   display: flex;
   align-items: center;
   text-align: left;
@@ -25,6 +25,9 @@ export const StyledHeader = styled('button')`
 
 export const expandable = props => {
   let borderRadius = tokens.borderRadius_100;
+  if (props.variant === 'borderless') {
+    return ``;
+  }
 
   if (props.accent) {
     borderRadius = `0 0 ${tokens.borderRadius_100} ${tokens.borderRadius_100}`;
@@ -68,7 +71,9 @@ export const contentWrapper = props => {
   }
 
   return `
-    padding: ${tokens.spacing_300};
+    padding: ${
+      props.variant === 'borderless' ? `${props.theme.space[300]} 0 0` : props.theme.space[300]
+    };
     visibility: ${visibility};
     display: ${display};
   `;
