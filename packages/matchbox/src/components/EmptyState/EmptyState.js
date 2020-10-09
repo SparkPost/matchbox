@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Action from './Action';
 import Header from './Header';
 import Content from './Content';
+import List from './List';
 import Image from './Image';
 import Legacy from './Legacy';
 import { getChild } from '../../helpers/children';
@@ -45,6 +46,7 @@ EmptyState.Action = Action;
 EmptyState.Header = Header;
 EmptyState.Content = Content;
 EmptyState.Image = Image;
+EmptyState.List = List;
 EmptyState.LEGACY = Legacy;
 
 export default EmptyState;

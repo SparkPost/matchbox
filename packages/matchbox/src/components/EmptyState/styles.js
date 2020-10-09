@@ -29,3 +29,33 @@ export const StyledImageLegacy = styled(Box)`
     width: 100%;
   }
 `;
+
+export const StyledList = styled(Box)`
+  list-style: none;
+  padding-left: 0;
+  & > li {
+    position: relative;
+    padding-left: 24px;
+    padding-bottom: ${props => props.theme.space['500']};
+    color: ${props => props.theme.colors.gray['900']};
+
+    &:last-of-type {
+      padding-bottom: 0;
+      &:before {
+        content: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: ${props => props.theme.space['300']};
+      transform: translateY(-50%);
+      width: ${props => props.theme.space['200']};
+      height: ${props => props.theme.space['200']};
+      background: ${props => props.theme.colors.blue['700']};
+      border-radius: 50%;
+    }
+  }
+`;
