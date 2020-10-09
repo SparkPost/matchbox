@@ -3,7 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 export const content = props => `
   position: absolute;
   background: ${tokens.color_white};
-  border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+  border: ${props.theme.borders['300']};
   border-radius: ${tokens.borderRadius_100};
   box-shadow: ${tokens.boxShadow_100};
   margin-top: ${props.isTop ? tokens.spacing_0 : tokens.spacing_100};

@@ -164,8 +164,9 @@ const theme = {
 
   // Example: <Box border={500} />
   borders: {
+    300: `${tokens.borderWidth_100} solid ${tokens.color_gray_300}`,
     400: `${tokens.borderWidth_100} solid ${tokens.color_gray_400}`,
-    500: `${tokens.borderWidth_200} solid ${tokens.color_gray_400}`,
+    500: `${tokens.borderWidth_200} solid ${tokens.color_gray_300}`,
   },
 
   // Example: <Box borderWidth={100} />

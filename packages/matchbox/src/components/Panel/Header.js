@@ -15,7 +15,7 @@ const Header = React.forwardRef(function Header(props, userRef) {
 
   return (
     <Box
-      borderBottom={borderBottom ? '400' : 'none'}
+      borderBottom={borderBottom ? '300' : 'none'}
       className={className}
       {...paddingContext}
       // The array is a hack to override responsive padding context

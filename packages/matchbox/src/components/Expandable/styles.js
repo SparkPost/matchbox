@@ -31,7 +31,7 @@ export const expandable = props => {
   }
 
   return `
-    border: ${tokens.borderWidth_100} solid ${tokens.color_gray_400};
+    border: ${props.theme.borders['300']};
     border-radius: ${borderRadius};
     border-top-width: ${props.accent ? tokens.borderWidth_0 : tokens.borderWidth_100}
   `;

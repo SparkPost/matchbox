@@ -85,7 +85,7 @@ describe('Panel Components', () => {
 
     it('renders with a border bottom correctly', () => {
       let wrapper = subject({ children: <Panel.Header borderBottom>Header Content</Panel.Header> });
-      expect(wrapper.find(Panel.Header)).toHaveStyleRule('border-bottom', '400');
+      expect(wrapper.find(Panel.Header)).toHaveStyleRule('border-bottom', '300');
       expect(wrapper.find(Panel.Header)).toHaveStyleRule('padding-bottom', undefined);
     });
 

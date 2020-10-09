@@ -29,7 +29,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
   return (
     <Box {...outerSystemProps} ref={userRef} tabIndex="-1" data-id={props['data-id']}>
       <Box
-        border="400"
+        border="300"
         borderRadius="100"
         className={className}
         position="relative"
