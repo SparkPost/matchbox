@@ -8,6 +8,7 @@ const StyledSvg = styled.svg`
   position: absolute;
   left: 3px;
   top: 18px;
+  height: calc(100% - 3px);
 `;
 
 const List = React.forwardRef(function List(props, userRef) {
@@ -25,7 +26,7 @@ const List = React.forwardRef(function List(props, userRef) {
                   <g stroke={tokens.color_blue_700} stroke-width="2">
                     <path
                       stroke-dasharray="3,7"
-                      d="M1 2 l0 34"
+                      d="M1 2 l0 200"
                       stroke-width="2"
                       stroke-linecap="round"
                     />

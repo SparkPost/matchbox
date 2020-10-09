@@ -15,7 +15,10 @@ export const BasicEmptyState = withInfo({ propTables: [EmptyState] })(() => (
     <EmptyState.Content>
       <p>Build, test, preview and send your transmissions.</p>
       <EmptyState.List>
-        <li>One</li>
+        <li>
+          One One One One One One One One One One One One One One One One One One One One One One
+          One One One One One One One One One One One One One{' '}
+        </li>
         <li>Two</li>
         <li>Three</li>
       </EmptyState.List>
