@@ -154,8 +154,9 @@ export const propData = {
     'mediaQuery_xl'
   ],
   borders: {
+    '300': '${borderWidth_100} solid ${}color_gray_300}', //eslint-disable-line no-template-curly-in-string
     '400': '${borderWidth_100} solid ${color_gray_400}', // eslint-disable-line no-template-curly-in-string
-    '500': '${borderWidth_200} solid ${color_gray_400}' // eslint-disable-line no-template-curly-in-string
+    '500': '${borderWidth_200} solid ${color_gray_300}' // eslint-disable-line no-template-curly-in-string
   },
   zIndices: {
     below: 'zIndex_below',
