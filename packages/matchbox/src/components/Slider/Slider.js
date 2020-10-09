@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { getRectFor, lerp, useWindowSize } from '../../helpers/geometry';
+import { getRectFor, lerp } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import { getWindow } from '../../helpers/window';
+import { useResizeObserver } from '../../hooks';
 import {
   slider,
   rail,
@@ -77,7 +78,7 @@ function Slider(props) {
   const systemProps = pick(rest);
   const environment = getWindow();
 
-  const windowSize = useWindowSize(50);
+  const [resizeRef, { contentRect }] = useResizeObserver();
   const [sliderValue, setSliderValue] = React.useState(
     value || defaultValue != null ? defaultValue : min,
   );
@@ -88,7 +89,7 @@ function Slider(props) {
 
   React.useEffect(() => {
     setRect(getRectFor(sliderRef.current));
-  }, [windowSize, sliderRef.current]);
+  }, [contentRect, sliderRef.current]);
 
   // Calculates step increments based on precision
   const interval = React.useMemo(() => {
@@ -118,7 +119,7 @@ function Slider(props) {
     }
   }, [sliderValue, rect.width]);
 
-  // Updates tick locations when ticks or window size change
+  // Updates tick locations when ticks or component size change
   const tickLocations = React.useMemo(() => {
     if (!ticks || !rect.width) {
       return {};
@@ -234,6 +235,15 @@ function Slider(props) {
     );
   });
 
+  const assignRefs = node => {
+    if (sliderRef) {
+      sliderRef.current = node;
+    }
+    if (resizeRef) {
+      resizeRef(node);
+    }
+  };
+
   return (
     <StyledSlider
       hasTicks={ticks}
@@ -241,7 +251,7 @@ function Slider(props) {
       data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
-      ref={sliderRef}
+      ref={assignRefs}
       {...systemProps}
     >
       <StyledRail disabled={disabled} />
