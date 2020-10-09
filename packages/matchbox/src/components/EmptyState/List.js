@@ -9,6 +9,7 @@ const StyledSvg = styled.svg`
   left: 3px;
   top: 18px;
   height: calc(100% - 3px);
+  pointer-events: none;
 `;
 
 const List = React.forwardRef(function List(props, userRef) {
