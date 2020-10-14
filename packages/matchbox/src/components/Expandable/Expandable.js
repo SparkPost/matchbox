@@ -5,7 +5,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
-import { StyledHeader, expandable, title, subtitle, arrow, contentWrapper } from './styles';
+import { StyledHeader, StyledContentWrapper, expandable, title, subtitle, arrow } from './styles';
 
 import Accent from './Accent';
 import { Box } from '../Box';
@@ -25,10 +25,6 @@ const StyledTitle = styled('h3')`
 
 const StyledSubtitle = styled('h6')`
   ${subtitle}
-`;
-
-const StyledContentWrapper = styled('div')`
-  ${contentWrapper}
 `;
 
 const StyledIcon = styled(Box)``;
@@ -132,6 +128,14 @@ function Expandable(props) {
     </Box>
   );
 }
+
+Expandable.Accent = Accent;
+Expandable.Icon = StyledIcon;
+Expandable.Title = StyledTitle;
+Expandable.Subtitle = StyledSubtitle;
+Expandable.ContentWrapper = StyledContentWrapper;
+Expandable.Arrow = StyledArrow;
+Expandable.Header = StyledHeader;
 
 Expandable.defaultProps = {
   defaultOpen: false,

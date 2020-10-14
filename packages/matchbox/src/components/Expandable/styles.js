@@ -1,4 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
+import css from '@styled-system/css';
 import { buttonReset } from '../../styles/helpers';
 import styled from 'styled-components';
 
@@ -6,7 +7,11 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  padding: ${({ variant, theme }) => (variant === 'borderless' ? '0' : theme.space[300])};
+  ${({ variant }) =>
+    css({
+      padding: variant === 'borderless' ? ['400', null, '500'] : '300',
+    })}
+
   display: flex;
   align-items: center;
   text-align: left;
@@ -18,6 +23,25 @@ export const StyledHeader = styled('button')`
     cursor: pointer;
     background: ${tokens.color_gray_100};
   }
+`;
+
+export const StyledContentWrapper = styled('div')`
+  ${props => {
+    let visibility = 'hidden';
+    let display = 'none';
+
+    if (props.isOpen) {
+      visibility = 'visible';
+      display = 'flex';
+    }
+
+    return `
+      visibility: ${visibility};
+      display: ${display};
+    `;
+  }}
+  ${({ variant }) => css({ px: variant === 'borderless' ? ['400', null, '500'] : '300' })}
+  ${({ variant }) => css({ pb: variant === 'borderless' ? ['400', null, '500'] : '300' })}
 `;
 
 export const expandable = props => {
@@ -49,26 +73,7 @@ export const arrow = props => {
     padding: ${tokens.spacing_100};
     transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
     transform-origin: center;
-
     transform: ${rotate};
-  `;
-};
-
-export const contentWrapper = props => {
-  let visibility = 'hidden';
-  let display = 'none';
-
-  if (props.isOpen) {
-    visibility = 'visible';
-    display = 'flex';
-  }
-
-  return `
-    padding: ${
-      props.variant === 'borderless' ? `${props.theme.space[300]} 0 0` : props.theme.space[300]
-    };
-    visibility: ${visibility};
-    display: ${display};
   `;
 };
 
