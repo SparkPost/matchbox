@@ -68,7 +68,7 @@ export const ControlledOpenState = withInfo()(() => {
 
 export const Borderless = withInfo()(() => (
   <Panel>
-    <Panel.Section padding="0">
+    <Panel.Section p="0">
       <Expandable variant="borderless" defaultOpen={true} title="Slack" id="example">
         Content here
       </Expandable>

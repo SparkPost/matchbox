@@ -16,10 +16,7 @@ export const StyledHeader = styled('button')`
 
   &:hover {
     cursor: pointer;
-  }
-
-  &:focus:not(:hover) {
-    background: ${tokens.color_gray_200};
+    background: ${tokens.color_gray_100};
   }
 `;
 
@@ -54,10 +51,6 @@ export const arrow = props => {
     transform-origin: center;
 
     transform: ${rotate};
-
-    ${StyledHeader}:hover & {
-      background: ${tokens.color_gray_200};
-    }
   `;
 };
 
