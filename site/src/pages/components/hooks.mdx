@@ -5,12 +5,37 @@ category: Helpers
 
 # Hooks
 
+- [useBreakpoint](/components/hooks#usebreakpoint)
 - [useCopyToClipboard](/components/hooks#usecopytoclipboard)
 - [useDrawer](/components/hooks#usedrawer)
 - [useModal](/components/hooks#usemodal)
 - [useResizeObserver](/components/hooks#useresizeobserver)
 - [useTabs](/components/hooks#usetabs)
 - [useWindowEvent](/components/hooks#usewindowevent)
+
+---
+
+### useBreakpoint
+
+This hook returns active breakpoint status.
+
+```jsx
+import { useBreakpoint } from '@sparkpost/matchbox';
+
+function Component() {
+  const breakpoint = useBreakpoint();
+
+  if (['default', 'xs', 'sm'].includes(breakpoint)) {
+    // Do something!
+  }
+}
+```
+
+##### Returns
+
+<Prop name="breakpoint" type="string" values={['"xl"', '"lg"', '"md"', '"sm"', '"xs"', '"default"']}>
+  Active breakpoint value
+</Prop>
 
 ---
 
