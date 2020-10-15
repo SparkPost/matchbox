@@ -24,14 +24,22 @@ const Section = React.forwardRef(function Section(props, userRef) {
   const paddingContext = React.useContext(PanelPaddingContext);
   const systemProps = pick(rest, padding.propNames);
 
+  // Checks if 'padding', and overwrite 'p' instead of using the 'padding' key
+  const paddingProps = React.useMemo(() => {
+    if (Object.keys(systemProps).includes('padding')) {
+      const { padding, ...rest } = systemProps;
+      return { ...paddingContext, p: padding, ...rest };
+    }
+    return { ...paddingContext, ...systemProps };
+  }, [paddingContext, systemProps]);
+
   return (
     <StyledSection
       borderBottom="300"
       className={className}
       ref={userRef}
       tabIndex="-1"
-      {...paddingContext}
-      {...systemProps}
+      {...paddingProps}
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>{content}</Column>

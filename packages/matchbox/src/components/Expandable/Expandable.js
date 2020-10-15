@@ -5,7 +5,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
-import { StyledHeader, expandable, title, subtitle, arrow, contentWrapper } from './styles';
+import { StyledHeader, StyledContentWrapper, expandable, title, subtitle, arrow } from './styles';
 
 import Accent from './Accent';
 import { Box } from '../Box';
@@ -27,10 +27,6 @@ const StyledSubtitle = styled('h6')`
   ${subtitle}
 `;
 
-const StyledContentWrapper = styled('div')`
-  ${contentWrapper}
-`;
-
 const StyledIcon = styled(Box)``;
 
 function Expandable(props) {
@@ -44,6 +40,7 @@ function Expandable(props) {
     subtitle,
     title,
     accent,
+    variant,
     ...rest
   } = props;
 
@@ -95,7 +92,7 @@ function Expandable(props) {
   return (
     <Box {...rest}>
       {accentMarkup}
-      <StyledExpandable accent={accent}>
+      <StyledExpandable accent={accent} variant={variant}>
         <StyledHeader
           aria-controls={id}
           aria-expanded={isOpen}
@@ -104,6 +101,7 @@ function Expandable(props) {
           ref={header}
           data-id="expandable-toggle"
           type="button"
+          variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
@@ -121,6 +119,7 @@ function Expandable(props) {
           isOpen={isOpen}
           id={id}
           data-id="expandable-content"
+          variant={variant}
         >
           {contentSpacer}
           <Box flex="1">{children}</Box>
@@ -140,6 +139,7 @@ Expandable.Header = StyledHeader;
 
 Expandable.defaultProps = {
   defaultOpen: false,
+  variant: 'bordered',
 };
 
 Expandable.propTypes = {
@@ -178,6 +178,8 @@ Expandable.propTypes = {
     Proptypes.bool,
     Proptypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
   ]),
+
+  variant: Proptypes.oneOf(['bordered', 'borderless']),
   /**
    * Margin props
    */

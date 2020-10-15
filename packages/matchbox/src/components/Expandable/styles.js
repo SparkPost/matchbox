@@ -1,4 +1,5 @@
 import { tokens } from '@sparkpost/design-tokens';
+import css from '@styled-system/css';
 import { buttonReset } from '../../styles/helpers';
 import styled from 'styled-components';
 
@@ -6,7 +7,11 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  padding: ${tokens.spacing_300};
+  ${({ variant }) =>
+    css({
+      padding: variant === 'borderless' ? ['400', null, '500'] : '300',
+    })}
+
   display: flex;
   align-items: center;
   text-align: left;
@@ -17,14 +22,32 @@ export const StyledHeader = styled('button')`
   &:hover {
     cursor: pointer;
   }
+`;
 
-  &:focus:not(:hover) {
-    background: ${tokens.color_gray_200};
-  }
+export const StyledContentWrapper = styled('div')`
+  ${props => {
+    let visibility = 'hidden';
+    let display = 'none';
+
+    if (props.isOpen) {
+      visibility = 'visible';
+      display = 'flex';
+    }
+
+    return `
+      visibility: ${visibility};
+      display: ${display};
+    `;
+  }}
+  ${({ variant }) => css({ px: variant === 'borderless' ? ['400', null, '500'] : '300' })}
+  ${({ variant }) => css({ pb: variant === 'borderless' ? ['400', null, '500'] : '300' })}
 `;
 
 export const expandable = props => {
   let borderRadius = tokens.borderRadius_100;
+  if (props.variant === 'borderless') {
+    return ``;
+  }
 
   if (props.accent) {
     borderRadius = `0 0 ${tokens.borderRadius_100} ${tokens.borderRadius_100}`;
@@ -49,28 +72,12 @@ export const arrow = props => {
     padding: ${tokens.spacing_100};
     transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
     transform-origin: center;
-
     transform: ${rotate};
 
-    ${StyledHeader}:hover & {
-      background: ${tokens.color_gray_200};
+    ${StyledHeader}:hover &, ${StyledHeader}:focus & {	
+      background: ${tokens.color_blue_200};	
+      color: ${tokens.color_blue_800};	
     }
-  `;
-};
-
-export const contentWrapper = props => {
-  let visibility = 'hidden';
-  let display = 'none';
-
-  if (props.isOpen) {
-    visibility = 'visible';
-    display = 'flex';
-  }
-
-  return `
-    padding: ${tokens.spacing_300};
-    visibility: ${visibility};
-    display: ${display};
   `;
 };
 
