@@ -7,10 +7,15 @@ describe('Layout', () => {
   const subject = () =>
     global.mountStyled(
       <Layout>
-        <Layout.Section>Two Column Layout</Layout.Section>
+        <Layout.Section data-id="test-id">Two Column Layout</Layout.Section>
         <Layout.Section>Two Column Layout</Layout.Section>
       </Layout>,
     );
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
 
   it('renders columns', () => {
     const wrapper = subject();

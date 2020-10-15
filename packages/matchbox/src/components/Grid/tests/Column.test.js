@@ -6,11 +6,16 @@ describe('Column', () => {
   const subject = props =>
     global
       .mountStyled(
-        <Column {...props}>
+        <Column {...props} data-id="test-id">
           <p>Grid</p>
         </Column>,
       )
       .find('div');
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
 
   it('renders with default props', () => {
     const wrapper = subject();

@@ -5,7 +5,7 @@ import 'jest-styled-components';
 describe('Inline', () => {
   const subject = props =>
     global.mountStyled(
-      <Inline {...props}>
+      <Inline {...props} data-id="test-id">
         <div>1</div>
         <div>2</div>
       </Inline>,
@@ -25,6 +25,11 @@ describe('Inline', () => {
         .at(1)
         .text(),
     ).toBe('2');
+  });
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
   });
 
   it('should render spacing default and base styles correctly', () => {
