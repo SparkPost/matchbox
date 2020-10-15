@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { system } from 'styled-system';
 import { Box } from '../Box';
 import styled from 'styled-components';
@@ -36,7 +37,7 @@ function Stack(props) {
   }
 
   return (
-    <div>
+    <div data-id={props['data-id']}>
       {items.map((child, i) => (
         <StyledBox key={i} alignment={align} gutter={i < items.length - 1 ? space : null}>
           {child}
@@ -47,6 +48,7 @@ function Stack(props) {
 }
 
 Stack.propTypes = {
+  'data-id': PropTypes.string,
   /**
    * Sets the gutter space between children.
    * Styled-system responsive arrays work here.
