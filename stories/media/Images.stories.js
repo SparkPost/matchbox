@@ -14,6 +14,9 @@ const IMAGES_JPG = {
   'Error.jpg': require('@sparkpost/matchbox-media/images/Error.jpg'),
   'Flagging.jpg': require('@sparkpost/matchbox-media/images/Flagging.jpg'),
   'Sending-Mail.jpg': require('@sparkpost/matchbox-media/images/Sending-Mail.jpg'),
+  'Analytics.jpg': require('@sparkpost/matchbox-media/images/Analytics.jpg'),
+  'Recipient-Validation.jpg': require('@sparkpost/matchbox-media/images/Recipient-Validation.jpg'),
+  'Signup.jpg': require('@sparkpost/matchbox-media/images/Signup.jpg'),
 };
 
 const IMAGES_PNG = {
@@ -24,6 +27,9 @@ const IMAGES_PNG = {
   'Error.png': require('@sparkpost/matchbox-media/images/Error.png'),
   'Flagging.png': require('@sparkpost/matchbox-media/images/Flagging.png'),
   'Sending-Mail.png': require('@sparkpost/matchbox-media/images/Sending-Mail.png'),
+  'Analytics.png': require('@sparkpost/matchbox-media/images/Analytics.png'),
+  'Recipient-Validation.png': require('@sparkpost/matchbox-media/images/Recipient-Validation.png'),
+  'Signup.png': require('@sparkpost/matchbox-media/images/Signup.jpg'),
 };
 
 const IMAGES_WEBP = {
@@ -34,6 +40,9 @@ const IMAGES_WEBP = {
   'Error.webp': require('@sparkpost/matchbox-media/images/Error.webp'),
   'Flagging.webp': require('@sparkpost/matchbox-media/images/Flagging.webp'),
   'Sending-Mail.webp': require('@sparkpost/matchbox-media/images/Sending-Mail.webp'),
+  'Analytics.webp': require('@sparkpost/matchbox-media/images/Analytics.webp'),
+  'Recipient-Validation.webp': require('@sparkpost/matchbox-media/images/Recipient-Validation.webp'),
+  'Signup.webp': require('@sparkpost/matchbox-media/images/Signup.webp'),
 };
 
 const IMAGES_JPG_MEDIUM = {
@@ -44,6 +53,9 @@ const IMAGES_JPG_MEDIUM = {
   'Error@medium.jpg': require('@sparkpost/matchbox-media/images/Error@medium.jpg'),
   'Flagging@medium.jpg': require('@sparkpost/matchbox-media/images/Flagging@medium.jpg'),
   'Sending-Mail@medium.jpg': require('@sparkpost/matchbox-media/images/Sending-Mail@medium.jpg'),
+  'Analytics@medium.jpg': require('@sparkpost/matchbox-media/images/Analytics@medium.jpg'),
+  'Recipient-Validation@medium.jpg': require('@sparkpost/matchbox-media/images/Recipient-Validation@medium.jpg'),
+  'Signup@medium.jpg': require('@sparkpost/matchbox-media/images/Signup@medium.jpg'),
 };
 
 const IMAGES_PNG_MEDIUM = {
@@ -54,6 +66,9 @@ const IMAGES_PNG_MEDIUM = {
   'Error@medium.png': require('@sparkpost/matchbox-media/images/Error@medium.png'),
   'Flagging@medium.png': require('@sparkpost/matchbox-media/images/Flagging@medium.png'),
   'Sending-Mail@medium.png': require('@sparkpost/matchbox-media/images/Sending-Mail@medium.png'),
+  'Analytics@medium.png': require('@sparkpost/matchbox-media/images/Analytics@medium.png'),
+  'Recipient-Validation@medium.png': require('@sparkpost/matchbox-media/images/Recipient-Validation@medium.png'),
+  'Signup@medium.png': require('@sparkpost/matchbox-media/images/Signup@medium.png'),
 };
 
 const IMAGES_WEBP_MEDIUM = {
@@ -64,6 +79,9 @@ const IMAGES_WEBP_MEDIUM = {
   'Error@medium.webp': require('@sparkpost/matchbox-media/images/Error@medium.webp'),
   'Flagging@medium.webp': require('@sparkpost/matchbox-media/images/Flagging@medium.webp'),
   'Sending-Mail@medium.webp': require('@sparkpost/matchbox-media/images/Sending-Mail@medium.webp'),
+  'Analytics@medium.webp': require('@sparkpost/matchbox-media/images/Analytics@medium.webp'),
+  'Recipient-Validation@medium.webp': require('@sparkpost/matchbox-media/images/Recipient-Validation@medium.webp'),
+  'Signup@medium.webp': require('@sparkpost/matchbox-media/images/Signup@medium.webp'),
 };
 
 const IMAGES_JPG_SMALL = {
@@ -74,6 +92,9 @@ const IMAGES_JPG_SMALL = {
   'Error@small.jpg': require('@sparkpost/matchbox-media/images/Error@small.jpg'),
   'Flagging@small.jpg': require('@sparkpost/matchbox-media/images/Flagging@small.jpg'),
   'Sending-Mail@small.jpg': require('@sparkpost/matchbox-media/images/Sending-Mail@small.jpg'),
+  'Analytics@small.jpg': require('@sparkpost/matchbox-media/images/Analytics@small.jpg'),
+  'Recipient-Validation@small.jpg': require('@sparkpost/matchbox-media/images/Recipient-Validation@small.jpg'),
+  'Signup@small.jpg': require('@sparkpost/matchbox-media/images/Signup@small.jpg'),
 };
 
 const IMAGES_PNG_SMALL = {
@@ -84,6 +105,9 @@ const IMAGES_PNG_SMALL = {
   'Error@small.png': require('@sparkpost/matchbox-media/images/Error@small.png'),
   'Flagging@small.png': require('@sparkpost/matchbox-media/images/Flagging@small.png'),
   'Sending-Mail@small.png': require('@sparkpost/matchbox-media/images/Sending-Mail@small.png'),
+  'Analytics@small.png': require('@sparkpost/matchbox-media/images/Analytics@small.png'),
+  'Recipient-Validation@small.png': require('@sparkpost/matchbox-media/images/Recipient-Validation@small.png'),
+  'Signup@small.png': require('@sparkpost/matchbox-media/images/Signup@small.png'),
 };
 
 const IMAGES_WEBP_SMALL = {
@@ -94,6 +118,9 @@ const IMAGES_WEBP_SMALL = {
   'Error@small.webp': require('@sparkpost/matchbox-media/images/Error@small.webp'),
   'Flagging@small.webp': require('@sparkpost/matchbox-media/images/Flagging@small.webp'),
   'Sending-Mail@small.webp': require('@sparkpost/matchbox-media/images/Sending-Mail@small.webp'),
+  'Analytics@small.webp': require('@sparkpost/matchbox-media/images/Analytics@small.webp'),
+  'Recipient-Validation@small.webp': require('@sparkpost/matchbox-media/images/Recipient-Validation@small.webp'),
+  'Signup@small.webp': require('@sparkpost/matchbox-media/images/Signup@small.webp'),
 };
 
 storiesOf('Media|Images', module)
