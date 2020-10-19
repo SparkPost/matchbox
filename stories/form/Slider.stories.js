@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Slider, TextField } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|Slider',
 };
 
-export const BasicSlider = withInfo()(() => (
+export const BasicSlider = () => (
   <Slider aria-controls="test-id" data-id="slider-test" defaultValue={125} min={100} max={150} />
-));
+);
 
-export const DisabledSlider = withInfo()(() => (
-  <Slider data-id="slider-test" disabled value={75} />
-));
+export const DisabledSlider = () => <Slider data-id="slider-test" disabled value={75} />;
 
-export const SliderWithTicks = withInfo()(() => (
+export const SliderWithTicks = () => (
   <div>
     <Slider
       mb={400}
@@ -35,9 +33,9 @@ export const SliderWithTicks = withInfo()(() => (
       }}
     />
   </div>
-));
+);
 
-export const ValueControlledSlider = withInfo()(() => {
+export const ValueControlledSlider = () => {
   const [value, setValue] = React.useState(50.1);
 
   return (
@@ -52,9 +50,9 @@ export const ValueControlledSlider = withInfo()(() => {
       />
     </Fragment>
   );
-});
+};
 
-export const SliderWithSystemProps = withInfo()(() => (
+export const SliderWithSystemProps = () => (
   <div>
     <Slider
       mb={400}
@@ -79,4 +77,4 @@ export const SliderWithSystemProps = withInfo()(() => (
       }}
     />
   </div>
-));
+);

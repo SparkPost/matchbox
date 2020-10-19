@@ -1,21 +1,21 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { action } from '@storybook/addon-actions';
 import { Inline, Tag } from '@sparkpost/matchbox';
 import { Language } from '@sparkpost/matchbox-icons';
 
 export default {
-  title: 'Feedback|Tag',
+  title: 'Feedback/Tag',
 };
 
-export const TagWithRemove = withInfo()(() => (
+export const TagWithRemove = () => (
   <Tag onRemove={action('Tag Remove')} className="test-class">
     domain.com
     <Language />
   </Tag>
-));
+);
 
-export const Colors = withInfo()(() => (
+export const Colors = () => (
   <Inline space="100">
     <Tag onRemove={action('Tag Remove')} color="orange">
       domain.com
@@ -49,11 +49,11 @@ export const Colors = withInfo()(() => (
     </Tag>
     <Tag>domain.com</Tag>
   </Inline>
-));
+);
 
-export const SystemProps = withInfo()(() => (
+export const SystemProps = () => (
   <Inline space="100">
     <Tag mr="800">domain.com</Tag>
     <Tag my={['500', '700', '300']}>domain.com</Tag>
   </Inline>
-));
+);

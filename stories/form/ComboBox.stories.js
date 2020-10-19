@@ -1,5 +1,5 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
 import Downshift from 'downshift';
 
@@ -115,13 +115,9 @@ export default {
   title: 'Form|ComboBox',
 };
 
-export const TextFieldWithMenu = withInfo({
-  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
-})(() => <TypeaheadExample />);
+export const TextFieldWithMenu = () => <TypeaheadExample />;
 
-export const TextField = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
+export const TextField = () => (
   <ComboBoxTextField
     id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
@@ -129,11 +125,9 @@ export const TextField = withInfo({
     defaultValue="input value"
     label="Filters"
   />
-));
+);
 
-export const Menu = withInfo({
-  propTables: [ComboBoxMenu],
-})(() => (
+export const Menu = () => (
   <Box maxWidth="20rem">
     <ComboBoxMenu
       isOpen={true}
@@ -141,11 +135,9 @@ export const Menu = withInfo({
       maxHeight="5rem"
     />
   </Box>
-));
+);
 
-export const TextFieldWithError = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
+export const TextFieldWithError = () => (
   <ComboBoxTextField
     id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
@@ -155,11 +147,9 @@ export const TextFieldWithError = withInfo({
     error="Required"
     required
   />
-));
+);
 
-export const TextFieldWhileDisabled = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
+export const TextFieldWhileDisabled = () => (
   <ComboBoxTextField
     id="story-id"
     selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
@@ -168,8 +158,6 @@ export const TextFieldWhileDisabled = withInfo({
     label="Filters"
     disabled
   />
-));
+);
 
-export const WithDelimiter = withInfo({
-  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
-})(() => <TypeaheadExample delimiter="or" />);
+export const WithDelimiter = () => <TypeaheadExample delimiter="or" />;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Select } from '@sparkpost/matchbox';
 
 const options = [
@@ -16,11 +16,9 @@ export default {
   title: 'Form|Select',
 };
 
-export const BasicSelect = withInfo()(() => (
-  <Select id="id" label="Select an option" options={options} />
-));
+export const BasicSelect = () => <Select id="id" label="Select an option" options={options} />;
 
-export const Placeholder = withInfo()(() => (
+export const Placeholder = () => (
   <Select
     id="id"
     label="Select an option"
@@ -29,13 +27,13 @@ export const Placeholder = withInfo()(() => (
     placeholderValue="placeholder"
     value="placeholder"
   />
-));
+);
 
-export const WithError = withInfo()(() => (
+export const WithError = () => (
   <Select id="id" label="Select an option" options={options} error="You forgot to select" />
-));
+);
 
-export const WithHelpTextAndError = withInfo()(() => (
+export const WithHelpTextAndError = () => (
   <Select
     id="id"
     label="Select an option"
@@ -43,9 +41,9 @@ export const WithHelpTextAndError = withInfo()(() => (
     helpText="Remember to select something"
     error="You forgot to select"
   />
-));
+);
 
-export const WithRequiredAndErrorInLabel = withInfo()(() => (
+export const WithRequiredAndErrorInLabel = () => (
   <Select
     id="id"
     label="Select an option"
@@ -54,22 +52,22 @@ export const WithRequiredAndErrorInLabel = withInfo()(() => (
     required
     error="You forgot to select"
   />
-));
+);
 
-export const Optional = withInfo()(() => (
+export const Optional = () => (
   <Select id="id" label="Select an option" options={options} optional />
-));
+);
 
-export const Disabled = withInfo()(() => (
+export const Disabled = () => (
   <Select id="id" label="Select an option" disabled options={options} />
-));
+);
 
 // TODO Add this back in after hibana cutover
-// export const LabelHidden = withInfo()(() => (
+// export const LabelHidden = (() => (
 //   <Select id="id" labelHidden label="Select an option" disabled options={options} />
 // ));
 
-export const SystemProps = withInfo()(() => (
+export const SystemProps = () => (
   <>
     <Select
       id="id"
@@ -80,4 +78,4 @@ export const SystemProps = withInfo()(() => (
     />
     <Select id="id" label="Select an option" options={options} mx={['200', '400', '600', '800']} />
   </>
-));
+);

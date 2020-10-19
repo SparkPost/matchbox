@@ -1,16 +1,16 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Box, Checkbox, UnstyledLink } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|Checkbox',
 };
 
-export const BasicCheckbox = withInfo()(() => <Checkbox id="id" label="Check Me" />);
+export const BasicCheckbox = () => <Checkbox id="id" label="Check Me" />;
 
-export const WithoutLabel = withInfo()(() => <Checkbox id="id" label="Check Me" labelHidden />);
+export const WithoutLabel = () => <Checkbox id="id" label="Check Me" labelHidden />;
 
-export const WithJSXInLabel = withInfo()(() => (
+export const WithJSXInLabel = () => (
   <Checkbox
     id="id"
     label={
@@ -19,24 +19,22 @@ export const WithJSXInLabel = withInfo()(() => (
       </span>
     }
   />
-));
+);
 
-export const Disabled = withInfo()(() => (
+export const Disabled = () => (
   <>
     <Checkbox id="id5" label="Disabled" disabled />
     <Checkbox id="id6" label="Disabled Checked" disabled checked />
   </>
-));
+);
 
-export const WithHelpText = withInfo()(() => (
-  <Checkbox id="id" label="Check Me" helpText="Check this box" />
-));
+export const WithHelpText = () => <Checkbox id="id" label="Check Me" helpText="Check this box" />;
 
-export const WithErrorAndRequired = withInfo()(() => (
+export const WithErrorAndRequired = () => (
   <Checkbox id="id" label="Check Me" error="I'm an error" required />
-));
+);
 
-export const GroupWithLabel = withInfo()(() => (
+export const GroupWithLabel = () => (
   <div>
     <Checkbox.Group label="Example">
       <Checkbox id="id2" label="Check Me" />
@@ -44,9 +42,9 @@ export const GroupWithLabel = withInfo()(() => (
       <Checkbox id="id4" label="Check Me" />
     </Checkbox.Group>
   </div>
-));
+);
 
-export const OptionalGroupWithLabel = withInfo()(() => (
+export const OptionalGroupWithLabel = () => (
   <div>
     <Checkbox.Group label="Example" optional>
       <Checkbox id="id2" label="Check Me" />
@@ -54,9 +52,9 @@ export const OptionalGroupWithLabel = withInfo()(() => (
       <Checkbox id="id4" label="Check Me" />
     </Checkbox.Group>
   </div>
-));
+);
 
-export const GroupWithHiddenLabel = withInfo()(() => (
+export const GroupWithHiddenLabel = () => (
   <div>
     <Checkbox.Group label="I'm a group" labelHidden>
       <Checkbox id="id2" label="Check Me" />
@@ -64,9 +62,9 @@ export const GroupWithHiddenLabel = withInfo()(() => (
       <Checkbox id="id4" label="Check Me" />
     </Checkbox.Group>
   </div>
-));
+);
 
-export const IndeterminateGroup = withInfo()(() => {
+export const IndeterminateGroup = () => {
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
   const [indeterminate, setIndeterminate] = React.useState(false);
@@ -117,4 +115,4 @@ export const IndeterminateGroup = withInfo()(() => {
       </Checkbox.Group>
     </div>
   );
-});
+};

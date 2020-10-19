@@ -1,8 +1,8 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { action } from '@storybook/addon-actions';
 import { EmptyState } from '@sparkpost/matchbox';
-import TemplatesImage from '../storyHelpers/TemplatesImage';
+// import TemplatesImage from '../storyHelpers/TemplatesImage';
 import AccountsImage from '@sparkpost/matchbox-media/images/Accounts.jpg';
 
 export default {
@@ -29,10 +29,10 @@ export const BasicEmptyState = withInfo({ propTables: [EmptyState] })(() => (
   </EmptyState>
 ));
 
-export const LEGACY = withInfo()(() => (
+export const LEGACY = () => (
   <EmptyState.LEGACY
     title="Manage your email templates"
-    image={TemplatesImage}
+    // image={TemplatesImage}
     primaryAction={{
       content: 'Create Template',
       onClick: action('Create Template'),
@@ -42,4 +42,4 @@ export const LEGACY = withInfo()(() => (
   >
     <p>Build, test, preview and send your transmissions.</p>
   </EmptyState.LEGACY>
-));
+);

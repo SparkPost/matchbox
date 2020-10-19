@@ -1,5 +1,5 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { DatePicker, useBreakpoint } from '@sparkpost/matchbox';
 import { DateUtils } from 'react-day-picker';
 

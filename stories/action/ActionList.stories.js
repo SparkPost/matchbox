@@ -1,12 +1,11 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { ActionList, Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Action|ActionList',
+  title: 'Action/ActionList',
 };
 
-export const WithinPopovers = withInfo()(() => (
+export const WithinPopovers = () => (
   <Inline space="15rem">
     <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
       <ActionList>
@@ -29,9 +28,9 @@ export const WithinPopovers = withInfo()(() => (
       </ActionList>
     </Popover>
   </Inline>
-));
+);
 
-export const DeprecatedUsage = withInfo({ propTables: [ActionList] })(() => (
+export const DeprecatedUsage = () => (
   <Inline space="15rem">
     <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
       <ActionList
@@ -107,9 +106,9 @@ export const DeprecatedUsage = withInfo({ propTables: [ActionList] })(() => (
       />
     </Popover>
   </Inline>
-));
+);
 
-export const SelectedActions = withInfo({ propTables: [ActionList] })(() => (
+export const SelectedActions = () => (
   <Box maxWidth="20rem">
     <Panel>
       <ActionList>
@@ -125,9 +124,9 @@ export const SelectedActions = withInfo({ propTables: [ActionList] })(() => (
       </ActionList>
     </Panel>
   </Box>
-));
+);
 
-export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
+export const HighlightedActions = () => (
   <Box maxWidth="20rem">
     <Panel>
       <ActionList>
@@ -143,9 +142,9 @@ export const HighlightedActions = withInfo({ propTables: [ActionList] })(() => (
       </ActionList>
     </Panel>
   </Box>
-));
+);
 
-export const WithHelpText = withInfo({ propTables: [ActionList] })(() => (
+export const WithHelpText = () => (
   <Box maxWidth="20rem">
     <Panel>
       <ActionList>
@@ -161,9 +160,9 @@ export const WithHelpText = withInfo({ propTables: [ActionList] })(() => (
       </ActionList>
     </Panel>
   </Box>
-));
+);
 
-export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() => (
+export const AsButtonsAndCheckboxes = () => (
   <Box maxWidth="20rem">
     <Panel>
       <ActionList>
@@ -182,9 +181,9 @@ export const AsButtonsAndCheckboxes = withInfo({ propTables: [ActionList] })(() 
       </ActionList>
     </Panel>
   </Box>
-));
+);
 
-export const SystemProps = withInfo({ propTables: [ActionList] })(() => (
+export const SystemProps = () => (
   <Box maxWidth="20rem">
     <Panel>
       <ActionList m="400" width={1 / 2}>
@@ -193,4 +192,4 @@ export const SystemProps = withInfo({ propTables: [ActionList] })(() => (
       </ActionList>
     </Panel>
   </Box>
-));
+);

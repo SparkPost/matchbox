@@ -1,5 +1,5 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
 
@@ -7,21 +7,19 @@ export default {
   title: 'Form|TextField',
 };
 
-export const BasicTextfield = withInfo()(() => (
-  <TextField id="id" label="Name" placeholder="Leslie Knope" />
-));
+export const BasicTextfield = () => <TextField id="id" label="Name" placeholder="Leslie Knope" />;
 
-export const WithAnError = withInfo()(() => (
+export const WithAnError = () => (
   <TextField id="id" error="You forgot an ID!" label="Template ID" />
-));
+);
 
-export const RequiredAndErrorInLabel = withInfo()(() => (
+export const RequiredAndErrorInLabel = () => (
   <TextField id="id" error="You forgot an ID!" label="Template ID" errorInLabel required />
-));
+);
 
-export const Optional = withInfo()(() => <TextField id="id" label="Template ID" optional />);
+export const Optional = () => <TextField id="id" label="Template ID" optional />;
 
-export const HelpTextAndError = withInfo()(() => (
+export const HelpTextAndError = () => (
   <TextField
     id="id"
     error="You forgot an ID!"
@@ -32,22 +30,22 @@ export const HelpTextAndError = withInfo()(() => (
       </>
     }
   />
-));
+);
 
-export const HiddenLabel = withInfo()(() => <TextField id="id" labelHidden label="Template ID" />);
+export const HiddenLabel = () => <TextField id="id" labelHidden label="Template ID" />;
 
-export const Disabled = withInfo()(() => (
+export const Disabled = () => (
   <TextField id="id" label="Template ID" value="template-12" disabled />
-));
+);
 
-export const WithTextAlignment = withInfo()(() => (
+export const WithTextAlignment = () => (
   <Stack>
     <TextField id="id" label="Right" value={500} align="right" suffix="emails" />
     <TextField id="id" label="Centered" value="What a weird input" align="center" />
   </Stack>
-));
+);
 
-export const ConnectedWithButtons = withInfo()(() => (
+export const ConnectedWithButtons = () => (
   <TextField
     id="id"
     label="Button"
@@ -63,9 +61,9 @@ export const ConnectedWithButtons = withInfo()(() => (
       </Button>
     }
   />
-));
+);
 
-export const ConnectedComponents = withInfo()(() => (
+export const ConnectedComponents = () => (
   <TextField
     id="id"
     label="Date Range"
@@ -77,13 +75,13 @@ export const ConnectedComponents = withInfo()(() => (
     }
     connectRight={<Select options={['Last Week', 'Last 24 Hours']} />}
   />
-));
+);
 
-export const PrefixAndSuffix = withInfo()(() => (
+export const PrefixAndSuffix = () => (
   <TextField id="id" prefix="$" suffix={<Autorenew />} suffixClassname="test" />
-));
+);
 
-export const ConnectedComponentsWithSuffix = withInfo()(() => (
+export const ConnectedComponentsWithSuffix = () => (
   <TextField
     id="id"
     label="Date Range"
@@ -91,11 +89,11 @@ export const ConnectedComponentsWithSuffix = withInfo()(() => (
     connectLeft={<Select options={['Last Week', 'Last 24 Hours']} />}
     suffix={<Search />}
   />
-));
+);
 
-export const Multiline = withInfo()(() => <TextField id="id" label="Message" rows="5" multiline />);
+export const Multiline = () => <TextField id="id" label="Message" rows="5" multiline />;
 
-export const SystemProps = withInfo()(() => (
+export const SystemProps = () => (
   <>
     <TextField
       id="id"
@@ -111,4 +109,4 @@ export const SystemProps = withInfo()(() => (
       mx={['200', '400', null, '700']}
     />
   </>
-));
+);

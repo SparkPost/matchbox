@@ -1,9 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-
 import { Box, Text } from '@sparkpost/matchbox';
-
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
 
 const IMAGES_JPG = {
@@ -123,115 +119,112 @@ const IMAGES_WEBP_SMALL = {
   'Signup@small.webp': require('@sparkpost/matchbox-media/images/Signup@small.webp'),
 };
 
-storiesOf('Media|Images', module)
-  .add(
-    'single image',
-    withInfo()(() => <Box as="img" width="800px" src={Image} />),
-  )
+export default {
+  title: 'Media/Images',
+};
 
-  .add(
-    'all images',
-    withInfo()(() => (
-      <>
-        <Box mb="800">
-          <Text as="h4">JPG - Full Size</Text>
-          {Object.keys(IMAGES_JPG).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_JPG[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">PNG - Full Size</Text>
-          {Object.keys(IMAGES_PNG).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_PNG[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">WEBP - Full Size</Text>
-          {Object.keys(IMAGES_WEBP).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_WEBP[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">JPG - Medium</Text>
-          {Object.keys(IMAGES_JPG_MEDIUM).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_JPG_MEDIUM[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">PNG - Medium</Text>
-          {Object.keys(IMAGES_PNG_MEDIUM).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_PNG_MEDIUM[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">WEBP - Medium</Text>
-          {Object.keys(IMAGES_WEBP_MEDIUM).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_WEBP_MEDIUM[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">JPG - Small</Text>
-          {Object.keys(IMAGES_JPG_SMALL).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_JPG_SMALL[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">PNG - Small</Text>
-          {Object.keys(IMAGES_PNG_SMALL).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_PNG_SMALL[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-        <Box mb="800">
-          <Text as="h4">WEBP - Small</Text>
-          {Object.keys(IMAGES_WEBP_SMALL).map(image => {
-            return (
-              <Box display="inline-block" width="25%" textAlign="center">
-                <Box title={image} as="img" width="100%" src={IMAGES_WEBP_SMALL[image]} />
-                <Text>{image}</Text>
-              </Box>
-            );
-          })}
-        </Box>
-      </>
-    )),
-  );
+export const SingleImage = () => <Box as="img" width="800px" src={Image} />;
+
+export const AllImages = () => (
+  <>
+    <Box mb="800">
+      <Text as="h4">JPG - Full Size</Text>
+      {Object.keys(IMAGES_JPG).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_JPG[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">PNG - Full Size</Text>
+      {Object.keys(IMAGES_PNG).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_PNG[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">WEBP - Full Size</Text>
+      {Object.keys(IMAGES_WEBP).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_WEBP[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">JPG - Medium</Text>
+      {Object.keys(IMAGES_JPG_MEDIUM).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_JPG_MEDIUM[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">PNG - Medium</Text>
+      {Object.keys(IMAGES_PNG_MEDIUM).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_PNG_MEDIUM[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">WEBP - Medium</Text>
+      {Object.keys(IMAGES_WEBP_MEDIUM).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_WEBP_MEDIUM[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">JPG - Small</Text>
+      {Object.keys(IMAGES_JPG_SMALL).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_JPG_SMALL[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">PNG - Small</Text>
+      {Object.keys(IMAGES_PNG_SMALL).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_PNG_SMALL[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+    <Box mb="800">
+      <Text as="h4">WEBP - Small</Text>
+      {Object.keys(IMAGES_WEBP_SMALL).map(image => {
+        return (
+          <Box display="inline-block" width="25%" textAlign="center">
+            <Box title={image} as="img" width="100%" src={IMAGES_WEBP_SMALL[image]} />
+            <Text>{image}</Text>
+          </Box>
+        );
+      })}
+    </Box>
+  </>
+);

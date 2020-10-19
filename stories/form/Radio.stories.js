@@ -1,15 +1,15 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Radio, UnstyledLink } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|Radio',
 };
 
-export const BasicRadio = withInfo()(() => <Radio id="id" label="Check Me" />);
-export const WithoutLabel = withInfo()(() => <Radio id="id" label="Check Me" labelHidden />);
+export const BasicRadio = () => <Radio id="id" label="Check Me" />;
+export const WithoutLabel = () => <Radio id="id" label="Check Me" labelHidden />;
 
-export const WithJSXInLabel = withInfo()(() => (
+export const WithJSXInLabel = () => (
   <Radio
     id="id"
     label={
@@ -18,49 +18,47 @@ export const WithJSXInLabel = withInfo()(() => (
       </span>
     }
   />
-));
+);
 
-export const Disabled = withInfo()(() => (
+export const Disabled = () => (
   <Radio.Group>
     <Radio id="id" label="Check Me" disabled />
     <Radio id="id" label="Check Me" checked disabled />
   </Radio.Group>
-));
+);
 
-export const WithHelpText = withInfo()(() => (
-  <Radio id="id" label="Check Me" helpText="Check this box" />
-));
+export const WithHelpText = () => <Radio id="id" label="Check Me" helpText="Check this box" />;
 
-export const WithError = withInfo()(() => <Radio id="id" label="Check Me" error="I'm an error" />);
+export const WithError = () => <Radio id="id" label="Check Me" error="I'm an error" />;
 
-export const GroupWithLabel = withInfo()(() => (
+export const GroupWithLabel = () => (
   <Radio.Group label="This is a radio group">
     <Radio id="id" label="Option 1" name="group" />
     <Radio id="id2" label="Option 2" name="group" />
     <Radio id="id3" label="Option 3" name="group" />
   </Radio.Group>
-));
+);
 
-export const RequiredGroupWithLabel = withInfo()(() => (
+export const RequiredGroupWithLabel = () => (
   <Radio.Group label="This is a required radio group" required>
     <Radio id="id" label="Option 1" name="group" />
     <Radio id="id2" label="Option 2" name="group" />
     <Radio id="id3" label="Option 3" name="group" />
   </Radio.Group>
-));
+);
 
-export const OptionalGroupWithLabel = withInfo()(() => (
+export const OptionalGroupWithLabel = () => (
   <Radio.Group label="This is an optional radio group" optional>
     <Radio id="id" label="Option 1" name="group" />
     <Radio id="id2" label="Option 2" name="group" />
     <Radio id="id3" label="Option 3" name="group" />
   </Radio.Group>
-));
+);
 
-export const GroupWithHiddenLabel = withInfo()(() => (
+export const GroupWithHiddenLabel = () => (
   <Radio.Group labelHidden label="This is a radio group">
     <Radio id="id" label="Option 1" name="group" />
     <Radio id="id2" label="Option 2" name="group" />
     <Radio id="id3" label="Option 3" name="group" />
   </Radio.Group>
-));
+);

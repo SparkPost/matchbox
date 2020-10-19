@@ -1,15 +1,14 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 
 import { Skeleton, Stack, Panel } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Feedback|Skeleton',
+  title: 'Feedback/Skeleton',
 };
 
 const info = { propTablesExclude: [Stack] };
 
-export const AsAHeading = withInfo(info)(() => (
+export const AsAHeading = () => (
   <Stack>
     <Skeleton.Header looksLike="h1" />
     <Skeleton.Header looksLike="h2" />
@@ -18,19 +17,19 @@ export const AsAHeading = withInfo(info)(() => (
     <Skeleton.Header looksLike="h5" />
     <Skeleton.Header looksLike="h6" />
   </Stack>
-));
+);
 
-export const AsABox = withInfo(info)(() => (
+export const AsABox = () => (
   <Stack>
     <Skeleton.Box size="5rem" />
     <Skeleton.Box width="20rem" height="8rem" />
     <Skeleton.Box size="7rem" borderRadius="circle" />
   </Stack>
-));
+);
 
-export const AsBodyCopy = withInfo(info)(() => <Skeleton.Body />);
+export const AsBodyCopy = () => <Skeleton.Body />;
 
-export const AllTogether = withInfo(info)(() => (
+export const AllTogether = () => (
   <Stack>
     <Skeleton.Header looksLike="h1" />
     <Skeleton.Header looksLike="h6" width="800" />
@@ -47,4 +46,4 @@ export const AllTogether = withInfo(info)(() => (
       </Stack>
     </Panel>
   </Stack>
-));
+);

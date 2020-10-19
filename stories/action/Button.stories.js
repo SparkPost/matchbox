@@ -1,21 +1,21 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { Button, Inline, Box, Stack } from '@sparkpost/matchbox';
 import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
 
 export default {
-  title: 'Action|Button',
+  title: 'Action/Button',
 };
 
-export const Sizing = withInfo()(() => (
+export const Sizing = () => (
   <Inline>
     <Button size="small">Small Button</Button>
     <Button>Default Button</Button>
     <Button size="large">Large Button</Button>
   </Inline>
-));
+);
 
-export const Variants = withInfo({ propTables: [Button] })(() => (
+export const Variants = () => (
   <>
     <Inline>
       <Button variant="filled">Filled</Button>
@@ -70,9 +70,9 @@ export const Variants = withInfo({ propTables: [Button] })(() => (
       </Button>
     </Inline>
   </>
-));
+);
 
-export const DeprecatedVariants = withInfo({ propTables: [Button] })(() => (
+export const DeprecatedVariants = () => (
   <>
     <Inline>
       <Button>Button</Button>
@@ -123,9 +123,9 @@ export const DeprecatedVariants = withInfo({ propTables: [Button] })(() => (
       </Button>
     </Inline>
   </>
-));
+);
 
-export const Destructive = withInfo()(() => (
+export const Destructive = () => (
   <Inline>
     <Button destructive size="small">
       Delete domain
@@ -138,9 +138,9 @@ export const Destructive = withInfo()(() => (
       Delete domain
     </Button>
   </Inline>
-));
+);
 
-export const Loading = withInfo({ propTables: [Button] })(() => (
+export const Loading = () => (
   <Box display="flex" justifyContent="space-between">
     <Stack>
       <Button loading>Button</Button>
@@ -185,7 +185,7 @@ export const Loading = withInfo({ propTables: [Button] })(() => (
       </Button>
     </Stack>
   </Box>
-));
+);
 
 export const TogglingLoading = () => {
   const [on, setOn] = React.useState(false);
@@ -203,9 +203,9 @@ export const TogglingLoading = () => {
     </Button>
   );
 };
-export const External = withInfo()(() => <Button to="http://google.com">Google</Button>);
+export const External = () => <Button to="http://google.com">Google</Button>;
 
-export const Group = withInfo()(() => (
+export const Group = () => (
   <Button.Group>
     <Button>Linear</Button>
     <Button outlineBorder>Log</Button>
@@ -213,9 +213,9 @@ export const Group = withInfo()(() => (
       Sq Rt
     </Button>
   </Button.Group>
-));
+);
 
-export const Icon = withInfo()(() => (
+export const Icon = () => (
   <Inline>
     <Button outlineBorder>
       <Button.Icon as={Assessment} mr="100"></Button.Icon>
@@ -228,9 +228,9 @@ export const Icon = withInfo()(() => (
       Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
     </Button>
   </Inline>
-));
+);
 
-export const SystemProps = withInfo()(() => (
+export const SystemProps = () => (
   <>
     <Button paddingLeft={800} mb="200" mr="200" width={[1, 1 / 2, 1 / 4]} color="blue">
       Submit
@@ -242,4 +242,4 @@ export const SystemProps = withInfo()(() => (
       Reset
     </Button>
   </>
-));
+);

@@ -1,10 +1,10 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { action } from '@storybook/addon-actions';
 import { Snackbar, Inline } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Feedback|Snackbar',
+  title: 'Feedback/Snackbar',
 };
 
 export const Statuses = withInfo({ propTables: [Snackbar] })(() => (
@@ -24,14 +24,14 @@ export const Statuses = withInfo({ propTables: [Snackbar] })(() => (
   </Inline>
 ));
 
-export const Large = withInfo()(() => (
+export const Large = () => (
   <Snackbar maxWidth={700}>
     This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey
     capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon, biltong
     landjaeger salami ham spare ribs flank cupim porchetta leberkas.{' '}
     <a href="https://sparkpost.github.io/matchbox/">link</a>
   </Snackbar>
-));
+);
 
 export const ResponsiveSystemProps = withInfo({ propTables: [Snackbar] })(() => (
   <Inline>

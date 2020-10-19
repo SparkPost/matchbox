@@ -1,15 +1,15 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+
 import { RadioCard } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|RadioCard',
 };
 
-export const HeavyWeight = withInfo()(() => <RadioCard id="id1" label="Check Me" weight="heavy" />);
-export const LightWeight = withInfo()(() => <RadioCard id="id1" label="Check Me" weight="light" />);
+export const HeavyWeight = () => <RadioCard id="id1" label="Check Me" weight="heavy" />;
+export const LightWeight = () => <RadioCard id="id1" label="Check Me" weight="light" />;
 
-export const DisabledRadio = withInfo()(() => (
+export const DisabledRadio = () => (
   <RadioCard.Group label="Radio Card Group">
     <RadioCard id="id1" label="Check Me 1" disabled>
       This one is disabled
@@ -21,9 +21,9 @@ export const DisabledRadio = withInfo()(() => (
       This one is not disabled
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const VerticalGroup = withInfo()(() => (
+export const VerticalGroup = () => (
   <RadioCard.Group label="Radio Card Group">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -35,9 +35,9 @@ export const VerticalGroup = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const GridOrientationGroup = withInfo()(() => (
+export const GridOrientationGroup = () => (
   <RadioCard.Group label="Radio Card Group" orientation="grid">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -52,9 +52,9 @@ export const GridOrientationGroup = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const CollapsingHorizontalGroup = withInfo()(() => (
+export const CollapsingHorizontalGroup = () => (
   <RadioCard.Group collapseBelow="sm" label="Radio Card Group" orientation="horizontal">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -63,9 +63,9 @@ export const CollapsingHorizontalGroup = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const GroupWithHiddenLabel = withInfo()(() => (
+export const GroupWithHiddenLabel = () => (
   <RadioCard.Group label="Radio Card Group" labelHidden>
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -77,9 +77,9 @@ export const GroupWithHiddenLabel = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const GroupWithOptionalLabel = withInfo()(() => (
+export const GroupWithOptionalLabel = () => (
   <RadioCard.Group label="Radio Card Group" optional>
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -91,9 +91,9 @@ export const GroupWithOptionalLabel = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
 
-export const GroupWithSystemProps = withInfo()(() => (
+export const GroupWithSystemProps = () => (
   <RadioCard.Group label="Radio Card Group" my="500" mx="700">
     <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
       I am help text
@@ -105,4 +105,4 @@ export const GroupWithSystemProps = withInfo()(() => (
       I am help text
     </RadioCard>
   </RadioCard.Group>
-));
+);
