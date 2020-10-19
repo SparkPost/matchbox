@@ -1,3 +1,43 @@
+## 4.5.0 (2020-10-19)
+
+#### Features
+
+- `matchbox`
+  - [#659](https://github.com/SparkPost/matchbox/pull/659) UX-341 EmptyState.List Component
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Enhancements
+
+- `matchbox-media`
+  - [#665](https://github.com/SparkPost/matchbox/pull/665) UX-353 Add Signup, Recipient Validation,
+    and Analytics images ([@jonambas](https://github.com/jonambas))
+- `matchbox`
+  - [#662](https://github.com/SparkPost/matchbox/pull/662) UX-350 Add borderless Expandable variant
+    ([@jonambas](https://github.com/jonambas))
+  - [#656](https://github.com/SparkPost/matchbox/pull/656) UX-346 Lower structural border color to
+    gray-300 ([@logansparlin](https://github.com/logansparlin))
+  - [#655](https://github.com/SparkPost/matchbox/pull/655) UX-340 Add empty status to banner
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#660](https://github.com/SparkPost/matchbox/pull/660) UX-349 resize Slider on component size
+    change ([@logansparlin](https://github.com/logansparlin))
+  - [#658](https://github.com/SparkPost/matchbox/pull/658) UX-234 Tabs should measure overflow on
+    component resize ([@logansparlin](https://github.com/logansparlin))
+
+#### Breaking Changes
+
+- `matchbox`
+  - [#653](https://github.com/SparkPost/matchbox/pull/653) UX-339 Componentize EmptyState
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.4.0 (2020-09-30)
 
 #### Features
