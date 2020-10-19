@@ -127,4 +127,10 @@ export default `
   #live-code-content p {
     margin-bottom: unset;
   }
+
+  #live-code-content li {
+    margin-bottom: unset;
+    font-size: unset;
+    line-height: unset;
+  }
 `;
