@@ -4,6 +4,7 @@ category: Component
 ---
 
 import { LiveCode } from '../../components/LiveCode';
+import AccountsImage from '@sparkpost/matchbox-media/images/Accounts.jpg';
 
 # Empty State
 
@@ -15,43 +16,28 @@ This component is used as a full-page layout for landing pages
 
 <LiveCode>
   <LiveCode.Content
-    title="Without an image"
+    title="Basic Empty State"
     code={`
-      <EmptyState
-        title="Manage your email templates"
-        primaryAction={{
-          content: 'Create Template'
-        }}
-        secondaryAction={{ content: 'Learn More'}}
-      >
-        <p>Build, test, preview and send your transmissions.</p>
-      </EmptyState>
+      <EmptyState>
+    <EmptyState.Header> Manage your email templates</EmptyState.Header>
+    <EmptyState.Content>
+      <p>Build, test, preview and send your transmissions.</p>
+      <EmptyState.List>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </EmptyState.List>
+    </EmptyState.Content>
+    <EmptyState.Image src="${AccountsImage}"/>
+    <EmptyState.Action>Create Template</EmptyState.Action>
+    <EmptyState.Action variant="outline">Learn More</EmptyState.Action>
+  </EmptyState>
     `}
   />
 </LiveCode>
 
 ---
 
-### System Props
+### EmptyState System Props
 
-None
-
----
-
-### Empty State API
-
-<Prop name="title" type="string">
-  The display title
-</Prop>
-<Prop name="primaryAction" type="object">
-  Primary action button (accepts button props){' '}
-</Prop>
-<Prop name="secondaryAction" type="object">
-  Secondary action button (appear as a link next to the primary action)
-</Prop>
-<Prop name="image" type="function | element">
-  Empty state Image to be rendered
-</Prop>
-<Prop name="children" type="React node">
-  Content rendered below the title
-</Prop>
+<SystemPropsTags propsList={['margin']} />

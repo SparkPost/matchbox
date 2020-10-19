@@ -1,4 +1,5 @@
-[{
+[
+  {
     "path": "/",
     "label": "Home",
     "hiddenFromNav": true
@@ -11,7 +12,8 @@
     "path": "/design",
     "label": "Design",
     "indexRoute": "/design/tokens",
-    "childRoutes": [{
+    "childRoutes": [
+      {
         "path": "/design/tokens",
         "label": "Tokens"
       },
@@ -49,7 +51,8 @@
     "path": "/components",
     "label": "Components",
     "indexRoute": "/components/getting-started",
-    "childRoutes": [{
+    "childRoutes": [
+      {
         "path": "/components/getting-started",
         "label": "Getting Started"
       },
@@ -159,7 +162,14 @@
       {
         "path": "/components/emptystate",
         "label": "Empty State",
-        "section": "Layout"
+        "section": "Layout",
+        "tag": "new"
+      },
+      {
+        "path": "/components/emptystate-legacy",
+        "label": "Legacy Empty State",
+        "section": "Layout",
+        "tag": "deprecated"
       },
       {
         "path": "/components/expandable",

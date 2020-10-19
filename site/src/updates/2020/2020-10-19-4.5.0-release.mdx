@@ -1,0 +1,44 @@
+---
+title: Matchbox 4.5.0
+date: 2020-10-19
+published: true
+category: Release Notes
+---
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v4.5.0">view the release notes on Github</ExternalLink>.
+
+### New Features
+
+##### EmptyState Components
+
+A new collection of composable **EmptyState** components have been added. The pre-4.5.0 version of EmptyState has been deprecated and is available under **EmptyState.LEGACY**.
+
+- [EmptyState documentation](/components/emptystate)
+
+```jsx
+import { EmptyState } from '@sparkpost/matchbox';
+import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
+
+<EmptyState>
+  <EmptyState.Header> Manage your email templates</EmptyState.Header>
+  <EmptyState.Content>
+    <p>Build, test, preview and send your transmissions.</p>
+    <EmptyState.List>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </EmptyState.List>
+  </EmptyState.Content>
+  <EmptyState.Image src={Image} />
+  <EmptyState.Action>Create Template</EmptyState.Action>
+  <EmptyState.Action variant="outline">Learn More</EmptyState.Action>
+</EmptyState>;
+```
+
+### Other Enhancements
+
+- Additional mages have been added to `matchbox-media`
+- **Expandable** now accepts a `variant` prop – with options `borderless` and `bordered`
+- **Banner** now accepts a `status` option `muted`
+- Structural border colors have been lightened
+- The **Tabs** and **Slider** now measure on component resize, not window resize
