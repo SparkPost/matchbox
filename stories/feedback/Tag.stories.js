@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { action } from '@storybook/addon-actions';
 import { Inline, Tag } from '@sparkpost/matchbox';
 import { Language } from '@sparkpost/matchbox-icons';
 
@@ -9,7 +8,7 @@ export default {
 };
 
 export const TagWithRemove = () => (
-  <Tag onRemove={action('Tag Remove')} className="test-class">
+  <Tag onRemove={() => console.log('Tag Remove')} className="test-class">
     domain.com
     <Language />
   </Tag>
@@ -17,34 +16,34 @@ export const TagWithRemove = () => (
 
 export const Colors = () => (
   <Inline space="100">
-    <Tag onRemove={action('Tag Remove')} color="orange">
+    <Tag onRemove={() => console.log('Tag Remove')} color="orange">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="blue">
+    <Tag onRemove={() => console.log('Tag Remove')} color="blue">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="navy">
+    <Tag onRemove={() => console.log('Tag Remove')} color="navy">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="yellow">
+    <Tag onRemove={() => console.log('Tag Remove')} color="yellow">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="green">
+    <Tag onRemove={() => console.log('Tag Remove')} color="green">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="red">
+    <Tag onRemove={() => console.log('Tag Remove')} color="red">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="magenta">
+    <Tag onRemove={() => console.log('Tag Remove')} color="magenta">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="purple">
+    <Tag onRemove={() => console.log('Tag Remove')} color="purple">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="teal">
+    <Tag onRemove={() => console.log('Tag Remove')} color="teal">
       domain.com
     </Tag>
-    <Tag onRemove={action('Tag Remove')} color="darkGray">
+    <Tag onRemove={() => console.log('Tag Remove')} color="darkGray">
       domain.com
     </Tag>
     <Tag>domain.com</Tag>

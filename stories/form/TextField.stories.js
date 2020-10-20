@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
 import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|TextField',
+  title: 'Form/TextField',
 };
 
 export const BasicTextfield = () => <TextField id="id" label="Name" placeholder="Leslie Knope" />;

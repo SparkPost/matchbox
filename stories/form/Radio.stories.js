@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Radio, UnstyledLink } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|Radio',
+  title: 'Form/Radio',
 };
 
 export const BasicRadio = () => <Radio id="id" label="Check Me" />;

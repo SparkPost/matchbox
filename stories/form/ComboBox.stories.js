@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
 import Downshift from 'downshift';
 
@@ -112,7 +111,7 @@ function TypeaheadExample(props) {
 }
 
 export default {
-  title: 'Form|ComboBox',
+  title: 'Form/ComboBox',
 };
 
 export const TextFieldWithMenu = () => <TypeaheadExample />;

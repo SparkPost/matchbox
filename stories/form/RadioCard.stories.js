@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { RadioCard } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|RadioCard',
+  title: 'Form/RadioCard',
 };
 
 export const HeavyWeight = () => <RadioCard id="id1" label="Check Me" weight="heavy" />;

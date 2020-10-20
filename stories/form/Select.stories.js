@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Select } from '@sparkpost/matchbox';
 
 const options = [
@@ -13,7 +12,7 @@ const options = [
 ];
 
 export default {
-  title: 'Form|Select',
+  title: 'Form/Select',
 };
 
 export const BasicSelect = () => <Select id="id" label="Select an option" options={options} />;

@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { ListBox } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|ListBox',
+  title: 'Form/ListBox',
 };
 
 export const BasicListbox = () => (

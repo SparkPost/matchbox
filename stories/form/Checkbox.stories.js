@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Box, Checkbox, UnstyledLink } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|Checkbox',
+  title: 'Form/Checkbox',
 };
 
 export const BasicCheckbox = () => <Checkbox id="id" label="Check Me" />;

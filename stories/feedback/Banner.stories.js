@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+
 import { Banner, Picture, Video } from '@sparkpost/matchbox';
 
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
@@ -11,7 +11,7 @@ export default {
 };
 
 export const DefaultBanner = () => (
-  <Banner title="Heads up!" onDismiss={action('Dismiss Clicked')}>
+  <Banner title="Heads up!" onDismiss={() => console.log('Dismiss Clicked')}>
     <p>
       If you're importing recipients from a previous provider, be sure to also{' '}
       <a href="https://design.sparkpost.com">import your suppressions</a> later.
@@ -20,7 +20,7 @@ export const DefaultBanner = () => (
 );
 
 export const EmptyBanner = () => (
-  <Banner status="muted" title="Sending Domains" onDismiss={action('Dismiss Clicked')}>
+  <Banner status="muted" title="Sending Domains" onDismiss={() => console.log('Dismiss Clicked')}>
     <p>
       Sending domains are used to indicate who an email is from via the "From:" header. DNS records
       can be configured for a sending domain, which allows recipient mail servers to authenticate
@@ -29,7 +29,7 @@ export const EmptyBanner = () => (
     <Banner.Action
       variant="outline"
       color="blue"
-      onClick={() => action('Sending Domain Documentation Clicked')}
+      onClick={() => () => console.log('Sending Domain Documentation Clicked')}
     >
       Sending Domain Documentation
     </Banner.Action>
@@ -42,7 +42,7 @@ export const EmptyBanner = () => (
 );
 
 export const EmptyBannerWithVideo = () => (
-  <Banner status="muted" title="Sending Domains" onDismiss={action('Dismiss Clicked')}>
+  <Banner status="muted" title="Sending Domains" onDismiss={() => console.log('Dismiss Clicked')}>
     <p>
       Sending domains are used to indicate who an email is from via the "From:" header. DNS records
       can be configured for a sending domain, which allows recipient mail servers to authenticate
@@ -51,7 +51,7 @@ export const EmptyBannerWithVideo = () => (
     <Banner.Action
       variant="outline"
       color="blue"
-      onClick={() => action('Sending Domain Documentation Clicked')}
+      onClick={() => () => console.log('Sending Domain Documentation Clicked')}
     >
       Sending Domain Documentation
     </Banner.Action>
@@ -68,7 +68,7 @@ export const SuccessBanner = () => (
   <Banner
     title="Thank you for your dedicated IP purchase"
     status="success"
-    onDismiss={action('Success Dismiss Clicked')}
+    onDismiss={() => console.log('Success Dismiss Clicked')}
   >
     <p>Happy Sending!</p>
   </Banner>
@@ -77,7 +77,9 @@ export const SuccessBanner = () => (
 export const InfoBanner = () => (
   <Banner status="info" title="Verify your email address">
     <p>Please click the link in the email we sent you to unlock the higher daily sending limits.</p>
-    <Banner.Action onClick={() => action('Resend Email Clicked')}>Resend Email</Banner.Action>
+    <Banner.Action onClick={() => () => console.log('Resend Email Clicked')}>
+      Resend Email
+    </Banner.Action>
   </Banner>
 );
 
@@ -85,7 +87,7 @@ export const WarningBanner = () => (
   <Banner
     title="New IPs need to be warmed up"
     status="warning"
-    onDismiss={action('Dismiss Clicked')}
+    onDismiss={() => console.log('Dismiss Clicked')}
   >
     <p>
       Please read the{' '}
@@ -104,27 +106,29 @@ export const DangerBanner = () => (
   <Banner
     title="Your account has been suspended due to a billing problem"
     status="danger"
-    onDismiss={action('Dismiss Clicked')}
+    onDismiss={() => console.log('Dismiss Clicked')}
   >
     <p>
       To reactivate your account and pay your outstanding balance due, please update your payment
       information.
     </p>
     <p>If you have questions about your account, please contact us at billing@sparkpost.com.</p>
-    <Banner.Action onClick={() => action('Update Payment Info Clicked')}>
+    <Banner.Action onClick={() => () => console.log('Update Payment Info Clicked')}>
       Update Billing Info
     </Banner.Action>
-    <Banner.Action outline onClick={() => action('Close Clicked')}>
+    <Banner.Action outline onClick={() => () => console.log('Close Clicked')}>
       Close
     </Banner.Action>
   </Banner>
 );
 
 export const BannerWithActions = () => (
-  <Banner title="Banner Title" status="info" onDismiss={action('Dismiss Clicked')}>
+  <Banner title="Banner Title" status="info" onDismiss={() => console.log('Dismiss Clicked')}>
     <p>Banner content.</p>
-    <Banner.Action onClick={() => action('Action One Clicked')}>Action One</Banner.Action>
-    <Banner.Action outline onClick={() => action('Action Two Clicked')}>
+    <Banner.Action onClick={() => () => console.log('Action One Clicked')}>
+      Action One
+    </Banner.Action>
+    <Banner.Action outline onClick={() => () => console.log('Action Two Clicked')}>
       Action Two
     </Banner.Action>
   </Banner>
@@ -134,15 +138,15 @@ export const BannerWithDeprecatedActions = () => (
   <Banner
     title="Your account has been suspended due to a billing problem"
     status="danger"
-    onDismiss={action('Dismiss Clicked')}
+    onDismiss={() => console.log('Dismiss Clicked')}
     actions={[
       {
         content: 'Update Billing Info',
-        onClick: action('Update Payment Info Clicked'),
+        onClick: () => console.log('Update Payment Info Clicked'),
       },
       {
         content: 'Close',
-        onClick: action('Close Clicked'),
+        onClick: () => console.log('Close Clicked'),
         outline: true,
       },
     ]}
@@ -157,19 +161,19 @@ export const BannerWithDeprecatedActions = () => (
 
 export const SmallBanner = () => (
   <>
-    <Banner size="small" onDismiss={action('Dismiss Clicked')} mb="500">
+    <Banner size="small" onDismiss={() => console.log('Dismiss Clicked')} mb="500">
       <p>Default Banner</p>
     </Banner>
-    <Banner size="small" mb="500" status="success" onDismiss={action('Dismiss Clicked')}>
+    <Banner size="small" mb="500" status="success" onDismiss={() => console.log('Dismiss Clicked')}>
       <p>Success Banner</p>
     </Banner>
-    <Banner size="small" mb="500" status="warning" onDismiss={action('Dismiss Clicked')}>
+    <Banner size="small" mb="500" status="warning" onDismiss={() => console.log('Dismiss Clicked')}>
       <p>Warning Banner</p>
     </Banner>
-    <Banner size="small" mb="500" status="danger" onDismiss={action('Dismiss Clicked')}>
+    <Banner size="small" mb="500" status="danger" onDismiss={() => console.log('Dismiss Clicked')}>
       <p>Danger Banner</p>
     </Banner>
-    <Banner size="small" mb="500" status="info" onDismiss={action('Dismiss Clicked')}>
+    <Banner size="small" mb="500" status="info" onDismiss={() => console.log('Dismiss Clicked')}>
       <p>Info Banner</p>
     </Banner>
     <Banner size="small" status="warning">

@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
-
 import { Slider, TextField } from '@sparkpost/matchbox';
 
 export default {
-  title: 'Form|Slider',
+  title: 'Form/Slider',
 };
 
 export const BasicSlider = () => (
