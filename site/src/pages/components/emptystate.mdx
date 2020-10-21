@@ -42,15 +42,29 @@ This component is used as a full-page layout for landing pages
 
 <SystemPropsTags propsList={['margin']} />
 
----
-
 ### EmptyState API
 
 <Prop name="children" type="node">
-  The contents of the EmptyState
+  The content of the EmptyState
 </Prop>
 
---- 
+---
+
+### EmptyState.Header System Props
+
+None
+
+## EmptyState.Header API
+
+<Prop name="children" type="node">
+  The content of the EmptyState Header
+</Prop>
+
+---
+
+### EmptyState.Image System Props
+
+None
 
 ### EmptyState.Image API
 
@@ -63,22 +77,18 @@ This component is used as a full-page layout for landing pages
 </Prop>
 
 <Prop name="src" type="string" required>
-  The source url of the image
+  The source url of the Image
 </Prop>
 
 --- 
 
-### EmptyState.List API
+### EmptyState.Content System Props
 
-<Prop name="children" type="node">
-  The contents of the List
-</Prop>
-
----
+None
 
 ### EmptyState.Content API
 <Prop name="children" type="node">
-  The contents of the EmptyState
+  The content of the EmptyState
 </Prop>
 
 ---
@@ -87,3 +97,14 @@ This component is used as a full-page layout for landing pages
 
 This component is a light wrapper around the Button component that sets size and color. See <Link to='/components/button'>the Button component page</Link> for API documentation and usage.
 
+---
+
+### EmptyState.List System Props
+
+None
+
+### EmptyState.List API
+
+<Prop name="children" type="node">
+  The content of the EmptyState List
+</Prop>
