@@ -38,7 +38,7 @@ const StyledContent = styled(Box)`
   ${contentAnimation}
 `;
 
-const Modal = React.forwardRef(function Modal(props, ref) {
+const Modal = React.forwardRef(function Modal(props, userRef) {
   const {
     children,
     className,
@@ -81,6 +81,13 @@ const Modal = React.forwardRef(function Modal(props, ref) {
   useWindowEvent('keydown', handleEscape);
   useWindowEvent('click', handleOutsideClick);
 
+  // Focuses container when opening
+  React.useLayoutEffect(() => {
+    if (open) {
+      contentRef.current.focus();
+    }
+  }, [open]);
+
   return (
     <>
       <ScrollLock isActive={open} />
@@ -117,14 +124,21 @@ const Modal = React.forwardRef(function Modal(props, ref) {
                       <StyledContent
                         state={state}
                         tabIndex="-1"
-                        ref={ref}
+                        ref={userRef}
                         display="flex"
                         justifyContent="center"
                         data-id="modal-content-wrapper"
                       >
-                        <Box ref={contentRef} width="100%" maxWidth={maxWidth} bg="white">
+                        <Box
+                          ref={contentRef}
+                          width="100%"
+                          maxWidth={maxWidth}
+                          bg="white"
+                          tabIndex="-1"
+                          data-id="modal-content-panel"
+                        >
                           {getChild('Modal.Header', children, { onClose })}
-                          {getChild('Modal.Content', children, { ref, open })}
+                          {getChild('Modal.Content', children, { open })}
                           {getChild('Modal.Footer', children)}
                         </Box>
                       </StyledContent>
