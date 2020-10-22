@@ -15,7 +15,7 @@ function useInView({ offset = 0, once = true } = {}) {
     setScroll(environment.scrollY);
   });
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     setRect(getRectFor(node));
   }, [node]);
 
