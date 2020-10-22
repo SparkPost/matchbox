@@ -69,6 +69,29 @@ export const Variants = withInfo({ propTables: [Button] })(() => (
         Muted Outline
       </Button>
     </Inline>
+    <br />
+    <Box bg="gray.900" p="300" width="640px">
+      <Inline>
+        <Button variant="filled" color="white">
+          Filled
+        </Button>
+        <Button variant="filled" color="white" disabled>
+          Filled
+        </Button>
+        <Button color="white" variant="text">
+          Text
+        </Button>
+        <Button color="white" variant="text" disabled>
+          Text Disabled
+        </Button>
+        <Button color="white" variant="outline">
+          Outline
+        </Button>
+        <Button color="white" variant="mutedOutline">
+          Muted Outline
+        </Button>
+      </Inline>
+    </Box>
   </>
 ));
 

@@ -14,6 +14,10 @@ export function focus(props) {
       color = tokens.color_red_700;
       break;
 
+    case 'white':
+      color = tokens.color_white;
+      break;
+
     case 'gray':
     default:
       color = tokens.color_gray_900;
@@ -102,6 +106,13 @@ export const colorVariant = props => {
       darkHoverColor = theme.colors.red[800];
       lightActiveColor = theme.colors.red[300];
       lightHoverColor = theme.colors.red[200];
+      break;
+
+    case 'white':
+      color = theme.colors.white;
+      darkHoverColor = theme.colors.gray[800];
+      lightActiveColor = theme.colors.gray[300];
+      lightHoverColor = theme.colors.gray[200];
       break;
 
     case 'gray':

@@ -199,7 +199,7 @@ Button.Icon = Icon;
 
 Button.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red']),
+  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red', 'white']),
   component: PropTypes.elementType,
   disabled: PropTypes.bool,
   external: PropTypes.bool,
