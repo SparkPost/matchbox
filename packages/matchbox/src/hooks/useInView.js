@@ -3,12 +3,11 @@ import useWindowEvent from './useWindowEvent';
 import { getRectFor } from '../helpers/geometry';
 import { getWindow } from '../helpers/window';
 
-function useInView(callback, offset = 0) {
+function useInView({ offset = 0, once = true } = {}) {
   const [node, setNode] = React.useState(null);
   const [inView, setInView] = React.useState(false);
   const [scroll, setScroll] = React.useState(0);
   const [rect, setRect] = React.useState({});
-  const [cbCalled, setCbCalled] = React.useState(false);
 
   const environment = getWindow();
 
@@ -27,15 +26,12 @@ function useInView(callback, offset = 0) {
     if (top) {
       if (scroll >= top + offset - innerHeight) {
         setInView(true);
-
-        if (!cbCalled) {
-          callback && callback();
-          setCbCalled(true);
-        }
       }
 
       if (scroll > top + height || scroll < top - innerHeight) {
-        setInView(false);
+        if (!once) {
+          setInView(false);
+        }
       }
     }
   }, [scroll]);
