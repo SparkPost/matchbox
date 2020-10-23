@@ -33,6 +33,8 @@ describe('The Modal component', () => {
     // Wait for transition animation
     cy.wait(300);
 
+    cy.focused().should('have.attr', 'data-id', 'modal-content-panel');
+
     // This is equivalent to tabbing when entering the window, so should handle the tab trap appropriately
     cy.get('body').tab();
     cy.focused().should('have.attr', 'data-id', 'modal-close');
