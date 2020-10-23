@@ -207,6 +207,23 @@ export const Loading = withInfo({ propTables: [Button] })(() => (
         Outline
       </Button>
     </Stack>
+
+    <Box bg="gray.900" p="200">
+      <Stack>
+        <Button loading color="white">
+          Button
+        </Button>
+        <Button loading color="white" flat>
+          Flat
+        </Button>
+        <Button loading color="white" outlineBorder>
+          Outline Border
+        </Button>
+        <Button loading color="white" outline>
+          Outline
+        </Button>
+      </Stack>
+    </Box>
   </Box>
 ));
 

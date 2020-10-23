@@ -110,9 +110,9 @@ export const colorVariant = props => {
 
     case 'white':
       color = theme.colors.white;
-      darkHoverColor = theme.colors.gray[800];
-      lightActiveColor = theme.colors.gray[300];
-      lightHoverColor = theme.colors.gray[200];
+      darkHoverColor = theme.colors.gray[200];
+      lightActiveColor = theme.colors.gray[200];
+      lightHoverColor = theme.colors.gray[700];
       break;
 
     case 'gray':
@@ -129,13 +129,13 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           background: ${color};
-          color: ${theme.colors.white};
+          color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
 
           &:hover {
             ${!props.disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${theme.colors.white};
+            color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
           }
           &:active {
             background: ${color};

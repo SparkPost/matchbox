@@ -119,13 +119,21 @@ const Button = React.forwardRef(function Button(props, ref) {
     return getVariant({ variant, outline, outlineBorder, plain, flat });
   }, [variant, outline, outlineBorder, plain, flat, getVariant]);
 
+  const isSolid = !outline && !outlineBorder && !plain && !flat;
+
   const loadingIndicator = React.useMemo(() => {
     return (
       <Transition mountOnEnter unmountOnExit in={loading} timeout={0}>
         {state => (
           <StyledLoader state={state}>
             <Spinner
-              color={!outline && !outlineBorder && !plain && !flat ? 'white' : 'gray'}
+              color={
+                isSolid && color === 'white'
+                  ? 'gray'
+                  : isSolid || color === 'white'
+                  ? 'white'
+                  : 'gray'
+              }
               size="small"
               label={loadingLabel}
               rotationOnly
