@@ -267,6 +267,16 @@ export const Icon = withInfo()(() => (
     <Button color="blue">
       Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
     </Button>
+    <Box bg="gray.900" p="200">
+      <Inline>
+        <Button outline color="white">
+          Button<Button.Icon as={AddCircleOutline} size={20} ml="100"></Button.Icon>
+        </Button>
+        <Button color="white">
+          Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
+        </Button>
+      </Inline>
+    </Box>
   </Inline>
 ));
 
