@@ -111,7 +111,7 @@ export const colorVariant = props => {
     case 'white':
       color = theme.colors.white;
       darkHoverColor = theme.colors.gray[200];
-      lightActiveColor = theme.colors.gray[200];
+      lightActiveColor = theme.colors.gray[600];
       lightHoverColor = theme.colors.gray[700];
       break;
 
@@ -164,7 +164,11 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           border: 1px solid ${
-            props.buttonVariant == 'mutedOutline' ? theme.colors.gray[400] : color
+            props.buttonVariant == 'mutedOutline'
+              ? props.buttonColor === 'white'
+                ? theme.colors.gray[600]
+                : theme.colors.gray[400]
+              : color
           };
           background: transparent;
           color: ${color};
