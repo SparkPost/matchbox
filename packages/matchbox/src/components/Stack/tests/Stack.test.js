@@ -5,12 +5,17 @@ import 'jest-styled-components';
 describe('Stack', () => {
   const subject = props =>
     global.mountStyled(
-      <Stack {...props}>
+      <Stack {...props} data-id="test-id">
         {false && <span id="child-0">0</span>}
         <span id="child-1">1</span>
         <span id="child-2">2</span>
       </Stack>,
     );
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
 
   it('should render children correctly', () => {
     const wrapper = subject();

@@ -8,7 +8,7 @@ import { tokens } from '@sparkpost/design-tokens';
 describe('Columns', () => {
   const subject = props =>
     global.mountStyled(
-      <Columns {...props}>
+      <Columns {...props} data-id="test-id">
         <Column width={1 / 2}>Column 1</Column>
         <Column width={1 / 2}>Column 2</Column>
       </Columns>,
@@ -19,6 +19,11 @@ describe('Columns', () => {
     window.innerHeight = y;
     window.dispatchEvent(new Event('resize'));
   };
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
 
   it('renders with default props', () => {
     const wrapper = subject();

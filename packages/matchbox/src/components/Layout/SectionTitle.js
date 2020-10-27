@@ -7,7 +7,13 @@ function SectionTitle(props) {
   const { children, as } = props;
 
   return (
-    <Text as={as} fontSize={['300', null, '400']} lineHeight={['300', null, '400']} pb="300">
+    <Text
+      as={as}
+      fontSize={['300', null, '400']}
+      lineHeight={['300', null, '400']}
+      pb="300"
+      data-id={props['data-id']}
+    >
       {children}
     </Text>
   );
@@ -15,6 +21,7 @@ function SectionTitle(props) {
 
 SectionTitle.propTypes = {
   as: PropTypes.elementType,
+  'data-id': PropTypes.string,
 };
 
 SectionTitle.defaultProps = {

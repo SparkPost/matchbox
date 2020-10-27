@@ -12,10 +12,15 @@ const resizeWindow = (x, y) => {
 describe('Layout', () => {
   const subject = props =>
     global.mountStyled(
-      <Layout {...props}>
+      <Layout {...props} data-id="test-id">
         <Layout.Section>Layout Section Content</Layout.Section>
       </Layout>,
     );
+
+  it('should render data-id', () => {
+    const wrapper = subject();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
 
   it('renders layout with content', () => {
     const wrapper = subject();

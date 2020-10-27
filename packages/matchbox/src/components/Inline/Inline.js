@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import styled from 'styled-components';
 import propTypes from '@styled-system/prop-types';
@@ -29,7 +30,7 @@ function Inline(props) {
   const items = React.Children.toArray(children);
 
   return (
-    <OuterWrapper gutter={space}>
+    <OuterWrapper gutter={space} data-id={props['data-id']}>
       <InnerWrapper gutter={space} align={align}>
         {items.map((child, i) => (
           <Box key={i} pt={space} pl={space}>
@@ -42,6 +43,7 @@ function Inline(props) {
 }
 
 Inline.propTypes = {
+  'data-id': PropTypes.string,
   /**
    * Sets the gutter space between children.
    * Styled-system responsive arrays work here.

@@ -33,6 +33,7 @@ const Column = React.forwardRef(function Column(props, ref) {
   return (
     <StyledColumn
       display={display}
+      data-id={props['data-id']}
       className={className}
       width={columnWidth}
       flex={!width && !collapsed ? '1' : ''}
@@ -50,6 +51,7 @@ Column.displayName = 'Column';
 
 Column.propTypes = {
   children: PropTypes.node,
+  'data-id': PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.oneOf(['content']), PropTypes.number]),
   className: PropTypes.string,
   ...createPropTypes(display.propNames),

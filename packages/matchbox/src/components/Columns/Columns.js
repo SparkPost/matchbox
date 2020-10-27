@@ -39,7 +39,7 @@ const Columns = React.forwardRef(function Columns(props, ref) {
   }, [windowSize, collapseBelow]);
 
   return (
-    <Box {...systemProps}>
+    <Box {...systemProps} data-id={props['data-id']}>
       <StyledColumns
         display="flex"
         alignY={alignY}
@@ -60,6 +60,7 @@ Columns.displayName = 'Columns';
 
 Columns.propTypes = {
   children: PropTypes.node,
+  'data-id': PropTypes.string,
   reverse: PropTypes.bool,
   space: propTypes.space.padding,
   alignY: PropTypes.oneOf(['top', 'center', 'bottom']),

@@ -24,6 +24,7 @@ const Text = React.forwardRef(function Text(props, ref) {
 
 Text.propTypes = {
   as: PropTypes.elementType.isRequired,
+  'data-id': PropTypes.string,
   children: PropTypes.node.isRequired,
   looksLike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
 };

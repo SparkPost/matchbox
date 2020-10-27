@@ -14,6 +14,11 @@ describe('Text', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render data-id', () => {
+    const wrapper = global.mountStyled(<Text data-id="test-id">Text</Text>);
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
+
   describe('lookslike renders correctly', () => {
     it('it should render visually as the lookslike prop while html should match the as prop ', () => {
       const wrapper = global.mountStyled(
