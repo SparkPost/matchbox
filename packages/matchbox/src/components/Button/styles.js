@@ -14,6 +14,10 @@ export function focus(props) {
       color = tokens.color_red_700;
       break;
 
+    case 'white':
+      color = tokens.color_white;
+      break;
+
     case 'gray':
     default:
       color = tokens.color_gray_900;
@@ -104,6 +108,13 @@ export const colorVariant = props => {
       lightHoverColor = theme.colors.red[200];
       break;
 
+    case 'white':
+      color = theme.colors.white;
+      darkHoverColor = theme.colors.gray[200];
+      lightActiveColor = theme.colors.gray[600];
+      lightHoverColor = theme.colors.gray[700];
+      break;
+
     case 'gray':
     default:
       color = theme.colors.gray[900];
@@ -118,13 +129,13 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           background: ${color};
-          color: ${theme.colors.white};
+          color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
 
           &:hover {
             ${!props.disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${theme.colors.white};
+            color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
           }
           &:active {
             background: ${color};
@@ -153,7 +164,11 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           border: 1px solid ${
-            props.buttonVariant == 'mutedOutline' ? theme.colors.gray[400] : color
+            props.buttonVariant == 'mutedOutline'
+              ? props.buttonColor === 'white'
+                ? theme.colors.gray[600]
+                : theme.colors.gray[400]
+              : color
           };
           background: transparent;
           color: ${color};

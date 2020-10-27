@@ -69,6 +69,29 @@ export const Variants = withInfo({ propTables: [Button] })(() => (
         Muted Outline
       </Button>
     </Inline>
+    <br />
+    <Box bg="gray.900" p="300" width="640px">
+      <Inline>
+        <Button variant="filled" color="white">
+          Filled
+        </Button>
+        <Button variant="filled" color="white" disabled>
+          Filled
+        </Button>
+        <Button color="white" variant="text">
+          Text
+        </Button>
+        <Button color="white" variant="text" disabled>
+          Text Disabled
+        </Button>
+        <Button color="white" variant="outline">
+          Outline
+        </Button>
+        <Button color="white" variant="mutedOutline">
+          Muted Outline
+        </Button>
+      </Inline>
+    </Box>
   </>
 ));
 
@@ -184,6 +207,23 @@ export const Loading = withInfo({ propTables: [Button] })(() => (
         Outline
       </Button>
     </Stack>
+
+    <Box bg="gray.900" p="200">
+      <Stack>
+        <Button loading color="white">
+          Button
+        </Button>
+        <Button loading color="white" flat>
+          Flat
+        </Button>
+        <Button loading color="white" outlineBorder>
+          Outline Border
+        </Button>
+        <Button loading color="white" outline>
+          Outline
+        </Button>
+      </Stack>
+    </Box>
   </Box>
 ));
 
@@ -227,6 +267,16 @@ export const Icon = withInfo()(() => (
     <Button color="blue">
       Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
     </Button>
+    <Box bg="gray.900" p="200">
+      <Inline>
+        <Button outline color="white">
+          Button<Button.Icon as={AddCircleOutline} size={20} ml="100"></Button.Icon>
+        </Button>
+        <Button color="white">
+          Button<Button.Icon as={ArrowDropDown} ml="200"></Button.Icon>
+        </Button>
+      </Inline>
+    </Box>
   </Inline>
 ));
 
