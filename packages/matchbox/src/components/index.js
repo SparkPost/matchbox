@@ -15,6 +15,7 @@ export * from './Expandable';
 export * from './Grid';
 export * from './HelpText';
 export * from './Inline';
+export * from './InlineCode';
 export * from './KeyboardKey';
 export * from './Label';
 export * from './LabelValue';
