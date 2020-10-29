@@ -285,6 +285,11 @@
         "section": "Utility"
       },
       {
+        "path": "/components/inlinecode",
+        "label": "InlineCode",
+        "section": "Utility"
+      },
+      {
         "path": "/components/portal",
         "label": "Portal",
         "section": "Utility"
