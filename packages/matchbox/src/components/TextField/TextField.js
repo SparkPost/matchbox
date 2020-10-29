@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { tokens } from '@sparkpost/design-tokens';
+import { compose, margin, maxWidth } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { omit } from '@styled-system/props';
+import styled from 'styled-components';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Connect } from '../Connect';
 import { Box } from '../Box';
 import { OptionalLabel } from '../OptionalLabel';
 import { HelpText } from '../HelpText';
-import { getRectFor, roundToBaseline } from '../../helpers/geometry';
+import { roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
-import { tokens } from '@sparkpost/design-tokens';
-import { compose, margin, maxWidth } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import { omit } from '@styled-system/props';
-import styled from 'styled-components';
+import useResizeObserver from '../../hooks/useResizeObserver';
 import { pick } from '../../helpers/systemProps';
 import { focusOutline } from '../../styles/helpers';
 
@@ -52,7 +53,8 @@ const FieldBox = React.forwardRef(function FieldBox(props, userRef) {
   );
 });
 
-function PrefixOrSuffix({ content, className, forwardedRef, ...rest }) {
+const PrefixOrSuffix = React.forwardRef(function PrefixOrSuffix(props, ref) {
+  const { content, className, ...rest } = props;
   if (!content) {
     return null;
   }
@@ -66,13 +68,13 @@ function PrefixOrSuffix({ content, className, forwardedRef, ...rest }) {
       lineHeight="2.5rem"
       height="2.5rem"
       className={className}
-      ref={forwardedRef}
+      ref={ref}
       {...rest}
     >
       {content}
     </Box>
   );
-}
+});
 
 const TextField = React.forwardRef(function TextField(props, userRef) {
   const {
@@ -108,8 +110,8 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
 
   const componentProps = omit(rest);
   const systemProps = pick(rest, system.propNames);
-  const prefixRef = React.useRef(null);
-  const suffixRef = React.useRef(null);
+  const [prefixRef, prefixEntry] = useResizeObserver();
+  const [suffixRef, suffixEntry] = useResizeObserver();
   const [prefixPadding, setPrefixPadding] = React.useState('0');
   const [suffixPadding, setSuffixPadding] = React.useState('0');
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
@@ -119,13 +121,16 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
   });
 
   React.useLayoutEffect(() => {
-    if (prefixRef.current) {
-      setPrefixPadding(roundToBaseline(getRectFor(prefixRef.current).width));
+    if (prefix && prefixEntry.contentRect.width) {
+      setPrefixPadding(roundToBaseline(prefixEntry.contentRect.width));
     }
-    if (suffixRef.current) {
-      setSuffixPadding(roundToBaseline(getRectFor(suffixRef.current).width));
+  }, [prefix, prefixEntry]);
+
+  React.useLayoutEffect(() => {
+    if (suffix && suffixEntry.contentRect.width) {
+      setSuffixPadding(roundToBaseline(suffixEntry.contentRect.width));
     }
-  }, [prefix, suffix, prefixRef, suffixRef]);
+  }, [suffix, suffixEntry]);
 
   const inputProps = {
     ...componentProps,
@@ -170,17 +175,12 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
       </Label>
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
-          <PrefixOrSuffix
-            content={prefix}
-            className={prefixClassname}
-            forwardedRef={prefixRef}
-            left="300"
-          />
+          <PrefixOrSuffix content={prefix} className={prefixClassname} ref={prefixRef} left="300" />
           <FieldBox ref={userRef} {...inputProps} />
           <PrefixOrSuffix
             content={suffix}
             className={suffixClassname}
-            forwardedRef={suffixRef}
+            ref={suffixRef}
             right="300"
           />
         </Box>
