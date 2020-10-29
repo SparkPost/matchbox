@@ -2,7 +2,40 @@
 // Extended Icons
 export { default as FileType } from './extendedIcons/FileType';
 
-// Regular Icons
+// Icons ported from old Material
+export { default as CheckDecagram } from './icons/CheckDecagram';
+export { default as DoNotDisturb } from './icons/DoNotDisturb';
+export { default as DoNotDisturbAlt } from './icons/DoNotDisturbAlt';
+export { default as DoNotDisturbOff } from './icons/DoNotDisturbOff';
+export { default as DoNotDisturbOn } from './icons/DoNotDisturbOn';
+export { default as ErrorIcon } from './icons/ErrorIcon';
+export { default as ExposureNeg1 } from './icons/ExposureNeg1';
+export { default as ExposureNeg2 } from './icons/ExposureNeg2';
+export { default as ExposurePlus1 } from './icons/ExposurePlus1';
+export { default as ExposurePlus2 } from './icons/ExposurePlus2';
+export { default as ExposureZero } from './icons/ExposureZero';
+export { default as FileDownload } from './icons/FileDownload';
+export { default as FileEdit } from './icons/FileEdit';
+export { default as FileSearch } from './icons/FileSearch';
+export { default as FileUpload } from './icons/FileUpload';
+export { default as InfoOutline } from './icons/InfoOutline';
+export { default as LabelOutline } from './icons/LabelOutline';
+export { default as LightbulbOutline } from './icons/LightbulbOutline';
+export { default as LockOutline } from './icons/LockOutline';
+export { default as Log } from './icons/Log';
+export { default as ModeEdit } from './icons/ModeEdit';
+export { default as Motorcycle } from './icons/Motorcycle';
+export { default as NotificationsUnread } from './icons/NotificationsUnread';
+export { default as PieChartOutlined } from './icons/PieChartOutlined';
+export { default as Polymer } from './icons/Polymer';
+export { default as Rocket } from './icons/Rocket';
+export { default as SentimentNeutral } from './icons/SentimentNeutral';
+export { default as Signal } from './icons/Signal';
+export { default as SimCardAlert } from './icons/SimCardAlert';
+export { default as TemplateOutlineFill } from './icons/TemplateOutlineFill';
+export { default as Webhook } from './icons/Webhook';
+
+// Regular Icons from Material
 export { default as AccessAlarm } from './icons/AccessAlarm';
 export { default as AccessAlarms } from './icons/AccessAlarms';
 export { default as Accessibility } from './icons/Accessibility';
@@ -398,7 +431,7 @@ export { default as EmojiTransportation } from './icons/EmojiTransportation';
 export { default as Engineering } from './icons/Engineering';
 export { default as EnhancedEncryption } from './icons/EnhancedEncryption';
 export { default as Equalizer } from './icons/Equalizer';
-export { default as ErrorIcon } from './icons/ErrorIcon';
+export { default as Error } from './icons/Error';
 export { default as ErrorOutline } from './icons/ErrorOutline';
 export { default as Escalator } from './icons/Escalator';
 export { default as EscalatorWarning } from './icons/EscalatorWarning';
