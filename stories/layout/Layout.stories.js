@@ -57,13 +57,13 @@ export const CollapseBelowExample = withInfo()(() => (
 export const AnnotatedExample = withInfo()(() => (
   <Page title="Domain Details" breadcrumbAction={breadcrumbAction}>
     <Layout>
-      <Layout.Section annotated>
+      <Layout.Section annotated data-id="annotated-section">
         <Layout.SectionTitle>Domain Status</Layout.SectionTitle>
         <Text fontSize="200" color="gray.700">
           Domain status text
         </Text>
       </Layout.Section>
-      <Layout.Section>
+      <Layout.Section data-id="detail-section">
         <Panel>
           <Panel.Section>
             <Columns collapseBelow="md">
