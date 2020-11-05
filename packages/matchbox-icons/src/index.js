@@ -1015,6 +1015,7 @@ export { default as ReplyAll } from './icons/ReplyAll';
 export { default as Report } from './icons/Report';
 export { default as ReportOff } from './icons/ReportOff';
 export { default as ReportProblem } from './icons/ReportProblem';
+export { default as ReportProblemOutlined } from './icons/ReportProblemOutlined';
 export { default as RequestPage } from './icons/RequestPage';
 export { default as RequestQuote } from './icons/RequestQuote';
 export { default as Restaurant } from './icons/Restaurant';
