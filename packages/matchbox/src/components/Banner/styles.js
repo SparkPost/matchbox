@@ -69,7 +69,7 @@ export const statusIcons = {
   },
   warning: {
     iconName: ReportProblemOutlined,
-    iconLabel: 'ReportProblemOutlined',
+    iconLabel: 'Warning',
     bg: 'yellow.300',
     fill: 'yellow.700',
     fillMobile: 'yellow.700',
