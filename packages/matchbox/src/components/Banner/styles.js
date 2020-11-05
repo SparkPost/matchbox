@@ -1,5 +1,10 @@
 import { tokens } from '@sparkpost/design-tokens';
-import { ErrorOutline, CheckCircleOutline, InfoOutline, Warning } from '@sparkpost/matchbox-icons';
+import {
+  ErrorOutline,
+  CheckCircleOutline,
+  InfoOutline,
+  ReportProblemOutlined,
+} from '@sparkpost/matchbox-icons';
 
 export function container(props) {
   switch (props.status) {
@@ -63,8 +68,8 @@ export const statusIcons = {
     fillMobile: 'blue.700',
   },
   warning: {
-    iconName: Warning,
-    iconLabel: 'Warning',
+    iconName: ReportProblemOutlined,
+    iconLabel: 'ReportProblemOutlined',
     bg: 'yellow.300',
     fill: 'yellow.700',
     fillMobile: 'yellow.700',
