@@ -5,8 +5,9 @@ import 'jest-styled-components';
 describe('LabelValue', () => {
   it('renders correctly', () => {
     const wrapper = global.mountStyled(
-      <LabelValue label="Label text" className="test-class">
-        children
+      <LabelValue className="test-class">
+        <LabelValue.Label>Label text</LabelValue.Label>
+        <LabelValue.Value>children</LabelValue.Value>
       </LabelValue>,
     );
     expect(wrapper.text()).toEqual('Label textchildren');
@@ -20,8 +21,9 @@ describe('LabelValue', () => {
 
   it('renders horizontal orientation correctly', () => {
     const wrapper = global.mountStyled(
-      <LabelValue label="Label text" orientation="horizontal">
-        children
+      <LabelValue orientation="horizontal">
+        <LabelValue.Label>Label text</LabelValue.Label>
+        <LabelValue.Value>children</LabelValue.Value>
       </LabelValue>,
     );
     expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'grid');
