@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { flatten } = require('lodash');
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -86,18 +87,29 @@ module.exports = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         // Uncomment these aliases if you want to reference local matchbox packages
-        // alias: {
-        //   '@sparkpost/matchbox': path.resolve(__dirname, '../matchbox/src'),
-        //   '@sparkpost/matchbox-icons': path.resolve(
-        //     __dirname,
-        //     '../matchbox-icons/src'
-        //   ),
-        //   '@sparkpost/design-tokens': path.resolve(
-        //     __dirname,
-        //     '../design-tokens'
-        //   )
-        // },
-        // extensions: []
+        alias:
+          process.env.LOCAL_MATCHBOX === 'true'
+            ? {
+                react: path.resolve(__dirname, '../node_modules/react'),
+                'styled-components': path.resolve(
+                  __dirname,
+                  '../node_modules/styled-components'
+                ),
+                '@sparkpost/design-tokens': path.resolve(
+                  __dirname,
+                  '../packages/design-tokens'
+                ),
+                '@sparkpost/matchbox-icons': path.resolve(
+                  __dirname,
+                  '../packages/matchbox-icons/src'
+                ),
+                '@sparkpost/matchbox': path.resolve(
+                  __dirname,
+                  '../packages/matchbox/src'
+                )
+              }
+            : {},
+        extensions: []
       }
     },
     process.env.GATSBY_ACTIVE_ENV === 'index'
