@@ -40,6 +40,9 @@ export const base = () => `
   transition-duration: ${tokens.motionDuration_fast};
   border: 1px solid transparent;
   cursor: pointer;
+  & * {
+    vertical-align: middle;
+  }
 `;
 
 export const childwrapper = props => `
