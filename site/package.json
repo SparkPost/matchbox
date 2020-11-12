@@ -54,6 +54,7 @@
     "develop": "gatsby develop -p 8001",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
+    "start:localMatchbox": "LOCAL_MATCHBOX=true npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "index": "GATSBY_ACTIVE_ENV=index gatsby build"
