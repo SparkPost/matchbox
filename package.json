@@ -56,7 +56,7 @@
     "react-dom": "^16.8.6",
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
-    "styled-components": "^4.4.0",
+    "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
