@@ -42,7 +42,7 @@
     "react": "^16.8.0",
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -72,7 +72,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^6.1.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^5.2.1"
   },
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }
