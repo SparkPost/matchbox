@@ -14,7 +14,7 @@ import { HelpText } from '../HelpText';
 import { roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import useResizeObserver from '../../hooks/useResizeObserver';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 import { focusOutline } from '../../styles/helpers';
 
 const system = compose(margin, maxWidth);

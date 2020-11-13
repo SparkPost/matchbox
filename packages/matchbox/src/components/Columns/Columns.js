@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import propTypes from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
 import { ColumnsContext } from './context';
