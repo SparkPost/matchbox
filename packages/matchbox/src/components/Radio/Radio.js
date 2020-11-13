@@ -7,7 +7,7 @@ import { Box } from '../Box';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@sparkpost/matchbox-icons';
 import { pick } from '@styled-system/props';
-import { omit } from '../../helpers/systemProps';
+import { omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
 import Group from './Group';

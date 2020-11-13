@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 
 const StyledIcon = styled.svg`
   ${margin}

@@ -13,7 +13,7 @@ import List from './List';
 import Image from './Image';
 import Legacy from './Legacy';
 import { getChild } from '../../helpers/children';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 import useBreakpoint from '../../hooks/useBreakpoint';
 
 const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
