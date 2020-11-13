@@ -111,7 +111,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.1",
-    "jest-styled-components": "^6.3.3",
+    "jest-styled-components": "^7.0.3",
     "lerna": "^3.21.0",
     "lerna-changelog": "^1.0.1",
     "lint-staged": "^7.1.0",
