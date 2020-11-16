@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button';
 import cases from 'jest-in-case';
+import 'jest-styled-components';
 import { Assessment } from '@sparkpost/matchbox-icons';
 
 describe('Button', () => {

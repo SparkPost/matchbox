@@ -1,4 +1,6 @@
 import React from 'react';
+import 'jest-styled-components';
+
 import SectionTitle from '../SectionTitle';
 
 describe('Layout', () => {

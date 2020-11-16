@@ -1,5 +1,6 @@
 import React from 'react';
 import Inline from '../Inline';
+import 'jest-styled-components';
 
 describe('Inline', () => {
   const subject = props =>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Group from '../Group';
+import 'jest-styled-components';
 
 describe('Checkbox Group', () => {
   const subject = props => global.mountStyled(<Group {...props}>children</Group>);

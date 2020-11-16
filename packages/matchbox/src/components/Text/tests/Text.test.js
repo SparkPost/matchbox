@@ -1,6 +1,7 @@
 import React from 'react';
 import Text from '../Text';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 describe('Text', () => {
   it('it should render correctly', () => {

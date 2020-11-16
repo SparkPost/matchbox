@@ -1,4 +1,5 @@
 import React from 'react';
+import 'jest-styled-components';
 import { mount } from 'enzyme';
 import ScreenReaderOnly from '../ScreenReaderOnly';
 

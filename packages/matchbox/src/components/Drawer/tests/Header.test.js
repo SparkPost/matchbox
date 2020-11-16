@@ -1,5 +1,6 @@
 import React from 'react';
 import Drawer from '../Drawer';
+import 'jest-styled-components';
 
 describe('Drawer Header', () => {
   const subject = props => global.mountStyled(<Drawer.Header {...props}>test title</Drawer.Header>);

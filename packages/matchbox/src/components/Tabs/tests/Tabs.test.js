@@ -1,5 +1,7 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
+
 import Tabs from '../Tabs';
 
 describe('Tabs', () => {

@@ -2,6 +2,7 @@ import React from 'react';
 import ComboBox from '../ComboBox';
 import ComboBoxMenu from '../ComboBoxMenu';
 import ComboBoxTextField from '../ComboBoxTextField';
+import 'jest-styled-components';
 
 describe('ComboBox Wrapper', () => {
   const subject = (props = {}) =>

@@ -5,7 +5,7 @@ import { margin, padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { pick } from '../../helpers/props';
+import { pick } from '../../helpers/systemProps';
 import { Cell, HeaderCell, Row, TotalsRow } from './TableElements';
 import { TablePaddingContext } from './context';
 import { table, wrapper, sticky } from './styles';

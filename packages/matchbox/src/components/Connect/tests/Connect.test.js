@@ -1,5 +1,6 @@
 import React from 'react';
 import Connect from '../Connect';
+import 'jest-styled-components';
 
 describe('Connect', () => {
   const subject = props =>

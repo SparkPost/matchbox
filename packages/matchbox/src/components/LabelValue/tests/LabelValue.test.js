@@ -1,5 +1,6 @@
 import React from 'react';
 import LabelValue from '../LabelValue';
+import 'jest-styled-components';
 
 describe('LabelValue', () => {
   it('renders correctly', () => {

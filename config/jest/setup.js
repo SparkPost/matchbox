@@ -2,8 +2,8 @@
 import './raf';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import * as matchers from './matchers';
-import 'jest-styled-components';
+import toJson from 'enzyme-to-json';
+import * as matchers from './matchers'
 
 // Provides enzyme assertions.
 // See https://github.com/blainekasten/enzyme-matchers#assertions
@@ -14,7 +14,7 @@ expect.extend(matchers);
 Enzyme.configure({ adapter: new Adapter() });
 
 // Fail tests on any warning
-console.error = message => {
+console.error = (message) => {
   throw new Error(message);
 };
 

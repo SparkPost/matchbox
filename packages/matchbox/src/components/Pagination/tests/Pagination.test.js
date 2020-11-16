@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
+
 import Pagination from '../Pagination';
 
 global.matchMedia = function() {
@@ -21,45 +23,26 @@ describe('Pagination', () => {
     onChange: jest.fn(),
     mb: 400,
   };
-  const subject = () => global.mountStyled(<Pagination {...props} />);
-  const shallowSubject = () => shallow(<Pagination {...props} />);
+
+  let wrapper = global.mountStyled(<Pagination {...props} />);
+  let shallowWrapper = shallow(<Pagination {...props} />);
 
   it('renders styles', () => {
-    expect(
-      subject()
-        .find('div')
-        .at(1),
-    ).toHaveStyleRule('display', 'inline-flex');
-    expect(
-      subject()
-        .find('div')
-        .at(1),
-    ).toHaveStyleRule('align-items', 'center');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'inline-flex');
+    expect(wrapper.find('div').at(1)).toHaveStyleRule('align-items', 'center');
   });
 
   it('renders system props (margin)', () => {
-    expect(
-      subject()
-        .find('div')
-        .at(0),
-    ).toHaveStyleRule('margin-bottom', tokens.spacing_400);
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-bottom', tokens.spacing_400);
   });
 
   it('renders active page styles correctly', () => {
-    expect(
-      subject()
-        .find('button')
-        .at(1),
-    ).toHaveStyleRule('background', 'blue');
-    expect(
-      subject()
-        .find('button')
-        .at(1),
-    ).toHaveStyleRule('color', 'white');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'blue');
+    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', 'white');
   });
 
   it('invokes onChange on page', () => {
-    subject()
+    wrapper
       .find('button')
       .at(3)
       .simulate('click');
@@ -68,32 +51,24 @@ describe('Pagination', () => {
 
   describe('invokes onChange when props change', () => {
     it('page', () => {
-      shallowSubject().setProps({ pages: 11 });
+      shallowWrapper.setProps({ pages: 11 });
       expect(props.onChange).toHaveBeenCalledWith(0);
     });
 
     it('currentPage', () => {
-      shallowSubject().setProps({ currentPage: 4 });
+      shallowWrapper.setProps({ currentPage: 4 });
       expect(props.onChange).toHaveBeenCalledWith(2);
     });
 
     it('pageRange', () => {
-      shallowSubject().setProps({ pageRange: 6 });
+      shallowWrapper.setProps({ pageRange: 6 });
       expect(props.onChange).toHaveBeenCalledWith(2);
     });
   });
 
   it('renders pagination with marginsHidden true', () => {
-    expect(
-      subject()
-        .find('svg')
-        .at(0),
-    ).toExist();
-    expect(
-      global
-        .mountStyled(<Pagination {...props} marginsHidden={true} />)
-        .find('svg')
-        .at(0),
-    ).toEqual({});
+    expect(wrapper.find('svg').at(0)).toExist();
+    wrapper = global.mountStyled(<Pagination {...props} marginsHidden={true} />);
+    expect(wrapper.find('svg').at(0)).toEqual({});
   });
 });

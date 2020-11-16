@@ -1,5 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import 'jest-styled-components';
+
 import Table from '../Table';
 
 describe('Table', () => {

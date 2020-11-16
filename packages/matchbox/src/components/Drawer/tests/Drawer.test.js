@@ -1,5 +1,6 @@
 import React from 'react';
 import Drawer from '../Drawer';
+import 'jest-styled-components';
 
 describe('Drawer', () => {
   const subject = props =>
@@ -34,14 +35,14 @@ describe('Drawer', () => {
 
   it('should render on right by default', () => {
     const wrapper = subject({ open: true });
-    expect(wrapper.find('[data-id="drawer-container"]').at(0)).toHaveStyleRule('right', '0');
-    expect(wrapper.find('[data-id="drawer-container"]').at(0)).toHaveStyleRule('left', 'auto');
+    expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('right', '0');
+    expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('left', 'auto');
   });
 
   it('should render on left', () => {
     const wrapper = subject({ open: true, position: 'left' });
-    expect(wrapper.find('[data-id="drawer-container"]').at(0)).toHaveStyleRule('left', '0');
-    expect(wrapper.find('[data-id="drawer-container"]').at(0)).toHaveStyleRule('right', 'auto');
+    expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('left', '0');
+    expect(wrapper.find('[data-id="drawer-container"]')).toHaveStyleRule('right', 'auto');
   });
 
   it('renders with with a ref', () => {

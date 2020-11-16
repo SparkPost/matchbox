@@ -1,15 +1,11 @@
 import React from 'react';
 import Video from '../Video';
+import 'jest-styled-components';
 
 describe('Video Component', () => {
   const subject = props =>
     global.mountStyled(
-      <Video
-        {...props}
-        // Muted videos throw a very cryptic React error in tests:
-        // Error: Warning: unstable_flushDiscreteUpdates: Cannot flush updates when React is already rendering.
-        muted={false}
-      >
+      <Video {...props}>
         <Video.Source className="video" src="/video.webm" type="video/webm" />
       </Video>,
     );
@@ -26,6 +22,7 @@ describe('Video Component', () => {
 
     expect(wrapper.find('video').props().autoPlay).toBe(true);
     expect(wrapper.find('video').props().loop).toBe(false);
+    expect(wrapper.find('video').props().muted).toBe(true);
     expect(wrapper.find('video').props().controls).toBe(false);
   });
 

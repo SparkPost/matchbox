@@ -1,4 +1,6 @@
 import React from 'react';
+import 'jest-styled-components';
+
 import Tag from '../Tag';
 
 // Feels unecessary to test color variations here /shrug

@@ -8,7 +8,7 @@ import { Button } from '../Button';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getChild, excludeChild } from '../../helpers/children';
-import { pick } from '../../helpers/props';
+import { pick } from '../../helpers/systemProps';
 import { PanelPaddingContext } from './context';
 
 const StyledSection = styled(Box)`

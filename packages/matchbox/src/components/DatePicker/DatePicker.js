@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
-import { omit } from '../../helpers/props';
+import { omit } from '../../helpers/systemProps';
 import Navbar from './Navbar';
 import Caption from './Caption';
 import Weekday from './Weekday';

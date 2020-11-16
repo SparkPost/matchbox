@@ -1,5 +1,6 @@
 import React from 'react';
 import ActionList from '../ActionList';
+import 'jest-styled-components';
 
 describe('ActionList', () => {
   const subject = props => global.mountStyled(<ActionList {...props} />);

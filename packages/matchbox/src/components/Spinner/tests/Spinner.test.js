@@ -1,4 +1,6 @@
 import React from 'react';
+import 'jest-styled-components';
+
 import { tokens } from '@sparkpost/design-tokens';
 import Spinner from '../Spinner';
 

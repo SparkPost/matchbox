@@ -6,7 +6,7 @@ import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { visuallyHidden } from '../../styles/helpers';
 import { deprecate } from '../../helpers/propTypes';
-import { omit } from '../../helpers/props';
+import { omit } from '../../helpers/systemProps';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 
