@@ -2,7 +2,7 @@ import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { CodeBlock } from '@sparkpost/matchbox';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/styles/hljs';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const codeSnippet = `curl -X POST
 https://api.sparkpost.com/api/v1/transmissions
