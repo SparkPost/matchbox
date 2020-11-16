@@ -1,6 +1,4 @@
 import React from 'react';
-import 'jest-styled-components';
-
 import Page from '../Page';
 
 describe('Page', () => {

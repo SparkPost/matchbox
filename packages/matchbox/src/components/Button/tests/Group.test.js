@@ -2,7 +2,6 @@ import React from 'react';
 import Group from '../Group';
 import Button from '../Button';
 import { css } from 'styled-components';
-import 'jest-styled-components';
 
 describe('Group', () => {
   let wrapper;
@@ -42,7 +41,7 @@ describe('Group', () => {
         <div>Adios!</div>
       </Button.Group>,
     );
-    expect(wrapper.find('div')).toHaveStyleRule('margin-right', '-1px', {
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin-right', '-1px', {
       modifier: css`& > *`,
     });
   });

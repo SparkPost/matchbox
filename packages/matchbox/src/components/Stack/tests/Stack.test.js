@@ -1,6 +1,5 @@
 import React from 'react';
 import Stack from '../Stack';
-import 'jest-styled-components';
 
 describe('Stack', () => {
   const subject = props =>

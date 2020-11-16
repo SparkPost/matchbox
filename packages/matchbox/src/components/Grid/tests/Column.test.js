@@ -1,6 +1,5 @@
 import React from 'react';
 import Column from '../Column';
-import 'jest-styled-components';
 
 describe('Column', () => {
   const subject = props =>

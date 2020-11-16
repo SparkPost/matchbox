@@ -1,6 +1,5 @@
 import React from 'react';
 import RadioCard from '../RadioCard';
-import 'jest-styled-components';
 
 describe('RadioCard', () => {
   const events = {
@@ -40,12 +39,15 @@ describe('RadioCard', () => {
 
   it('renders heavy weight', () => {
     const wrapper = subject({ weight: 'heavy' });
-    expect(wrapper.find('[data-id="radio-card-header"]')).toHaveStyleRule('font-size', '1rem');
+    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule(
+      'font-size',
+      '1rem',
+    );
   });
 
   it('renders light weight', () => {
     const wrapper = subject({ weight: 'light' });
-    expect(wrapper.find('[data-id="radio-card-header"]')).toHaveStyleRule('font-size', '300');
+    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule('font-size', '300');
   });
 
   it('should invoke events', () => {

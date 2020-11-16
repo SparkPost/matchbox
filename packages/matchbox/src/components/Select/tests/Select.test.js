@@ -1,6 +1,4 @@
 import React from 'react';
-import 'jest-styled-components';
-
 import { Select } from '../../Select';
 
 describe('Select', () => {

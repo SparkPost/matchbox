@@ -1,6 +1,5 @@
 import React from 'react';
 import InlineCode from '../InlineCode';
-import 'jest-styled-components';
 
 describe('CodeBlock', () => {
   const subject = () => global.mountStyled(<InlineCode>The Code</InlineCode>);

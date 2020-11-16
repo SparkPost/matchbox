@@ -3,8 +3,6 @@ import Banner from '../Banner';
 import { Picture } from '../../Picture';
 import { tokens } from '@sparkpost/design-tokens';
 
-import 'jest-styled-components';
-
 describe('Banner', () => {
   const props = {
     title: 'Test Banner',

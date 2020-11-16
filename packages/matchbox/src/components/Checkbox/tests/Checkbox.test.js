@@ -1,7 +1,6 @@
 import React from 'react';
 import Checkbox from '../Checkbox';
 import { StyledBox } from '../styles';
-import 'jest-styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Checkbox', () => {

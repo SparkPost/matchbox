@@ -1,7 +1,6 @@
 import React from 'react';
 import EmptyState from '../EmptyState';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
-import 'jest-styled-components';
 
 describe('EmptyState', () => {
   let wrapper;

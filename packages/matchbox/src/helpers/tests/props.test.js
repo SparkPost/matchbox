@@ -1,4 +1,4 @@
-import * as helpers from '../systemProps';
+import * as helpers from '../props';
 
 describe('omit', () => {
   it('should omit keys', () => {
