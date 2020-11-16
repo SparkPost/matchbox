@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from '../DatePicker';
+import 'jest-styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('DatePicker', () => {
@@ -74,7 +75,7 @@ describe('DatePicker', () => {
         'aria-disabled',
         'true',
       );
-      expect(wrapper.find('.DayPicker-Day--disabled div').at(0)).toHaveStyleRule('opacity', '0.3');
+      expect(wrapper.find('.DayPicker-Day--disabled div')).toHaveStyleRule('opacity', '0.3');
     });
 
     it('should not render outside days', () => {

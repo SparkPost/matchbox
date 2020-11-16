@@ -1,5 +1,6 @@
 import React from 'react';
 import UnstyledLink from '../UnstyledLink';
+import 'jest-styled-components';
 
 describe('UnstyledLink', () => {
   const subject = props => global.mountStyled(<UnstyledLink {...props}>Hola!</UnstyledLink>);

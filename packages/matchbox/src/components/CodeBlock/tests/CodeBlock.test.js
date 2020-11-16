@@ -1,6 +1,7 @@
 import React from 'react';
 import CodeBlock from '../CodeBlock';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 const codeSnippet = `curl -X POST
 https://api.sparkpost.com/api/v1/transmissions

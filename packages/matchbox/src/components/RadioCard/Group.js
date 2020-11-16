@@ -10,7 +10,7 @@ import { Label } from '../Label';
 import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
 
-import { pick } from '../../helpers/props';
+import { pick } from '../../helpers/systemProps';
 
 const Fieldset = styled.fieldset`
   border: none;

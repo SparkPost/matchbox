@@ -1,6 +1,7 @@
 import React from 'react';
 import Label from '../Label';
 import { ScreenReaderOnly } from '../../ScreenReaderOnly';
+import 'jest-styled-components';
 
 describe('Label', () => {
   it('renders correctly', () => {

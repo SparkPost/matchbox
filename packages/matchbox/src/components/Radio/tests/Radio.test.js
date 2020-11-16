@@ -2,6 +2,7 @@ import React from 'react';
 
 import Radio from '../Radio';
 import { StyledChecked, StyledUnchecked } from '../styles.js';
+import 'jest-styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Radio', () => {

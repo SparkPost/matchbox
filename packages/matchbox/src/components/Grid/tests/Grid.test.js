@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '../Grid';
+import 'jest-styled-components';
 
 describe('Grid', () => {
   const subject = props =>

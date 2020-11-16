@@ -1,4 +1,5 @@
 import React from 'react';
+import 'jest-styled-components';
 import cases from 'jest-in-case';
 import Skeleton, { Animator } from '../Skeleton';
 

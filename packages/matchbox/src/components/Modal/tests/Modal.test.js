@@ -1,4 +1,5 @@
 import React from 'react';
+import 'jest-styled-components';
 import Modal from '../Modal';
 import { Button } from '../../Button';
 import { onKey } from '../../../helpers/keyEvents';

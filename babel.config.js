@@ -12,10 +12,7 @@ module.exports = {
         '@babel/preset-react',
         'react-app',
       ],
-      plugins: [
-        '@babel/plugin-proposal-class-properties',
-        ['babel-plugin-styled-components', { ssr: true, displayName: false, namespace: 'sc-' }],
-      ],
+      plugins: ['@babel/plugin-proposal-class-properties'],
     },
     production: {
       presets: [['@babel/preset-env'], '@babel/preset-react', 'react-app'],

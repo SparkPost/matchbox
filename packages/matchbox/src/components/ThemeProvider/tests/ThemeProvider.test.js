@@ -1,18 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
+
 import ThemeProvider from '../ThemeProvider';
 
 describe('ThemeProvider', () => {
-  const subject = props =>
-    mount(
-      <ThemeProvider {...props}>
-        <div id="test" />
-      </ThemeProvider>,
-    );
+  const subject = props => shallow(<ThemeProvider {...props} />);
 
   it('should be able to modify the theme', () => {
-    const wrapper = subject({ theme: { testKey: 'testValue' } });
-    expect(wrapper.find('#test')).toExist();
-    expect(wrapper.find(ThemeProvider).prop('theme').testKey).toEqual('testValue');
+    const wrapper = subject({ theme: { testKey: 'testValue' } }).find('ThemeProvider');
+    expect(wrapper.prop('theme').testKey).toEqual('testValue');
   });
 });

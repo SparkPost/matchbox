@@ -1,5 +1,6 @@
 import React from 'react';
 import KeyboardKey from '../KeyboardKey';
+import 'jest-styled-components';
 
 describe('KeyboardKey', () => {
   const subject = props => global.mountStyled(<KeyboardKey {...props}>Ctrl</KeyboardKey>);

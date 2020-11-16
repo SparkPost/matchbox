@@ -3,7 +3,7 @@ import { layout, margin, compose } from 'styled-system';
 import styled from 'styled-components';
 import { createPropTypes } from '@styled-system/prop-types';
 import PropTypes from 'prop-types';
-import { pick } from '../../helpers/props';
+import { pick } from '../../helpers/systemProps';
 import { Box } from '../Box';
 
 const system = compose(layout, margin);

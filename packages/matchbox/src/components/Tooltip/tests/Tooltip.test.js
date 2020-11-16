@@ -1,5 +1,6 @@
 import React from 'react';
 import Tooltip from '../Tooltip';
+import 'jest-styled-components';
 
 describe('Tooltip', () => {
   const subject = props =>

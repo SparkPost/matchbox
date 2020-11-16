@@ -1,5 +1,6 @@
 import React from 'react';
 import Error from '../Error';
+import 'jest-styled-components';
 
 describe('Error', () => {
   it('renders error message', () => {

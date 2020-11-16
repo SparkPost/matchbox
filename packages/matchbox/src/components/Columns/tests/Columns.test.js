@@ -1,6 +1,8 @@
 import React from 'react';
 import Columns from '../Columns';
 import { Column } from '../../Column';
+import 'jest-styled-components';
+
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Columns', () => {

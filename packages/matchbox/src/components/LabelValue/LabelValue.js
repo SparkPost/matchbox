@@ -4,7 +4,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 import { margin } from 'styled-system';
-import { pick } from '../../helpers/props';
+import { pick } from '../../helpers/systemProps';
 import { getChild } from '../../helpers/children';
 import { Box } from '../Box';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import ComboBoxTextField from '../ComboBoxTextField';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 describe('ComboBoxTextField', () => {
   const items = [{ content: 'foo' }, { content: 'bar' }];

@@ -1,5 +1,6 @@
 import React from 'react';
 import ComboBoxMenu from '../ComboBoxMenu';
+import 'jest-styled-components';
 
 describe('ComboBoxMenu', () => {
   const subject = (props = {}) => global.mountStyled(<ComboBoxMenu {...props} />);

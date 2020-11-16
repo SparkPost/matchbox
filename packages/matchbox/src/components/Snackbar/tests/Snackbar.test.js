@@ -1,4 +1,6 @@
 import React from 'react';
+import 'jest-styled-components';
+
 import Snackbar from '../Snackbar';
 
 describe('Snackbar', () => {

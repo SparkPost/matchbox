@@ -1,6 +1,7 @@
 import React from 'react';
 import Expandable from '../Expandable';
 import { tokens } from '@sparkpost/design-tokens';
+import 'jest-styled-components';
 
 describe('Expandable component', () => {
   let onToggle;
