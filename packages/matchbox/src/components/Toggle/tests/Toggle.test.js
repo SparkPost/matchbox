@@ -2,7 +2,6 @@ import React from 'react';
 import Toggle from '../Toggle';
 import { tokens } from '@sparkpost/design-tokens';
 import { StyledOutline } from '../styles';
-import 'jest-styled-components';
 
 describe('Toggle', () => {
   let wrapper;

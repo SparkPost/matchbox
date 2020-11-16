@@ -3,7 +3,6 @@ import Slider from '../Slider';
 import { tokens } from '@sparkpost/design-tokens';
 import { act } from 'react-dom/test-utils';
 import * as geometry from '../../../helpers/geometry';
-import 'jest-styled-components';
 
 const windowEvents = {};
 global.addEventListener = jest.fn((event, cb) => {

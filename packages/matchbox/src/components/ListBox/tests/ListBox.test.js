@@ -1,6 +1,4 @@
 import React from 'react';
-import 'jest-styled-components';
-
 import { ListBox } from '../../ListBox';
 
 describe('Select', () => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import 'jest-styled-components';
 import Modal from '../Modal';
 
 const subject = props =>

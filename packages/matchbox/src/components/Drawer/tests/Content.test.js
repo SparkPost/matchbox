@@ -1,6 +1,5 @@
 import React from 'react';
 import Drawer from '../Drawer';
-import 'jest-styled-components';
 
 describe('Drawer Content', () => {
   const subject = props =>

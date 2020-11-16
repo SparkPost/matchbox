@@ -1,7 +1,6 @@
 import React from 'react';
 import Panel from '../Panel';
 import Accent from '../Accent';
-import 'jest-styled-components';
 
 describe('Panel Components', () => {
   const subject = props => global.mountStyled(<Panel {...props} />);
