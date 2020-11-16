@@ -12,7 +12,7 @@ import { Label } from '../Label';
 import { Tag } from '../Tag';
 import { identity, noop } from '../../helpers/event';
 import { onKey } from '../../helpers/keyEvents';
-import { omit } from '../../helpers/systemProps';
+import { omit } from '../../helpers/props';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { StyledInput, StyledInputWrapper } from './styles';
 

@@ -41,3 +41,17 @@ export function pick(props, names) {
   }
   return next;
 }
+
+/**
+ * Returns a configuration object for styled-components with omitted props, to be used with .withConfig
+ * @param {Array} arr
+ * @param {Object} config
+ *
+ * @see https://styled-components.com/docs/api#shouldforwardprop
+ */
+export function clean(arr = [], config = {}) {
+  return {
+    shouldForwardProp: (prop, defaultFn) => !arr.includes(prop) && defaultFn(prop),
+    ...config,
+  };
+}

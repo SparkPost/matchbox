@@ -1,6 +1,5 @@
 import React from 'react';
 import Picture from '../Picture';
-import 'jest-styled-components';
 
 describe('Picture Components', () => {
   const subject = props => global.mountStyled(<Picture {...props} />);

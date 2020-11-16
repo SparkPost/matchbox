@@ -13,7 +13,7 @@ import { HelpText } from '../HelpText';
 import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
 

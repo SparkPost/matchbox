@@ -1,7 +1,6 @@
 import React from 'react';
 import ProgressBar from '../ProgressBar';
 import cases from 'jest-in-case';
-import 'jest-styled-components';
 
 const styleCases = [
   {

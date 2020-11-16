@@ -5,7 +5,7 @@ import { margin, padding, border, width, height, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { panel, panelInner } from './styles';
 import { pick } from '@styled-system/props';
-import { pick as pickNames } from '../../../helpers/systemProps';
+import { pick as pickNames } from '../../../helpers/props';
 import { PanelPaddingContext } from './context';
 
 import Section from './Section';

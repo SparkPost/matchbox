@@ -1,5 +1,4 @@
 import React from 'react';
-import 'jest-styled-components';
 import TextField from '../TextField';
 
 describe('TextField', () => {
