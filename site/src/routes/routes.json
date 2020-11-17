@@ -182,6 +182,12 @@
         "section": "Layout"
       },
       {
+        "path": "/components/labelvalue",
+        "label": "LabelValue",
+        "tag": "new",
+        "section": "Layout"
+      },
+      {
         "path": "/components/layout",
         "label": "Layout",
         "tag": "new",
