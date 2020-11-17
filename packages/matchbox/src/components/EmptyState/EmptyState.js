@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
+import { Box } from '../Box';
+import { Columns } from '../Columns';
+import { Column } from '../Column';
+import { Inline } from '../Inline';
 import Action from './Action';
 import Header from './Header';
 import Content from './Content';
@@ -7,22 +13,19 @@ import List from './List';
 import Image from './Image';
 import Legacy from './Legacy';
 import { getChild } from '../../helpers/children';
-import { margin } from 'styled-system';
 import { pick } from '../../helpers/systemProps';
-import { createPropTypes } from '@styled-system/prop-types';
-
-import { Box } from '../Box';
-import { Columns } from '../Columns';
-import { Column } from '../Column';
-import { Inline } from '../Inline';
+import useBreakpoint from '../../hooks/useBreakpoint';
 
 const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
   const { children, ...rest } = props;
+  const breakpoint = useBreakpoint();
+  const isMobile = ['default', 'xs', 'sm'].includes(breakpoint);
 
   const systemProps = pick(rest, margin.propNames);
 
   return (
     <Columns collapseBelow="sm" space="500" alignY="center" {...systemProps} ref={userRef}>
+      {isMobile ? <Column width={1 / 2}>{getChild('EmptyState.Image', children)}</Column> : null}
       <Column width={1 / 2}>
         {getChild('EmptyState.Header', children)}
         {getChild('EmptyState.Content', children)}
@@ -30,7 +33,7 @@ const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
           <Inline space="500">{getChild('EmptyState.Action', children)}</Inline>
         </Box>
       </Column>
-      <Column width={1 / 2}>{getChild('EmptyState.Image', children)}</Column>
+      {!isMobile ? <Column width={1 / 2}>{getChild('EmptyState.Image', children)}</Column> : null}
     </Columns>
   );
 });

@@ -1,0 +1,79 @@
+---
+title: Matchbox 4.6.0
+date: 2020-11-16
+published: true
+category: Release Notes
+---
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v4.6.0">view the release notes on Github</ExternalLink>.
+
+### New Features
+
+##### usePrefersReducedMotion
+
+A hook that returns the `prefers-reduced-motion` OS level accessibility option
+
+```jsx
+import { usePrefersReducedMotion } from '@sparkpost/matchbox';
+
+const motion = usePrefersReducedMotion();
+
+console.log(motion); // 'reduce' or 'no-preference'
+```
+
+##### useInView
+
+A hook that detects if a DOM element is visible within the browsers viewport
+
+```jsx
+import { useInView } from '@sparkpost/matchbox';
+
+const [ref, inView] = useInView();
+return <div ref={ref}>{inView ? 'In View' : 'Not In View'}</div>;
+```
+
+##### InlineCode Component
+
+A new component that correctly styles inline code.
+
+```jsx
+import { InlineCode } from '@sparkpost/matchbox';
+
+return (
+  <p>
+    This is a regular paragraph with some <InlineCode>inline code</InlineCode>
+  </p>
+);
+```
+
+##### Composable LabelValue Component
+
+LabelValue has been reworked to be composable
+
+```jsx
+import { LabelValue } from '@sparkpost/matchbox';
+
+return (
+  <LabelValue>
+    <LabelValue.Label>Label</LabelValue.Label>
+    <LabelValue.Value>Just a LabelValue</LabelValue.Value>
+  </LabelValue>
+);
+```
+
+##### New Icons
+
+A TON of new icons have been added to `matchbox-icons`. This one is for the designers! See <ExternalLink to="https://material.io/resources/icons/">Material's documentation</ExternalLink> for more information.
+
+### Other Enhancements
+
+- **All images** have been replaced with cropped versions
+- **Banner** warning icon has been updated to differentiate from the error Banner
+- **Empty State** responsive behavior has been updated
+- **Layout** components now all accept a `data-id` prop
+- **Modals** now focus on its contained Panel when opening
+
+### Bug Fixes
+
+- **ListBox** does not break when option values are numbers
+- **TextField** prefix and suffix size calculation now uses `ResizeObserver`

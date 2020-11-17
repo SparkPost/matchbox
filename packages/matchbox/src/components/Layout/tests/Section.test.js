@@ -31,6 +31,6 @@ describe('Layout', () => {
       </Layout>,
     );
 
-    expect(wrapper.find('div').at(2)).toHaveStyleRule('width', `${100 * (1 / 3)}%`);
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('width', `100%`);
   });
 });

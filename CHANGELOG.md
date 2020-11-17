@@ -1,3 +1,53 @@
+## 4.6.0 (2020-11-16)
+
+#### Features
+
+- `matchbox`
+  - [#680](https://github.com/SparkPost/matchbox/pull/680) UX-261 Create usePrefersReducedMotion
+    hook ([@logansparlin](https://github.com/logansparlin))
+  - [#674](https://github.com/SparkPost/matchbox/pull/674) UX-359 Create InlineCode Component
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#669](https://github.com/SparkPost/matchbox/pull/669) UX-351 create useInView hook
+    ([@logansparlin](https://github.com/logansparlin))
+- `matchbox-icons`
+  - [#675](https://github.com/SparkPost/matchbox/pull/675) UX-361 Add new Material Icons to
+    matchbox-icons ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox-media`
+  - [#683](https://github.com/SparkPost/matchbox/pull/683) UX-371 Replace all images with cropped
+    versions ([@jonambas](https://github.com/jonambas))
+- `matchbox`
+  - [#679](https://github.com/SparkPost/matchbox/pull/679) UX-365 Make LabelValue composable
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#677](https://github.com/SparkPost/matchbox/pull/677) UX-360 use Warning icon for banner
+    warning status icon ([@logansparlin](https://github.com/logansparlin))
+  - [#678](https://github.com/SparkPost/matchbox/pull/678) UX-362 Update responsive Empty States
+    ([@jonambas](https://github.com/jonambas))
+  - [#672](https://github.com/SparkPost/matchbox/pull/672) UX-352 Add white button color
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#664](https://github.com/SparkPost/matchbox/pull/664) Issue 661 Add data-id props to all layout
+    components ([@jonambas](https://github.com/jonambas))
+  - [#671](https://github.com/SparkPost/matchbox/pull/671) UX-356 Focus modal panel when opening
+    ([@jonambas](https://github.com/jonambas))
+- Other
+  - [#670](https://github.com/SparkPost/matchbox/pull/670) UX-354 document EmptyState props
+    ([@logansparlin](https://github.com/logansparlin))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#681](https://github.com/SparkPost/matchbox/pull/681) UX-367 Fix ListBox key events bug
+    ([@logansparlin](https://github.com/logansparlin))
+  - [#673](https://github.com/SparkPost/matchbox/pull/673) UX-357 Use resize observer for suffix and
+    prefix measurements ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.5.0 (2020-10-19)
 
 #### Features

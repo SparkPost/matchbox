@@ -274,14 +274,19 @@
         "section": "Overlays"
       },
       {
-        "path": "/components/grid",
-        "label": "Grid",
-        "tag": "deprecated",
+        "path": "/components/box",
+        "label": "Box",
         "section": "Utility"
       },
       {
-        "path": "/components/box",
-        "label": "Box",
+        "path": "/components/codeblock",
+        "label": "CodeBlock",
+        "section": "Utility"
+      },
+      {
+        "path": "/components/grid",
+        "label": "Grid",
+        "tag": "deprecated",
         "section": "Utility"
       },
       {

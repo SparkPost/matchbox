@@ -38,17 +38,17 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   }
 
   function clearKeysSoFarAfterDelay() {
+    let timeout = setTimeout(function() {
+      setKeysSoFar('');
+      setKeyClear(false);
+    }, 700);
+
     if (keyClear) {
       clearTimeout(timeout);
       setKeyClear(null);
     }
 
     setKeyClear(true);
-
-    let timeout = setTimeout(function() {
-      setKeysSoFar('');
-      setKeyClear(false);
-    }, 700);
   }
 
   // Preps array of option refs
@@ -67,15 +67,15 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   }, [focused]);
 
   React.useLayoutEffect(() => {
-    if (keysSoFar) {
+    if (keysSoFar && options) {
       const index = options.findIndex(option =>
-        option.props.value.toLowerCase().startsWith(keysSoFar),
+        option.props.children.toLowerCase().startsWith(keysSoFar),
       );
       if (index >= 0) {
         setFocused(index);
       }
     }
-  }, [keysSoFar]);
+  }, [keysSoFar, options]);
 
   const optionsMarkup = (
     <>
