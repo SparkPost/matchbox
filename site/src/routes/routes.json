@@ -292,7 +292,8 @@
       {
         "path": "/components/inlinecode",
         "label": "InlineCode",
-        "section": "Utility"
+        "section": "Utility",
+        "tag": "new"
       },
       {
         "path": "/components/portal",
