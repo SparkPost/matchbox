@@ -58,6 +58,7 @@
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
     "react-syntax-highlighter": "^15.3.0",
+    "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
@@ -125,7 +126,6 @@
     "resize-observer-polyfill": "^1.5.1",
     "start-server-and-test": "^1.10.0",
     "style-loader": "^1.0.0",
-    "styled-components": "^5.2.1",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
