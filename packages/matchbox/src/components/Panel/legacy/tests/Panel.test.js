@@ -11,7 +11,7 @@ describe('Panel', () => {
     );
 
   it('renders panel styles', () => {
-    expect(subject()).toExist('background', tokens.color_white);
+    expect(subject()).toHaveStyleRule('background', tokens.color_white);
   });
 
   it('renders header styles', () => {
