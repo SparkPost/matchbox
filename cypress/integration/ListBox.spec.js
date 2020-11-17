@@ -72,7 +72,7 @@ describe('The ListBox component', () => {
     cy.get('body').tab();
     cy.focused().should('have.attr', 'id', 'listbox-1');
     cy.focused().tab();
-    cy.focused().should('have.text', 'Copy'); // The storybook info button after the listbox
+    cy.focused().should('have.text', 'end focus test');
   });
 
   it('tabs through properly while open', () => {
@@ -80,7 +80,7 @@ describe('The ListBox component', () => {
     cy.get('body').tab();
     cy.focused().should('have.text', 'Bravo');
     cy.focused().tab();
-    cy.focused().should('have.text', 'Copy'); // The storybook info button after the listbox
+    cy.focused().should('have.text', 'end focus test');
   });
 
   it('opens the menu when focused and closed with keyboard arrows', () => {

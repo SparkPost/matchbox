@@ -21,12 +21,16 @@ export const BasicListbox = withInfo()(() => (
 ));
 
 export const PrintableCharacter = withInfo()(() => (
-  <ListBox id="listbox-1" defaultValue="bravo" label="Select an option">
-    <ListBox.Option value="alpha">Alpha</ListBox.Option>
-    <ListBox.Option value="bravo">Bravo</ListBox.Option>
-    <ListBox.Option value="charlie">Charlie</ListBox.Option>
-    <ListBox.Option value="delta">Delta</ListBox.Option>
-  </ListBox>
+  <>
+    <ListBox id="listbox-1" defaultValue="bravo" label="Select an option">
+      <ListBox.Option value="alpha">Alpha</ListBox.Option>
+      <ListBox.Option value="bravo">Bravo</ListBox.Option>
+      <ListBox.Option value="charlie">Charlie</ListBox.Option>
+      <ListBox.Option value="delta">Delta</ListBox.Option>
+    </ListBox>
+    {/* This is here for cypress tests */}
+    <button>end focus test</button>
+  </>
 ));
 
 export const WithPlaceholder = withInfo()(() => (

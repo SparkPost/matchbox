@@ -49,6 +49,7 @@
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
     "downshift": "^3.2.10",
+    "highlight.js": "^10.3.2",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -56,6 +57,7 @@
     "react-dom": "^16.8.6",
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
+    "react-syntax-highlighter": "^15.3.0",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.2"
   },
