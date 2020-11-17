@@ -21,3 +21,13 @@ describe('pick', () => {
     expect(helpers.pick(props, ['className'])).toEqual({ className: 'test' });
   });
 });
+
+describe('clean', () => {
+  it('should clean props', () => {
+    const shouldForward = helpers.clean('fail').shouldForwardProp;
+    expect(shouldForward('fail', () => true)).toEqual(false);
+    expect(shouldForward('pass', () => false)).toEqual(false);
+    expect(shouldForward('pass', () => true)).toEqual(true);
+    expect(shouldForward('fail', () => false)).toEqual(false);
+  });
+});
