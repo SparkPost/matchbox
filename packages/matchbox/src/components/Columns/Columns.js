@@ -5,13 +5,12 @@ import styled from 'styled-components';
 import { pick } from '../../helpers/systemProps';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
-import { tokens } from '@sparkpost/design-tokens';
 import { ColumnsContext } from './context';
 import { verticalAlignment, horizontalAlignment, reverseColumns, negativeMargin } from './styles';
-import { useWindowSize } from '../../helpers/geometry';
+import useBreakpoint from '../../hooks/useBreakpoint';
 import { Box } from '../Box';
 
-const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
+const breakpoints = ['default', 'xs', 'sm', 'md', 'lg', 'xl'];
 
 const StyledColumns = styled(Box)`
   ${verticalAlignment}
@@ -22,21 +21,13 @@ const StyledColumns = styled(Box)`
 
 const Columns = React.forwardRef(function Columns(props, ref) {
   const { children, reverse, space, alignY, align, collapseBelow, ...rest } = props;
-  const [collapsed, setCollapsed] = React.useState(false);
-
   const systemProps = pick(rest, margin.propNames);
+  const breakpoint = useBreakpoint();
 
-  const windowSize = useWindowSize();
-
-  React.useLayoutEffect(() => {
-    if (collapseBelow) {
-      if (windowSize.width <= parseInt(tokens[`mediaQuery_${collapseBelow}`], 10)) {
-        setCollapsed(true);
-      } else {
-        setCollapsed(false);
-      }
-    }
-  }, [windowSize, collapseBelow]);
+  const collapsed = React.useMemo(() => {
+    const arr = breakpoints.slice(breakpoints.findIndex(bp => bp === breakpoint));
+    return arr.includes(collapseBelow);
+  }, [breakpoint, collapseBelow]);
 
   return (
     <Box {...systemProps} data-id={props['data-id']}>

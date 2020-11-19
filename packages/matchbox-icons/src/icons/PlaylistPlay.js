@@ -2,5 +2,6 @@ import React from 'react';
 import { createSvgIcon } from '../IconBase';
 
 export default createSvgIcon(
-  <g><path d="M19 9H2v2h17V9zm0-4H2v2h17V5zM2 15h13v-2H2v2zm15-2v6l5-3-5-3z" /></g>
-, 'PlaylistPlay');
+  <path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 0v6l5-3z" />,
+  'PlaylistPlay',
+);

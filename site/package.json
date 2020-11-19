@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "author": "SparkPost",
   "dependencies": {
-    "@sparkpost/design-tokens": "^4.5.0",
-    "@sparkpost/matchbox": "^4.5.0",
-    "@sparkpost/matchbox-icons": "^4.5.0",
-    "@sparkpost/matchbox-media": "^4.5.0",
+    "@sparkpost/design-tokens": "^4.6.0",
+    "@sparkpost/matchbox": "^4.6.0",
+    "@sparkpost/matchbox-icons": "^4.6.0",
+    "@sparkpost/matchbox-media": "^4.6.0",
     "algoliasearch": "^4.4.0",
     "babel-plugin-styled-components": "^1.10.7",
     "color": "^3.1.2",
@@ -54,6 +54,7 @@
     "develop": "gatsby develop -p 8001",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
+    "start:localMatchbox": "LOCAL_MATCHBOX=true npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "index": "GATSBY_ACTIVE_ENV=index gatsby build"

@@ -14,12 +14,6 @@ describe('Columns', () => {
       </Columns>,
     );
 
-  const resizeWindow = (x, y) => {
-    window.innerWidth = x;
-    window.innerHeight = y;
-    window.dispatchEvent(new Event('resize'));
-  };
-
   it('should render data-id', () => {
     const wrapper = subject();
     expect(wrapper.find('[data-id="test-id"]')).toExist();
@@ -55,12 +49,7 @@ describe('Columns', () => {
 
   it('collapses columns with collapseBelow', () => {
     const fullWidthWrapper = subject({ collapseBelow: 'sm' });
-    expect(fullWidthWrapper.find('div').at(2)).toHaveStyleRule('width', '50%');
-    expect(fullWidthWrapper.find('div').at(3)).toHaveStyleRule('width', '50%');
-
-    resizeWindow(500, 500);
-    const resizedWrapper = subject({ collapseBelow: 'sm' });
-    expect(resizedWrapper.find('div').at(2)).toHaveStyleRule('width', '100%');
-    expect(resizedWrapper.find('div').at(3)).toHaveStyleRule('width', '100%');
+    expect(fullWidthWrapper.find('div').at(2)).toHaveStyleRule('width', '100%');
+    expect(fullWidthWrapper.find('div').at(3)).toHaveStyleRule('width', '100%');
   });
 });

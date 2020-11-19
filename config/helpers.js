@@ -53,3 +53,8 @@ global.renderStyled = node => {
 global.mountStyled = node => {
   return mount(<ThemeProvider skipGlobalStyles>{node}</ThemeProvider>);
 };
+
+global.matchMedia = () => ({
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+});

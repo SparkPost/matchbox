@@ -6,3 +6,4 @@ export { default as useResizeObserver } from './useResizeObserver';
 export { default as useTabs } from './useTabs';
 export { default as useWindowEvent } from './useWindowEvent';
 export { default as useInView } from './useInView';
+export { default as usePrefersReducedMotion } from './usePrefersReducedMotion';

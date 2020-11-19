@@ -182,6 +182,12 @@
         "section": "Layout"
       },
       {
+        "path": "/components/labelvalue",
+        "label": "LabelValue",
+        "tag": "new",
+        "section": "Layout"
+      },
+      {
         "path": "/components/layout",
         "label": "Layout",
         "tag": "new",
@@ -274,15 +280,26 @@
         "section": "Overlays"
       },
       {
+        "path": "/components/box",
+        "label": "Box",
+        "section": "Utility"
+      },
+      {
+        "path": "/components/codeblock",
+        "label": "CodeBlock",
+        "section": "Utility"
+      },
+      {
         "path": "/components/grid",
         "label": "Grid",
         "tag": "deprecated",
         "section": "Utility"
       },
       {
-        "path": "/components/box",
-        "label": "Box",
-        "section": "Utility"
+        "path": "/components/inlinecode",
+        "label": "InlineCode",
+        "section": "Utility",
+        "tag": "new"
       },
       {
         "path": "/components/portal",
