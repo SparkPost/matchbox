@@ -296,6 +296,12 @@
         "section": "Utility"
       },
       {
+        "path": "/components/inlinecode",
+        "label": "InlineCode",
+        "section": "Utility",
+        "tag": "new"
+      },
+      {
         "path": "/components/portal",
         "label": "Portal",
         "section": "Utility"
