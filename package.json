@@ -60,7 +60,7 @@
     "react-syntax-highlighter": "^15.3.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
-    "styled-system": "^5.1.2"
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
