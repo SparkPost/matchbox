@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { margin, width, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
-import { pick } from '../../helpers/props';
+import { pick, clean } from '../../helpers/props';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
 import Icon from './Icon';
@@ -25,7 +25,7 @@ import {
 // TODO Categorize system props and abstract
 const system = compose(margin, width, padding);
 
-export const StyledButton = styled(Box)`
+export const StyledButton = styled(Box).withConfig(clean(['loading']))`
   ${base}
   ${focus}
   ${visualSize}
@@ -39,7 +39,7 @@ const StyledLoader = styled.div`
   ${loader}
 `;
 
-const ChildWrapper = styled.span`
+const ChildWrapper = styled.span.withConfig(clean(['loading']))`
   ${childwrapper}
 `;
 
