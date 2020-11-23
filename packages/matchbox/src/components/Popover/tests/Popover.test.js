@@ -62,15 +62,12 @@ describe('Popover', () => {
   describe('content', () => {
     it('should render deprecated sectioned prop', () => {
       const wrapper = subject({ sectioned: true, open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule(
-        'padding',
-        '1rem',
-      );
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('padding', '1rem');
     });
 
     it('should render custom padding', () => {
       const wrapper = subject({ p: '500', open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule(
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule(
         'padding',
         '1.5rem',
       );
@@ -78,8 +75,8 @@ describe('Popover', () => {
 
     it('should render custom width', () => {
       const wrapper = subject({ width: '100px', minWidth: '50px', open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('width', '100px');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule(
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('width', '100px');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule(
         'min-width',
         '50px',
       );
@@ -87,34 +84,34 @@ describe('Popover', () => {
 
     it('should render default position', () => {
       const wrapper = subject({ open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('top', '100%');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('bottom', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('left', '0');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('right', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('top', '100%');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('bottom', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('left', '0');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('right', 'auto');
     });
 
     it('should render bottom left position', () => {
       const wrapper = subject({ left: true, open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('top', '100%');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('bottom', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('left', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('right', '0');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('top', '100%');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('bottom', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('left', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('right', '0');
     });
 
     it('should render top right position', () => {
       const wrapper = subject({ top: true, open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('bottom', '100%');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('top', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('left', '0');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('right', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('bottom', '100%');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('top', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('left', '0');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('right', 'auto');
     });
 
     it('should render top left position', () => {
       const wrapper = subject({ top: true, left: true, open: true });
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('bottom', '100%');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('top', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('left', 'auto');
-      expect(wrapper.find('[data-id="popover-content"]').first()).toHaveStyleRule('right', '0');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('bottom', '100%');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('top', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('left', 'auto');
+      expect(wrapper.find('[data-id="popover-content"]').at(0)).toHaveStyleRule('right', '0');
     });
 
     it('should render a classname', () => {
@@ -127,7 +124,7 @@ describe('Popover', () => {
       expect(
         wrapper
           .find('[data-id="popover-content"]')
-          .first() // React transition group duplicates content
+          .at(0) // React transition group duplicates content
           .text(),
       ).toEqual('test content');
     });
