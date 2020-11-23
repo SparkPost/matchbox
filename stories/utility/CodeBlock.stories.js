@@ -1,8 +1,11 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { CodeBlock } from '@sparkpost/matchbox';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/styles/hljs';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+SyntaxHighlighter.registerLanguage('bash', bash);
 
 const codeSnippet = `curl -X POST
 https://api.sparkpost.com/api/v1/transmissions

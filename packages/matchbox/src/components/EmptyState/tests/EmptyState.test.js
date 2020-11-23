@@ -1,8 +1,6 @@
 import React from 'react';
 import EmptyState from '../EmptyState';
 
-import 'jest-styled-components';
-
 describe('EmptyState Components', () => {
   const subject = props => global.mountStyled(<EmptyState {...props} />);
 

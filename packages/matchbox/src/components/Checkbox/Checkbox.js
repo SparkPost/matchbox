@@ -8,7 +8,7 @@ import Group from './Group';
 import { HelpText } from '../HelpText';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { pick } from '@styled-system/props';
-import { omit } from '../../helpers/systemProps';
+import { omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
 import {

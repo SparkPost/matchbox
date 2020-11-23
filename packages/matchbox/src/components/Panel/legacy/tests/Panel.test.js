@@ -1,25 +1,25 @@
 import React from 'react';
 import Panel from '../Panel';
 import { tokens } from '@sparkpost/design-tokens';
-import 'jest-styled-components';
 
 describe('Panel', () => {
-  let wrapper = global.mountStyled(
-    <Panel accent sectioned title="test title">
-      Panel Content
-    </Panel>,
-  );
+  const subject = () =>
+    global.mountStyled(
+      <Panel accent sectioned title="test title">
+        Panel Content
+      </Panel>,
+    );
 
   it('renders panel styles', () => {
-    expect(wrapper).toHaveStyleRule('background', tokens.color_white);
+    expect(subject()).toHaveStyleRule('background', tokens.color_white);
   });
 
   it('renders header styles', () => {
-    expect(wrapper.find(Panel.Header)).toHaveStyleRule('display', 'flex');
+    expect(subject().find(Panel.Header)).toHaveStyleRule('display', 'flex');
   });
 
   it('renders section styles', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel accent sectioned title="test title">
         <Panel.Section>Foo</Panel.Section>
         <Panel.Section>Bar</Panel.Section>
@@ -73,7 +73,7 @@ describe('Panel', () => {
   });
 
   it('renders accent title and header action correctly', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel accent sectioned title="test title" actions={[{ content: 'Action' }]}>
         Foo
       </Panel>,
@@ -93,7 +93,7 @@ describe('Panel', () => {
   });
 
   it('renders correctly with sections', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel>
         <Panel.Section actions={[{ content: 'Action' }]}>Foo</Panel.Section>
         <Panel.Section>Bar</Panel.Section>
@@ -125,7 +125,7 @@ describe('Panel', () => {
   });
 
   it('renders correctly with footer', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <div>
         <Panel />
         <Panel.Footer left={<span>left</span>} right="right" />
@@ -149,12 +149,12 @@ describe('Panel', () => {
   });
 
   it('renders default padding context correctly', () => {
-    wrapper = global.mountStyled(<Panel sectioned>test</Panel>);
+    const wrapper = global.mountStyled(<Panel sectioned>test</Panel>);
     expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1.5rem');
   });
 
   it('renders default padding context correctly on sections', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel>
         <Panel.Section>1</Panel.Section>
         <Panel.Section>2</Panel.Section>
@@ -166,7 +166,7 @@ describe('Panel', () => {
   });
 
   it('renders default contextual padding and a section with padding overide', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel p="600">
         <Panel.Section>1</Panel.Section>
         <Panel.Section px="300" py="500">
@@ -181,7 +181,9 @@ describe('Panel', () => {
   });
 
   it('renders other system props', () => {
-    wrapper = global.mountStyled(<Panel borderBottom="none" width="30px" height="50px"></Panel>);
+    const wrapper = global.mountStyled(
+      <Panel borderBottom="none" width="30px" height="50px"></Panel>,
+    );
     expect(wrapper.find('div').at(0)).toHaveStyleRule('width', '30px');
     expect(wrapper.find('div').at(1)).toHaveStyleRule('width', undefined);
     expect(wrapper.find('div').at(0)).toHaveStyleRule('border-bottom', undefined);
@@ -191,13 +193,13 @@ describe('Panel', () => {
   });
 
   it('renders with the passed in className', () => {
-    wrapper = global.mountStyled(<Panel className="my-class">Hello, world.</Panel>);
+    const wrapper = global.mountStyled(<Panel className="my-class">Hello, world.</Panel>);
 
     expect(wrapper.find('.my-class')).toExist();
   });
 
   it('renders with the passed in className on a section', () => {
-    wrapper = global.mountStyled(
+    const wrapper = global.mountStyled(
       <Panel>
         <Panel.Section className="my-class">Hello, world.</Panel.Section>
       </Panel>,

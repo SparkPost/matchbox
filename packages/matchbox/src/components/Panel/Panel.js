@@ -9,7 +9,7 @@ import Action from './Action';
 import Header from './Header';
 import SubHeader from './SubHeader';
 import Section from './Section';
-import { pick } from '../../helpers/systemProps';
+import { pick } from '../../helpers/props';
 import { PanelPaddingContext } from './context';
 
 const systemOuter = compose(margin, width, height);

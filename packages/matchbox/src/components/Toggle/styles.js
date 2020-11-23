@@ -9,7 +9,7 @@ export const toggle = props => `
   height: 1.25rem;
   width: ${toggleWidth};
 
-  opacity: ${props.disabled ? '0.6' : '1'}
+  opacity: ${props.disabled ? '0.6' : '1'};
   cursor: ${props.disabled ? 'not-allowed' : 'pointer'};
 `;
 
