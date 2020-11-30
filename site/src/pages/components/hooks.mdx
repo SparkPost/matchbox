@@ -8,6 +8,7 @@ category: Helpers
 - [useBreakpoint](/components/hooks#usebreakpoint)
 - [useCopyToClipboard](/components/hooks#usecopytoclipboard)
 - [useDrawer](/components/hooks#usedrawer)
+- [useInView](/components/hooks#useinview)
 - [useModal](/components/hooks#usemodal)
 - [useResizeObserver](/components/hooks#useresizeobserver)
 - [useTabs](/components/hooks#usetabs)
@@ -33,7 +34,11 @@ function Component() {
 
 ##### Returns
 
-<Prop name="breakpoint" type="string" values={['"xl"', '"lg"', '"md"', '"sm"', '"xs"', '"default"']}>
+<Prop
+  name="breakpoint"
+  type="string"
+  values={['"xl"', '"lg"', '"md"', '"sm"', '"xs"', '"default"']}
+>
   Active breakpoint value
 </Prop>
 
@@ -47,7 +52,7 @@ This hook copies a string to the clipboard and provides copied state.
 import { useCopyToClipboard } from '@sparkpost/matchbox';
 
 function Component() {
-  const { copy, copied } = useCopyToClipboard({ timeout: 2000 });
+  const { copy, copied } = useCopyToClipboard(options);
 
   return (
     <button onClick={() => copy('string')}>
@@ -82,7 +87,7 @@ Hook that is built to be paired with the [drawer component](/components/drawer)
 import { Drawer, useDrawer } from '@sparkpost/matchbox';
 
 function Example() {
-  const { getDrawerProps, getActivatorProps } = useDrawer();
+  const { getDrawerProps, getActivatorProps } = useDrawer(options);
 
   return (
     <div>
@@ -129,6 +134,36 @@ function Example() {
 
 ---
 
+### useInView
+
+This hook detects whether a DOM element is withing the browser's viewport.
+
+```jsx
+import { useInView } from '@sparkpost/matchbox';
+
+function Component() {
+  const [ref, inView] = useInView(options);
+
+  return <div ref={ref}>{inView ? 'In View' : 'Not In View'}</div>;
+}
+```
+
+##### Return Array
+
+<Prop name="ref">React ref to be attached to a DOM element</Prop>
+<Prop name="inView" type="bool">
+  Whether the DOM element is in view or not
+</Prop>
+
+##### Options Object
+
+<Prop name="once" type="bool" defaultValue="true">
+  When set to false, in-view state will return to false when the element leaves
+  the viewport.
+</Prop>
+
+---
+
 ### useModal
 
 Hook that is built to be paired with the [modal component](/components/modal)
@@ -137,7 +172,7 @@ Hook that is built to be paired with the [modal component](/components/modal)
 import { Modal, useModal } from '@sparkpost/matchbox';
 
 function Example() {
-  const { getModal, getActivatorProps } = useModal();
+  const { getModal, getActivatorProps } = useModal(options);
 
   return (
     <div>
