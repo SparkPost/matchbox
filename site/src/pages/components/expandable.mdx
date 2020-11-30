@@ -94,6 +94,24 @@ export function Slack() {
 
 ### Expandable API
 
+<Prop
+  name="accent"
+  type="bool | string"
+  values={[
+    '"orange"',
+    '"blue"',
+    '"red"',
+    '"yellow"',
+    '"green"',
+    '"purple"',
+    '"navy"',
+    '"gray"'
+  ]}
+>
+  Renders an accent border at the top of the expandable panel. If bool is used
+  it defaults to blue
+</Prop>
+
 <Prop name="defaultOpen" type="bool">
   Default open state when not controlled
 </Prop>
@@ -124,8 +142,13 @@ export function Slack() {
   The header title
 </Prop>
 
-<Prop name="accent" type="bool | string">
-  orange, blue, red, yellow, green, purple, navy, gray <br />
-  Renders an accent border at the top of the expandable panel. If bool is used it
-  defaults to blue
+<Prop
+  name="variant"
+  type="string"
+  values={['"borderd"', '"borderless"']}
+  defaultValue='"bordered"'
+>
+  Bordered: renders a standalone expandable section.
+  <br />
+  Borderless: renders a expandable section without borders and modified padding.
 </Prop>
