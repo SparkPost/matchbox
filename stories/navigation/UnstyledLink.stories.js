@@ -28,6 +28,8 @@ export const WithWrapperComponents = withInfo()(() => (
   </>
 ));
 
+export const Disabled = withInfo()(() => <UnstyledLink disabled>Disabled Link</UnstyledLink>);
+
 export const WithTextProps = withInfo()(() => (
   <>
     <UnstyledLink mr={400} color="purple.600" to="https://google.com" external>
