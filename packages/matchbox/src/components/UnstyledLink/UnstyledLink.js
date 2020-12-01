@@ -9,11 +9,10 @@ const StyledText = styled(Text)`
   ${props => {
     if (props.disabled) {
       return `
-        opacity: 0.6;
-        color: ${props.theme.colors.gray['900']};
-        &:hover {
+        &, &:visited {
+          opacity: 0.6;
           color: ${props.theme.colors.gray['900']};
-          cursor: not-allowed;
+          pointer-events: none;
         }
     `;
     }
@@ -31,13 +30,20 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
     onClick,
     role,
     disabled,
+    tabIndex,
     ...rest
   } = props;
-  console.log(disabled);
 
   const WrapperComponent = component || Component;
   const linkTitle = external && !title ? 'Opens in a new tab' : title;
   const linkRole = role ? role : !!onClick ? 'button' : null;
+
+  const disabledAttributes = {
+    'aria-disabled': disabled,
+    disabled,
+    tabIndex: disabled ? '-1' : tabIndex,
+    onClick: disabled ? () => false : onClick,
+  };
 
   if (to && !WrapperComponent) {
     return (
@@ -49,9 +55,9 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         title={linkTitle}
         onClick={onClick}
         role={role}
-        disabled={disabled}
         ref={ref}
         {...rest}
+        {...disabledAttributes}
       >
         {children}
       </StyledText>
@@ -65,10 +71,10 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         onClick={onClick}
         ref={ref}
         role={role}
-        disabled={disabled}
         title={linkTitle}
         to={to}
         {...rest}
+        {...disabledAttributes}
       >
         {children}
       </StyledText>
@@ -82,8 +88,8 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
       role={linkRole}
       onClick={onClick}
       ref={ref}
-      disabled={disabled}
       {...rest}
+      {...disabledAttributes}
     >
       {children}
     </StyledText>
@@ -102,6 +108,7 @@ UnstyledLink.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   role: PropTypes.string,
+  tabIndex: PropTypes.string,
 };
 
 export default UnstyledLink;
