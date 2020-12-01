@@ -3,11 +3,11 @@ import Modal from '../Modal';
 import { Button } from '../../Button';
 import { onKey } from '../../../helpers/keyEvents';
 
-const subject = props =>
+const subject = (props = {}, contentProps = {}) =>
   global.mountStyled(
     <Modal {...props}>
       <Modal.Header showCloseButton={props.showCloseButton}>Modal Header</Modal.Header>
-      <Modal.Content>Modal Content</Modal.Content>
+      <Modal.Content {...contentProps}>Modal Content</Modal.Content>
       <Modal.Footer>
         <Button>Primary Button</Button>
         <Button>Secondary Button</Button>
@@ -32,6 +32,18 @@ describe('Modal', () => {
     const wrapper = subject({ open: true });
 
     expect(wrapper.find('[data-id="modal-content-wrapper"]')).toExist();
+  });
+
+  it('renders restricted modal height by default', () => {
+    const wrapper = subject({ open: true });
+
+    expect(wrapper.find('[data-id="modal-content"]').at(0)).toHaveStyleRule('max-height', '60vh');
+  });
+
+  it('renders unrestricted modal height when "restrictHeight" is set to false', () => {
+    const wrapper = subject({ open: true }, { restrictHeight: false });
+
+    expect(wrapper.find('[data-id="modal-content"]').at(0)).not.toHaveStyleRule('max-height');
   });
 
   it('renders with relevant ARIA attributes', () => {

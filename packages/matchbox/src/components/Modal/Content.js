@@ -7,7 +7,7 @@ import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
 const Content = React.forwardRef(function Content(props, ref) {
-  const { children, ...rest } = props;
+  const { children, restrictHeight, ...rest } = props;
   const systemProps = pick(rest, padding.propNames);
 
   return (
@@ -15,8 +15,8 @@ const Content = React.forwardRef(function Content(props, ref) {
       data-id="modal-content"
       p="500"
       {...systemProps}
-      maxHeight="60vh"
-      overflowY="auto"
+      maxHeight={restrictHeight ? '60vh' : null}
+      overflowY={restrictHeight ? 'auto' : null}
       ref={ref}
     >
       {children}
@@ -25,8 +25,12 @@ const Content = React.forwardRef(function Content(props, ref) {
 });
 
 Content.displayName = 'Modal.Content';
+Content.defaultProps = {
+  restrictHeight: true,
+};
 Content.propTypes = {
   children: PropTypes.node,
+  restrictHeight: PropTypes.bool,
   ...createPropTypes(padding.propNames),
 };
 
