@@ -49,4 +49,32 @@ describe('UnstyledLink', () => {
     expect(wrapper.find('a').text()).toEqual('Hola!');
     expect(wrapper.find('a').prop('role')).toEqual('test-role');
   });
+
+  it('invokes an onClick handler', () => {
+    const onClick = jest.fn();
+    let wrapper = subject({ onClick });
+    wrapper.find('a').simulate('click');
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('sets tabIndex correctly', () => {
+    let wrapper = subject({ tabIndex: '3' });
+    expect(wrapper).toHaveAttributeValue('tabindex', '3');
+  });
+
+  describe('disabled', () => {
+    it('renders a disabled link correctly', () => {
+      let wrapper = subject({ disabled: true, tabIndex: '3' });
+      expect(wrapper).toHaveAttributeValue('aria-disabled', 'true');
+      expect(wrapper).toHaveAttributeValue('tabindex', '-1');
+      expect(wrapper.find('a').prop('disabled')).toEqual(true);
+    });
+
+    it('does not invoke an onClick handler', () => {
+      const onClick = jest.fn();
+      let wrapper = subject({ onClick, disabled: true });
+      wrapper.find('a').simulate('click');
+      expect(onClick).not.toHaveBeenCalled();
+    });
+  });
 });
