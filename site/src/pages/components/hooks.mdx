@@ -13,6 +13,7 @@ category: Helpers
 - [useResizeObserver](/components/hooks#useresizeobserver)
 - [useTabs](/components/hooks#usetabs)
 - [useWindowEvent](/components/hooks#usewindowevent)
+- [usePrefersReducedMotion](/components/hooks#useprefersreducedmotion)
 
 ---
 
@@ -325,4 +326,25 @@ function Example() {
 </Prop>
 <Prop name="callback" type="function" required>
   Callback to run on the provided event
+</Prop>
+
+### usePrefersReducedMotion
+
+SSR friendly hook that returns prefers-reduced-state status to disable animations
+
+```jsx
+import { usePrefersReducedMotion } from '@sparkpost/matchbox';
+
+function Example() {
+
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  return prefersReducedMotion;
+}
+```
+
+#### Return String
+
+<Prop name="no-preference OR reduce" type="string" values={['"no-preference"', '"reduce"']}>
+  when prefers-reduced-motion is set <code>reduce</code> will be returned. If the user has made no preference <code>no-preference</code> will be returned
 </Prop>
