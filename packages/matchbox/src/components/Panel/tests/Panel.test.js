@@ -59,6 +59,7 @@ describe('Panel Components', () => {
     it('renders SubHeader correctly', () => {
       let wrapper = subject({ children: <Panel.SubHeader>The SubHeader</Panel.SubHeader> });
       expect(wrapper.text()).toEqual('The SubHeader');
+      expect(wrapper.find('h4')).toExist();
     });
 
     it('renders with a default padding correctly', () => {
@@ -80,6 +81,7 @@ describe('Panel Components', () => {
     it('renders children correctly', () => {
       let wrapper = subject({ children: <Panel.Header>Header Content</Panel.Header> });
       expect(wrapper.text()).toEqual('Header Content');
+      expect(wrapper.find('h3')).toExist();
     });
 
     it('renders with a border bottom correctly', () => {
