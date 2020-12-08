@@ -48,6 +48,7 @@ export const focusOutline = ({
   color = tokens.color_blue_700,
   modifier = '&:focus',
   offset = '3px',
+  radius = tokens.borderRadius_200,
 } = {}) => `
   position: relative;
   outline: none;
@@ -61,7 +62,7 @@ export const focusOutline = ({
     right: -${offset};
     bottom: -${offset};
     transition: box-shadow ${tokens.motionDuration_fast};
-    border-radius: ${tokens.borderRadius_200};
+    border-radius: ${radius};
     box-shadow: none;
     pointer-events: none;
   } 
