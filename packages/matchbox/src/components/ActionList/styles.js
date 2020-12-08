@@ -44,4 +44,10 @@ export const StyledLink = styled(UnstyledLink)`
     color: ${tokens.color_blue_700};
     background: ${tokens.color_blue_100};
   }
+
+  ${'' /* This only applies to buttons, not links */}
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
 `;
