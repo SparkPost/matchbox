@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
+import { Box, Text } from '../Box';
 import { Button } from '../Button';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
@@ -8,7 +8,7 @@ import { getChild, excludeChild } from '../../helpers/children';
 import { PanelPaddingContext } from './context';
 
 const Header = React.forwardRef(function Header(props, userRef) {
-  const { borderBottom, children, className } = props;
+  const { as, borderBottom, children, className } = props;
   const actions = getChild('Panel.Action', children);
   const title = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
@@ -26,9 +26,9 @@ const Header = React.forwardRef(function Header(props, userRef) {
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>
-          <Box fontSize="400" lineHeight="400" fontWeight="semibold">
+          <Text as={as} fontSize="400" lineHeight="400" fontWeight="semibold">
             {title}
-          </Box>
+          </Text>
         </Column>
         {actions.length ? (
           <Column width="content">
@@ -41,7 +41,11 @@ const Header = React.forwardRef(function Header(props, userRef) {
 });
 
 Header.displayName = 'Panel.Header';
+Header.defaultProps = {
+  as: 'h3',
+};
 Header.propTypes = {
+  as: PropTypes.string,
   borderBottom: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
