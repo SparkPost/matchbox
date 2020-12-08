@@ -15,6 +15,7 @@ const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
       className={className}
       pb={[0, null, 0]}
       fontSize="200"
+      fontWeight="normal"
       lineHeight="200"
       color="gray.700"
       tabIndex="-1"

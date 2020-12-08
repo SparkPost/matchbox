@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from '../Box';
+import { Box } from '../Box';
+import { Text } from '../Text';
 import { Button } from '../Button';
 import { Column } from '../Column';
 import { Columns } from '../Columns';
