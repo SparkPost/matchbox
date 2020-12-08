@@ -1,6 +1,6 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
-import { ListBox } from '@sparkpost/matchbox';
+import { ListBox, Inline } from '@sparkpost/matchbox';
 
 export default {
   title: 'Form|ListBox',
@@ -130,3 +130,14 @@ export const WithARef = withInfo()(() => {
   }
   return <Example />;
 });
+
+export const AsAnInlineElement = () => (
+  <Inline>
+    <ListBox id="listbox-4" label="Select an option" placeholder="Select One">
+      <ListBox.Option value="option-1">Option 1</ListBox.Option>
+      <ListBox.Option value="option-2">Option 2</ListBox.Option>
+      <ListBox.Option value="option-3">Option 3</ListBox.Option>
+      <ListBox.Option value="option-4">Option 4</ListBox.Option>
+    </ListBox>
+  </Inline>
+);

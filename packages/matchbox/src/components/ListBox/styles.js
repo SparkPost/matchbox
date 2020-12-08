@@ -7,7 +7,7 @@ import { UnstyledLink } from '../UnstyledLink';
 export const chevron = props => `
   position: absolute;
   z-index: ${props.theme.zIndex_default};
-  top: 8%;
+  top: 3%;
   right: ${props.theme.space['300']};
   height: 100%;
   fill: ${props.theme.colors.blue['700']};
