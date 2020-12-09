@@ -1,3 +1,37 @@
+## 4.7.0 (2020-12-09)
+
+#### Features
+
+- `matchbox`
+  - [#704](https://github.com/SparkPost/matchbox/pull/704) UX-381 Make Modal.Content height
+    restriction optional ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#702](https://github.com/SparkPost/matchbox/pull/702) UX-383 Add disabled prop and styles to
+    UnstyledLink ([@logansparlin](https://github.com/logansparlin))
+  - [#689](https://github.com/SparkPost/matchbox/pull/689) UX-373 Upgrade styled-components to 5.2
+    ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#715](https://github.com/SparkPost/matchbox/pull/715) Closes
+    [#714](https://github.com/SparkPost/matchbox/issues/714) - Adds semantic tags around Panel
+    Header components ([@jonambas](https://github.com/jonambas))
+  - [#713](https://github.com/SparkPost/matchbox/pull/713) UX-400 - Handle disabled Actionlist
+    Actions ([@jonambas](https://github.com/jonambas))
+  - [#705](https://github.com/SparkPost/matchbox/pull/705) UX-401 Disable UnstyledLinks interaction
+    when disabled ([@jonambas](https://github.com/jonambas))
+  - [#696](https://github.com/SparkPost/matchbox/pull/696) UX-374 Omit 'loading' on Buttons
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.6.0 (2020-11-16)
 
 #### Features
