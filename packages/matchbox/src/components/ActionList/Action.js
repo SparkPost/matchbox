@@ -7,7 +7,7 @@ import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
 
 const Action = React.forwardRef(function Action(props, userRef) {
-  const { content, children, helpText, is = 'link', selected, ...action } = props;
+  const { content, children, disabled, helpText, is = 'link', selected, ...action } = props;
 
   const linkContent = React.useMemo(() => {
     return (
@@ -32,6 +32,7 @@ const Action = React.forwardRef(function Action(props, userRef) {
     <StyledLink
       as={is === 'button' ? 'button' : null}
       type={is === 'button' ? 'button' : null}
+      disabled={disabled}
       isType={is}
       ref={userRef}
       {...isAttributes}
@@ -46,6 +47,7 @@ Action.displayName = 'ActionList.Action';
 Action.propTypes = {
   content: PropTypes.node,
   children: PropTypes.node,
+  disabled: PropTypes.bool,
   /**
    * Same as hover styles.
    * Can be used for wrappers that manage focus within the menu, eg downshift

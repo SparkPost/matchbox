@@ -21,6 +21,25 @@ describe('ActionList', () => {
     ).toEqual('Action');
   });
 
+  it('renders disabled actions correctly', () => {
+    const onClick = jest.fn();
+    const wrapper = subject({
+      children: (
+        <>
+          <ActionList.Action disabled is="link" onClick={onClick}>
+            Action
+          </ActionList.Action>
+          <ActionList.Action disabled is="button">
+            Action 2
+          </ActionList.Action>
+        </>
+      ),
+    });
+    expect(wrapper.find('button')).toBeDisabled();
+    wrapper.find('a').simulate('click');
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
   it('renders help text correctly', () => {
     const wrapper = subject({
       children: (
