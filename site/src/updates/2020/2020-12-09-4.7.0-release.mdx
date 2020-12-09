@@ -1,0 +1,56 @@
+---
+title: Matchbox 4.7.0
+date: 2020-12-09
+published: true
+category: Release Notes
+---
+
+import { Banner } from '@sparkpost/matchbox';
+
+<Banner size="small" status="warning" my="700">
+  This release requires styled-components 5.2
+</Banner>
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v4.7.0">view the release notes on Github</ExternalLink>.
+
+### New Features
+
+##### Modal Height Flexibility
+
+A new prop, when set to false, allows Modal Contents to expand vertically
+
+```jsx
+<Modal>
+  <Modal.Content restrictHeight={false}>Content</Modal.Content>
+</Modal>
+```
+
+##### Disabled Links and ActionList Actions
+
+`UnstyledLink`s and `ActionList.Action`s now accept a `disabled` prop.
+
+```jsx
+<UnstyledLink disabled>Disabled</UnstyledLink>
+```
+
+```jsx
+<ActionList>
+  <ActionList.Action is="button" disabled>
+    Disabled Button
+  </ActionList.Action>
+  <ActionList.Action to="#" is="link" disabled>
+    Disabled Link
+  </ActionList.Action>
+</ActionList>
+```
+
+##### Semantic Panel Headers
+
+Panel headers now accept an `as` prop. `Header` defaults to `h3`, `SubHeader` defaults to `h4`.
+
+```jsx
+<Panel>
+  <Panel.Header as="h2">Title</Panel.Header>
+  <Panel.SubHeader as="h5">Title</Panel.SubHeader>
+</Panel>
+```
