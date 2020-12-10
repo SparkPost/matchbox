@@ -75,7 +75,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
   const { children, title, status, action, actions, onDismiss, size, ...rest } = props;
 
   const titleMarkup = title ? (
-    <Box pt={['300', null, '200']} mb="200">
+    <Box pt={status !== 'muted' ? ['300', null, '200'] : null} mb="200">
       <Text fontSize={['400', null, '500']} lineHeight={['400', null, '500']} as="h5">
         {title}
       </Text>

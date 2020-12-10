@@ -25,7 +25,7 @@ export function container(props) {
       `;
     case 'muted':
       return `
-        background: ${tokens.color_gray_100}
+        background: ${tokens.color_gray_100};
         border: 1px solid ${tokens.color_gray_400};
       `;
     case 'default':
