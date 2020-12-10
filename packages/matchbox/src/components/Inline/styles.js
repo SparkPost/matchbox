@@ -26,3 +26,14 @@ export const alignChildren = system({
     },
   },
 });
+
+export const alignYChildren = system({
+  alignY: {
+    property: 'alignItems',
+    defaultScale: {
+      center: 'center',
+      top: 'flex-start',
+      bottom: 'flex-end',
+    },
+  },
+});
