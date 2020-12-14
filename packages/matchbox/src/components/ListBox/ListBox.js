@@ -38,6 +38,7 @@ const StyledButton = styled(Button)`
   font-size: ${props => props.theme.fontSizes['200']};
   font-weight: ${props => props.theme.fontWeights['medium']};
   background: ${props => (props.disabled ? props.theme.colors.gray['200'] : '')};
+  padding-right: ${props => props.theme.space[650]};
   &:hover {
     background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
   }
