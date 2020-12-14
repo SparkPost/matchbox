@@ -1,3 +1,19 @@
+## 4.7.1 (2020-12-14)
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#718](https://github.com/SparkPost/matchbox/pull/718) UX-403 & Issue-710 Fix empty Modal.Footer
+    & dynamic children ([@jonambas](https://github.com/jonambas))
+  - [#717](https://github.com/SparkPost/matchbox/pull/717) UX-406 Fix muted banner styles
+    ([@jonambas](https://github.com/jonambas))
+  - [#711](https://github.com/SparkPost/matchbox/pull/711) UX-402 Fix Listbox padding as inline
+    element ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.7.0 (2020-12-09)
 
 #### Features
