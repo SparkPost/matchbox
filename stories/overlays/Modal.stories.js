@@ -20,6 +20,26 @@ export const Open = withInfo()(() => (
   </Modal>
 ));
 
+export const NonButtons = () => (
+  <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal.Header showCloseButton>Modal Title</Modal.Header>
+    <Modal.Content>Modal Content</Modal.Content>
+    <Modal.Footer>
+      <Button>Primary Button</Button>
+      <Box as={Button}>Not a button</Box>
+      <Box as={Button}>Not a button</Box>
+    </Modal.Footer>
+  </Modal>
+);
+
+export const EmptyFooter = () => (
+  <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal.Header showCloseButton>Modal Title</Modal.Header>
+    <Modal.Content>Modal Content</Modal.Content>
+    <Modal.Footer></Modal.Footer>
+  </Modal>
+);
+
 export const ConfigurableButtons = withInfo()(() => (
   <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
     <Modal.Header showCloseButton>Modal Title</Modal.Header>
