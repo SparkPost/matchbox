@@ -28,8 +28,8 @@ const List = React.forwardRef(function List(props, userRef) {
                     <path
                       stroke-dasharray="3,7"
                       d="M1 2 l0 200"
-                      stroke-width="2"
-                      stroke-linecap="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
                     />
                   </g>
                 </StyledSvg>

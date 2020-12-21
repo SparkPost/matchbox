@@ -8,7 +8,14 @@ const Image = React.forwardRef(function Image(props, userRef) {
   const { src, className, children } = props;
 
   return (
-    <StyledImage display="block" width="100%" height="auto" ref={userRef}>
+    <StyledImage
+      display="block"
+      mx="auto"
+      mb="400"
+      width={['100%', '80%', '60%', '100%']}
+      height="auto"
+      ref={userRef}
+    >
       <Picture className={className}>
         {children}
         <Picture.Image src={src} />
