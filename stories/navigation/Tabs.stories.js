@@ -103,7 +103,6 @@ export const DynamicTabs = withInfo()(() => {
         ...tabsProps,
         tabs: dynamicTabs,
       });
-      console.log(tabsProps);
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
