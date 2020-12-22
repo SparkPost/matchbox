@@ -23,6 +23,26 @@ const tabs = [
   },
 ];
 
+const dynamicTabs = [
+  {
+    content: 'Details Dynamic',
+    onClick: action('Details Dynamic Clicked'),
+  },
+  {
+    content: 'More Details Dynamic ',
+    onClick: action('More Details Clicked'),
+  },
+  {
+    content: 'Example with long text Dynamic',
+    onClick: action('Example with long text clicked'),
+  },
+  {
+    content: 'Example with a component wrapper Dynamic',
+    onClick: action('Example with component clicked'),
+    Component: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
+  },
+];
+
 export default {
   title: 'Navigation|Tabs',
 };
@@ -69,6 +89,27 @@ export const SystemProps = withInfo()(() => {
     <>
       <Tabs borderBottom="none" {...getTabsProps()} my={['400', null, '800', '100px']} />
       <Tabs fitted {...getTabsProps()} mx={['400', null, '800', '200px']} />
+    </>
+  );
+});
+
+export const DynamicTabs = withInfo()(() => {
+  const { getTabsProps } = useTabs({ tabs });
+  const [tabsProps, setTabsProps] = React.useState(getTabsProps);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setTabsProps({
+        ...tabsProps,
+        tabs: dynamicTabs,
+      });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      <Tabs mb="800" {...tabsProps} keyboardActivation="manual" />
     </>
   );
 });
