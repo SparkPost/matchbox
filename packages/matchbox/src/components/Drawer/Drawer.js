@@ -17,7 +17,7 @@ import { getChild } from '../../helpers/children';
 import { getWindow, isInIframe } from '../../helpers/window';
 import { Overlay, Container } from './styles';
 
-const Drawer = React.forwardRef(function Drawer(props, ref) {
+const Drawer = React.forwardRef(function Drawer(props, userRef) {
   const {
     children,
     closeOnEscape,
@@ -109,6 +109,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
             enter: 0,
             exit: secondsToMS(tokens.motionDuration_medium),
           }}
+          nodeRef={overlayRef}
         >
           {state => (
             <FocusLock returnFocus disabled={!open || isInIframe()} autoFocus={false}>
@@ -117,7 +118,7 @@ const Drawer = React.forwardRef(function Drawer(props, ref) {
                 height="100vh"
                 left="0"
                 position="fixed"
-                ref={ref}
+                ref={userRef}
                 style={{ pointerEvents: 'none' }}
                 tabIndex="-1"
                 top="0"

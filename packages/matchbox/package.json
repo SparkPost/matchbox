@@ -32,7 +32,7 @@
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.0",
     "react-scrolllock": "^5.0.1",
-    "react-transition-group": "^2.3.0",
+    "react-transition-group": "^4.4.1",
     "resize-observer-polyfill": "^1.5.1",
     "styled-normalize": "^8.0.7",
     "styled-system": "^5.1.5"
@@ -58,7 +58,6 @@
     "cssnano": "^4.1.10",
     "fs-extra": "^3.0.1",
     "incstr": "^1.2.3",
-    "jest-styled-components": "^6.3.3",
     "postcss-modules": "^1.4.1",
     "postcss-modules-scope": "^1.0.2",
     "react": "^16.8.6",

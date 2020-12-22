@@ -53,6 +53,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
 
   const overlayRef = useRef();
   const contentRef = useRef();
+  const transitionRef = useRef();
 
   // Calls onClose when clicking outside modal content
   function handleOutsideClick(e) {
@@ -112,31 +113,34 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                       enter: secondsToMS(tokens.motionDuration_medium),
                       exit: secondsToMS(tokens.motionDuration_fast),
                     }}
+                    nodeRef={transitionRef}
                   >
                     {/* Negative `tabIndex` required to programmatically focus */}
                     {state => (
-                      <StyledContent
-                        state={state}
-                        tabIndex="-1"
-                        ref={userRef}
-                        display="flex"
-                        justifyContent="center"
-                        data-id="modal-content-wrapper"
-                        p={['400', null, '700']}
-                      >
-                        <Box
-                          ref={contentRef}
-                          width="100%"
-                          maxWidth={maxWidth}
-                          bg="white"
+                      <div ref={transitionRef}>
+                        <StyledContent
+                          state={state}
                           tabIndex="-1"
-                          data-id="modal-content-panel"
+                          ref={userRef}
+                          display="flex"
+                          justifyContent="center"
+                          data-id="modal-content-wrapper"
+                          p={['400', null, '700']}
                         >
-                          {getChild('Modal.Header', children, { onClose })}
-                          {getChild('Modal.Content', children, { open })}
-                          {getChild('Modal.Footer', children)}
-                        </Box>
-                      </StyledContent>
+                          <Box
+                            ref={contentRef}
+                            width="100%"
+                            maxWidth={maxWidth}
+                            bg="white"
+                            tabIndex="-1"
+                            data-id="modal-content-panel"
+                          >
+                            {getChild('Modal.Header', children, { onClose })}
+                            {getChild('Modal.Content', children, { open })}
+                            {getChild('Modal.Footer', children)}
+                          </Box>
+                        </StyledContent>
+                      </div>
                     )}
                   </Transition>
                 </StyledFocusLock>
