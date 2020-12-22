@@ -74,7 +74,7 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
         setIsOverflowing(false);
       }
     }
-  }, [wrapperRef, overflowRef, contentRect]);
+  }, [wrapperRef, overflowRef, contentRect, tabs]);
 
   // Constructs the tabs, their props and handles tab keyboard navigation
   const { tabMarkup, tabActions, focusContainerProps } = useTabConstructor({
