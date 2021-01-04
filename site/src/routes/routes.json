@@ -15,35 +15,48 @@
     "childRoutes": [
       {
         "path": "/design/tokens",
-        "label": "Tokens"
+        "label": "What are Tokens?",
+        "section": "Tokens"
       },
       {
         "path": "/design/color",
-        "label": "Color"
+        "label": "Color",
+        "section": "Tokens"
       },
       {
         "path": "/design/typography",
-        "label": "Typography"
+        "label": "Typography",
+        "section": "Tokens"
       },
       {
         "path": "/design/spacing",
-        "label": "Spacing"
+        "label": "Spacing",
+        "section": "Tokens"
       },
       {
         "path": "/design/elevation",
-        "label": "Elevation"
+        "label": "Elevation",
+        "section": "Tokens"
       },
       {
         "path": "/design/motion",
-        "label": "Motion"
-      },
-      {
-        "path": "/design/illustration",
-        "label": "Illustration"
+        "label": "Motion",
+        "section": "Tokens"
       },
       {
         "path": "/design/tokenreference",
-        "label": "Token API Reference"
+        "label": "API Reference",
+        "section": "Tokens"
+      },
+      {
+        "path": "/design/actionable-language",
+        "label": "Actionable Language",
+        "section": "Content"
+      },
+      {
+        "path": "/design/illustration",
+        "label": "Illustration",
+        "section": "Media"
       }
     ]
   },
