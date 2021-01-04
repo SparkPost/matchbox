@@ -83,6 +83,7 @@ export const arrow = props => {
 
 export const title = () => `
   font-size: ${tokens.fontSize_400};
+  line-height: ${tokens.lineHeight_400};
   font-weight: ${tokens.fontWeight_semibold};
 `;
 
