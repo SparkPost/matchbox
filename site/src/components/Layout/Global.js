@@ -18,7 +18,6 @@ export default `
     font-weight: 600;
     margin-top: 0;
   }
-
   
   h1.heading-link,
   h2.heading-link {
@@ -59,6 +58,10 @@ export default `
   ul,
   ol {
     margin-bottom: ${tokens.spacing_500};
+  }
+
+  ul ul, ol ol {
+    margin-bottom: 0;
   }
 
   li {
