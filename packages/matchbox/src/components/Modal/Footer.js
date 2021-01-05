@@ -37,7 +37,7 @@ const Footer = React.forwardRef(function Footer({ children }, ref) {
         {buttons && (
           <Box display="flex" justifyContent="space-between">
             <Inline space="300">
-              {buttons[0] && React.cloneElement(buttons[1], getButtonProps(0, buttons[0]))}
+              {buttons[0] && React.cloneElement(buttons[0], getButtonProps(0, buttons[0]))}
               {buttons[1] && React.cloneElement(buttons[1], getButtonProps(1, buttons[1]))}
             </Inline>
             {buttons[2] && (
