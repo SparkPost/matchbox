@@ -1,3 +1,30 @@
+## 4.7.2 (2021-01-05)
+
+#### Features
+
+- `matchbox`
+  - [#719](https://github.com/SparkPost/matchbox/pull/719) UX-408 Add alignY prop to Inline
+    ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#724](https://github.com/SparkPost/matchbox/pull/724) UX-410 Make empty state image container
+    responsive ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#729](https://github.com/SparkPost/matchbox/pull/729) Hotfix - Fix modal button clone
+    ([@jonambas](https://github.com/jonambas))
+  - [#726](https://github.com/SparkPost/matchbox/pull/726) UX-407 - Force tab layout shift when tabs
+    are dynamically updated ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.7.1 (2020-12-14)
 
 #### Bug Fixes
