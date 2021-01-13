@@ -13,7 +13,7 @@ const Image = React.forwardRef(function Image(props, userRef) {
       mx="auto"
       mb="400"
       width={['100%', '80%', '60%', '100%']}
-      maxWidth="35rem"
+      maxWidth="1150"
       height="auto"
       ref={userRef}
     >

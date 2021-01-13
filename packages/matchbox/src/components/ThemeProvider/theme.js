@@ -146,6 +146,7 @@ const theme = {
     900: tokens.sizing_900,
     1000: tokens.sizing_1000,
     1100: tokens.sizing_1100,
+    1150: tokens.sizing_1150,
     1200: tokens.sizing_1200,
     1300: tokens.sizing_1300,
     1350: tokens.sizing_1350,

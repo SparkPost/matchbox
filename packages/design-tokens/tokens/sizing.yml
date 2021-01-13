@@ -18,6 +18,9 @@ props:
   - name: sizing-1200
     value: 45rem
     comment: 720px
+  - name: sizing-1150
+    value: 35rem
+    comment: 560px
   - name: sizing-1100
     value: 28rem
     comment: 448px
