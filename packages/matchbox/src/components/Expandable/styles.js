@@ -1,6 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
 import css from '@styled-system/css';
-import { buttonReset } from '../../styles/helpers';
+import { buttonReset, focusOutline } from '../../styles/helpers';
 import styled from 'styled-components';
 
 export const StyledHeader = styled('button')`
@@ -76,7 +76,8 @@ export const arrow = props => {
 
     ${StyledHeader}:hover &, ${StyledHeader}:focus & {	
       background: ${tokens.color_blue_200};	
-      color: ${tokens.color_blue_800};	
+      color: ${tokens.color_blue_800};
+      ${focusOutline({ modifier: '&', radius: tokens.borderRadius_circle })}
     }
   `;
 };
