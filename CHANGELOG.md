@@ -1,3 +1,25 @@
+## 4.7.3 (2021-01-14)
+
+#### Enhancements
+
+- `matchbox`
+  - [#712](https://github.com/SparkPost/matchbox/pull/712) Closes
+    [#706](https://github.com/SparkPost/matchbox/issues/706) Add noticable focus indicator on
+    Expandable buttons ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#733](https://github.com/SparkPost/matchbox/pull/733) UX-420 Ensure Banner button is always on
+    top of contents ([@jonambas](https://github.com/jonambas))
+- `design-tokens`, `matchbox`
+  - [#732](https://github.com/SparkPost/matchbox/pull/732) UX-419 Reduce Empty State Image Size
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 ## 4.7.2 (2021-01-05)
 
 #### Features
