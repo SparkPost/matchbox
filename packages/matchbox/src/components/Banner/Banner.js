@@ -101,7 +101,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
   }, [action, actions]);
 
   const dismissMarkup = onDismiss ? (
-    <Box flex={['1', null, '0']} textAlign="right">
+    <Box flex={['1', null, '0']} textAlign="right" position="relative">
       <StyledDismiss
         as="button"
         onClick={onDismiss}
@@ -144,6 +144,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       {...rest}
       ref={ref}
       tabIndex="-1"
+      overflow="hidden"
     >
       {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
