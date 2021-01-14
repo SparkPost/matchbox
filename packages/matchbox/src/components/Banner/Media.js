@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 
 const StyledMedia = styled(Box)`
+  pointer-events: none;
   figure,
   img,
   video {
