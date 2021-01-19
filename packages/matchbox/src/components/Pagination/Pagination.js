@@ -90,7 +90,7 @@ function Pagination(props) {
         buttons.push({
           content: `${currentIndex + 1}`,
           onClick: handlePageChange.bind(this, currentIndex),
-          flat: currentIndex === index ? false : true,
+          variant: currentIndex === index ? 'filled' : 'text',
           size: 'small',
           color: currentIndex === index ? 'blue' : 'gray',
           mx: '100',
@@ -145,11 +145,11 @@ function Pagination(props) {
   return (
     <Wrapper {...systemProps}>
       <Box display="inline-flex" alignItems="center">
-        <Pager.Previous flat onClick={handlePrevious} disabled={!hasPrevious} />
+        <Pager.Previous variant="text" onClick={handlePrevious} disabled={!hasPrevious} />
         {firstButton}
         <Box display="inline-block">{buttonMarkup}</Box>
         {lastButton}
-        <Pager.Next flat onClick={handleNext} disabled={!hasNext} />
+        <Pager.Next variant="text" onClick={handleNext} disabled={!hasNext} />
       </Box>
     </Wrapper>
   );
@@ -200,9 +200,9 @@ Pagination.propTypes = {
    */
   ...createPropTypes(margin.propNames),
 };
+
 Pagination.defaultProps = {
   currentPage: 1,
-  selectedColor: 'orange',
 };
 
 export default Pagination;
