@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box } from '../Box';
+import { Text } from '../Text';
 
 const Header = React.forwardRef(function Header(props, userRef) {
+  const { as, looksLike } = props;
+
   return (
-    <Box
-      as="h1"
-      fontSize={['600', null, null, '700']}
+    <Text
+      as={as}
+      looksLike={looksLike}
+      fontSize={!looksLike ? ['600', null, null, '700'] : null}
+      lineHeight={!looksLike ? ['600', null, null, '700'] : null}
       mb={300}
       ref={userRef}
-      lineHeight={['600', null, null, '700']}
     >
       {props.children}
-    </Box>
+    </Text>
   );
 });
 
 Header.displayName = 'EmptyState.Header';
 
+Header.defaultProps = {
+  as: 'h1',
+};
+
 Header.propTypes = {
   children: PropTypes.node,
+  as: PropTypes.string,
+  looksLike: PropTypes.string,
 };
 
 export default Header;
