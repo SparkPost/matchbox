@@ -103,7 +103,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
           >
             <Box size="100%" ref={overlayRef} data-id="modal-overlay">
               <StyledWrapper>
-                <StyledFocusLock disabled={!open || isInIframe()}>
+                <StyledFocusLock disabled={!open || isInIframe()} returnFocus>
                   <Transition
                     mountOnEnter
                     unmountOnExit
