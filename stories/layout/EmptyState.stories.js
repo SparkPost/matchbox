@@ -4,12 +4,13 @@ import { action } from '@storybook/addon-actions';
 import { EmptyState } from '@sparkpost/matchbox';
 import TemplatesImage from '../storyHelpers/TemplatesImage';
 import AccountsImage from '@sparkpost/matchbox-media/images/Accounts.jpg';
+import AnalyticsImage from '@sparkpost/matchbox-media/images/Analytics.jpg';
 
 export default {
   title: 'Layout|Empty State',
 };
 
-export const BasicEmptyState = withInfo({ propTables: [EmptyState] })(() => (
+export const BasicEmptyState = () => (
   <EmptyState>
     <EmptyState.Header> Manage your email templates</EmptyState.Header>
     <EmptyState.Content>
@@ -27,7 +28,19 @@ export const BasicEmptyState = withInfo({ propTables: [EmptyState] })(() => (
     <EmptyState.Action>Create Template</EmptyState.Action>
     <EmptyState.Action variant="outline">Learn More</EmptyState.Action>
   </EmptyState>
-));
+);
+
+export const AnotherEmptyState = () => (
+  <EmptyState>
+    <EmptyState.Header> Manage your email templates</EmptyState.Header>
+    <EmptyState.Content>
+      <p>Build, test, preview and send your transmissions.</p>
+    </EmptyState.Content>
+    <EmptyState.Image src={AnalyticsImage} />
+    <EmptyState.Action>Create Template</EmptyState.Action>
+    <EmptyState.Action variant="outline">Learn More</EmptyState.Action>
+  </EmptyState>
+);
 
 export const LEGACY = withInfo()(() => (
   <EmptyState.LEGACY
