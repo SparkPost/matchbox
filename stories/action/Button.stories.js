@@ -243,7 +243,11 @@ export const TogglingLoading = () => {
     </Button>
   );
 };
-export const External = withInfo()(() => <Button to="http://google.com">Google</Button>);
+export const External = withInfo()(() => (
+  <Button to="http://google.com" external>
+    Google
+  </Button>
+));
 
 export const Group = withInfo()(() => (
   <Button.Group>
@@ -253,6 +257,15 @@ export const Group = withInfo()(() => (
       Sq Rt
     </Button>
   </Button.Group>
+));
+
+export const As = withInfo()(() => (
+  <Inline>
+    <Button color="blue" as="a" to="http://google.com">
+      As &lt;a&gt;
+    </Button>
+    <Button as="h2">As &lt;h2&gt;</Button>
+  </Inline>
 ));
 
 export const Icon = withInfo()(() => (
