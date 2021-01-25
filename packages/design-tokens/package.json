@@ -18,8 +18,7 @@
     "prepublishOnly": "npm run build",
     "build": "gulp && node scripts/scss.js && npm run format",
     "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
-    "clean": "rimraf ./dist",
-    "start": "npm run build && gulp serve"
+    "clean": "rimraf ./dist"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
