@@ -147,7 +147,8 @@
       "type: feature": "Features",
       "type: enhancement": "Enhancements",
       "type: bug": "Bug Fixes",
-      "type: breaking change": "Breaking Changes"
+      "type: breaking change": "Breaking Changes",
+      "type: security": "Security"
     }
   }
 }
