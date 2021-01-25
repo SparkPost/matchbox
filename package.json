@@ -121,7 +121,7 @@
     "react-test-renderer": "^16.8.6",
     "react-transition-group": "^4.3.0",
     "resize-observer-polyfill": "^1.5.1",
-    "start-server-and-test": "^1.10.0",
+    "start-server-and-test": "^1.11.7",
     "style-loader": "^1.0.0",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
