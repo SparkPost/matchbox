@@ -13,7 +13,7 @@ const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
       as={as}
       {...paddingContext}
       className={className}
-      pb="0"
+      pb={[0, null, 0]}
       fontSize="200"
       fontWeight="normal"
       lineHeight="200"

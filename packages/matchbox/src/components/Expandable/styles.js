@@ -9,7 +9,7 @@ export const StyledHeader = styled('button')`
   outline: none;
   ${({ variant }) =>
     css({
-      padding: variant === 'borderless' ? '400' : '300',
+      padding: variant === 'borderless' ? '450' : '300',
     })}
 
   display: flex;
@@ -39,8 +39,8 @@ export const StyledContentWrapper = styled('div')`
       display: ${display};
     `;
   }}
-  ${({ variant }) => css({ px: variant === 'borderless' ? '400' : '300' })}
-  ${({ variant }) => css({ pb: variant === 'borderless' ? '400' : '300' })}
+  ${({ variant }) => css({ px: variant === 'borderless' ? '450' : '300' })}
+  ${({ variant }) => css({ pb: variant === 'borderless' ? '450' : '300' })}
 `;
 
 export const expandable = props => {

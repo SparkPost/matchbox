@@ -19,7 +19,9 @@ const Header = React.forwardRef(function Header(props, userRef) {
       borderBottom={borderBottom ? '300' : 'none'}
       className={className}
       {...paddingContext}
-      pb={borderBottom ? null : '0'}
+      // The array is a hack to override responsive padding context
+      // First null to inherit padding context
+      pb={borderBottom ? null : [0, null, 0]}
       ref={userRef}
       tabIndex="-1"
     >

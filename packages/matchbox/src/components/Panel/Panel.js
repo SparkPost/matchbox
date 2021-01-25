@@ -38,7 +38,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
       >
         {accent && <Accent accentColor={accent} />}
         <PanelPaddingContext.Provider
-          value={{ p: contextP || contextPadding || '400', ...context }}
+          value={{ p: contextP || contextPadding || [400, null, 450], ...context }}
         >
           {children}
         </PanelPaddingContext.Provider>

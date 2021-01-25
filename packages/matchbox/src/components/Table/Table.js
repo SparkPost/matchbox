@@ -42,7 +42,7 @@ function Table(props) {
     children
   );
 
-  const { px = '400', py = '400', ...paddingProps } = pick(rest, padding.propNames);
+  const { px = '450', py = '400', ...paddingProps } = pick(rest, padding.propNames);
   const marginProps = pick(rest, margin.propNames);
 
   return (
