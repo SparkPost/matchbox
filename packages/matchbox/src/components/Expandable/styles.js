@@ -9,7 +9,8 @@ export const StyledHeader = styled('button')`
   outline: none;
   ${({ variant }) =>
     css({
-      padding: variant === 'borderless' ? '450' : '300',
+      px: variant === 'borderless' ? '450' : '300',
+      py: variant === 'borderless' ? '200' : '300',
     })}
 
   display: flex;
@@ -82,9 +83,15 @@ export const arrow = props => {
 };
 
 export const title = () => `
-  font-size: ${tokens.fontSize_400};
+  font-size: ${tokens.fontSize_300};
   line-height: ${tokens.lineHeight_400};
-  font-weight: ${tokens.fontWeight_semibold};
+  font-weight: ${tokens.fontWeight_normal};
+  color: ${tokens.color_gray_700};
+  transition: color ${tokens.motionDuration_fast};
+
+  ${StyledHeader}:hover &, ${StyledHeader}:focus & {	
+    color: ${tokens.color_blue_700};
+  }
 `;
 
 export const subtitle = () => `

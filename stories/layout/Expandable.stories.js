@@ -66,15 +66,25 @@ export const ControlledOpenState = withInfo()(() => {
   );
 });
 
-export const Borderless = withInfo()(() => (
+export const Borderless = () => (
   <Panel>
     <Panel.Section p="0">
-      <Expandable variant="borderless" defaultOpen={true} title="Slack" id="example">
+      <Expandable variant="borderless" defaultOpen={true} title="Metrics" id="example">
+        Content here
+      </Expandable>
+    </Panel.Section>
+    <Panel.Section p="0">
+      <Expandable variant="borderless" defaultOpen={false} title="Filters" id="example-2">
+        Content here
+      </Expandable>
+    </Panel.Section>
+    <Panel.Section p="0">
+      <Expandable variant="borderless" defaultOpen={false} title="Comparisons" id="example-3">
         Content here
       </Expandable>
     </Panel.Section>
   </Panel>
-));
+);
 
 export const WithAnAccent = withInfo()(() => (
   <Panel>
