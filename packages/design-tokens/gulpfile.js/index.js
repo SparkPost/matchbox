@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const gulpTheo = require('gulp-theo');
 const theo = require('theo');
-const browserSync = require('browser-sync').create();
 const deepMap = require('../formats/deepMap.scss');
 const map = require('../formats/map.scss');
 const metaJs = require('../formats/meta.js');
@@ -102,10 +101,5 @@ gulp.task('docs', () =>
     )
     .pipe(gulp.dest('docs')),
 );
-
-gulp.task('serve', () => {
-  browserSync.init({ server: { baseDir: 'docs' } });
-  gulp.watch('tokens/*.yml', gulp.task('docs')).on('change', browserSync.reload);
-});
 
 exports.default = gulp.series('deep-map', 'map', 'index', 'docs');
