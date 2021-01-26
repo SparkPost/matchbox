@@ -30,9 +30,6 @@
     "lintfix": "npm run lint -- --fix",
     "lint:css": "stylelint './packages/**/!(*.spec|*.test).js'",
     "precommit": "lint-staged",
-    "coverage:all": "npm run coverage:copy && npm run coverage:merge",
-    "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
-    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --report-dir coverage",
     "changelog": "dotenv lerna-changelog 2>&1 | tee .temp_changes.md && bash scripts/changelog.sh"
   },
   "lint-staged": {
@@ -132,14 +129,6 @@
     "stylelint-processor-styled-components": "^1.10.0",
     "theo": "^8.1.5",
     "webpack": "^4.41.2"
-  },
-  "nyc": {
-    "include": [
-      "packages/matchbox/src/components/**/*.js",
-      "packages/matchbox/src/helpers/**/*.js",
-      "packages/matchbox-icons/src/IconBase/**/*.js"
-    ],
-    "report-dir": "cypress-coverage"
   },
   "changelog": {
     "cacheDir": ".changelog",
