@@ -7,6 +7,14 @@ describe('EmptyState Components', () => {
   it('renders header correctly', () => {
     const wrapper = subject({ children: <EmptyState.Header>The Header</EmptyState.Header> });
     expect(wrapper.text()).toEqual('The Header');
+    expect(wrapper.find('h1')).toExist();
+  });
+
+  it('renders header with and as prop correctly', () => {
+    const wrapper = subject({
+      children: <EmptyState.Header as="h3">The Header</EmptyState.Header>,
+    });
+    expect(wrapper.find('h3')).toExist();
   });
 
   it('renders content correctly', () => {

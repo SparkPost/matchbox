@@ -12,7 +12,9 @@ export default {
 
 export const BasicEmptyState = () => (
   <EmptyState>
-    <EmptyState.Header> Manage your email templates</EmptyState.Header>
+    <EmptyState.Header as="h2" looksLike="h2">
+      Manage your email templates
+    </EmptyState.Header>
     <EmptyState.Content>
       <p>Build, test, preview and send your transmissions.</p>
       <EmptyState.List>
