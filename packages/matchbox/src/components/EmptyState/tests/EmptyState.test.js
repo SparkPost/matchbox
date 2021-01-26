@@ -1,5 +1,6 @@
 import React from 'react';
 import EmptyState from '../EmptyState';
+import { Picture } from '../../Picture';
 
 describe('EmptyState Components', () => {
   const subject = props => global.mountStyled(<EmptyState {...props} />);
@@ -25,6 +26,19 @@ describe('EmptyState Components', () => {
   it('renders with an image', () => {
     let wrapper = subject({ children: <EmptyState.Image src="/test.jpg" /> });
     expect(wrapper.find('img').props().src).toEqual('/test.jpg');
+  });
+
+  it('renders media correctly', () => {
+    let wrapper = subject({
+      children: (
+        <EmptyState.Media>
+          <Picture seeThrough>
+            <Picture.Image src="/mediatest.jpg" />
+          </Picture>
+        </EmptyState.Media>
+      ),
+    });
+    expect(wrapper.find('img').props().src).toEqual('/mediatest.jpg');
   });
 
   it('renders with actions', () => {
