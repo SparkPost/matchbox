@@ -26,6 +26,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
     title,
     Component,
     component,
+    as,
     external,
     onClick,
     role,
@@ -34,7 +35,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
     ...rest
   } = props;
 
-  const WrapperComponent = component || Component;
+  const WrapperComponent = as || component || Component;
   const linkTitle = external && !title ? 'Opens in a new tab' : title;
   const linkRole = role ? role : !!onClick ? 'button' : null;
 
@@ -103,8 +104,9 @@ UnstyledLink.propTypes = {
   disabled: PropTypes.bool,
   title: PropTypes.string,
   external: PropTypes.bool,
-  component: PropTypes.elementType,
-  Component: deprecate(PropTypes.elementType, 'Use "component" instead'),
+  component: deprecate(PropTypes.elementType, 'Use "as" instead'),
+  Component: deprecate(PropTypes.elementType, 'Use "as" instead'),
+  as: PropTypes.elementType,
   children: PropTypes.node,
   onClick: PropTypes.func,
   role: PropTypes.string,

@@ -22,8 +22,8 @@ export const WithAnExternalLink = withInfo()(() => (
 
 export const WithWrapperComponents = withInfo()(() => (
   <>
-    <UnstyledLink component={({ children }) => <a>{children}</a>}>A Function</UnstyledLink>
-    <UnstyledLink component={DemoWrapper}>A Component</UnstyledLink>
+    <UnstyledLink as={({ children }) => <a>{children}</a>}>A Function</UnstyledLink>
+    <UnstyledLink as={DemoWrapper}>A Component</UnstyledLink>
   </>
 ));
 

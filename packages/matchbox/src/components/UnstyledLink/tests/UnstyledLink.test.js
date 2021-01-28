@@ -32,14 +32,20 @@ describe('UnstyledLink', () => {
     expect(wrapper.prop('role')).toBeUndefined();
   });
 
-  it('renders with wrapper component', () => {
+  it('supports deprecated wrapper component', () => {
     let wrapper = subject({ component: 'button' });
     expect(wrapper.find('button').text()).toEqual('Hola!');
     expect(wrapper.prop('role')).toBeUndefined();
   });
 
-  it('renders with wrapper component with a role', () => {
-    let wrapper = subject({ component: 'button', role: 'test-role' });
+  it('renders with "as" component', () => {
+    let wrapper = subject({ as: 'button' });
+    expect(wrapper.find('button').text()).toEqual('Hola!');
+    expect(wrapper.prop('role')).toBeUndefined();
+  });
+
+  it('renders with "as" wrapper component with a role', () => {
+    let wrapper = subject({ as: 'button', role: 'test-role' });
     expect(wrapper.find('button').text()).toEqual('Hola!');
     expect(wrapper.find('button').prop('role')).toEqual('test-role');
   });
