@@ -12,7 +12,7 @@ import { getWindow } from '../helpers/window';
  * return <div>{prefersColorScheme}</div>
  */
 
-const QUERY = '(prefers-reduced-motion: dark)';
+const QUERY = '(prefers-color-scheme: dark)';
 
 function usePrefersColorScheme() {
   const environment = getWindow();
