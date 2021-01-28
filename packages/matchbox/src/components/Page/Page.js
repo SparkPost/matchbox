@@ -11,7 +11,6 @@ import { Popover } from '../Popover';
 import { UnstyledLink } from '../UnstyledLink';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { filterByVisible } from '../../helpers/array';
-import { tokens } from '@sparkpost/design-tokens';
 
 const StyledLink = styled(UnstyledLink)`
   text-decoration: none;
@@ -19,9 +18,9 @@ const StyledLink = styled(UnstyledLink)`
 
 function Breadcrumb({ content, ...rest }) {
   return (
-    <StyledLink {...rest} fontSize="200" lineHeight="450" fontWeight="medium">
-      <Box as="span" display="inline-flex" align-items="center" lineHeight={tokens.spacing_450}>
-        <ChevronLeft size={tokens.spacing_450} />
+    <StyledLink {...rest} fontSize="200" lineHeight="80px" fontWeight="medium">
+      <Box as="span" display="inline-flex" alignItems="center">
+        <ChevronLeft size="20" />
         {content}
       </Box>
     </StyledLink>
