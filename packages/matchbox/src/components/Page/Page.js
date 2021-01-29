@@ -18,9 +18,9 @@ const StyledLink = styled(UnstyledLink)`
 
 function Breadcrumb({ content, ...rest }) {
   return (
-    <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
-      <Box as="span" display="inline-flex" align-items="center">
-        <ChevronLeft size={20} />
+    <StyledLink {...rest} fontSize="200" lineHeight="80px" fontWeight="medium">
+      <Box as="span" display="inline-flex" alignItems="center">
+        <ChevronLeft size="20" />
         {content}
       </Box>
     </StyledLink>
