@@ -31,7 +31,7 @@ const Tab = React.forwardRef(function Tab(props, ref) {
   return (
     <StyledTab
       aria-selected={selected === index}
-      component={wrapper}
+      as={wrapper}
       selected={selected === index}
       fitted={fitted}
       ref={ref}
