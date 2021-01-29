@@ -227,7 +227,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['filled', 'outline', 'text', 'mutedOutline']),
 
   // Deprecated props
-  Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
+  Component: deprecate(PropTypes.elementType, 'Use `as` instead'),
   destructive: deprecate(PropTypes.bool, 'Use the `color` prop instead'),
   flat: deprecate(PropTypes.bool, 'Use `variant` instead'),
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
