@@ -64,7 +64,6 @@
     "react": "^16.8.6",
     "react-day-picker": "^7.4.8",
     "react-dom": "^16.8.6",
-    "react-syntax-highlighter": "^12.2.1",
     "rimraf": "^2.6.2",
     "rollup": "^1.25.1",
     "rollup-plugin-babel": "^4.3.3",
