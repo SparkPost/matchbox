@@ -9,7 +9,6 @@
     "start:site": "npm run build:tokens && cd site && npm run develop",
     "start:storybook": "npm run build:tokens && start-storybook -p 9001 -c .storybook",
     "start:storybook:static": "build-storybook --quiet && http-server ./storybook-static -p 9001 --silent",
-    "start:tokens": "lerna exec --scope @sparkpost/design-tokens npm run start",
     "start:playroom": "npm run clean && NODE_ENV=development playroom start",
     "prebuild": "lerna bootstrap",
     "build": "lerna run build",
@@ -83,7 +82,7 @@
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-styled-components": "^1.11.1",
     "babel-preset-react-app": "^9.0.2",
-    "browser-sync": "^2.26.10",
+    "browser-sync": "^2.26.14",
     "classnames": "^2.2.5",
     "coveralls": "^3.0.1",
     "css-loader": "^3.2.0",
@@ -122,7 +121,7 @@
     "react-test-renderer": "^16.8.6",
     "react-transition-group": "^4.3.0",
     "resize-observer-polyfill": "^1.5.1",
-    "start-server-and-test": "^1.10.0",
+    "start-server-and-test": "^1.11.7",
     "style-loader": "^1.0.0",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
@@ -147,7 +146,8 @@
       "type: feature": "Features",
       "type: enhancement": "Enhancements",
       "type: bug": "Bug Fixes",
-      "type: breaking change": "Breaking Changes"
+      "type: breaking change": "Breaking Changes",
+      "type: security": "Security"
     }
   }
 }
