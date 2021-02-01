@@ -51,7 +51,7 @@ Cell.displayName = 'Table.Cell';
 
 const HeaderCell = ({ value, children, className, ...rest }) => {
   return (
-    <StyledHeaderCell p="500" className={className} {...rest}>
+    <StyledHeaderCell p="450" className={className} {...rest}>
       {value || children}
     </StyledHeaderCell>
   );

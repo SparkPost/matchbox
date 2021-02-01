@@ -49,16 +49,6 @@ describe('Expandable component', () => {
     expect(wrapper.find(Expandable.Icon).text()).toEqual('test');
   });
 
-  it('should render borderless padding', () => {
-    const wrapper = subject({
-      variant: 'borderless',
-      defaultOpen: true,
-    });
-
-    expect(wrapper.find(Expandable.ContentWrapper)).toHaveStyleRule('padding-left', '1rem');
-    expect(wrapper.find(Expandable.Header)).toHaveStyleRule('padding', '1rem');
-  });
-
   describe('uncontrolled', () => {
     it('should use default defaultOpen on first render', () => {
       const wrapper = subject();

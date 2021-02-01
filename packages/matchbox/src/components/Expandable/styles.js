@@ -7,9 +7,10 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  ${({ variant }) =>
+  ${() =>
     css({
-      padding: variant === 'borderless' ? ['400', null, '500'] : '300',
+      px: '450',
+      py: '200',
     })}
 
   display: flex;
@@ -39,8 +40,7 @@ export const StyledContentWrapper = styled('div')`
       display: ${display};
     `;
   }}
-  ${({ variant }) => css({ px: variant === 'borderless' ? ['400', null, '500'] : '300' })}
-  ${({ variant }) => css({ pb: variant === 'borderless' ? ['400', null, '500'] : '300' })}
+  ${() => css({ px: '450', pb: '450' })}
 `;
 
 export const expandable = props => {
@@ -82,9 +82,16 @@ export const arrow = props => {
   `;
 };
 
-export const title = () => `
-  font-size: ${tokens.fontSize_400};
-  font-weight: ${tokens.fontWeight_semibold};
+export const title = ({ variant }) => `
+  font-size: ${variant === 'borderless' ? tokens.fontSize_300 : tokens.fontSize_400};
+  font-weight: ${variant === 'borderless' ? tokens.fontWeight_normal : tokens.fontWeight_semibold};
+  color: ${variant === 'borderless' ? tokens.color_gray_700 : tokens.color_gray_900};
+  line-height: ${tokens.lineHeight_400};
+  transition: color ${tokens.motionDuration_fast};
+
+  ${StyledHeader}:hover &, ${StyledHeader}:focus & {	
+    color: ${tokens.color_blue_700};
+  }
 `;
 
 export const subtitle = () => `
