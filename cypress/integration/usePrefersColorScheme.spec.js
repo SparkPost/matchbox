@@ -2,7 +2,15 @@
 
 describe('usePrefersColorScheme hook', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/utility-useprefersrcolorscheme--example-usage');
+    cy.visit('/iframe.html?path=/story/utility-usepreferscolorscheme--example-usage', {
+      onBeforeLoad(win) {
+        cy.stub(win, 'matchMedia')
+          .withArgs('(prefers-color-scheme: dark)')
+          .returns({
+            matches: true,
+          });
+      },
+    });
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
   });

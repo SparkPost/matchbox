@@ -28,10 +28,14 @@ function usePrefersColorScheme() {
       setPrefersColorScheme(event.matches);
     };
 
-    mql.addListener(listener);
+    if (mql.addListener) {
+      mql.addListener(listener);
+    }
 
     return () => {
-      mql.removeListener(listener);
+      if (mql.removeListener) {
+        mql.removeListener(listener);
+      }
     };
   });
 
