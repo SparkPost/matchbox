@@ -136,6 +136,11 @@
         "section": "Form"
       },
       {
+        "path": "/components/toggle",
+        "label": "Toggle",
+        "section": "Form"
+      },
+      {
         "path": "/components/listbox",
         "label": "ListBox",
         "tag": "new",
