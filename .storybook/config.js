@@ -20,8 +20,10 @@ setDefaults({
 });
 
 storybook.addDecorator(storyFn => (
-  <ThemeProvider>
-    <Box p="700">{storyFn()}</Box>
-  </ThemeProvider>
+  <React.StrictMode>
+    <ThemeProvider>
+      <Box p="700">{storyFn()}</Box>
+    </ThemeProvider>
+  </React.StrictMode>
 ));
 storybook.configure(require.context('../stories', true, /\.stories\.js$/), module);

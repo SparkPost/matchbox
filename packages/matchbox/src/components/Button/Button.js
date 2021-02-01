@@ -106,6 +106,8 @@ const Button = React.forwardRef(function Button(props, ref) {
     ...rest // TODO remove spreading of unknown props
   } = props;
 
+  const transitionRef = React.useRef();
+
   const systemProps = pick(rest, system.propNames);
   const componentProps = omit(rest);
 
@@ -123,9 +125,9 @@ const Button = React.forwardRef(function Button(props, ref) {
 
   const loadingIndicator = React.useMemo(() => {
     return (
-      <Transition mountOnEnter unmountOnExit in={loading} timeout={0}>
+      <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
         {state => (
-          <StyledLoader state={state}>
+          <StyledLoader state={state} ref={transitionRef}>
             <Spinner
               color={
                 isSolid && color === 'white'

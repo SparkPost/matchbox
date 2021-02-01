@@ -59,6 +59,7 @@ function Tooltip(props) {
       ...rest
     } = props;
 
+    const transitionRef = React.useRef();
     const systemProps = pick(rest);
     const positionTop = preferredDirection.top || (top && !forcePosition);
     const positionLeft = preferredDirection.left || (left && !forcePosition);
@@ -77,6 +78,7 @@ function Tooltip(props) {
           enter: secondsToMS(tokens.motionDuration_medium),
           exit: 0,
         }}
+        nodeRef={transitionRef}
       >
         {state => (
           <StyledTooltipContainer
@@ -91,6 +93,7 @@ function Tooltip(props) {
             mb={positionTop ? '100' : '0'}
             visible={!disabled && show}
             state={state}
+            ref={transitionRef}
           >
             <StyledContent
               position="relative"

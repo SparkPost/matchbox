@@ -29,7 +29,7 @@ const StyledContent = styled('div')`
   })}
 `;
 
-const Content = React.forwardRef(function Content(props, ref) {
+const Content = React.forwardRef(function Content(props, userRef) {
   const {
     children,
     open,
@@ -43,6 +43,8 @@ const Content = React.forwardRef(function Content(props, ref) {
     style,
     ...rest
   } = props;
+
+  const transitionRef = React.useRef();
 
   const systemProps = pick(rest);
 
@@ -64,13 +66,14 @@ const Content = React.forwardRef(function Content(props, ref) {
         enter: 0,
         exit: secondsToMS(tokens.motionDuration_fast),
       }}
+      nodeRef={transitionRef}
     >
       {state => (
         <Box
           data-id="popover-focus-wrapper"
           position="relative"
           height="100%"
-          ref={ref}
+          ref={userRef}
           tabIndex="-1"
         >
           <StyledContent
@@ -84,6 +87,7 @@ const Content = React.forwardRef(function Content(props, ref) {
             state={state}
             {...style}
             {...systemProps}
+            ref={transitionRef}
           >
             <div>{children}</div>
           </StyledContent>
