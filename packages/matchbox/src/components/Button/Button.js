@@ -94,6 +94,7 @@ const Button = React.forwardRef(function Button(props, ref) {
     to,
     Component, // Deprecate in favor of component
     component,
+    as,
     external,
     title,
 
@@ -111,8 +112,8 @@ const Button = React.forwardRef(function Button(props, ref) {
   const systemProps = pick(rest, system.propNames);
   const componentProps = omit(rest);
 
-  // Polyfills deprecrated 'Component' prop
-  const WrapperComponent = component || Component;
+  // Polyfills deprecrated 'Component' prop — use as instead of component
+  const WrapperComponent = as || component || Component;
 
   // Polyfills to be deprecrated 'primary' and 'destructive' prop
   const buttonColor = primary ? 'blue' : destructive ? 'red' : color;
@@ -196,7 +197,11 @@ const Button = React.forwardRef(function Button(props, ref) {
   }
 
   return (
-    <StyledButton as="button" type={submit ? 'submit' : 'button'} {...sharedProps}>
+    <StyledButton
+      as={WrapperComponent || 'button'}
+      type={submit ? 'submit' : 'button'}
+      {...sharedProps}
+    >
       {childrenMarkup}
       {loadingIndicator}
     </StyledButton>
@@ -208,9 +213,10 @@ Button.Group = Group;
 Button.Icon = Icon;
 
 Button.propTypes = {
+  as: PropTypes.elementType,
   children: PropTypes.node,
   color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red', 'white']),
-  component: PropTypes.elementType,
+  component: deprecate(PropTypes.elementType, 'Use `as` instead'),
   disabled: PropTypes.bool,
   external: PropTypes.bool,
   fullWidth: PropTypes.bool,
@@ -223,7 +229,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['filled', 'outline', 'text', 'mutedOutline']),
 
   // Deprecated props
-  Component: deprecate(PropTypes.elementType, 'Use `component` instead'),
+  Component: deprecate(PropTypes.elementType, 'Use `as` instead'),
   destructive: deprecate(PropTypes.bool, 'Use the `color` prop instead'),
   flat: deprecate(PropTypes.bool, 'Use `variant` instead'),
   primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),

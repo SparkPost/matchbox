@@ -95,8 +95,8 @@ describe('Button', () => {
       assert: [['title', 'test-title']],
     },
     {
-      name: 'to with component',
-      props: { to: '/withcomp', component: () => <div /> },
+      name: 'to with as',
+      props: { to: '/withcomp', as: () => <div /> },
       assert: ['href', null],
     },
   ];
@@ -139,7 +139,7 @@ it('renders with with a ref', () => {
 describe('wrappers', () => {
   it('should render a custom wrapper', () => {
     const wrapper = global.mountStyled(
-      <Button to="/test" component="span">
+      <Button to="/test" as="span">
         Hola!
       </Button>,
     );
@@ -151,7 +151,7 @@ describe('wrappers', () => {
 describe('Button.Icon', () => {
   it('should render correctly', () => {
     const wrapper = global.mountStyled(
-      <Button to="/test" component="span">
+      <Button to="/test" as="span">
         Hola!
         <Button.Icon as={Assessment} />
       </Button>,
@@ -162,7 +162,7 @@ describe('Button.Icon', () => {
 
   it('should renders label and size correctly', () => {
     const wrapper = global.mountStyled(
-      <Button to="/test" component="span">
+      <Button to="/test" as="span">
         Hola!
         <Button.Icon as={Assessment} label="test-label" size={24} />
       </Button>,
