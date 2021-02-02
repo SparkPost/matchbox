@@ -29,9 +29,6 @@
     "lintfix": "npm run lint -- --fix",
     "lint:css": "stylelint './packages/**/!(*.spec|*.test).js'",
     "precommit": "lint-staged",
-    "coverage:all": "npm run coverage:copy && npm run coverage:merge",
-    "coverage:copy": "mkdir coverage || true && cp cypress-coverage/coverage-final.json coverage/from-cypress.json && cp jest-coverage/coverage-final.json coverage/from-jest.json",
-    "coverage:merge": "nyc merge coverage && mv coverage.json .nyc_output/out.json && nyc report --reporter lcov --report-dir coverage",
     "changelog": "dotenv lerna-changelog 2>&1 | tee .temp_changes.md && bash scripts/changelog.sh"
   },
   "lint-staged": {
@@ -65,7 +62,6 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
-    "@cypress/code-coverage": "^3.7.5",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-info": "^5.3.18",
     "@storybook/addon-links": "^5.2.5",
@@ -79,12 +75,10 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.6",
-    "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-styled-components": "^1.11.1",
     "babel-preset-react-app": "^9.0.2",
     "browser-sync": "^2.26.14",
     "classnames": "^2.2.5",
-    "coveralls": "^3.0.1",
     "css-loader": "^3.2.0",
     "cypress": "^3.8.3",
     "cypress-plugin-tab": "^1.0.1",
@@ -114,6 +108,7 @@
     "lerna": "^3.21.0",
     "lerna-changelog": "^1.0.1",
     "lint-staged": "^7.1.0",
+    "lodash.memoize": "^4.1.2",
     "playroom": "^0.18.1",
     "plugin-error": "^1.0.1",
     "postcss-loader": "^3.0.0",
@@ -131,14 +126,6 @@
     "stylelint-processor-styled-components": "^1.10.0",
     "theo": "^8.1.5",
     "webpack": "^4.41.2"
-  },
-  "nyc": {
-    "include": [
-      "packages/matchbox/src/components/**/*.js",
-      "packages/matchbox/src/helpers/**/*.js",
-      "packages/matchbox-icons/src/IconBase/**/*.js"
-    ],
-    "report-dir": "cypress-coverage"
   },
   "changelog": {
     "cacheDir": ".changelog",
