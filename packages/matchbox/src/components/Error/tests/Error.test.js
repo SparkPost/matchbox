@@ -14,5 +14,6 @@ describe('Error', () => {
         .first()
         .prop('className'),
     ).toContain('test-class');
+    expect(wrapper).toHaveAttributeValue('data-id', 'error-message');
   });
 });
