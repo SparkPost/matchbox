@@ -198,6 +198,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               textAlign="left"
               fullWidth
               variant="mutedOutline"
+              aria-invalid={!!error}
               aria-haspopup="listbox"
               aria-pressed={open}
               aria-expanded={open}
@@ -230,7 +231,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
       </Popover>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
-      <input type="hidden" name={name} value={currentValue} aria-invalid={!!error} />
+      <input type="hidden" name={name} value={currentValue} />
     </StyledWrapper>
   );
 });
