@@ -202,7 +202,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               aria-haspopup="listbox"
               aria-pressed={open}
               aria-expanded={open}
-              aria-labelledby={id}
               onClick={togglePopover}
               onKeyDown={activatorKeyDown}
               disabled={disabled}
