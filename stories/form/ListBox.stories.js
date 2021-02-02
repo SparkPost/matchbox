@@ -22,7 +22,7 @@ export const BasicListbox = withInfo()(() => (
 
 export const PrintableCharacter = withInfo()(() => (
   <>
-    <ListBox id="listbox-1" defaultValue="bravo" label="Select an option">
+    <ListBox id="listbox-1" defaultValue="bravo" label="Select an option" name="listbox-test">
       <ListBox.Option value="alpha">Alpha</ListBox.Option>
       <ListBox.Option value="bravo">Bravo</ListBox.Option>
       <ListBox.Option value="charlie">Charlie</ListBox.Option>
