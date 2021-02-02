@@ -58,21 +58,23 @@ const StyledInput = styled(Box)`
 `;
 
 const SelectBox = React.forwardRef(function SelectBox(props, userRef) {
+  const { hasError, disabled, ...rest } = props;
   return (
     <StyledInputWrapper>
       <StyledInput
+        aria-invalid={!!hasError}
         as="select"
-        disabled={props.disabled}
+        disabled={disabled}
         width="100%"
-        border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
+        border={hasError ? `1px solid ${tokens.color_red_700}` : '400'}
         borderRadius="100"
-        bg={props.disabled ? 'gray.200' : 'white'}
+        bg={disabled ? 'gray.200' : 'white'}
         pl="400"
         pr="600"
         lineHeight="2.5rem"
         height="2.5rem"
         color="gray.900"
-        {...props}
+        {...rest}
         ref={userRef}
       />
     </StyledInputWrapper>

@@ -31,22 +31,25 @@ const StyledInput = styled(Box)`
 `;
 
 const FieldBox = React.forwardRef(function FieldBox(props, userRef) {
+  const { hasError, disabled, height, lineHeight, required, py, ...rest } = props;
+
   return (
     <StyledInputWrapper>
       <StyledInput
+        aria-invalid={!!hasError}
         as="input"
         px="400"
-        {...props}
-        disabled={props.disabled}
+        {...rest}
+        disabled={disabled}
         width="100%"
-        border={props.hasError ? `1px solid ${tokens.color_red_700}` : '400'}
+        border={hasError ? `1px solid ${tokens.color_red_700}` : '400'}
         borderRadius="100"
-        bg={props.disabled ? 'gray.200' : 'white'}
+        bg={disabled ? 'gray.200' : 'white'}
         color="gray.900"
-        height={props.height}
-        lineHeight={props.lineHeight}
-        py={props.py}
-        required={props.required}
+        height={height}
+        lineHeight={lineHeight}
+        py={py}
+        required={required}
         ref={userRef}
       />
     </StyledInputWrapper>
@@ -138,6 +141,7 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
     height: multiline ? 'auto' : '2.5rem',
     lineHeight: multiline ? '300' : '2.5rem',
     py: multiline ? '300' : '0',
+    hasError: !!error,
     name,
     id,
     type,
