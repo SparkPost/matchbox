@@ -43,6 +43,7 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
     <Wrapper {...systemProps}>
       <StyledLabel error={error} htmlFor={id} disabled={disabled}>
         <StyledInput
+          aria-invalid={!!error}
           id={id}
           name={name}
           value={value}

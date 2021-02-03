@@ -1,13 +1,14 @@
-/// <reference types="Cypress" />
-
 describe('The Select component', () => {
-  beforeEach(() => {
-    cy.visit('/iframe.html?selectedKind=Form%7CSelect&selectedStory=Basic%20Select&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel');
+  it('focuses on the `<select/>` element when clicking on the `<label>`', () => {
+    cy.visit('/iframe.html?id=form-select--basic-select');
+    cy.get('label').click();
+    cy.get('select').should('have.focus');
+    cy.get('[aria-invalid="false"]').should('exist');
   });
 
-  it('focuses on the `<select/>` element when clicking on the `<label>`', () => {
-    cy.get('label').click();
-
-    cy.get('select').should('have.focus');
+  it('renders with an error correctly', () => {
+    cy.visit('/iframe.html?id=form-select--with-help-text-and-error');
+    cy.get('[aria-invalid="true"]').should('exist');
+    cy.findAllByText('You forgot to select').should('exist');
   });
 });

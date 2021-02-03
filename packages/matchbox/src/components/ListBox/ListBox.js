@@ -39,6 +39,8 @@ const StyledButton = styled(Button)`
   font-weight: ${props => props.theme.fontWeights['medium']};
   background: ${props => (props.disabled ? props.theme.colors.gray['200'] : '')};
   padding-right: ${props => props.theme.space[650]};
+  border: ${props =>
+    props.hasError ? `1px solid ${props.theme.colors.red[700]}` : `${props.theme.borders[400]}`};
   &:hover {
     background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
   }
@@ -76,6 +78,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     defaultValue,
     value,
     onChange,
+    name,
     ...rest
   } = props;
 
@@ -195,13 +198,14 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               textAlign="left"
               fullWidth
               variant="mutedOutline"
+              aria-invalid={!!error}
               aria-haspopup="listbox"
               aria-pressed={open}
               aria-expanded={open}
-              aria-labelledby={id}
               onClick={togglePopover}
               onKeyDown={activatorKeyDown}
               disabled={disabled}
+              hasError={!!error}
               {...componentProps}
               {...describedBy}
               ref={assignRefs}
@@ -226,6 +230,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
       </Popover>
       {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
+      <input type="hidden" name={name} value={currentValue} />
     </StyledWrapper>
   );
 });
@@ -241,6 +246,7 @@ ListBox.propTypes = {
   errorInLabel: PropTypes.bool,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
+  name: PropTypes.string,
   optional: PropTypes.bool,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,

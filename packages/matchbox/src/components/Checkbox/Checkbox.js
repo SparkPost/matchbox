@@ -56,6 +56,7 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
     <Wrapper {...systemProps}>
       <StyledLabel error={error} htmlFor={id} disabled={disabled}>
         <StyledInput
+          aria-invalid={!!error}
           id={id}
           value={value}
           defaultChecked={defaultChecked}
