@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start:site": "npm run build:tokens && cd site && npm run develop",
+    "start:libby": "npm run build:tokens && NODE_ENV=development libby start",
     "start:storybook": "npm run build:tokens && start-storybook -p 9001 -c .storybook",
     "start:storybook:static": "build-storybook --quiet && http-server ./storybook-static -p 9001 --silent",
     "start:playroom": "npm run clean && NODE_ENV=development playroom start",
@@ -60,6 +61,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "@sparkpost/libby-react": "0.0.23",
     "@testing-library/cypress": "^5.3.1",
     "autoprefixer": "^8.4.1",
     "babel-eslint": "^10.0.3",
