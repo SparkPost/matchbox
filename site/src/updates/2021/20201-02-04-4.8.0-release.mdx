@@ -1,0 +1,57 @@
+---
+title: Matchbox 4.8.0
+date: 2021-02-04
+published: true
+category: Release Notes
+---
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v4.8.0">view the release notes on Github</ExternalLink>.
+
+### New Features
+
+##### usePrefersColorScheme
+
+A new hook that returns the user's preferred color scheme.
+
+```jsx
+import { usePrefersColorScheme } from '@sparkpost/matchbox';
+
+export const ExampleUsage = () => {
+  // Returns 'dark' | 'light'
+  const prefersColorScheme = usePrefersColorScheme();
+
+  return <>{prefersColorScheme}</>;
+};
+```
+
+##### EmptyState
+
+Headers now support `as` and `looksLike`. And a new component, `EmptyState.Media`, has been added that supports both `Video` and `Picture` components, and is meant to replace `EmptyState.Image`.
+
+```jsx
+import { EmptyState, Video } from '@sparkpost/matchbox';
+
+<EmptyState>
+  <EmptyState.Header as="h2" looksLike="h3">Title</><EmptyState.Header>
+  <EmptyState.Media>
+    <Video loop>
+      <Video.Source src={Webm} type="video/webm" />
+      <Video.Source src={Mp4} type="video/mp4" />
+    </Video>
+  </EmptyState.Media>
+</EmptyState>;
+```
+
+##### Enhancements
+
+- The Error component now hardcodes `data-id="error-message"`.
+- Checkbox, Radio, Select, Textfield, and ListBox now automatically set `aria-invalid` when an error is present.
+- Panel Table and borderless Expandable padding has been decreased.
+- Button and UnstyledLink now support `as` and have deprecated `component`.
+
+##### Other Fixes
+
+- Modals will now return focus to the triggered element when closing.
+- Chevrons in `Page` breadcrumbs are now vertically aligned.
+- Pagination component no longer emits deprecated prop warnings.
+- Resolves a nunmber of security vulnerabilities.
