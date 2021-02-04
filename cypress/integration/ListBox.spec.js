@@ -101,6 +101,7 @@ describe('The ListBox component', () => {
       cy.focused().should('have.text', 'Charlie');
       cy.get('[name="listbox-test"]').should('have.value', 'charlie');
       cy.get('[aria-invalid="false"]').should('exist');
+      cy.get('[data-id="error-message"]').should('not.exist');
     });
   });
 
@@ -111,6 +112,7 @@ describe('The ListBox component', () => {
 
     it('renders correctly', () => {
       cy.get('[aria-invalid="true"]').should('exist');
+      cy.get('[data-id="error-message"]').should('exist');
       cy.findAllByText('You must select an option').should('exist');
     });
   });
