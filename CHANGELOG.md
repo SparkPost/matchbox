@@ -1,3 +1,41 @@
+
+## 4.8.0 (2021-02-04)
+
+#### Features
+* `matchbox`
+  * [#745](https://github.com/SparkPost/matchbox/pull/745) UX-260 Create usePrefersColorScheme hook ([@logansparlin](https://github.com/logansparlin))
+
+#### Enhancements
+* `matchbox`
+  * [#753](https://github.com/SparkPost/matchbox/pull/753) UX-439 Add data-id to Error component ([@jonambas](https://github.com/jonambas))
+  * [#751](https://github.com/SparkPost/matchbox/pull/751) UX-432 Add aria-invalid to Checkbox Radio Select Textfield and ListBox ([@jonambas](https://github.com/jonambas))
+  * [#741](https://github.com/SparkPost/matchbox/pull/741) UX-409 & UX-423 Update Panel padding to 450, Update Expandable styling ([@jonambas](https://github.com/jonambas))
+  * [#743](https://github.com/SparkPost/matchbox/pull/743) UX-422 add new EmptyState.Media to allow Video or Picture elements ([@logansparlin](https://github.com/logansparlin))
+  * [#747](https://github.com/SparkPost/matchbox/pull/747) UX-433 UnstyledLink add 'as' prop and deprecate 'component' ([@logansparlin](https://github.com/logansparlin))
+  * [#742](https://github.com/SparkPost/matchbox/pull/742) UX-411 Button should accept "as" and deprecate "component" ([@logansparlin](https://github.com/logansparlin))
+  * [#737](https://github.com/SparkPost/matchbox/pull/737) UX-412 Add support for EmptyState.Header 'as' and 'looksLike' ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#725](https://github.com/SparkPost/matchbox/pull/725) UX-404 Upgrades react-transition-group to resolve deprecated use of findDomNode ([@jonambas](https://github.com/jonambas))
+  * [#738](https://github.com/SparkPost/matchbox/pull/738) Resolve Issue-730 Add 'returnFocus' prop to Modals focus lock container ([@jonambas](https://github.com/jonambas))
+  * [#746](https://github.com/SparkPost/matchbox/pull/746) UX-431 Align chevron in Page component breadcrumbs ([@logansparlin](https://github.com/logansparlin))
+  * [#736](https://github.com/SparkPost/matchbox/pull/736) UX-421 Make EmptyState.Image maxWidth configurable ([@jonambas](https://github.com/jonambas))
+  * [#735](https://github.com/SparkPost/matchbox/pull/735) issue-734 Remove deprecated Button props from Pagination component ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* `matchbox`
+  * [#748](https://github.com/SparkPost/matchbox/pull/748) UX-417 Uninstall unused react-syntax-highlighter ([@jonambas](https://github.com/jonambas))
+* Other
+  * [#731](https://github.com/SparkPost/matchbox/pull/731) UX-413 Add code scanning ([@jonambas](https://github.com/jonambas))
+  * [#750](https://github.com/SparkPost/matchbox/pull/750) Bump nested-object-assign from 1.0.3 to 1.0.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `design-tokens`
+  * [#740](https://github.com/SparkPost/matchbox/pull/740) UX-418: Resolve axios vulnerability ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 ## 4.7.3 (2021-01-14)
 
 #### Enhancements
