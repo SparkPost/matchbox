@@ -24,6 +24,13 @@ module.exports = {
               },
             },
           },
+          {
+            test: /\.(jpe?g|png|gif|svg|webm|mp4)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'file-loader',
+            },
+          },
         ],
       },
       resolve: {
