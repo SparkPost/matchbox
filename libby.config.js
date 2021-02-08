@@ -7,6 +7,7 @@ module.exports = {
   // Optional
   outputPath: 'libby-build',
   layout: 'libby/Layout.js',
+  preview: 'libby/preview.js',
   openBrowser: true,
   port: 9001,
   title: 'Matchbox',
