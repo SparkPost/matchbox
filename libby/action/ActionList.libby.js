@@ -1,9 +1,9 @@
 import React from 'react';
-import { describe, it } from '@sparkpost/libby-react';
+import { describe, add } from '@sparkpost/libby-react';
 import { ActionList, Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
 
 describe('ActionList', () => {
-  it('renders within Popovers', () => {
+  add('within Popovers', () => {
     return (
       <Inline space="15rem">
         <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
@@ -32,7 +32,7 @@ describe('ActionList', () => {
     );
   });
 
-  it('renders help text', () => (
+  add('help text', () => (
     <Box maxWidth="20rem">
       <Panel>
         <ActionList>
@@ -50,7 +50,7 @@ describe('ActionList', () => {
     </Box>
   ));
 
-  it('renders selected actions', () => (
+  add('selected actions', () => (
     <Box maxWidth="20rem">
       <Panel>
         <ActionList>
@@ -68,7 +68,7 @@ describe('ActionList', () => {
     </Box>
   ));
 
-  it('renders highlighted actions', () => (
+  add('highlighted actions', () => (
     <Box maxWidth="20rem">
       <Panel>
         <ActionList>
@@ -86,7 +86,7 @@ describe('ActionList', () => {
     </Box>
   ));
 
-  it('renders Actions as links, buttons, or checkboxes', () => (
+  add('Actions as links, buttons, or checkboxes', () => (
     <Box maxWidth="20rem">
       <Panel>
         <ActionList>
@@ -113,7 +113,7 @@ describe('ActionList', () => {
     </Box>
   ));
 
-  it('works with system props', () => (
+  add('works with system props', () => (
     <Box maxWidth="20rem">
       <Panel>
         <ActionList m="400" width={1 / 2}>
@@ -125,7 +125,7 @@ describe('ActionList', () => {
   ));
 
   describe('Deprecated', () => {
-    it('renders without Action component', () => (
+    add('without Action component', () => (
       <Inline space="15rem">
         <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>
           <ActionList
