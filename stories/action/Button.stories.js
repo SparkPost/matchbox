@@ -164,67 +164,74 @@ export const Destructive = withInfo()(() => (
 ));
 
 export const Loading = withInfo({ propTables: [Button] })(() => (
-  <Box display="flex" justifyContent="space-between">
-    <Stack>
-      <Button loading>Button</Button>
-      <Button loading flat>
-        Flat
-      </Button>
-      <Button loading outlineBorder>
-        Outline Border
-      </Button>
-      <Button loading outline>
-        Outline
-      </Button>
-    </Stack>
-
-    <Stack>
-      <Button loading color="red">
-        Button
-      </Button>
-      <Button loading color="red" flat>
-        Flat
-      </Button>
-      <Button loading color="red" outlineBorder>
-        Outline Border
-      </Button>
-      <Button loading color="red" outline>
-        Outline
-      </Button>
-    </Stack>
-
-    <Stack>
-      <Button loading color="blue">
-        Button
-      </Button>
-      <Button loading color="blue" flat>
-        Flat
-      </Button>
-      <Button loading color="blue" outlineBorder>
-        Outline Border
-      </Button>
-      <Button loading color="blue" outline>
-        Outline
-      </Button>
-    </Stack>
-
-    <Box bg="gray.900" p="200">
+  <>
+    <Box display="flex" justifyContent="space-between">
       <Stack>
-        <Button loading color="white">
-          Button
-        </Button>
-        <Button loading color="white" flat>
+        <Button loading>Button</Button>
+        <Button loading flat>
           Flat
         </Button>
-        <Button loading color="white" outlineBorder>
+        <Button loading outlineBorder>
           Outline Border
         </Button>
-        <Button loading color="white" outline>
+        <Button loading outline>
           Outline
         </Button>
       </Stack>
+
+      <Stack>
+        <Button loading color="red">
+          Button
+        </Button>
+        <Button loading color="red" flat>
+          Flat
+        </Button>
+        <Button loading color="red" outlineBorder>
+          Outline Border
+        </Button>
+        <Button loading color="red" outline>
+          Outline
+        </Button>
+      </Stack>
+
+      <Stack>
+        <Button loading color="blue">
+          Button
+        </Button>
+        <Button loading color="blue" flat>
+          Flat
+        </Button>
+        <Button loading color="blue" outlineBorder>
+          Outline Border
+        </Button>
+        <Button loading color="blue" outline>
+          Outline
+        </Button>
+      </Stack>
+
+      <Box bg="gray.900" p="200">
+        <Stack>
+          <Button loading color="white">
+            Button
+          </Button>
+          <Button loading color="white" flat>
+            Flat
+          </Button>
+          <Button loading color="white" outlineBorder>
+            Outline Border
+          </Button>
+          <Button loading color="white" outline>
+            Outline
+          </Button>
+        </Stack>
+      </Box>
     </Box>
-  </Box>
+    <Box pt="400">
+      <Button loading fullWidth color="blue">
+        Full Width Button
+      </Button>
+    </Box>
+  </>
 ));
 
 export const TogglingLoading = () => {
