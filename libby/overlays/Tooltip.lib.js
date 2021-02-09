@@ -1,7 +1,5 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// import { withInfo } from '@storybook/addon-info';
-// import { action } from '@storybook/addon-actions';
 import { Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
 import { FileDownload } from '@sparkpost/matchbox-icons';
 
