@@ -64,7 +64,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
         {...action}
         variant="outline"
         color="blue"
-        mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
+        mr={hasPrimaryAction ? ['0', null, '400'] : ' 0'}
         ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
       >
         {action.content}
@@ -75,7 +75,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
   return (
     <Box
       position="relative"
-      mr={hasPrimaryAction ? ['0', null, '500'] : ' 0'}
+      mr={hasPrimaryAction ? ['0', null, '400'] : ' 0'}
       ml={hasPrimaryAction ? ['300', null, '0'] : '0'}
     >
       <Popover
