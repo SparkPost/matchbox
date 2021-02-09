@@ -7,7 +7,6 @@ Want to start using tokens? See:
 Looking for documentation? See:
 
 - [Design System Website](https://design.sparkpost.com)
-- [Storybook](https://matchbox-storybook.netlify.app/)
 - [Playroom](https://matchbox-playroom.netlify.app/)
 
 Want to contribute? See:

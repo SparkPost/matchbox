@@ -7,7 +7,6 @@ Matchbox is an open source design system and React component library, built for
 ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
 ![Website Deploy](https://img.shields.io/netlify/0ce1d44f-e768-4a1a-b7da-0cf637a2b854?label=Website%20Deploy&style=flat-square)
-![Storybook Deploy](https://img.shields.io/netlify/d9885b5c-2b54-4d4d-82c0-0e28349d2334?label=Storybook%20Deploy&style=flat-square)
 ![Playroom Deploy](https://img.shields.io/netlify/f2107970-a943-4662-bc75-81b4bd806e6c?label=Playroom%20Deploy&style=flat-square)
 
 ---
@@ -21,7 +20,6 @@ Want to start using Matchbox? See:
 Looking for documentation? See:
 
 - [Design System Website](https://design.sparkpost.com)
-- [Storybook](https://matchbox-storybook.netlify.app/)
 - [Playroom](https://matchbox-playroom.netlify.app/)
 
 ### Collaborating on Matchbox
@@ -42,12 +40,12 @@ lerna bootstrap
 
 ```bash
 # Start Scripts
-npm run start:storybook   # Runs storybook
+npm run start:libby       # Runs libby
 npm run start:site        # Runs the design system website
 npm run start:playroom    # Runs playroom
 
 # Test Scripts
-# Integration tests require storybook to be running first
+# Integration tests require libby to be running first
 npm run pretest           # Run before running tests for first time
 npm run test:unit         # Runs unit tests
 npm run test:e2e:gui      # Runs integration tests
