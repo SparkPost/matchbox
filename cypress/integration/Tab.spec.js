@@ -1,7 +1,7 @@
 describe('The Tabs component', () => {
   describe('when not overflowing', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?path=Tabs__basic-usage,-manual-keyboard-activation&source=false');
+      cy.visit('/iframe.html?path=Tabs__basic-usage-manual-keyboard-activation&source=false');
       // Setting viewport dimensions to avoid side effects
       cy.viewport(1400, 600);
     });
@@ -18,7 +18,7 @@ describe('The Tabs component', () => {
 
   describe('keyboard navigation', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?path=Tabs__basic-usage,-manual-keyboard-activation&source=false');
+      cy.visit('/iframe.html?path=Tabs__basic-usage-manual-keyboard-activation&source=false');
       // Setting viewport dimensions to avoid side effects
       cy.viewport(1400, 600);
       cy.get('button')
@@ -70,7 +70,7 @@ describe('The Tabs component', () => {
   // Remove if these become a problem
   describe('when overflowing', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?path=Tabs__basic-usage,-manual-keyboard-activation&source=false');
+      cy.visit('/iframe.html?path=Tabs__basic-usage-manual-keyboard-activation&source=false');
       cy.viewport(400, 600);
       cy.wait(500);
     });
