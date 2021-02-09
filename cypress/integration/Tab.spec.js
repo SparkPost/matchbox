@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 describe('The Tabs component', () => {
   describe('when not overflowing', () => {
     beforeEach(() => {

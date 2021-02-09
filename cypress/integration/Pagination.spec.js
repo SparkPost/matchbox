@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 describe('The Pagination component', () => {
   beforeEach(() => {
     cy.visit(

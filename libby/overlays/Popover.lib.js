@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
 
+function noop() {}
 function ControlledPopover() {
   const [open, setOpen] = React.useState(false);
   const [count, setCount] = React.useState(0);
@@ -60,9 +61,15 @@ describe('Popover', () => {
       trigger={<Button aria-describedby="test-popover">More Actions</Button>}
     >
       <ActionList>
-        <ActionList.Action>Edit</ActionList.Action>
-        <ActionList.Action>Publish</ActionList.Action>
-        <ActionList.Action>Delete</ActionList.Action>
+        <ActionList.Action onClick={noop} is="button">
+          Edit
+        </ActionList.Action>
+        <ActionList.Action onClick={noop} is="button">
+          Delete
+        </ActionList.Action>
+        <ActionList.Action onClick={noop} is="button">
+          Publish
+        </ActionList.Action>
       </ActionList>
     </Popover>
   ));
