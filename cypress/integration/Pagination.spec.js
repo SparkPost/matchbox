@@ -1,8 +1,6 @@
 describe('The Pagination component', () => {
   beforeEach(() => {
-    cy.visit(
-      '/iframe.html?selectedKind=Navigation%7CPagination&selectedStory=with%20no%20margins&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-    );
+    cy.visit('/iframe.html?path=Pagination__with-no-margins&source=false');
   });
 
   it('Changes pages!', () => {
@@ -26,9 +24,7 @@ describe('The Pagination component', () => {
 
 describe('The Pagination component with lots of pages and flat buttons', () => {
   beforeEach(() => {
-    cy.visit(
-      '/iframe.html?selectedKind=Navigation%7CPagination&selectedStory=with%20lots%20of%20pages&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-    );
+    cy.visit('/iframe.html?path=Pagination__with-lots-of-pages&source=false');
   });
 
   it('Changes pages!', () => {
