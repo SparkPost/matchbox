@@ -146,7 +146,3 @@ describe('Modal', () => {
     ));
   });
 });
-
-// export const SystemProps = withInfo()(() => (
-
-// ));
