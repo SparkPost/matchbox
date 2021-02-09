@@ -8,8 +8,7 @@
   "scripts": {
     "start:site": "npm run build:tokens && cd site && npm run develop",
     "start:libby": "npm run build:tokens && NODE_ENV=development libby start",
-    "start:storybook": "npm run build:tokens && start-storybook -p 9001 -c .storybook",
-    "start:storybook:static": "build-storybook --quiet && http-server ./storybook-static -p 9001 --silent",
+    "start:libby:static": "NODE_ENV=production libby build && http-server ./libby-build -p 9001 --silent",
     "start:playroom": "npm run clean && NODE_ENV=development playroom start",
     "prebuild": "lerna bootstrap",
     "build": "lerna run build",
@@ -21,7 +20,7 @@
     "pretest:ci": "npm run build && npm run clean && lerna link",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
-    "test:e2e:ci": "start-server-and-test start:storybook:static http://localhost:9001 test:e2e:headless",
+    "test:e2e:ci": "start-server-and-test start:libby:static http://localhost:9001 test:e2e:headless",
     "test:unit": "TZ=UTC node scripts/test.js --env=jsdom --config=./jest.config.json",
     "test:unit:ci": "CI=true npm run test:unit -- --colors --coverage",
     "lint": "node node_modules/eslint/bin/eslint.js packages",
