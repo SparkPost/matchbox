@@ -2,7 +2,7 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Box, useResizeObserver } from '@sparkpost/matchbox';
 
-describe('useResizeOberver', () => {
+describe('useResizeObserver', () => {
   add('example usage', () => {
     const [ref, { contentRect }] = useResizeObserver();
     return (
