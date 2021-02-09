@@ -1,13 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  // Required
   entries: () => require.context('./libby', true, /\.lib\.js$/),
-
-  // Optional
   outputPath: 'libby-build',
-  layout: 'libby/Layout.js',
-  preview: 'libby/preview.js',
+  layout: 'libby/_layout.js',
+  preview: 'libby/_preview.js',
+  home: 'libby/_home.js',
   openBrowser: true,
   port: 9001,
   title: 'Matchbox',
@@ -26,7 +24,7 @@ module.exports = {
             },
           },
           {
-            test: /\.(jpe?g|png|gif|svg|webm|mp4)$/,
+            test: /\.(jpe?g|png|gif|svg|webm|webp|mp4)$/,
             exclude: /node_modules/,
             use: {
               loader: 'file-loader',
@@ -55,6 +53,10 @@ module.exports = {
       {
         name: 'gray',
         value: '#ebf0f5',
+      },
+      {
+        name: 'black',
+        value: '#2c353d',
       },
     ],
   },
