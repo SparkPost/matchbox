@@ -26,8 +26,7 @@
     "path": "^0.12.7",
     "plugin-error": "^1.0.1",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "theo": "^8.1.3"
+    "rimraf": "^2.6.3"
   },
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }
