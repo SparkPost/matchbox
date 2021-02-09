@@ -26,8 +26,8 @@ describe('Snackbar', () => {
   });
 
   it('renders Snackbar with a danger status and maxwidth', () => {
-    const wrapper = subject({ status: 'danger', maxWidth: 100 });
-    expect(wrapper.find('Box').at(1)).toHaveStyleRule('max-width', '100px');
+    const wrapper = subject({ status: 'danger', maxWidth: '1000px' });
+    expect(wrapper.find('Box').at(1)).toHaveStyleRule('max-width', '1000px');
     expect(wrapper).toHaveStyleRule('background', '#d9363e');
     expect(wrapper.find('[aria-label="Error"]')).toExist();
   });
