@@ -1,5 +1,5 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+import { describe, add } from '@sparkpost/libby-react';
 import { ComboBox, ComboBoxTextField, ComboBoxMenu, Box } from '@sparkpost/matchbox';
 import Downshift from 'downshift';
 
@@ -111,65 +111,51 @@ function TypeaheadExample(props) {
   );
 }
 
-export default {
-  title: 'Form|ComboBox',
-};
+describe('ComboBox', () => {
+  add('textfield with menu', () => <TypeaheadExample />);
 
-export const TextFieldWithMenu = withInfo({
-  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
-})(() => <TypeaheadExample />);
-
-export const TextField = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
-  <ComboBoxTextField
-    id="story-id"
-    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
-    itemToString={({ name }) => name}
-    defaultValue="input value"
-    label="Filters"
-  />
-));
-
-export const Menu = withInfo({
-  propTables: [ComboBoxMenu],
-})(() => (
-  <Box maxWidth="20rem">
-    <ComboBoxMenu
-      isOpen={true}
-      items={[{ content: 'foo' }, { content: 'bar' }, { content: 'baz' }]}
-      maxHeight="5rem"
+  add('textfield', () => (
+    <ComboBoxTextField
+      id="story-id"
+      selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+      itemToString={({ name }) => name}
+      defaultValue="input value"
+      label="Filters"
     />
-  </Box>
-));
+  ));
 
-export const TextFieldWithError = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
-  <ComboBoxTextField
-    id="story-id"
-    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
-    itemToString={({ name }) => name}
-    defaultValue="input value"
-    label="Filters"
-    error="Required"
-    required
-  />
-));
+  add('menu', () => (
+    <Box maxWidth="20rem">
+      <ComboBoxMenu
+        isOpen={true}
+        items={[{ content: 'foo' }, { content: 'bar' }, { content: 'baz' }]}
+        maxHeight="5rem"
+      />
+    </Box>
+  ));
 
-export const TextFieldWhileDisabled = withInfo({
-  propTables: [ComboBoxTextField],
-})(() => (
-  <ComboBoxTextField
-    id="story-id"
-    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
-    itemToString={({ name }) => name}
-    defaultValue="input value"
-    label="Filters"
-    disabled
-  />
-));
+  add('textfield with error', () => (
+    <ComboBoxTextField
+      id="story-id"
+      selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+      itemToString={({ name }) => name}
+      defaultValue="input value"
+      label="Filters"
+      error="Required"
+      required
+    />
+  ));
 
-export const WithDelimiter = withInfo({
-  propTables: [ComboBox, ComboBoxMenu, ComboBoxTextField],
-})(() => <TypeaheadExample delimiter="or" />);
+  add('textfield while disabled', () => (
+    <ComboBoxTextField
+      id="story-id"
+      selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+      itemToString={({ name }) => name}
+      defaultValue="input value"
+      label="Filters"
+      disabled
+    />
+  ));
+
+  add('delimiter', () => <TypeaheadExample delimiter="or" />);
+});
