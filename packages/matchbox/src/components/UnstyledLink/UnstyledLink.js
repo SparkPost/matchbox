@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { color, space, typography, compose } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import { deprecate } from '../../helpers/propTypes';
 
-import { Text } from '../Text';
+const system = compose(color, space, typography);
 
-const StyledText = styled(Text)`
+const Styledlink = styled.a`
+  ${system}
   ${props => {
     if (props.disabled) {
       return `
@@ -48,7 +51,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
 
   if (to && !WrapperComponent) {
     return (
-      <StyledText
+      <Styledlink
         as="a"
         href={to}
         target={external ? '_blank' : ''}
@@ -61,13 +64,13 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         {...disabledAttributes}
       >
         {children}
-      </StyledText>
+      </Styledlink>
     );
   }
 
   if (WrapperComponent) {
     return (
-      <StyledText
+      <Styledlink
         as={WrapperComponent}
         onClick={onClick}
         ref={ref}
@@ -78,12 +81,12 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
         {...disabledAttributes}
       >
         {children}
-      </StyledText>
+      </Styledlink>
     );
   }
 
   return (
-    <StyledText
+    <Styledlink
       as="a"
       title={linkTitle}
       role={linkRole}
@@ -93,7 +96,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
       {...disabledAttributes}
     >
       {children}
-    </StyledText>
+    </Styledlink>
   );
 });
 
@@ -111,6 +114,9 @@ UnstyledLink.propTypes = {
   onClick: PropTypes.func,
   role: PropTypes.string,
   tabIndex: PropTypes.string,
+  ...createPropTypes(color.propNames),
+  ...createPropTypes(space.propNames),
+  ...createPropTypes(typography.propNames),
 };
 
 export default UnstyledLink;
