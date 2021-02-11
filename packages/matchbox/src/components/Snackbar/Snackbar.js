@@ -5,7 +5,7 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
-import { margin } from 'styled-system';
+import { margin, maxWidth } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
 
@@ -70,11 +70,6 @@ Snackbar.propTypes = {
   status: PropTypes.oneOf(['default', 'success', 'danger', 'error', 'warning']),
 
   /**
-   * Snackbar max-width in pixels.
-   */
-  maxWidth: PropTypes.number,
-
-  /**
    * Callback when dismiss button is clicked.
    */
   onDismiss: PropTypes.func.isRequired,
@@ -84,6 +79,7 @@ Snackbar.propTypes = {
    */
   children: PropTypes.node,
   ...createPropTypes(margin.propNames),
+  ...createPropTypes(maxWidth.propNames),
 };
 
 export default Snackbar;
