@@ -52,12 +52,13 @@ export const loader = props => `
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 50%;
   display: flex;
   align-items: center;
   pointer-events: none;
   user-select: none
   opacity: ${props.state === 'entered' ? '1' : '0'};
-  transform: ${props.state === 'entered' ? 'translate(0%, 0%)' : 'translate(0%, 40%)'};
+  transform: ${props.state === 'entered' ? 'translate(-50%, 0%)' : 'translate(-50%, 40%)'};
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
