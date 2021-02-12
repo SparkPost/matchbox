@@ -12,20 +12,27 @@ const StyledWrapper = styled.div`
   ${margin}
 `;
 
-const Label = ({ children, orientation }) => (
-  <Box fontSize="200" fontWeight="semibold" mb={orientation === 'vertical' ? '100' : ''}>
+const Label = ({ children, orientation, appearance }) => (
+  <Box
+    fontSize="200"
+    fontWeight="semibold"
+    mb={orientation === 'vertical' ? '100' : ''}
+    color={appearance == 'inverted' ? 'white' : ''}
+  >
     {children}
   </Box>
 );
 
 Label.displayName = 'LabelValue.Label';
 
-const Value = ({ children }) => <Box>{children}</Box>;
+const Value = ({ children, appearance }) => (
+  <Box color={appearance == 'inverted' ? 'white' : ''}>{children}</Box>
+);
 
 Value.displayName = 'LabelValue.Value';
 
 const LabelValue = React.forwardRef(function LabelValue(props, userRef) {
-  const { label, children, className, orientation, ...rest } = props;
+  const { label, children, className, orientation, appearance, ...rest } = props;
 
   const systemProps = pick(rest, margin.propNames);
 
@@ -36,8 +43,8 @@ const LabelValue = React.forwardRef(function LabelValue(props, userRef) {
         gridGap={orientation === 'horizontal' ? '300' : ''}
         gridTemplateColumns={orientation === 'horizontal' ? `${tokens.spacing_900} 1fr` : ''}
       >
-        {getChild('LabelValue.Label', children, { orientation })}
-        {getChild('LabelValue.Value', children)}
+        {getChild('LabelValue.Label', children, { orientation, appearance })}
+        {getChild('LabelValue.Value', children, { appearance })}
       </Box>
     </StyledWrapper>
   );
@@ -49,6 +56,7 @@ LabelValue.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  appearance: PropTypes.oneOf(['inverted']),
   ...createPropTypes(margin.propNames),
 };
 

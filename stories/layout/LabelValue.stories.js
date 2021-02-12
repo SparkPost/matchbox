@@ -1,6 +1,7 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { LabelValue } from '@sparkpost/matchbox/components/LabelValue';
+import { Box } from '@sparkpost/matchbox/components/Box';
 
 export default {
   title: 'Layout|LabelValue',
@@ -27,6 +28,15 @@ export const HorizontalWithWrapping = withInfo()(() => (
       <div>Just a LabelValue</div>
     </LabelValue.Value>
   </LabelValue>
+));
+
+export const InvertedAppearance = withInfo()(() => (
+  <Box bg="gray.900" p="500">
+    <LabelValue appearance="inverted">
+      <LabelValue.Label>Label</LabelValue.Label>
+      <LabelValue.Value>Inverted LabelValue</LabelValue.Value>
+    </LabelValue>
+  </Box>
 ));
 
 export const SystemProps = withInfo()(() => (

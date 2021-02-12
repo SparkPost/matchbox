@@ -27,4 +27,15 @@ describe('LabelValue', () => {
     );
     expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'grid');
   });
+
+  it('renders inverted appearance correctly', () => {
+    const wrapper = global.mountStyled(
+      <LabelValue appearance="inverted">
+        <LabelValue.Label>Label text</LabelValue.Label>
+        <LabelValue.Value>children</LabelValue.Value>
+      </LabelValue>,
+    );
+
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('color', 'white');
+  });
 });
