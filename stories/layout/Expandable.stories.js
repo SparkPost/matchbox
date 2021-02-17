@@ -34,14 +34,6 @@ export const WithImageTitleAndSubtitle = withInfo()(() => (
       >
         Content here
       </Expandable>
-      <Expandable
-        defaultOpen={true}
-        title="Slack"
-        id="example"
-        subtitle="Integrate alerts into your team's Slack channels"
-      >
-        Content here
-      </Expandable>
     </Panel.Section>
   </Panel>
 ));
