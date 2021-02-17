@@ -10,13 +10,13 @@ import Header from './Header';
 import SubHeader from './SubHeader';
 import Section from './Section';
 import { pick } from '../../helpers/props';
-import { PanelPaddingContext } from './context';
+import { PanelPaddingContext, PanelAppearanceContext } from './context';
 
 const systemOuter = compose(margin, width, height);
 const systemInner = compose(border, height);
 
 const Panel = React.forwardRef(function Panel(props, userRef) {
-  const { accent, children, className, ...rest } = props;
+  const { accent, appearance, children, className, ...rest } = props;
 
   const outerSystemProps = pick(rest, systemOuter.propNames);
   const innerSystemProps = pick(rest, systemInner.propNames);
@@ -35,12 +35,15 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
         position="relative"
         {...innerSystemProps}
         height={innerHeight}
+        bg={appearance === 'inverted' ? 'gray.900' : ''}
       >
         {accent && <Accent accentColor={accent} />}
         <PanelPaddingContext.Provider
           value={{ p: contextP || contextPadding || [400, null, 450], ...context }}
         >
-          {children}
+          <PanelAppearanceContext.Provider value={appearance}>
+            {children}
+          </PanelAppearanceContext.Provider>
         </PanelPaddingContext.Provider>
       </Box>
     </Box>
@@ -53,6 +56,7 @@ Panel.propTypes = {
     PropTypes.bool,
     PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
   ]),
+  appearance: PropTypes.oneOf(['inverted', 'default']),
   children: PropTypes.node,
   className: PropTypes.string,
   'data-id': PropTypes.string,
@@ -61,6 +65,10 @@ Panel.propTypes = {
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
   ...createPropTypes(width.propNames),
+};
+
+Panel.defaultProps = {
+  appearance: 'default',
 };
 
 Panel.LEGACY = Legacy;

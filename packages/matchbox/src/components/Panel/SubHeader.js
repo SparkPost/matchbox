@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
-import { PanelPaddingContext } from './context';
+import { PanelPaddingContext, PanelAppearanceContext } from './context';
 
 const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
   const { as, children, className } = props;
 
   const paddingContext = React.useContext(PanelPaddingContext);
+  const appearanceContext = React.useContext(PanelAppearanceContext);
 
   return (
     <Box
@@ -17,7 +18,7 @@ const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
       fontSize="200"
       fontWeight="normal"
       lineHeight="200"
-      color="gray.700"
+      color={appearanceContext === 'inverted' ? 'white' : 'gray.700'}
       tabIndex="-1"
       ref={userRef}
     >

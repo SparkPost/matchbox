@@ -5,3 +5,9 @@ import React from 'react';
  * to Panel.Header and Panel.Section
  */
 export const PanelPaddingContext = React.createContext({});
+
+/**
+ * Context is created here to pass appearance prop
+ * to Panel.Header, Panel.SubHeader, and Panel.Section
+ */
+export const PanelAppearanceContext = React.createContext({});

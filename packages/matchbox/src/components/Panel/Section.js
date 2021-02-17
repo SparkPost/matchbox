@@ -9,7 +9,7 @@ import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getChild, excludeChild } from '../../helpers/children';
 import { pick } from '../../helpers/props';
-import { PanelPaddingContext } from './context';
+import { PanelPaddingContext, PanelAppearanceContext } from './context';
 
 const StyledSection = styled(Box)`
   &:last-child {
@@ -22,6 +22,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
   const actions = getChild('Panel.Action', children);
   const content = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
+  const appearanceContext = React.useContext(PanelAppearanceContext);
   const systemProps = pick(rest, padding.propNames);
 
   // Checks if 'padding', and overwrite 'p' instead of using the 'padding' key
@@ -40,6 +41,8 @@ const Section = React.forwardRef(function Section(props, userRef) {
       ref={userRef}
       tabIndex="-1"
       {...paddingProps}
+      bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
+      color={appearanceContext === 'inverted' ? 'white' : ''}
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>{content}</Column>
