@@ -10,7 +10,7 @@ export const StyledHeader = styled('button')`
   ${() =>
     css({
       px: '450',
-      py: '200',
+      py: '300',
     })}
 
   display: flex;
@@ -96,6 +96,7 @@ export const title = ({ variant }) => `
 
 export const subtitle = () => `
   font-weight: ${tokens.fontWeight_normal};
+
 `;
 
 export const accent = props => {
