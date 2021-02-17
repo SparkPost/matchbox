@@ -23,13 +23,12 @@ export const StyledProgressBarInner = styled(Box)`
 `;
 
 function ProgressBar(props) {
-  const { completed = 0, label, size, valueText, ...rest } = props;
+  const { completed = 0, label, size, valueText } = props;
 
   return (
     <StyledProgressBarOuter
       as="div"
       visualSize={size}
-      {...rest}
       role="progressbar"
       aria-label={label}
       aria-valuenow={`${completed}`}
