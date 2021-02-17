@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { deprecate } from '../../helpers/propTypes';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
 import { outerBase, innerBase, visualSize, calculatedWidth } from './styles.js';
@@ -23,7 +24,8 @@ export const StyledProgressBarInner = styled(Box)`
 `;
 
 function ProgressBar(props) {
-  const { completed = 0, label, size, valueText } = props;
+  const { completed = 0, label, size, valueText, ...rest } = props;
+  const systemProps = pick(rest, system.propNames);
 
   return (
     <StyledProgressBarOuter
@@ -35,6 +37,7 @@ function ProgressBar(props) {
       aria-valuemin="0"
       aria-valuemax="100"
       aria-valuetext={valueText}
+      {...systemProps}
     >
       <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
     </StyledProgressBarOuter>
