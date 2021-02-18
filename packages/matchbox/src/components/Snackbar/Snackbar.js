@@ -5,9 +5,10 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
-import { margin, maxWidth } from 'styled-system';
+import { margin, maxWidth as maxWidthSystem } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
+import { pick } from '../../helpers/props';
 
 const StyledBox = styled(Box)`
   ${base}
@@ -23,6 +24,7 @@ const StyledClose = styled(Box)`
 
 const Snackbar = React.forwardRef(function Snackbar(props, ref) {
   const { children, status, maxWidth, onDismiss, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
 
   return (
     <StyledBox
@@ -31,8 +33,8 @@ const Snackbar = React.forwardRef(function Snackbar(props, ref) {
       p="300"
       borderRadius="100"
       ref={ref}
-      {...rest}
       tabIndex="-1"
+      {...systemProps}
     >
       <Box mr="300">
         {status === 'default' && <Info size="20" label="Info" />}
@@ -79,7 +81,7 @@ Snackbar.propTypes = {
    */
   children: PropTypes.node,
   ...createPropTypes(margin.propNames),
-  ...createPropTypes(maxWidth.propNames),
+  ...createPropTypes(maxWidthSystem.propNames),
 };
 
 export default Snackbar;
