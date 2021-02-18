@@ -56,12 +56,13 @@ LabelValue.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-  appearance: PropTypes.oneOf(['inverted']),
+  appearance: PropTypes.oneOf(['inverted', 'default']),
   ...createPropTypes(margin.propNames),
 };
 
 LabelValue.defaultProps = {
   orientation: 'vertical',
+  appearance: 'default',
 };
 
 LabelValue.Label = Label;
