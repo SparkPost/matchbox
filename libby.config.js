@@ -44,7 +44,7 @@ module.exports = {
     };
   },
   backgrounds: {
-    default: 'white',
+    default: 'gray',
     values: [
       {
         name: 'white',
