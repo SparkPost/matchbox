@@ -8,7 +8,7 @@ export default function() {
         Welcome to Matchbox!
       </Text>
       <Text as="p" mb="300">
-        This is acomponent development and testing environment.
+        This is a component development and testing environment.
       </Text>
       <Text as="p" mb="300">
         For more information, visit the following:
