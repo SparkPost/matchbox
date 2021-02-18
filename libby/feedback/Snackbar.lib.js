@@ -23,7 +23,7 @@ describe('Snackbar', () => {
   ));
 
   add('large size', () => (
-    <Snackbar maxWidth={700}>
+    <Snackbar maxWidth={['400px', null, null, '800px']}>
       This one is large enough to get into some bacon ipsum dolor amet pork loin tri-tip turkey
       capicola. Rump doner short ribs biltong burgdoggen meatloaf. Prosciutto pork loin bacon,
       biltong landjaeger salami ham spare ribs flank cupim porchetta leberkas.{' '}
