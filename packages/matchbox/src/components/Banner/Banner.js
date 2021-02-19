@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
-import { omit } from '../../helpers/props';
+import { pick, omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
@@ -73,6 +73,7 @@ const StyledDismiss = styled(Box)`
 
 const Banner = React.forwardRef(function Banner(props, ref) {
   const { children, title, status, action, actions, onDismiss, size, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
 
   const titleMarkup = title ? (
     <Box pt={status !== 'muted' ? ['300', null, '200'] : null} mb="200">
@@ -141,7 +142,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       py={size === 'large' ? null : '200'}
       borderRadius="100"
       status={status}
-      {...rest}
+      {...systemProps}
       ref={ref}
       tabIndex="-1"
       overflow="hidden"
