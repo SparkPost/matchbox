@@ -79,12 +79,12 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
           />
         </Box>
       </StyledLabel>
-      {error && <Error id={errorId} error={error} ml="500" />}
       {helpText && (
         <HelpText id={helpTextId} ml="500" mt="0">
           {helpText}
         </HelpText>
       )}
+      {error && <Error id={errorId} error={error} ml="500" />}
     </Wrapper>
   );
 });

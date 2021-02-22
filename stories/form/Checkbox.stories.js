@@ -32,6 +32,10 @@ export const WithHelpText = withInfo()(() => (
   <Checkbox id="id" label="Check Me" helpText="Check this box" />
 ));
 
+export const WithErrorAndHelpText = withInfo()(() => (
+  <Checkbox id="id" label="Check Me" helpText="Check this box" error="I'm an error" />
+));
+
 export const WithErrorAndRequired = withInfo()(() => (
   <Checkbox id="id" label="Check Me" error="I'm an error" required />
 ));
