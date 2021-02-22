@@ -71,7 +71,7 @@ const StyledDismiss = styled(Box)`
   ${dismissColor}
 `;
 
-const Banner = React.forwardRef(function Banner(props, ref) {
+const Banner = React.forwardRef(function Banner(props, userRef) {
   const { children, title, status, action, actions, onDismiss, size, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -143,9 +143,10 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       borderRadius="100"
       status={status}
       {...systemProps}
-      ref={ref}
+      ref={userRef}
       tabIndex="-1"
       overflow="hidden"
+      data-id={rest['data-id']}
     >
       {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
@@ -163,6 +164,7 @@ const Banner = React.forwardRef(function Banner(props, ref) {
 
 Banner.displayName = 'Banner';
 Banner.propTypes = {
+  'data-id': PropTypes.string,
   /**
    * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
    */
