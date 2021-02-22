@@ -24,7 +24,7 @@ const StyledContent = styled('span')`
   ${content}
 `;
 
-function Tag(props) {
+const Tag = React.forwardRef(function Tag(props, userRef) {
   const { color, children, onRemove, className, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -43,12 +43,13 @@ function Tag(props) {
       tagColor={color}
       hasRemove={!!onRemove}
       {...systemProps}
+      ref={userRef}
     >
       <StyledContent>{children}</StyledContent>
       {closeMarkup}
     </StyledTag>
   );
-}
+});
 
 Tag.displayName = 'Tag';
 Tag.propTypes = {
