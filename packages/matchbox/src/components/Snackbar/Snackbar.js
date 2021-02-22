@@ -22,7 +22,7 @@ const StyledClose = styled(Box)`
   ${dismissStatus}
 `;
 
-const Snackbar = React.forwardRef(function Snackbar(props, ref) {
+const Snackbar = React.forwardRef(function Snackbar(props, userRef) {
   const { children, status, maxWidth, onDismiss, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -32,9 +32,10 @@ const Snackbar = React.forwardRef(function Snackbar(props, ref) {
       role="alert"
       p="300"
       borderRadius="100"
-      ref={ref}
+      ref={userRef}
       tabIndex="-1"
       {...systemProps}
+      data-id={rest['data-id']}
     >
       <Box mr="300">
         {status === 'default' && <Info size="20" label="Info" />}
@@ -66,6 +67,7 @@ Snackbar.defaultProps = {
   maxWidth: 380,
 };
 Snackbar.propTypes = {
+  'data-id': PropTypes.string,
   /**
    * The type of snackbar.
    */
