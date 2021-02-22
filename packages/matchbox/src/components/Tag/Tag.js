@@ -39,6 +39,7 @@ function Tag(props) {
     <StyledTag
       as="span"
       className={className}
+      data-id={rest['data-id']}
       tagColor={color}
       hasRemove={!!onRemove}
       {...systemProps}
@@ -67,6 +68,7 @@ Tag.propTypes = {
     'lightGray',
     'darkGray',
   ]),
+  'data-id': PropTypes.string,
   /**
    * Close button is hidden unless this is provided
    */

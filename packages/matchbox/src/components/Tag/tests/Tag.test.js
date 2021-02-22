@@ -11,6 +11,11 @@ describe('Tag', () => {
     expect(wrapper.find('button')).not.toExist();
   });
 
+  it('should render with data-id', () => {
+    const wrapper = global.mountStyled(<Tag data-id="test-id">Hola!</Tag>);
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
+  });
+
   it('should render a remove button', () => {
     const wrapper = global.mountStyled(<Tag onRemove={jest.fn()}>Hola!</Tag>);
     expect(wrapper.find('button').text()).toEqual('Remove');
