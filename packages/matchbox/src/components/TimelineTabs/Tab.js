@@ -52,7 +52,16 @@ const Container = styled.button`
 `;
 
 const Tab = React.forwardRef(function Tab(props, userRef) {
-  const { as = 'button', children, onClick, handleParentSelect, selected, to, href } = props;
+  const {
+    as = 'button',
+    children,
+    onClick,
+    handleParentSelect,
+    selected,
+    to,
+    href,
+    ...rest
+  } = props;
 
   function handleClick(e) {
     if (onClick) {
@@ -63,16 +72,17 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
 
   return (
     <Container
-      ref={userRef}
-      tabIndex={selected ? '0' : '-1'}
-      as={as}
-      type="button"
-      role="tab"
+      aria-controls={rest['aria-controls']}
       aria-selected={selected}
-      selected={selected}
-      onClick={handleClick}
-      to={to}
+      as={as}
       href={href}
+      onClick={handleClick}
+      ref={userRef}
+      role="tab"
+      selected={selected}
+      tabIndex={selected ? '0' : '-1'}
+      to={to}
+      type="button"
     >
       <Box display="grid" gridTemplateColumns="30px 1fr" gridGap="200">
         <Box position="relative" height="100%" gridColumn="0/1" overflow="hidden">
@@ -117,6 +127,7 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
 });
 
 Tab.propTypes = {
+  'aria-controls': PropTypes.string,
   as: PropTypes.elementType,
   children: PropTypes.node,
   handleParentSelect: PropTypes.func,
