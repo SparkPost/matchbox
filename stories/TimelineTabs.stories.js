@@ -1,5 +1,6 @@
 import React from 'react';
 import { TimelineTabs } from '@sparkpost/matchbox/components/TimelineTabs';
+import { Tag } from '@sparkpost/matchbox/components/Tag';
 
 export default {
   title: 'TimelineTabs',
@@ -7,10 +8,20 @@ export default {
 
 export const Test = () => (
   <TimelineTabs>
-    <TimelineTabs.Tab>Test</TimelineTabs.Tab>
-    <TimelineTabs.Tab>Test</TimelineTabs.Tab>
-    <TimelineTabs.Tab>Test</TimelineTabs.Tab>
-    <TimelineTabs.Tab>Test</TimelineTabs.Tab>
-    <TimelineTabs.Tab>Test</TimelineTabs.Tab>
+    <TimelineTabs.Tab>
+      <Tag>Test</Tag>
+    </TimelineTabs.Tab>
+    <TimelineTabs.Tab>
+      <Tag>Test</Tag>
+    </TimelineTabs.Tab>
+    <TimelineTabs.Tab>
+      <Tag>Test</Tag>
+    </TimelineTabs.Tab>
+    <TimelineTabs.Tab>
+      <Tag>Test</Tag>
+    </TimelineTabs.Tab>
+    <TimelineTabs.Tab>
+      <Tag>Test</Tag>
+    </TimelineTabs.Tab>
   </TimelineTabs>
 );

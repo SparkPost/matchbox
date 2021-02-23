@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { buttonReset } from '../../styles/helpers';
+import { buttonReset, focusOutline } from '../../styles/helpers';
 import { Box } from '../Box';
 
 const Container = styled.button`
@@ -40,14 +40,23 @@ const Container = styled.button`
     }
   }
 
-  &:focus svg [data-id='mb-tab-outer'] {
+  ${'' /* &:focus svg [data-id='mb-tab-outer'] {
     stroke-width: 2;
-  }
+  } */}
 
   &:last-child {
     svg line {
       display: none;
     }
+  }
+`;
+
+const FocusSvg = styled.div`
+  width: 24px;
+  height: 24px;
+
+  ${Container}:focus-visible & {
+    ${focusOutline({ modifier: '&', offset: '1px', radius: '50%' })}
   }
 `;
 
@@ -85,38 +94,43 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
       type="button"
     >
       <Box display="grid" gridTemplateColumns="30px 1fr" gridGap="200">
-        <Box position="relative" height="100%" gridColumn="0/1" overflow="hidden">
+        <Box position="relative" height="100%" gridColumn="0/1">
           <Box
-            as="svg"
-            width="5px"
-            height="200px"
             position="absolute"
+            width="2px"
+            height="100%"
             top="2px"
-            left="43%"
+            left="35%"
+            bg="red"
             zIndex="below"
+            overflow="hidden"
           >
-            <line
-              data-id="mb-tab-line"
-              x1="2"
-              y1="0"
-              x2="2"
-              y2="100"
-              stroke="black"
-              strokeWidth="1"
-              strokeDasharray="3 2"
-            />
+            <svg width="5px" height="200px">
+              <line
+                data-id="mb-tab-line"
+                x1="1"
+                y1="0"
+                x2="1"
+                y2="100"
+                stroke="black"
+                strokeWidth="1"
+                strokeDasharray="3 2"
+              />
+            </svg>
           </Box>
-          <svg as="svg" width="25px" height="25px">
-            <circle
-              data-id="mb-tab-outer"
-              cx="12"
-              cy="12"
-              r="11"
-              fill="transparent"
-              strokeWidth="1"
-            />
-            <circle data-id="mb-tab-inner" cx="12" cy="12" r="5" />
-          </svg>
+          <FocusSvg>
+            <svg width="25px" height="25px">
+              <circle
+                data-id="mb-tab-outer"
+                cx="12"
+                cy="12"
+                r="11"
+                fill="transparent"
+                strokeWidth="1"
+              />
+              <circle data-id="mb-tab-inner" cx="12" cy="12" r="5" />
+            </svg>
+          </FocusSvg>
         </Box>
         <Box textAlign="left" minHeight="800">
           {children}
