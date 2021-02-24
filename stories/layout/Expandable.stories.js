@@ -79,7 +79,13 @@ export const Borderless = () => (
       </Expandable>
     </Panel.Section>
     <Panel.Section p="0">
-      <Expandable variant="borderless" defaultOpen={false} title="Comparisons" id="example-3">
+      <Expandable
+        variant="borderless"
+        defaultOpen={false}
+        title="Comparisons"
+        id="example-3"
+        subtitle="Subtitle"
+      >
         Content here
       </Expandable>
     </Panel.Section>

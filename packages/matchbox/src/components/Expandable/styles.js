@@ -7,10 +7,10 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  ${() =>
+  ${props =>
     css({
       px: '450',
-      py: '300',
+      py: props.variant === 'borderless' ? '200' : '300',
     })}
 
   display: flex;

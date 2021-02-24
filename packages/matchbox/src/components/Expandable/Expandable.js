@@ -105,6 +105,7 @@ function Expandable(props) {
           ref={header}
           data-id="expandable-toggle"
           type="button"
+          variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
