@@ -18,7 +18,8 @@
         "varsIgnorePattern": "^_",
         "ignoreRestSiblings": true
       }
-    ]
+    ],
+    "react/prop-types": 1
   },
   "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
   "plugins": ["lodash", "jest", "prettier"],
