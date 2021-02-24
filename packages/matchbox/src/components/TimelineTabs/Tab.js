@@ -63,13 +63,15 @@ const FocusSvg = styled.div`
 const Tab = React.forwardRef(function Tab(props, userRef) {
   const {
     as = 'button',
+    'aria-controls': ariaControls,
     children,
-    onClick,
+    'data-id': dataId,
+    id,
     handleParentSelect,
+    onClick,
     selected,
     to,
     href,
-    ...rest
   } = props;
 
   function handleClick(e) {
@@ -81,10 +83,12 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
 
   return (
     <Container
-      aria-controls={rest['aria-controls']}
+      aria-controls={ariaControls}
       aria-selected={selected}
       as={as}
+      data-id={dataId}
       href={href}
+      id={id}
       onClick={handleClick}
       ref={userRef}
       role="tab"
@@ -143,9 +147,11 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
 Tab.propTypes = {
   'aria-controls': PropTypes.string,
   as: PropTypes.elementType,
+  'data-id': PropTypes.string,
   children: PropTypes.node,
   handleParentSelect: PropTypes.func,
   href: PropTypes.string,
+  id: PropTypes.string,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   to: PropTypes.string,
