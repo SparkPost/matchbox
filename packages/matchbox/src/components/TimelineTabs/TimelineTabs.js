@@ -19,7 +19,7 @@ const TimelineTabs = React.forwardRef(function TimelineTabs(props, userRef) {
   const tabRefs = React.useRef({ current: [] });
   const focusRef = React.useRef();
 
-  const [selectedIndex, setSelectedIndex] = React.useState(initialIndex ?? 0);
+  const [selectedIndex, setSelectedIndex] = React.useState(initialIndex || 0);
 
   // Preps array of tab item refs
   React.useEffect(() => {
