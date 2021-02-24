@@ -136,7 +136,7 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
             </svg>
           </FocusSvg>
         </Box>
-        <Box textAlign="left" minHeight="800">
+        <Box textAlign="left" minHeight="800" pb="300">
           {children}
         </Box>
       </Box>
