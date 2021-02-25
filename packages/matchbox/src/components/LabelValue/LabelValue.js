@@ -17,7 +17,7 @@ const Label = ({ children, orientation, appearance }) => (
     fontSize="200"
     fontWeight="semibold"
     mb={orientation === 'vertical' ? '100' : ''}
-    color={appearance == 'inverted' ? 'white' : ''}
+    color={appearance == 'inverted' ? 'gray.500' : ''}
   >
     {children}
   </Box>
