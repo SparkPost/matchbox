@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { margin, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { deprecate } from '../../helpers/propTypes';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
 import { outerBase, innerBase, visualSize, calculatedWidth } from './styles.js';
@@ -22,25 +23,29 @@ export const StyledProgressBarInner = styled(Box)`
   ${calculatedWidth}
 `;
 
-function ProgressBar(props) {
-  const { completed = 0, label, size, valueText, ...rest } = props;
+const ProgressBar = React.forwardRef(function ProgressBar(props, userRef) {
+  const { completed = 0, label, size, valueText, id, 'data-id': dataId, ...rest } = props;
+  const systemProps = pick(rest, system.propNames);
 
   return (
     <StyledProgressBarOuter
       as="div"
       visualSize={size}
-      {...rest}
       role="progressbar"
       aria-label={label}
       aria-valuenow={`${completed}`}
       aria-valuemin="0"
       aria-valuemax="100"
       aria-valuetext={valueText}
+      {...systemProps}
+      data-id={dataId}
+      id={id}
+      ref={userRef}
     >
       <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
     </StyledProgressBarOuter>
   );
-}
+});
 
 ProgressBar.displayName = 'ProgressBar';
 
@@ -50,6 +55,8 @@ ProgressBar.propTypes = {
     PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
     'Color is always blue for now. This may be updated in the future.',
   ),
+  'data-id': PropTypes.string,
+  id: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'small']),
   /**
    * Describes what the progressbar represents - content is visually hidden
