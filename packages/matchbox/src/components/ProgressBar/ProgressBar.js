@@ -24,7 +24,7 @@ export const StyledProgressBarInner = styled(Box)`
 `;
 
 const ProgressBar = React.forwardRef(function ProgressBar(props, userRef) {
-  const { completed = 0, label, size, valueText, ...rest } = props;
+  const { completed = 0, label, size, valueText, id, 'data-id': dataId, ...rest } = props;
   const systemProps = pick(rest, system.propNames);
 
   return (
@@ -38,7 +38,8 @@ const ProgressBar = React.forwardRef(function ProgressBar(props, userRef) {
       aria-valuemax="100"
       aria-valuetext={valueText}
       {...systemProps}
-      data-id={rest['data-id']}
+      data-id={dataId}
+      id={id}
       ref={userRef}
     >
       <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
@@ -55,6 +56,7 @@ ProgressBar.propTypes = {
     'Color is always blue for now. This may be updated in the future.',
   ),
   'data-id': PropTypes.string,
+  id: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'small']),
   /**
    * Describes what the progressbar represents - content is visually hidden
