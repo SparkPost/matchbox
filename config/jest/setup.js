@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars, no-console */
 import './raf';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import * as matchers from './matchers';
 import 'jest-styled-components';
 
