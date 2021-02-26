@@ -6,7 +6,7 @@ describe('The Tooltip component', () => {
   it('should open when a mouse over event triggers.', () => {
     cy.findAllByText('Hellow I am a Tooltip')
       .eq(1)
-      .should('not.to.visible');
+      .should('not.exist');
 
     cy.get('button')
       .first()
@@ -24,7 +24,7 @@ describe('The Tooltip component', () => {
   it('should open when clicking', () => {
     cy.findAllByText('Hellow I am a Tooltip')
       .eq(1)
-      .should('not.be.visible');
+      .should('not.exist');
 
     cy.get('button')
       .first()
@@ -38,7 +38,7 @@ describe('The Tooltip component', () => {
   it('should open when focusing', () => {
     cy.findAllByText('Hellow I am a Tooltip')
       .eq(1)
-      .should('not.be.visible');
+      .should('not.exist');
 
     cy.get('button')
       .first()
