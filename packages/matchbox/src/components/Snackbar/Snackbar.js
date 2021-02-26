@@ -5,9 +5,10 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import PropTypes from 'prop-types';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
-import { margin, maxWidth } from 'styled-system';
+import { margin, maxWidth as maxWidthSystem } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
+import { pick } from '../../helpers/props';
 
 const StyledBox = styled(Box)`
   ${base}
@@ -21,8 +22,9 @@ const StyledClose = styled(Box)`
   ${dismissStatus}
 `;
 
-const Snackbar = React.forwardRef(function Snackbar(props, ref) {
-  const { children, status, maxWidth, onDismiss, ...rest } = props;
+const Snackbar = React.forwardRef(function Snackbar(props, userRef) {
+  const { children, status, maxWidth, onDismiss, 'data-id': dataId, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
 
   return (
     <StyledBox
@@ -30,9 +32,10 @@ const Snackbar = React.forwardRef(function Snackbar(props, ref) {
       role="alert"
       p="300"
       borderRadius="100"
-      ref={ref}
-      {...rest}
+      ref={userRef}
       tabIndex="-1"
+      {...systemProps}
+      data-id={dataId}
     >
       <Box mr="300">
         {status === 'default' && <Info size="20" label="Info" />}
@@ -64,6 +67,7 @@ Snackbar.defaultProps = {
   maxWidth: 380,
 };
 Snackbar.propTypes = {
+  'data-id': PropTypes.string,
   /**
    * The type of snackbar.
    */
@@ -79,7 +83,7 @@ Snackbar.propTypes = {
    */
   children: PropTypes.node,
   ...createPropTypes(margin.propNames),
-  ...createPropTypes(maxWidth.propNames),
+  ...createPropTypes(maxWidthSystem.propNames),
 };
 
 export default Snackbar;
