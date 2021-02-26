@@ -18,11 +18,11 @@ const StyledSection = styled(Box)`
 `;
 
 const Section = React.forwardRef(function Section(props, userRef) {
-  const { children, className, ...rest } = props;
+  const { children, className, appearance, ...rest } = props;
   const actions = getChild('Panel.Action', children);
   const content = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
-  const appearanceContext = React.useContext(PanelAppearanceContext);
+  const appearanceContext = appearance || React.useContext(PanelAppearanceContext);
   const systemProps = pick(rest, padding.propNames);
 
   // Checks if 'padding', and overwrite 'p' instead of using the 'padding' key
@@ -43,6 +43,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
       {...paddingProps}
       bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
       color={appearanceContext === 'inverted' ? 'white' : ''}
+      borderColor={appearanceContext === 'inverted' ? 'gray.600' : ''}
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>{content}</Column>
@@ -58,6 +59,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
 
 Section.displayName = 'Panel.Section';
 Section.propTypes = {
+  appearance: PropTypes.oneOf(['inverted', 'default']),
   children: PropTypes.node,
   className: PropTypes.string,
   ...createPropTypes(padding.propNames),

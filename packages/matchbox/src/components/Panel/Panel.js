@@ -36,6 +36,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
         {...innerSystemProps}
         height={innerHeight}
         bg={appearance === 'inverted' ? 'gray.900' : ''}
+        borderColor={appearance === 'inverted' ? 'gray.600' : ''}
       >
         {accent && <Accent accentColor={accent} />}
         <PanelPaddingContext.Provider

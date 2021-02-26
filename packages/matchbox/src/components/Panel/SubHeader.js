@@ -4,10 +4,10 @@ import { Box } from '../Box';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
 
 const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
-  const { as, children, className } = props;
+  const { as, children, className, appearance } = props;
 
   const paddingContext = React.useContext(PanelPaddingContext);
-  const appearanceContext = React.useContext(PanelAppearanceContext);
+  const appearanceContext = appearance || React.useContext(PanelAppearanceContext);
 
   return (
     <Box
@@ -18,7 +18,8 @@ const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
       fontSize="200"
       fontWeight="normal"
       lineHeight="200"
-      color={appearanceContext === 'inverted' ? 'white' : 'gray.700'}
+      color={appearanceContext === 'inverted' ? 'gray.300' : 'gray.700'}
+      bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
       tabIndex="-1"
       ref={userRef}
     >
@@ -33,6 +34,7 @@ SubHeader.defaultProps = {
 };
 SubHeader.propTypes = {
   as: PropTypes.string,
+  appearance: PropTypes.oneOf(['appearance', 'default']),
   children: PropTypes.node,
   className: PropTypes.string,
 };

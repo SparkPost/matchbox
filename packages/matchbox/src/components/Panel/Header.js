@@ -9,11 +9,11 @@ import { getChild, excludeChild } from '../../helpers/children';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
 
 const Header = React.forwardRef(function Header(props, userRef) {
-  const { as, borderBottom, children, className } = props;
+  const { as, appearance, borderBottom, children, className } = props;
   const actions = getChild('Panel.Action', children);
   const title = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
-  const appearanceContext = React.useContext(PanelAppearanceContext);
+  const appearanceContext = appearance || React.useContext(PanelAppearanceContext);
 
   return (
     <Box
@@ -26,6 +26,7 @@ const Header = React.forwardRef(function Header(props, userRef) {
       ref={userRef}
       tabIndex="-1"
       color={appearanceContext === 'inverted' ? 'white' : ''}
+      bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>
@@ -49,6 +50,7 @@ Header.defaultProps = {
 };
 Header.propTypes = {
   as: PropTypes.string,
+  appearance: PropTypes.oneOf(['inverted', 'default']),
   borderBottom: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
