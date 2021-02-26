@@ -75,6 +75,21 @@ describe('Panel Components', () => {
       });
       expect(wrapper.find(Panel.SubHeader)).toHaveStyleRule('padding', '1.5rem');
     });
+
+    it('renders inverted appearance correctly', () => {
+      let wrapper = subject({
+        appearance: 'inverted',
+        children: (
+          <>
+            <Panel.Header>The Header</Panel.Header>
+            <Panel.Section>Panel Section</Panel.Section>
+          </>
+        ),
+      });
+
+      expect(wrapper.find(Panel.Section)).toHaveStyleRule('color', 'white');
+      expect(wrapper.find(Panel.Header)).toHaveStyleRule('color', 'white');
+    });
   });
 
   describe('Panel.Header', () => {

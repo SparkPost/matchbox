@@ -13,6 +13,26 @@ export const WithAHeader = withInfo()(() => (
   </Panel>
 ));
 
+export const InvertedAppearancePanel = withInfo()(() => (
+  <Panel data-id="my-panel" appearance="inverted">
+    <Panel.Header>Header</Panel.Header>
+    <Panel.Section>Section Content</Panel.Section>
+    <Panel.SubHeader>SubHeader</Panel.SubHeader>
+    <Panel.Section>Section two</Panel.Section>
+  </Panel>
+));
+
+export const InvertedAppearancePanelSection = withInfo()(() => (
+  <Panel data-id="my-panel">
+    <Panel.Header>Header</Panel.Header>
+    <Panel.Section>Section Content</Panel.Section>
+    <Panel.Header appearance="inverted">Header</Panel.Header>
+    <Panel.Section appearance="inverted">Section two</Panel.Section>
+    <Panel.SubHeader appearance="inverted">SubHeader</Panel.SubHeader>
+    <Panel.Section appearance="inverted">Section three</Panel.Section>
+  </Panel>
+));
+
 export const WithASubheader = withInfo()(() => (
   <Panel data-id="my-panel">
     <Panel.SubHeader>Details and Definition</Panel.SubHeader>
