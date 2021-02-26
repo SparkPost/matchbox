@@ -39,6 +39,12 @@ describe('Banner', () => {
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
+  it('renders correctly with id and data-id props', () => {
+    const wrapper = subject({ 'data-id': 'data-id', id: 'id' });
+    expect(wrapper.find('[data-id="data-id"]')).toExist();
+    expect(wrapper.find('#id')).toExist();
+  });
+
   it('renders status icons and background colors', () => {
     let wrapper = subject({ status: 'success' });
     expect(wrapper.find('[aria-label="Success"]')).toExist();
