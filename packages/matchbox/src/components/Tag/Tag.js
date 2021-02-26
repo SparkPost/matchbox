@@ -25,7 +25,7 @@ const StyledContent = styled('span')`
 `;
 
 const Tag = React.forwardRef(function Tag(props, userRef) {
-  const { color, children, onRemove, className, ...rest } = props;
+  const { color, children, onRemove, className, 'data-id': dataId, id, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
   const closeMarkup = onRemove ? (
@@ -39,7 +39,8 @@ const Tag = React.forwardRef(function Tag(props, userRef) {
     <StyledTag
       as="span"
       className={className}
-      data-id={rest['data-id']}
+      data-id={dataId}
+      id={id}
       tagColor={color}
       hasRemove={!!onRemove}
       {...systemProps}
@@ -70,6 +71,7 @@ Tag.propTypes = {
     'darkGray',
   ]),
   'data-id': PropTypes.string,
+  id: PropTypes.string,
   /**
    * Close button is hidden unless this is provided
    */
