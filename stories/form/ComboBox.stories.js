@@ -157,6 +157,21 @@ export const TextFieldWithError = withInfo({
   />
 ));
 
+export const TextFieldWithErrorAndHelpText = withInfo({
+  propTables: [ComboBoxTextField],
+})(() => (
+  <ComboBoxTextField
+    id="story-id"
+    selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+    itemToString={({ name }) => name}
+    defaultValue="input value"
+    label="Filters"
+    error="Required"
+    helpText="Remember to filter something"
+    required
+  />
+));
+
 export const TextFieldWhileDisabled = withInfo({
   propTables: [ComboBoxTextField],
 })(() => (

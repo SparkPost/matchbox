@@ -189,8 +189,8 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
           />
         </Box>
       </Connect>
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
     </StyledWrapper>
   );
 });

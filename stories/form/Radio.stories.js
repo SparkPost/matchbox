@@ -33,6 +33,10 @@ export const WithHelpText = withInfo()(() => (
 
 export const WithError = withInfo()(() => <Radio id="id" label="Check Me" error="I'm an error" />);
 
+export const WithErrorAndHelpText = withInfo()(() => (
+  <Radio id="id" label="Check Me" helpText="Check this box" error="Required" />
+));
+
 export const GroupWithLabel = withInfo()(() => (
   <Radio.Group label="This is a radio group">
     <Radio id="id" label="Option 1" name="group" />
