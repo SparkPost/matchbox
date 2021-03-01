@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../Box';
-import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import styled from 'styled-components';
 import { Close } from '@sparkpost/matchbox-icons';
 import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
+import { Box } from '../Box';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { pick } from '../../helpers/props';
 import { tagBase, tagColor, closeBase, closeColor, content } from './styles';
 
 const StyledTag = styled(Box)`
@@ -23,8 +24,9 @@ const StyledContent = styled('span')`
   ${content}
 `;
 
-function Tag(props) {
-  const { color, children, onRemove, className, ...rest } = props;
+const Tag = React.forwardRef(function Tag(props, userRef) {
+  const { color, children, onRemove, className, 'data-id': dataId, id, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
 
   const closeMarkup = onRemove ? (
     <StyledClose onClick={onRemove} tagColor={color} type="button">
@@ -34,12 +36,21 @@ function Tag(props) {
   ) : null;
 
   return (
-    <StyledTag as="span" className={className} tagColor={color} hasRemove={!!onRemove} {...rest}>
+    <StyledTag
+      as="span"
+      className={className}
+      data-id={dataId}
+      id={id}
+      tagColor={color}
+      hasRemove={!!onRemove}
+      {...systemProps}
+      ref={userRef}
+    >
       <StyledContent>{children}</StyledContent>
       {closeMarkup}
     </StyledTag>
   );
-}
+});
 
 Tag.displayName = 'Tag';
 Tag.propTypes = {
@@ -59,6 +70,8 @@ Tag.propTypes = {
     'lightGray',
     'darkGray',
   ]),
+  'data-id': PropTypes.string,
+  id: PropTypes.string,
   /**
    * Close button is hidden unless this is provided
    */
