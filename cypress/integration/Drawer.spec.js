@@ -13,12 +13,12 @@ describe('Drawer component', () => {
 
   it('closes when using the escape key', () => {
     cy.get('body').type('{esc}');
-    cy.contains('Opened on the right').should('not.be.visible');
+    cy.contains('Opened on the right').should('not.exist');
   });
 
   it('closes when clicking outside the drawer', () => {
     cy.get('body').click(100, 300);
-    cy.contains('Opened on the right').should('not.be.visible');
+    cy.contains('Opened on the right').should('not.exist');
   });
 
   it('traps focus', () => {

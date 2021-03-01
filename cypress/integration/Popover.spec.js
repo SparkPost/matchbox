@@ -19,20 +19,20 @@ describe('Controlled Popover component', () => {
 
     it('should close when clicking outside the popover', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
-      cy.get('html').click(500, 300);
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('html').click(100, 300);
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
 
     it('should close when pressing the escape key', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('body').type('{esc}');
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
 
     it('should close when pressing a close button', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('[data-id="close-button"]').click();
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
   });
 });
@@ -70,13 +70,13 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
     cy.get('html').click(100, 600);
-    cy.get('[data-id="popover-content"]').should('not.be.visible');
+    cy.get('[data-id="popover-content"]').should('not.exist');
   });
 
   it('should close when pressing the escape key', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
     cy.get('body').type('{esc}');
-    cy.get('[data-id="popover-content"]').should('not.be.visible');
+    cy.get('[data-id="popover-content"]').should('not.exist');
   });
 });

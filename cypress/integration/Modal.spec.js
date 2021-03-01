@@ -12,17 +12,17 @@ describe('The Modal component', () => {
   it('closes when clicking the "Close" button', () => {
     cy.get('[data-id="modal-close"]').click();
 
-    cy.contains('Modal Content').should('not.be.visible');
+    cy.contains('Modal Content').should('not.exist');
   });
 
   it('closes when using the escape key', () => {
     cy.get('[role="dialog"] > div').type('{esc}');
-    cy.contains('Modal Content').should('not.be.visible');
+    cy.contains('Modal Content').should('not.exist');
   });
 
   it('closes when clicking outside the modal', () => {
     cy.get('[role="dialog"] > div').click({ force: true, x: -100, y: -100 });
-    cy.contains('Modal Content').should('not.be.visible');
+    cy.contains('Modal Content').should('not.exist');
   });
 
   it('returns focus when closing', () => {
