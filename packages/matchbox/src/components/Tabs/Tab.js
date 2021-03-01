@@ -16,7 +16,7 @@ const StyledTab = styled(LinkWrapper)`
 `;
 
 const Tab = React.forwardRef(function Tab(props, ref) {
-  const { index, content, selected, fitted, component, Component, tabIndex, ...rest } = props;
+  const { index, content, selected, fitted, component, Component, tabIndex, type, ...rest } = props;
 
   function handleClick(event) {
     const { index, onClick } = props;
@@ -39,7 +39,9 @@ const Tab = React.forwardRef(function Tab(props, ref) {
       onClick={handleClick}
       role="tab"
       tabIndex={tabIndex}
-      type="button"
+      // Safari overwrites the button reset styles
+      // if the element is an 'a' with this attribute
+      type={wrapper === 'button' ? 'button' : type}
     >
       {content}
     </StyledTab>
