@@ -14,6 +14,7 @@ describe('Tabs', () => {
     const wrapper = subject();
     expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '0');
     expect(wrapper.find('button').at(0)).toHaveStyleRule('margin', '0 1.25rem');
+    expect(wrapper.find('[type="button]')).toExist();
   });
 
   it('renders fitted styles', () => {
@@ -56,6 +57,7 @@ describe('Tabs', () => {
       ],
     });
     expect(wrapper.find('a').text()).toEqual('Tab 4');
+    expect(wrapper.find('[type="button]')).not.toExist();
   });
 
   it('renders with with a ref', () => {
