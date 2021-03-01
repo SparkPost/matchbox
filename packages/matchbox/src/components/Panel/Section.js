@@ -46,7 +46,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
     >
       <Columns collapseBelow="xs" space="300" alignY="top" align="right">
         <Column>{content}</Column>
-        {actions.length ? (
+        {actions && actions.length ? (
           <Column width="content">
             <Button.Group>{actions}</Button.Group>
           </Column>

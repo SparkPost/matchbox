@@ -145,6 +145,11 @@ describe('Panel Components', () => {
       expect(wrapper.text()).toEqual('Section Content');
     });
 
+    it('renders with empty children correctly', () => {
+      let wrapper = subject({ children: <Panel.Section data-id="test"></Panel.Section> });
+      expect(wrapper.find('[data-id="test"]')).toExist();
+    });
+
     it('renders with a default padding correctly', () => {
       let wrapper = subject({ children: <Panel.Section>Section Content</Panel.Section> });
       expect(wrapper.find(Panel.Section)).toHaveStyleRule('padding', '1rem');
