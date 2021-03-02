@@ -36,6 +36,6 @@ describe('LabelValue', () => {
       </LabelValue>,
     );
 
-    expect(wrapper.find('div').at(2)).toHaveStyleRule('color', 'white');
+    expect(wrapper.find('div').at(2)).toHaveStyleRule('color', 'gray.500');
   });
 });
