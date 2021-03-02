@@ -6,7 +6,6 @@ import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { visuallyHidden } from '../../styles/helpers';
 import { deprecate } from '../../helpers/propTypes';
-import { omit } from '../../helpers/props';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 
@@ -32,10 +31,11 @@ function Toggle(props) {
     onBlur,
     label,
     required,
+    'aria-describedby': ariaDescribedBy,
+    'data-id': dataId,
     ...rest
   } = props;
   const systemProps = pick(rest);
-  const componentProps = omit(rest, margin.propNames);
 
   return (
     <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>
@@ -51,7 +51,8 @@ function Toggle(props) {
         onBlur={onBlur}
         required={required}
         type="checkbox"
-        {...componentProps}
+        aria-describedby={ariaDescribedBy}
+        data-id={dataId}
       />
       <StyledOutline checked={checked} />
       <StyledIndicator checked={checked} />
@@ -61,6 +62,8 @@ function Toggle(props) {
 
 Toggle.displayName = 'Toggle';
 Toggle.propTypes = {
+  'aria-describedby': PropTypes.string,
+  'data-id': PropTypes.string,
   checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   defaultChecked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   compact: deprecate(PropTypes.bool, 'Compact prop has been removed'),

@@ -6,7 +6,9 @@ export default {
   title: 'Action|Toggle',
 };
 
-export const BasicToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" />);
+export const BasicToggle = withInfo()(() => (
+  <Toggle id="id" data-id="toggle-input" aria-describedby="toggle-describe" />
+));
 
 export const DisabledToggle = withInfo()(() => <Toggle id="id" data-id="toggle-input" disabled />);
 
