@@ -11,6 +11,12 @@ describe('The Toggle component', () => {
       cy.get('[data-id="toggle-input"]').uncheck({ force: true });
       cy.get('[data-id="toggle-input"]').should('not.be.checked');
     });
+
+    it('applies attributes properly', () => {
+      cy.get('[data-id="toggle-input"]').should('exist');
+      cy.get('#id]').should('exist');
+      cy.get('[aria-describedby="toggle-describe"]').should('exist');
+    });
   });
 
   describe('Disabled', () => {
