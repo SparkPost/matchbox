@@ -14,7 +14,7 @@ describe('The Toggle component', () => {
 
     it('applies attributes properly', () => {
       cy.get('[data-id="toggle-input"]').should('exist');
-      cy.get('#id]').should('exist');
+      cy.get('#id').should('exist');
       cy.get('[aria-describedby="toggle-describe"]').should('exist');
     });
   });
