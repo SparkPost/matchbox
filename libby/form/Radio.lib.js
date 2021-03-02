@@ -28,6 +28,10 @@ describe('Radio', () => {
 
   add('with error', () => <Radio id="id" label="Check Me" error="I'm an error" />);
 
+  add('with error and help text', () => (
+    <Radio id="id" label="Check Me" helpText="Check this box" error="Required" />
+  ));
+
   add('group with label', () => (
     <Radio.Group label="This is a radio group">
       <Radio id="id" label="Option 1" name="group" />

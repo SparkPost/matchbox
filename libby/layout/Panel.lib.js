@@ -17,6 +17,26 @@ describe('Panel', () => {
     </Panel>
   ));
 
+  add('inverted appearance', () => (
+    <Panel data-id="my-panel" appearance="inverted">
+      <Panel.Header>Header</Panel.Header>
+      <Panel.Section>Section Content</Panel.Section>
+      <Panel.SubHeader>SubHeader</Panel.SubHeader>
+      <Panel.Section>Section two</Panel.Section>
+    </Panel>
+  ));
+
+  add('inverted appearance by section', () => (
+    <Panel data-id="my-panel">
+      <Panel.Header>Header</Panel.Header>
+      <Panel.Section>Section Content</Panel.Section>
+      <Panel.Header appearance="inverted">Header</Panel.Header>
+      <Panel.Section appearance="inverted">Section two</Panel.Section>
+      <Panel.SubHeader appearance="inverted">SubHeader</Panel.SubHeader>
+      <Panel.Section appearance="inverted">Section three</Panel.Section>
+    </Panel>
+  ));
+
   add('accent', () => (
     <Panel accent>
       <Panel.Section>This is a highlighted panel with a title</Panel.Section>

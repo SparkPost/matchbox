@@ -24,6 +24,9 @@ describe('Checkbox', () => {
   ));
 
   add('with help text', () => <Checkbox id="id" label="Check Me" helpText="Check this box" />);
+  add('with error and help text', () => (
+    <Checkbox id="id" label="Check Me" helpText="Check this box" error="I'm an error" />
+  ));
 
   add('with error and required', () => (
     <Checkbox id="id" label="Check Me" error="I'm an error" required />
