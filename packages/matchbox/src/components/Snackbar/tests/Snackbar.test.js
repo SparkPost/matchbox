@@ -4,6 +4,7 @@ import Snackbar from '../Snackbar';
 describe('Snackbar', () => {
   const defaults = {
     onDismiss: jest.fn(),
+    'data-id': 'test-id',
   };
 
   const subject = props =>
@@ -16,6 +17,7 @@ describe('Snackbar', () => {
   it('renders default status and text content correctly', () => {
     const wrapper = subject();
     expect(wrapper.find('[aria-label="Info"]')).toExist();
+    expect(wrapper.find('[data-id="test-id"]')).toExist();
     expect(
       wrapper
         .find('Box')

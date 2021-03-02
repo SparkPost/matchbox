@@ -162,8 +162,8 @@ const Select = React.forwardRef(function Select(props, userRef) {
         </StyledSelect>
         <StyledChevron size={24} disabled={disabled} />
       </Box>
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
     </StyledWrapper>
   );
 });

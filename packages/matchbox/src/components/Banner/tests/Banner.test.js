@@ -39,6 +39,12 @@ describe('Banner', () => {
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
+  it('renders correctly with id and data-id props', () => {
+    const wrapper = subject({ 'data-id': 'data-id', id: 'id' });
+    expect(wrapper.find('[data-id="data-id"]')).toExist();
+    expect(wrapper.find('#id')).toExist();
+  });
+
   it('renders status icons and background colors', () => {
     let wrapper = subject({ status: 'success' });
     expect(wrapper.find('[aria-label="Success"]')).toExist();
@@ -137,9 +143,7 @@ describe('Banner', () => {
   });
 
   it('renders Banner.Action', () => {
-    const onClick = jest.fn();
-
-    const wrapper = subject({ onClick });
+    const wrapper = subject();
 
     wrapper
       .find('button')
@@ -151,6 +155,6 @@ describe('Banner', () => {
         .at(0)
         .text(),
     ).toEqual('Banner Action');
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(props.onClick).toHaveBeenCalledTimes(1);
   });
 });

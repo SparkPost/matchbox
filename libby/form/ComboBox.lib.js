@@ -146,6 +146,19 @@ describe('ComboBox', () => {
     />
   ));
 
+  add('textfield with error and helptext', () => (
+    <ComboBoxTextField
+      id="story-id"
+      selectedItems={[{ name: 'foo' }, { name: 'bar' }]}
+      itemToString={({ name }) => name}
+      defaultValue="input value"
+      label="Filters"
+      error="Required"
+      helpText="Remember to filter something"
+      required
+    />
+  ));
+
   add('textfield while disabled', () => (
     <ComboBoxTextField
       id="story-id"
