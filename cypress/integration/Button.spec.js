@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('The Button component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/action-button--toggling-loading');
+    cy.visit('/iframe.html?path=Button__loading-toggle&source=false');
   });
 
   it('should properly replace content when loading', () => {

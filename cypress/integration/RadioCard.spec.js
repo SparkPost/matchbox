@@ -1,9 +1,7 @@
-/// <reference types="Cypress" />
-
 describe('The RadioCard component', () => {
   describe('Basic', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?path=/story/form-radiocard--vertical-group');
+      cy.visit('/iframe.html?path=RadioCard__vertical&source=false');
     });
 
     it('selects on click', () => {

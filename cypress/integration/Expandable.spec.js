@@ -1,11 +1,7 @@
-/// <reference types="Cypress" />
-
 /* eslint-disable no-undef */
 describe('The Expandable Component', () => {
   beforeEach(() => {
-    cy.visit(
-      '/iframe.html?selectedKind=Layout%7CExpandable&selectedStory=with%20image%20title%20and%20subtitle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-    );
+    cy.visit('/iframe.html?path=Expandable__icon-and-subtitle&source=false');
   });
 
   it('should toggle open/close when clicking the arrow', () => {

@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
-describe('The Tooltip component', () => {
+describe('useResizeObserver', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/utility-useresizeobserver--example-usage');
+    cy.visit('/iframe.html?path=useResizeObserver__example-usage&source=false');
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
   });
@@ -10,7 +8,7 @@ describe('The Tooltip component', () => {
   it('should measure', () => {
     cy.contains('x: 16').should('exist');
     cy.contains('y: 16').should('exist');
-    cy.contains('width: 372').should('exist');
+    cy.contains('width: 420').should('exist');
     cy.contains('height: 216').should('exist');
   });
 });

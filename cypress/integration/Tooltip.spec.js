@@ -1,20 +1,20 @@
-/// <reference types="Cypress" />
-
 describe('The Tooltip component', () => {
   beforeEach(() => {
-    cy.visit(
-      '/iframe.html?selectedKind=Overlays%7CTooltip&selectedStory=Default%20Style&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-    );
+    cy.visit('/iframe.html?path=Tooltip__default&source=false');
   });
 
   it('should open when a mouse over event triggers.', () => {
-    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('not.to.visible');
 
     cy.get('button')
       .first()
       .trigger('mouseover');
 
-    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('be.visible');
 
     cy.get('button')
       .first()
@@ -22,22 +22,30 @@ describe('The Tooltip component', () => {
   });
 
   it('should open when clicking', () => {
-    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('not.be.visible');
 
     cy.get('button')
       .first()
       .click();
 
-    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('be.visible');
   });
 
   it('should open when focusing', () => {
-    cy.findAllByText('Hellow I am a Tooltip').should('not.be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('not.be.visible');
 
     cy.get('button')
       .first()
       .focus();
 
-    cy.findAllByText('Hellow I am a Tooltip').should('be.visible');
+    cy.findAllByText('Hellow I am a Tooltip')
+      .eq(1)
+      .should('be.visible');
   });
 });

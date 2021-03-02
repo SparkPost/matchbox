@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('useInView Hook { once: true } ', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/utility-useinview--example-usage');
+    cy.visit('/iframe.html?path=useInView__example-usage&source=false');
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
   });
@@ -21,7 +19,7 @@ describe('useInView Hook { once: true } ', () => {
 
 describe('useInView Hook { once: false } ', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/utility-useinview--once-false');
+    cy.visit('/iframe.html?path=useInView__once-set-to-false&source=false');
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
   });

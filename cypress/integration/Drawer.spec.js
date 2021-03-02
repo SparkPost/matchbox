@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('Drawer component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/overlays-drawer--drawer-example');
+    cy.visit('/iframe.html?path=Drawer__example-drawer&source=false');
 
     cy.get('button')
       .first()

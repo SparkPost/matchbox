@@ -1,6 +1,6 @@
 describe('The UnstyledLink component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=navigation-unstyledlink--with-text-props');
+    cy.visit('/iframe.html?path=UnstyledLink__text-props&source=false');
   });
 
   it('correctly styles with system props', () => {
