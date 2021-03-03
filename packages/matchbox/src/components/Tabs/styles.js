@@ -58,6 +58,7 @@ export const overflowTabs = ({ isOverflowing }) => `
   display: flex;
   visibility: ${isOverflowing ? 'hidden' : 'visible'};
   pointer-events: ${isOverflowing ? 'none' : 'auto'};
+  overflow: ${isOverflowing ? 'hidden' : 'unset'};
 `;
 
 export const containerStyles = () => `
