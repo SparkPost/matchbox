@@ -47,7 +47,7 @@ export default {
   title: 'Navigation|Tabs',
 };
 
-export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() => {
+export const ExampleTabs = () => {
   const { getTabsProps } = useTabs({ tabs });
   return (
     <>
@@ -55,7 +55,7 @@ export const ExampleTabs = withInfo({ source: false, propTables: [Tabs] })(() =>
       <button>this is only here to test focus order</button>
     </>
   );
-});
+};
 
 export const AutomaticKeyboardActivation = withInfo()(() => {
   const { getTabsProps } = useTabs({ tabs });
