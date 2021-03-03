@@ -90,7 +90,7 @@ describe('The Tabs component', () => {
       cy.get('[data-id="tab-options-button"]').click();
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('[data-id="tab-options-button"]').click();
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
 
     it('should focus on the menu', () => {
