@@ -9,8 +9,7 @@
   "version": "4.8.1",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/tests/**", "**/*.md"],
-      "allowBranch": "main"
+      "ignoreChanges": ["**/tests/**", "**/*.md"]
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
