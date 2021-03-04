@@ -1,4 +1,15 @@
 
+## 4.8.2 (2021-03-04)
+
+#### Bug Fixes
+* `matchbox`
+  * [#773](https://github.com/SparkPost/matchbox/pull/773) UX-470 Fix bug that caused excessive horizontal scroll on Tabs ([@jonambas](https://github.com/jonambas))
+  * [#772](https://github.com/SparkPost/matchbox/pull/772) UX-469 Fix Tabs on Safari ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 4.8.1 (2021-02-25)
 
 #### Bug Fixes
