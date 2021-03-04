@@ -6,17 +6,26 @@
     "packages/matchbox",
     "packages/matchbox-media"
   ],
-  "version": "4.8.1",
+  "version": "4.8.2",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/tests/**", "**/*.md"]
+      "ignoreChanges": [
+        "**/tests/**",
+        "**/*.md"
+      ]
     },
     "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     },
     "version": {
       "message": "Publish %s"
     }
   },
-  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
+  "ignoreChanges": [
+    "**/matchbox-site/**",
+    "**/tests/**",
+    "**/*.md"
+  ]
 }
