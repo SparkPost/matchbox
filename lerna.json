@@ -9,25 +9,15 @@
   "version": "4.8.1",
   "command": {
     "publish": {
-      "ignoreChanges": [
-        "**/tests/**",
-        "**/*.md"
-      ],
+      "ignoreChanges": ["**/tests/**", "**/*.md"],
       "allowBranch": "main"
     },
     "bootstrap": {
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
+      "npmClientArgs": ["--no-package-lock"]
     },
     "version": {
-      "message": "Publish %s",
-      "allowBranch": "main"
+      "message": "Publish %s"
     }
   },
-  "ignoreChanges": [
-    "**/matchbox-site/**",
-    "**/tests/**",
-    "**/*.md"
-  ]
+  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
 }
