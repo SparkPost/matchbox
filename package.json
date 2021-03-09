@@ -8,7 +8,7 @@
   "scripts": {
     "start:site": "npm run build:tokens && cd site && npm run develop",
     "start:libby": "npm run build:tokens && NODE_ENV=development libby start",
-    "start:libby:static": "NODE_ENV=production libby build && serve ./libby-build -p 9001",
+    "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
     "start:playroom": "npm run clean && NODE_ENV=development playroom start",
     "prebuild": "lerna bootstrap",
     "build": "lerna run build",
