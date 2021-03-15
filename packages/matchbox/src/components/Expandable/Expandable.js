@@ -5,6 +5,7 @@ import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
+import { pick } from '../../helpers/props';
 import { StyledHeader, StyledContentWrapper, expandable, title, subtitle, arrow } from './styles';
 
 import Accent from './Accent';
@@ -33,6 +34,7 @@ function Expandable(props) {
   const {
     children,
     defaultOpen,
+    'data-id': dataId,
     icon,
     id,
     open,
@@ -44,6 +46,7 @@ function Expandable(props) {
     ...rest
   } = props;
 
+  const systemProps = pick(rest, margin.propNames);
   const header = React.useRef();
   const [isOpen, setIsOpen] = React.useState(open || defaultOpen);
   const controlled = typeof open === 'boolean';
@@ -94,7 +97,7 @@ function Expandable(props) {
   const contentSpacer = icon ? <Box flex="0" minWidth="40px" maxWidth="40px" mr="500" /> : null;
 
   return (
-    <Box {...rest}>
+    <Box data-id={dataId} {...systemProps}>
       {accentMarkup}
       <StyledExpandable accent={accent} variant={variant}>
         <StyledHeader

@@ -12,6 +12,10 @@ describe('The Expandable Component', () => {
     cy.get('[data-id="expandable-content"]').should('be.visible');
   });
 
+  it('should pass through data-id', () => {
+    cy.get('[data-id="test-id"]').should('exist');
+  });
+
   it('should toggle open/close when hitting enter while focused', () => {
     cy.get('[data-id="expandable-toggle"]')
       .focus()

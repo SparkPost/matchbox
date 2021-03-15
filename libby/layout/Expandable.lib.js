@@ -25,6 +25,7 @@ describe('Expandable', () => {
       title="Slack"
       id="example"
       subtitle="Integrate alerts into your team's Slack channels"
+      data-id="test-id"
     >
       Content here
     </Expandable>
