@@ -1,6 +1,6 @@
 describe('The TimelineTabs component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=timelinetabs--test');
+    cy.visit('/iframe.html?path=TimelineTabs__renders-correctly&source=false');
     cy.get('button')
       .first()
       .click();
