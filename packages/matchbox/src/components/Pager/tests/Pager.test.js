@@ -5,7 +5,7 @@ import Pager from '../Pager';
 describe('Pager', () => {
   const subject = () =>
     global.mountStyled(
-      <Pager mb="400">
+      <Pager mb="400" id="test-id" data-id="data-test-id">
         <Pager.Previous />
         <Pager.Next />
       </Pager>,
@@ -14,6 +14,8 @@ describe('Pager', () => {
   it('renders pager with buttons', () => {
     expect(subject().find(Pager.Previous)).toExist();
     expect(subject().find(Pager.Next)).toExist();
+    expect(subject().find('#test-id')).toExist();
+    expect(subject().find('[data-id="data-test-id"]')).toExist();
   });
 
   it('renders pager styles', () => {
