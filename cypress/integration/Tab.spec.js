@@ -22,7 +22,7 @@ describe('The Tabs component', () => {
       // Setting viewport dimensions to avoid side effects
       cy.viewport(1400, 600);
       cy.get('button')
-        .first()
+        .eq(1)
         .click();
     });
 
@@ -34,20 +34,20 @@ describe('The Tabs component', () => {
       cy.get('body').type('{rightArrow}');
       cy.focused().should('have.text', 'Details');
       cy.get('body').type('{leftArrow}');
-      cy.focused().should('have.text', 'Example with a component wrapper');
-      cy.get(`[tabindex="0"]`).should('have.text', 'Example with a component wrapper');
+      cy.focused().should('have.text', 'Example with an `as` wrapper');
+      cy.get(`[tabindex="0"]`).should('have.text', 'Example with an `as` wrapper');
     });
 
     it('should handle home and end keys', () => {
       cy.get('body').type('{end}');
-      cy.focused().should('have.text', 'Example with a component wrapper');
+      cy.focused().should('have.text', 'Example with an `as` wrapper');
       cy.get('body').type('{home}');
       cy.focused().should('have.text', 'Details');
     });
 
     it('should handle page up and page down keys', () => {
       cy.get('body').type('{pageUp}');
-      cy.focused().should('have.text', 'Example with a component wrapper');
+      cy.focused().should('have.text', 'Example with an `as` wrapper');
       cy.get('body').type('{pageDown}');
       cy.focused().should('have.text', 'Details');
     });
@@ -62,7 +62,7 @@ describe('The Tabs component', () => {
       cy.focused().should('have.text', 'More Details');
       cy.tab();
       cy.focused().should('have.text', 'this is only here to test focus order');
-      cy.get(`[tabindex="0"]`).should('have.text', 'Details');
+      cy.get(`[tabindex="0"]`).should('have.text', 'More Details');
     });
   });
 
