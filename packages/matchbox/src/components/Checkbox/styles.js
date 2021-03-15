@@ -42,13 +42,6 @@ export const StyledBox = styled(Box)`
 
   ${focusOutline({ modifier: 'input:focus ~ span &' })}
 
-  ${StyledLabel}:hover & {
-    ${props =>
-      !props.disabled && !props.indeterminate && !props.error
-        ? `border: 2px solid ${tokens.color_gray_800};`
-        : ''}
-  }
-
   input:checked ~ span & {
     border: 2px solid ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
     background: ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
@@ -62,6 +55,13 @@ export const StyledBox = styled(Box)`
   input:disabled:checked ~ span & {
     background: ${tokens.color_gray_600};
     border: 2px solid ${tokens.color_gray_600};
+  }
+
+  ${StyledLabel}:hover input:not(:disabled) ~ span & {
+    ${props =>
+      !props.disabled && !props.indeterminate && !props.error
+        ? `border: 2px solid ${tokens.color_gray_800};`
+        : ''}
   }
 
   ${StyledLabel}:hover input:checked:not(:disabled) ~ span & {
