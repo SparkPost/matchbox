@@ -40,10 +40,6 @@ const Container = styled.button`
     }
   }
 
-  ${'' /* &:focus svg [data-id='mb-tab-outer'] {
-    stroke-width: 2;
-  } */}
-
   &:last-child {
     svg line {
       display: none;
@@ -54,6 +50,14 @@ const Container = styled.button`
 const FocusSvg = styled.div`
   width: 24px;
   height: 24px;
+
+  ${Container}:focus & {
+    ${focusOutline({ modifier: '&', offset: '1px', radius: '50%' })}
+  }
+
+  ${Container}:focus:not(:focus-visible) &:after {
+    box-shadow: none;
+  }
 
   ${Container}:focus-visible & {
     ${focusOutline({ modifier: '&', offset: '1px', radius: '50%' })}
