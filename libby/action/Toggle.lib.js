@@ -3,7 +3,9 @@ import { describe, add } from '@sparkpost/libby-react';
 import { Toggle } from '@sparkpost/matchbox';
 
 describe('Toggle', () => {
-  add('renders correctly', () => <Toggle id="id" data-id="toggle-input" />);
+  add('renders correctly', () => (
+    <Toggle id="id" data-id="toggle-input" aria-describedby="toggle-describe" />
+  ));
   add('disabled', () => <Toggle id="id" data-id="toggle-input" disabled />);
   add('required', () => <Toggle id="id" data-id="toggle-input" required />);
   add('system props', () => (
