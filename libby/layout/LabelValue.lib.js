@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { LabelValue } from '@sparkpost/matchbox/components/LabelValue';
+import { Box } from '@sparkpost/matchbox/components/Box';
 
 describe('LabelValue', () => {
   add('default, vertical orientation', () => (
@@ -24,6 +25,15 @@ describe('LabelValue', () => {
         <div>Just a LabelValue</div>
       </LabelValue.Value>
     </LabelValue>
+  ));
+
+  add('inverted appearance', () => (
+    <Box bg="gray.900" p="500">
+      <LabelValue appearance="inverted">
+        <LabelValue.Label>Label</LabelValue.Label>
+        <LabelValue.Value>Inverted LabelValue</LabelValue.Value>
+      </LabelValue>
+    </Box>
   ));
 
   add('system props', () => (
