@@ -1,4 +1,33 @@
 
+## 4.8.2 (2021-03-04)
+
+#### Bug Fixes
+* `matchbox`
+  * [#773](https://github.com/SparkPost/matchbox/pull/773) UX-470 Fix bug that caused excessive horizontal scroll on Tabs ([@jonambas](https://github.com/jonambas))
+  * [#772](https://github.com/SparkPost/matchbox/pull/772) UX-469 Fix Tabs on Safari ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
+## 4.8.1 (2021-02-25)
+
+#### Bug Fixes
+* `matchbox`
+  * [#762](https://github.com/SparkPost/matchbox/pull/762) UX-445 Expandable update vertical padding with subtitle ([@logansparlin](https://github.com/logansparlin))
+  * [#755](https://github.com/SparkPost/matchbox/pull/755) UX-427 Fix full width button loading spinner positioning ([@logansparlin](https://github.com/logansparlin))
+  * [#758](https://github.com/SparkPost/matchbox/pull/758) UX-444 Update Snackbar component props to accept maxWidth styled prop ([@logansparlin](https://github.com/logansparlin))
+  * [#757](https://github.com/SparkPost/matchbox/pull/757) UX-447 Fix  UnstyledLink system props ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* `design-tokens`, `matchbox`
+  * [#752](https://github.com/SparkPost/matchbox/pull/752) UX-436 Resolve dependabot vulnerabilities ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 4.8.0 (2021-02-04)
 
 #### Features

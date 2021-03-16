@@ -75,6 +75,21 @@ describe('Panel Components', () => {
       });
       expect(wrapper.find(Panel.SubHeader)).toHaveStyleRule('padding', '1.5rem');
     });
+
+    it('renders inverted appearance correctly', () => {
+      let wrapper = subject({
+        appearance: 'inverted',
+        children: (
+          <>
+            <Panel.Header>The Header</Panel.Header>
+            <Panel.Section>Panel Section</Panel.Section>
+          </>
+        ),
+      });
+
+      expect(wrapper.find(Panel.Section)).toHaveStyleRule('color', 'white');
+      expect(wrapper.find(Panel.Header)).toHaveStyleRule('color', 'white');
+    });
   });
 
   describe('Panel.Header', () => {
@@ -128,6 +143,11 @@ describe('Panel Components', () => {
     it('renders children correctly', () => {
       let wrapper = subject({ children: <Panel.Section>Section Content</Panel.Section> });
       expect(wrapper.text()).toEqual('Section Content');
+    });
+
+    it('renders with empty children correctly', () => {
+      let wrapper = subject({ children: <Panel.Section data-id="test"></Panel.Section> });
+      expect(wrapper.find('[data-id="test"]')).toExist();
     });
 
     it('renders with a default padding correctly', () => {

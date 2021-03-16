@@ -1,11 +1,7 @@
-/// <reference types="Cypress" />
-
 describe('The Toggle component', () => {
   describe('Basic', () => {
     beforeEach(() => {
-      cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=basic%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-      );
+      cy.visit('/iframe.html?path=Toggle__renders-correctly&source=false');
     });
 
     it('Toggles!', () => {
@@ -15,13 +11,17 @@ describe('The Toggle component', () => {
       cy.get('[data-id="toggle-input"]').uncheck({ force: true });
       cy.get('[data-id="toggle-input"]').should('not.be.checked');
     });
+
+    it('applies attributes properly', () => {
+      cy.get('[data-id="toggle-input"]').should('exist');
+      cy.get('#id').should('exist');
+      cy.get('[aria-describedby="toggle-describe"]').should('exist');
+    });
   });
 
   describe('Disabled', () => {
     beforeEach(() => {
-      cy.visit(
-        '/iframe.html?selectedKind=Action%7CToggle&selectedStory=disabled%20toggle&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel',
-      );
+      cy.visit('/iframe.html?path=Toggle__disabled&source=false');
     });
 
     it('Doesnt Toggle!', () => {

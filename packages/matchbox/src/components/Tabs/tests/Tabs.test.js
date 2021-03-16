@@ -10,6 +10,16 @@ describe('Tabs', () => {
   };
   const subject = props => global.mountStyled(<Tabs {...defaultprops} {...props} />);
 
+  it('renders button type correctly', () => {
+    const wrapper = subject();
+    expect(
+      wrapper
+        .find('button')
+        .first()
+        .props().type,
+    ).toEqual('button');
+  });
+
   it('renders non-fitted styles', () => {
     const wrapper = subject();
     expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '0');
@@ -56,6 +66,7 @@ describe('Tabs', () => {
       ],
     });
     expect(wrapper.find('a').text()).toEqual('Tab 4');
+    expect(wrapper.find('a').props().type).toBeUndefined();
   });
 
   it('renders with with a ref', () => {

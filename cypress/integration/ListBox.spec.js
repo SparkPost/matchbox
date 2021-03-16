@@ -1,9 +1,7 @@
-/// <reference types="Cypress" />
-
 describe('The ListBox component', () => {
   describe('interactions', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?id=form-listbox--printable-character');
+      cy.visit('/iframe.html?path=ListBox__printable-characters&source=false');
     });
 
     it('opens the listbox when clicking on the `<label>`', () => {
@@ -107,7 +105,7 @@ describe('The ListBox component', () => {
 
   describe('with an error', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?id=form-listbox--with-error');
+      cy.visit('/iframe.html?path=ListBox__help-text-and-error&source=false');
     });
 
     it('renders correctly', () => {

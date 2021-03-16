@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deprecate } from '../../helpers/propTypes';
-import { omit } from '../../helpers/props';
+import { pick, omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
@@ -71,8 +71,20 @@ const StyledDismiss = styled(Box)`
   ${dismissColor}
 `;
 
-const Banner = React.forwardRef(function Banner(props, ref) {
-  const { children, title, status, action, actions, onDismiss, size, ...rest } = props;
+const Banner = React.forwardRef(function Banner(props, userRef) {
+  const {
+    children,
+    'data-id': dataId,
+    id,
+    title,
+    status,
+    action,
+    actions,
+    onDismiss,
+    size,
+    ...rest
+  } = props;
+  const systemProps = pick(rest, margin.propNames);
 
   const titleMarkup = title ? (
     <Box pt={status !== 'muted' ? ['300', null, '200'] : null} mb="200">
@@ -141,10 +153,12 @@ const Banner = React.forwardRef(function Banner(props, ref) {
       py={size === 'large' ? null : '200'}
       borderRadius="100"
       status={status}
-      {...rest}
-      ref={ref}
+      {...systemProps}
+      ref={userRef}
       tabIndex="-1"
       overflow="hidden"
+      data-id={dataId}
+      id={id}
     >
       {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
@@ -162,6 +176,8 @@ const Banner = React.forwardRef(function Banner(props, ref) {
 
 Banner.displayName = 'Banner';
 Banner.propTypes = {
+  'data-id': PropTypes.string,
+  id: PropTypes.string,
   /**
    * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
    */

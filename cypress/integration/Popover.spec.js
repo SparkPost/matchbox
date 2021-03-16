@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('Controlled Popover component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/overlays-popover--controlled-open-state');
+    cy.visit('/iframe.html?path=Popover__controlled&source=false');
   });
 
   it('should open when clicking the trigger', () => {
@@ -21,27 +19,27 @@ describe('Controlled Popover component', () => {
 
     it('should close when clicking outside the popover', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
-      cy.get('body').click(100, 300);
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('html').click(100, 300);
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
 
     it('should close when pressing the escape key', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('body').type('{esc}');
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
 
     it('should close when pressing a close button', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('[data-id="close-button"]').click();
-      cy.get('[data-id="popover-content"]').should('not.be.visible');
+      cy.get('[data-id="popover-content"]').should('not.exist');
     });
   });
 });
 
 describe('Uncontrolled Popover with Actionlist', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/overlays-popover--with-an-action-list');
+    cy.visit('/iframe.html?path=Popover__with-an-ActionList&source=false');
     cy.wait(500); // The element that handles click events requires time to calculate dimensions
   });
 
@@ -71,14 +69,14 @@ describe('Uncontrolled Popover with Actionlist', () => {
   it('should close when clicking outside the popover', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.get('body').click(100, 600);
-    cy.get('[data-id="popover-content"]').should('not.be.visible');
+    cy.get('html').click(100, 600);
+    cy.get('[data-id="popover-content"]').should('not.exist');
   });
 
   it('should close when pressing the escape key', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
     cy.get('body').type('{esc}');
-    cy.get('[data-id="popover-content"]').should('not.be.visible');
+    cy.get('[data-id="popover-content"]').should('not.exist');
   });
 });

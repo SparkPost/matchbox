@@ -23,7 +23,7 @@ const StyledTitle = styled('h3')`
   ${title}
 `;
 
-const StyledSubtitle = styled('h6')`
+const StyledSubtitle = styled(Box)`
   ${subtitle}
 `;
 
@@ -85,7 +85,11 @@ function Expandable(props) {
     </StyledIcon>
   ) : null;
 
-  const subtitleMarkup = subtitle ? <StyledSubtitle>{subtitle}</StyledSubtitle> : null;
+  const subtitleMarkup = subtitle ? (
+    <StyledSubtitle as="h6" mb="100">
+      {subtitle}
+    </StyledSubtitle>
+  ) : null;
 
   const contentSpacer = icon ? <Box flex="0" minWidth="40px" maxWidth="40px" mr="500" /> : null;
 
@@ -101,6 +105,7 @@ function Expandable(props) {
           ref={header}
           data-id="expandable-toggle"
           type="button"
+          variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">

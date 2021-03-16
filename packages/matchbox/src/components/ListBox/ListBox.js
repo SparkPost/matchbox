@@ -228,8 +228,8 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
           {optionsMarkup}
         </StyledList>
       </Popover>
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpMarkup}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
       <input type="hidden" name={name} value={currentValue} />
     </StyledWrapper>
   );

@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('usePrefersColorScheme hook', () => {
   const visit = dark => {
-    cy.visit('/iframe.html?path=/story/utility-usepreferscolorscheme--example-usage', {
+    cy.visit('iframe.html?path=usePrefersColorScheme__example-usage&source=false', {
       onBeforeLoad(window) {
         cy.stub(window, 'matchMedia')
           .withArgs('(prefers-color-scheme: dark)')
@@ -12,10 +10,6 @@ describe('usePrefersColorScheme hook', () => {
       },
     });
   };
-  beforeEach(() => {
-    // Setting viewport dimensions to avoid side effects
-    cy.viewport(500, 500);
-  });
 
   it('should return dark if dark preference set', () => {
     visit(true);

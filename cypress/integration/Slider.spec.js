@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 describe('The Slider component', () => {
   beforeEach(() => {
     // Setting viewport dimensions to avoid side effects
@@ -8,7 +6,7 @@ describe('The Slider component', () => {
 
   describe('when enabled', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?selectedKind=Form%7CSlider&selectedStory=basic%20slider');
+      cy.visit('/iframe.html?path=Slider__basic-usage&source=false');
     });
 
     // Test relies on timing for layout side effects
@@ -63,7 +61,7 @@ describe('The Slider component', () => {
 
   describe('when disabled', () => {
     beforeEach(() => {
-      cy.visit('/iframe.html?selectedKind=Form%7CSlider&selectedStory=disabled%20slider');
+      cy.visit('/iframe.html?path=Slider__disabled&source=false');
     });
 
     it('should not respond to clicks or keyboard interaction', () => {

@@ -15,7 +15,7 @@ export const Animator = styled(Box)`
   overflow: hidden;
   &:after {
     position: absolute;
-    background: ${tokens.color_gray_200};
+    background: ${tokens.color_gray_300};
     content: '';
     top: 0;
     left: 0;

@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
 describe('Drawer component', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=/story/overlays-drawer--drawer-example');
+    cy.visit('/iframe.html?path=Drawer__example-drawer&source=false');
 
     cy.get('button')
       .first()
@@ -15,12 +13,12 @@ describe('Drawer component', () => {
 
   it('closes when using the escape key', () => {
     cy.get('body').type('{esc}');
-    cy.contains('Opened on the right').should('not.be.visible');
+    cy.contains('Opened on the right').should('not.exist');
   });
 
   it('closes when clicking outside the drawer', () => {
     cy.get('body').click(100, 300);
-    cy.contains('Opened on the right').should('not.be.visible');
+    cy.contains('Opened on the right').should('not.exist');
   });
 
   it('traps focus', () => {

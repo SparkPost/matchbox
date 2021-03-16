@@ -117,12 +117,12 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
           </Label>
         </Box>
       </StyledLabel>
-      {error && <Error id={errorId} error={error} ml="500" />}
       {helpText && (
         <HelpText id={helpTextId} ml="500" mt="0">
           {helpText}
         </HelpText>
       )}
+      {error && <Error id={errorId} error={error} ml="500" />}
     </Wrapper>
   );
 });

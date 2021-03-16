@@ -130,8 +130,8 @@ function ComboBoxTextField(props) {
       </StyledInputWrapper>
       {/* Menu is rendered here so it is positioned correctly before error and helptext */}
       {children}
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
+      {error && !errorInLabel && <Error id={errorId} error={error} />}
     </StyledWrapper>
   );
 }
