@@ -12,7 +12,7 @@ function useTabConstructor({ tabs, initialIndex }) {
     return () => {
       tabRefs.current = [];
     };
-  }, [tabs, children]);
+  }, [tabs]);
 
   const onFocusContainerKeyDown = e => {
     const isWithin = focusRef.current && focusRef.current.contains(e.currentTarget);
