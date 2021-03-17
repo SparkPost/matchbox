@@ -64,6 +64,7 @@ const StyledList = styled(Box)`
 const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const {
     children,
+    'data-id': dataId,
     placeholder,
     disabled,
     id,
@@ -179,7 +180,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   }
 
   return (
-    <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
+    <StyledWrapper data-id={dataId} tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
       <Popover
         id="listbox-popover"
@@ -234,6 +235,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
 ListBox.displayName = 'ListBox';
 ListBox.propTypes = {
+  'data-id': PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,

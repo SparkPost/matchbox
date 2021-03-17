@@ -20,7 +20,13 @@ describe('ListBox', () => {
 
   add('printable characters', () => (
     <>
-      <ListBox id="listbox-1" defaultValue="bravo" label="Select an option" name="listbox-test">
+      <ListBox
+        id="listbox-1"
+        data-id="test-data-id"
+        defaultValue="bravo"
+        label="Select an option"
+        name="listbox-test"
+      >
         <ListBox.Option value="alpha">Alpha</ListBox.Option>
         <ListBox.Option value="bravo">Bravo</ListBox.Option>
         <ListBox.Option value="charlie">Charlie</ListBox.Option>
