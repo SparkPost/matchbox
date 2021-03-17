@@ -12,7 +12,6 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
 import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/props';
 import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
@@ -84,7 +83,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   const systemProps = pick(rest, system.propNames);
   const maxHeightProps = pick(rest, maxHeight.propNames);
-  const componentProps = omit(rest);
 
   const [open, setOpen] = React.useState(false);
   const [currentValue, setCurrentValue] = React.useState(
@@ -206,7 +204,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               onKeyDown={activatorKeyDown}
               disabled={disabled}
               hasError={!!error}
-              {...componentProps}
               {...describedBy}
               ref={assignRefs}
             >
