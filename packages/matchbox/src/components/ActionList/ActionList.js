@@ -5,6 +5,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { margin, layout, compose } from 'styled-system';
 import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
+import { pick } from '../../helpers/props';
 import Section from './Section';
 import Action from './Action';
 
@@ -17,12 +18,16 @@ const Wrapper = styled('div')`
 const ActionList = React.forwardRef(function ActionList(props, userRef) {
   const {
     actions = [],
+    className,
+    children,
+    'data-id': dataId,
     sections = [],
     maxHeight = 'none',
+    onClick,
     groupByKey = 'section',
-    children,
     ...rest
   } = props;
+  const systemProps = pick(rest, system.propNames);
 
   let list = actions && actions.length ? groupByValues(actions, groupByKey) : [];
   if (sections && sections.length) {
@@ -33,10 +38,13 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   return (
     <Wrapper
+      className={className}
+      data-id={dataId}
       maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
+      onClick={onClick}
       ref={userRef}
       tabIndex="-1"
-      {...rest}
+      {...systemProps}
     >
       {listMarkup}
       {children}
@@ -56,6 +64,8 @@ ActionList.propTypes = {
     PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
     'Use the ActionList.Action component instead',
   ),
+  className: PropTypes.string,
+  'data-id': PropTypes.string,
   /**
    * Creates sections
    * e.g. [[{ content: 'action label', onClick: callback() }]]
@@ -69,6 +79,7 @@ ActionList.propTypes = {
    * Max height of list
    */
   maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onClick: PropTypes.func,
 
   /**
    * Group by key used to auto group actions into sections, defaults to "section"
