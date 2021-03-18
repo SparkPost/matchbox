@@ -1,0 +1,4 @@
+{
+  "cleanUrls": ["index.html", "!iframe.html"],
+  "public": "./libby-build"
+}
