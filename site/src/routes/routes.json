@@ -266,6 +266,12 @@
         "section": "Navigation"
       },
       {
+        "path": "/components/timelinetabs",
+        "label": "TimelineTabs",
+        "section": "Navigation",
+        "tag": "new"
+      },
+      {
         "path": "/components/unstyledlink",
         "label": "UnstyledLink",
         "section": "Navigation"
