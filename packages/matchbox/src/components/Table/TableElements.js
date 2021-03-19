@@ -5,6 +5,7 @@ import { cell, row, headerCell, totalsRow, verticalAlignment } from './styles';
 import { TablePaddingContext } from './context';
 import { padding, fontSize, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '../../helpers/props';
 
 const paddingAndFontSize = compose(padding, fontSize);
 const StyledCell = styled('td')`
@@ -29,14 +30,15 @@ const StyledTotalsRow = styled('tr')`
 `;
 
 const Cell = React.forwardRef(function Cell(
-  { value, children, className, colSpan, style, width },
+  { value, children, className, colSpan, style, width, ...rest },
   userRef,
 ) {
   const paddingContext = React.useContext(TablePaddingContext);
-
+  const paddingProps = pick(rest, padding.propNames);
   return (
     <StyledCell
       {...paddingContext}
+      {...paddingProps}
       className={className}
       fontSize={['200', null, '300']}
       colSpan={colSpan}

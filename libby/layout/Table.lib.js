@@ -13,9 +13,14 @@ const PopoverNode = () => (
 );
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
-  [<Node />, <Node />, <NodeLong />, <Node />],
+  [<Node key="1" />, <Node key="2" />, <NodeLong key="3" />, <Node key="4" />],
   [1, 2, 3, 4],
-  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />],
+  [
+    <PopoverNode key="1" />,
+    <PopoverNode key="2" />,
+    <PopoverNode key="3" />,
+    <PopoverNode key="4" />,
+  ],
 ];
 
 describe('Table', () => {
@@ -90,15 +95,15 @@ describe('Table', () => {
           </Table.Row>
         </thead>
         <tbody>
-          <Table.Row p="800">
-            <Table.Cell p="800">Padding 800</Table.Cell>
+          <Table.Row>
+            <Table.Cell p="600">Padding 600</Table.Cell>
             <Table.Cell>Padding 800</Table.Cell>
             <Table.Cell>Padding 800</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell p="400">Padding 400</Table.Cell>
-            <Table.Cell>Padding 400</Table.Cell>
-            <Table.Cell>Padding 400</Table.Cell>
+            <Table.Cell p="200">Padding 200</Table.Cell>
+            <Table.Cell>Default Padding</Table.Cell>
+            <Table.Cell>Default Padding</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>Default Padding</Table.Cell>
