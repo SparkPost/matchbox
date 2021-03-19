@@ -12,8 +12,8 @@ import { Portal } from '../Portal';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
-import { getChild } from '../../helpers/children';
 import { isInIframe } from '../../helpers/window';
+import { ModalContext } from './context';
 import { base, focusLock, wrapper, content, contentAnimation } from './styles';
 
 import Header from './Header';
@@ -135,9 +135,9 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                             tabIndex="-1"
                             data-id="modal-content-panel"
                           >
-                            {getChild('Modal.Header', children, { onClose })}
-                            {getChild('Modal.Content', children, { open })}
-                            {getChild('Modal.Footer', children)}
+                            <ModalContext.Provider value={{ onClose, open }}>
+                              {children}
+                            </ModalContext.Provider>
                           </Box>
                         </StyledContent>
                       </div>

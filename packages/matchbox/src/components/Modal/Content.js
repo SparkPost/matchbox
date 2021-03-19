@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '../../helpers/props';
-
 import { Box } from '../Box';
 
 const Content = React.forwardRef(function Content(props, ref) {
