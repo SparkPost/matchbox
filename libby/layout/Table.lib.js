@@ -97,8 +97,7 @@ describe('Table', () => {
         <tbody>
           <Table.Row>
             <Table.Cell p="600">Padding 600</Table.Cell>
-            <Table.Cell>Padding 800</Table.Cell>
-            <Table.Cell>Padding 800</Table.Cell>
+            <Table.Cell colSpan="2">Padding 800 colspan 2</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell p="200">Padding 200</Table.Cell>
