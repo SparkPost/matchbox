@@ -22,7 +22,7 @@ const Wrapper = styled(Box)`
 `;
 
 function Table(props) {
-  const { children, data, freezeFirstColumn, title, ...rest } = props;
+  const { children, data, 'data-id': dataId, freezeFirstColumn, id, title, ...rest } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   const handleScroll = React.useCallback(
@@ -51,7 +51,12 @@ function Table(props) {
       onScroll={freezeFirstColumn ? handleScroll : null}
       {...marginProps}
     >
-      <StyledTable freezeFirstColumn={freezeFirstColumn} isScrolled={isScrolled} {...rest}>
+      <StyledTable
+        data-id={dataId}
+        freezeFirstColumn={freezeFirstColumn}
+        id={id}
+        isScrolled={isScrolled}
+      >
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
           {title && (
             <caption>
@@ -72,12 +77,11 @@ Table.TotalsRow = TotalsRow;
 
 Table.displayName = 'Table';
 Table.propTypes = {
-  freezeFirstColumn: PropTypes.bool,
-  data: PropTypes.array,
-  /**
-   * React node(s)
-   */
   children: PropTypes.node,
+  data: PropTypes.array,
+  'data-id': PropTypes.string,
+  freezeFirstColumn: PropTypes.bool,
+  id: PropTypes.string,
   title: PropTypes.string,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
