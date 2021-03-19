@@ -5,7 +5,6 @@ import { cell, row, headerCell, totalsRow, verticalAlignment } from './styles';
 import { TablePaddingContext } from './context';
 import { padding, fontSize, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { pick } from '../../helpers/props';
 
 const paddingAndFontSize = compose(padding, fontSize);
 const StyledCell = styled('td')`
@@ -20,7 +19,6 @@ const StyledHeaderCell = styled('th')`
 
 const StyledRow = styled('tr')`
   ${row}
-  ${padding}
   td, th {
     ${verticalAlignment}
   }
@@ -28,39 +26,65 @@ const StyledRow = styled('tr')`
 
 const StyledTotalsRow = styled('tr')`
   ${totalsRow}
-  ${padding}
 `;
 
-const Cell = ({ value, children, className, ...rest }) => {
+const Cell = React.forwardRef(function Cell(
+  { value, children, className, colSpan, style, width },
+  userRef,
+) {
   const paddingContext = React.useContext(TablePaddingContext);
 
   return (
-    <StyledCell {...paddingContext} className={className} fontSize={['200', null, '300']} {...rest}>
+    <StyledCell
+      {...paddingContext}
+      className={className}
+      fontSize={['200', null, '300']}
+      colSpan={colSpan}
+      ref={userRef}
+      style={style}
+      width={width}
+    >
       {value || children}
     </StyledCell>
   );
-};
+});
 
 Cell.propTypes = {
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
+  colSpan: PropTypes.string,
+  style: PropTypes.object,
+  width: PropTypes.string,
   ...createPropTypes(padding.propNames),
 };
 Cell.displayName = 'Table.Cell';
 
-const HeaderCell = ({ value, children, className, ...rest }) => {
+const HeaderCell = React.forwardRef(function HeaderCell(
+  { value, children, className, colSpan, style, width },
+  userRef,
+) {
   return (
-    <StyledHeaderCell p="450" className={className} {...rest}>
+    <StyledHeaderCell
+      p="450"
+      className={className}
+      colSpan={colSpan}
+      ref={userRef}
+      style={style}
+      width={width}
+    >
       {value || children}
     </StyledHeaderCell>
   );
-};
+});
 
 HeaderCell.propTypes = {
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
+  colSpan: PropTypes.string,
+  style: PropTypes.object,
+  width: PropTypes.string,
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
@@ -91,15 +115,8 @@ const TotalsRow = React.forwardRef(function TotalsRow(
   { rowData, children, className, onClick },
   userRef,
 ) {
-  const paddingProps = pick(rest, padding.propNames);
   return (
-    <StyledTotalsRow
-      className={className}
-      {...paddingProps}
-      ref={userRef}
-      tabIndex="-1"
-      onClick={onClick}
-    >
+    <StyledTotalsRow className={className} ref={userRef} tabIndex="-1" onClick={onClick}>
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledTotalsRow>
   );
