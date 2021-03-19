@@ -64,19 +64,23 @@ HeaderCell.propTypes = {
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 
-const Row = ({ alignY, rowData, children, className, ...rest }) => {
+const Row = React.forwardRef(function Row(
+  { alignY, rowData, children, className, onClick },
+  userRef,
+) {
   return (
-    <StyledRow alignY={alignY} className={className} {...rest}>
+    <StyledRow alignY={alignY} className={className} onClick={onClick} ref={userRef}>
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledRow>
   );
-};
+});
 
 Row.propTypes = {
   alignY: PropTypes.oneOf(['top', 'bottom', 'center']),
   rowData: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
+  onClick: PropTypes.func,
 };
 Row.defaultProps = {
   alignY: 'center',
@@ -84,12 +88,18 @@ Row.defaultProps = {
 Row.displayName = 'Table.Row';
 
 const TotalsRow = React.forwardRef(function TotalsRow(
-  { rowData, children, className, ...rest },
-  ref,
+  { rowData, children, className, onClick },
+  userRef,
 ) {
   const paddingProps = pick(rest, padding.propNames);
   return (
-    <StyledTotalsRow className={className} {...paddingProps} ref={ref} tabIndex="-1">
+    <StyledTotalsRow
+      className={className}
+      {...paddingProps}
+      ref={userRef}
+      tabIndex="-1"
+      onClick={onClick}
+    >
       {rowData ? rowData.map((value, i) => <Cell value={value} key={`Cell-${i}`} />) : children}
     </StyledTotalsRow>
   );
@@ -99,6 +109,7 @@ TotalsRow.propTypes = {
   rowData: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
+  onClick: PropTypes.func,
 };
 TotalsRow.displayName = 'Table.TotalsRow';
 
