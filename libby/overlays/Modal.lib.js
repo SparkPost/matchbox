@@ -97,13 +97,15 @@ describe('Modal', () => {
         </Button>
 
         <Modal {...modal.getModalProps()}>
-          <Modal.Header showCloseButton>Modal Title</Modal.Header>
-          <Modal.Content>Modal Content</Modal.Content>
-          <Modal.Footer>
-            <Button>Primary Button</Button>
-            <Button>Secondary Button</Button>
-            <Button>Tertiary Button</Button>
-          </Modal.Footer>
+          <div id="this-is-here-to-test-composition">
+            <Modal.Header showCloseButton>Modal Title</Modal.Header>
+            <Modal.Content>Modal Content</Modal.Content>
+            <Modal.Footer>
+              <Button>Primary Button</Button>
+              <Button>Secondary Button</Button>
+              <Button>Tertiary Button</Button>
+            </Modal.Footer>
+          </div>
         </Modal>
       </>
     );
