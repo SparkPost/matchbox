@@ -48,7 +48,6 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
     open,
     portalId,
     maxWidth,
-    ...rest
   } = props;
 
   const overlayRef = useRef();
@@ -96,7 +95,6 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
         <TouchScrollable>
           <StyledBase
             open={open}
-            {...rest}
             className={className}
             onClose={onClose}
             role="dialog"
