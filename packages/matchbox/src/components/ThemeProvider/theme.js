@@ -199,6 +199,7 @@ const theme = {
   },
 
   fontSizes: {
+    50: tokens.fontSize_50,
     100: tokens.fontSize_100,
     200: tokens.fontSize_200,
     300: tokens.fontSize_300,
