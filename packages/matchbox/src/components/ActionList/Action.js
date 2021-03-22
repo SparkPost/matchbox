@@ -25,9 +25,6 @@ const Action = React.forwardRef(function Action(props, userRef) {
     );
   }, [content, selected, helpText]);
 
-  const isAttributes =
-    is === 'checkbox' ? { role: 'checkbox', 'aria-checked': !!selected, tabIndex: '0' } : {};
-
   return (
     <StyledLink
       as={is === 'button' ? 'button' : null}
@@ -35,7 +32,6 @@ const Action = React.forwardRef(function Action(props, userRef) {
       disabled={disabled}
       isType={is}
       ref={userRef}
-      {...isAttributes}
       {...action}
     >
       {linkContent}
@@ -53,7 +49,7 @@ Action.propTypes = {
    * Can be used for wrappers that manage focus within the menu, eg downshift
    */
   highlighted: PropTypes.bool,
-  is: PropTypes.oneOf(['link', 'button', 'checkbox']),
+  is: PropTypes.oneOf(['link', 'button']),
   selected: deprecate(PropTypes.bool, 'Use the checkbox component instead'),
   helpText: PropTypes.string,
 };
