@@ -170,18 +170,6 @@ describe('Legacy ActionList', () => {
     expect(wrapper.find('div').at(0)).toHaveStyleRule('max-height', '10rem');
   });
 
-  it('renders a selected action as a checkbox', () => {
-    const wrapper = subject({
-      actions: [
-        { content: 'Action', is: 'checkbox' },
-        { content: 'Action 2', selected: true, is: 'checkbox' },
-      ],
-    });
-    expect(wrapper.find('a').at(1)).toHaveAttributeValue('role', 'checkbox');
-    expect(wrapper.find('a').at(1)).toHaveAttributeValue('aria-checked', 'true');
-    expect(wrapper.find('a').at(0)).toHaveAttributeValue('aria-checked', 'false');
-  });
-
   it('renders an action button', () => {
     const wrapper = subject({
       actions: [{ content: 'Action', is: 'button' }],
