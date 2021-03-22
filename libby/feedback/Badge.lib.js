@@ -19,8 +19,17 @@ describe('Badge', () => {
   add('system props', () => (
     <>
       <Badge mx="600">100</Badge>
-      <Badge my="600" bg="red">
+      <Badge my="600">100</Badge>
+    </>
+  ));
+
+  add('e2e test', () => (
+    <>
+      <Badge mx="600" id="test-id" data-id="test-data-id">
         100
+      </Badge>
+      <Badge my="600" bg="red" id="test-id-2">
+        200
       </Badge>
     </>
   ));
