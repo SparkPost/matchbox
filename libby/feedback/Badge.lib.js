@@ -15,4 +15,13 @@ describe('Badge', () => {
       <Badge color="black">100</Badge>
     </Inline>
   ));
+
+  add('system props', () => (
+    <>
+      <Badge mx="600">100</Badge>
+      <Badge my="600" bg="red">
+        100
+      </Badge>
+    </>
+  ));
 });

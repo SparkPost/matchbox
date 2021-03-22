@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { margin } from 'styled-system';
+import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
 const Wrapper = styled(Box)`
@@ -39,7 +41,9 @@ const borderMap = {
 };
 
 const Badge = React.forwardRef(function Badge(props, userRef) {
-  const { children, color, 'data-id': dataId, id, tabIndex } = props;
+  const { children, color, 'data-id': dataId, id, tabIndex, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
+
   return (
     <Wrapper
       display="inline-block"
@@ -57,6 +61,7 @@ const Badge = React.forwardRef(function Badge(props, userRef) {
       data-id={dataId}
       tabIndex={tabIndex}
       ref={userRef}
+      {...systemProps}
     >
       {children}
     </Wrapper>
@@ -73,6 +78,7 @@ Badge.propTypes = {
   color: PropTypes.oneOf(['lightGray', 'darkGray', 'green', 'red', 'blue', 'white', 'black']),
   children: PropTypes.node,
   tabIndex: PropTypes.string,
+  ...createPropTypes(margin.propNames),
 };
 
 export default Badge;
