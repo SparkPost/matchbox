@@ -108,7 +108,7 @@ const Select = React.forwardRef(function Select(props, userRef) {
     error,
     errorInLabel,
     optional,
-    // labelHidden, TODO add this back in later after hibana cutover
+    labelHidden,
     ...rest
   } = props;
   const systemProps = pick(rest, system.propNames);
@@ -126,11 +126,7 @@ const Select = React.forwardRef(function Select(props, userRef) {
   ) : null;
 
   const labelMarkup = (
-    <Label
-      id={id}
-      label={label}
-      // labelHidden={labelHidden} TODO Add this back in after hibana cutover
-    >
+    <Label id={id} label={label} labelHidden={labelHidden}>
       {requiredIndicator}
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
@@ -188,7 +184,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   label: PropTypes.string,
-  // labelHidden: PropTypes.bool, TODO Add this back in after hibana cutover
+  labelHidden: PropTypes.bool,
   helpText: PropTypes.node,
   error: PropTypes.string,
   errorInLabel: PropTypes.bool,

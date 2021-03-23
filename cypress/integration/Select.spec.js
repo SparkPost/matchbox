@@ -13,4 +13,10 @@ describe('The Select component', () => {
     cy.get('[data-id="error-message"]').should('exist');
     cy.findByText('You forgot to select').should('exist');
   });
+
+  it('renders with a hidden label correctly', () => {
+    cy.visit('/iframe.html?path=Select__hidden-label&source=false');
+    cy.get('#idLabel').should('have.text', 'Select an option');
+    cy.get('[for="id"]').should('exist');
+  });
 });
