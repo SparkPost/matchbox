@@ -16,12 +16,12 @@ describe('Drawer', () => {
       <>
         <Box display="flex">
           <Box flex="1">
-            <Button outline color="blue" {...getActivatorPropsA()}>
+            <Button variant="outline" color="blue" {...getActivatorPropsA()}>
               On the right
             </Button>
           </Box>
           <Box flex="0">
-            <Button outline color="blue" {...getActivatorPropsB()}>
+            <Button variant="outline" color="blue" {...getActivatorPropsB()}>
               On the Left
             </Button>
           </Box>
@@ -30,23 +30,25 @@ describe('Drawer', () => {
         <Drawer {...getDrawerPropsA()} position="right">
           <Drawer.Content>
             Opened on the right
-            <Button outline>Button 1</Button>
-            <Button outline>Button 2</Button>
+            <Button variant="outline">Button 1</Button>
+            <Button variant="outline">Button 2</Button>
           </Drawer.Content>
         </Drawer>
 
         <Drawer {...getDrawerPropsB()} position="left">
-          <Drawer.Header>Header Title</Drawer.Header>
-          <Drawer.Content>
-            Opened on the left
-            <Button outline>Button 1</Button>
-            <Button outline>Button 2</Button>
-            {Array.apply(null, Array(100)).map(() => (
-              <br />
-            ))}
-            Bottom
-          </Drawer.Content>
-          <Drawer.Footer>Footer Content</Drawer.Footer>
+          <div>
+            <Drawer.Header>Header Title</Drawer.Header>
+            <Drawer.Content>
+              Opened on the left
+              <Button variant="outline">Button 1</Button>
+              <Button variant="outline">Button 2</Button>
+              {Array.apply(null, Array(100)).map((n, i) => (
+                <br key={i} />
+              ))}
+              Bottom
+            </Drawer.Content>
+            <Drawer.Footer>Footer Content</Drawer.Footer>
+          </div>
         </Drawer>
       </>
     );
@@ -76,7 +78,7 @@ describe('Drawer', () => {
                 </Button>
               </Box>
               <Box flex="1" pl="100">
-                <Button width="100%" outline>
+                <Button width="100%" variant="outline">
                   Cancel
                 </Button>
               </Box>
