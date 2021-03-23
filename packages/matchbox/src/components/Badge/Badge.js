@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { margin } from 'styled-system';
+import { margin, typography } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { pick } from '../../helpers/props';
+import { pick, clean } from '../../helpers/props';
 import { Box } from '../Box';
 
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box).withConfig(
+  clean(['display', 'color', ...typography.propNames, ...margin.propNames]),
+)`
   ${margin}
 `;
 
