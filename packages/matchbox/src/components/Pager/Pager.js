@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
+import { pick } from '../../helpers/props';
 import styled from 'styled-components';
 
 import Next from './Next';
@@ -13,9 +14,14 @@ const StyledPager = styled('div')`
 `;
 
 function Pager(props) {
-  const { children, ...rest } = props;
+  const { children, id, 'data-id': dataId, ...rest } = props;
+  const systemProps = pick(rest, margin.propNames);
 
-  return <StyledPager {...rest}>{children}</StyledPager>;
+  return (
+    <StyledPager id={id} data-id={dataId} {...systemProps}>
+      {children}
+    </StyledPager>
+  );
 }
 
 Pager.propTypes = {
