@@ -51,6 +51,10 @@ describe('Select', () => {
     />
   ));
 
+  add('hidden label', () => (
+    <Select id="id" label="Select an option" labelHidden options={options} />
+  ));
+
   add('optional', () => <Select id="id" label="Select an option" options={options} optional />);
 
   add('disabled', () => <Select id="id" label="Select an option" disabled options={options} />);
