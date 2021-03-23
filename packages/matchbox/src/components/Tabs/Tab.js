@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { UnstyledLink } from '../UnstyledLink';
 import { tabStyles } from './styles';
+import { deprecate } from '../../helpers/propTypes';
 
 // TODO Replace this when styled-components supports shouldForwardProps
 // See: https://github.com/styled-components/styled-components/commit/e02109e626ed117b76f220d0b9b926129655262d
@@ -16,7 +18,18 @@ const StyledTab = styled(LinkWrapper)`
 `;
 
 const Tab = React.forwardRef(function Tab(props, ref) {
-  const { index, content, selected, fitted, component, Component, tabIndex, type, ...rest } = props;
+  const {
+    as,
+    index,
+    content,
+    selected,
+    fitted,
+    component,
+    Component,
+    tabIndex,
+    type,
+    ...rest
+  } = props;
 
   function handleClick(event) {
     const { index, onClick } = props;
@@ -25,8 +38,7 @@ const Tab = React.forwardRef(function Tab(props, ref) {
 
   // Buttons ensure focusability
   // Links will be focusable with an href
-  // TODO deprecate `Component`
-  const wrapper = component || Component || 'button';
+  const wrapper = as || component || Component || 'button';
 
   return (
     <StyledTab
@@ -49,5 +61,17 @@ const Tab = React.forwardRef(function Tab(props, ref) {
 });
 
 Tab.displayName = 'Tab';
+Tab.propTypes = {
+  index: PropTypes.number,
+  selected: PropTypes.number,
+  fitted: PropTypes.bool,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  tabIndex: PropTypes.string,
+  children: PropTypes.node,
+  as: PropTypes.elementType,
+  component: deprecate(PropTypes.elementType, 'Use `as` instead'),
+  Component: deprecate(PropTypes.elementType, 'Use `as` instead'),
+};
 
 export default Tab;

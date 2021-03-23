@@ -13,8 +13,8 @@ const tabs = [
     content: 'Example with long text',
   },
   {
-    content: 'Example with a component wrapper',
-    Component: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
+    content: 'Example with an `as` wrapper',
+    as: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
   },
 ];
 
