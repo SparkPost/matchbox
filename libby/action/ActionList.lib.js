@@ -90,12 +90,6 @@ describe('ActionList', () => {
     <Box maxWidth="20rem">
       <Panel>
         <ActionList>
-          <ActionList.Action to="#" selected={true} is="checkbox">
-            Checkbox
-          </ActionList.Action>
-          <ActionList.Action to="#" selected={false} is="checkbox">
-            Checkbox
-          </ActionList.Action>
           <ActionList.Action to="#" is="button">
             Button
           </ActionList.Action>
