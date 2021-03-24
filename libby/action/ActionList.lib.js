@@ -89,7 +89,7 @@ describe('ActionList', () => {
   add('Actions as links, buttons, or checkboxes', () => (
     <Box maxWidth="20rem">
       <Panel>
-        <ActionList>
+        <ActionList data-id="test-data-id" className="test-class">
           <ActionList.Action to="#" is="button">
             Button
           </ActionList.Action>
