@@ -5,7 +5,7 @@ describe('Drawer', () => {
   const subject = props =>
     global.mountStyled(
       <Drawer id="test-id" {...props}>
-        <Drawer.Content>test content</Drawer.Content>
+        {props.children || <Drawer.Content>test content</Drawer.Content>}
       </Drawer>,
     );
 
