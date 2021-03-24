@@ -53,7 +53,7 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
   }, [looksLike]);
 
   return (
-    <Box ref={ref} tabIndex="-1">
+    <Box ref={ref} tabIndex="-1" aria-hidden="true">
       <Animator
         borderRadius="200"
         delay={delay}
@@ -94,7 +94,7 @@ const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
   }, [lines]);
 
   return (
-    <Box ref={ref} mt="100" tabIndex="-1">
+    <Box ref={ref} mt="100" tabIndex="-1" aria-hidden="true">
       <Stack space="300">{body}</Stack>
     </Box>
   );
@@ -111,7 +111,7 @@ SkeletonBody.defaultProps = {
 const SkeletonBox = React.forwardRef(function SkeletonBox(props, ref) {
   const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
   return (
-    <Box ref={ref} tabIndex="-1">
+    <Box ref={ref} tabIndex="-1" aria-hidden="true">
       <Animator borderRadius="200" delay={delay} {...props} />
     </Box>
   );

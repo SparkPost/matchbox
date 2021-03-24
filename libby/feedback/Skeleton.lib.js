@@ -25,25 +25,27 @@ describe('Skeleton', () => {
   add('body', () => <Skeleton.Body />);
 
   add('all together', () => (
-    <Stack>
-      <Skeleton.Header looksLike="h1" />
-      <Skeleton.Header looksLike="h6" width="800" />
-      <Panel>
-        <Panel.Section>
-          <Stack>
-            <Skeleton.Header looksLike="h5" />
-            <Skeleton.Body lines={2} />
-          </Stack>
-        </Panel.Section>
-      </Panel>
-      <Panel>
-        <Panel.Section>
-          <Stack>
-            <Skeleton.Box size="3.5rem" borderRadius="circle" />
-            <Skeleton.Body lines={8} />
-          </Stack>
-        </Panel.Section>
-      </Panel>
-    </Stack>
+    <div id="test">
+      <Stack>
+        <Skeleton.Header looksLike="h1" />
+        <Skeleton.Header looksLike="h6" width="800" />
+        <Panel>
+          <Panel.Section>
+            <Stack>
+              <Skeleton.Header looksLike="h5" />
+              <Skeleton.Body lines={2} />
+            </Stack>
+          </Panel.Section>
+        </Panel>
+        <Panel>
+          <Panel.Section>
+            <Stack>
+              <Skeleton.Box size="3.5rem" borderRadius="circle" />
+              <Skeleton.Body lines={8} />
+            </Stack>
+          </Panel.Section>
+        </Panel>
+      </Stack>
+    </div>
   ));
 });
