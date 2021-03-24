@@ -99,6 +99,7 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
   const sorted = React.useMemo(() => {
     return ['asc', 'desc'].includes(direction);
   }, [direction]);
+
   return (
     <Button
       onClick={onClick}
