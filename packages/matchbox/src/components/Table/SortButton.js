@@ -9,7 +9,8 @@ const Button = styled.button`
   ${focusOutline()}
   
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  text-align: left;
 
   cursor: pointer;
   padding: ${({ theme }) => theme.space[100]} ${({ theme }) => theme.space[200]};
@@ -21,6 +22,14 @@ const Button = styled.button`
   border-radius: ${({ theme }) => theme.radii[200]};
 
   transition: ${({ theme }) => theme.motion.duration.fast};
+
+  ${({ sorted, theme }) =>
+    sorted
+      ? `
+    background: ${theme.colors.blue[200]};
+    color: ${theme.colors.blue[700]};
+  `
+      : ''}
 
   &:hover {
     background: ${({ theme }) => theme.colors.blue[200]};
@@ -34,6 +43,8 @@ const IconWrapper = styled.span`
   margin-left: ${({ theme }) => theme.space[200]};
   color: ${({ theme }) => theme.colors.gray[700]};
   transition: ${({ theme }) => theme.motion.duration.fast};
+
+  ${({ sorted, theme }) => (sorted ? `color: ${theme.colors.blue[700]};` : '')}
 
   ${Button}:hover & {
     color: ${({ theme }) => theme.colors.blue[700]};
@@ -85,10 +96,20 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
     return Unsorted;
   }, [direction]);
 
+  const sorted = React.useMemo(() => {
+    return ['asc', 'desc'].includes(direction);
+  }, [direction]);
   return (
-    <Button onClick={onClick} onFocus={onFocus} onBlur={onBlur} ref={userRef} type="button">
+    <Button
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      ref={userRef}
+      type="button"
+      sorted={sorted}
+    >
       <span>{children}</span>
-      <IconWrapper>
+      <IconWrapper sorted={sorted}>
         <Icon size={18} />
       </IconWrapper>
     </Button>

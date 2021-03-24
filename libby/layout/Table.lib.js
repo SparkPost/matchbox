@@ -31,7 +31,9 @@ describe('Table', () => {
               <Table.SortButton direction="desc">Heading 2</Table.SortButton>
             </Table.HeaderCell>
             <Table.HeaderCell>
-              <Table.SortButton direction={null}>Heading 3</Table.SortButton>
+              <Table.SortButton direction={null}>
+                Heading 3 with long title long title long title long title
+              </Table.SortButton>
             </Table.HeaderCell>
             <Table.HeaderCell>Heading 4</Table.HeaderCell>
           </Table.Row>
