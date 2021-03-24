@@ -24,9 +24,16 @@ describe('Table', () => {
       <Table title="My Table">
         <thead>
           <Table.Row header>
-            <Table.HeaderCell>Heading 1</Table.HeaderCell>
-            <Table.HeaderCell>Heading 2</Table.HeaderCell>
-            <Table.HeaderCell>Heading 3</Table.HeaderCell>
+            <Table.HeaderCell>
+              <Table.SortButton direction="asc">Heading 1</Table.SortButton>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Table.SortButton direction="desc">Heading 2</Table.SortButton>
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Table.SortButton direction={null}>Heading 3</Table.SortButton>
+            </Table.HeaderCell>
+            <Table.HeaderCell>Heading 4</Table.HeaderCell>
           </Table.Row>
         </thead>
         <tbody>
@@ -34,30 +41,32 @@ describe('Table', () => {
             <Table.Cell>1</Table.Cell>
             <Table.Cell>2</Table.Cell>
             <Table.Cell>3</Table.Cell>
+            <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
             <Table.Cell>2</Table.Cell>
             <Table.Cell>3</Table.Cell>
+            <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.TotalsRow>
-            <Table.Cell>Total</Table.Cell>
-            <Table.Cell></Table.Cell>
+            <Table.Cell colSpan="3">Total</Table.Cell>
             <Table.Cell>100000</Table.Cell>
           </Table.TotalsRow>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
             <Table.Cell>2</Table.Cell>
             <Table.Cell>3</Table.Cell>
+            <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
             <Table.Cell>2</Table.Cell>
             <Table.Cell>3</Table.Cell>
+            <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.TotalsRow>
-            <Table.Cell>Total</Table.Cell>
-            <Table.Cell></Table.Cell>
+            <Table.Cell colSpan="3">Total</Table.Cell>
             <Table.Cell>100000</Table.Cell>
           </Table.TotalsRow>
         </tbody>

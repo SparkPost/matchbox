@@ -12,7 +12,7 @@ export const table = () => `
 export const headerCell = ({ theme }) => `
   font-size: ${theme.fontSizes['200']};
   line-height: ${theme.lineHeights['300']};
-  font-weight: ${theme.fontWeights.semibold};
+  font-weight: ${theme.fontWeights.medium};
 `;
 
 export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
