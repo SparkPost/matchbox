@@ -3,7 +3,13 @@ import { tokens } from '@sparkpost/design-tokens';
 
 export const tabStyles = ({ selected, fitted }) => `
   ${buttonReset}
-  ${focusOutline({ offset: '0px' })}
+  
+  ${focusOutline({ offset: '0px', modifier: '&' })}
+  &:focus:not(:focus-visible):after {
+    box-shadow: none;
+  }
+  ${focusOutline({ offset: '0px', modifier: '&:focus-visible' })}
+
   display: inline-block;
   cursor: pointer;
   position: relative;
