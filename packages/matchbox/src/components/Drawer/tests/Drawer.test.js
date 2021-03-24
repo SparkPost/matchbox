@@ -4,7 +4,9 @@ import Drawer from '../Drawer';
 describe('Drawer', () => {
   const subject = props =>
     global.mountStyled(
-      <Drawer id="test-id" children={<Drawer.Content>test content</Drawer.Content>} {...props} />,
+      <Drawer id="test-id" {...props}>
+        <Drawer.Content>test content</Drawer.Content>
+      </Drawer>,
     );
 
   it('should not render when closed', () => {
@@ -27,9 +29,9 @@ describe('Drawer', () => {
     ).toEqual('test content');
   });
 
-  it('should not render invalid children', () => {
-    const wrapper = subject({ open: true, children: <div id="wrong">test children</div> });
-    expect(wrapper.find('#wrong')).not.toExist();
+  it('should render any children', () => {
+    const wrapper = subject({ open: true, children: <div id="test">test children</div> });
+    expect(wrapper.find('#test')).toExist();
   });
 
   it('should render on right by default', () => {

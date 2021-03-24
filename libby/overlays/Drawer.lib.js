@@ -28,6 +28,7 @@ describe('Drawer', () => {
         </Box>
 
         <Drawer {...getDrawerPropsA()} position="right">
+          <Drawer.Header>Header Title</Drawer.Header>
           <Drawer.Content>
             Opened on the right
             <Button variant="outline">Button 1</Button>

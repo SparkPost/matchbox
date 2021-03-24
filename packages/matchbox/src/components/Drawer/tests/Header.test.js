@@ -9,13 +9,6 @@ describe('Drawer Header', () => {
     expect(wrapper.text()).toEqual('test titleClose');
   });
 
-  it('should handle clicking on close button', () => {
-    const onClose = jest.fn();
-    const wrapper = subject({ onClose });
-    wrapper.find('button').simulate('click');
-    expect(onClose).toHaveBeenCalledTimes(1);
-  });
-
   it('should be able to hide the close button', () => {
     const wrapper = subject({ showCloseButton: false });
     expect(wrapper.find('button')).not.toExist();
