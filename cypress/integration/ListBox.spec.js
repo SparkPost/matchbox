@@ -4,6 +4,10 @@ describe('The ListBox component', () => {
       cy.visit('/iframe.html?path=ListBox__printable-characters&source=false');
     });
 
+    it('passes through data-id', () => {
+      cy.get('[data-id="test-data-id"]').should('exist');
+    });
+
     it('opens the listbox when clicking on the `<label>`', () => {
       cy.get('label').click();
       cy.contains('Alpha').should('be.visible');

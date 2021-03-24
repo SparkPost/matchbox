@@ -12,7 +12,6 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
 import { compose, margin, maxWidth, maxHeight } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
-import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/props';
 import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
@@ -65,6 +64,7 @@ const StyledList = styled(Box)`
 const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const {
     children,
+    'data-id': dataId,
     placeholder,
     disabled,
     id,
@@ -84,7 +84,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   const systemProps = pick(rest, system.propNames);
   const maxHeightProps = pick(rest, maxHeight.propNames);
-  const componentProps = omit(rest);
 
   const [open, setOpen] = React.useState(false);
   const [currentValue, setCurrentValue] = React.useState(
@@ -181,7 +180,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   }
 
   return (
-    <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
+    <StyledWrapper data-id={dataId} tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
       <Popover
         id="listbox-popover"
@@ -206,7 +205,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               onKeyDown={activatorKeyDown}
               disabled={disabled}
               hasError={!!error}
-              {...componentProps}
               {...describedBy}
               ref={assignRefs}
             >
@@ -237,6 +235,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
 ListBox.displayName = 'ListBox';
 ListBox.propTypes = {
+  'data-id': PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
