@@ -13,14 +13,9 @@ const PopoverNode = () => (
 );
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
-  [<Node key="1" />, <Node key="2" />, <NodeLong key="3" />, <Node key="4" />],
+  [<Node />, <Node />, <NodeLong />, <Node />], // eslint-disable-line
   [1, 2, 3, 4],
-  [
-    <PopoverNode key="1" />,
-    <PopoverNode key="2" />,
-    <PopoverNode key="3" />,
-    <PopoverNode key="4" />,
-  ],
+  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />], // eslint-disable-line
 ];
 
 describe('Table', () => {
