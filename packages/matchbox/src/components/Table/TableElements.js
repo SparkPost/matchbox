@@ -30,7 +30,7 @@ const StyledTotalsRow = styled('tr')`
 `;
 
 const Cell = React.forwardRef(function Cell(
-  { value, children, className, colSpan, style, width, ...rest },
+  { value, children, className, colSpan, role, rowSpan, style, width, ...rest },
   userRef,
 ) {
   const paddingContext = React.useContext(TablePaddingContext);
@@ -43,6 +43,8 @@ const Cell = React.forwardRef(function Cell(
       fontSize={['200', null, '300']}
       colSpan={colSpan}
       ref={userRef}
+      role={role}
+      rowSpan={rowSpan}
       style={style}
       width={width}
     >
@@ -56,6 +58,8 @@ Cell.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   colSpan: PropTypes.string,
+  role: PropTypes.string,
+  rowSpan: PropTypes.string,
   style: PropTypes.object,
   width: PropTypes.string,
   ...createPropTypes(padding.propNames),
@@ -63,15 +67,30 @@ Cell.propTypes = {
 Cell.displayName = 'Table.Cell';
 
 const HeaderCell = React.forwardRef(function HeaderCell(
-  { value, children, className, colSpan, style, width },
+  {
+    'aria-sort': ariaSort,
+    value,
+    children,
+    className,
+    colSpan,
+    role,
+    rowSpan,
+    scope,
+    style,
+    width,
+  },
   userRef,
 ) {
   return (
     <StyledHeaderCell
       p="450"
+      aria-sort={ariaSort}
       className={className}
       colSpan={colSpan}
       ref={userRef}
+      role={role}
+      rowSpan={rowSpan}
+      scope={scope}
       style={style}
       width={width}
     >
@@ -81,10 +100,14 @@ const HeaderCell = React.forwardRef(function HeaderCell(
 });
 
 HeaderCell.propTypes = {
+  'aria-sort': PropTypes.string,
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
   colSpan: PropTypes.string,
+  role: PropTypes.string,
+  rowSpan: PropTypes.string,
+  scope: PropTypes.string,
   style: PropTypes.object,
   width: PropTypes.string,
 };
