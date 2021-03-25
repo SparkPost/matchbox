@@ -22,7 +22,17 @@ const Wrapper = styled(Box)`
 `;
 
 function Table(props) {
-  const { children, data, 'data-id': dataId, freezeFirstColumn, id, title, ...rest } = props;
+  const {
+    'aria-readonly': readOnly,
+    children,
+    data,
+    'data-id': dataId,
+    freezeFirstColumn,
+    id,
+    role,
+    title,
+    ...rest
+  } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   const handleScroll = React.useCallback(
@@ -52,10 +62,12 @@ function Table(props) {
       {...marginProps}
     >
       <StyledTable
+        aria-readonly={readOnly}
         data-id={dataId}
         freezeFirstColumn={freezeFirstColumn}
         id={id}
         isScrolled={isScrolled}
+        role={role}
       >
         <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
           {title && (
@@ -77,11 +89,13 @@ Table.TotalsRow = TotalsRow;
 
 Table.displayName = 'Table';
 Table.propTypes = {
+  'aria-readonly': PropTypes.string,
   children: PropTypes.node,
   data: PropTypes.array,
   'data-id': PropTypes.string,
   freezeFirstColumn: PropTypes.bool,
   id: PropTypes.string,
+  role: PropTypes.string,
   title: PropTypes.string,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(padding.propNames),
