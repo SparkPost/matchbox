@@ -27,7 +27,7 @@ const truncate = props => {
   }
 };
 
-const Box = styled('div').withConfig(clean(system.propNames))`
+const Box = styled.div.withConfig(clean(system.propNames))`
   ${system}
   ${truncate}
 `;

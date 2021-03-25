@@ -51,7 +51,9 @@ export function pick(props, names) {
  */
 export function clean(arr = [], config = {}) {
   return {
-    shouldForwardProp: (prop, defaultFn) => !arr.includes(prop) && defaultFn(prop),
+    shouldForwardProp: prop => {
+      return !arr.includes(prop);
+    },
     ...config,
   };
 }
