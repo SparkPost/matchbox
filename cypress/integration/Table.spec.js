@@ -28,6 +28,6 @@ describe('The Table component', () => {
   it('should set column width correctly', () => {
     cy.get('th')
       .eq(0)
-      .should('have.css', 'width', '20%');
+      .should('have.attr', 'width', '20%');
   });
 });

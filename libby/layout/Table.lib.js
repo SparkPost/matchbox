@@ -24,7 +24,7 @@ describe('Table', () => {
       <Table title="My Table">
         <thead>
           <Table.Row header>
-            <Table.HeaderCell width="20%">Heading 1</Table.HeaderCell>
+            <Table.HeaderCell>Heading 1</Table.HeaderCell>
             <Table.HeaderCell>Heading 2</Table.HeaderCell>
             <Table.HeaderCell>Heading 3</Table.HeaderCell>
           </Table.Row>
@@ -84,7 +84,7 @@ describe('Table', () => {
       <Table>
         <thead>
           <Table.Row header>
-            <Table.HeaderCell>Padding 300</Table.HeaderCell>
+            <Table.HeaderCell width="20%">Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
           </Table.Row>
