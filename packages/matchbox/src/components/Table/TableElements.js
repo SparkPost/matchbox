@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { cell, row, headerCell, totalsRow, verticalAlignment } from './styles';
 import { TablePaddingContext } from './context';
-import { padding, fontSize, compose } from 'styled-system';
+import { padding, fontSize, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '../../helpers/props';
 
-const paddingAndFontSize = compose(padding, fontSize);
+const cellSystem = compose(padding, fontSize, width);
 const StyledCell = styled('td')`
   ${cell}
-  ${paddingAndFontSize}
+  ${cellSystem}
 `;
 
+const headerSystem = compose(padding, width);
 const StyledHeaderCell = styled('th')`
   ${headerCell}
-  ${padding}
+  ${headerSystem}
 `;
 
 const StyledRow = styled('tr')`
@@ -61,8 +62,8 @@ Cell.propTypes = {
   role: PropTypes.string,
   rowSpan: PropTypes.string,
   style: PropTypes.object,
-  width: PropTypes.string,
   ...createPropTypes(padding.propNames),
+  ...createPropTypes(width.propNames),
 };
 Cell.displayName = 'Table.Cell';
 
@@ -109,7 +110,7 @@ HeaderCell.propTypes = {
   rowSpan: PropTypes.string,
   scope: PropTypes.string,
   style: PropTypes.object,
-  width: PropTypes.string,
+  ...createPropTypes(width.propNames),
 };
 HeaderCell.displayName = 'Table.HeaderCell';
 

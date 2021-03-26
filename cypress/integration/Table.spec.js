@@ -24,4 +24,10 @@ describe('The Table component', () => {
       .eq(1)
       .should('have.attr', 'colspan', '2');
   });
+
+  it('should set column width correctly', () => {
+    cy.get('th')
+      .eq(0)
+      .should('have.css', 'width', '20%');
+  });
 });
