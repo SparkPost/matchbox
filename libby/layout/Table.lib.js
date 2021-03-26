@@ -13,9 +13,9 @@ const PopoverNode = () => (
 );
 const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
-  [<Node />, <Node />, <NodeLong />, <Node />],
+  [<Node />, <Node />, <NodeLong />, <Node />], // eslint-disable-line
   [1, 2, 3, 4],
-  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />],
+  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />], // eslint-disable-line
 ];
 
 describe('Table', () => {
@@ -84,21 +84,20 @@ describe('Table', () => {
       <Table>
         <thead>
           <Table.Row header>
-            <Table.HeaderCell>Padding 300</Table.HeaderCell>
+            <Table.HeaderCell width="20%">Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
           </Table.Row>
         </thead>
         <tbody>
-          <Table.Row p="800">
-            <Table.Cell p="800">Padding 800</Table.Cell>
-            <Table.Cell>Padding 800</Table.Cell>
-            <Table.Cell>Padding 800</Table.Cell>
+          <Table.Row>
+            <Table.Cell p="600">Padding 600</Table.Cell>
+            <Table.Cell colSpan="2">Padding 800 colspan 2</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell p="400">Padding 400</Table.Cell>
-            <Table.Cell>Padding 400</Table.Cell>
-            <Table.Cell>Padding 400</Table.Cell>
+            <Table.Cell p="200">Padding 200</Table.Cell>
+            <Table.Cell>Default Padding</Table.Cell>
+            <Table.Cell>Default Padding</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>Default Padding</Table.Cell>

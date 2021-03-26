@@ -108,7 +108,6 @@ describe('Table', () => {
     expect(wrapper).toHaveStyleRule('margin', '100');
     expect(wrapper).not.toHaveStyleRule('padding', '100');
     expect(wrapper.find('table')).not.toHaveStyleRule('margin', '100');
-    expect(wrapper.find('table')).toHaveStyleRule('padding', '100');
   });
 
   describe('Cell', () => {
@@ -145,7 +144,7 @@ describe('Table', () => {
       wrapper = global.mountStyled(
         <Table>
           <tbody>
-            <Table.Row rowData={[1, '2', <span>3</span>]} className="test" />
+            <Table.Row rowData={[1, '2', <span key="test">3</span>]} className="test" />
           </tbody>
         </Table>,
       );
@@ -183,7 +182,7 @@ describe('Table', () => {
       wrapper = global.mountStyled(
         <Table>
           <tbody>
-            <Table.TotalsRow rowData={[1, '2', <span>3</span>]} className="test" />
+            <Table.TotalsRow rowData={[1, '2', <span key="test">3</span>]} className="test" />
           </tbody>
         </Table>,
       );
