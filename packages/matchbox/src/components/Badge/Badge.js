@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { margin, typography } from 'styled-system';
+import { margin } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { pick, clean } from '../../helpers/props';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
-const Wrapper = styled(Box).withConfig(
-  clean(['display', 'color', ...typography.propNames, ...margin.propNames]),
-)`
+const Wrapper = styled(Box)`
   ${margin}
 `;
 
@@ -53,7 +51,8 @@ const Badge = React.forwardRef(function Badge(props, userRef) {
       px="100"
       bg={bgMap[color]}
       color={colorMap[color]}
-      border="1px solid transparent"
+      borderWidth="100"
+      borderStyle="solid"
       borderColor={borderMap[color]}
       fontSize="50"
       fontWeight="medium"
@@ -69,6 +68,8 @@ const Badge = React.forwardRef(function Badge(props, userRef) {
     </Wrapper>
   );
 });
+
+Badge.displayName = 'Badge';
 
 Badge.defaultProps = {
   color: 'lightGray',

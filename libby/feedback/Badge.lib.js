@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Badge, Inline } from '@sparkpost/matchbox';
+import { Badge, Inline, Tooltip } from '@sparkpost/matchbox';
 
 describe('Badge', () => {
   add('default', () => <Badge>50</Badge>);
@@ -32,5 +32,13 @@ describe('Badge', () => {
         200
       </Badge>
     </>
+  ));
+
+  add('with a tooltip', () => (
+    <Tooltip id="test-tooltip" content="I am a Tooltip">
+      <Badge tabIndex="0" color="darkGray">
+        100
+      </Badge>
+    </Tooltip>
   ));
 });
