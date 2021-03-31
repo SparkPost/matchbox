@@ -6,9 +6,12 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Button } from '../Button';
+import { DrawerContext } from './context';
 
 const Header = React.forwardRef(function Header(props, ref) {
-  const { children, onClose, showCloseButton } = props;
+  const { children, showCloseButton } = props;
+  const context = React.useContext(DrawerContext);
+
   return (
     <Box data-id="drawer-header" bg="white" p="500" ref={ref}>
       <Box display="flex">
@@ -18,7 +21,13 @@ const Header = React.forwardRef(function Header(props, ref) {
           </Text>
         </Box>
         {showCloseButton && (
-          <Button variant="text" size="small" width={tokens.spacing_600} px="0" onClick={onClose}>
+          <Button
+            variant="text"
+            size="small"
+            width={tokens.spacing_600}
+            px="0"
+            onClick={context.onClose}
+          >
             <ScreenReaderOnly>Close</ScreenReaderOnly>
             <Close size={25} />
           </Button>

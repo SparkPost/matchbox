@@ -13,8 +13,8 @@ import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
 import { getRectFor } from '../../helpers/geometry';
-import { getChild } from '../../helpers/children';
 import { getWindow, isInIframe } from '../../helpers/window';
+import { DrawerContext } from './context';
 import { Overlay, Container } from './styles';
 
 const Drawer = React.forwardRef(function Drawer(props, userRef) {
@@ -160,9 +160,9 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
                       position="relative"
                       height={`calc(100% - ${footerHeight})`}
                     >
-                      {getChild('Drawer.Header', children, { onClose })}
-                      {getChild('Drawer.Content', children)}
-                      {getChild('Drawer.Footer', children, { ref: footerRef })}
+                      <DrawerContext.Provider value={{ onClose, footerRef }}>
+                        {children}
+                      </DrawerContext.Provider>
                     </Box>
                   </TouchScrollable>
                 </Container>

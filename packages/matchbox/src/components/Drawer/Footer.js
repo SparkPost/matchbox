@@ -5,13 +5,16 @@ import { padding } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
+import { DrawerContext } from './context';
 
 const Container = styled.div`
   ${padding}
 `;
 
-const Footer = React.forwardRef(function Footer({ children, ...rest }, ref) {
+const Footer = React.forwardRef(function Footer({ children, ...rest }, userRef) {
   const systemProps = pick(rest);
+  const context = React.useContext(DrawerContext);
+
   return (
     <Box
       data-id="drawer-footer"
@@ -21,9 +24,9 @@ const Footer = React.forwardRef(function Footer({ children, ...rest }, ref) {
       position="fixed"
       left="0"
       right="0"
-      ref={ref}
+      ref={context.footerRef}
     >
-      <Container p="500" {...systemProps}>
+      <Container p="500" {...systemProps} ref={userRef}>
         {children}
       </Container>
     </Box>
