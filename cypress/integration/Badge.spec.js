@@ -17,6 +17,8 @@ describe('The Badge component', () => {
     cy.visit('/iframe.html?path=Badge__with-a-tooltip&source=false');
     cy.get('body').tab();
     cy.focused().should('have.text', '100');
-    cy.contains('I am a Tooltip').should('be.visible');
+    cy.findAllByText('I am a Tooltip')
+      .eq(1)
+      .should('be.visible');
   });
 });
