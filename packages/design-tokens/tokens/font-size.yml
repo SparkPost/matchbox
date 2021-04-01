@@ -26,5 +26,8 @@ props:
   - name: font-size-100
     value: 0.875rem
     comment: 14px
+  - name: font-size-50
+    value: 0.75rem
+    comment: 12px
   - name: font-size-root
     value: 16px
