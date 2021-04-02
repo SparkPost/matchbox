@@ -31,7 +31,7 @@ function Pre(props) {
           return (
             <Box
               as="pre"
-              overflow="scroll"
+              overflow="auto"
               bg="gray.100"
               p="600"
               mb="0"
@@ -39,9 +39,9 @@ function Pre(props) {
               borderRadius="200"
             >
               {lines.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
+                <div {...getLineProps({ line, key: i })} key={i}>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span {...getTokenProps({ token, key })} key={key} />
                   ))}
                 </div>
               ))}

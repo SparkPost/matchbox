@@ -79,20 +79,23 @@
       },
       {
         "path": "/components/hooks",
-        "label": "Hooks",
-        "tag": "new"
+        "label": "Hooks"
       },
       {
         "path": "/components/actionlist",
         "label": "ActionList",
-        "tag": "new",
         "section": "Action"
       },
       {
         "path": "/components/button",
         "label": "Button",
-        "tag": "new",
         "section": "Action"
+      },
+      {
+        "path": "/components/badge",
+        "label": "Badge",
+        "tag": "new",
+        "section": "Feedback"
       },
       {
         "path": "/components/banner",
@@ -112,7 +115,6 @@
       {
         "path": "/components/spinner",
         "label": "Spinner",
-        "tag": "new",
         "section": "Feedback"
       },
       {
@@ -143,7 +145,6 @@
       {
         "path": "/components/listbox",
         "label": "ListBox",
-        "tag": "new",
         "section": "Form"
       },
       {
@@ -154,7 +155,6 @@
       {
         "path": "/components/radiocard",
         "label": "RadioCard",
-        "tag": "new",
         "section": "Form"
       },
       {
@@ -180,8 +180,7 @@
       {
         "path": "/components/emptystate",
         "label": "Empty State",
-        "section": "Layout",
-        "tag": "new"
+        "section": "Layout"
       },
       {
         "path": "/components/emptystate-legacy",
@@ -202,13 +201,11 @@
       {
         "path": "/components/labelvalue",
         "label": "LabelValue",
-        "tag": "new",
         "section": "Layout"
       },
       {
         "path": "/components/layout",
         "label": "Layout",
-        "tag": "new",
         "section": "Layout"
       },
       {
@@ -219,7 +216,6 @@
       {
         "path": "/components/panel",
         "label": "Panel",
-        "tag": "new",
         "section": "Layout"
       },
       {
@@ -236,19 +232,18 @@
       {
         "path": "/components/table",
         "label": "Table",
-        "section": "Layout"
+        "section": "Layout",
+        "tag": "new"
       },
       {
         "path": "/components/picture",
         "label": "Picture",
-        "section": "Media",
-        "tag": "new"
+        "section": "Media"
       },
       {
         "path": "/components/video",
         "label": "Video",
-        "section": "Media",
-        "tag": "new"
+        "section": "Media"
       },
       {
         "path": "/components/pager",
@@ -284,7 +279,6 @@
       {
         "path": "/components/modal",
         "label": "Modal",
-        "tag": "new",
         "section": "Overlays"
       },
       {
