@@ -57,10 +57,25 @@ export const data = `[
     `}
   />
   <LiveCode.Content
-    title="With Supplied Data"
+    title="Sortable header buttons"
     code={`
       <Panel>
-        <Table data={${data}} />
+        <Table>
+        <thead>
+            <Table.Row header>
+              <Table.HeaderCell><Table.SortButton direction="asc">Heading 1</Table.SortButton></Table.HeaderCell>
+              <Table.HeaderCell><Table.SortButton direction="desc">Heading 2</Table.SortButton></Table.HeaderCell>
+              <Table.HeaderCell><Table.SortButton>Heading 3</Table.SortButton></Table.HeaderCell>
+            </Table.Row>
+          </thead>
+          <tbody>
+            <Table.Row>
+              <Table.Cell>1</Table.Cell>
+              <Table.Cell>2</Table.Cell>
+              <Table.Cell>3</Table.Cell>
+            </Table.Row>
+          </tbody>
+        </Table>
       </Panel>
     `}
   />
@@ -170,6 +185,22 @@ export const data = `[
 
 <Prop name="children" type="node">
   The content of the cell
+</Prop>
+
+---
+
+### Table.SortButton API
+
+<Prop
+  name="direction"
+  type="string"
+  values={['"asc"', '"desc"', 'null', 'undefined']}
+>
+  Sets the direction of the button's icon
+</Prop>
+
+<Prop name="children" type="node">
+  The content of the button
 </Prop>
 
 ---
