@@ -51,11 +51,6 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
 
-  it('should toggle open with enter key', () => {
-    cy.contains('More Actions').type('{enter}');
-    cy.get('[data-id="popover-content"]').should('be.visible');
-  });
-
   it('should tab through actionlist buttons', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
