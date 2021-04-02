@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
   entries: () => require.context('./libby', true, /\.lib\.js$/),
@@ -24,6 +24,12 @@ module.exports = {
             },
           },
           {
+            test: /\.m?js/,
+            resolve: {
+              fullySpecified: false, // See https://github.com/webpack/webpack/issues/11467
+            },
+          },
+          {
             test: /\.(jpe?g|png|gif|svg|webm|webp|mp4)$/,
             exclude: /node_modules/,
             use: {
@@ -34,12 +40,12 @@ module.exports = {
       },
       resolve: {
         alias: {
-          '@sparkpost/matchbox-icons': path.resolve(__dirname, './packages/matchbox-icons/src'),
-          '@sparkpost/matchbox': path.resolve(__dirname, './packages/matchbox/src'),
-          '@sparkpost/design-tokens': path.resolve(__dirname, './packages/design-tokens'),
-          '@sparkpost/matchbox-media': path.resolve(__dirname, './packages/matchbox-media'),
+          '@sparkpost/matchbox-icons': '/packages/matchbox-icons/src',
+          '@sparkpost/matchbox': '/packages/matchbox/src',
+          '@sparkpost/design-tokens': '/packages/design-tokens',
+          '@sparkpost/matchbox-media': '/packages/matchbox-media',
         },
-        modules: [path.join(__dirname, './node_modules')],
+        modules: ['./node_modules'],
       },
     };
   },
