@@ -7,6 +7,7 @@ import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { pick } from '../../helpers/props';
 import { Cell, HeaderCell, Row, TotalsRow } from './TableElements';
+import SortButton from './SortButton';
 import { TablePaddingContext } from './context';
 import { table, wrapper, sticky } from './styles';
 
@@ -86,6 +87,7 @@ Table.Cell = Cell;
 Table.HeaderCell = HeaderCell;
 Table.Row = Row;
 Table.TotalsRow = TotalsRow;
+Table.SortButton = SortButton;
 
 Table.displayName = 'Table';
 Table.propTypes = {
