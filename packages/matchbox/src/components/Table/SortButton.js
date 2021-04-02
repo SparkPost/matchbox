@@ -11,17 +11,18 @@ const Button = styled.button`
   display: flex;
   align-items: flex-end;
   text-align: left;
-
   cursor: pointer;
-  padding: ${({ theme }) => theme.space[100]} ${({ theme }) => theme.space[200]};
-  margin-left: -${({ theme }) => theme.space[200]};
-  margin-right: -${({ theme }) => theme.space[200]};
-  margin-top: -${({ theme }) => theme.space[100]};
-  margin-bottom: -${({ theme }) => theme.space[100]};
-  border: 1px solid transparent;
-  border-radius: ${({ theme }) => theme.radii[200]};
 
-  transition: ${({ theme }) => theme.motion.duration.fast};
+  ${({ theme }) => `
+    padding: ${theme.space[100]} ${theme.space[200]};
+    margin-left: -${theme.space[200]};
+    margin-right: -${theme.space[200]};
+    margin-top: -${theme.space[100]};
+    margin-bottom: -${theme.space[100]};
+    border: 1px solid transparent;
+    border-radius: ${theme.radii[200]};
+    transition: ${theme.motion.duration.fast};
+  `}
 
   ${({ sorted, theme }) =>
     sorted
@@ -32,9 +33,11 @@ const Button = styled.button`
       : ''}
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blue[200]};
-    color: ${({ theme }) => theme.colors.blue[700]};
-    border: 1px solid ${({ theme }) => theme.colors.blue[700]};
+    ${({ theme }) => `
+      background: ${theme.colors.blue[200]};
+      color: ${theme.colors.blue[700]};
+      border: 1px solid ${theme.colors.blue[700]};
+    `}
   }
 `;
 
