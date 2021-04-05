@@ -6,6 +6,7 @@ import { Box } from '../Box';
 export const StyledLabel = styled(Box)`
   display: block;
   position: relative;
+  background: ${props => props.theme.colors.white};
   padding: ${props => props.theme.space['500']};
   border: ${props => props.theme.borders['400']};
   border-radius: ${props => props.theme.radii['200']};
