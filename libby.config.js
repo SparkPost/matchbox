@@ -1,5 +1,3 @@
-// const path = require('path');
-
 module.exports = {
   entries: () => require.context('./libby', true, /\.lib\.js$/),
   outputPath: 'libby-build',
