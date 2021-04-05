@@ -43,7 +43,6 @@ module.exports = {
           '@sparkpost/design-tokens': '/packages/design-tokens',
           '@sparkpost/matchbox-media': '/packages/matchbox-media',
         },
-        modules: ['./node_modules'],
       },
     };
   },
