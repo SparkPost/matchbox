@@ -104,11 +104,13 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
           <Label
             as="span" // Outer wrapper already includes a label
             id={id}
-            label={label}
             labelHidden={labelHidden}
             fontWeight="400"
             mb="0" // TODO Remove once margin 0 is baked into Label
           >
+            <Box as="span" pr="200">
+              {label}
+            </Box>
             {required && (
               <Box as="span" pr="200" aria-hidden="true">
                 *

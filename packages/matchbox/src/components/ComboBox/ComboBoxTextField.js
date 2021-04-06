@@ -72,7 +72,10 @@ function ComboBoxTextField(props) {
 
   return (
     <StyledWrapper {...systemProps}>
-      <Label id={id} label={label} labelHidden={labelHidden}>
+      <Label id={id} labelHidden={labelHidden}>
+        <Box as="span" pr="200">
+          {label}
+        </Box>
         {required && (
           <Box as="span" pr="200" aria-hidden="true">
             *

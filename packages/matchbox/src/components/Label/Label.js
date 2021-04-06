@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { Inline } from '../Inline';
+import { deprecate } from '../../helpers/propTypes';
 
 function Label(props) {
   const {
@@ -13,10 +16,6 @@ function Label(props) {
     fontWeight = '500',
     mb = '100',
   } = props;
-
-  if (!label) {
-    return null;
-  }
 
   if (labelHidden) {
     return (
@@ -39,14 +38,19 @@ function Label(props) {
       className={className}
       mb={mb}
     >
-      <Box as="span" pr="200" lineHeight="200" fontSize="200">
-        {label}
+      <Box as="span" lineHeight="200" fontSize="200">
+        <Inline space="200">
+          {label ? <span>{label}</span> : null}
+          {children ? <span>{children}</span> : null}
+        </Inline>
       </Box>
-      {/* Certain form components append <Error /> or requred indicators here */}
-      <span>{children}</span>
     </Box>
   );
 }
 
 Label.displayName = 'Label';
+Label.propTypes = {
+  label: deprecate(PropTypes.string, 'Use the children instead'),
+};
+
 export default Label;

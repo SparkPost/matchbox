@@ -28,7 +28,10 @@ const Group = React.forwardRef(function Group(props, userRef) {
 
   return (
     <Fieldset data-id={rest['data-id']} id={id} ref={userRef} {...systemProps}>
-      <Label as="legend" label={label} labelHidden={labelHidden}>
+      <Label as="legend" labelHidden={labelHidden}>
+        <Box as="span" pr="200">
+          {label}
+        </Box>
         {optional && <OptionalLabel />}
       </Label>
 
