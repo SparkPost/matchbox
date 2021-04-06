@@ -72,19 +72,21 @@ function ComboBoxTextField(props) {
 
   return (
     <StyledWrapper {...systemProps}>
-      <Label id={id} labelHidden={labelHidden}>
-        <Box as="span" pr="200">
-          {label}
-        </Box>
-        {required && (
-          <Box as="span" pr="200" aria-hidden="true">
-            *
+      {label && (
+        <Label id={id} labelHidden={labelHidden}>
+          <Box as="span" pr="200">
+            {label}
           </Box>
-        )}
-        {error && errorInLabel && (
-          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
-        )}
-      </Label>
+          {required && (
+            <Box as="span" pr="200" aria-hidden="true">
+              *
+            </Box>
+          )}
+          {error && errorInLabel && (
+            <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+          )}
+        </Label>
+      )}
       <StyledInputWrapper hasError={!!error} isDisabled={disabled}>
         {selectedItems.length > 0 && (
           <Box display="flex" pl="200" pt="0.375rem">

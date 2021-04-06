@@ -42,12 +42,15 @@ describe('Select', () => {
     const wrapper = subject({ id: 'test-id', error: 'test-error' });
     expect(
       wrapper
-        .find('div')
-        .at(3)
+        .find('[data-id="error-message"]')
+        .last()
         .text(),
     ).toEqual('test-error');
     expect(wrapper.find('select')).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(wrapper.find('div').at(3)).toHaveAttributeValue('id', 'test-id-error');
+    expect(wrapper.find('[data-id="error-message"]').last()).toHaveAttributeValue(
+      'id',
+      'test-id-error',
+    );
   });
 
   it('should render with error and helptext describedby', () => {

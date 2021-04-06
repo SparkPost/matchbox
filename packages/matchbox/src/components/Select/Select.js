@@ -125,7 +125,7 @@ const Select = React.forwardRef(function Select(props, userRef) {
     </Box>
   ) : null;
 
-  const labelMarkup = (
+  const labelMarkup = label && (
     <Label id={id} labelHidden={labelHidden}>
       <Box as="span" pr="200">
         {label}
