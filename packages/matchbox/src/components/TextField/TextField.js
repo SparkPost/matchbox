@@ -166,7 +166,7 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
 
   return (
     <StyledWrapper {...systemProps}>
-      {label ? (
+      {label && (
         <Label id={id} labelHidden={labelHidden}>
           <Box as="span" pr="200">
             {label}
@@ -181,7 +181,7 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
           )}
           {optional && <OptionalLabel float />}
         </Label>
-      ) : null}
+      )}
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
           <PrefixOrSuffix content={prefix} className={prefixClassname} ref={prefixRef} left="300" />

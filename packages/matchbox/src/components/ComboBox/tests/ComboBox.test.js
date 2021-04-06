@@ -2,10 +2,11 @@ import React from 'react';
 import ComboBox from '../ComboBox';
 import ComboBoxMenu from '../ComboBoxMenu';
 import ComboBoxTextField from '../ComboBoxTextField';
+import { render } from 'test-utils';
 
 describe('ComboBox Wrapper', () => {
   const subject = (props = {}) =>
-    global.mountStyled(
+    render(
       <ComboBox {...props}>
         <ComboBoxTextField id="test-id" helpText="test help" />
         <ComboBoxMenu isOpen items={[{ content: 'foo', is: 'button' }]} />
@@ -13,13 +14,9 @@ describe('ComboBox Wrapper', () => {
     );
 
   it('should menu correctly inside textfield', () => {
-    const wrapper = subject();
-    const children = wrapper
-      .find('div')
-      .at(1)
-      .children();
-    expect(children.at(1).find('input')).toExist();
-    expect(children.at(2).text()).toEqual('foo');
-    expect(children.last().text()).toEqual('test help');
+    const { getByRole, getByText } = subject();
+    expect(getByRole('textbox')).toBeTruthy();
+    expect(getByRole('button', { name: 'foo' })).toBeTruthy();
+    expect(getByText(/test help/g)).toBeTruthy();
   });
 });

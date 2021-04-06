@@ -1,48 +1,60 @@
 import React from 'react';
 import Label from '../Label';
-import { ScreenReaderOnly } from '../../ScreenReaderOnly';
-
-describe('Label - deprecated use', () => {
-  it('renders correctly', () => {
-    const wrapper = global.mountStyled(
-      <Label id="label1" label="Label text" className="test-class">
-        <span>Select one!</span>
-      </Label>,
-    );
-    expect(wrapper).toHaveAttributeValue('id', 'label1Label');
-    expect(wrapper).toHaveAttributeValue('for', 'label1');
-    expect(wrapper.text()).toEqual('Label textSelect one!');
-    expect(wrapper.find('label').prop('className')).toContain('test-class');
-  });
-
-  it('renders hidden correctly', () => {
-    const wrapper = global.mountStyled(<Label id="label1" label="Label text" labelHidden></Label>);
-    // TODO switch to a style assertion when screen reader component switches to styled-components
-    expect(wrapper.find(ScreenReaderOnly)).toExist();
-    expect(wrapper.find('label')).toHaveAttributeValue('id', 'label1Label');
-    expect(wrapper.find('label')).toHaveAttributeValue('for', 'label1');
-  });
-});
+import { render, within } from 'test-utils';
 
 describe('Label', () => {
-  it('renders correctly', () => {
-    const wrapper = global.mountStyled(
-      <Label id="label1" className="test-class">
-        Label text
-        <span>Select one!</span>
-      </Label>,
-    );
-    expect(wrapper).toHaveAttributeValue('id', 'label1Label');
-    expect(wrapper).toHaveAttributeValue('for', 'label1');
-    expect(wrapper.text()).toEqual('Label textSelect one!');
-    expect(wrapper.find('label').prop('className')).toContain('test-class');
+  describe('deprecated use', () => {
+    it('renders correctly with label prop', () => {
+      const subject = render(<Label id="label1" label="Label text"></Label>);
+      expect(subject.getByText('Label text')).toBeTruthy();
+    });
+
+    it('renders correctly with label prop and children', () => {
+      const subject = render(
+        <Label id="label1" label="Label text">
+          children text
+        </Label>,
+      );
+      expect(subject.getByText('Label text')).toBeTruthy();
+      expect(subject.getByText('children text')).toBeTruthy();
+    });
+
+    it('renders correctly with id', () => {
+      render(<Label id="label1" label="Label text"></Label>);
+      expect(within(document.querySelector('#label1Label')).getByText('Label text')).toBeTruthy();
+    });
+
+    it('renders correctly with className', () => {
+      render(<Label id="label1" label="Label text" className="test-class"></Label>);
+      expect(within(document.querySelector('.test-class')).getByText('Label text')).toBeTruthy();
+    });
+
+    it('renders hidden correctly', () => {
+      const subject = render(<Label id="label1" label="Label text" labelHidden></Label>);
+      expect(subject.getByText('Label text')).toBeTruthy();
+    });
   });
 
-  it('renders hidden correctly', () => {
-    const wrapper = global.mountStyled(<Label id="label1" label="Label text" labelHidden></Label>);
-    // TODO switch to a style assertion when screen reader component switches to styled-components
-    expect(wrapper.find(ScreenReaderOnly)).toExist();
-    expect(wrapper.find('label')).toHaveAttributeValue('id', 'label1Label');
-    expect(wrapper.find('label')).toHaveAttributeValue('for', 'label1');
+  it('renders children correctly', () => {
+    const subject = render(<Label id="label1">Label text</Label>);
+    expect(subject.getByText('Label text')).toBeTruthy();
+  });
+
+  it('renders children correctly with id', () => {
+    render(
+      <Label id="label1" className="test-class">
+        Label text
+      </Label>,
+    );
+    expect(within(document.querySelector('.test-class')).getByText('Label text')).toBeTruthy();
+  });
+
+  it('renders children correctly with className', () => {
+    render(
+      <Label id="label1" className="test-class">
+        Label text
+      </Label>,
+    );
+    expect(within(document.querySelector('#label1Label')).getByText('Label text')).toBeTruthy();
   });
 });
