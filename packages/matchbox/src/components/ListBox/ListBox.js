@@ -139,7 +139,10 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   }, [currentValue]);
 
   const labelMarkup = (
-    <Label id={id} label={label} labelHidden={labelHidden}>
+    <Label id={id} labelHidden={labelHidden}>
+      <Box as="span" pr="200">
+        {label}
+      </Box>
       {requiredIndicator}
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />

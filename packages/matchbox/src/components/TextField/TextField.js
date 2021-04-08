@@ -166,17 +166,22 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
 
   return (
     <StyledWrapper {...systemProps}>
-      <Label id={id} label={label} labelHidden={labelHidden}>
-        {required && (
-          <Box as="span" pr="200" aria-hidden="true">
-            *
+      {label && (
+        <Label id={id} labelHidden={labelHidden}>
+          <Box as="span" pr="200">
+            {label}
           </Box>
-        )}
-        {error && errorInLabel && (
-          <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
-        )}
-        {optional && <OptionalLabel float />}
-      </Label>
+          {required && (
+            <Box as="span" pr="200" aria-hidden="true">
+              *
+            </Box>
+          )}
+          {error && errorInLabel && (
+            <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+          )}
+          {optional && <OptionalLabel float />}
+        </Label>
+      )}
       <Connect left={connectLeft} right={connectRight}>
         <Box position="relative">
           <PrefixOrSuffix content={prefix} className={prefixClassname} ref={prefixRef} left="300" />

@@ -22,10 +22,8 @@ describe('Checkbox Group', () => {
         .find('legend')
         .find('span')
         .at(1)
-        .find('span')
-        .at(0)
         .text(),
-    ).toEqual('Optional');
+    ).toEqual('test-labelOptional');
   });
 
   it('renders a legend while hidden correctly', () => {

@@ -69,14 +69,16 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
           <StyledChecked error={error} size="1rem" as={RadioButtonChecked} />
         </Box>
         <Box flex="1" pl="200">
-          <Label
-            as="span" // Outer wrapper already includes a label
-            id={id}
-            label={label}
-            labelHidden={labelHidden}
-            fontWeight="400"
-            mb="0" // TODO Remove once margin 0 is baked into Label
-          />
+          {label && (
+            <Label
+              as="span" // Outer wrapper already includes a label
+              id={id}
+              label={label}
+              labelHidden={labelHidden}
+              fontWeight="400"
+              mb="0" // TODO Remove once margin 0 is baked into Label
+            />
+          )}
         </Box>
       </StyledLabel>
       {helpText && (

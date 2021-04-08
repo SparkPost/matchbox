@@ -23,7 +23,10 @@ function Group(props) {
     <StyledGroup {...systemProps}>
       {label && (
         <Box width="100%">
-          <Label as="legend" label={label} labelHidden={labelHidden}>
+          <Label as="legend" labelHidden={labelHidden}>
+            <Box as="span" pr="200">
+              {label}
+            </Box>
             {required && (
               <Box as="span" pr="200" aria-hidden="true">
                 *
