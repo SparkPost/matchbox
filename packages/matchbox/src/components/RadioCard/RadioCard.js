@@ -57,13 +57,13 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
             >
               {label}
             </StyledHeader>
-            {children && (
-              <Box data-id="radio-card-content" pt="200">
-                {children}
-              </Box>
-            )}
           </Box>
         </Box>
+        {children && (
+          <Box data-id="radio-card-content" pt="200">
+            {children}
+          </Box>
+        )}
       </StyledLabel>
     </Box>
   );
