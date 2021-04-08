@@ -53,7 +53,7 @@ Label.displayName = 'Label';
 Label.propTypes = {
   label: deprecate(PropTypes.string, 'Use the children instead'),
   children: PropTypes.node,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   htmlFor: PropTypes.string,
 };
 
