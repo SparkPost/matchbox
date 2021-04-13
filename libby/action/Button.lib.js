@@ -97,13 +97,13 @@ describe('Button', () => {
       <Box display="flex" justifyContent="space-between">
         <Stack>
           <Button loading>Button</Button>
-          <Button loading flat>
+          <Button loading variant="text">
             Flat
           </Button>
-          <Button loading outlineBorder>
+          <Button loading variant="outline">
             Outline Border
           </Button>
-          <Button loading outline>
+          <Button loading variant="mutedOutline">
             Outline
           </Button>
         </Stack>
@@ -112,13 +112,13 @@ describe('Button', () => {
           <Button loading color="red">
             Button
           </Button>
-          <Button loading color="red" flat>
+          <Button loading color="red" variant="text">
             Flat
           </Button>
-          <Button loading color="red" outlineBorder>
+          <Button loading color="red" variant="outline">
             Outline Border
           </Button>
-          <Button loading color="red" outline>
+          <Button loading color="red" variant="mutedOutline">
             Outline
           </Button>
         </Stack>
@@ -127,13 +127,13 @@ describe('Button', () => {
           <Button loading color="blue">
             Button
           </Button>
-          <Button loading color="blue" flat>
+          <Button loading color="blue" variant="text">
             Flat
           </Button>
-          <Button loading color="blue" outlineBorder>
+          <Button loading color="blue" variant="outline">
             Outline Border
           </Button>
-          <Button loading color="blue" outline>
+          <Button loading color="blue" variant="mutedOutline">
             Outline
           </Button>
         </Stack>
@@ -143,13 +143,13 @@ describe('Button', () => {
             <Button loading color="white">
               Button
             </Button>
-            <Button loading color="white" flat>
+            <Button loading color="white" variant="text">
               Flat
             </Button>
-            <Button loading color="white" outlineBorder>
+            <Button loading color="white" variant="outline">
               Outline Border
             </Button>
-            <Button loading color="white" outline>
+            <Button loading color="white" variant="mutedOutline">
               Outline
             </Button>
           </Stack>
