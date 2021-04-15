@@ -19,9 +19,10 @@ describe('Label', () => {
       expect(subject.getByText('children text')).toBeTruthy();
     });
 
-    it('renders correctly with id', () => {
+    it('renders correctly with id without htmlFor', () => {
       render(<Label id="label1" label="Label text"></Label>);
       expect(within(document.querySelector('#label1Label')).getByText('Label text')).toBeTruthy();
+      expect(within(document.querySelector('[for="label1"]')).getByText('Label text')).toBeTruthy();
     });
 
     it('renders correctly with className', () => {
@@ -56,5 +57,11 @@ describe('Label', () => {
       </Label>,
     );
     expect(within(document.querySelector('#label1Label')).getByText('Label text')).toBeTruthy();
+  });
+
+  it('renders correctly id and htmlFor correctly when both are provided', () => {
+    render(<Label id="id" label="Label text" htmlFor="for"></Label>);
+    expect(within(document.querySelector('#id')).getByText('Label text')).toBeTruthy();
+    expect(within(document.querySelector('[for="for"]')).getByText('Label text')).toBeTruthy();
   });
 });
