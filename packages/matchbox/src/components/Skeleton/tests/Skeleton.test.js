@@ -1,6 +1,7 @@
 import React from 'react';
 import cases from 'jest-in-case';
 import Skeleton, { Animator } from '../Skeleton';
+import { render } from 'test-utils';
 
 describe('Skeleton', () => {
   const Header = props => global.mountStyled(<Skeleton.Header {...props} />);
@@ -37,6 +38,16 @@ describe('Skeleton', () => {
       },
       sizes,
     );
+
+    it('should render with data-id', () => {
+      const { getByTestId } = render(<Skeleton.Header data-id="test-id" />);
+      expect(getByTestId('test-id')).toBeTruthy();
+    });
+
+    it('should not render children', () => {
+      const { queryByText } = render(<Skeleton.Header>test</Skeleton.Header>);
+      expect(queryByText('test')).toBeFalsy();
+    });
   });
 
   describe('Base Skeleton', () => {
@@ -44,6 +55,16 @@ describe('Skeleton', () => {
       const wrapper = Box({ size: '20px' });
       expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '20px');
       expect(wrapper.find('div').at(1)).toHaveStyleRule('height', '20px');
+    });
+
+    it('should render with data-id', () => {
+      const { getByTestId } = render(<Skeleton.Box data-id="test-id" />);
+      expect(getByTestId('test-id')).toBeTruthy();
+    });
+
+    it('should not render children', () => {
+      const { queryByText } = render(<Skeleton.Box>test</Skeleton.Box>);
+      expect(queryByText('test')).toBeFalsy();
     });
   });
 
@@ -57,6 +78,16 @@ describe('Skeleton', () => {
       const wrapper = Body({ lines: 5 });
       expect(wrapper.find(Animator)).toHaveLength(5);
       expect(wrapper.find(Animator).last()).toHaveStyleRule('width', '70%');
+    });
+
+    it('should render with data-id', () => {
+      const { getByTestId } = render(<Skeleton.Body data-id="test-id" />);
+      expect(getByTestId('test-id')).toBeTruthy();
+    });
+
+    it('should not render children', () => {
+      const { queryByText } = render(<Skeleton.Body>test</Skeleton.Body>);
+      expect(queryByText('test')).toBeFalsy();
     });
   });
 });

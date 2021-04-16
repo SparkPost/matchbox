@@ -30,7 +30,7 @@ export const Animator = styled(Box)`
 `;
 
 const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
-  const { looksLike, width } = props;
+  const { 'data-id': dataId, looksLike, width } = props;
   const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
 
   const size = React.useMemo(() => {
@@ -53,7 +53,7 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
   }, [looksLike]);
 
   return (
-    <Box ref={ref} tabIndex="-1" aria-hidden="true">
+    <Box ref={ref} tabIndex="-1" aria-hidden="true" data-id={dataId}>
       <Animator
         borderRadius="200"
         delay={delay}
@@ -66,6 +66,7 @@ const SkeletonHeader = React.forwardRef(function SkeletonHeader(props, ref) {
 
 SkeletonHeader.displayName = 'Skeleton.Header';
 SkeletonHeader.propTypes = {
+  'data-id': Proptypes.string,
   looksLike: Proptypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   width: Proptypes.string,
 };
@@ -75,7 +76,7 @@ SkeletonHeader.defaultProps = {
 };
 
 const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
-  const { lines } = props;
+  const { 'data-id': dataId, lines } = props;
 
   const body = React.useMemo(() => {
     const arr = [];
@@ -94,7 +95,7 @@ const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
   }, [lines]);
 
   return (
-    <Box ref={ref} mt="100" tabIndex="-1" aria-hidden="true">
+    <Box ref={ref} mt="100" tabIndex="-1" aria-hidden="true" data-id={dataId}>
       <Stack space="300">{body}</Stack>
     </Box>
   );
@@ -102,6 +103,7 @@ const SkeletonBody = React.forwardRef(function SkeletonBody(props, ref) {
 
 SkeletonBody.displayName = 'Skeleton.Body';
 SkeletonBody.propTypes = {
+  'data-id': Proptypes.string,
   lines: Proptypes.number,
 };
 SkeletonBody.defaultProps = {
@@ -109,16 +111,19 @@ SkeletonBody.defaultProps = {
 };
 
 const SkeletonBox = React.forwardRef(function SkeletonBox(props, ref) {
+  const { 'data-id': dataId, children, ...rest } = props;
+
   const delay = React.useMemo(() => `${Math.random() / 2}s`, []);
   return (
-    <Box ref={ref} tabIndex="-1" aria-hidden="true">
-      <Animator borderRadius="200" delay={delay} {...props} />
+    <Box ref={ref} tabIndex="-1" aria-hidden="true" data-id={dataId}>
+      <Animator borderRadius="200" delay={delay} {...rest} />
     </Box>
   );
 });
 
 SkeletonBox.displayName = 'Skeleton.Box';
 SkeletonBox.propTypes = {
+  'data-id': Proptypes.string,
   ...Box.propTypes,
 };
 

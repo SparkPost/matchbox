@@ -1,4 +1,4 @@
-// // react-testing-library setup
+// react-testing-library setup
 import React from 'react';
 import { render, configure, within, queries } from '@testing-library/react';
 import ThemeProvider from '../packages/matchbox/src/components/ThemeProvider/ThemeProvider';

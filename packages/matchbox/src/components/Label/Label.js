@@ -9,6 +9,7 @@ function Label(props) {
   const {
     label,
     id,
+    htmlFor,
     className,
     children,
     labelHidden,
@@ -32,8 +33,8 @@ function Label(props) {
     <Box
       display="block"
       as={as}
-      id={id && `${id}Label`}
-      htmlFor={id}
+      id={id && !htmlFor ? `${id}Label` : id}
+      htmlFor={htmlFor ? htmlFor : id}
       fontWeight={fontWeight}
       className={className}
       mb={mb}
@@ -51,6 +52,9 @@ function Label(props) {
 Label.displayName = 'Label';
 Label.propTypes = {
   label: deprecate(PropTypes.string, 'Use the children instead'),
+  children: PropTypes.node,
+  id: PropTypes.string,
+  htmlFor: PropTypes.string,
 };
 
 export default Label;
