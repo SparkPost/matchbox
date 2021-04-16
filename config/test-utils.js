@@ -1,6 +1,6 @@
 // // react-testing-library setup
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, configure } from '@testing-library/react';
 import ThemeProvider from '../packages/matchbox/src/components/ThemeProvider/ThemeProvider';
 
 function Wrapper({ children }) {
@@ -10,6 +10,11 @@ function Wrapper({ children }) {
 function customRender(ui, options) {
   return render(ui, { wrapper: Wrapper, ...options });
 }
+
+// React testing library configuration
+configure({
+  testIdAttribute: 'data-id', // Overriding the default test ID used by `getByTestId` matcher
+});
 
 // re-export everything
 export * from '@testing-library/react';
