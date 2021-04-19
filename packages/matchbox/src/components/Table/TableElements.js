@@ -58,6 +58,7 @@ const Cell = React.forwardRef(function Cell(
 });
 
 Cell.propTypes = {
+  align: PropTypes.oneOf(['right', 'center', 'left', undefined]),
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
@@ -107,6 +108,7 @@ const HeaderCell = React.forwardRef(function HeaderCell(
 
 HeaderCell.propTypes = {
   'aria-sort': PropTypes.string,
+  align: PropTypes.oneOf(['right', 'center', 'left', undefined]),
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
