@@ -7,10 +7,7 @@ import { focusOutline, buttonReset } from '../../styles/helpers';
 const Button = styled.button`
   ${buttonReset}
   ${focusOutline()}
-  
-  display: flex;
-  align-items: flex-end;
-  text-align: left;
+  display: inline-block;
   cursor: pointer;
 
   ${({ theme }) => `
@@ -85,7 +82,7 @@ function Unsorted() {
 }
 
 const SortButton = React.forwardRef(function SortButton(props, userRef) {
-  const { children, direction, onClick, onFocus, onBlur } = props;
+  const { align, children, direction, onClick, onFocus, onBlur } = props;
 
   const Icon = React.useMemo(() => {
     if (direction === 'asc') {
@@ -105,6 +102,7 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
 
   return (
     <Button
+      align={align}
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
@@ -122,8 +120,9 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
 
 SortButton.displayName = 'Table.SortButton';
 SortButton.propTypes = {
+  align: PropTypes.oneOf(['left', 'right', 'center', undefined]),
   children: PropTypes.node,
-  direction: PropTypes.oneOf(['asc', 'desc', null, undefined]),
+  direction: PropTypes.oneOf(['asc', 'desc', undefined]),
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,

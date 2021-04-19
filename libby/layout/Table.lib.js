@@ -27,7 +27,7 @@ describe('Table', () => {
             <Table.HeaderCell>
               <Table.SortButton direction="asc">Heading 1</Table.SortButton>
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell align="right">
               <Table.SortButton direction="desc">Heading 2</Table.SortButton>
             </Table.HeaderCell>
             <Table.HeaderCell>
@@ -41,7 +41,7 @@ describe('Table', () => {
         <tbody>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
-            <Table.Cell>2</Table.Cell>
+            <Table.Cell align="right">2</Table.Cell>
             <Table.Cell>3</Table.Cell>
             <Table.Cell>4</Table.Cell>
           </Table.Row>
