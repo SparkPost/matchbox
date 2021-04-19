@@ -10,6 +10,8 @@ describe('ListBox', () => {
       defaultValue="option-1"
       label="Select an option"
       onChange={e => console.log(e)}
+      onFocus={() => console.log('focus')}
+      onBlur={() => console.log('blur')}
     >
       <ListBox.Option value="option-1">Option 1</ListBox.Option>
       <ListBox.Option value="option-2">Option 2</ListBox.Option>

@@ -41,7 +41,7 @@ const StyledButton = styled(Button)`
   border: ${props =>
     props.hasError ? `1px solid ${props.theme.colors.red[700]}` : `${props.theme.borders[400]}`};
   &:hover {
-    background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
+    background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'white')};
   }
   ${focusOutline()}
 `;
@@ -65,6 +65,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const {
     children,
     'data-id': dataId,
+    'data-sensitive': dataSensitive,
     placeholder,
     disabled,
     id,
@@ -78,6 +79,8 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     defaultValue,
     value,
     onChange,
+    onFocus,
+    onBlur,
     name,
     ...rest
   } = props;
@@ -115,6 +118,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   function onSelect(value) {
     if (onChange) {
       // This is a fake event, because buttons do not inherently have a change event
+      // onChange does not work on hidden inputs
       onChange({
         currentTarget: {
           value,
@@ -127,6 +131,11 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
     // Returns focus to the button when closing the popover
     buttonRef.current.focus();
+
+    // Calls user's blur method
+    if (onBlur) {
+      onBlur();
+    }
   }
 
   const contentFromValue = React.useMemo(() => {
@@ -139,7 +148,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   }, [currentValue]);
 
   const labelMarkup = (
-    <Label id={id} labelHidden={labelHidden}>
+    <Label id={`${id}Label`} htmlFor={`${id}LabelButton`} labelHidden={labelHidden}>
       <Box as="span" pr="200">
         {label}
       </Box>
@@ -183,7 +192,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   }
 
   return (
-    <StyledWrapper data-id={dataId} tabIndex="-1" {...systemProps} {...focusContainerProps}>
+    <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
       {labelMarkup}
       <Popover
         id="listbox-popover"
@@ -195,7 +204,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
         trigger={
           <Box position="relative">
             <ListBoxButton
-              id={id}
+              id={`${id}LabelButton`}
               data-id="open-listbox"
               textAlign="left"
               fullWidth
@@ -205,6 +214,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               aria-pressed={open}
               aria-expanded={open}
               onClick={togglePopover}
+              onFocus={onFocus}
               onKeyDown={activatorKeyDown}
               disabled={disabled}
               hasError={!!error}
@@ -231,7 +241,14 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
       </Popover>
       {helpMarkup}
       {error && !errorInLabel && <Error id={errorId} error={error} />}
-      <input type="hidden" name={name} value={currentValue} />
+      <input
+        id={id}
+        type="hidden"
+        name={name}
+        value={currentValue}
+        data-id={dataId}
+        data-sensitive={dataSensitive}
+      />
     </StyledWrapper>
   );
 });
@@ -239,6 +256,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 ListBox.displayName = 'ListBox';
 ListBox.propTypes = {
   'data-id': PropTypes.string,
+  'data-sensitive': PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
