@@ -41,7 +41,7 @@ const StyledButton = styled(Button)`
   border: ${props =>
     props.hasError ? `1px solid ${props.theme.colors.red[700]}` : `${props.theme.borders[400]}`};
   &:hover {
-    background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'white')};
+    background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
   }
   ${focusOutline()}
 `;
