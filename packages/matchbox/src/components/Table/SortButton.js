@@ -82,7 +82,7 @@ function Unsorted() {
 }
 
 const SortButton = React.forwardRef(function SortButton(props, userRef) {
-  const { align, children, direction, onClick, onFocus, onBlur } = props;
+  const { children, direction, onClick, onFocus, onBlur } = props;
 
   const Icon = React.useMemo(() => {
     if (direction === 'asc') {
@@ -102,7 +102,6 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
 
   return (
     <Button
-      align={align}
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
@@ -120,7 +119,6 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
 
 SortButton.displayName = 'Table.SortButton';
 SortButton.propTypes = {
-  align: PropTypes.oneOf(['left', 'right', 'center', undefined]),
   children: PropTypes.node,
   direction: PropTypes.oneOf(['asc', 'desc', undefined]),
   onBlur: PropTypes.func,
