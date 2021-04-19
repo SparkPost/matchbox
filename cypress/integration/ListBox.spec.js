@@ -70,7 +70,7 @@ describe('The ListBox component', () => {
     it('tabs through properly without opening', () => {
       cy.wait(100);
       cy.get('body').tab();
-      cy.focused().should('have.attr', 'id', 'listbox-1');
+      cy.focused().should('have.attr', 'id', 'listbox-1LabelButton');
       cy.focused().tab();
       cy.focused().should('have.text', 'end focus test');
     });
