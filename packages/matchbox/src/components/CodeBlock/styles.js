@@ -1,7 +1,7 @@
 import { tokens } from '@sparkpost/design-tokens';
 
 const lineHeight = '25px';
-const fontSize = tokens.fontSize_200;
+const fontSize = tokens.fontSize_100;
 
 export const pre = props => `
   position: relative;
@@ -11,7 +11,7 @@ export const pre = props => `
   border-radius: ${tokens.borderRadius_100};
   background-color: ${props.dark ? tokens.color_gray_900 : tokens.color_gray_100};
   border: 1px solid ${tokens.color_gray_400};
-  overflow: scroll;
+  overflow: auto;
   padding: ${tokens.spacing_600} ${tokens.spacing_400} ${tokens.spacing_600} 0;
 `;
 
