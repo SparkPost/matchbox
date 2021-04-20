@@ -5,7 +5,6 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { margin, layout, compose } from 'styled-system';
 import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
-import { pick } from '../../helpers/props';
 import Section from './Section';
 import Action from './Action';
 
@@ -27,7 +26,6 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     groupByKey = 'section',
     ...rest
   } = props;
-  const systemProps = pick(rest, system.propNames);
 
   let list = actions && actions.length ? groupByValues(actions, groupByKey) : [];
   if (sections && sections.length) {
@@ -44,7 +42,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
       onClick={onClick}
       ref={userRef}
       tabIndex="-1"
-      {...systemProps}
+      {...rest}
     >
       {listMarkup}
       {children}
