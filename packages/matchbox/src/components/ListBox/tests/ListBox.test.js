@@ -27,8 +27,14 @@ describe('Select', () => {
 
   it('should render with id', () => {
     const wrapper = subject({ id: 'test-id', label: 'test-label' });
-    expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-id');
-    expect(wrapper.find('button')).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-idLabelButton');
+    expect(wrapper.find('button')).toHaveAttributeValue('id', 'test-idLabelButton');
+    expect(wrapper.find('input')).toHaveAttributeValue('id', 'test-id');
+  });
+
+  it('should render with name', () => {
+    const wrapper = subject({ name: 'test-name' });
+    expect(wrapper.find('input')).toHaveAttributeValue('name', 'test-name');
   });
 
   it('should render with help text', () => {
