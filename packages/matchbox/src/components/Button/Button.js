@@ -7,6 +7,7 @@ import { margin, width, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick, clean } from '../../helpers/props';
+import { getLoaderColor } from './utils';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
 import Icon from './Icon';
@@ -44,7 +45,7 @@ const ChildWrapper = styled.span.withConfig(clean(['loading']))`
 `;
 
 // Handles deprecated button variant props
-// TODO Remove in 5.0
+// TODO Remove in 6.0
 function getVariant({ outline, outlineBorder, plain, flat, variant }) {
   if (variant) {
     return variant;
@@ -122,25 +123,16 @@ const Button = React.forwardRef(function Button(props, ref) {
     return getVariant({ variant, outline, outlineBorder, plain, flat });
   }, [variant, outline, outlineBorder, plain, flat, getVariant]);
 
-  const isSolid = !outline && !outlineBorder && !plain && !flat;
+  const loaderColor = React.useMemo(() => {
+    return getLoaderColor({ variant: buttonVariant, color });
+  }, [buttonVariant, color]);
 
   const loadingIndicator = React.useMemo(() => {
     return (
       <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
         {state => (
           <StyledLoader state={state} ref={transitionRef}>
-            <Spinner
-              color={
-                isSolid && color === 'white'
-                  ? 'gray'
-                  : isSolid || color === 'white'
-                  ? 'white'
-                  : 'gray'
-              }
-              size="small"
-              label={loadingLabel}
-              rotationOnly
-            />
+            <Spinner color={loaderColor} size="small" label={loadingLabel} rotationOnly />
           </StyledLoader>
         )}
       </Transition>

@@ -6,17 +6,34 @@ export function buttonsFrom(actions, overrides) {
   const filteredActions = filterByVisible(actions);
 
   if (filteredActions.length) {
-    return <Button.Group>{filteredActions.map((action, key) => buttonFrom(action, overrides, key))}</Button.Group>;
+    return (
+      <Button.Group>
+        {filteredActions.map((action, key) => buttonFrom(action, overrides, key))}
+      </Button.Group>
+    );
   }
 }
 
 export function buttonFrom({ content, ...action }, overrides, key) {
-  return (
-    <Button
-      key={key}
-      children={content}
-      {...action}
-      {...overrides}
-    />
-  );
+  return <Button key={key} children={content} {...action} {...overrides} />; // eslint-disable-line
+}
+
+export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}) {
+  if (variant === 'filled') {
+    if (color === 'white') {
+      return 'gray';
+    }
+
+    return 'white';
+  }
+
+  if (color === 'white') {
+    return 'white';
+  }
+
+  if (color === 'blue') {
+    return 'blue';
+  }
+
+  return 'gray';
 }
