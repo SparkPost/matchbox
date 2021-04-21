@@ -8,6 +8,7 @@ const Button = styled.button`
   ${buttonReset}
   ${focusOutline()}
   display: inline-flex;
+  text-align: left;
   cursor: pointer;
 
   ${({ theme }) => `
