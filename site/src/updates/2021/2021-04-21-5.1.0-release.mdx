@@ -1,0 +1,103 @@
+---
+title: Matchbox 5.0.0
+date: 2021-04-02
+published: true
+category: Release Notes
+---
+
+For a full list of updates, <ExternalLink to="https://github.com/SparkPost/matchbox/releases/tag/v5.0.0">view the release notes on Github</ExternalLink>.
+
+---
+
+#### Breaking Changes
+
+- Props are no longer spread to underlying DOM elements for the following components:
+  - All Table components
+  - ActionList
+  - Banner
+  - Expandable
+  - Modal
+  - Pager
+  - ProgressBar
+  - Snackbar
+  - Toggle
+  - Tag
+- The `is="checkbox"` option has been removed from ActionList.Actions
+
+---
+
+### New Features
+
+##### Badge
+
+A new component, `Badge`, has been added to visually identify numeric values
+
+```jsx
+import { Badge } from '@sparkpost/matchbox';
+
+<Badge>+100</Badge>;
+```
+
+##### Table.SortButton
+
+A new component, `Table.SortButton`, has been added for sortable table headers
+
+```jsx
+import { Table } from '@sparkpost/matchbox';
+
+<Table>
+  <thead>
+    <Table.Row header>
+      <Table.HeaderCell>
+        <Table.SortButton direction="asc">Heading 1</Table.SortButton>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Table.SortButton direction="desc">Heading 2</Table.SortButton>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Table.SortButton>Heading 3</Table.SortButton>
+      </Table.HeaderCell>
+    </Table.Row>
+  </thead>
+</Table>;
+```
+
+##### TimelineTabs
+
+A new component, `TimelineTabs`, has been added to represent events in chronological order
+
+```jsx
+import { TimelineTabs } from '@sparkpost/matchbox';
+
+<TimelineTabs>
+  <TimelineTabs.Tab>
+    <Tag>Tab 1</Tag>
+  </TimelineTabs.Tab>
+  <TimelineTabs.Tab>
+    <Tag>Tab 2</Tag>
+  </TimelineTabs.Tab>
+</TimelineTabs>;
+```
+
+---
+
+##### Other New Features and Enhancements
+
+- `labelHidden` is now supported by `Select`
+- `Tabs` now support component wrappers via `as`
+- A new font size token has been added for 12px, `font-size-50`
+- An `appearance` prop has been added to the `LabelValue` component to invert font color, and accepts either `inverted` or `default`.
+- An `appearance` prop has been added to the `Panel` component to invert background and font color, and accepts either `inverted` or `default`.
+- Supports React 17
+- `Drawer` now accepts any children, not just `Drawer` components
+- `Modal` now accepts any children, not just `Modal` components
+- Refs are now forwarded to all `Table` components
+- Skeletons are now hidden from screen readers
+- `Tabs` focus state has been improved and now makes use of `focus-visible` with a fallback
+
+##### Bug Fixes
+
+- Disabled checkboxes should no longer respond to cursor hover events
+- Panel Sections should no longer crash without children
+- Fixed the order of error and help text below input components
+- Resolves a number of security vulnerabilities
