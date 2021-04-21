@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { cell, row, headerCell, totalsRow, verticalAlignment } from './styles';
+import { cell, row, headerCell, totalsRow, verticalAlignment, horizontalAlignment } from './styles';
 import { TablePaddingContext } from './context';
 import { padding, fontSize, width, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -11,12 +11,14 @@ const cellSystem = compose(padding, fontSize, width);
 const StyledCell = styled('td')`
   ${cell}
   ${cellSystem}
+  ${horizontalAlignment}
 `;
 
 const headerSystem = compose(padding, width);
 const StyledHeaderCell = styled('th')`
   ${headerCell}
   ${headerSystem}
+  ${horizontalAlignment}
 `;
 
 const StyledRow = styled('tr')`
@@ -31,7 +33,7 @@ const StyledTotalsRow = styled('tr')`
 `;
 
 const Cell = React.forwardRef(function Cell(
-  { value, children, className, colSpan, role, rowSpan, style, width, ...rest },
+  { align, value, children, className, colSpan, role, rowSpan, style, width, ...rest },
   userRef,
 ) {
   const paddingContext = React.useContext(TablePaddingContext);
@@ -40,6 +42,7 @@ const Cell = React.forwardRef(function Cell(
     <StyledCell
       {...paddingContext}
       {...paddingProps}
+      align={align}
       className={className}
       fontSize={['200', null, '300']}
       colSpan={colSpan}
@@ -55,6 +58,7 @@ const Cell = React.forwardRef(function Cell(
 });
 
 Cell.propTypes = {
+  align: PropTypes.oneOf(['right', 'center', 'left', undefined]),
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,
@@ -69,6 +73,7 @@ Cell.displayName = 'Table.Cell';
 
 const HeaderCell = React.forwardRef(function HeaderCell(
   {
+    align,
     'aria-sort': ariaSort,
     value,
     children,
@@ -85,6 +90,7 @@ const HeaderCell = React.forwardRef(function HeaderCell(
   return (
     <StyledHeaderCell
       p="450"
+      align={align}
       aria-sort={ariaSort}
       className={className}
       colSpan={colSpan}
@@ -102,6 +108,7 @@ const HeaderCell = React.forwardRef(function HeaderCell(
 
 HeaderCell.propTypes = {
   'aria-sort': PropTypes.string,
+  align: PropTypes.oneOf(['right', 'center', 'left', undefined]),
   value: PropTypes.node,
   className: PropTypes.string,
   children: PropTypes.node,

@@ -81,6 +81,17 @@ export const verticalAlignment = system({
   },
 });
 
+export const horizontalAlignment = system({
+  align: {
+    property: 'textAlign',
+    defaultScale: {
+      center: 'center',
+      left: 'left',
+      right: 'right',
+    },
+  },
+});
+
 export const wrapper = ({ freezeFirstColumn }) => `
    ${freezeFirstColumn ? 'overflow: auto;' : ''}
 `;
