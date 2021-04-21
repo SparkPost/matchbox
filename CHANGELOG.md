@@ -1,118 +1,218 @@
 
-## 5.0.0 (2021-04-02)
+## 5.1.0 (2021-04-21)
 
 #### Features
 * `matchbox`
-  * [#803](https://github.com/SparkPost/matchbox/pull/803) UX-484 Add Table.SortButton Component ([@jonambas](https://github.com/jonambas))
-  * [#801](https://github.com/SparkPost/matchbox/pull/801) Closes [#788](https://github.com/SparkPost/matchbox/issues/788) Support labelHidden on Select ([@jonambas](https://github.com/jonambas))
-  * [#783](https://github.com/SparkPost/matchbox/pull/783) UX-448 Tabs should support component wrapper via as ([@logansparlin](https://github.com/logansparlin))
-  * [#769](https://github.com/SparkPost/matchbox/pull/769) UX-440 Add TimelineTabs component ([@jonambas](https://github.com/jonambas))
-* `design-tokens`, `matchbox`
-  * [#799](https://github.com/SparkPost/matchbox/pull/799) UX-477 Add Badge Component, Add new font-size token ([@jonambas](https://github.com/jonambas))
+  * [#817](https://github.com/SparkPost/matchbox/pull/817) Closes [#811](https://github.com/SparkPost/matchbox/issues/811) Support Label htmlFor ([@jonambas](https://github.com/jonambas))
 
 #### Enhancements
 * `matchbox`
-  * [#802](https://github.com/SparkPost/matchbox/pull/802) UX-449 Allow any Drawer children ([@jonambas](https://github.com/jonambas))
-  * [#795](https://github.com/SparkPost/matchbox/pull/795) UX-479 Remove spreading of unknown Table component props, Forwards refs to all Table components ([@jonambas](https://github.com/jonambas))
-  * [#797](https://github.com/SparkPost/matchbox/pull/797) UX-480 Remove spreading of unknown Modal props ([@jonambas](https://github.com/jonambas))
-  * [#805](https://github.com/SparkPost/matchbox/pull/805) UX-483 Skeletons are hidden from screen readers ([@jonambas](https://github.com/jonambas))
-  * [#804](https://github.com/SparkPost/matchbox/pull/804) UX-468 Tab focus state uses focus-visible with fallback ([@jonambas](https://github.com/jonambas))
-  * [#794](https://github.com/SparkPost/matchbox/pull/794) UX-474 Allow any Modal children ([@jonambas](https://github.com/jonambas))
-  * [#790](https://github.com/SparkPost/matchbox/pull/790) UX-461 Remove spreading of unknown ActionList props ([@jonambas](https://github.com/jonambas))
-  * [#789](https://github.com/SparkPost/matchbox/pull/789) UX-456 Remove spreading of unknown ListBox props ([@jonambas](https://github.com/jonambas))
-  * [#787](https://github.com/SparkPost/matchbox/pull/787) UX-453 Remove spreading of unknown Expandable props ([@jonambas](https://github.com/jonambas))
-  * [#798](https://github.com/SparkPost/matchbox/pull/798) UX-482 Remove is="checkbox" option from ActionList.Action ([@jonambas](https://github.com/jonambas))
-  * [#786](https://github.com/SparkPost/matchbox/pull/786) UX-457 Remove spreading of unknown Pager props ([@jonambas](https://github.com/jonambas))
-  * [#761](https://github.com/SparkPost/matchbox/pull/761) UX-429 Add appearance prop on LabelValue component and document ([@logansparlin](https://github.com/logansparlin))
-  * [#774](https://github.com/SparkPost/matchbox/pull/774) UX-458 Remove spreading of unknown Toggle props ([@jonambas](https://github.com/jonambas))
-  * [#767](https://github.com/SparkPost/matchbox/pull/767) UX-452 Remove spreading of unknown Tag props ([@jonambas](https://github.com/jonambas))
-  * [#764](https://github.com/SparkPost/matchbox/pull/764) UX-430 Create inverted color scheme for Panel component ([@logansparlin](https://github.com/logansparlin))
-  * [#766](https://github.com/SparkPost/matchbox/pull/766) UX-395 Remove spreading of unknown Banner props ([@jonambas](https://github.com/jonambas))
-  * [#765](https://github.com/SparkPost/matchbox/pull/765) UX-397 Remove spreading of unknown Snackbar props ([@jonambas](https://github.com/jonambas))
-  * [#763](https://github.com/SparkPost/matchbox/pull/763) UX-394 Remove spreading of unknown ProgressBar props ([@jonambas](https://github.com/jonambas))
-* `matchbox-icons`, `matchbox`
-  * [#697](https://github.com/SparkPost/matchbox/pull/697) UX-380 Upgrade to React 17 ([@jonambas](https://github.com/jonambas))
+  * [#824](https://github.com/SparkPost/matchbox/pull/824) UX-504 Lower CodeBlock font size, Hide scrollbars ([@jonambas](https://github.com/jonambas))
+  * [#822](https://github.com/SparkPost/matchbox/pull/822) UX-502 Add name id and data attributes to hidden field in Listbox ([@jonambas](https://github.com/jonambas))
+  * [#819](https://github.com/SparkPost/matchbox/pull/819) UX-499 Harden Badge unit testing ([@jonambas](https://github.com/jonambas))
+  * [#818](https://github.com/SparkPost/matchbox/pull/818) UX-491 Pass through data-id to all Skeletons, Prevent rendering children ([@jonambas](https://github.com/jonambas))
+  * [#816](https://github.com/SparkPost/matchbox/pull/816) Closes [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label prop ([@jonambas](https://github.com/jonambas))
+  * [#815](https://github.com/SparkPost/matchbox/pull/815) UX-489 Remove indent on RadioCard component ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
 * `matchbox`
-  * [#782](https://github.com/SparkPost/matchbox/pull/782) UX-467 Disabled checkboxes should ignore hover event ([@logansparlin](https://github.com/logansparlin))
-  * [#770](https://github.com/SparkPost/matchbox/pull/770) UX-465 Fix empty Panel.Section rendering ([@jonambas](https://github.com/jonambas))
-  * [#768](https://github.com/SparkPost/matchbox/pull/768) UX-450 move error below help text in form components ([@logansparlin](https://github.com/logansparlin))
+  * [#823](https://github.com/SparkPost/matchbox/pull/823) UX-503 Adds new `align` prop to Cell and HeaderCell ([@jonambas](https://github.com/jonambas))
+  * [#825](https://github.com/SparkPost/matchbox/pull/825) UX-507 Pass through all ActionList props for downshift ([@jonambas](https://github.com/jonambas))
+  * [#821](https://github.com/SparkPost/matchbox/pull/821) Closes [#820](https://github.com/SparkPost/matchbox/issues/820) Fix button loader colors ([@jonambas](https://github.com/jonambas))
+  * [#812](https://github.com/SparkPost/matchbox/pull/812) UX-492 Focus on activator when Popovers close ([@jonambas](https://github.com/jonambas))
+
+#### Breaking Changes
+* `matchbox`
+  * [#816](https://github.com/SparkPost/matchbox/pull/816) Closes [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label prop ([@jonambas](https://github.com/jonambas))
 
 #### Security
-* [#791](https://github.com/SparkPost/matchbox/pull/791) UX-472 Dependabot: Resolve ecstatic vulnerability by replacing http-server with serve ([@jonambas](https://github.com/jonambas))
-* [#780](https://github.com/SparkPost/matchbox/pull/780) UX-476 Resolve socket.io security vulnerability ([@jonambas](https://github.com/jonambas))
-* [#775](https://github.com/SparkPost/matchbox/pull/775) UX-471 & UX-473 Resolve immer and prismjs vulnerabilities ([@jonambas](https://github.com/jonambas))
-
-#### Committers: 3
-- Avi Goldman ([@avigoldman](https://github.com/avigoldman))
-- Jon Ambas ([@jonambas](https://github.com/jonambas))
-- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
-
-
-## 4.8.2 (2021-03-04)
-
-#### Bug Fixes
-* `matchbox`
-  * [#773](https://github.com/SparkPost/matchbox/pull/773) UX-470 Fix bug that caused excessive horizontal scroll on Tabs ([@jonambas](https://github.com/jonambas))
-  * [#772](https://github.com/SparkPost/matchbox/pull/772) UX-469 Fix Tabs on Safari ([@jonambas](https://github.com/jonambas))
+* [#814](https://github.com/SparkPost/matchbox/pull/814) UX-486 Resolve certain security vulnerabilities ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 
+## 5.0.0 (2021-04-02)
+
+#### Features
+
+- `matchbox`
+  - [#803](https://github.com/SparkPost/matchbox/pull/803) UX-484 Add Table.SortButton Component
+    ([@jonambas](https://github.com/jonambas))
+  - [#801](https://github.com/SparkPost/matchbox/pull/801) Closes
+    [#788](https://github.com/SparkPost/matchbox/issues/788) Support labelHidden on Select
+    ([@jonambas](https://github.com/jonambas))
+  - [#783](https://github.com/SparkPost/matchbox/pull/783) UX-448 Tabs should support component
+    wrapper via as ([@logansparlin](https://github.com/logansparlin))
+  - [#769](https://github.com/SparkPost/matchbox/pull/769) UX-440 Add TimelineTabs component
+    ([@jonambas](https://github.com/jonambas))
+- `design-tokens`, `matchbox`
+  - [#799](https://github.com/SparkPost/matchbox/pull/799) UX-477 Add Badge Component, Add new
+    font-size token ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+
+- `matchbox`
+  - [#802](https://github.com/SparkPost/matchbox/pull/802) UX-449 Allow any Drawer children
+    ([@jonambas](https://github.com/jonambas))
+  - [#795](https://github.com/SparkPost/matchbox/pull/795) UX-479 Remove spreading of unknown Table
+    component props, Forwards refs to all Table components
+    ([@jonambas](https://github.com/jonambas))
+  - [#797](https://github.com/SparkPost/matchbox/pull/797) UX-480 Remove spreading of unknown Modal
+    props ([@jonambas](https://github.com/jonambas))
+  - [#805](https://github.com/SparkPost/matchbox/pull/805) UX-483 Skeletons are hidden from screen
+    readers ([@jonambas](https://github.com/jonambas))
+  - [#804](https://github.com/SparkPost/matchbox/pull/804) UX-468 Tab focus state uses focus-visible
+    with fallback ([@jonambas](https://github.com/jonambas))
+  - [#794](https://github.com/SparkPost/matchbox/pull/794) UX-474 Allow any Modal children
+    ([@jonambas](https://github.com/jonambas))
+  - [#790](https://github.com/SparkPost/matchbox/pull/790) UX-461 Remove spreading of unknown
+    ActionList props ([@jonambas](https://github.com/jonambas))
+  - [#789](https://github.com/SparkPost/matchbox/pull/789) UX-456 Remove spreading of unknown
+    ListBox props ([@jonambas](https://github.com/jonambas))
+  - [#787](https://github.com/SparkPost/matchbox/pull/787) UX-453 Remove spreading of unknown
+    Expandable props ([@jonambas](https://github.com/jonambas))
+  - [#798](https://github.com/SparkPost/matchbox/pull/798) UX-482 Remove is="checkbox" option from
+    ActionList.Action ([@jonambas](https://github.com/jonambas))
+  - [#786](https://github.com/SparkPost/matchbox/pull/786) UX-457 Remove spreading of unknown Pager
+    props ([@jonambas](https://github.com/jonambas))
+  - [#761](https://github.com/SparkPost/matchbox/pull/761) UX-429 Add appearance prop on LabelValue
+    component and document ([@logansparlin](https://github.com/logansparlin))
+  - [#774](https://github.com/SparkPost/matchbox/pull/774) UX-458 Remove spreading of unknown Toggle
+    props ([@jonambas](https://github.com/jonambas))
+  - [#767](https://github.com/SparkPost/matchbox/pull/767) UX-452 Remove spreading of unknown Tag
+    props ([@jonambas](https://github.com/jonambas))
+  - [#764](https://github.com/SparkPost/matchbox/pull/764) UX-430 Create inverted color scheme for
+    Panel component ([@logansparlin](https://github.com/logansparlin))
+  - [#766](https://github.com/SparkPost/matchbox/pull/766) UX-395 Remove spreading of unknown Banner
+    props ([@jonambas](https://github.com/jonambas))
+  - [#765](https://github.com/SparkPost/matchbox/pull/765) UX-397 Remove spreading of unknown
+    Snackbar props ([@jonambas](https://github.com/jonambas))
+  - [#763](https://github.com/SparkPost/matchbox/pull/763) UX-394 Remove spreading of unknown
+    ProgressBar props ([@jonambas](https://github.com/jonambas))
+- `matchbox-icons`, `matchbox`
+  - [#697](https://github.com/SparkPost/matchbox/pull/697) UX-380 Upgrade to React 17
+    ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#782](https://github.com/SparkPost/matchbox/pull/782) UX-467 Disabled checkboxes should ignore
+    hover event ([@logansparlin](https://github.com/logansparlin))
+  - [#770](https://github.com/SparkPost/matchbox/pull/770) UX-465 Fix empty Panel.Section rendering
+    ([@jonambas](https://github.com/jonambas))
+  - [#768](https://github.com/SparkPost/matchbox/pull/768) UX-450 move error below help text in form
+    components ([@logansparlin](https://github.com/logansparlin))
+
+#### Security
+
+- [#791](https://github.com/SparkPost/matchbox/pull/791) UX-472 Dependabot: Resolve ecstatic
+  vulnerability by replacing http-server with serve ([@jonambas](https://github.com/jonambas))
+- [#780](https://github.com/SparkPost/matchbox/pull/780) UX-476 Resolve socket.io security
+  vulnerability ([@jonambas](https://github.com/jonambas))
+- [#775](https://github.com/SparkPost/matchbox/pull/775) UX-471 & UX-473 Resolve immer and prismjs
+  vulnerabilities ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 3
+
+- Avi Goldman ([@avigoldman](https://github.com/avigoldman))
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+## 4.8.2 (2021-03-04)
+
+#### Bug Fixes
+
+- `matchbox`
+  - [#773](https://github.com/SparkPost/matchbox/pull/773) UX-470 Fix bug that caused excessive
+    horizontal scroll on Tabs ([@jonambas](https://github.com/jonambas))
+  - [#772](https://github.com/SparkPost/matchbox/pull/772) UX-469 Fix Tabs on Safari
+    ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
 
 ## 4.8.1 (2021-02-25)
 
 #### Bug Fixes
-* `matchbox`
-  * [#762](https://github.com/SparkPost/matchbox/pull/762) UX-445 Expandable update vertical padding with subtitle ([@logansparlin](https://github.com/logansparlin))
-  * [#755](https://github.com/SparkPost/matchbox/pull/755) UX-427 Fix full width button loading spinner positioning ([@logansparlin](https://github.com/logansparlin))
-  * [#758](https://github.com/SparkPost/matchbox/pull/758) UX-444 Update Snackbar component props to accept maxWidth styled prop ([@logansparlin](https://github.com/logansparlin))
-  * [#757](https://github.com/SparkPost/matchbox/pull/757) UX-447 Fix  UnstyledLink system props ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#762](https://github.com/SparkPost/matchbox/pull/762) UX-445 Expandable update vertical padding
+    with subtitle ([@logansparlin](https://github.com/logansparlin))
+  - [#755](https://github.com/SparkPost/matchbox/pull/755) UX-427 Fix full width button loading
+    spinner positioning ([@logansparlin](https://github.com/logansparlin))
+  - [#758](https://github.com/SparkPost/matchbox/pull/758) UX-444 Update Snackbar component props to
+    accept maxWidth styled prop ([@logansparlin](https://github.com/logansparlin))
+  - [#757](https://github.com/SparkPost/matchbox/pull/757) UX-447 Fix UnstyledLink system props
+    ([@jonambas](https://github.com/jonambas))
 
 #### Security
-* `design-tokens`, `matchbox`
-  * [#752](https://github.com/SparkPost/matchbox/pull/752) UX-436 Resolve dependabot vulnerabilities ([@jonambas](https://github.com/jonambas))
+
+- `design-tokens`, `matchbox`
+  - [#752](https://github.com/SparkPost/matchbox/pull/752) UX-436 Resolve dependabot vulnerabilities
+    ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
+
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
-
 
 ## 4.8.0 (2021-02-04)
 
 #### Features
-* `matchbox`
-  * [#745](https://github.com/SparkPost/matchbox/pull/745) UX-260 Create usePrefersColorScheme hook ([@logansparlin](https://github.com/logansparlin))
+
+- `matchbox`
+  - [#745](https://github.com/SparkPost/matchbox/pull/745) UX-260 Create usePrefersColorScheme hook
+    ([@logansparlin](https://github.com/logansparlin))
 
 #### Enhancements
-* `matchbox`
-  * [#753](https://github.com/SparkPost/matchbox/pull/753) UX-439 Add data-id to Error component ([@jonambas](https://github.com/jonambas))
-  * [#751](https://github.com/SparkPost/matchbox/pull/751) UX-432 Add aria-invalid to Checkbox Radio Select Textfield and ListBox ([@jonambas](https://github.com/jonambas))
-  * [#741](https://github.com/SparkPost/matchbox/pull/741) UX-409 & UX-423 Update Panel padding to 450, Update Expandable styling ([@jonambas](https://github.com/jonambas))
-  * [#743](https://github.com/SparkPost/matchbox/pull/743) UX-422 add new EmptyState.Media to allow Video or Picture elements ([@logansparlin](https://github.com/logansparlin))
-  * [#747](https://github.com/SparkPost/matchbox/pull/747) UX-433 UnstyledLink add 'as' prop and deprecate 'component' ([@logansparlin](https://github.com/logansparlin))
-  * [#742](https://github.com/SparkPost/matchbox/pull/742) UX-411 Button should accept "as" and deprecate "component" ([@logansparlin](https://github.com/logansparlin))
-  * [#737](https://github.com/SparkPost/matchbox/pull/737) UX-412 Add support for EmptyState.Header 'as' and 'looksLike' ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#753](https://github.com/SparkPost/matchbox/pull/753) UX-439 Add data-id to Error component
+    ([@jonambas](https://github.com/jonambas))
+  - [#751](https://github.com/SparkPost/matchbox/pull/751) UX-432 Add aria-invalid to Checkbox Radio
+    Select Textfield and ListBox ([@jonambas](https://github.com/jonambas))
+  - [#741](https://github.com/SparkPost/matchbox/pull/741) UX-409 & UX-423 Update Panel padding to
+    450, Update Expandable styling ([@jonambas](https://github.com/jonambas))
+  - [#743](https://github.com/SparkPost/matchbox/pull/743) UX-422 add new EmptyState.Media to allow
+    Video or Picture elements ([@logansparlin](https://github.com/logansparlin))
+  - [#747](https://github.com/SparkPost/matchbox/pull/747) UX-433 UnstyledLink add 'as' prop and
+    deprecate 'component' ([@logansparlin](https://github.com/logansparlin))
+  - [#742](https://github.com/SparkPost/matchbox/pull/742) UX-411 Button should accept "as" and
+    deprecate "component" ([@logansparlin](https://github.com/logansparlin))
+  - [#737](https://github.com/SparkPost/matchbox/pull/737) UX-412 Add support for EmptyState.Header
+    'as' and 'looksLike' ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-* `matchbox`
-  * [#725](https://github.com/SparkPost/matchbox/pull/725) UX-404 Upgrades react-transition-group to resolve deprecated use of findDomNode ([@jonambas](https://github.com/jonambas))
-  * [#738](https://github.com/SparkPost/matchbox/pull/738) Resolve Issue-730 Add 'returnFocus' prop to Modals focus lock container ([@jonambas](https://github.com/jonambas))
-  * [#746](https://github.com/SparkPost/matchbox/pull/746) UX-431 Align chevron in Page component breadcrumbs ([@logansparlin](https://github.com/logansparlin))
-  * [#736](https://github.com/SparkPost/matchbox/pull/736) UX-421 Make EmptyState.Image maxWidth configurable ([@jonambas](https://github.com/jonambas))
-  * [#735](https://github.com/SparkPost/matchbox/pull/735) issue-734 Remove deprecated Button props from Pagination component ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#725](https://github.com/SparkPost/matchbox/pull/725) UX-404 Upgrades react-transition-group to
+    resolve deprecated use of findDomNode ([@jonambas](https://github.com/jonambas))
+  - [#738](https://github.com/SparkPost/matchbox/pull/738) Resolve Issue-730 Add 'returnFocus' prop
+    to Modals focus lock container ([@jonambas](https://github.com/jonambas))
+  - [#746](https://github.com/SparkPost/matchbox/pull/746) UX-431 Align chevron in Page component
+    breadcrumbs ([@logansparlin](https://github.com/logansparlin))
+  - [#736](https://github.com/SparkPost/matchbox/pull/736) UX-421 Make EmptyState.Image maxWidth
+    configurable ([@jonambas](https://github.com/jonambas))
+  - [#735](https://github.com/SparkPost/matchbox/pull/735) issue-734 Remove deprecated Button props
+    from Pagination component ([@jonambas](https://github.com/jonambas))
 
 #### Security
-* `matchbox`
-  * [#748](https://github.com/SparkPost/matchbox/pull/748) UX-417 Uninstall unused react-syntax-highlighter ([@jonambas](https://github.com/jonambas))
-* Other
-  * [#731](https://github.com/SparkPost/matchbox/pull/731) UX-413 Add code scanning ([@jonambas](https://github.com/jonambas))
-  * [#750](https://github.com/SparkPost/matchbox/pull/750) Bump nested-object-assign from 1.0.3 to 1.0.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
-* `design-tokens`
-  * [#740](https://github.com/SparkPost/matchbox/pull/740) UX-418: Resolve axios vulnerability ([@jonambas](https://github.com/jonambas))
+
+- `matchbox`
+  - [#748](https://github.com/SparkPost/matchbox/pull/748) UX-417 Uninstall unused
+    react-syntax-highlighter ([@jonambas](https://github.com/jonambas))
+- Other
+  - [#731](https://github.com/SparkPost/matchbox/pull/731) UX-413 Add code scanning
+    ([@jonambas](https://github.com/jonambas))
+  - [#750](https://github.com/SparkPost/matchbox/pull/750) Bump nested-object-assign from 1.0.3 to
+    1.0.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `design-tokens`
+  - [#740](https://github.com/SparkPost/matchbox/pull/740) UX-418: Resolve axios vulnerability
+    ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
+
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
 
