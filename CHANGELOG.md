@@ -1,4 +1,14 @@
 
+## 5.1.1 (2021-04-21)
+
+#### Bug Fixes
+* `matchbox`
+  * [#826](https://github.com/SparkPost/matchbox/pull/826) 5.1.1-Hotfix: Fix wrapping of content in Sort Button ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.1.0 (2021-04-21)
 
 #### Features
