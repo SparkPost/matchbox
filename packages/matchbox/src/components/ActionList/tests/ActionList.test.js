@@ -2,7 +2,8 @@ import React from 'react';
 import ActionList from '../ActionList';
 
 describe('ActionList', () => {
-  const subject = props => global.mountStyled(<ActionList {...props} />);
+  const subject = props =>
+    global.mountStyled(<ActionList id="test-id" role="listbox" {...props} />);
 
   it('renders actions correctly', () => {
     const wrapper = subject({
@@ -19,6 +20,7 @@ describe('ActionList', () => {
         .at(0)
         .text(),
     ).toEqual('Action');
+    expect(wrapper.find('#test-id[role="listbox"]')).toExist();
   });
 
   it('renders disabled actions correctly', () => {
