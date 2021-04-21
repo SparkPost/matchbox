@@ -7,7 +7,7 @@ import { focusOutline, buttonReset } from '../../styles/helpers';
 const Button = styled.button`
   ${buttonReset}
   ${focusOutline()}
-  display: inline-block;
+  display: inline-flex;
   cursor: pointer;
 
   ${({ theme }) => `
