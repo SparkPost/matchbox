@@ -109,14 +109,7 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
               fontWeight="400"
               mb="0" // TODO Remove once margin 0 is baked into Label
             >
-              <Box as="span" pr="200">
-                {label}
-              </Box>
-              {required && (
-                <Box as="span" pr="200" aria-hidden="true">
-                  *
-                </Box>
-              )}
+              {label}
             </Label>
           )}
         </Box>
