@@ -4,6 +4,7 @@ describe('Controlled Popover component', () => {
   });
 
   it('should open when clicking the trigger', () => {
+    cy.focused().should('not.exist');
     cy.get('button')
       .first()
       .click();
@@ -47,6 +48,7 @@ describe('Uncontrolled Popover with Actionlist', () => {
   });
 
   it('should open when clicking the trigger', () => {
+    cy.focused().should('not.exist');
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
   });

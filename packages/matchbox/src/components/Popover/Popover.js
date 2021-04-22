@@ -10,11 +10,20 @@ import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 import { findFocusableChild } from '../../helpers/focus';
 
+export const useIsFirstRender = () => {
+  const isFirstRef = React.useRef(true);
+  React.useEffect(() => {
+    isFirstRef.current = false;
+  }, []);
+  return isFirstRef.current;
+};
+
 const Popover = React.forwardRef(function Popover(props, ref) {
   const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
   const activatorRef = React.useRef();
+  const isFirstRender = useIsFirstRender();
 
   const shouldBeOpen = controlledOpen || open;
   const Wrapper = as || wrapper || 'span';
@@ -53,10 +62,10 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   // Focuses on activator when controlled open state closes ONLY
   React.useLayoutEffect(() => {
     // explicit false check to rule out uncontrolled open state
-    if (controlledOpen === false) {
+    if (controlledOpen === false && !isFirstRender) {
       focusOnActivator();
     }
-  }, [controlledOpen]);
+  }, [controlledOpen, isFirstRender]);
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
   function handleOutsideClick(e) {
