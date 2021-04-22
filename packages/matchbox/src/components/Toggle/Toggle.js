@@ -5,6 +5,7 @@ import { margin } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { visuallyHidden } from '../../styles/helpers';
+import { omit } from '../../helpers/props';
 import { deprecate } from '../../helpers/propTypes';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { toggle, input, StyledIndicator, StyledOutline } from './styles';
@@ -36,6 +37,7 @@ function Toggle(props) {
     ...rest
   } = props;
   const systemProps = pick(rest);
+  const componentProps = omit(rest, margin.propNames);
 
   return (
     <StyledToggle htmlFor={id} disabled={disabled} {...systemProps}>
@@ -53,6 +55,7 @@ function Toggle(props) {
         type="checkbox"
         aria-describedby={ariaDescribedBy}
         data-id={dataId}
+        {...componentProps}
       />
       <StyledOutline checked={checked} />
       <StyledIndicator checked={checked} />
