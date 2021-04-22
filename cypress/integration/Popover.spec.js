@@ -35,7 +35,6 @@ describe('Controlled Popover component', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('[data-id="close-button"]').click();
       cy.get('[data-id="popover-content"]').should('not.exist');
-      // cy.focused().should('have.text', 'Open Me');
     });
   });
 });
