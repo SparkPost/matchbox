@@ -16,7 +16,7 @@ const StyledGroup = styled('fieldset')`
 `;
 
 function Group(props) {
-  const { children, label, labelHidden, required, optional, ...rest } = props;
+  const { children, label, labelHidden, optional, ...rest } = props;
   const systemProps = pick(rest);
 
   return (
@@ -27,11 +27,6 @@ function Group(props) {
             <Box as="span" pr="200">
               {label}
             </Box>
-            {required && (
-              <Box as="span" pr="200" aria-hidden="true">
-                *
-              </Box>
-            )}
             {optional && <OptionalLabel />}
           </Label>
         </Box>
@@ -45,7 +40,6 @@ Group.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.node.isRequired,
   labelHidden: PropTypes.bool,
-  required: PropTypes.bool,
   optional: PropTypes.bool,
   ...createPropTypes(margin.propNames),
 };
