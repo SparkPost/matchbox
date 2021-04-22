@@ -10,22 +10,22 @@ import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 import { findFocusableChild } from '../../helpers/focus';
 
-export const useIsFirstRender = () => {
-  const isFirstRef = React.useRef(true);
+function usePrevious(value) {
+  const ref = React.useRef();
   React.useEffect(() => {
-    isFirstRef.current = false;
-  }, []);
-  return isFirstRef.current;
-};
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 const Popover = React.forwardRef(function Popover(props, ref) {
   const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
   const activatorRef = React.useRef();
-  const isFirstRender = useIsFirstRender();
 
   const shouldBeOpen = controlledOpen || open;
+  const previousShouldBeOpen = usePrevious(shouldBeOpen);
   const Wrapper = as || wrapper || 'span';
 
   useWindowEvent('click', handleOutsideClick);
@@ -59,13 +59,12 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     }
   }
 
-  // Focuses on activator when controlled open state closes ONLY
+  // Focuses on activator when open state closes
   React.useLayoutEffect(() => {
-    // explicit false check to rule out uncontrolled open state
-    if (controlledOpen === false && !isFirstRender) {
+    if (!shouldBeOpen && !!previousShouldBeOpen) {
       focusOnActivator();
     }
-  }, [controlledOpen, isFirstRender]);
+  }, [shouldBeOpen]);
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
   function handleOutsideClick(e) {
@@ -83,8 +82,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       if (open) {
         handleUncontrolledToggle();
       }
-
-      focusOnActivator();
     }
   }
 
@@ -93,14 +90,12 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     if (onClose && shouldBeOpen) {
       onKey('escape', () => {
         onClose(e);
-        focusOnActivator();
       })(e);
     }
 
     if (open) {
       onKey('escape', () => {
         handleUncontrolledToggle();
-        focusOnActivator();
       })(e);
     }
   }
@@ -109,9 +104,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function handleTrigger() {
     if (open !== null) {
       handleUncontrolledToggle();
-      if (open === false) {
-        focusOnActivator();
-      }
     }
   }
 
