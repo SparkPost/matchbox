@@ -119,18 +119,11 @@ const Select = React.forwardRef(function Select(props, userRef) {
     hasError: !!error,
   });
 
-  const requiredIndicator = required ? (
-    <Box as="span" pr="200" aria-hidden="true">
-      *
-    </Box>
-  ) : null;
-
   const labelMarkup = label && (
     <Label id={id} labelHidden={labelHidden}>
       <Box as="span" pr="200">
         {label}
       </Box>
-      {requiredIndicator}
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
       )}
