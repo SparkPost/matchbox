@@ -17,7 +17,8 @@ describe('Select', () => {
 
   it('should render with required label', () => {
     const wrapper = subject({ required: true, label: 'test-label' });
-    expect(wrapper.find('label').text()).toEqual('test-label*');
+    expect(wrapper.find('label').text()).toEqual('test-label');
+    expect(wrapper.find('input')).toHaveAttributeValue('required', '');
   });
 
   it('should render with optional label', () => {
