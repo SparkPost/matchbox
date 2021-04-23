@@ -4,6 +4,7 @@ describe('Controlled Popover component', () => {
   });
 
   it('should open when clicking the trigger', () => {
+    cy.focused().should('not.exist');
     cy.get('button')
       .first()
       .click();
@@ -21,7 +22,6 @@ describe('Controlled Popover component', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('html').click(100, 300);
       cy.get('[data-id="popover-content"]').should('not.exist');
-      cy.focused().should('have.text', 'Open Me');
     });
 
     it('should close when pressing the escape key', () => {
@@ -35,7 +35,6 @@ describe('Controlled Popover component', () => {
       cy.get('[data-id="popover-content"]').should('be.visible');
       cy.get('[data-id="close-button"]').click();
       cy.get('[data-id="popover-content"]').should('not.exist');
-      cy.focused().should('have.text', 'Open Me');
     });
   });
 });
@@ -47,6 +46,7 @@ describe('Uncontrolled Popover with Actionlist', () => {
   });
 
   it('should open when clicking the trigger', () => {
+    cy.focused().should('not.exist');
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
@@ -74,7 +74,6 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.get('[data-id="popover-content"]').should('be.visible');
     cy.get('html').click(100, 600);
     cy.get('[data-id="popover-content"]').should('not.exist');
-    cy.focused().should('have.text', 'More Actions');
   });
 
   it('should close when pressing the escape key', () => {

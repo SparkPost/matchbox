@@ -42,21 +42,14 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     setOpen(!open);
   }
 
-  // Focus on activator element when closing
+  // Focus on activator element
+  // This is only called for when closing via keyboard
   function focusOnActivator() {
     if (activatorRef && activatorRef.current) {
       const activatorToFocus = findFocusableChild(activatorRef.current) || activatorRef.current;
       activatorToFocus.focus();
     }
   }
-
-  // Focuses on activator when controlled open state closes ONLY
-  React.useLayoutEffect(() => {
-    // explicit false check to rule out uncontrolled open state
-    if (controlledOpen === false) {
-      focusOnActivator();
-    }
-  }, [controlledOpen]);
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
   function handleOutsideClick(e) {
@@ -74,8 +67,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       if (open) {
         handleUncontrolledToggle();
       }
-
-      focusOnActivator();
     }
   }
 
@@ -100,9 +91,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function handleTrigger() {
     if (open !== null) {
       handleUncontrolledToggle();
-      if (open === false) {
-        focusOnActivator();
-      }
     }
   }
 
