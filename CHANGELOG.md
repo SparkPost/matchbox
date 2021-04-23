@@ -1,4 +1,14 @@
 
+## 5.1.2 (2021-04-23)
+
+#### Bug Fixes
+* `matchbox`
+  * [#827](https://github.com/SparkPost/matchbox/pull/827) UX-510 Fix Popover activators being focused by default ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.1.1 (2021-04-21)
 
 #### Bug Fixes
