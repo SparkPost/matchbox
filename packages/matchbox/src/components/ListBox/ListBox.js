@@ -241,6 +241,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
         value={currentValue}
         data-id={dataId}
         data-sensitive={dataSensitive}
+        required={required}
       />
     </StyledWrapper>
   );
