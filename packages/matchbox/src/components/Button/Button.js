@@ -7,7 +7,6 @@ import { margin, width, padding, compose } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
 import { pick, clean } from '../../helpers/props';
-import { getLoaderColor } from './utils';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
 import Icon from './Icon';
@@ -22,6 +21,26 @@ import {
   loader,
   childwrapper,
 } from './styles';
+
+export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}) {
+  if (variant === 'filled') {
+    if (color === 'white') {
+      return 'gray';
+    }
+
+    return 'white';
+  }
+
+  if (color === 'white') {
+    return 'white';
+  }
+
+  if (color === 'blue') {
+    return 'blue';
+  }
+
+  return 'gray';
+}
 
 // TODO Categorize system props and abstract
 const system = compose(margin, width, padding);

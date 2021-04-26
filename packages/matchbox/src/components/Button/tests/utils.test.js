@@ -1,5 +1,6 @@
 import React from 'react';
-import { buttonFrom, buttonsFrom, getLoaderColor } from '../utils';
+import { buttonFrom, buttonsFrom } from '../utils';
+import { getLoaderColor } from '../Button';
 
 describe('Button Utils', () => {
   describe('buttonFrom', () => {
