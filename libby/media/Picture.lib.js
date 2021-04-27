@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Picture } from '@sparkpost/matchbox/components/Picture';
-import { Box } from '@sparkpost/matchbox/components/Box';
+import { Box, Picture } from '@sparkpost/matchbox';
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
 
 describe('Picture', () => {

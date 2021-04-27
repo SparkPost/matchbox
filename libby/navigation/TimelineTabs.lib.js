@@ -1,6 +1,5 @@
 import React from 'react';
-import { TimelineTabs } from '@sparkpost/matchbox/components/TimelineTabs';
-import { Tag } from '@sparkpost/matchbox/components/Tag';
+import { Tag, TimelineTabs } from '@sparkpost/matchbox';
 import { describe, add } from '@sparkpost/libby-react';
 
 describe('TimelineTabs', () => {

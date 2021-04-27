@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Box } from '@sparkpost/matchbox/components/Box';
+import { Box } from '@sparkpost/matchbox';
 
 describe('Box', () => {
   add('styled', () => (

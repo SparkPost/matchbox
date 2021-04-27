@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Stack } from '@sparkpost/matchbox/components/Stack';
-import { Box } from '@sparkpost/matchbox/components/Box';
+import { Box, Stack } from '@sparkpost/matchbox';
 
 describe('Stack', () => {
   add('spacing', () => (

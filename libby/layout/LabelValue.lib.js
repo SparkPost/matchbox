@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { LabelValue } from '@sparkpost/matchbox/components/LabelValue';
-import { Box } from '@sparkpost/matchbox/components/Box';
+import { Box, LabelValue } from '@sparkpost/matchbox';
 
 describe('LabelValue', () => {
   add('default, vertical orientation', () => (
