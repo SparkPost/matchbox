@@ -17,23 +17,3 @@ export function buttonsFrom(actions, overrides) {
 export function buttonFrom({ content, ...action }, overrides, key) {
   return <Button key={key} children={content} {...action} {...overrides} />; // eslint-disable-line
 }
-
-export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}) {
-  if (variant === 'filled') {
-    if (color === 'white') {
-      return 'gray';
-    }
-
-    return 'white';
-  }
-
-  if (color === 'white') {
-    return 'white';
-  }
-
-  if (color === 'blue') {
-    return 'blue';
-  }
-
-  return 'gray';
-}
