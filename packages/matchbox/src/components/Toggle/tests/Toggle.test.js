@@ -1,12 +1,13 @@
 import React from 'react';
 import Toggle from '../Toggle';
+import { render, within } from 'test-utils';
 import { tokens } from '@sparkpost/design-tokens';
 import { StyledOutline } from '../styles';
 
 describe('Toggle', () => {
   let wrapper;
 
-  let subject = props => global.mountStyled(<Toggle data-id="toggle-input" id="id" {...props} />);
+  let subject = props => global.mountStyled(<Toggle id="id" {...props} />);
 
   it('renders base styles', () => {
     wrapper = subject();
@@ -45,5 +46,12 @@ describe('Toggle', () => {
   it('renders label', () => {
     wrapper = subject({ label: 'test label' });
     expect(wrapper.text()).toEqual('test label');
+  });
+
+  it('renders attributes on the input correctly', () => {
+    const { getByTestId } = render(<Toggle data-id="test" data-testattribute="test" id="id" />);
+    expect(getByTestId('test')).toBeTruthy();
+    expect(within(document.querySelector('input#id'))).toBeTruthy();
+    expect(within(document.querySelector('input[data-testattribute="test"]'))).toBeTruthy();
   });
 });
