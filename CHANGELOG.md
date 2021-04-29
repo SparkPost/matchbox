@@ -1,4 +1,20 @@
 
+## 5.1.3 (2021-04-29)
+
+#### Enhancements
+* `matchbox-icons`, `matchbox`
+  * [#832](https://github.com/SparkPost/matchbox/pull/832) UX-505 Upgrade build dependencies ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#828](https://github.com/SparkPost/matchbox/pull/828) UX-511 Correctly pass through props to Toggle input ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#831](https://github.com/SparkPost/matchbox/pull/831) UX-512 Resolve circular dependency ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.1.2 (2021-04-23)
 
 #### Bug Fixes
