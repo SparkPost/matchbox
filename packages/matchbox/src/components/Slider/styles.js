@@ -68,6 +68,7 @@ export const tick = props => {
     transition: ${tokens.motionDuration_medium} background;
 
     user-select: none;
+    white-space: nowrap;
   `;
 };
 
@@ -78,12 +79,32 @@ export const tickHover = props => `
 export const tickLabel = () => `
   position: absolute;
   top: ${tokens.spacing_400};
-  left: 50%;
-  transform: translate(-50%, 0);
 
   color: ${tokens.color_gray_700};
   font-size: ${tokens.fontSize_100};
 `;
+
+export const tickLabelPosition = ({ x }) => {
+  if (x === '0') {
+    return `
+      left: 0;
+      transform: none;
+   `;
+  }
+
+  if (x === '100') {
+    return `
+      left: auto;
+      right: 0;
+      transform: none;
+   `;
+  }
+
+  return `
+    left: 50%;
+    transform: translate(-50%, 0);
+  `;
+};
 
 const sharedStyles = `
   position: absolute;

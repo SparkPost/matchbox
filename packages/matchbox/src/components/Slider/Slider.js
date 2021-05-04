@@ -17,6 +17,7 @@ import {
   tick,
   tickHover,
   tickLabel,
+  tickLabelPosition,
   handle,
   handleShadow,
 } from './styles';
@@ -49,6 +50,7 @@ const StyledTick = styled('div')`
 
 const StyledTickLabel = styled('div')`
   ${tickLabel}
+  ${tickLabelPosition}
 `;
 
 const StyledHandle = styled('div')`
@@ -230,7 +232,7 @@ function Slider(props) {
         disabled={disabled}
         included={tick < sliderValue}
       >
-        <StyledTickLabel>{label}</StyledTickLabel>
+        <StyledTickLabel x={tick}>{label}</StyledTickLabel>
       </StyledTick>
     );
   });
@@ -260,6 +262,7 @@ function Slider(props) {
       <StyledHandle
         id={id}
         aria-controls={props['aria-controls']}
+        aria-labelledby={props['aria-labelledby']}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={sliderValue}
@@ -322,6 +325,7 @@ Slider.propTypes = {
    * Describes a side-effect relationship with another DOM element
    */
   'aria-controls': PropTypes.string,
+  'aria-labelledby': PropTypes.string,
   /**
    * Identifier passed to the handle for testing or tracking purposes
    */
