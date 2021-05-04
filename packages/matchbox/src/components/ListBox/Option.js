@@ -12,11 +12,6 @@ const Option = React.forwardRef(function Option(props, ref) {
     return selected === value;
   }, [selected, value]);
 
-  const handleClick = event => {
-    event.preventDefault();
-    onSelect && onSelect(value);
-  };
-
   return (
     <Box
       as="li"
@@ -26,9 +21,16 @@ const Option = React.forwardRef(function Option(props, ref) {
       aria-posinset={index}
       aria-selected={isActive}
       disabled={disabled}
-      onClick={handleClick}
+      onClick={() => onSelect(value)}
     >
-      <StyledLink active={isActive} as="button" disabled={disabled} tabIndex="-1" ref={ref}>
+      <StyledLink
+        active={isActive}
+        as="button"
+        type="button"
+        disabled={disabled}
+        tabIndex="-1"
+        ref={ref}
+      >
         {children}
       </StyledLink>
     </Box>
