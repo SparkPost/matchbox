@@ -88,15 +88,12 @@ export const tickLabelPosition = ({ x }) => {
   if (x === '0') {
     return `
       left: 0;
-      transform: none;
    `;
   }
 
   if (x === '100') {
     return `
-      left: auto;
       right: 0;
-      transform: none;
    `;
   }
 
