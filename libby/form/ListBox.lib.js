@@ -145,4 +145,21 @@ describe('ListBox', () => {
       </ListBox>
     </Inline>
   ));
+
+  add('in parent form', () => (
+    <form id="listbox-parent-form" onSubmit={() => console.log('submitted')}>
+      <ListBox
+        id="listbox-5"
+        label="Select an option"
+        placeholder="Select One"
+        onChange={e => console.log(e)}
+        name="listbox-form-test"
+      >
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+        <ListBox.Option value="option-3">Option 3</ListBox.Option>
+        <ListBox.Option value="option-4">Option 4</ListBox.Option>
+      </ListBox>
+    </form>
+  ));
 });
