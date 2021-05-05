@@ -23,7 +23,14 @@ const Option = React.forwardRef(function Option(props, ref) {
       disabled={disabled}
       onClick={() => onSelect(value)}
     >
-      <StyledLink active={isActive} as="button" disabled={disabled} tabIndex="-1" ref={ref}>
+      <StyledLink
+        active={isActive}
+        as="button"
+        type="button"
+        disabled={disabled}
+        tabIndex="-1"
+        ref={ref}
+      >
         {children}
       </StyledLink>
     </Box>
@@ -38,6 +45,7 @@ Option.propTypes = {
   index: PropTypes.number,
   setSize: PropTypes.number,
   onSelect: PropTypes.func,
+  children: PropTypes.node,
 };
 
 export default Option;

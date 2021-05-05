@@ -118,4 +118,32 @@ describe('The ListBox component', () => {
       cy.findAllByText('You must select an option').should('exist');
     });
   });
+
+  describe('in a form', () => {
+    beforeEach(() => {
+      cy.visit('/iframe.html?path=ListBox__in-parent-form&source=false');
+    });
+
+    it('does not submit when value is changed', () => {
+      let submitted = false;
+      cy.get('#listbox-parent-form').invoke('submit', e => {
+        e.preventDefault();
+        submitted = true;
+      });
+
+      cy.get('#listbox-parent-form')
+        .within(() => {
+          cy.get('label').click();
+          cy.get('button')
+            .eq(3)
+            .click();
+          cy.wait(100);
+          cy.focused().should('have.text', 'Option 2');
+          cy.get('[name="listbox-form-test"]').should('have.value', 'option-2');
+        })
+        .then(() => {
+          expect(submitted, 'form submitted').to.be.false;
+        });
+    });
+  });
 });
