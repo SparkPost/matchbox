@@ -25,8 +25,8 @@ describe('Slider', () => {
         disabled
         value={33}
         ticks={{
-          50: '50',
-          25: 'Recommended',
+          0: '10 days',
+          100: '100000 days',
         }}
       />
     </>
