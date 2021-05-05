@@ -1,4 +1,16 @@
 
+## 5.1.4 (2021-05-05)
+
+#### Bug Fixes
+* `matchbox`
+  * [#835](https://github.com/SparkPost/matchbox/pull/835) UX-518 prevent form from submitting when ListBox value is changed ([@logansparlin](https://github.com/logansparlin))
+  * [#834](https://github.com/SparkPost/matchbox/pull/834) UX-517 Fix wrapping and alignment on Slider ticks ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 5.1.3 (2021-04-29)
 
 #### Enhancements
