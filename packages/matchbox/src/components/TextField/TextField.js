@@ -171,11 +171,6 @@ const TextField = React.forwardRef(function TextField(props, userRef) {
           <Box as="span" pr="200">
             {label}
           </Box>
-          {required && (
-            <Box as="span" pr="200" aria-hidden="true">
-              *
-            </Box>
-          )}
           {error && errorInLabel && (
             <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
           )}

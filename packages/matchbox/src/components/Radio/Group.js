@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Label } from '../Label';
+import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
 import { createPropTypes } from '@styled-system/prop-types';
@@ -20,18 +21,14 @@ function Group(props) {
   const systemProps = pick(rest);
 
   return (
-    <StyledGroup {...systemProps}>
+    <StyledGroup {...systemProps} aria-required={required}>
       {label && (
         <Box width="100%">
           <Label as="legend" labelHidden={labelHidden}>
             <Box as="span" pr="200">
               {label}
+              {required && <ScreenReaderOnly>Required</ScreenReaderOnly>}
             </Box>
-            {required && (
-              <Box as="span" pr="200" aria-hidden="true">
-                *
-              </Box>
-            )}
             {optional && <OptionalLabel />}
           </Label>
         </Box>
@@ -45,8 +42,8 @@ Group.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.node.isRequired,
   labelHidden: PropTypes.bool,
-  required: PropTypes.bool,
   optional: PropTypes.bool,
+  required: PropTypes.bool,
   ...createPropTypes(margin.propNames),
 };
 

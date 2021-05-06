@@ -45,7 +45,7 @@ describe('Checkbox', () => {
 
   it('renders required', () => {
     const wrapper = subject({ required: true, label: 'test-label' });
-    expect(wrapper.text()).toEqual('test-label*');
+    expect(wrapper.text()).toEqual('test-label');
     expect(wrapper.find('input')).toHaveAttributeValue('required', '');
   });
 

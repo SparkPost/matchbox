@@ -100,12 +100,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     hasError: !!error,
   });
 
-  const requiredIndicator = required ? (
-    <Box as="span" pr="200" aria-hidden="true">
-      *
-    </Box>
-  ) : null;
-
   function togglePopover(event) {
     event.stopPropagation();
     setOpen(!open);
@@ -152,7 +146,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
       <Box as="span" pr="200">
         {label}
       </Box>
-      {requiredIndicator}
       {error && errorInLabel && (
         <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
       )}
@@ -248,6 +241,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
         value={currentValue}
         data-id={dataId}
         data-sensitive={dataSensitive}
+        required={required}
       />
     </StyledWrapper>
   );
