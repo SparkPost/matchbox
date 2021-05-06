@@ -57,6 +57,13 @@ describe('The Slider component', () => {
 
       cy.get('[data-id="slider-test"]').should('have.attr', 'aria-valuenow', '123');
     });
+
+    it('shoud be focusable through keyboard controls', () => {
+      cy.get('body').tab();
+      cy.focused().should('have.attr', 'role', 'slider');
+      cy.focused().tab();
+      cy.focused().should('have.text', 'end focus test');
+    });
   });
 
   describe('when disabled', () => {

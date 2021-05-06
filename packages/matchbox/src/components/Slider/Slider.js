@@ -176,13 +176,28 @@ function Slider(props) {
   }
 
   function handleKeyDown(e) {
-    e.stopPropagation();
-    e.preventDefault();
+    // preventDefault here prevents the parent window
+    // from scrolling when interacting with the slider
 
-    onKeys(['arrowLeft', 'arrowDown'], () => setValue(sliderValue - interval))(e);
-    onKeys(['arrowRight', 'arrowUp'], () => setValue(sliderValue + interval))(e);
-    onKey('home', () => setValue(min))(e);
-    onKey('end', () => setValue(max))(e);
+    onKeys(['arrowLeft', 'arrowDown'], () => {
+      e.preventDefault();
+      setValue(sliderValue - interval);
+    })(e);
+
+    onKeys(['arrowRight', 'arrowUp'], () => {
+      e.preventDefault();
+      setValue(sliderValue + interval);
+    })(e);
+
+    onKey('home', () => {
+      e.preventDefault();
+      setValue(min);
+    })(e);
+
+    onKey('end', () => {
+      e.preventDefault();
+      setValue(max);
+    })(e);
   }
 
   // Sets slider value based on an x position
@@ -281,6 +296,8 @@ function Slider(props) {
     </StyledSlider>
   );
 }
+
+Slider.displayName = 'Slider';
 
 Slider.defaultProps = {
   min: 0,
