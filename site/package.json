@@ -13,9 +13,9 @@
     "babel-plugin-styled-components": "^1.10.7",
     "color": "^3.1.2",
     "copy-to-clipboard": "^3.2.0",
-    "gatsby": "^3.2.1",
+    "gatsby": "^3.4.1",
     "gatsby-image": "^3.2.0",
-    "gatsby-plugin-algolia": "^0.11.2",
+    "gatsby-plugin-algolia": "^0.19.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-manifest": "^3.2.0",
     "gatsby-plugin-offline": "^4.2.0",
@@ -33,7 +33,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-instantsearch-dom": "^6.7.0",
-    "react-live": "^2.2.2",
+    "react-live": "^2.2.3",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
