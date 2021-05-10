@@ -4,7 +4,16 @@ import { Slider, TextField } from '@sparkpost/matchbox';
 
 describe('Slider', () => {
   add('basic usage', () => (
-    <Slider aria-controls="test-id" data-id="slider-test" defaultValue={125} min={100} max={150} />
+    <>
+      <Slider
+        aria-controls="test-id"
+        data-id="slider-test"
+        defaultValue={125}
+        min={100}
+        max={150}
+      />
+      <button>end focus test</button>
+    </>
   ));
 
   add('disabled', () => <Slider data-id="slider-test" disabled value={75} />);
