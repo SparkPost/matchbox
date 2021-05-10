@@ -66,6 +66,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     children,
     'data-id': dataId,
     'data-sensitive': dataSensitive,
+    'data-track': dataTrack,
     placeholder,
     disabled,
     id,
@@ -241,6 +242,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
         value={currentValue}
         data-id={dataId}
         data-sensitive={dataSensitive}
+        data-track={dataTrack}
         required={required}
       />
     </StyledWrapper>
@@ -251,6 +253,7 @@ ListBox.displayName = 'ListBox';
 ListBox.propTypes = {
   'data-id': PropTypes.string,
   'data-sensitive': PropTypes.string,
+  'data-track': PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
