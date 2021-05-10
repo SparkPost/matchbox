@@ -111,7 +111,7 @@
     "serve": "^11.3.2",
     "start-server-and-test": "^1.11.7",
     "style-loader": "^1.0.0",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
