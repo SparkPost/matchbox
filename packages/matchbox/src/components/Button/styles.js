@@ -74,7 +74,7 @@ export const visualSize = props => {
       return `
         height: ${tokens.sizing_600};
         font-size: ${tokens.fontSize_200};
-        padding: 0 ${tokens.spacing_400};
+        padding: 0 ${tokens.spacing_300};
       `;
     case 'default':
     default:
