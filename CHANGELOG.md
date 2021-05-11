@@ -1,4 +1,23 @@
 
+## 5.1.5 (2021-05-11)
+
+#### Enhancements
+* `matchbox`
+  * [#850](https://github.com/SparkPost/matchbox/pull/850) UX-531 Support tracking on ListBox and RadioCard ([@jonambas](https://github.com/jonambas))
+  * [#839](https://github.com/SparkPost/matchbox/pull/839) UX-516 Lower small button padding-x to 300 ([@jonambas](https://github.com/jonambas))
+  * [#829](https://github.com/SparkPost/matchbox/pull/829) UX-508 Remove visual indicator for required fields ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#846](https://github.com/SparkPost/matchbox/pull/846) issue-836 Sliders should no longer trap focus ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* [#847](https://github.com/SparkPost/matchbox/pull/847) UX-528 Resolve xmlhttprequest-ssl vulnerabilities ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.1.4 (2021-05-05)
 
 #### Bug Fixes
