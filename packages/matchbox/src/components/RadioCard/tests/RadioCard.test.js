@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioCard from '../RadioCard';
+import { render } from 'test-utils';
 
 describe('RadioCard', () => {
   const events = {
@@ -9,10 +10,10 @@ describe('RadioCard', () => {
   };
   const subject = props => global.mountStyled(<RadioCard id="test-id" {...events} {...props} />);
 
-  it('renders with id', () => {
-    const wrapper = subject();
-    expect(wrapper.find('input')).toHaveAttributeValue('id', 'test-id');
-    expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-id');
+  it('renders with id and default attributes', () => {
+    render(<RadioCard id="test-id" data-track="true" />);
+    expect(document.querySelector('input#test-id')).toBeTruthy();
+    expect(document.querySelector('input[data-track="true"]')).toBeTruthy();
   });
 
   it('renders checked, value, and name', () => {

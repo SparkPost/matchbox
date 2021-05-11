@@ -29,6 +29,7 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
       <StyledInput
         checked={checked}
         data-id={rest['data-id']}
+        data-track={rest['data-track']}
         disabled={disabled}
         defaultChecked={defaultChecked}
         id={id}
@@ -74,6 +75,7 @@ RadioCard.displayName = 'RadioCard';
 RadioCard.propTypes = {
   checked: PropTypes.bool,
   'data-id': PropTypes.string,
+  'data-track': PropTypes.string,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,

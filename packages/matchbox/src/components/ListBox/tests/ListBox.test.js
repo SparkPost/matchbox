@@ -1,7 +1,20 @@
 import React from 'react';
 import { ListBox } from '../../ListBox';
+import { render } from 'test-utils';
 
 describe('Select', () => {
+  it('renders with id and default attributes', () => {
+    render(
+      <ListBox id="test-id" data-track="true">
+        <ListBox.Option value="option-1">Option 1</ListBox.Option>
+        <ListBox.Option value="option-2">Option 2</ListBox.Option>
+      </ListBox>,
+    );
+    expect(document.querySelector('input#test-id')).toBeTruthy();
+    expect(document.querySelector('label#test-idLabel')).toBeTruthy();
+    expect(document.querySelector('input[data-track="true"]')).toBeTruthy();
+  });
+
   const subject = props =>
     global.mountStyled(
       <ListBox {...props}>

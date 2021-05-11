@@ -3,7 +3,9 @@ import { describe, add } from '@sparkpost/libby-react';
 import { RadioCard } from '@sparkpost/matchbox';
 
 describe('RadioCard', () => {
-  add('basic usage', () => <RadioCard id="id1" label="Check Me" weight="light" />);
+  add('basic usage', () => (
+    <RadioCard id="id1" label="Check Me" data-track="true" weight="light" />
+  ));
 
   add('disabled', () => (
     <RadioCard.Group label="Radio Card Group">
