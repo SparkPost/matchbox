@@ -9,6 +9,7 @@ describe('ListBox', () => {
       id="listbox-1"
       defaultValue="option-1"
       label="Select an option"
+      data-track="true"
       onChange={e => console.log(e)}
       onFocus={() => console.log('focus')}
       onBlur={() => console.log('blur')}
