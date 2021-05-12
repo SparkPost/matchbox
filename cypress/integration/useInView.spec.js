@@ -1,8 +1,8 @@
 describe('useInView Hook { once: true } ', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=useInView__example-usage&source=false');
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
+    cy.visit('/iframe.html?path=useInView__example-usage&source=false');
   });
 
   it('should default to not in view', () => {
@@ -10,6 +10,7 @@ describe('useInView Hook { once: true } ', () => {
   });
 
   it('should only trigger inView once when scrolled into view', () => {
+    cy.wait(500);
     cy.scrollTo(0, 2100);
     cy.contains('In View: True').should('exist');
     cy.scrollTo(0, 0);
@@ -19,9 +20,9 @@ describe('useInView Hook { once: true } ', () => {
 
 describe('useInView Hook { once: false } ', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?path=useInView__once-set-to-false&source=false');
     // Setting viewport dimensions to avoid side effects
     cy.viewport(500, 500);
+    cy.visit('/iframe.html?path=useInView__once-set-to-false&source=false');
   });
 
   it('should default to not in view', () => {
