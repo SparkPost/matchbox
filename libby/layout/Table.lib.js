@@ -89,7 +89,7 @@ describe('Table', () => {
           <Table p="200" data={data} freezeFirstColumn />
         </Panel>
       </Box>
-      <Box height="500"></Box>
+      <Box height="800"></Box>
       <Box maxWidth="1100">
         <Panel>
           <Table title="My Table" freezeFirstColumn>
@@ -114,7 +114,7 @@ describe('Table', () => {
                 <Table.Cell align="right">2</Table.Cell>
                 <Table.Cell>3</Table.Cell>
                 <Table.Cell>4</Table.Cell>
-                <Table.Cell>5</Table.Cell>
+                <Table.Cell>am i visible</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>1</Table.Cell>

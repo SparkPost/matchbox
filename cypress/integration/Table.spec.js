@@ -55,7 +55,7 @@ describe('The Table component', () => {
 
     it('should render overflowing popovers correctly', () => {
       cy.get('table')
-        .eq(1)
+        .eq(0)
         .within(() => {
           cy.contains('Content').should('not.exist');
           cy.get('button')
@@ -71,10 +71,12 @@ describe('The Table component', () => {
     it('should scroll correctly', () => {
       cy.contains('4').should('not.be.visible');
       cy.get('[data-id="matchbox-scroll-wrapper"]')
-        .eq(0)
+        .eq(1)
         .scrollTo(500, 0);
-
-      cy.contains('4').should('be.visible');
+      cy.wait(500);
+      cy.findAllByText('am i visible')
+        .eq(1)
+        .should('be.visible');
     });
   });
 });

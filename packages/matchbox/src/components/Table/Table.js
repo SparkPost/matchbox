@@ -23,10 +23,11 @@ const Wrapper = styled(Box)`
 
 const DuplicatedTable = styled(Box)`
   pointer-events: none;
+  z-index: ${({ theme }) => theme.zIndices.default};
 
   th:not(:first-child),
   td:not(:first-child) {
-    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     border-color: transparent !important;
   }
@@ -79,6 +80,18 @@ function Table(props) {
 
   return (
     <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+      {freezeFirstColumn && (
+        <DuplicatedTable
+          data-id="matchbox-sticky-table"
+          aria-hidden="true"
+          position="absolute"
+          top="0"
+          left=" 0"
+          isScrolled={isScrolled}
+        >
+          <StyledTable>{dataMarkup}</StyledTable>
+        </DuplicatedTable>
+      )}
       <Wrapper
         data-id="matchbox-scroll-wrapper"
         freezeFirstColumn={freezeFirstColumn}
@@ -101,16 +114,6 @@ function Table(props) {
           {dataMarkup}
         </StyledTable>
       </Wrapper>
-      <DuplicatedTable
-        data-id="sticky-table"
-        aria-hidden="true"
-        position="absolute"
-        top="0"
-        left=" 0"
-        isScrolled={isScrolled}
-      >
-        <StyledTable>{dataMarkup}</StyledTable>
-      </DuplicatedTable>
     </TablePaddingContext.Provider>
   );
 }

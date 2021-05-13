@@ -1,11 +1,22 @@
 import { system } from 'styled-system';
 
-export const table = () => `
+export const table = ({ freezeFirstColumn }) => `
   position: relative;
   text-align: left;
   width: 100%;
   padding: 0;
   border-collapse: collapse;
+
+  ${
+    freezeFirstColumn
+      ? `
+        td:first-child, th:first-child {
+          visibility: hidden;
+        }
+  `
+      : ''
+  }
+  
 `;
 
 export const headerCell = ({ theme }) => `
