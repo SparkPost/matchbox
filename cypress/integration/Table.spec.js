@@ -32,6 +32,7 @@ describe('The Table component', () => {
         .should('have.attr', 'width', '20%');
     });
   });
+
   describe('SortButton', () => {
     beforeEach(() => {
       cy.visit('/iframe.html?path=Table__all-table-components&source=false');
@@ -44,6 +45,36 @@ describe('The Table component', () => {
         name: 'Heading 3 with long title long title long title long title',
       }).should('exist');
       cy.contains('Heading 4').should('exist');
+    });
+  });
+
+  describe('frozen first column', () => {
+    beforeEach(() => {
+      cy.visit('/iframe.html?path=Table__frozen-first-column');
+    });
+
+    it('should render overflowing popovers correctly', () => {
+      cy.get('table')
+        .eq(1)
+        .within(() => {
+          cy.contains('Content').should('not.exist');
+          cy.get('button')
+            .eq(0)
+            .should('exist');
+          cy.get('button')
+            .eq(0)
+            .click({ force: true });
+          cy.contains('Content').should('be.visible');
+        });
+    });
+
+    it('should scroll correctly', () => {
+      cy.contains('4').should('not.be.visible');
+      cy.get('[data-id="matchbox-scroll-wrapper"]')
+        .eq(0)
+        .scrollTo(500, 0);
+
+      cy.contains('4').should('be.visible');
     });
   });
 });

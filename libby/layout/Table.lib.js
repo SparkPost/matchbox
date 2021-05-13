@@ -1,13 +1,13 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Table, Panel, Box, Popover, Button } from '@sparkpost/matchbox';
+import { Table, Panel, Box, Popover } from '@sparkpost/matchbox';
 
 const Node = ({ children = 'A react component' }) => <Box minWidth="900">{children}</Box>;
 const NodeLong = ({
   children = 'A really longgggggggggggggggggggggggggggggggggggggggg react component',
 }) => <Box minWidth="900">{children}</Box>;
 const PopoverNode = () => (
-  <Popover sectioned trigger={<Button>Click</Button>}>
+  <Popover sectioned trigger={<button>Click</button>}>
     Content
   </Popover>
 );
@@ -15,7 +15,7 @@ const data = [
   ['Foo', 'Bar', 'Baz', 'Foo'],
   [<Node />, <Node />, <NodeLong />, <Node />], // eslint-disable-line
   [1, 2, 3, 4],
-  [<PopoverNode />, <PopoverNode />, <PopoverNode />, <PopoverNode />], // eslint-disable-line
+  [<PopoverNode />, 'test', 'test', 'test'], // eslint-disable-line
 ];
 
 describe('Table', () => {
@@ -83,11 +83,81 @@ describe('Table', () => {
   ));
 
   add('frozen first column', () => (
-    <Box maxWidth="1100">
-      <Panel>
-        <Table p="200" data={data} freezeFirstColumn />
-      </Panel>
-    </Box>
+    <>
+      <Box maxWidth="1100">
+        <Panel>
+          <Table p="200" data={data} freezeFirstColumn />
+        </Panel>
+      </Box>
+      <Box height="500"></Box>
+      <Box maxWidth="1100">
+        <Panel>
+          <Table title="My Table" freezeFirstColumn>
+            <thead>
+              <Table.Row header>
+                <Table.HeaderCell>
+                  <Table.SortButton direction="asc">Heading 1</Table.SortButton>
+                </Table.HeaderCell>
+                <Table.HeaderCell align="right">
+                  <Table.SortButton direction="desc">Heading 2</Table.SortButton>
+                </Table.HeaderCell>
+                <Table.HeaderCell width="300px">
+                  <Table.SortButton direction={null}>Heading 3</Table.SortButton>
+                </Table.HeaderCell>
+                <Table.HeaderCell>Heading 4</Table.HeaderCell>
+                <Table.HeaderCell>Heading 5</Table.HeaderCell>
+              </Table.Row>
+            </thead>
+            <tbody>
+              <Table.Row>
+                <Table.Cell>1</Table.Cell>
+                <Table.Cell align="right">2</Table.Cell>
+                <Table.Cell>3</Table.Cell>
+                <Table.Cell>4</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>1</Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>3</Table.Cell>
+                <Table.Cell>4</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+              </Table.Row>
+              <Table.TotalsRow>
+                <Table.Cell>Total</Table.Cell>
+                <Table.Cell colSpan="4" align="right">
+                  100000
+                </Table.Cell>
+              </Table.TotalsRow>
+              <Table.Row>
+                <Table.Cell>
+                  <PopoverNode />
+                </Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>3</Table.Cell>
+                <Table.Cell>4</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>
+                  <PopoverNode />
+                </Table.Cell>
+                <Table.Cell>2</Table.Cell>
+                <Table.Cell>3</Table.Cell>
+                <Table.Cell>4</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+              </Table.Row>
+              <Table.TotalsRow>
+                <Table.Cell>Total</Table.Cell>
+                <Table.Cell colSpan="4" align="right">
+                  100000
+                </Table.Cell>
+              </Table.TotalsRow>
+            </tbody>
+          </Table>
+        </Panel>
+      </Box>
+    </>
   ));
 
   add('system props', () => (
