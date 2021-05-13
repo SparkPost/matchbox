@@ -87,17 +87,6 @@ describe('Table', () => {
     ).toEqual('three');
   });
 
-  it('should freeze a column', () => {
-    wrapper = subject({ freezeFirstColumn: true });
-    wrapper.simulate('scroll', { target: { scrollLeft: 11 } });
-    expect(wrapper.find('table')).toHaveStyleRule('position', 'sticky', {
-      modifier: 'th:first-child',
-    });
-    expect(wrapper.find('table')).toHaveStyleRule('position', 'sticky', {
-      modifier: 'td:first-child',
-    });
-  });
-
   it('should render a caption', () => {
     wrapper = subject();
     expect(wrapper.find('caption').text()).toEqual('My Data Table');
