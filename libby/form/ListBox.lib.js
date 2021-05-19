@@ -163,4 +163,33 @@ describe('ListBox', () => {
       </ListBox>
     </form>
   ));
+
+  add('as a controlled component', () => {
+    const [value, setValue] = React.useState(2);
+
+    function handleClick() {
+      if (value === 4) {
+        setValue(1);
+      } else {
+        setValue(value + 1);
+      }
+    }
+    return (
+      <>
+        <ListBox
+          id="listbox-5"
+          label="Select an option"
+          placeholder="Select One"
+          value={`option-${value}`}
+          name="listbox-form-test"
+        >
+          <ListBox.Option value="option-1">Option 1</ListBox.Option>
+          <ListBox.Option value="option-2">Option 2</ListBox.Option>
+          <ListBox.Option value="option-3">Option 3</ListBox.Option>
+          <ListBox.Option value="option-4">Option 4</ListBox.Option>
+        </ListBox>
+        <button onClick={handleClick}>Increment</button>
+      </>
+    );
+  });
 });

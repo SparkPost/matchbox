@@ -146,4 +146,16 @@ describe('The ListBox component', () => {
         });
     });
   });
+
+  describe('as a controlled component', () => {
+    beforeEach(() => {
+      cy.visit('/iframe.html?path=ListBox__as-a-controlled-component');
+    });
+
+    it('value can be controlled', () => {
+      cy.get('input').should('have.value', 'option-2');
+      cy.findByRole('button', { name: 'Increment' }).click();
+      cy.get('input').should('have.value', 'option-3');
+    });
+  });
 });
