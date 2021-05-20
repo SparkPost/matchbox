@@ -25,7 +25,12 @@ describe('Icons', () => {
   ));
 
   add('all icons', () => {
+    const [search, setSearch] = React.useState('');
     const renderIcons = Object.keys(icons).map((name, i) => {
+      if (!name.toLowerCase().includes(search.toLowerCase())) {
+        return null;
+      }
+
       const Icon = icons[name];
 
       return (
@@ -42,6 +47,15 @@ describe('Icons', () => {
       );
     });
 
-    return <div>{renderIcons}</div>;
+    return (
+      <div>
+        <input
+          value={search}
+          onChange={v => setSearch(v.currentTarget.value)}
+          placeholder="Search for an icon"
+        />
+        {search && <div>{renderIcons}</div>}
+      </div>
+    );
   });
 });
