@@ -104,7 +104,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   // Sets the value for controlled inputs
   React.useEffect(() => {
     // Check if this component is controlled
-    if (value && onChange) {
+    if (typeof value !== 'undefined') {
       setCurrentValue(value);
     }
   }, [value]);
