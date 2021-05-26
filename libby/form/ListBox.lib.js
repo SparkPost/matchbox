@@ -181,6 +181,7 @@ describe('ListBox', () => {
           label="Select an option"
           placeholder="Select One"
           value={`option-${value}`}
+          onChange={e => setValue(Number(e.currentTarget.value.split('-').pop()))}
           name="listbox-form-test"
         >
           <ListBox.Option value="option-1">Option 1</ListBox.Option>
