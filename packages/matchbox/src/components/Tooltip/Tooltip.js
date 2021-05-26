@@ -97,9 +97,9 @@ function Tooltip(props) {
           >
             <StyledContent
               position="relative"
-              fontSize="200"
-              lineHeight="200"
-              p="300"
+              fontSize="100"
+              lineHeight="100"
+              p="200"
               borderRadius="100"
               bg="gray.1000"
               color="white"

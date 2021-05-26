@@ -26,7 +26,6 @@ describe('Tooltip', () => {
     expect(container(wrapper)).toHaveStyleRule('visibility', 'hidden');
     expect(container(wrapper)).toHaveStyleRule('opacity', '0');
 
-    expect(content(wrapper)).toHaveStyleRule('font-size', '200'); // Theme key not mocked in tests
     expect(content(wrapper)).toHaveStyleRule('width', '13rem');
     expect(content(wrapper)).toHaveStyleRule('background-color', 'gray.1000'); // Theme key not mocked in tests
   });
