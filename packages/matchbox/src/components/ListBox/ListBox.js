@@ -101,6 +101,14 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
     hasError: !!error,
   });
 
+  // Sets the value for controlled inputs
+  React.useEffect(() => {
+    // Check if this component is controlled
+    if (typeof value !== 'undefined') {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
   function togglePopover(event) {
     event.stopPropagation();
     setOpen(!open);
