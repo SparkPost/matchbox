@@ -83,10 +83,10 @@ function Table(props) {
       {freezeFirstColumn && (
         <DuplicatedTable
           data-id="matchbox-sticky-table"
-          aria-hidden="true"
           position="absolute"
           top="0"
-          left=" 0"
+          left="0"
+          right="0"
           isScrolled={isScrolled}
         >
           <StyledTable>{dataMarkup}</StyledTable>
