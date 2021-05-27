@@ -12,107 +12,102 @@ function getItems() {
   return [{ name: 'foo' }, { name: 'bar' }, { name: 'baz' }, { name: 'lorem' }, { name: 'ipsum' }];
 }
 
-function TypeaheadExample(props) {
-  const { error, delimiter } = props;
-  const [selected, setSelected] = React.useState([]);
+describe('ComboBox', () => {
+  add('textfield with menu', () => {
+    const [selected, setSelected] = React.useState([]);
 
-  function stateReducer(state, changes) {
-    switch (changes.type) {
-      case Downshift.stateChangeTypes.clickItem:
-      case Downshift.stateChangeTypes.keyDownEnter:
-        if (changes.selectedItem) {
-          addItem(changes.selectedItem);
-          return {
-            ...changes,
-            inputValue: '',
-            selectedItem: null,
-          };
-        } else {
+    function stateReducer(state, changes) {
+      switch (changes.type) {
+        case Downshift.stateChangeTypes.clickItem:
+        case Downshift.stateChangeTypes.keyDownEnter:
+          if (changes.selectedItem) {
+            addItem(changes.selectedItem);
+            return {
+              ...changes,
+              inputValue: '',
+              selectedItem: null,
+            };
+          } else {
+            return changes;
+          }
+        default:
           return changes;
-        }
-      default:
-        return changes;
+      }
     }
-  }
 
-  function addItem(item) {
-    setSelected([...selected, item]);
-  }
-
-  function removeItem(item) {
-    setSelected(selected.filter(i => i !== item));
-  }
-
-  function itemToString(item) {
-    if (item) {
-      return item.name;
+    function addItem(item) {
+      setSelected([...selected, item]);
     }
-    return '';
-  }
 
-  function typeaheadfn(downshift) {
-    const {
-      getInputProps,
-      getMenuProps,
-      isOpen,
-      getItemProps,
-      highlightedIndex,
-      openMenu,
-      getRootProps,
-    } = downshift;
+    function removeItem(item) {
+      setSelected(selected.filter(i => i !== item));
+    }
 
-    const items = getItems()
-      .filter(item => !selected.some(({ name }) => name === item.name))
-      .map((item, index) =>
-        getItemProps({
-          content: itemToString(item),
-          highlighted: highlightedIndex === index,
-          index,
-          item,
-        }),
+    function itemToString(item) {
+      if (item) {
+        return item.name;
+      }
+      return '';
+    }
+
+    function typeaheadfn(downshift) {
+      const {
+        getInputProps,
+        getMenuProps,
+        isOpen,
+        getItemProps,
+        highlightedIndex,
+        openMenu,
+        getRootProps,
+      } = downshift;
+
+      const items = getItems()
+        .filter(item => !selected.some(({ name }) => name === item.name))
+        .map((item, index) =>
+          getItemProps({
+            content: itemToString(item),
+            highlighted: highlightedIndex === index,
+            index,
+            item,
+          }),
+        );
+
+      const rootProps = getRootProps({
+        refKey: 'rootRef',
+        isOpen: Boolean(isOpen),
+      });
+
+      const inputProps = getInputProps({
+        id: 'story',
+        label: 'Label',
+        selectedItems: selected,
+        itemToString,
+        removeItem,
+        onFocus: openMenu,
+        placeholder: 'Type to search',
+        helpText: 'Help text',
+      });
+
+      const menuProps = getMenuProps({
+        items,
+        isOpen: Boolean(isOpen),
+        refKey: 'menuRef',
+      });
+
+      return (
+        <ComboBox {...rootProps}>
+          <ComboBoxTextField {...inputProps} />
+          <ComboBoxMenu {...menuProps} />
+        </ComboBox>
       );
-
-    const rootProps = getRootProps({
-      refKey: 'rootRef',
-      isOpen: Boolean(isOpen),
-    });
-
-    const inputProps = getInputProps({
-      id: 'story',
-      label: 'Label',
-      selectedItems: selected,
-      itemToString,
-      removeItem,
-      onFocus: openMenu,
-      error: error && !isOpen ? 'test' : null,
-      placeholder: 'Type to search',
-      helpText: 'Help text',
-      delimiter,
-    });
-
-    const menuProps = getMenuProps({
-      items,
-      isOpen: Boolean(isOpen),
-      refKey: 'menuRef',
-    });
+    }
 
     return (
-      <ComboBox {...rootProps}>
-        <ComboBoxTextField {...inputProps} />
-        <ComboBoxMenu {...menuProps} />
-      </ComboBox>
+      <Downshift itemToString={itemToString} stateReducer={stateReducer}>
+        {typeaheadfn}
+      </Downshift>
     );
-  }
-
-  return (
-    <Downshift itemToString={itemToString} stateReducer={stateReducer}>
-      {typeaheadfn}
-    </Downshift>
-  );
-}
-
-describe('ComboBox', () => {
-  add('textfield with menu', () => <TypeaheadExample />);
+  });
 
   add('textfield', () => (
     <ComboBoxTextField
@@ -170,5 +165,100 @@ describe('ComboBox', () => {
     />
   ));
 
-  add('delimiter', () => <TypeaheadExample delimiter="or" />);
+  add('delimiter', () => {
+    const [selected, setSelected] = React.useState([]);
+
+    function stateReducer(state, changes) {
+      switch (changes.type) {
+        case Downshift.stateChangeTypes.clickItem:
+        case Downshift.stateChangeTypes.keyDownEnter:
+          if (changes.selectedItem) {
+            addItem(changes.selectedItem);
+            return {
+              ...changes,
+              inputValue: '',
+              selectedItem: null,
+            };
+          } else {
+            return changes;
+          }
+        default:
+          return changes;
+      }
+    }
+
+    function addItem(item) {
+      setSelected([...selected, item]);
+    }
+
+    function removeItem(item) {
+      setSelected(selected.filter(i => i !== item));
+    }
+
+    function itemToString(item) {
+      if (item) {
+        return item.name;
+      }
+      return '';
+    }
+
+    function typeaheadfn(downshift) {
+      const {
+        getInputProps,
+        getMenuProps,
+        isOpen,
+        getItemProps,
+        highlightedIndex,
+        openMenu,
+        getRootProps,
+      } = downshift;
+
+      const items = getItems()
+        .filter(item => !selected.some(({ name }) => name === item.name))
+        .map((item, index) =>
+          getItemProps({
+            content: itemToString(item),
+            highlighted: highlightedIndex === index,
+            index,
+            item,
+          }),
+        );
+
+      const rootProps = getRootProps({
+        refKey: 'rootRef',
+        isOpen: Boolean(isOpen),
+      });
+
+      const inputProps = getInputProps({
+        id: 'story',
+        label: 'Label',
+        selectedItems: selected,
+        itemToString,
+        removeItem,
+        onFocus: openMenu,
+        placeholder: 'Type to search',
+        helpText: 'Help text',
+        delimiter: 'or',
+      });
+
+      const menuProps = getMenuProps({
+        items,
+        isOpen: Boolean(isOpen),
+        refKey: 'menuRef',
+      });
+
+      return (
+        <ComboBox {...rootProps}>
+          <ComboBoxTextField {...inputProps} />
+          <ComboBoxMenu {...menuProps} />
+        </ComboBox>
+      );
+    }
+
+    return (
+      <Downshift itemToString={itemToString} stateReducer={stateReducer}>
+        {typeaheadfn}
+      </Downshift>
+    );
+  });
 });
