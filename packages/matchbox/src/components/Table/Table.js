@@ -79,42 +79,45 @@ function Table(props) {
   const marginProps = pick(rest, margin.propNames);
 
   return (
-    <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
-      {freezeFirstColumn && (
-        <DuplicatedTable
-          data-id="matchbox-sticky-table"
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          isScrolled={isScrolled}
-        >
-          <StyledTable>{dataMarkup}</StyledTable>
-        </DuplicatedTable>
-      )}
-      <Wrapper
-        data-id="matchbox-scroll-wrapper"
-        freezeFirstColumn={freezeFirstColumn}
-        onScroll={freezeFirstColumn ? handleScroll : null}
-        {...marginProps}
-      >
-        <StyledTable
-          aria-readonly={readOnly}
-          data-id={dataId}
+    <Box position="relative">
+      <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+        {freezeFirstColumn && (
+          <DuplicatedTable
+            data-id="matchbox-sticky-table"
+            position="absolute"
+            top="0"
+            left="0"
+            right="0"
+            overflow="clip visible"
+            isScrolled={isScrolled}
+          >
+            <StyledTable>{dataMarkup}</StyledTable>
+          </DuplicatedTable>
+        )}
+        <Wrapper
+          data-id="matchbox-scroll-wrapper"
           freezeFirstColumn={freezeFirstColumn}
-          id={id}
-          isScrolled={isScrolled}
-          role={role}
+          onScroll={freezeFirstColumn ? handleScroll : null}
+          {...marginProps}
         >
-          {title && (
-            <caption>
-              <ScreenReaderOnly>{title}</ScreenReaderOnly>
-            </caption>
-          )}
-          {dataMarkup}
-        </StyledTable>
-      </Wrapper>
-    </TablePaddingContext.Provider>
+          <StyledTable
+            aria-readonly={readOnly}
+            data-id={dataId}
+            freezeFirstColumn={freezeFirstColumn}
+            id={id}
+            isScrolled={isScrolled}
+            role={role}
+          >
+            {title && (
+              <caption>
+                <ScreenReaderOnly>{title}</ScreenReaderOnly>
+              </caption>
+            )}
+            {dataMarkup}
+          </StyledTable>
+        </Wrapper>
+      </TablePaddingContext.Provider>
+    </Box>
   );
 }
 

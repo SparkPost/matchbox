@@ -90,7 +90,7 @@ describe('Table', () => {
         </Panel>
       </Box>
       <Box height="800"></Box>
-      <Box maxWidth="1100">
+      <Box>
         <Panel>
           <Table title="My Table" freezeFirstColumn>
             <thead>
@@ -122,6 +122,41 @@ describe('Table', () => {
                 <Table.Cell>3</Table.Cell>
                 <Table.Cell>4</Table.Cell>
                 <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
+                <Table.Cell>5</Table.Cell>
               </Table.Row>
               <Table.TotalsRow>
                 <Table.Cell>Total</Table.Cell>
@@ -147,12 +182,6 @@ describe('Table', () => {
                 <Table.Cell>4</Table.Cell>
                 <Table.Cell>5</Table.Cell>
               </Table.Row>
-              <Table.TotalsRow>
-                <Table.Cell>Total</Table.Cell>
-                <Table.Cell colSpan="4" align="right">
-                  100000
-                </Table.Cell>
-              </Table.TotalsRow>
             </tbody>
           </Table>
         </Panel>
