@@ -6,7 +6,6 @@ Matchbox is an open source design system and React component library, built for
 ![Build](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Build?label=Build&style=flat-square)
 ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/gh/SparkPost/matchbox?label=Coverage&style=flat-square)
-![Website Deploy](https://img.shields.io/netlify/0ce1d44f-e768-4a1a-b7da-0cf637a2b854?label=Website%20Deploy&style=flat-square)
 ![Playroom Deploy](https://img.shields.io/netlify/f2107970-a943-4662-bc75-81b4bd806e6c?label=Playroom%20Deploy&style=flat-square)
 
 ---
@@ -41,7 +40,6 @@ lerna bootstrap
 ```bash
 # Start Scripts
 npm run start:libby       # Runs libby
-npm run start:site        # Runs the design system website
 npm run start:playroom    # Runs playroom
 
 # Test Scripts
