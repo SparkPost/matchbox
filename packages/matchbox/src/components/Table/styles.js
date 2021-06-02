@@ -1,12 +1,22 @@
-import { tokens } from '@sparkpost/design-tokens';
 import { system } from 'styled-system';
 
-export const table = () => `
+export const table = ({ freezeFirstColumn }) => `
   position: relative;
   text-align: left;
   width: 100%;
   padding: 0;
   border-collapse: collapse;
+
+  ${
+    freezeFirstColumn
+      ? `
+        td:first-child, th:first-child {
+          visibility: hidden;
+        }
+  `
+      : ''
+  }
+  
 `;
 
 export const headerCell = ({ theme }) => `
@@ -15,40 +25,23 @@ export const headerCell = ({ theme }) => `
   font-weight: ${theme.fontWeights.semibold};
 `;
 
-export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
-  return `
-    td:first-child, th:first-child {
-      ${
-        freezeFirstColumn
-          ? `
-            transition: box-shadow ${tokens.motionDuration_medium} ${tokens.motionEase_in_out};
-            position: sticky;
-            left: 0;
-            background: inherit;
-            z-index: 1;
-          `
-          : ''
-      }
-      ${isScrolled ? `box-shadow: ${theme.shadows['400']};` : ''}
-    }
-  `;
-};
-
 export const cell = () => `
   word-break: break-all;
 `;
 
 const zebra = theme => `
-  tbody &:nth-of-type(odd) {
-    background: ${theme.colors.gray['100']};
+  tbody &:nth-of-type(odd) td {
+    background: ${theme.colors.gray[100]};
+  }
+  tbody &:nth-of-type(even) td, thead & th {
+    background: ${theme.colors.white};
   }
 `;
 
 export const row = ({ theme }) => `
-  background: ${theme.colors.white};
   border: none;
 
-  thead & {
+  thead & th {
     border-bottom:${theme.borders['300']};
   }
 
@@ -56,11 +49,11 @@ export const row = ({ theme }) => `
 `;
 
 export const totalsRow = ({ theme }) => `
-  &:not(:last-child) {
+  &:not(:last-child) td {
     border-bottom: ${theme.borders['500']};
   }
 
-  &:not(:first-child) {
+  &:not(:first-child) td {
     border-top: ${theme.borders['500']};
   }
 
@@ -93,5 +86,5 @@ export const horizontalAlignment = system({
 });
 
 export const wrapper = ({ freezeFirstColumn }) => `
-   ${freezeFirstColumn ? 'overflow: auto;' : ''}
+  ${freezeFirstColumn ? 'overflow: auto;' : ''}
 `;

@@ -23,7 +23,10 @@ const StyledHeaderCell = styled('th')`
 
 const StyledRow = styled('tr')`
   ${row}
-  td, th {
+  thead & th {
+    vertical-align: bottom;
+  }
+  td {
     ${verticalAlignment}
   }
 `;

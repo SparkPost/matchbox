@@ -41,7 +41,7 @@ const Button = styled.button`
 
 const IconWrapper = styled.span`
   display: inline-block;
-  margin-left: ${({ theme }) => theme.space[200]};
+  margin-left: ${({ theme }) => theme.space[100]};
   color: ${({ theme }) => theme.colors.gray[700]};
   transition: ${({ theme }) => theme.motion.duration.fast};
 
@@ -112,7 +112,7 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
     >
       <span>{children}</span>
       <IconWrapper sorted={sorted}>
-        <Icon size={18} />
+        <Icon size={16} />
       </IconWrapper>
     </Button>
   );
