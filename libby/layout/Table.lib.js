@@ -68,7 +68,7 @@ describe('Table', () => {
             <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.TotalsRow>
-            <Table.Cell colSpan="3">Total</Table.Cell>
+            <Table.Cell colSpan={3}>Total</Table.Cell>
             <Table.Cell>100000</Table.Cell>
           </Table.TotalsRow>
         </tbody>
