@@ -1,4 +1,23 @@
 
+## 5.2.0 (2021-06-02)
+
+#### Features
+* `matchbox`
+  * [#853](https://github.com/SparkPost/matchbox/pull/853) UX-533 Support popovers in frozen columns ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+* `matchbox`
+  * [#851](https://github.com/SparkPost/matchbox/pull/851) UX-530 Lower default tooltip sizing ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#862](https://github.com/SparkPost/matchbox/pull/862) Closes [#858](https://github.com/SparkPost/matchbox/issues/858) Update rowSpan and colSpan proptypes ([@jonambas](https://github.com/jonambas))
+  * [#854](https://github.com/SparkPost/matchbox/pull/854) UX-538 Fix controlled Listboxes ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.1.5 (2021-05-11)
 
 #### Enhancements
