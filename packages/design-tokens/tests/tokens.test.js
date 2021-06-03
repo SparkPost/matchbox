@@ -18,6 +18,7 @@ it('should format a font size token correctly', () => {
   expect(token.value).toEqual('1.5rem');
   expect(token.pixel_value).toEqual('24px');
   expect(token.pixel_value_unitless).toEqual('24');
+  expect(token.system).toEqual('500');
 });
 
 it('should format root font size correctly', () => {

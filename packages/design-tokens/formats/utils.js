@@ -62,10 +62,35 @@ function getCommonJsName(str, type) {
   return `${prefix}_${parts[0]}${getVariant(parts.pop())}`;
 }
 
+function getSystemName(name, type) {
+  const nameParts = name.replace(type, '').split('-');
+
+  if (type === 'color') {
+    // eg. blue.100
+    if (nameParts[2]) {
+      return `${nameParts[1]}.${nameParts[2]}`;
+    }
+
+    // For colors that dont have a number association
+    // eg. white
+    return nameParts[1];
+  }
+
+  // Two part names
+  // eg. inOut
+  if (nameParts[2]) {
+    return `${nameParts[1]}${nameParts[2].charAt(0).toUpperCase() + nameParts[2].slice(1)}`;
+  }
+
+  // The rest
+  return nameParts[1];
+}
+
 module.exports = {
   getPalette,
   getName,
   getCommonJsName,
+  getSystemName,
   groupByPalette,
   kebabToCamel,
   kebabToFriendly,
