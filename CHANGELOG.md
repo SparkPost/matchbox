@@ -1,4 +1,14 @@
 
+## 5.2.1 (2021-06-03)
+
+#### Features
+* `design-tokens`
+  * [#863](https://github.com/SparkPost/matchbox/pull/863) Add system prop names to meta ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.2.0 (2021-06-02)
 
 #### Features
