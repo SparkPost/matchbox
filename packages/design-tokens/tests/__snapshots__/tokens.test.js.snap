@@ -8,6 +8,7 @@ Object {
   "javascript": "borderRadius_200",
   "name": "border-radius-200",
   "scss": "border-radius(200)",
+  "system": "200",
   "type": "border-radius",
   "value": "2px",
 }
