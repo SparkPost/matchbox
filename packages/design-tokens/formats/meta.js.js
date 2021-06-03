@@ -1,4 +1,11 @@
-const { getPalette, getName, kebabToFriendly, getCommonJsName, replacePrefix } = require('./utils');
+const {
+  getPalette,
+  getName,
+  kebabToFriendly,
+  getCommonJsName,
+  getSystemName,
+  replacePrefix,
+} = require('./utils');
 
 function map(result) {
   const { props } = result.toJS();
@@ -37,6 +44,7 @@ function map(result) {
       "scss": "${scssMapGet}",
       "type": "${prop.type}",
       "value": "${prop.value}",
+      "system": "${getSystemName(prop.name, prop.type)}",
       ${declarePixelValues()}
     }`;
   }
