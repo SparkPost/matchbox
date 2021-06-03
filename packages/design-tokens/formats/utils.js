@@ -71,7 +71,7 @@ function getSystemName(name, type) {
       return `${nameParts[1]}.${nameParts[2]}`;
     }
 
-    // For colors that dont have a nunmber association
+    // For colors that dont have a number association
     // eg. white
     return nameParts[1];
   }
