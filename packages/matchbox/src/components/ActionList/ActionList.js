@@ -7,6 +7,8 @@ import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
 import Section from './Section';
 import Action from './Action';
+import { useWindowEvent } from '../../hooks';
+import { onKey } from '../../helpers/keyEvents';
 
 const system = compose(margin, layout);
 const Wrapper = styled('div')`
@@ -34,14 +36,60 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
+  const wrapperRef = React.useRef();
+  const [focusableItemList, setFocusableItemList] = React.useState([]);
+  const [focusIndex, setFocusIndex] = React.useState(-1);
+
+  React.useEffect(() => {
+    if (wrapperRef && wrapperRef.current) {
+      setFocusableItemList(wrapperRef.current.querySelectorAll('[role="menuitem"]'));
+    }
+  }, []);
+
+  useWindowEvent('keydown', e => {
+    onKey('arrowDown', () => {
+      if (focusIndex === -1) {
+        setFocusIndex(0);
+      } else if (focusIndex < focusableItemList.length - 1) {
+        setFocusIndex(focusIndex + 1);
+      } else {
+        setFocusIndex(0);
+      }
+    })(e);
+
+    onKey('arrowUp', () => {
+      if (focusIndex <= 0) {
+        setFocusIndex(focusableItemList.length - 1);
+      } else {
+        setFocusIndex(focusIndex - 1);
+      }
+    })(e);
+  });
+
+  React.useLayoutEffect(() => {
+    if (focusableItemList[focusIndex]) {
+      setTimeout(() => {
+        focusableItemList[focusIndex].focus();
+      }, 50);
+    }
+  }, [focusIndex, focusableItemList]);
+
+  function assignRefs() {
+    wrapperRef.current = node;
+    if (userRef) {
+      userRef.current = node;
+    }
+  }
+
   return (
     <Wrapper
       className={className}
       data-id={dataId}
       maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
       onClick={onClick}
-      ref={userRef}
       tabIndex="-1"
+      role="menu"
+      ref={assignRefs}
       {...rest}
     >
       {listMarkup}

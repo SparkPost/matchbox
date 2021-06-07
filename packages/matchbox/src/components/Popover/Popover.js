@@ -8,7 +8,7 @@ import PopoverContent from './PopoverContent';
 import { onKeys } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
-import { findFocusableChild } from '../../helpers/focus';
+import { findFocusableChild, findInteractiveChild } from '../../helpers/focus';
 
 const Popover = React.forwardRef(function Popover(props, ref) {
   const {
@@ -43,7 +43,8 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   // Automatically focuses on content when opening
   React.useLayoutEffect(() => {
     if (shouldBeOpen && popoverRef && popoverRef.current) {
-      popoverRef.current.focus();
+      const contentToFocus = findInteractiveChild(popoverRef.current) || popoverRef.current;
+      contentToFocus.focus();
     }
   }, [shouldBeOpen]);
 
@@ -104,6 +105,14 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     }
   }
 
+  function handleActivatorKey(e) {
+    if (open === false) {
+      onKeys(['arrowUp', 'arrowDown'], () => {
+        handleUncontrolledToggle();
+      })(e);
+    }
+  }
+
   // Renders popover content
   function renderPopover() {
     function assignRefs(node) {
@@ -134,6 +143,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
         display={Wrapper === 'span' ? 'inline-block' : null}
         position="relative"
         onClick={handleTrigger}
+        onKeyDown={handleActivatorKey}
         ref={assignRefs}
       >
         {trigger}

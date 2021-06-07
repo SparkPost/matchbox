@@ -70,6 +70,11 @@ describe('Popover', () => {
         <ActionList.Action onClick={noop} is="button">
           Publish
         </ActionList.Action>
+        <ActionList.Section>
+          <ActionList.Action onClick={noop} is="button">
+            test
+          </ActionList.Action>
+        </ActionList.Section>
       </ActionList>
     </Popover>
   ));
