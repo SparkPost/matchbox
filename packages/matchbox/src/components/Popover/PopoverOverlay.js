@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { WindowEvent } from '../WindowEvent';
+import { Portal } from '../Portal';
 import { Box } from '../Box';
 import { getPositionFor } from '../../helpers/geometry';
 
@@ -14,7 +15,7 @@ const defaultPosition = {
 function PopoverOverlay(props) {
   const [position, setPosition] = React.useState(defaultPosition);
   const activatorRef = React.useRef(null);
-  const { as, id, open, renderPopover, renderActivator } = props;
+  const { as, id, open, renderPopover, renderActivator, portalId } = props;
 
   function handleMeasurement() {
     setPosition(getPositionFor(activatorRef.current));
@@ -38,19 +39,21 @@ function PopoverOverlay(props) {
             activatorRef.current = node;
           },
         })}
-        <Box
-          {...(!open ? { 'aria-hidden': true } : {})}
-          id={id}
-          position="absolute"
-          top="0"
-          left="0"
-          height={`${position.height}px`}
-          width={`${position.width}px`}
-          zIndex="overlay"
-          style={{ pointerEvents: 'none' }}
-        >
-          {renderPopover()}
-        </Box>
+        <Portal containerId={portalId}>
+          <Box
+            {...(!open ? { 'aria-hidden': true } : {})}
+            id={id}
+            position="fixed"
+            left={`${position.left}px`}
+            top={`${position.top}px`}
+            height={`${position.height}px`}
+            width={`${position.width}px`}
+            zIndex="overlay"
+            style={{ pointerEvents: 'none' }}
+          >
+            {renderPopover()}
+          </Box>
+        </Portal>
       </Box>
     </>
   );
