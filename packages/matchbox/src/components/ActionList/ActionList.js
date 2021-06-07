@@ -74,7 +74,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     }
   }, [focusIndex, focusableItemList]);
 
-  function assignRefs() {
+  function assignRefs(node) {
     wrapperRef.current = node;
     if (userRef) {
       userRef.current = node;
