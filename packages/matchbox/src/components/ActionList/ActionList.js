@@ -7,7 +7,6 @@ import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
 import Section from './Section';
 import Action from './Action';
-import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 
 const system = compose(margin, layout);
@@ -40,8 +39,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
   const wrapperRef = React.useRef();
   const [focusableItemList, setFocusableItemList] = React.useState([]);
 
-  // Focus index starts at -1, so we can focus on the first item on mount
-  const [focusIndex, setFocusIndex] = React.useState(-1);
+  const [focusIndex, setFocusIndex] = React.useState(0);
 
   // Creates a list of focusable links or buttons inside the actionlist
   React.useEffect(() => {
@@ -50,9 +48,18 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     }
   }, []);
 
-  useWindowEvent('keydown', e => {
+  React.useLayoutEffect(() => {
+    if (focusableItemList[focusIndex]) {
+      // Honestly not sure why this doesn't work without a timeout
+      setTimeout(() => {
+        focusableItemList[focusIndex].focus();
+      }, 10);
+    }
+  }, [focusIndex, focusableItemList]);
+
+  function handleKeyDown(e) {
     onKey('arrowDown', () => {
-      if (focusIndex < focusableItemList.length - 1 && focusIndex >= 0) {
+      if (focusIndex < focusableItemList.length - 1) {
         setFocusIndex(focusIndex + 1);
       } else {
         setFocusIndex(0);
@@ -66,16 +73,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
         setFocusIndex(focusIndex - 1);
       }
     })(e);
-  });
-
-  React.useLayoutEffect(() => {
-    if (focusableItemList[focusIndex]) {
-      // Honestly not sure why this doesn't work without a timeout
-      setTimeout(() => {
-        focusableItemList[focusIndex].focus();
-      }, 10);
-    }
-  }, [focusIndex, focusableItemList]);
+  }
 
   function assignRefs(node) {
     wrapperRef.current = node;
@@ -93,6 +91,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
       tabIndex="-1"
       role="menu"
       ref={assignRefs}
+      onKeyDown={handleKeyDown}
       {...rest}
     >
       {listMarkup}

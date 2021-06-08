@@ -71,7 +71,6 @@ describe('Uncontrolled Popover with Actionlist', () => {
   it('should navigate through actionlist buttons with down arrow', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.get('body').type('{downArrow}');
     cy.focused().should('have.text', 'Edit');
     cy.get('body').type('{downArrow}');
     cy.focused().should('have.text', 'Duplicate');
@@ -113,14 +112,15 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.focused().should('have.text', 'More Actions');
     cy.get('body').type('{upArrow}');
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.focused().should('have.text', 'Delete');
+    cy.focused().should('have.text', 'Edit');
   });
 
-  it('should focus on the container when opening', () => {
+  it('should focus on the first item when opening', () => {
     cy.get('[data-id="popover-content"]').should('not.exist');
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.focused().should('have.attr', 'role', 'menu');
+    cy.focused().should('have.attr', 'role', 'menuitem');
+    cy.focused().should('have.text', 'Edit');
   });
 
   it('should close when clicking outside the popover', () => {
