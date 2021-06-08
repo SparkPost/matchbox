@@ -129,6 +129,8 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function handleActivatorKey(e) {
     if (open === false) {
       onKeys(['arrowUp', 'arrowDown'], () => {
+        // Stop arrow keys from scrolling the page
+        e.preventDefault();
         handleUncontrolledToggle();
       })(e);
     }

@@ -61,6 +61,9 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   function handleKeyDown(e) {
     onKey('arrowDown', () => {
+      // Stop arrow keys from scrolling the page
+      e.preventDefault();
+
       if (focusIndex < focusableItemList.length - 1) {
         setFocusIndex(focusIndex + 1);
       } else {
@@ -69,6 +72,9 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     })(e);
 
     onKey('arrowUp', () => {
+      // Stop arrow keys from scrolling the page
+      e.preventDefault();
+
       if (focusIndex <= 0) {
         setFocusIndex(focusableItemList.length - 1);
       } else {
