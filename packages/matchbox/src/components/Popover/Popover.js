@@ -47,7 +47,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
 
       // Honestly not sure why this doesn't work without a timeout
       setTimeout(() => {
-        console.log(contentToFocus);
         contentToFocus.focus();
       }, 10);
     }
