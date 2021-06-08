@@ -54,29 +54,14 @@ describe('The Table component', () => {
     });
 
     it('should render overflowing popovers correctly', () => {
-      cy.get('table')
+      cy.contains('Content').should('not.exist');
+      cy.get('button')
         .eq(0)
-        .within(() => {
-          cy.contains('Content').should('not.exist');
-          cy.get('button')
-            .eq(0)
-            .should('exist');
-          cy.get('button')
-            .eq(0)
-            .click({ force: true });
-          cy.contains('Content').should('be.visible');
-        });
-    });
-
-    it('should scroll correctly', () => {
-      cy.contains('4').should('not.be.visible');
-      cy.get('[data-id="matchbox-scroll-wrapper"]')
-        .eq(1)
-        .scrollTo(500, 0);
-      cy.wait(500);
-      cy.findAllByText('am i visible')
-        .eq(1)
-        .should('be.visible');
+        .should('exist');
+      cy.get('button')
+        .eq(0)
+        .click({ force: true });
+      cy.contains('Content').should('be.visible');
     });
   });
 });

@@ -43,7 +43,7 @@ function PopoverOverlay(props) {
           <Box
             {...(!open ? { 'aria-hidden': true } : {})}
             id={id}
-            position="fixed"
+            position="absolute"
             left={`${position.left}px`}
             top={`${position.top}px`}
             height={`${position.height}px`}
