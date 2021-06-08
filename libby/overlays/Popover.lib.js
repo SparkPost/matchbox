@@ -65,14 +65,14 @@ describe('Popover', () => {
           Edit
         </ActionList.Action>
         <ActionList.Action onClick={noop} is="button">
-          Delete
+          Duplicate
         </ActionList.Action>
         <ActionList.Action onClick={noop} is="button">
           Publish
         </ActionList.Action>
         <ActionList.Section>
           <ActionList.Action onClick={noop} is="button">
-            test
+            Delete
           </ActionList.Action>
         </ActionList.Section>
       </ActionList>

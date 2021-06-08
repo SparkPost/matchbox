@@ -56,16 +56,58 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
 
-  it('should tab through actionlist buttons', () => {
+  it('should close when pressing tab', () => {
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
-    cy.focused().should('have.attr', 'tabindex', '-1');
-    // Container is focused with tabindex=-1 here, not "tabbable" by cypress
-    // So we reset to start at the button instead
     cy.get('body').tab();
-    cy.focused().tab();
+    cy.get('[data-id="popover-content"]').should('not.be.visible');
+  });
+
+  it('should navigate through actionlist buttons with down arrow', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.get('body').type('{downArrow}');
     cy.focused().should('have.text', 'Edit');
-    cy.focused().tab();
+    cy.get('body').type('{downArrow}');
+    cy.focused().should('have.text', 'Duplicate');
+    cy.get('body').type('{downArrow}');
+    cy.focused().should('have.text', 'Publish');
+    cy.get('body').type('{downArrow}');
+    cy.focused().should('have.text', 'Delete');
+    cy.get('body').type('{downArrow}');
+    cy.focused().should('have.text', 'Edit');
+  });
+
+  it('should navigate through actionlist buttons with up arrow', () => {
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.get('body').type('{upArrow}');
+    cy.focused().should('have.text', 'Delete');
+    cy.get('body').type('{upArrow}');
+    cy.focused().should('have.text', 'Publish');
+    cy.get('body').type('{upArrow}');
+    cy.focused().should('have.text', 'Duplicate');
+    cy.get('body').type('{upArrow}');
+    cy.focused().should('have.text', 'Edit');
+    cy.get('body').type('{upArrow}');
+    cy.focused().should('have.text', 'Delete');
+  });
+
+  it('should open when pressing down arrow', () => {
+    cy.get('body').tab();
+    cy.get('[data-id="popover-content"]').should('not.exist');
+    cy.focused().should('have.text', 'More Actions');
+    cy.get('body').type('{downArrow}');
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.focused().should('have.text', 'Edit');
+  });
+
+  it('should open when pressing up arrow', () => {
+    cy.get('body').tab();
+    cy.get('[data-id="popover-content"]').should('not.exist');
+    cy.focused().should('have.text', 'More Actions');
+    cy.get('body').type('{upArrow}');
+    cy.get('[data-id="popover-content"]').should('be.visible');
     cy.focused().should('have.text', 'Delete');
   });
 

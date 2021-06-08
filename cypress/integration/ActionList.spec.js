@@ -13,15 +13,6 @@ describe('ActionList component', () => {
     cy.get('a').should('have.length', 2);
   });
 
-  it('should handle keyboard navigation correctly', () => {
-    cy.get('button')
-      .eq(0)
-      .click();
-    cy.focused().should('have.text', 'Button');
-    cy.tab();
-    cy.focused().should('have.text', 'External Link');
-  });
-
   it('should handle disabled Actions correctly', () => {
     cy.get('button')
       .eq(1)
