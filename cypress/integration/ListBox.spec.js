@@ -97,7 +97,7 @@ describe('The ListBox component', () => {
     it('selects item on click and returns focus to button', () => {
       cy.get('label').click();
       cy.get('button')
-        .eq(3)
+        .eq(4)
         .click();
       cy.wait(100);
       cy.focused().should('have.text', 'Charlie');
@@ -131,19 +131,15 @@ describe('The ListBox component', () => {
         submitted = true;
       });
 
-      cy.get('#listbox-parent-form')
-        .within(() => {
-          cy.get('label').click();
-          cy.get('button')
-            .eq(3)
-            .click();
-          cy.wait(100);
-          cy.focused().should('have.text', 'Option 2');
-          cy.get('[name="listbox-form-test"]').should('have.value', 'option-2');
-        })
-        .then(() => {
-          expect(submitted, 'form submitted').to.be.false;
-        });
+      cy.get('label').click();
+      cy.get('button')
+        .eq(3)
+        .click();
+      cy.wait(100);
+      cy.focused().should('have.text', 'Option 2');
+      cy.get('[name="listbox-form-test"]').should('have.value', 'option-2');
+
+      expect(submitted, 'form submitted').to.be.false;
     });
   });
 
