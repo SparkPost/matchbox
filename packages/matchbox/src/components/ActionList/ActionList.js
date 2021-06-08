@@ -18,9 +18,11 @@ const Wrapper = styled('div')`
 const ActionList = React.forwardRef(function ActionList(props, userRef) {
   const {
     actions = [],
+    'aria-labelledby': labelledBy,
     className,
     children,
     'data-id': dataId,
+    id,
     sections = [],
     maxHeight = 'none',
     onClick,
@@ -84,8 +86,10 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   return (
     <Wrapper
+      aria-labelledby={labelledBy}
       className={className}
       data-id={dataId}
+      id={id}
       maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
       onClick={onClick}
       tabIndex="-1"
@@ -114,6 +118,8 @@ ActionList.propTypes = {
   ),
   className: PropTypes.string,
   'data-id': PropTypes.string,
+  'aria-labelledby': PropTypes.string,
+  id: PropTypes.string,
   /**
    * Creates sections
    * e.g. [[{ content: 'action label', onClick: callback() }]]

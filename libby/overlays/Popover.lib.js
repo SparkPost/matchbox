@@ -57,10 +57,13 @@ describe('Popover', () => {
 
   add('with an ActionList', () => (
     <Popover
-      id="test-popover"
-      trigger={<Button aria-describedby="test-popover">More Actions</Button>}
+      trigger={
+        <Button id="trigger" aria-haspopup="true" aria-controls="menu">
+          More Actions
+        </Button>
+      }
     >
-      <ActionList>
+      <ActionList aria-labelledby="trigger" id="menu">
         <ActionList.Action onClick={noop} is="button">
           Edit
         </ActionList.Action>
