@@ -95,7 +95,7 @@ describe('The Tabs component', () => {
 
     it('should focus on the menu', () => {
       cy.get('[data-id="tab-options-button"]').click();
-      cy.get('[data-id="popover-focus-wrapper"]').should('have.focus');
+      cy.focused().should('have.attr', 'role', 'menu');
     });
   });
 });
