@@ -8,7 +8,7 @@ import PopoverContent from './PopoverContent';
 import { onKeys } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
-import { findFocusableChild, findInteractiveChild } from '../../helpers/focus';
+import { findFocusableChild } from '../../helpers/focus';
 
 const Popover = React.forwardRef(function Popover(props, ref) {
   const {
@@ -41,10 +41,15 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   }, []);
 
   // Automatically focuses on content when opening
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (shouldBeOpen && popoverRef && popoverRef.current) {
-      const contentToFocus = findInteractiveChild(popoverRef.current) || popoverRef.current;
-      contentToFocus.focus();
+      const contentToFocus = findFocusableChild(popoverRef.current) || popoverRef.current;
+
+      // Honestly not sure why this doesn't work without a timeout
+      setTimeout(() => {
+        console.log(contentToFocus);
+        contentToFocus.focus();
+      }, 10);
     }
   }, [shouldBeOpen]);
 

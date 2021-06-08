@@ -36,6 +36,11 @@ describe('Controlled Popover component', () => {
       cy.get('[data-id="close-button"]').click();
       cy.get('[data-id="popover-content"]').should('not.exist');
     });
+
+    it('should focus on a focusable child when opening', () => {
+      cy.get('[data-id="popover-content"]').should('be.visible');
+      cy.focused().should('have.text', 'Close me');
+    });
   });
 });
 
@@ -109,6 +114,13 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.get('body').type('{upArrow}');
     cy.get('[data-id="popover-content"]').should('be.visible');
     cy.focused().should('have.text', 'Delete');
+  });
+
+  it('should focus on the container when opening', () => {
+    cy.get('[data-id="popover-content"]').should('not.exist');
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.focused().should('have.attr', 'role', 'menu');
   });
 
   it('should close when clicking outside the popover', () => {

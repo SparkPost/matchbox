@@ -29,6 +29,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     ...rest
   } = props;
 
+  // TODO Remove `actions` and `sections` support in favor of composable components
   let list = actions && actions.length ? groupByValues(actions, groupByKey) : [];
   if (sections && sections.length) {
     list = list.concat(sections);
@@ -38,8 +39,11 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   const wrapperRef = React.useRef();
   const [focusableItemList, setFocusableItemList] = React.useState([]);
+
+  // Focus index starts at -1, so we can focus on the first item on mount
   const [focusIndex, setFocusIndex] = React.useState(-1);
 
+  // Creates a list of focusable links or buttons inside the actionlist
   React.useEffect(() => {
     if (wrapperRef && wrapperRef.current) {
       setFocusableItemList(wrapperRef.current.querySelectorAll('[role="menuitem"]'));
@@ -48,9 +52,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   useWindowEvent('keydown', e => {
     onKey('arrowDown', () => {
-      if (focusIndex === -1) {
-        setFocusIndex(0);
-      } else if (focusIndex < focusableItemList.length - 1) {
+      if (focusIndex < focusableItemList.length - 1 && focusIndex >= 0) {
         setFocusIndex(focusIndex + 1);
       } else {
         setFocusIndex(0);
@@ -68,9 +70,10 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   React.useLayoutEffect(() => {
     if (focusableItemList[focusIndex]) {
+      // Honestly not sure why this doesn't work without a timeout
       setTimeout(() => {
         focusableItemList[focusIndex].focus();
-      }, 50);
+      }, 10);
     }
   }, [focusIndex, focusableItemList]);
 
