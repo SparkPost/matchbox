@@ -137,4 +137,11 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.get('[data-id="popover-content"]').should('not.exist');
     cy.focused().should('have.text', 'More Actions');
   });
+
+  it('should render the correct a11y attributes automatically', () => {
+    cy.findByRole('button', { name: 'More Actions' }).should('have.attr', 'aria-haspopup', 'true');
+    cy.findByRole('button', { name: 'More Actions' }).should('have.attr', 'aria-expanded', 'false');
+    cy.contains('More Actions').click();
+    cy.findByRole('button', { name: 'More Actions' }).should('have.attr', 'aria-expanded', 'true');
+  });
 });

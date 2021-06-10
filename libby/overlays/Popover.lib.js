@@ -58,7 +58,7 @@ describe('Popover', () => {
   add('with an ActionList', () => (
     <Popover
       trigger={
-        <Button id="trigger" aria-haspopup="true" aria-controls="menu">
+        <Button id="trigger" aria-controls="menu">
           More Actions
         </Button>
       }
