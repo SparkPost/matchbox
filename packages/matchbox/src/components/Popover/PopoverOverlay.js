@@ -4,6 +4,7 @@ import { WindowEvent } from '../WindowEvent';
 import { Portal } from '../Portal';
 import { Box } from '../Box';
 import { getPositionFor } from '../../helpers/geometry';
+import { tokens } from '@sparkpost/design-tokens';
 
 const defaultPosition = {
   top: 0,
@@ -48,7 +49,7 @@ function PopoverOverlay(props) {
             top={`${position.top}px`}
             height={`${position.height}px`}
             width={`${position.width}px`}
-            zIndex="overlay"
+            zIndex={tokens.zIndex_overlay + 1}
             style={{ pointerEvents: 'none' }}
           >
             {renderPopover()}
