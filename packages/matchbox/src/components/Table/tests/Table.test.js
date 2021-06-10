@@ -94,7 +94,7 @@ describe('Table', () => {
 
   it('should distribute system props correctly', () => {
     wrapper = subject({ p: '100', m: '100' });
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('margin', '100');
+    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin', '100');
     expect(wrapper.find('div').at(1)).not.toHaveStyleRule('padding', '100');
     expect(wrapper.find('table')).not.toHaveStyleRule('margin', '100');
   });

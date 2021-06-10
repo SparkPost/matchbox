@@ -7,6 +7,7 @@ import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
 import Section from './Section';
 import Action from './Action';
+import { onKey } from '../../helpers/keyEvents';
 
 const system = compose(margin, layout);
 const Wrapper = styled('div')`
@@ -17,9 +18,11 @@ const Wrapper = styled('div')`
 const ActionList = React.forwardRef(function ActionList(props, userRef) {
   const {
     actions = [],
+    'aria-labelledby': labelledBy,
     className,
     children,
     'data-id': dataId,
+    id,
     sections = [],
     maxHeight = 'none',
     onClick,
@@ -27,6 +30,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
     ...rest
   } = props;
 
+  // TODO Remove `actions` and `sections` support in favor of composable components
   let list = actions && actions.length ? groupByValues(actions, groupByKey) : [];
   if (sections && sections.length) {
     list = list.concat(sections);
@@ -34,14 +38,70 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
+  const wrapperRef = React.useRef();
+  const [focusableItemList, setFocusableItemList] = React.useState([]);
+
+  const [focusIndex, setFocusIndex] = React.useState(0);
+
+  // Creates a list of focusable links or buttons inside the actionlist
+  React.useEffect(() => {
+    if (wrapperRef && wrapperRef.current) {
+      setFocusableItemList(wrapperRef.current.querySelectorAll('[role="menuitem"]'));
+    }
+  }, []);
+
+  React.useLayoutEffect(() => {
+    if (focusableItemList[focusIndex]) {
+      // Honestly not sure why this doesn't work without a timeout
+      setTimeout(() => {
+        focusableItemList[focusIndex].focus();
+      }, 10);
+    }
+  }, [focusIndex, focusableItemList]);
+
+  function handleKeyDown(e) {
+    onKey('arrowDown', () => {
+      // Stop arrow keys from scrolling the page
+      e.preventDefault();
+
+      if (focusIndex < focusableItemList.length - 1) {
+        setFocusIndex(focusIndex + 1);
+      } else {
+        setFocusIndex(0);
+      }
+    })(e);
+
+    onKey('arrowUp', () => {
+      // Stop arrow keys from scrolling the page
+      e.preventDefault();
+
+      if (focusIndex <= 0) {
+        setFocusIndex(focusableItemList.length - 1);
+      } else {
+        setFocusIndex(focusIndex - 1);
+      }
+    })(e);
+  }
+
+  function assignRefs(node) {
+    wrapperRef.current = node;
+    if (userRef) {
+      userRef.current = node;
+    }
+  }
+
   return (
     <Wrapper
+      aria-labelledby={labelledBy}
       className={className}
       data-id={dataId}
+      id={id}
       maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
       onClick={onClick}
-      ref={userRef}
       tabIndex="-1"
+      role="menu"
+      ref={assignRefs}
+      onKeyDown={handleKeyDown}
       {...rest}
     >
       {listMarkup}
@@ -64,6 +124,8 @@ ActionList.propTypes = {
   ),
   className: PropTypes.string,
   'data-id': PropTypes.string,
+  'aria-labelledby': PropTypes.string,
+  id: PropTypes.string,
   /**
    * Creates sections
    * e.g. [[{ content: 'action label', onClick: callback() }]]

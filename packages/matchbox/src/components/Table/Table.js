@@ -9,39 +9,17 @@ import { pick } from '../../helpers/props';
 import { Cell, HeaderCell, Row, TotalsRow } from './TableElements';
 import SortButton from './SortButton';
 import { TablePaddingContext } from './context';
-import { table, wrapper } from './styles';
+import { table, wrapper, sticky } from './styles';
 
 const StyledTable = styled('table')`
   ${table}
   ${padding}
+  ${sticky}
 `;
 
 const Wrapper = styled(Box)`
   ${wrapper}
   ${margin}
-`;
-
-const DuplicatedTable = styled(Box)`
-  pointer-events: none;
-  z-index: ${({ theme }) => theme.zIndices.default};
-
-  th:not(:first-child),
-  td:not(:first-child) {
-    visibility: hidden;
-    pointer-events: none;
-    border-color: transparent !important;
-  }
-  tr {
-    background: none !important;
-  }
-  th:first-child,
-  td:first-child {
-    background: ${({ theme }) => theme.colors.white};
-    pointer-events: auto;
-    ${({ isScrolled, theme }) => (isScrolled ? `box-shadow: ${theme.shadows[200]};` : '')};
-    transition: ${({ theme }) =>
-      `box-shadow ${theme.motion.duration.medium} ${theme.motion.ease.inOut}`};
-  }
 `;
 
 function Table(props) {
@@ -57,14 +35,12 @@ function Table(props) {
     ...rest
   } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
-
   const handleScroll = React.useCallback(
     e => {
       setIsScrolled(e.target.scrollLeft > 10);
     },
     [freezeFirstColumn],
   );
-
   const dataMarkup = data ? (
     <tbody>
       {data.map((rowData, i) => (
@@ -74,50 +50,33 @@ function Table(props) {
   ) : (
     children
   );
-
   const { px = '450', py = '400', ...paddingProps } = pick(rest, padding.propNames);
   const marginProps = pick(rest, margin.propNames);
 
   return (
-    <Box position="relative">
-      <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
-        {freezeFirstColumn && (
-          <DuplicatedTable
-            data-id="matchbox-sticky-table"
-            position="absolute"
-            top="0"
-            left="0"
-            right="0"
-            overflow="clip visible"
-            isScrolled={isScrolled}
-          >
-            <StyledTable>{dataMarkup}</StyledTable>
-          </DuplicatedTable>
-        )}
-        <Wrapper
-          data-id="matchbox-scroll-wrapper"
-          freezeFirstColumn={freezeFirstColumn}
-          onScroll={freezeFirstColumn ? handleScroll : null}
-          {...marginProps}
-        >
-          <StyledTable
-            aria-readonly={readOnly}
-            data-id={dataId}
-            freezeFirstColumn={freezeFirstColumn}
-            id={id}
-            isScrolled={isScrolled}
-            role={role}
-          >
-            {title && (
-              <caption>
-                <ScreenReaderOnly>{title}</ScreenReaderOnly>
-              </caption>
-            )}
-            {dataMarkup}
-          </StyledTable>
-        </Wrapper>
-      </TablePaddingContext.Provider>
-    </Box>
+    <Wrapper
+      freezeFirstColumn={freezeFirstColumn}
+      onScroll={freezeFirstColumn ? handleScroll : null}
+      {...marginProps}
+    >
+      <StyledTable
+        aria-readonly={readOnly}
+        data-id={dataId}
+        freezeFirstColumn={freezeFirstColumn}
+        id={id}
+        isScrolled={isScrolled}
+        role={role}
+      >
+        <TablePaddingContext.Provider value={{ px, py, ...paddingProps }}>
+          {title && (
+            <caption>
+              <ScreenReaderOnly>{title}</ScreenReaderOnly>
+            </caption>
+          )}
+          {dataMarkup}
+        </TablePaddingContext.Provider>
+      </StyledTable>
+    </Wrapper>
   );
 }
 

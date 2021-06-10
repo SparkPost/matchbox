@@ -35,13 +35,13 @@ export const StyledLink = styled(UnstyledLink)`
   &:visited {
     text-decoration: none;
     color: ${props => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
-    background: ${props => (props.highlighted ? tokens.color_blue_100 : 'none')};
+    background: ${props => (props.highlighted ? tokens.color_blue_200 : 'none')};
   }
 
   &:hover,
   &:focus {
     outline: none;
-    color: ${tokens.color_blue_700};
+    color: ${tokens.color_gray_900};
     background: ${tokens.color_blue_100};
   }
 

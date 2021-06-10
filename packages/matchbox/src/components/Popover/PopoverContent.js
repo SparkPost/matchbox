@@ -69,13 +69,7 @@ const Content = React.forwardRef(function Content(props, userRef) {
       nodeRef={transitionRef}
     >
       {state => (
-        <Box
-          data-id="popover-focus-wrapper"
-          position="relative"
-          height="100%"
-          ref={userRef}
-          tabIndex="-1"
-        >
+        <Box position="relative" height="100%" ref={userRef} tabIndex="-1">
           <StyledContent
             data-id="popover-content"
             className={className}

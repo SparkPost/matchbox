@@ -5,13 +5,24 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import PopoverOverlay from './PopoverOverlay';
 import PopoverContent from './PopoverContent';
-import { onKey } from '../../helpers/keyEvents';
+import { onKey, onKeys } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
 import { deprecate } from '../../helpers/propTypes';
 import { findFocusableChild } from '../../helpers/focus';
 
 const Popover = React.forwardRef(function Popover(props, ref) {
-  const { as, id, open: controlledOpen, onClose, children, trigger, wrapper, ...rest } = props;
+  const {
+    as,
+    id,
+    open: controlledOpen,
+    onClose,
+    children,
+    trigger,
+    wrapper,
+    portalId,
+    closeOnTab,
+    ...rest
+  } = props;
   const [open, setOpen] = React.useState(null);
   const popoverRef = React.useRef();
   const activatorRef = React.useRef();
@@ -31,11 +42,25 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   }, []);
 
   // Automatically focuses on content when opening
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (shouldBeOpen && popoverRef && popoverRef.current) {
-      popoverRef.current.focus();
+      const contentToFocus = findFocusableChild(popoverRef.current) || popoverRef.current;
+
+      // Honestly not sure why this doesn't work without a timeout
+      setTimeout(() => {
+        contentToFocus.focus();
+      }, 10);
     }
   }, [shouldBeOpen]);
+
+  // Handles `aria-haspopup` and `aria-expanded` attributes on the activator
+  React.useEffect(() => {
+    if (activatorRef && activatorRef.current) {
+      const activatorElem = findFocusableChild(activatorRef.current) || activatorRef.current;
+      activatorElem.setAttribute('aria-haspopup', 'true');
+      activatorElem.setAttribute('aria-expanded', Boolean(shouldBeOpen));
+    }
+  }, [trigger, activatorRef, open, controlledOpen]);
 
   // Toggles uncontrolled open state
   function handleUncontrolledToggle() {
@@ -79,8 +104,24 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       })(e);
     }
 
+    if (onClose && shouldBeOpen && closeOnTab) {
+      onKey('tab', () => {
+        onClose(e);
+        focusOnActivator();
+      })(e);
+    }
+
+    // Uncontrolled
     if (open) {
       onKey('escape', () => {
+        handleUncontrolledToggle();
+        focusOnActivator();
+      })(e);
+    }
+
+    // Uncontrolled
+    if (closeOnTab && open) {
+      onKey('tab', () => {
         handleUncontrolledToggle();
         focusOnActivator();
       })(e);
@@ -91,6 +132,16 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function handleTrigger() {
     if (open !== null) {
       handleUncontrolledToggle();
+    }
+  }
+
+  function handleActivatorKey(e) {
+    if (open === false) {
+      onKeys(['arrowUp', 'arrowDown'], () => {
+        // Stop arrow keys from scrolling the page
+        e.preventDefault();
+        handleUncontrolledToggle();
+      })(e);
     }
   }
 
@@ -124,6 +175,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
         display={Wrapper === 'span' ? 'inline-block' : null}
         position="relative"
         onClick={handleTrigger}
+        onKeyDown={handleActivatorKey}
         ref={assignRefs}
       >
         {trigger}
@@ -139,6 +191,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       renderActivator={renderActivator}
       renderPopover={renderPopover}
       activatorRef={activatorRef}
+      portalId={portalId}
     />
   );
 });
@@ -174,9 +227,14 @@ Popover.propTypes = {
   children: PropTypes.node,
   as: PropTypes.oneOf(['div', 'span']),
   wrapper: deprecate(PropTypes.oneOf(['div', 'span']), 'Use `as` prop instead'),
-  portalId: deprecate(PropTypes.string, 'Portals are no longer used in Popovers'),
+  portalId: PropTypes.string,
+  closeOnTab: PropTypes.bool,
   ...createPropTypes(padding.propNames),
   ...createPropTypes(layout.propNames),
+};
+
+Popover.defaultProps = {
+  closeOnTab: true,
 };
 
 export default Popover;

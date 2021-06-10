@@ -32,6 +32,8 @@ const Action = React.forwardRef(function Action(props, userRef) {
       disabled={disabled}
       isType={is}
       ref={userRef}
+      role="menuitem"
+      tabIndex="-1"
       {...action}
     >
       {linkContent}

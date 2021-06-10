@@ -16,7 +16,7 @@ describe('ComboBox Wrapper', () => {
   it('should menu correctly inside textfield', () => {
     const { getByRole, getByText } = subject();
     expect(getByRole('textbox')).toBeTruthy();
-    expect(getByRole('button', { name: 'foo' })).toBeTruthy();
+    expect(getByRole('menuitem', { name: 'foo' })).toBeTruthy();
     expect(getByText(/test help/g)).toBeTruthy();
   });
 });
