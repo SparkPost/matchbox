@@ -1,4 +1,14 @@
 
+## 5.3.0 (2021-06-10)
+
+#### Features
+* `matchbox`
+  * [#864](https://github.com/SparkPost/matchbox/pull/864) UX-565 Massively change ActionList and Popover interactions ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 5.2.1 (2021-06-03)
 
 #### Features
