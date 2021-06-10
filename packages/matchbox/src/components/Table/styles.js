@@ -15,21 +15,30 @@ export const headerCell = ({ theme }) => `
   font-weight: ${theme.fontWeights.semibold};
 `;
 
-export const sticky = ({ isScrolled, freezeFirstColumn, theme }) => {
+export const sticky = ({ isScrolled, freezeFirstColumn }) => {
   return `
     td:first-child, th:first-child {
       ${
         freezeFirstColumn
           ? `
-            transition: box-shadow ${tokens.motionDuration_medium} ${tokens.motionEase_in_out};
             position: sticky;
             left: 0;
             background: inherit;
             z-index: 1;
+            &:after {
+              transition: box-shadow ${tokens.motionDuration_medium} ${tokens.motionEase_in_out};
+              ${isScrolled ? `box-shadow: 16px 0 10px -12px inset rgb(44 53 61 / 20%);` : ''}
+              content: "";
+              height: 100%;
+              position: absolute;
+              top: 0;
+              right: -15px;
+              width: 15px;
+            }
           `
           : ''
       }
-      ${isScrolled ? `box-shadow: ${theme.shadows['400']};` : ''}
+      
     }
   `;
 };
