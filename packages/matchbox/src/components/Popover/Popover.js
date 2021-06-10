@@ -55,8 +55,12 @@ const Popover = React.forwardRef(function Popover(props, ref) {
 
   // Handles `aria-haspopup` and `aria-expanded` attributes on the activator
   React.useEffect(() => {
-    applyActivatorAttributes();
-  }, [activatorRef, shouldBeOpen]);
+    if (activatorRef && activatorRef.current) {
+      const activatorElem = findFocusableChild(activatorRef.current) || activatorRef.current;
+      activatorElem.setAttribute('aria-haspopup', 'true');
+      activatorElem.setAttribute('aria-expanded', Boolean(shouldBeOpen));
+    }
+  }, [activatorRef, open, controlledOpen]);
 
   // Toggles uncontrolled open state
   function handleUncontrolledToggle() {
@@ -69,14 +73,6 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     if (activatorRef && activatorRef.current) {
       const activatorToFocus = findFocusableChild(activatorRef.current) || activatorRef.current;
       activatorToFocus.focus();
-    }
-  }
-
-  function applyActivatorAttributes() {
-    if (activatorRef && activatorRef.current) {
-      const activatorElem = findFocusableChild(activatorRef.current) || activatorRef.current;
-      activatorElem.setAttribute('aria-haspopup', 'true');
-      activatorElem.setAttribute('aria-expanded', shouldBeOpen);
     }
   }
 
