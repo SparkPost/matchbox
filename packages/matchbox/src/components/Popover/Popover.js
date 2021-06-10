@@ -60,7 +60,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       activatorElem.setAttribute('aria-haspopup', 'true');
       activatorElem.setAttribute('aria-expanded', Boolean(shouldBeOpen));
     }
-  }, [activatorRef, open, controlledOpen]);
+  }, [trigger, activatorRef, open, controlledOpen]);
 
   // Toggles uncontrolled open state
   function handleUncontrolledToggle() {
