@@ -4,7 +4,6 @@ const deepMap = require('../formats/deepMap.scss');
 const map = require('../formats/map.scss');
 const metaJs = require('../formats/meta.js');
 const commonJs = require('../formats/common.js');
-const { src } = require('gulp');
 
 // Custom formats
 theo.registerFormat('deep-map.scss', deepMap);

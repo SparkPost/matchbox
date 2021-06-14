@@ -88,8 +88,6 @@
     "eslint-plugin-lodash": "^2.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.8.2",
-    "gulp": "^4.0.2",
-    "gulp-theo": "^2.0.1",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
