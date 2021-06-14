@@ -16,17 +16,16 @@
   "scripts": {
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
-    "build": "gulp && node scripts/scss.js && npm run format",
-    "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
+    "build": "node scripts/theo.js && npm run format",
+    "format": "prettier ./{dist,dist2,docs}/*.{js,json,css,scss} --write --no-config",
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-theo": "^2.0.1",
     "path": "^0.12.7",
     "plugin-error": "^1.0.1",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "theo": "^8.1.5"
   },
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }

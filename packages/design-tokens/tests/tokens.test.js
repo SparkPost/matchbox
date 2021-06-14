@@ -26,3 +26,8 @@ it('should format root font size correctly', () => {
   expect(tokens[token.javascript]).toEqual(token.value);
   expect(token.value).toEqual('16px');
 });
+
+it('should format consistently', () => {
+  expect(tokens).toMatchSnapshot();
+  expect(meta).toMatchSnapshot();
+});
