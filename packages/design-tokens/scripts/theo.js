@@ -59,7 +59,7 @@ for (const source of deepMapSources) {
       },
       format: {
         type: 'deep-map.scss',
-        options: { prefix: src.prefix },
+        options: { prefix: source.prefix },
       },
     })
     .then(result => {
