@@ -17,7 +17,7 @@
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
     "build": "node scripts/theo.js && npm run format",
-    "format": "prettier ./{dist,dist2,docs}/*.{js,json,css,scss} --write --no-config",
+    "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
