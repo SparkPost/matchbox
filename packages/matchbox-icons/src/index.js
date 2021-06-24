@@ -688,6 +688,7 @@ export { default as LineWeight } from './icons/LineWeight';
 export { default as Link } from './icons/Link';
 export { default as LinkedCamera } from './icons/LinkedCamera';
 export { default as LinkedIn } from './icons/LinkedIn';
+export { default as LinkedInSimple } from './icons/LinkedInSimple';
 export { default as LinkOff } from './icons/LinkOff';
 export { default as List } from './icons/List';
 export { default as ListAlt } from './icons/ListAlt';
