@@ -11,10 +11,7 @@ import React from 'react';
  */
 export function getChild(name, children, passedProps = {}) {
   return React.Children.map(children, (child, index) => {
-    if (
-      React.isValidElement(child) &&
-      (child.type.displayName === name || child.type.name === name)
-    ) {
+    if (React.isValidElement(child) && child.type.displayName === name) {
       passedProps.index = index;
       return React.cloneElement(child, passedProps);
     }
