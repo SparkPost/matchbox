@@ -453,6 +453,7 @@ export { default as Exposure } from './icons/Exposure';
 export { default as Extension } from './icons/Extension';
 export { default as Face } from './icons/Face';
 export { default as Facebook } from './icons/Facebook';
+export { default as FacebookSimple } from './icons/FacebookSimple';
 export { default as FactCheck } from './icons/FactCheck';
 export { default as FamilyRestroom } from './icons/FamilyRestroom';
 export { default as Fastfood } from './icons/Fastfood';
