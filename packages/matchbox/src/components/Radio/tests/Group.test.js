@@ -7,24 +7,12 @@ describe('Checkbox Group', () => {
 
   it('renders a legend correctly', () => {
     const wrapper = subject({ label: 'test-label' });
-    expect(
-      wrapper
-        .find('legend')
-        .find('span')
-        .at(0)
-        .text(),
-    ).toEqual('test-label');
+    expect(wrapper.find('legend').text()).toEqual('test-label');
   });
 
   it('renders optional label correctly', () => {
     const wrapper = subject({ label: 'test-label', optional: true });
-    expect(
-      wrapper
-        .find('legend')
-        .find('span')
-        .at(1)
-        .text(),
-    ).toEqual('test-labelOptional');
+    expect(wrapper.find('legend').text()).toEqual('test-labelOptional');
   });
 
   it('renders a legend while hidden correctly', () => {
