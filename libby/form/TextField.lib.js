@@ -17,7 +17,7 @@ describe('TextField', () => {
   add('help text and error', () => (
     <TextField
       id="id"
-      error="You forgot an ID!"
+      error="You forgot an ID! You forgot an ID! You forgot an ID! ! You forgot an ID! You forgot an ID! ! You forgot an ID! You forgot an ID! ! You forgot an ID! You forgot an ID! You forgot an ID! You forgot an ID! You forgot an ID! You forgot an ID! You forgot an ID! You forgot an ID!"
       label="Template ID"
       helpText={
         <>
