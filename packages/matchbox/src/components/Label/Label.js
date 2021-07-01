@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { Inline } from '../Inline';
 import { deprecate } from '../../helpers/propTypes';
 
 function Label(props) {
@@ -39,11 +38,13 @@ function Label(props) {
       className={className}
       mb={mb}
     >
-      <Box as="span" lineHeight="200" fontSize="200">
-        <Inline space="200">
-          {label ? <span>{label}</span> : null}
-          {children ? <span>{children}</span> : null}
-        </Inline>
+      <Box as="div" lineHeight="200" fontSize="200">
+        {label ? (
+          <Box as="span" mr="200">
+            {label}
+          </Box>
+        ) : null}
+        {children ? <span>{children}</span> : null}
       </Box>
     </Box>
   );
