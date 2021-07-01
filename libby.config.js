@@ -21,12 +21,12 @@ module.exports = {
               },
             },
           },
-          // {
-          //   test: /\.m?js/,
-          //   resolve: {
-          //     fullySpecified: false, // See https://github.com/webpack/webpack/issues/11467
-          //   },
-          // },
+          {
+            test: /\.m?js/,
+            resolve: {
+              fullySpecified: false, // See https://github.com/webpack/webpack/issues/11467
+            },
+          },
           {
             test: /\.(jpe?g|png|gif|svg|webm|webp|mp4)$/,
             exclude: /node_modules/,

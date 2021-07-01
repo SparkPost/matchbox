@@ -58,7 +58,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
-    "@sparkpost/libby-react": "0.0.34",
+    "@sparkpost/libby-react": "0.0.37",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/react": "^11.2.6",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
@@ -113,8 +113,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-prettier": "^1.1.2",
     "stylelint-processor-styled-components": "^1.10.0",
-    "theo": "^8.1.5",
-    "webpack": "^4.46.0"
+    "theo": "^8.1.5"
   },
   "changelog": {
     "cacheDir": ".changelog",
