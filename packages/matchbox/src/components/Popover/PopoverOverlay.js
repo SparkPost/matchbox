@@ -28,7 +28,7 @@ function PopoverOverlay(props) {
 
   return (
     <>
-      {open && <WindowEvent event="resize" handler={handleMeasurement} />}
+      <WindowEvent event="resize" handler={handleMeasurement} />
       <Box
         as={as}
         // Inline block is required to measure and set height correctly on spans
