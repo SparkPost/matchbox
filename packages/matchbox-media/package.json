@@ -17,8 +17,5 @@
   },
   "homepage": "https://github.com/SparkPost/matchbox#readme",
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6",
-  "devDependencies": {
-    "imagemin": "^7.0.1",
-    "imagemin-webp": "^6.0.0"
-  }
+  "devDependencies": {}
 }
