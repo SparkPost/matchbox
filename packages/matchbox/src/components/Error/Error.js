@@ -13,9 +13,9 @@ function Error(props) {
         fontSize="200"
         lineHeight="200"
         display="inline-flex"
-        alignItems="center"
+        alignItems="flex-start"
       >
-        <Box as="span" display="inline-block" mr="100" lineHeight="0">
+        <Box as="span" display="inline-block" mr="100" pt="2px" lineHeight="0">
           <ErrorIcon size={14} label="Error" />
         </Box>
         <span>{error}</span>
