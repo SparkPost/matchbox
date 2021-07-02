@@ -1,5 +1,6 @@
 import React from 'react';
 import Group from '../Group';
+import { render } from 'test-utils';
 
 describe('Checkbox Group', () => {
   const subject = props => global.mountStyled(<Group {...props}>children</Group>);
@@ -33,5 +34,15 @@ describe('Checkbox Group', () => {
   it('renders with system props', () => {
     const wrapper = subject({ mb: '500' });
     expect(wrapper).toHaveStyleRule('margin-bottom', '1.5rem');
+  });
+
+  it('renders with a attributes', () => {
+    const { getByTestId, container } = render(
+      <Group data-id="test-id" className="test-class" label="test label">
+        children
+      </Group>,
+    );
+    expect(container.firstChild.classList.contains('test-class')).toBe(true);
+    expect(getByTestId('test-id')).toBeTruthy();
   });
 });
