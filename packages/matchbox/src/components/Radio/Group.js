@@ -17,11 +17,20 @@ const StyledGroup = styled('fieldset')`
 `;
 
 function Group(props) {
-  const { children, label, labelHidden, required, optional, ...rest } = props;
+  const {
+    'data-id': dataId,
+    children,
+    className,
+    label,
+    labelHidden,
+    required,
+    optional,
+    ...rest
+  } = props;
   const systemProps = pick(rest);
 
   return (
-    <StyledGroup {...systemProps} aria-required={required}>
+    <StyledGroup {...systemProps} aria-required={required} className={className} data-id={dataId}>
       {label && (
         <Box width="100%">
           <Label as="legend" labelHidden={labelHidden}>
@@ -40,6 +49,8 @@ function Group(props) {
 
 Group.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  'data-id': PropTypes.string,
   label: PropTypes.node.isRequired,
   labelHidden: PropTypes.bool,
   optional: PropTypes.bool,

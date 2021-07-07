@@ -34,4 +34,14 @@ describe('Checkbox Group', () => {
     expect(getByText('test label')).toBeTruthy();
     expect(getByText('Required')).toBeTruthy();
   });
+
+  it('renders with a attributes', () => {
+    const { getByTestId, container } = render(
+      <Group data-id="test-id" className="test-class" label="test label">
+        children
+      </Group>,
+    );
+    expect(container.firstChild.classList.contains('test-class')).toBe(true);
+    expect(getByTestId('test-id')).toBeTruthy();
+  });
 });
