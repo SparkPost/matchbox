@@ -1,4 +1,33 @@
 
+## 5.4.0 (2021-07-07)
+
+#### Enhancements
+* `matchbox`
+  * [#884](https://github.com/SparkPost/matchbox/pull/884) Closes [#879](https://github.com/SparkPost/matchbox/issues/879) & #880 – Support data-id and className in input groups ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`
+  * [#877](https://github.com/SparkPost/matchbox/pull/877) UX-583 add LinkedInSimple icon ([@logansparlin](https://github.com/logansparlin))
+  * [#876](https://github.com/SparkPost/matchbox/pull/876) UX-582 add FacebookSimple icon ([@logansparlin](https://github.com/logansparlin))
+
+#### Bug Fixes
+* `matchbox`
+  * [#886](https://github.com/SparkPost/matchbox/pull/886) UX-584 Fix Popover Overlay bug ([@logansparlin](https://github.com/logansparlin))
+  * [#882](https://github.com/SparkPost/matchbox/pull/882) Resloves #878 Fix error label icon alignment ([@jonambas](https://github.com/jonambas))
+  * [#875](https://github.com/SparkPost/matchbox/pull/875) UX-581 Fix Inline child being excluded from Banner component ([@logansparlin](https://github.com/logansparlin))
+  * [#868](https://github.com/SparkPost/matchbox/pull/868) UX-567 Fix floated optional labels ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* `matchbox-media`
+  * [#885](https://github.com/SparkPost/matchbox/pull/885) UX-589 Remove webp conversion script ([@jonambas](https://github.com/jonambas))
+* `design-tokens`, `matchbox-icons`, `matchbox`
+  * [#881](https://github.com/SparkPost/matchbox/pull/881) UX-587 Resolve security dependabot alerts ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#867](https://github.com/SparkPost/matchbox/pull/867) UX-568 Use theo instead of gulp-theo ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 5.3.0 (2021-06-10)
 
 #### Features
