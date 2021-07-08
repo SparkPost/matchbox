@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-media",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "Images and Videos for Matchbox",
   "main": "matchbox-media.js",
   "publishConfig": {
@@ -16,6 +16,5 @@
     "url": "https://github.com/SparkPost/matchbox/issues"
   },
   "homepage": "https://github.com/SparkPost/matchbox#readme",
-  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6",
-  "devDependencies": {}
+  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }
