@@ -81,7 +81,7 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
       <Popover
         bottom
         id="page-secondary-actions"
-        left={[false, null, true]}
+        position={['bottomRight', null, 'bottomLeft']}
         onClose={() => setIsOpen(false)}
         open={isOpen}
         trigger={
