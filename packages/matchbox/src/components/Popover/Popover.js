@@ -217,7 +217,10 @@ Popover.propTypes = {
   right: deprecate(PropTypes.bool, 'Use `position` instead'),
   top: deprecate(PropTypes.bool, 'Use `position` instead'),
   bottom: deprecate(PropTypes.bool, 'Use `position` instead'),
-  position: PropTypes.oneOf(['topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
+  position: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.oneOf(['topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
+  ]),
   /**
    * Callback function that is called when clicking outside the popover, or hitting escape.
    */
