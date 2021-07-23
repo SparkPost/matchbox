@@ -29,3 +29,5 @@ jobs:
         run: npm run test:unit:ci
       - name: E2E tests
         run: npm run test:e2e:ci
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
