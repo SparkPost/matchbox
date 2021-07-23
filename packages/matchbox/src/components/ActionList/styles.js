@@ -23,7 +23,7 @@ export const StyledLink = styled(UnstyledLink)`
   ${props => (props.isType ? buttonReset : '')}
   display: block;
   width: 100%;
-  padding: ${tokens.spacing_200} ${tokens.spacing_300};
+  padding: ${tokens.spacing_300} ${tokens.spacing_400};
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   transition-property: color, background;
   cursor: pointer;

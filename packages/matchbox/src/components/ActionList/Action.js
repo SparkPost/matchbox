@@ -12,7 +12,7 @@ const Action = React.forwardRef(function Action(props, userRef) {
   const linkContent = React.useMemo(() => {
     return (
       <Box as="span" alignItems="flex-start" display="flex">
-        <Box as="span" flex="1" fontSize="300" lineHeight="300">
+        <Box as="span" flex="1" fontSize="400" lineHeight="300">
           {content || children}
         </Box>
         {selected && (
