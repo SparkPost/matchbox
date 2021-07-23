@@ -54,6 +54,9 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.focused().should('not.exist');
     cy.contains('More Actions').click();
     cy.get('[data-id="popover-content"]').should('be.visible');
+
+    // Percy snapshot
+    cy.percySnapshot();
   });
 
   it('should toggle open with enter key', () => {
