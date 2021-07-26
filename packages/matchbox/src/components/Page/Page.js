@@ -148,9 +148,9 @@ function Page(props) {
 
   return (
     <div>
-      <Box mt={['500', null, '700']} mb={['300', null, '500']}>
+      <Box mt={['500', null, '700']} mb={['300', null, '450']}>
         {breadcrumbAction && (
-          <Box mb="500">
+          <Box mb="400">
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
@@ -159,9 +159,9 @@ function Page(props) {
             {title && (
               <Box
                 as="h1"
-                fontWeight="medium"
-                fontSize={['500', null, '600', '700']}
-                lineHeight={['500', null, '600', '700']}
+                fontWeight="semibold"
+                fontSize={['500', null, '600']}
+                lineHeight={['500', null, '600']}
               >
                 {title}
               </Box>

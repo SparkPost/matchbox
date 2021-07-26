@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Page, Panel, Button } from '@sparkpost/matchbox';
+import { Page, Panel, Button, Tabs, useTabs } from '@sparkpost/matchbox';
 import { Save } from '@sparkpost/matchbox-icons';
 
 const primaryAction = {
@@ -35,6 +35,18 @@ const breadcrumbAction = {
   content: 'Templates',
 };
 
+const tabs = [
+  {
+    content: 'Details',
+  },
+  {
+    content: 'More Details',
+  },
+  {
+    content: 'Example with long text',
+  },
+];
+
 describe('Page', () => {
   add('basic usage', () => (
     <Page
@@ -49,6 +61,24 @@ describe('Page', () => {
       </Panel>
     </Page>
   ));
+
+  add('with Tabs', () => {
+    const { getTabsProps } = useTabs({ tabs });
+    return (
+      <Page
+        primaryAction={primaryAction}
+        secondaryActions={secondaryActions}
+        breadcrumbAction={breadcrumbAction}
+        title="Template #3"
+        pb="0"
+      >
+        <Tabs {...getTabsProps()} mb="600" />
+        <Panel>
+          <Panel.Section>Content</Panel.Section>
+        </Panel>
+      </Page>
+    );
+  });
 
   add('with a single secondary action', () => (
     <Page
