@@ -289,6 +289,7 @@ export { default as CleaningServices } from './icons/CleaningServices';
 export { default as Clear } from './icons/Clear';
 export { default as ClearAll } from './icons/ClearAll';
 export { default as Close } from './icons/Close';
+export { default as CloseCircleOutline } from './icons/CloseCircleOutline';
 export { default as ClosedCaption } from './icons/ClosedCaption';
 export { default as ClosedCaptionDisabled } from './icons/ClosedCaptionDisabled';
 export { default as CloseFullscreen } from './icons/CloseFullscreen';
