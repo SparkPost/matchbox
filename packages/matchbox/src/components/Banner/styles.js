@@ -41,7 +41,7 @@ export function container(props) {
 export function childLinks(props) {
   return `
   p, ul, ol {
-    font-size: ${props.size === 'small' ? props.theme.fontSizes['200'] : null};
+    font-size: ${props.theme.fontSizes[200]};
   a, a: visited {
     color: ${tokens.color_blue_800};
       &: hover {
