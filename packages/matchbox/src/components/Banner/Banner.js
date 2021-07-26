@@ -27,27 +27,17 @@ function IconSection({ status, size }) {
 
   return (
     <Box
-      position="relative"
       display="flex"
       flexShrink="0"
       alignItems="center"
       justifyContent="center"
       width={iconSize}
       height={iconSize}
+      color={fillColor}
       mr="300"
-      mt={size === 'large' ? '3px' : null}
+      mt={size === 'large' ? '4px' : '2px'}
     >
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        width={iconSize}
-        height={iconSize}
-        borderRadius="circle"
-      />
-      <Box position="relative" color={fillColor}>
-        <Icon size={size === 'large' ? 24 : 20} label={statusIcon.iconLabel} />
-      </Box>
+      <Icon size={size === 'large' ? 24 : 20} label={statusIcon.iconLabel} />
     </Box>
   );
 }
