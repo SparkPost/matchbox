@@ -57,29 +57,25 @@ export const statusIcons = {
     iconName: CheckCircleOutline,
     iconLabel: 'Success',
     bg: 'green.600',
-    fill: 'white',
-    fillMobile: 'green.700',
+    fill: 'green.700',
   },
   info: {
     iconName: InfoOutline,
     iconLabel: 'Info',
     bg: 'blue.700',
-    fill: 'white',
-    fillMobile: 'blue.700',
+    fill: 'blue.700',
   },
   warning: {
     iconName: ReportProblemOutlined,
     iconLabel: 'Warning',
     bg: 'yellow.300',
     fill: 'yellow.700',
-    fillMobile: 'yellow.700',
   },
   danger: {
     iconName: ErrorOutline,
     iconLabel: 'Error',
     bg: 'red.700',
-    fill: 'white',
-    fillMobile: 'red.700',
+    fill: 'red.700',
   },
 };
 

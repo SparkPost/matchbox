@@ -22,11 +22,8 @@ function IconSection({ status, size }) {
   }, [statusIcons, status]);
 
   const Icon = statusIcon.iconName;
-
-  const iconSize = size === 'large' ? '3rem' : '1rem';
-  const bgColor = size === 'large' ? statusIcon.bg : null;
-  const fillColor = size === 'large' ? statusIcon.fill : statusIcon.fillMobile;
-  const iconMargin = size === 'large' ? '500' : '300';
+  const iconSize = '450';
+  const fillColor = statusIcon.fill;
 
   return (
     <Box
@@ -37,8 +34,8 @@ function IconSection({ status, size }) {
       justifyContent="center"
       width={iconSize}
       height={iconSize}
-      mr={iconMargin}
-      mt={size === 'large' ? null : '2px'}
+      mr="300"
+      mt={size === 'large' ? '3px' : null}
     >
       <Box
         position="absolute"
@@ -47,10 +44,9 @@ function IconSection({ status, size }) {
         width={iconSize}
         height={iconSize}
         borderRadius="circle"
-        bg={bgColor}
       />
       <Box position="relative" color={fillColor}>
-        <Icon size={size === 'large' ? 30 : 20} label={statusIcon.iconLabel} />
+        <Icon size={size === 'large' ? 24 : 20} label={statusIcon.iconLabel} />
       </Box>
     </Box>
   );
@@ -87,8 +83,8 @@ const Banner = React.forwardRef(function Banner(props, userRef) {
   const systemProps = pick(rest, margin.propNames);
 
   const titleMarkup = title ? (
-    <Box pt={status !== 'muted' ? ['300', null, '200'] : null} mb="200">
-      <Text fontSize={['400', null, '500']} lineHeight={['400', null, '500']} as="h5">
+    <Box mb="200">
+      <Text fontSize="400" lineHeight="400" as="h5">
         {title}
       </Text>
     </Box>
@@ -149,7 +145,7 @@ const Banner = React.forwardRef(function Banner(props, userRef) {
     <StyledContainer
       display="flex"
       flexWrap={['wrap', null, 'nowrap']}
-      p={size === 'large' ? '500' : '300'}
+      p={size === 'large' ? '450' : '300'}
       py={size === 'large' ? null : '200'}
       borderRadius="100"
       status={status}
