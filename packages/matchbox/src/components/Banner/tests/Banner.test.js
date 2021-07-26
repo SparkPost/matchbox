@@ -68,20 +68,6 @@ describe('Banner', () => {
     expect(wrapper.find('img').props().src).toEqual('/test.jpg');
   });
 
-  it('renders responsive styles correctly', () => {
-    let wrapper = subject();
-    // targets content container
-    expect(wrapper.find('Box').at(3)).toHaveStyleRule('flex-basis', '100%');
-    expect(wrapper.find('Box').at(3)).toHaveStyleRule('order', '1');
-    const media = 'screen and (min-width:800px)';
-    expect(wrapper.find('Box').at(3)).toHaveStyleRule('flex-basis', 'auto', { media });
-    expect(wrapper.find('Box').at(3)).toHaveStyleRule('order', '0', { media });
-
-    // targets dismiss
-    expect(wrapper.find('Box').at(8)).toHaveStyleRule('flex', '1');
-    expect(wrapper.find('Box').at(8)).toHaveStyleRule('flex', '0', { media });
-  });
-
   it('dismisses banner correctly upon clicking dismiss icon', () => {
     let wrapper = subject();
     wrapper
