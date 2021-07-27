@@ -57,7 +57,7 @@ describe('Panel', () => {
     <Panel accent="gray">
       <Panel.Header>
         <Panel.Action>Action</Panel.Action>
-        <Panel.Action>Action</Panel.Action>
+        <Panel.Action color="red">Action</Panel.Action>
         Header Header Header Header Header Header
       </Panel.Header>
       <Panel.Section>
