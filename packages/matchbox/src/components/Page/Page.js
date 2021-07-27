@@ -18,7 +18,7 @@ const StyledLink = styled(UnstyledLink)`
 
 function Breadcrumb({ content, ...rest }) {
   return (
-    <StyledLink {...rest} fontSize="200" lineHeight="80px" fontWeight="medium">
+    <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
       <Box as="span" display="inline-flex" alignItems="center">
         <ChevronLeft size="20" />
         {content}
@@ -150,7 +150,7 @@ function Page(props) {
     <div>
       <Box mt={['500', null, '700']} mb={['300', null, '450']}>
         {breadcrumbAction && (
-          <Box mb="400">
+          <Box mb="600">
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
