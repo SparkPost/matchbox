@@ -1,4 +1,15 @@
 
+## 5.5.0 (2021-07-27)
+
+#### Features
+* `matchbox`
+  * [#895](https://github.com/SparkPost/matchbox/pull/895) Closes [#894](https://github.com/SparkPost/matchbox/issues/894) Support color in panel actions ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`
+  * [#893](https://github.com/SparkPost/matchbox/pull/893) UX-601 Add CloseCircleOutline icon ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
 ## 5.4.0 (2021-07-07)
 
 #### Enhancements
