@@ -18,7 +18,7 @@ export const tabStyles = ({ selected, fitted }) => `
   outline: none;
   
   padding: 0 ${tokens.spacing_400};
-  margin-left: ${tokens.sizing_200};
+  margin-left: ${fitted ? '0' : tokens.sizing_200};
 
   &:first-child {
     margin-left: 0;
