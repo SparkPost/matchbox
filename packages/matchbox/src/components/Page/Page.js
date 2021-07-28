@@ -18,7 +18,7 @@ const StyledLink = styled(UnstyledLink)`
 
 function Breadcrumb({ content, ...rest }) {
   return (
-    <StyledLink {...rest} fontSize="200" lineHeight="80px" fontWeight="medium">
+    <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
       <Box as="span" display="inline-flex" alignItems="center">
         <ChevronLeft size="20" />
         {content}
@@ -147,20 +147,20 @@ function Page(props) {
 
   return (
     <div>
-      <Box mt={['500', null, '700']} mb={['300', null, '500']}>
+      <Box mt={['500', null, '700']} mb={['300', null, '450']}>
         {breadcrumbAction && (
-          <Box mb="500">
+          <Box mb="600">
             <Breadcrumb {...breadcrumbAction} />
           </Box>
         )}
-        <Box display={[null, 'block', 'flex']} alignItems="flex-start">
+        <Box display={[null, 'block', 'flex']} alignItems="center">
           <Box flex="1">
             {title && (
               <Box
                 as="h1"
-                fontWeight="medium"
-                fontSize={['500', null, '600', '700']}
-                lineHeight={['500', null, '600', '700']}
+                fontWeight="semibold"
+                fontSize={['500', null, '600']}
+                lineHeight={['500', null, '600']}
               >
                 {title}
               </Box>
@@ -172,7 +172,7 @@ function Page(props) {
             display="flex"
             flexDirection={['row-reverse', null, 'row']}
             justifyContent="flex-end"
-            mt={['400', null, '300']}
+            mt={['400', null, '0']}
             mb={['400', null, '0']}
           >
             <SecondaryActions

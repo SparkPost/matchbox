@@ -17,13 +17,21 @@ export const tabStyles = ({ selected, fitted }) => `
   text-decoration: none;
   outline: none;
   
-  padding: 0 ${tokens.spacing_200};
-  margin: 0 ${!fitted ? `${tokens.sizing_450}` : `${tokens.sizing_200}`};
+  padding: 0 ${tokens.spacing_400};
+  margin-left: ${fitted ? '0' : tokens.sizing_200};
 
-  font-size: ${tokens.fontSize_200};
+  &:first-child {
+    margin-left: 0;
+  }
+
+  font-size: ${tokens.fontSize_300};
   font-weight: ${tokens.fontWeight_medium};
-  line-height: ${tokens.sizing_750};
+  line-height: ${tokens.sizing_650};
   white-space: nowrap;
+
+  background: ${selected ? tokens.color_blue_200 : 'transparent'};
+  border-radius: ${tokens.borderRadius_200} ${tokens.borderRadius_200} 0 0;
+  transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 
   &, &:visited {
     color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
@@ -39,15 +47,22 @@ export const tabStyles = ({ selected, fitted }) => `
   }
 
   &:before {
-    height: ${tokens.spacing_100};
+    height: 1px;
     background: ${selected ? tokens.color_blue_700 : 'transparent'};
     transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   }
-
+  
   &:hover {
-    ${!selected ? `color: ${tokens.color_gray_900};` : ''};
+    ${
+      !selected
+        ? `
+      color: ${tokens.color_gray_900};
+      background: ${tokens.color_gray_200};
+    `
+        : ''
+    };
     &:before {
-      ${!selected ? `background: ${tokens.color_gray_400};` : ''}
+      ${!selected ? `background: ${tokens.color_gray_700};` : ''}
     }
   }
   
@@ -69,5 +84,5 @@ export const overflowTabs = ({ isOverflowing }) => `
 
 export const containerStyles = () => `
   position: relative;
-  height: ${tokens.sizing_750};
+  height: ${tokens.sizing_650};
 `;
