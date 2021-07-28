@@ -11,8 +11,8 @@ function log(message, logLevel = 'warn') {
  */
 function deprecate(propType, message, logLevel = 'warn') {
   function validate(props, propName, componentName, ...rest) {
-    if (props[propName] != null && process.env.NODE_ENV !== 'production') {
-      const warning = `Matchbox: Deprecated prop "${propName}" of "${componentName}"\n${message}`;
+    if (props[propName] != null && process.env.NODE_ENV === 'development') {
+      const warning = `[Matchbox Deprecation]: Deprecated prop "${propName}" of "${componentName}"\n${message}`;
       if (!warned[warning]) {
         warned[warning] = true;
         log(warning, logLevel);

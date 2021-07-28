@@ -14,29 +14,70 @@ const StyledContent = styled('div')`
   ${system}
   ${content}
   ${transition}
-  ${'' /* TODO Expand this to include top and bottom */}
   ${variant({
     variants: {
-      isLeft: {
+      bottomLeft: {
         right: '0',
         left: 'auto',
+        top: '100%',
+        bottom: 'auto',
+        mt: '100',
       },
-      isRight: {
+      bottomRight: {
         left: '0',
         right: 'auto',
+        top: '100%',
+        bottom: 'auto',
+        mt: '100',
+      },
+      topRight: {
+        left: '0',
+        right: 'auto',
+        top: 'auto',
+        bottom: '100%',
+        mb: '100',
+      },
+      topLeft: {
+        right: '0',
+        left: 'auto',
+        top: 'auto',
+        bottom: '100%',
+        mb: '100',
       },
     },
   })}
 `;
 
+function getPositionFromDeprecatedProps({ top, left }) {
+  if (left && !top) {
+    return 'bottomLeft';
+  }
+
+  if (!left && !top) {
+    return 'bottomRight';
+  }
+
+  if (left && top) {
+    return 'topLeft';
+  }
+
+  if (!left && top) {
+    return 'topRight';
+  }
+}
+
 const Content = React.forwardRef(function Content(props, userRef) {
   const {
     children,
     open,
+
+    // TODO: to be removed
     top = false,
     left = false,
     bottom = true,
-    // right = true,
+
+    // TODO: default to bottomRight when other deprecated props are removed
+    position,
     sectioned,
     className = '',
     trigger,
@@ -45,17 +86,10 @@ const Content = React.forwardRef(function Content(props, userRef) {
   } = props;
 
   const transitionRef = React.useRef();
-
   const systemProps = pick(rest);
 
-  // Allows for responsive positioning arrays
-  const horizontalPosition = React.useMemo(() => {
-    if (typeof left === 'object') {
-      return left.map(bool => (bool ? 'isLeft' : 'isRight'));
-    }
-
-    return left ? 'isLeft' : 'isRight';
-  });
+  // TODO: Remove in future
+  const variant = position || getPositionFromDeprecatedProps({ top, left, bottom });
 
   return (
     <Transition
@@ -75,9 +109,9 @@ const Content = React.forwardRef(function Content(props, userRef) {
             className={className}
             p={sectioned ? '400' : null}
             minWidth="13rem" // 208px
-            isTop={top}
-            isBottom={bottom}
-            variant={horizontalPosition}
+            variant={variant}
+            // TODO: remove in future, isTop is still needed for animation
+            isTop={variant.includes('top')}
             state={state}
             {...style}
             {...systemProps}

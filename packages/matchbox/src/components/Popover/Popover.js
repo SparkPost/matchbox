@@ -213,10 +213,14 @@ Popover.propTypes = {
    * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
    */
   open: PropTypes.bool,
-  left: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
-  right: PropTypes.bool,
-  top: PropTypes.bool,
-  bottom: PropTypes.bool,
+  left: deprecate(PropTypes.bool, 'Use `position` instead'),
+  right: deprecate(PropTypes.bool, 'Use `position` instead'),
+  top: deprecate(PropTypes.bool, 'Use `position` instead'),
+  bottom: deprecate(PropTypes.bool, 'Use `position` instead'),
+  position: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.oneOf(['topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
+  ]),
   /**
    * Callback function that is called when clicking outside the popover, or hitting escape.
    */

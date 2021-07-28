@@ -82,6 +82,20 @@ describe('Popover', () => {
     </Popover>
   ));
 
+  add('works with system props', () => (
+    <>
+      <Popover
+        id="test-popover"
+        p={['300', null, null, '700']}
+        width={['10rem', null, null, '30rem']}
+        height={['10rem', null, null, '14rem']}
+        trigger={<Button aria-describedby="test-popover">Button</Button>}
+      >
+        Popover Content
+      </Popover>
+    </>
+  ));
+
   add('positioning', () => (
     <>
       <Box display="flex">
@@ -98,8 +112,7 @@ describe('Popover', () => {
           <Popover
             id="test-popover-2"
             p="200"
-            bottom
-            left
+            position="bottomLeft"
             trigger={<Button aria-describedby="test-popover-2">Bottom & Left</Button>}
           >
             Bottom & Left
@@ -111,7 +124,7 @@ describe('Popover', () => {
           <Popover
             id="test-popover-3"
             p="200"
-            top
+            position="topRight"
             trigger={<Button aria-describedby="test-popover-3">Top & Right</Button>}
           >
             Top & Right
@@ -121,28 +134,74 @@ describe('Popover', () => {
           <Popover
             id="test-popover-4"
             p="200"
-            top
-            left
+            position="topLeft"
             trigger={<Button aria-describedby="test-popover-4">Top & Left</Button>}
           >
             Top & Left
           </Popover>
         </Box>
       </Box>
-    </>
-  ));
 
-  add('works with system props', () => (
-    <>
       <Popover
-        id="test-popover"
-        p={['300', null, null, '700']}
-        width={['10rem', null, null, '30rem']}
-        height={['10rem', null, null, '14rem']}
-        trigger={<Button aria-describedby="test-popover">Button</Button>}
+        id="test-popover-5"
+        p="200"
+        position={['bottomRight', 'bottomLeft', 'topLeft', 'topRight']}
+        trigger={<Button aria-describedby="test-popover-5">Responsive positioning</Button>}
       >
-        Popover Content
+        bottomRight, bottomLeft, topLeft, topRight
       </Popover>
     </>
   ));
+
+  describe('deprecated', () => {
+    add('positioning', () => (
+      <>
+        <Box display="flex">
+          <Box flex="1">
+            <Popover
+              id="test-popover-1"
+              sectioned
+              trigger={<Button aria-describedby="test-popover-1">Default</Button>}
+            >
+              Bottom & Right
+            </Popover>
+          </Box>
+          <Box flex="0">
+            <Popover
+              id="test-popover-2"
+              p="200"
+              bottom
+              left
+              trigger={<Button aria-describedby="test-popover-2">Bottom & Left</Button>}
+            >
+              Bottom & Left
+            </Popover>
+          </Box>
+        </Box>
+        <Box display="flex" mt="800">
+          <Box flex="1">
+            <Popover
+              id="test-popover-3"
+              p="200"
+              top
+              trigger={<Button aria-describedby="test-popover-3">Top & Right</Button>}
+            >
+              Top & Right
+            </Popover>
+          </Box>
+          <Box flex="0">
+            <Popover
+              id="test-popover-4"
+              p="200"
+              top
+              left
+              trigger={<Button aria-describedby="test-popover-4">Top & Left</Button>}
+            >
+              Top & Left
+            </Popover>
+          </Box>
+        </Box>
+      </>
+    ));
+  });
 });

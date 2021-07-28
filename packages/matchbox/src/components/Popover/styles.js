@@ -6,11 +6,6 @@ export const content = props => `
   border: ${props.theme.borders['300']};
   border-radius: ${tokens.borderRadius_100};
   box-shadow: ${tokens.boxShadow_100};
-  margin-top: ${props.isTop ? tokens.spacing_0 : tokens.spacing_100};
-  margin-bottom: ${props.isTop ? tokens.spacing_100 : tokens.spacing_0};
-
-  top: ${props.isTop ? 'auto' : '100%'};
-  bottom: ${!props.isTop ? 'auto' : '100%'};
 `;
 
 export const transition = props => {
