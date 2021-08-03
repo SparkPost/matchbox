@@ -52,7 +52,8 @@
     "react-syntax-highlighter": "^15.3.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -113,7 +114,8 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-prettier": "^1.1.2",
     "stylelint-processor-styled-components": "^1.10.0",
-    "theo": "^8.1.5"
+    "theo": "^8.1.5",
+    "ts-loader": "^9.2.4"
   },
   "changelog": {
     "cacheDir": ".changelog",

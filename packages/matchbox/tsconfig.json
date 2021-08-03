@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES6",
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "outDir": "typescript",
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "resolveJsonModule": true,
+    "jsx": "react",
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+  ],
+  "exclude": [
+    "node_modules",
+    "./typescript",
+  ]
+}
+  
