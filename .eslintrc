@@ -21,7 +21,7 @@
     ],
     "react/prop-types": 1
   },
-  "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended" ],
   "plugins": ["lodash", "jest", "prettier"],
   "overrides": [
     {
@@ -29,6 +29,14 @@
       "rules": {
         "max-lines": "off"
       }
+    },
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ]
     }
   ]
 }
