@@ -1,4 +1,4 @@
-name: Unit and Cypress Tests
+name: Unit Tests
 
 on:
   push:
@@ -27,5 +27,3 @@ jobs:
         run: npm run pretest:ci
       - name: Unit tests
         run: npm run test:unit:ci
-      - name: E2E tests
-        run: npm run test:e2e:ci
