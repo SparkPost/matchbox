@@ -1,4 +1,4 @@
-name: Unit and Cypress Tests
+name: Unit Tests
 
 on:
   push:
