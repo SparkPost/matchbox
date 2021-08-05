@@ -1,4 +1,4 @@
-name: Unit and Cypress Tests
+name: Cypress Tests
 
 on:
   push:
@@ -25,7 +25,5 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Prepare tests
         run: npm run pretest:ci
-      - name: Unit tests
-        run: npm run test:unit:ci
       - name: E2E tests
         run: npm run test:e2e:ci
