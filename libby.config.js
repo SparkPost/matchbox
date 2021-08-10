@@ -27,6 +27,13 @@ module.exports = {
             },
           },
           {
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'ts-loader',
+            },
+          },
+          {
             test: /\.m?js/,
             resolve: {
               fullySpecified: false, // See https://github.com/webpack/webpack/issues/11467
