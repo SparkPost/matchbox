@@ -4,6 +4,7 @@
     "browser": true,
     "jest": true
   },
+
   "settings": {
     "react": {
       "version": "detect"
@@ -29,6 +30,11 @@
       "rules": {
         "max-lines": "off"
       }
+    },
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint"]
     }
   ]
 }

@@ -4,7 +4,7 @@ import jsPlugins from './plugins/js';
 import pkg from '../package.json';
 
 export const inputOptions = {
-  input: 'src/index.ts',
+  input: 'src/index.tsx',
   plugins: [...jsPlugins],
   external: [
     'copy-to-clipboard',
