@@ -61,6 +61,7 @@
     "@sparkpost/libby-react": "0.0.40",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/react": "^11.2.6",
+    "@types/jest": "^26.0.24",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
     "autoprefixer": "^8.4.1",
     "babel-eslint": "^10.1.0",
@@ -113,7 +114,8 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-prettier": "^1.1.2",
     "stylelint-processor-styled-components": "^1.10.0",
-    "theo": "^8.1.5"
+    "theo": "^8.1.5",
+    "ts-jest": "^27.0.4"
   },
   "changelog": {
     "cacheDir": ".changelog",
