@@ -18,11 +18,10 @@
     "/.cache/",
     "/cypress/"
   ],
-  "testEnvironment": "node",
+  "testEnvironment": "jsdom",
   "testURL": "http://localhost",
   "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.(js|jsx)$": "babel-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
     "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
   },
