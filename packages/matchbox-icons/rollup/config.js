@@ -13,9 +13,11 @@ export const outputOptions = [
   {
     format: 'cjs',
     file: pkg.main,
+    sourcemap: true,
   },
   {
     format: 'esm',
     file: pkg.module,
+    sourcemap: true,
   },
 ];

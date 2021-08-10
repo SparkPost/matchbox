@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES6",
+    "target": "es6",
     "lib": ["es6", "dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "declarationDir": "./dist",
+    "declarationDir": "./",
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
@@ -19,5 +19,5 @@
     "jsx": "react"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js"],
-  "exclude": ["node_modules", "./dist"]
+  "exclude": ["node_modules", "./dist", "src/**/*.test.js"]
 }

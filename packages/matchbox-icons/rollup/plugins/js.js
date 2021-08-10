@@ -3,7 +3,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 export default [
@@ -17,7 +17,5 @@ export default [
     plugins: ['@babel/proposal-object-rest-spread', '@babel/proposal-class-properties'],
   }),
   terser(),
-  typescript({
-    useTsconfigDeclarationDir: true,
-  }),
+  typescript({ tsconfig: './tsconfig.json' }),
 ];
