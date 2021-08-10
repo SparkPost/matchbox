@@ -16,11 +16,10 @@
     "access": "public"
   },
   "files": [
-    "matchbox.js",
-    "matchbox.esm.js"
+    "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "prepublishOnly": "npm run build",
     "watch": "rollup -cw"
   },
@@ -61,6 +60,7 @@
     "react": "^17.0.1",
     "react-day-picker": "^7.4.8",
     "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.45.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",

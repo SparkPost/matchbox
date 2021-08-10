@@ -20,8 +20,7 @@
   "homepage": "https://github.com/SparkPost/matchbox/tree/master/packages/matchbox-icons#readme",
   "sideEffects": false,
   "files": [
-    "matchbox-icons.js",
-    "matchbox-icons.esm.js"
+    "dist"
   ],
   "scripts": {
     "build": "rimraf dist && rollup -c",
