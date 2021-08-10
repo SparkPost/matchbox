@@ -1,27 +1,21 @@
 'use strict';
 
 import jsPlugins from './plugins/js';
-import pkg from '../package.json'
+import pkg from '../package.json';
 
 export const inputOptions = {
-  input: 'src/index.js',
-  plugins: [
-    ...jsPlugins
-  ],
-  external: [
-    'react',
-    'react-dom',
-    'prop-types'
-  ]
-}
+  input: 'src/index.ts',
+  plugins: [...jsPlugins],
+  external: ['react', 'react-dom', 'prop-types'],
+};
 
 export const outputOptions = [
   {
     format: 'cjs',
-    file: pkg.main
+    file: pkg.main,
   },
   {
     format: 'esm',
-    file: pkg.module
-  }
-]
+    file: pkg.module,
+  },
+];

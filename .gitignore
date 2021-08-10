@@ -32,3 +32,5 @@ storybook-static
 # changelog 
 .changelog
 .temp_changes.md
+
+dist

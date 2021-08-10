@@ -5,22 +5,13 @@ class IconBase extends Component {
   static displayName = 'IconBase';
 
   static defaultProps = {
-    size: 18
+    size: 18,
   };
 
   static propTypes = {
-    size: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    width: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    height: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
+    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string,
     viewBox: PropTypes.string,
     /** FileType icon only */
@@ -28,8 +19,8 @@ class IconBase extends Component {
     /** FileType icon only */
     textFill: PropTypes.string,
     /** FileType icon only */
-    textProps: PropTypes.object
-  }
+    textProps: PropTypes.object,
+  };
 
   render() {
     const {
@@ -45,13 +36,13 @@ class IconBase extends Component {
 
     const styleProp = {
       verticalAlign: 'middle',
-      ...style
+      ...style,
     };
 
     return (
       <svg
-        fill='currentColor'
-        preserveAspectRatio='xMidYMid meet'
+        fill="currentColor"
+        preserveAspectRatio="xMidYMid meet"
         viewBox={viewBox}
         width={width || size}
         height={height || size}
@@ -59,7 +50,8 @@ class IconBase extends Component {
         role={label && 'img'}
         aria-hidden={label ? 'false' : 'true'}
         {...rest}
-        style={styleProp}>
+        style={styleProp}
+      >
         {children}
       </svg>
     );
@@ -67,28 +59,15 @@ class IconBase extends Component {
 }
 
 export function createSvgIcon(path, displayName) {
-  const Icon = (props) => (
-    <IconBase {...props}>{path}</IconBase>
-  );
+  const Icon = props => <IconBase {...props}>{path}</IconBase>;
 
   Icon.displayName = displayName;
 
   return Icon;
 }
 
-export function createExtendedSvgIcon({
-  displayName,
-  path,
-  text,
-  textContainer,
-  viewBox
-}) {
-  const Icon = ({
-    text,
-    textFill = 'white',
-    textProps,
-    ...props
-  }) => (
+export function createExtendedSvgIcon({ displayName, path, text, textContainer, viewBox }) {
+  const Icon = ({ text, textFill = 'white', textProps, ...props }) => (
     <IconBase viewBox={viewBox} {...props}>
       {path}
       <text fill={textFill} {...textContainer} {...textProps}>
