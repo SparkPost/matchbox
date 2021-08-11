@@ -1,56 +1,69 @@
 import React from 'react';
 import IconBase, { createSvgIcon, createExtendedSvgIcon } from '../IconBase';
-import { shallow } from 'enzyme';
+import { render } from 'test-utils';
 
 describe('IconBase', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<IconBase><g><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" /></g></IconBase>);
-  });
-
   it('renders children correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(
+      <IconBase>
+        <path
+          id="test-id"
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </IconBase>,
+    );
+    expect(container.querySelector('#test-id')).toBeTruthy();
+    expect(container.querySelector('[width="18"]')).toBeTruthy();
+    expect(container.querySelector('[height="18"]')).toBeTruthy();
+    expect(container.querySelector('[aria-hidden="true"]')).toBeTruthy();
   });
 
-  it('renders size correctly', () => {
-    wrapper.setProps({ size: 10 });
-    expect(wrapper.instance().props.size).toEqual(10);
-
-    wrapper.setProps({ size: null, width: 16, height: 15 });
-    expect(wrapper.instance().props.width).toEqual(16);
-    expect(wrapper.instance().props.height).toEqual(15);
+  it('renders with size correctly', () => {
+    const { container } = render(
+      <IconBase size={24}>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+      </IconBase>,
+    );
+    expect(container.querySelector('[width="24"]')).toBeTruthy();
+    expect(container.querySelector('[height="24"]')).toBeTruthy();
   });
 
   it('renders an accessible label when the label prop has a value', () => {
-    wrapper.setProps({ label: 'Hello, world' });
-
-    expect(wrapper.instance().props.label).toEqual('Hello, world');
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(
+      <IconBase label="Hello">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+      </IconBase>,
+    );
+    expect(container.querySelector('[aria-label="Hello"]')).toBeTruthy();
+    expect(container.querySelector('[aria-hidden="false"]')).toBeTruthy();
+    expect(container.querySelector('[role="img"]')).toBeTruthy();
   });
 });
 
 describe('createSvgIcon', () => {
   it('creates an Icon correctly', () => {
-    const Icon = createSvgIcon(<path d="a path" />, 'TestIcon');
-    expect(shallow(<Icon />)).toMatchSnapshot();
+    const Icon = createSvgIcon(<path id="test-id" d="a path" />, 'TestIcon');
+    const { container } = render(<Icon />);
+    expect(container.querySelector('#test-id')).toBeTruthy();
   });
 });
 
 describe('createExtendedSvgIcon', () => {
   it('creates an extended Icon correctly', () => {
     const Icon = createExtendedSvgIcon({
-      path: <path d="a path"/>,
+      path: <path id="test-id" d="a path" />,
       displayName: 'TextIcon',
       viewBox: '0 0 100 100',
       textContainer: {
         x: '22',
         y: '62',
-        fontSize: '24'
-      }
+        fontSize: '24',
+      },
     });
-    expect(shallow(
-      <Icon text='test text' textFill='white' textProps={{ stroke: 'black' }} />
-    )).toMatchSnapshot();
+    const { container, getByText } = render(
+      <Icon text="test text" textFill="white" textProps={{ stroke: 'black' }} />,
+    );
+    expect(container.querySelector('#test-id')).toBeTruthy();
+    expect(getByText('test text')).toBeTruthy();
   });
 });
