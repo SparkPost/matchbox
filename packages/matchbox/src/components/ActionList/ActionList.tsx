@@ -5,7 +5,7 @@ import { createPropTypes } from '@styled-system/prop-types';
 import { margin, layout, compose, LayoutProps, MarginProps } from 'styled-system';
 import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
-import Section, { SectionProps } from './Section';
+import Section from './Section';
 import Action, { ActionProps } from './Action';
 import { onKey } from '../../helpers/keyEvents';
 

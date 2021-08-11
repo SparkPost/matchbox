@@ -3,10 +3,8 @@
     "baseUrl": ".",
     "target": "es6",
     "lib": ["es6", "dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "sourceMap": true,
+    "allowJs": false,
     "skipLibCheck": true,
-    "outDir": "./dist",
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
@@ -17,6 +15,6 @@
     "resolveJsonModule": true,
     "jsx": "react"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js"],
-  "exclude": ["node_modules", "./dist", "src/**/*.test.js"]
+  "include": ["libby/**/*.ts", "libby/**/*.tsx", "libby/**/*.js"],
+  "exclude": ["node_modules", "dist", "src/**/*.test.js"]
 }
