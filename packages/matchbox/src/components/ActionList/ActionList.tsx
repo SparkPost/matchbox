@@ -2,12 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { createPropTypes } from '@styled-system/prop-types';
-import { margin, layout, compose } from 'styled-system';
+import { margin, layout, compose, LayoutProps, MarginProps } from 'styled-system';
 import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
-import Section from './Section';
-import Action from './Action';
+import Section, { SectionProps } from './Section';
+import Action, { ActionProps } from './Action';
 import { onKey } from '../../helpers/keyEvents';
+
+interface Props extends React.ComponentPropsWithoutRef<'div'>, LayoutProps, MarginProps {
+  children?: React.ReactNode;
+
+  /**
+   * @deprecated Use the ActionList.Action component instead
+   */
+  actions?: ActionProps[];
+
+  /**
+   * @deprecated Use the ActionList.Section component instead
+   */
+  sections?: ActionProps[][];
+
+  /**
+   * @deprecated Use the ActionList.Section component instead
+   */
+  groupByKey?: string;
+  maxHeight?: string | number;
+  'aria-labelledby'?: string;
+  'data-id'?: string;
+}
 
 const system = compose(margin, layout);
 const Wrapper = styled('div')`
@@ -38,14 +60,14 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
 
   const listMarkup = list.map((section, index) => <Section section={section} key={index} />);
 
-  const wrapperRef = React.useRef();
+  const wrapperRef = React.useRef(null);
   const [focusableItemList, setFocusableItemList] = React.useState([]);
 
   const [focusIndex, setFocusIndex] = React.useState(0);
 
   // Creates a list of focusable links or buttons inside the actionlist
   React.useEffect(() => {
-    if (wrapperRef && wrapperRef.current) {
+    if (!!wrapperRef && wrapperRef.current) {
       setFocusableItemList(wrapperRef.current.querySelectorAll('[role="menuitem"]'));
     }
   }, []);
@@ -86,7 +108,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
   function assignRefs(node) {
     wrapperRef.current = node;
     if (userRef) {
-      userRef.current = node;
+      (userRef as React.MutableRefObject<HTMLDivElement>).current = node;
     }
   }
 
@@ -108,7 +130,10 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
       {children}
     </Wrapper>
   );
-});
+}) as React.ForwardRefExoticComponent<Props> & {
+  Section: typeof Section;
+  Action: typeof Action;
+};
 
 ActionList.displayName = 'ActionList';
 ActionList.propTypes = {

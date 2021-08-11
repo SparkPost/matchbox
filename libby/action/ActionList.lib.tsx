@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { ActionList, Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
+import { Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
+import { ActionList } from '../../packages/matchbox/src';
 
 describe('ActionList', () => {
   add('within Popovers', () => {
@@ -111,8 +112,12 @@ describe('ActionList', () => {
     <Box maxWidth="20rem">
       <Panel>
         <ActionList m="400" width={1 / 2}>
-          <ActionList.Action to="#">Action1</ActionList.Action>
-          <ActionList.Action to="#">Action2</ActionList.Action>
+          <ActionList.Action is="link" to="#">
+            Action1
+          </ActionList.Action>
+          <ActionList.Action is="link" to="#">
+            Action2
+          </ActionList.Action>
         </ActionList>
       </Panel>
     </Box>

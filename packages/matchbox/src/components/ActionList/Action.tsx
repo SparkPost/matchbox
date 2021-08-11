@@ -6,14 +6,56 @@ import { Box } from '../Box';
 import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
 
-const Action = React.forwardRef(function Action(props, userRef) {
-  const { content, children, disabled, helpText, is = 'link', selected, ...action } = props;
+type BaseProps = {
+  children?: React.ReactNode;
+  disabled?: boolean;
+  helpText?: React.ReactNode;
+  highlighted?: boolean;
+
+  /**
+   * @deprecated Use Checkboxes instead
+   */
+  selected?: boolean;
+
+  /**
+   * @deprecated Use children instead
+   */
+  content?: React.ReactNode;
+
+  /**
+   * @deprecated Compose actions with ActionList.Section instead
+   */
+  group?: number | string;
+
+  /**
+   * @deprecated Compose actions with ActionList.Action instead
+   */
+  visible?: boolean;
+};
+
+type LinkProps = {
+  is?: 'link';
+  to?: string;
+  external?: boolean;
+} & React.ComponentPropsWithoutRef<'a'> &
+  BaseProps;
+
+type ButtonProps = {
+  is: 'button';
+} & React.ComponentPropsWithoutRef<'button'> &
+  BaseProps;
+
+export type ActionProps = LinkProps | ButtonProps;
+
+const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(props, userRef) {
+  const { content, children, disabled, helpText, is, selected, ...action } = props;
 
   const linkContent = React.useMemo(() => {
     return (
       <Box as="span" alignItems="flex-start" display="flex">
         <Box as="span" flex="1" fontSize="300" lineHeight="300">
-          {content || children}
+          {content}
+          {children}
         </Box>
         {selected && (
           <Box as="span" color="blue.700">
@@ -41,17 +83,20 @@ const Action = React.forwardRef(function Action(props, userRef) {
   );
 });
 
+Action.defaultProps = {
+  is: 'link',
+};
+
 Action.displayName = 'ActionList.Action';
 Action.propTypes = {
-  content: PropTypes.node,
-  children: PropTypes.node,
+  content: deprecate(PropTypes.node, 'Use children instead'),
   disabled: PropTypes.bool,
   /**
    * Same as hover styles.
    * Can be used for wrappers that manage focus within the menu, eg downshift
    */
   highlighted: PropTypes.bool,
-  is: PropTypes.oneOf(['link', 'button']),
+  // is: PropTypes.oneOf(['link', 'button']),
   selected: deprecate(PropTypes.bool, 'Use the checkbox component instead'),
   helpText: PropTypes.string,
 };

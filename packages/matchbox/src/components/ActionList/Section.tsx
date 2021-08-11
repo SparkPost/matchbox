@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action from './Action';
+import Action, { ActionProps } from './Action';
 import { filterByVisible } from '../../helpers/array';
 
 import { StyledSection } from './styles';
 
-const Section = React.forwardRef(function Section(props, userRef) {
+export type SectionProps = {
+  /**
+   * @deprecated
+   */
+  section?: object[];
+  children?: React.ReactNode;
+};
+
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(props, userRef) {
   const { section, children } = props;
 
   if (children) {
@@ -24,7 +32,7 @@ const Section = React.forwardRef(function Section(props, userRef) {
 });
 
 Section.displayName = 'ActionList.Section';
-Action.propTypes = {
+Section.propTypes = {
   children: PropTypes.node,
 };
 
