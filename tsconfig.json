@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "declaration": true,
+    "declaration": false,
     "resolveJsonModule": true,
     "jsx": "react"
   },
