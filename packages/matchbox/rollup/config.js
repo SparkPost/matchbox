@@ -4,7 +4,7 @@ import jsPlugins from './plugins/js';
 import pkg from '../package.json';
 
 export const inputOptions = {
-  input: 'src/index.js',
+  input: 'src/index.tsx',
   plugins: [...jsPlugins],
   external: [
     'copy-to-clipboard',
@@ -31,9 +31,11 @@ export const outputOptions = [
   {
     format: 'cjs',
     file: pkg.main,
+    sourcemap: true,
   },
   {
     format: 'esm',
     file: pkg.module,
+    sourcemap: true,
   },
 ];
