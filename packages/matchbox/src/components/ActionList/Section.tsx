@@ -9,7 +9,7 @@ export type SectionProps = {
   /**
    * @deprecated
    */
-  section?: object[];
+  section?: ActionProps[];
   children?: React.ReactNode;
 };
 

@@ -96,6 +96,8 @@ Action.propTypes = {
    * Can be used for wrappers that manage focus within the menu, eg downshift
    */
   highlighted: PropTypes.bool,
+
+  // TODO fix this
   // is: PropTypes.oneOf(['link', 'button']),
   selected: deprecate(PropTypes.bool, 'Use the checkbox component instead'),
   helpText: PropTypes.string,
