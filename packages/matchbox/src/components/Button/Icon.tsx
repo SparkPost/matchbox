@@ -1,15 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { pick } from '../../helpers/props';
+
+interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
+  children?: React.ReactNode;
+  width?: number | string;
+  height?: number | string;
+  size?: number | string;
+  label?: string;
+}
+
+interface ButtonIconProps extends IconBaseProps, MarginProps {
+  as?: React.ElementType;
+}
 
 const StyledIcon = styled.svg`
   ${margin}
 `;
 
-const Icon = React.forwardRef(function Icon(props, ref) {
+const Icon = React.forwardRef<SVGSVGElement, ButtonIconProps>(function Icon(props, userRef) {
   const { as, size, width, height, label, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
   return (
@@ -19,7 +31,7 @@ const Icon = React.forwardRef(function Icon(props, ref) {
       width={width}
       height={height}
       label={label}
-      ref={ref}
+      ref={userRef}
       mt="-2px"
       {...systemProps}
     />
