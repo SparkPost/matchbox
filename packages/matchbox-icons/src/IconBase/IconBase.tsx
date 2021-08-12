@@ -1,30 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-interface IconBaseProps extends React.SVGProps<SVGSVGElement> {
+interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
   children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
   size?: number | string;
-  style?: React.CSSProperties;
   label?: string;
   viewBox?: string;
   text?: string;
   textFill?: string;
-  textProps?: React.SVGProps<SVGTextElement>;
+  textProps?: React.ComponentPropsWithoutRef<'text'>;
 }
 
 const IconBase: React.FC<IconBaseProps> = props => {
-  const {
-    children,
-    width,
-    height,
-    size,
-    style = {},
-    viewBox = '0 0 24 24',
-    label,
-    ...rest
-  } = props;
+  const { children, width, height, size, style, viewBox = '0 0 24 24', label, ...rest } = props;
 
   const styleProp = {
     verticalAlign: 'middle',

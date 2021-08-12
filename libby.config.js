@@ -1,5 +1,5 @@
 module.exports = {
-  entries: () => require.context('./libby', true, /\.lib\.js$/),
+  entries: () => require.context('./libby', true, /\.lib\.(js|tsx)$/),
   outputPath: 'libby-build',
   layout: 'libby/_layout.js',
   preview: 'libby/_preview.js',
