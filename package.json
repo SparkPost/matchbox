@@ -11,7 +11,7 @@
     "prebuild": "lerna bootstrap",
     "build": "lerna run build",
     "build:tokens": "lerna run build --scope @sparkpost/design-tokens",
-    "build:libby": "npm run build:tokens && NODE_ENV=production libby build",
+    "build:libby": "npm run build && NODE_ENV=production libby build",
     "clean": "lerna clean --yes",
     "pretest": "npm run clean && lerna link",
     "pretest:ci": "npm run build && npm run clean && lerna link",
