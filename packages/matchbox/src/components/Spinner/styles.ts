@@ -1,8 +1,8 @@
 import { tokens } from '@sparkpost/design-tokens';
 import { keyframes, css } from 'styled-components';
 
-export const dimensions = props => {
-  let size;
+export const dimensions = (props: { size?: string }) => {
+  let size: string;
 
   switch (props.size) {
     case 'small':
@@ -22,14 +22,14 @@ export const dimensions = props => {
   `;
 };
 
-export const circleOuter = ({ rotationOnly }) => {
+export const circleOuter = ({ rotationOnly }: { rotationOnly?: boolean }) => {
   return css`
     fill: none;
     animation: ${rotateAnimation} ${rotationOnly ? '1.2s' : '2s'} linear infinite;
   `;
 };
 
-function getDefaultStrokes(size) {
+function getDefaultStrokes(size: string) {
   switch (size) {
     case 'small':
       return css`
@@ -50,8 +50,8 @@ function getDefaultStrokes(size) {
   }
 }
 
-export const circle = props => {
-  let color, strokeWidth, animation;
+export const circle = (props: { color?: string; size?: string; rotationOnly?: boolean }) => {
+  let color: string, strokeWidth: string, animation: typeof keyframes;
 
   switch (props.color) {
     case 'gray':

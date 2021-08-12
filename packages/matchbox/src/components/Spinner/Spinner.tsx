@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin, position, compose } from 'styled-system';
-import { pick } from '@styled-system/props';
+import {
+  margin,
+  MarginProps,
+  position,
+  PositionProps,
+  width,
+  WidthProps,
+  height,
+  HeightProps,
+  compose,
+} from 'styled-system';
+import { pick } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { circleOuter, circle, dimensions } from './styles';
 
-const system = compose(margin, position);
+const system = compose(margin, position, width, height);
 
 const StyledSpinner = styled(Box)`
   ${system}
@@ -24,9 +34,18 @@ const StyledCircle = styled('circle')`
   ${circle}
 `;
 
-const Spinner = React.forwardRef(function Spinner(props, ref) {
-  const { size, color, label, rotationOnly } = props;
-  const systemProps = pick(props);
+type BaseProps = {
+  color?: 'gray' | 'orange' | 'blue' | 'white';
+  label: string;
+  rotationOnly?: boolean;
+  size?: 'small' | 'medium' | 'large';
+};
+
+type SpinnerProps = BaseProps & MarginProps & PositionProps & WidthProps & HeightProps;
+
+const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(props, ref) {
+  const { size, color, label, rotationOnly, ...rest } = props;
+  const systemProps = pick(rest, system.propNames);
   return (
     <StyledSpinner {...systemProps} ref={ref} data-id="loading-spinner">
       <StyledSVG
@@ -59,6 +78,8 @@ Spinner.propTypes = {
   rotationOnly: PropTypes.bool,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(position.propNames),
+  ...createPropTypes(height.propNames),
+  ...createPropTypes(width.propNames),
 };
 
 Spinner.defaultProps = {
