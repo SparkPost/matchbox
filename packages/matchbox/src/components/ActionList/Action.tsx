@@ -5,6 +5,7 @@ import { deprecate } from '../../helpers/propTypes';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
+import { LinkActionProps } from '../../types/actions';
 
 type BaseProps = {
   children?: React.ReactNode;
@@ -35,9 +36,8 @@ type BaseProps = {
 
 type LinkProps = {
   is?: 'link';
-  to?: string;
-  external?: boolean;
-} & React.ComponentPropsWithoutRef<'a'> &
+} & LinkActionProps &
+  React.ComponentPropsWithoutRef<'a'> &
   BaseProps;
 
 type ButtonProps = {
