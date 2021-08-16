@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, ColorProps, space, SpaceProps, typography, TypographyProps, compose } from 'styled-system';
+import {
+  color,
+  ColorProps,
+  space,
+  SpaceProps,
+  typography,
+  TypographyProps,
+  compose,
+} from 'styled-system';
 import type * as Polymorphic from '../../helpers/types';
 import { truncate, lookslike } from './styles';
 import PropTypes from 'prop-types';
-
-const system = compose(color, space, typography);
 
 interface BaseProps {
   'data-id'?: string;
@@ -13,10 +19,12 @@ interface BaseProps {
   looksLike?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 }
 
-type PolymorphicText = Polymorphic.ForwardRefComponent<'p', BaseProps &
-  ColorProps &
-  SpaceProps &
-  TypographyProps>;
+type PolymorphicText = Polymorphic.ForwardRefComponent<
+  'p',
+  BaseProps & ColorProps & SpaceProps & TypographyProps
+>;
+
+const system = compose(color, space, typography);
 
 const StyledText = styled('p')`
   ${system}

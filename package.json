@@ -27,11 +27,11 @@
     "changelog": "dotenv lerna-changelog 2>&1 | tee .temp_changes.md && bash scripts/changelog.sh"
   },
   "lint-staged": {
-    "**/*.js": [
+    "**/(*.js|*.ts|*.tsx)": [
       "eslint --fix",
       "git add"
     ],
-    "packages/**/!(*.spec|*.test).js": [
+    "packages/**/!(*.spec|*.test).(js|ts|tsx)": [
       "stylelint",
       "git add"
     ]
@@ -104,7 +104,7 @@
     "lodash.memoize": "^4.1.2",
     "plugin-error": "^1.0.1",
     "postcss-loader": "^3.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.3.2",
     "react-test-renderer": "^16.8.6",
     "react-transition-group": "^4.3.0",
     "resize-observer-polyfill": "^1.5.1",
