@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import { filterByVisible } from '../../helpers/array';
-import { BaseProps } from './Button';
+import type { BaseProps } from './Button';
 
 interface ButtonPropsWithContent extends BaseProps {
   content?: React.ReactNode;
