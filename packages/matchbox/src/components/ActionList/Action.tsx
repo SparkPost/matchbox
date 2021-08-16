@@ -45,9 +45,12 @@ type ButtonProps = {
 } & React.ComponentPropsWithoutRef<'button'> &
   BaseProps;
 
-export type ActionProps = LinkProps | ButtonProps;
+type ActionProps = LinkProps | ButtonProps;
 
-const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(props, userRef) {
+const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
+  props: ActionProps,
+  userRef,
+) {
   const { content, children, disabled, helpText, is, selected, ...action } = props;
 
   const linkContent = React.useMemo(() => {

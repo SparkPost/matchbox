@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action, { ActionProps } from './Action';
+import Action from './Action';
 import { filterByVisible } from '../../helpers/array';
 
 import { StyledSection } from './styles';
@@ -9,11 +9,14 @@ export type SectionProps = {
   /**
    * @deprecated
    */
-  section?: ActionProps[];
+  section?: React.ComponentProps<typeof Action>[];
   children?: React.ReactNode;
 };
 
-const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(props, userRef) {
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(
+  props: SectionProps,
+  userRef,
+) {
   const { section, children } = props;
 
   if (children) {

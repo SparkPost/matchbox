@@ -13,8 +13,14 @@
     "moduleResolution": "node",
     "declaration": false,
     "resolveJsonModule": true,
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "@sparkpost/matchbox*": ["packages/matchbox/src", "packages/matchbox/src*"],
+      "@sparkpost/matchbox-icons*": ["packages/matchbox-icons/src", "packages/matchbox-icons/src*"],
+      "@sparkpost/design-tokens/*": ["packages/design-tokens*"],
+      "@sparkpost/matchbox-media*": ["packages/matchbox-media*"]
+    }
   },
-  "include": ["libby/**/*.ts", "libby/**/*.tsx", "libby/**/*.js"],
+  "include": ["index.d.ts", "libby/**/*.ts", "libby/**/*.tsx", "libby/**/*.js", "packages/matchbox/src/*", "packages/matchbox-media/*"],
   "exclude": ["node_modules", "dist", "src/**/*.test.js"]
 }

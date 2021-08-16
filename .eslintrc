@@ -20,7 +20,7 @@
         "ignoreRestSiblings": true
       }
     ],
-    "react/prop-types": 1
+    "react/prop-types": 1,
   },
   "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
   "plugins": ["lodash", "jest", "prettier"],
@@ -34,7 +34,11 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "parser": "@typescript-eslint/parser",
-      "extends": ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint"]
+      "extends": ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "@typescript-eslint/ban-ts-comment": "off"
+      }
     }
   ]
 }
