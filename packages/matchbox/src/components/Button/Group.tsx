@@ -13,7 +13,7 @@ const StyledGroup = styled(Box)`
   ${group}
 `;
 
-const Group: React.FC<GroupProps> = ({ children, className = '' }) => (
+const Group = ({ children, className = '' }: GroupProps) => (
   <StyledGroup display="inline-flex" alignItems="center" className={className}>
     {children}
   </StyledGroup>
