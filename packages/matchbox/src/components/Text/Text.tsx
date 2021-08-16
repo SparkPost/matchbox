@@ -13,6 +13,14 @@ import type * as Polymorphic from '../../helpers/types';
 import { truncate, lookslike } from './styles';
 import PropTypes from 'prop-types';
 
+const system = compose(color, space, typography);
+
+const StyledText = styled('p')`
+  ${system}
+  ${truncate}
+  ${lookslike}
+`;
+
 interface BaseProps {
   'data-id'?: string;
   children: React.ReactNode;
@@ -23,14 +31,6 @@ type PolymorphicText = Polymorphic.ForwardRefComponent<
   'p',
   BaseProps & ColorProps & SpaceProps & TypographyProps
 >;
-
-const system = compose(color, space, typography);
-
-const StyledText = styled('p')`
-  ${system}
-  ${truncate}
-  ${lookslike}
-`;
 
 const Text = React.forwardRef(function Text(props, ref) {
   const { as, looksLike, children, ...rest } = props;
