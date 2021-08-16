@@ -95,7 +95,7 @@ function getVariant({ outline, outlineBorder, plain, flat, variant }): string {
   return 'filled';
 }
 
-interface BaseProps {
+export type BaseProps = {
   /**
    * @deprecated Use `as` instead
    */
