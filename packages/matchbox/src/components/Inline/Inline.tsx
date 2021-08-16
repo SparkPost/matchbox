@@ -4,6 +4,8 @@ import { Box } from '../Box';
 import styled from 'styled-components';
 import propTypes from '@styled-system/prop-types';
 import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styles';
+import { ResponsiveValue } from 'styled-system';
+import theme from '../ThemeProvider/theme';
 
 // Negates children padding top
 // This is set here to prevent margin collapse
@@ -25,7 +27,18 @@ const InnerWrapper = styled('div')`
   ${alignYChildren}
 `;
 
-function Inline(props) {
+type AlignType = 'center' | 'left' | 'right';
+type AlignYType = 'center' | 'top' | 'bottom';
+type Space = keyof typeof theme.space;
+
+type InlineProps = {
+  children?: React.ReactNode;
+  align?: ResponsiveValue<AlignType>;
+  alignY?: ResponsiveValue<AlignYType>;
+  space?: ResponsiveValue<Space>;
+};
+
+function Inline(props: InlineProps): JSX.Element {
   const { children, align, alignY = 'center', space = '400' } = props;
   const items = React.Children.toArray(children);
 
@@ -48,7 +61,7 @@ Inline.propTypes = {
    * Sets the gutter space between children.
    * Styled-system responsive arrays work here.
    */
-  space: propTypes.space.margin,
+  // space: propTypes.space.margin,
   /**
    * Positions children horizontally.
    * Accepts 'center', 'left', 'right', null.
