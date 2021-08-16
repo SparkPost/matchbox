@@ -1,7 +1,20 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Stack, Button, Inline, Box } from '@sparkpost/matchbox';
+
+// @ts-ignore
+import { Stack, Inline, Box } from '@sparkpost/matchbox';
+import { Button } from '../../packages/matchbox/src';
+
+// @ts-ignore
 import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
+
+type TestComponentProps = {
+  foo?: 'bar' | 'baz';
+};
+
+const TestComponent: React.FC<TestComponentProps> = props => {
+  return <div>{props.children}</div>;
+};
 
 describe('Button', () => {
   add('all sizes', () => (
@@ -204,6 +217,22 @@ describe('Button', () => {
       <Button as="h2">As &lt;h2&gt;</Button>
     </Inline>
   ));
+
+  add('ref', () => {
+    const ref = React.useRef(null);
+    React.useLayoutEffect(() => {
+      ref.current.focus();
+    });
+    return <Button ref={ref}>With a Ref</Button>;
+  });
+
+  add('strongly-typed as', () => {
+    return (
+      <Button as={TestComponent} foo="bar">
+        With a strongly typed component
+      </Button>
+    );
+  });
 
   add('icon', () => (
     <Inline>
