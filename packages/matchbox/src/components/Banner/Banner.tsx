@@ -93,11 +93,11 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
     'data-id': dataId,
     id,
     title,
-    status,
+    status = 'default',
     action,
     actions,
     onDismiss,
-    size,
+    size = 'large',
     ...rest
   } = props;
   const systemProps = pick(rest, margin.propNames);
@@ -168,7 +168,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       p={size === 'large' ? '450' : '300'}
       py={size === 'large' ? null : '200'}
       borderRadius="100"
-      status={status || 'default'}
+      status={status}
       {...systemProps}
       ref={userRef}
       tabIndex="-1"
@@ -176,7 +176,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       data-id={dataId}
       id={id}
     >
-      {status !== 'muted' && <IconSection status={status} size={size || 'large'} />}
+      {status !== 'muted' && <IconSection status={status} size={size} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box>
