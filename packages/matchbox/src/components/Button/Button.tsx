@@ -30,9 +30,12 @@ import {
   childwrapper,
 } from './styles';
 
-import type * as Polymorphic from '../../helpers/types';
+import * as Polymorphic from '../../helpers/types';
 
-export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}): string {
+export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}):
+  | 'gray'
+  | 'white'
+  | 'blue' {
   if (variant === 'filled') {
     if (color === 'white') {
       return 'gray';
@@ -137,155 +140,146 @@ export type BaseProps = {
   external?: boolean;
   title?: string;
   children?: React.ReactNode;
-}
+};
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', BaseProps &
-  MarginProps &
-  WidthProps &
-  PaddingProps>;
+type PolymorphicButton = Polymorphic.ForwardRefComponent<
+  'button',
+  BaseProps & MarginProps & WidthProps & PaddingProps
+>;
 
-const Button = React.forwardRef(
-  (props, ref) => {
-    const {
-      children,
+const Button = React.forwardRef(function Button(props, ref) {
+  const {
+    children,
 
-      // Styles
-      primary, // Deprecate in favor of color
-      color,
-      disabled,
-      destructive, // Deprecate in favor of color
-      loading,
-      loadingLabel,
+    // Styles
+    primary, // Deprecate in favor of color
+    color,
+    disabled,
+    destructive, // Deprecate in favor of color
+    loading,
+    loadingLabel,
 
-      // Below 3 props to be deprecated for a 'variant' prop
-      plain, // Deprecate in favor of flat
-      flat,
-      outline,
-      outlineBorder,
-      variant,
+    // Below 3 props to be deprecated for a 'variant' prop
+    plain, // Deprecate in favor of flat
+    flat,
+    outline,
+    outlineBorder,
+    variant,
 
-      // Options
-      // Renaming to prevent `width` and `height` pass through
-      // Size is a valid styled-system prop
-      size: buttonSize,
-      fullWidth,
-      submit,
+    // Options
+    // Renaming to prevent `width` and `height` pass through
+    // Size is a valid styled-system prop
+    size: buttonSize,
+    fullWidth,
+    submit,
 
-      to,
-      Component, // Deprecate in favor of component
-      component,
-      as,
-      external,
-      title,
+    to,
+    Component, // Deprecate in favor of component
+    component,
+    as,
+    external,
+    title,
 
-      // Events
-      onClick,
-      onFocus,
-      onBlur,
+    // Events
+    onClick,
+    onFocus,
+    onBlur,
 
-      className = '',
-      ...rest // TODO remove spreading of unknown props
-    } = props;
+    className = '',
+    ...rest // TODO remove spreading of unknown props
+  } = props;
 
-    const transitionRef = React.useRef();
+  const transitionRef = React.useRef();
 
-    const systemProps = pick(rest, system.propNames);
-    const componentProps = omit(rest);
+  const systemProps = pick(rest, system.propNames);
+  const componentProps = omit(rest);
 
-    // Polyfills deprecrated 'Component' prop — use as instead of component
-    const WrapperComponent = as || component || Component;
+  // Polyfills deprecrated 'Component' prop — use as instead of component
+  const WrapperComponent = as || component || Component;
 
-    // Polyfills to be deprecrated 'primary' and 'destructive' prop
-    const buttonColor = primary ? 'blue' : destructive ? 'red' : color;
+  // Polyfills to be deprecrated 'primary' and 'destructive' prop
+  const buttonColor = primary ? 'blue' : destructive ? 'red' : color;
 
-    const buttonVariant = React.useMemo(() => {
-      return getVariant({ variant, outline, outlineBorder, plain, flat });
-    }, [variant, outline, outlineBorder, plain, flat, getVariant]);
+  const buttonVariant = React.useMemo(() => {
+    return getVariant({ variant, outline, outlineBorder, plain, flat });
+  }, [variant, outline, outlineBorder, plain, flat, getVariant]);
 
-    const loaderColor = React.useMemo(() => {
-      return getLoaderColor({ variant: buttonVariant, color });
-    }, [buttonVariant, color]);
+  const loaderColor = React.useMemo(() => {
+    return getLoaderColor({ variant: buttonVariant, color });
+  }, [buttonVariant, color]);
 
-    const loadingIndicator = React.useMemo(() => {
-      return (
-        <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
-          {state => (
-            <StyledLoader state={state} ref={transitionRef}>
-              <Spinner
-                // TODO
-                // @ts-ignore
-                color={loaderColor}
-                size="small"
-                label={loadingLabel}
-                rotationOnly
-              />
-            </StyledLoader>
-          )}
-        </Transition>
-      );
-    }, [loading]);
+  const loadingIndicator = React.useMemo(() => {
+    return (
+      <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
+        {state => (
+          <StyledLoader state={state} ref={transitionRef}>
+            <Spinner color={loaderColor} size="small" label={loadingLabel} rotationOnly />
+          </StyledLoader>
+        )}
+      </Transition>
+    );
+  }, [loading]);
 
-    const sharedProps = {
-      className,
-      disabled: disabled || loading,
-      fullWidth,
-      onClick,
-      onFocus,
-      onBlur,
-      buttonSize,
-      buttonVariant,
-      buttonColor,
-      ref,
-      loading,
-      ...systemProps,
-      ...componentProps,
-    };
+  const sharedProps = {
+    className,
+    disabled: disabled || loading,
+    fullWidth,
+    onClick,
+    onFocus,
+    onBlur,
+    buttonSize,
+    buttonVariant,
+    buttonColor,
+    ref,
+    loading,
+    ...systemProps,
+    ...componentProps,
+  };
 
-    const childrenMarkup = React.useMemo(() => {
-      return (
-        <ChildWrapper aria-hidden={loading} loading={loading ? loading : undefined}>
-          {children}
-        </ChildWrapper>
-      );
-    }, [loading, children]);
+  const childrenMarkup = React.useMemo(() => {
+    return (
+      <ChildWrapper aria-hidden={loading} loading={loading ? loading : undefined}>
+        {children}
+      </ChildWrapper>
+    );
+  }, [loading, children]);
 
-    if (to && !WrapperComponent) {
-      return (
-        <StyledButton
-          as="a"
-          href={to}
-          target={external ? '_blank' : ''}
-          rel={external ? 'noopener noreferrer' : ''}
-          title={external && !title ? 'Opens in a new tab' : title}
-          {...sharedProps}
-        >
-          {childrenMarkup}
-          {loadingIndicator}
-        </StyledButton>
-      );
-    }
-
-    if (to && WrapperComponent) {
-      return (
-        <StyledButton as={WrapperComponent} to={to} {...sharedProps}>
-          {childrenMarkup}
-          {loadingIndicator}
-        </StyledButton>
-      );
-    }
-
+  if (to && !WrapperComponent) {
     return (
       <StyledButton
-        as={WrapperComponent || 'button'}
-        type={submit ? 'submit' : 'button'}
+        as="a"
+        href={to}
+        target={external ? '_blank' : ''}
+        rel={external ? 'noopener noreferrer' : ''}
+        title={external && !title ? 'Opens in a new tab' : title}
         {...sharedProps}
       >
         {childrenMarkup}
         {loadingIndicator}
       </StyledButton>
     );
-  },
-) as PolymorphicButton & {
+  }
+
+  if (to && WrapperComponent) {
+    return (
+      <StyledButton as={WrapperComponent} to={to} {...sharedProps}>
+        {childrenMarkup}
+        {loadingIndicator}
+      </StyledButton>
+    );
+  }
+
+  return (
+    <StyledButton
+      as={WrapperComponent || 'button'}
+      type={submit ? 'submit' : 'button'}
+      {...sharedProps}
+    >
+      {childrenMarkup}
+      {loadingIndicator}
+    </StyledButton>
+  );
+}) as PolymorphicButton & {
   Group: typeof Group;
   Icon: typeof Icon;
 };
