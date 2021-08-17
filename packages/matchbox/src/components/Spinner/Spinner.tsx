@@ -42,7 +42,7 @@ type BaseProps = {
 type SpinnerProps = BaseProps & MarginProps & PositionProps & WidthProps & HeightProps;
 
 const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(props, ref) {
-  const { size, color, label, rotationOnly, ...rest } = props;
+  const { size = 'medium', color, label, rotationOnly, ...rest } = props;
   const systemProps = pick(rest, system.propNames);
   return (
     <StyledSpinner {...systemProps} ref={ref} data-id="loading-spinner">
@@ -68,9 +68,5 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
 });
 
 Spinner.displayName = 'Spinner';
-
-Spinner.defaultProps = {
-  size: 'medium',
-};
 
 export default Spinner;

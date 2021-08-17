@@ -2,7 +2,7 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 // @ts-ignore
 import { Box } from '@sparkpost/matchbox';
-import { Spinner } from '../../packages/matchbox/src';
+import { Spinner } from '@sparkpost/matchbox';
 
 describe('Spinner', () => {
   add('colors', () => (
