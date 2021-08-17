@@ -34,6 +34,7 @@ type InlineProps = {
   align?: ResponsiveValue<AlignType>;
   alignY?: ResponsiveValue<AlignYType>;
   space?: ResponsiveValue<Space>;
+  'data-id'?: string;
 };
 
 function Inline(props: InlineProps): JSX.Element {
