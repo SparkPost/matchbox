@@ -40,7 +40,14 @@ const borderMap = {
   black: 'gray.900',
 };
 
-const Badge = React.forwardRef(function Badge(props, userRef) {
+interface BadgeProps extends React.ComponentPropsWithoutRef<'div'> {
+  color?: 'lightGray' | 'darkGray' | 'green' | 'red' | 'blue' | 'white' | 'black';
+  'data-id'?: string;
+}
+const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
+  props: BadgeProps,
+  userRef,
+) {
   const { children, color, 'data-id': dataId, id, tabIndex, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -73,15 +80,6 @@ Badge.displayName = 'Badge';
 
 Badge.defaultProps = {
   color: 'lightGray',
-};
-
-Badge.propTypes = {
-  id: PropTypes.string,
-  'data-id': PropTypes.string,
-  color: PropTypes.oneOf(['lightGray', 'darkGray', 'green', 'red', 'blue', 'white', 'black']),
-  children: PropTypes.node,
-  tabIndex: PropTypes.string,
-  ...createPropTypes(margin.propNames),
 };
 
 export default Badge;
