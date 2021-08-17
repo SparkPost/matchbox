@@ -1,22 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import { pick, omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
+import { Button } from '../Button';
 import { Text } from '../Text';
 import { Inline } from '../Inline';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import styled from 'styled-components';
 import { container, childLinks, statusIcons, dismissBase, dismissColor } from './styles';
 import { buttonReset } from '../../styles/helpers';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { getChild, excludeChild } from '../../helpers/children';
 import Action from './Action';
 import Media from './Media';
 
-function IconSection({ status, size }) {
+type IconProps = {
+  status: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
+  size: 'small' | 'large';
+};
+
+function IconSection({ status, size }: IconProps) {
   const statusIcon = React.useMemo(() => {
     return status === 'default' ? statusIcons.info : statusIcons[status];
   }, [statusIcons, status]);
@@ -57,17 +61,42 @@ const StyledDismiss = styled(Box)`
   ${dismissColor}
 `;
 
-const Banner = React.forwardRef(function Banner(props, userRef) {
+type ActionProps = React.ComponentProps<typeof Button> & {
+  content: string;
+};
+
+interface BannerProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps {
+  children?: React.ReactNode;
+  'data-id'?: string;
+  title?: string;
+  status?: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
+  /**
+   * @deprecated Use the Banner.Action component instead
+   */
+  action?: ActionProps;
+  /**
+   * @deprecated Use the Banner.Action component instead
+   */
+  actions?: ActionProps[];
+
+  onDismiss?: (any) => void;
+  size?: 'small' | 'large';
+}
+
+const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
+  props: BannerProps,
+  userRef,
+) {
   const {
     children,
     'data-id': dataId,
     id,
     title,
-    status,
+    status = 'default',
     action,
     actions,
     onDismiss,
-    size,
+    size = 'large',
     ...rest
   } = props;
   const systemProps = pick(rest, margin.propNames);
@@ -158,68 +187,12 @@ const Banner = React.forwardRef(function Banner(props, userRef) {
       {dismissMarkup}
     </StyledContainer>
   );
-});
+}) as React.ForwardRefExoticComponent<BannerProps> & {
+  Media: typeof Media;
+  Action: typeof Action;
+};
 
 Banner.displayName = 'Banner';
-Banner.propTypes = {
-  'data-id': PropTypes.string,
-  id: PropTypes.string,
-  /**
-   * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
-   */
-  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info', 'muted']),
-
-  /**
-   * The banner's title
-   */
-  title: PropTypes.string,
-
-  /**
-   * Callback when dismiss button is clicked. Button hidden without callback.
-   */
-  onDismiss: PropTypes.func,
-
-  /**
-   * Deprecated in favor of `Banner.Action`
-   * Action that build a button. Most button props will work in here.
-   * e.g. { content: 'button label', onClick: callback() }
-   */
-  action: deprecate(
-    PropTypes.shape({ content: PropTypes.string.isRequired }),
-    'Use `Banner.Action` instead',
-  ),
-
-  /**
-   * Deprecated in favor of `Banner.Action`
-   * List of actions that build buttons. Most button props will work in here.
-   * Overrides `action`
-   */
-  actions: deprecate(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        content: PropTypes.string.isRequired,
-      }),
-    ),
-    'Use `Banner.Action` instead',
-  ),
-
-  /**
-   * Banner Content
-   */
-  children: PropTypes.node,
-
-  /**
-   * Banner size
-   */
-  size: PropTypes.oneOf(['small', 'large']),
-
-  ...createPropTypes(margin.propNames),
-};
-
-Banner.defaultProps = {
-  status: 'default',
-  size: 'large',
-};
 
 Banner.Action = Action;
 Banner.Media = Media;

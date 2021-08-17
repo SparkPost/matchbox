@@ -6,21 +6,21 @@ import { margin, layout, compose, LayoutProps, MarginProps } from 'styled-system
 import { groupByValues } from '../../helpers/array';
 import { deprecate } from '../../helpers/propTypes';
 import Section from './Section';
-import Action, { ActionProps } from './Action';
+import Action from './Action';
 import { onKey } from '../../helpers/keyEvents';
 
-interface Props extends React.ComponentPropsWithoutRef<'div'>, LayoutProps, MarginProps {
+interface ActionListProps extends React.ComponentPropsWithoutRef<'div'>, LayoutProps, MarginProps {
   children?: React.ReactNode;
 
   /**
    * @deprecated Use the ActionList.Action component instead
    */
-  actions?: ActionProps[];
+  actions?: React.ComponentProps<typeof Action>[];
 
   /**
    * @deprecated Use the ActionList.Section component instead
    */
-  sections?: ActionProps[][];
+  sections?: React.ComponentProps<typeof Action>[][];
 
   /**
    * @deprecated Use the ActionList.Section component instead
@@ -37,7 +37,7 @@ const Wrapper = styled('div')`
   overflow-y: auto;
 `;
 
-const ActionList = React.forwardRef(function ActionList(props, userRef) {
+const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function ActionList(props,userRef) {
   const {
     actions = [],
     'aria-labelledby': labelledBy,
@@ -130,7 +130,7 @@ const ActionList = React.forwardRef(function ActionList(props, userRef) {
       {children}
     </Wrapper>
   );
-}) as React.ForwardRefExoticComponent<Props> & {
+}) as React.ForwardRefExoticComponent<ActionListProps> & {
   Section: typeof Section;
   Action: typeof Action;
 };

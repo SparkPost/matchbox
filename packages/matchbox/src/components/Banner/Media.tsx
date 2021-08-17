@@ -1,7 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
+
+type MediaProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
 
 const StyledMedia = styled(Box)`
   pointer-events: none;
@@ -16,9 +20,10 @@ const StyledMedia = styled(Box)`
   }
 `;
 
-const Media = React.forwardRef(function Media(props, userRef) {
-  const { children, className } = props;
-
+const Media = React.forwardRef<HTMLDivElement, MediaProps>(function Media(
+  { children, className }: MediaProps,
+  userRef,
+) {
   return (
     <StyledMedia className={className} ref={userRef}>
       {children}
@@ -27,9 +32,5 @@ const Media = React.forwardRef(function Media(props, userRef) {
 });
 
 Media.displayName = 'Banner.Media';
-Media.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
 
 export default Media;

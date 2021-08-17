@@ -1,6 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Banner, Picture, Video } from '@sparkpost/matchbox';
+// @ts-ignore :(
+import { Picture, Video } from '@sparkpost/matchbox';
+import { Banner } from '@sparkpost/matchbox';
 
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
 import Analytics from '@sparkpost/matchbox-media/videos/Analytics.webm';
