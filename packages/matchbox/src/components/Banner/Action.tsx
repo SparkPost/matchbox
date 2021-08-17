@@ -8,9 +8,7 @@ const Action = React.forwardRef<HTMLButtonElement, ActionProps>(function Action(
   userRef,
 ) {
   return <Button mt={['300', null, '500']} mr="400" {...props} ref={userRef} />;
-}) as React.ForwardRefExoticComponent<ActionProps> & {
-  Button: typeof Button;
-};
+}) as React.ForwardRefExoticComponent<ActionProps>;
 
 Action.displayName = 'Banner.Action';
 

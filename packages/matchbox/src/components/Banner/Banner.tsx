@@ -68,7 +68,6 @@ type ActionProps = React.ComponentProps<typeof Button> & {
 interface BannerProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps {
   children?: React.ReactNode;
   'data-id'?: string;
-  id?: string;
   title?: string;
   status?: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
   /**
