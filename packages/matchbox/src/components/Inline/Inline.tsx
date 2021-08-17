@@ -3,7 +3,7 @@ import { Box } from '../Box';
 import styled from 'styled-components';
 import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styles';
 import { ResponsiveValue } from 'styled-system';
-import theme from '../ThemeProvider/theme';
+import { SpaceKeys } from '../ThemeProvider/theme';
 
 // Negates children padding top
 // This is set here to prevent margin collapse
@@ -27,13 +27,24 @@ const InnerWrapper = styled('div')`
 
 type AlignType = 'center' | 'left' | 'right';
 type AlignYType = 'center' | 'top' | 'bottom';
-type Space = keyof typeof theme.space;
 
 type InlineProps = {
   children?: React.ReactNode;
+  /**
+   * Positions children horizontally.
+   * Styled-system responsive arrays work here.
+   */
   align?: ResponsiveValue<AlignType>;
+  /**
+   * Positions children vertically.
+   * Styled-system responsive arrays work here.
+   */
   alignY?: ResponsiveValue<AlignYType>;
-  space?: ResponsiveValue<Space>;
+  /**
+   * Sets the gutter space between children.
+   * Styled-system responsive arrays work here.
+   */
+  space?: ResponsiveValue<SpaceKeys | string>;
   'data-id'?: string;
 };
 

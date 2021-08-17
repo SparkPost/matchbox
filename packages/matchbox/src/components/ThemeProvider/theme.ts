@@ -256,4 +256,5 @@ const theme = {
   },
 };
 
+export type SpaceKeys = keyof typeof theme.space;
 export default theme;
