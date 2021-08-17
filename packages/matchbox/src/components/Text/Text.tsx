@@ -11,7 +11,6 @@ import {
 } from 'styled-system';
 import type * as Polymorphic from '../../helpers/types';
 import { truncate, lookslike } from './styles';
-import PropTypes from 'prop-types';
 
 const system = compose(color, space, typography);
 
@@ -41,17 +40,6 @@ const Text = React.forwardRef(function Text(props, ref) {
     </StyledText>
   );
 }) as PolymorphicText;
-
-Text.propTypes = {
-  as: PropTypes.elementType,
-  'data-id': PropTypes.string,
-  children: PropTypes.node.isRequired,
-  looksLike: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
-};
-
-Text.defaultProps = {
-  as: 'p',
-};
 
 Text.displayName = 'Text';
 export default Text;

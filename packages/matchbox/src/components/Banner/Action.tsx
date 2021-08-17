@@ -13,8 +13,5 @@ const Action = React.forwardRef<HTMLButtonElement, ActionProps>(function Action(
 };
 
 Action.displayName = 'Banner.Action';
-Action.propTypes = {
-  ...Button.propTypes,
-};
 
 export default Action;

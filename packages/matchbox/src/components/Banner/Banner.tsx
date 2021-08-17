@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import { pick, omit } from '../../helpers/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
@@ -170,7 +168,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       p={size === 'large' ? '450' : '300'}
       py={size === 'large' ? null : '200'}
       borderRadius="100"
-      status={status}
+      status={status || 'default'}
       {...systemProps}
       ref={userRef}
       tabIndex="-1"
@@ -178,7 +176,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       data-id={dataId}
       id={id}
     >
-      {status !== 'muted' && <IconSection status={status} size={size} />}
+      {status !== 'muted' && <IconSection status={status} size={size || 'large'} />}
       <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box>
@@ -196,65 +194,6 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
 };
 
 Banner.displayName = 'Banner';
-Banner.propTypes = {
-  'data-id': PropTypes.string,
-  id: PropTypes.string,
-  /**
-   * The type of banner. 'default' | 'success' | 'warning' | 'danger' | 'info'
-   */
-  status: PropTypes.oneOf(['default', 'success', 'warning', 'danger', 'info', 'muted']),
-
-  /**
-   * The banner's title
-   */
-  title: PropTypes.string,
-
-  /**
-   * Callback when dismiss button is clicked. Button hidden without callback.
-   */
-  onDismiss: PropTypes.func,
-
-  /**
-   * Deprecated in favor of `Banner.Action`
-   * Action that build a button. Most button props will work in here.
-   * e.g. { content: 'button label', onClick: callback() }
-   */
-  action: deprecate(
-    PropTypes.shape({ content: PropTypes.string.isRequired }),
-    'Use `Banner.Action` instead',
-  ),
-
-  /**
-   * Deprecated in favor of `Banner.Action`
-   * List of actions that build buttons. Most button props will work in here.
-   * Overrides `action`
-   */
-  actions: deprecate(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        content: PropTypes.string.isRequired,
-      }),
-    ),
-    'Use `Banner.Action` instead',
-  ),
-
-  /**
-   * Banner Content
-   */
-  children: PropTypes.node,
-
-  /**
-   * Banner size
-   */
-  size: PropTypes.oneOf(['small', 'large']),
-
-  ...createPropTypes(margin.propNames),
-};
-
-Banner.defaultProps = {
-  status: 'default',
-  size: 'large',
-};
 
 Banner.Action = Action;
 Banner.Media = Media;

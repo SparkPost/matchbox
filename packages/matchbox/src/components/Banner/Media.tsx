@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from '../Box';
 
@@ -33,9 +32,5 @@ const Media = React.forwardRef<HTMLDivElement, MediaProps>(function Media(
 });
 
 Media.displayName = 'Banner.Media';
-Media.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
 
 export default Media;
