@@ -3,7 +3,7 @@ import { describe, add } from '@sparkpost/libby-react';
 
 // @ts-ignore
 import { Box, Text, Button } from '@sparkpost/matchbox';
-import { Inline } from '../../packages/matchbox/src';
+import { Inline } from '@sparkpost/matchbox';
 
 describe('Inline', () => {
   add('spacing', () => (
