@@ -53,14 +53,10 @@ const truncate = (props: BoxProps) => {
   }
 };
 
-const StyledBox = styled.div`
+const Box = styled.div`
   ${system}
   ${truncate}
-`;
-
-const Box = React.forwardRef(function Box({ as = 'div', ...props }, userRef) {
-  return <StyledBox as={as} {...props} ref={userRef} />;
-}) as PolymorphicBox;
+` as PolymorphicBox;
 
 Box.displayName = 'Box';
 export default Box;
