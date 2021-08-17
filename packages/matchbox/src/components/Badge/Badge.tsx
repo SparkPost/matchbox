@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import styled from 'styled-components';
 import { pick } from '../../helpers/props';
 import { Box } from '../Box';
@@ -40,7 +38,7 @@ const borderMap = {
   black: 'gray.900',
 };
 
-interface BadgeProps extends React.ComponentPropsWithoutRef<'div'> {
+interface BadgeProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps {
   color?: 'lightGray' | 'darkGray' | 'green' | 'red' | 'blue' | 'white' | 'black';
   'data-id'?: string;
 }

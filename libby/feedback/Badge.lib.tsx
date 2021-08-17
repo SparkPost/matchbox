@@ -1,6 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Badge, Inline, Tooltip } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Inline, Tooltip } from '@sparkpost/matchbox';
+import { Badge } from '../../packages/matchbox/src';
 
 describe('Badge', () => {
   add('default', () => <Badge>50</Badge>);
@@ -28,7 +30,7 @@ describe('Badge', () => {
       <Badge mx="600" id="test-id" data-id="test-data-id">
         100
       </Badge>
-      <Badge my="600" bg="red" id="test-id-2">
+      <Badge my="600" color="red" id="test-id-2">
         200
       </Badge>
     </>
@@ -36,7 +38,7 @@ describe('Badge', () => {
 
   add('with a tooltip', () => (
     <Tooltip id="test-tooltip" content="I am a Tooltip">
-      <Badge tabIndex="0" color="darkGray">
+      <Badge tabIndex={0} color="darkGray">
         100
       </Badge>
     </Tooltip>
