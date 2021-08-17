@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import styled from 'styled-components';
-import propTypes from '@styled-system/prop-types';
 import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styles';
 import { ResponsiveValue } from 'styled-system';
 import theme from '../ThemeProvider/theme';
@@ -54,22 +52,6 @@ function Inline(props: InlineProps): JSX.Element {
     </OuterWrapper>
   );
 }
-
-Inline.propTypes = {
-  'data-id': PropTypes.string,
-  /**
-   * Sets the gutter space between children.
-   * Styled-system responsive arrays work here.
-   */
-  // space: propTypes.space.margin,
-  /**
-   * Positions children horizontally.
-   * Accepts 'center', 'left', 'right', null.
-   * Styled-system responsive arrays work here.
-   */
-  align: propTypes.flexbox.justifyContent,
-  alignY: propTypes.flexbox.alignItems,
-};
 
 Inline.displayName = 'Inline';
 export default Inline;
