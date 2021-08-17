@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   margin,
@@ -13,7 +12,6 @@ import {
   compose,
 } from 'styled-system';
 import { pick } from '../../helpers/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { circleOuter, circle, dimensions } from './styles';
@@ -70,17 +68,6 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
 });
 
 Spinner.displayName = 'Spinner';
-
-Spinner.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'white']),
-  label: PropTypes.string.isRequired,
-  rotationOnly: PropTypes.bool,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(position.propNames),
-  ...createPropTypes(height.propNames),
-  ...createPropTypes(width.propNames),
-};
 
 Spinner.defaultProps = {
   size: 'medium',
