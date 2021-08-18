@@ -1,8 +1,16 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Stack, Box, Column, Columns } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Stack, Box } from '@sparkpost/matchbox';
+import { Column, Columns } from '@sparkpost/matchbox';
 
-const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
+type DemoProps = {
+  height?: string | number;
+  children?: React.ReactNode;
+  p?: string | number;
+};
+
+const DemoBlock = ({ height = 'auto', children, p = '300' }: DemoProps) => {
   return (
     <Box display="flex" alignItems="center" bg="blue.400" height={height} p={p}>
       {children}
@@ -11,6 +19,7 @@ const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
 };
 
 describe('Columns', () => {
+  const ref = React.useRef(null);
   add('widths', () => (
     <Stack>
       <Columns space="300">

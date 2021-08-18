@@ -1,6 +1,9 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Box, Text, Button, Inline } from '@sparkpost/matchbox';
+
+// @ts-ignore
+import { Box, Text, Button } from '@sparkpost/matchbox';
+import { Inline } from '@sparkpost/matchbox';
 
 describe('Inline', () => {
   add('spacing', () => (

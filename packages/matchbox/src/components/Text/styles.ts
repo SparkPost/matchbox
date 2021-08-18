@@ -1,6 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const truncate = props => {
+export const truncate = (props: { truncate?: boolean }) => {
   if (props.truncate) {
     return {
       overflow: 'hidden',
@@ -10,7 +10,7 @@ export const truncate = props => {
   }
 };
 
-export const lookslike = props => {
+export const lookslike = (props: { lookslike?: string }) => {
   let styles = '';
 
   switch (props.lookslike) {

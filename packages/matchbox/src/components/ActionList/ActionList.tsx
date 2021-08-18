@@ -9,7 +9,7 @@ import Section from './Section';
 import Action from './Action';
 import { onKey } from '../../helpers/keyEvents';
 
-interface ActionListProps extends React.ComponentPropsWithoutRef<'div'>, LayoutProps, MarginProps {
+interface ActionListProps extends React.ComponentPropsWithRef<'div'>, LayoutProps, MarginProps {
   children?: React.ReactNode;
 
   /**
@@ -37,7 +37,10 @@ const Wrapper = styled('div')`
   overflow-y: auto;
 `;
 
-const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function ActionList(props,userRef) {
+const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function ActionList(
+  props,
+  userRef,
+) {
   const {
     actions = [],
     'aria-labelledby': labelledBy,

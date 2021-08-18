@@ -1,6 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Box, Column, Columns } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Box } from '@sparkpost/matchbox';
+import { Column, Columns } from '@sparkpost/matchbox';
 
 const DemoBlock = ({ height = 'auto', children, p = '300' }) => {
   return (

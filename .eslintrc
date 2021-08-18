@@ -20,7 +20,7 @@
         "ignoreRestSiblings": true
       }
     ],
-    "react/prop-types": 1
+    "react/prop-types": "off"
   },
   "extends": ["plugin:react/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
   "plugins": ["lodash", "jest", "prettier"],

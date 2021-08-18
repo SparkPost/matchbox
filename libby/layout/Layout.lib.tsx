@@ -1,6 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Page, Layout, Panel, Box, Text, Columns, Column, Tag } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Page, Panel, Box, Text, Columns, Column, Tag } from '@sparkpost/matchbox';
+import { Layout } from '@sparkpost/matchbox';
 
 function DemoBox({ children }) {
   return (
@@ -17,7 +19,7 @@ const breadcrumbAction = {
 describe('Layout', () => {
   add('column example', () => (
     <>
-      <Layout>
+      <Layout fake="true">
         <Layout.Section>
           <DemoBox>One Column Layout</DemoBox>
         </Layout.Section>
@@ -53,7 +55,7 @@ describe('Layout', () => {
     <Page title="Domain Details" breadcrumbAction={breadcrumbAction}>
       <Layout>
         <Layout.Section annotated data-id="annotated-section">
-          <Layout.SectionTitle>Domain Status</Layout.SectionTitle>
+          <Layout.SectionTitle>Domain Status TITLE</Layout.SectionTitle>
           <Text fontSize="200" color="gray.700">
             Domain status text
           </Text>
