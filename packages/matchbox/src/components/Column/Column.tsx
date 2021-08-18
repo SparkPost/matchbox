@@ -24,7 +24,7 @@ type ColumnProps = {
   reverse?: ResponsiveValue<boolean>;
 } & DisplayProps;
 
-const Column = React.forwardRef(function Column(props: ColumnProps, ref) {
+const Column = React.forwardRef(function Column(props, ref) {
   const { width, children, className, display } = props;
   const { space, collapsed } = React.useContext(ColumnsContext);
 

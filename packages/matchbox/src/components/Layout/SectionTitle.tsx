@@ -1,16 +1,22 @@
 import React from 'react';
-import type * as Polymorphic from '../../helpers/types';
 
 import { Text } from '../Text';
 
-type BaseProps = {
+interface Props<C extends React.ElementType> {
+  /**
+   * An override of the default HTML tag.
+   * Can also be another React component. 😉
+   */
+  as?: C;
+
   children?: React.ReactNode;
   'data-id'?: string;
-};
+}
 
-type SectionTitleProps<C extends React.ElementType> = Polymorphic.ComponentProps<C, BaseProps>;
+type SectionTitleProps<C extends React.ElementType> = Props<C> &
+  Omit<React.ComponentPropsWithoutRef<C>, keyof Props<C>>;
 
-const SectionTitle = <C extends React.ElementType>(props: SectionTitleProps<C>) => {
+const SectionTitle = <C extends React.ElementType = 'h2'>(props: SectionTitleProps<C>) => {
   const { children, as = 'h2' } = props;
 
   return (
