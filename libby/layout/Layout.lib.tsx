@@ -55,7 +55,7 @@ describe('Layout', () => {
     <Page title="Domain Details" breadcrumbAction={breadcrumbAction}>
       <Layout>
         <Layout.Section annotated data-id="annotated-section">
-          <Layout.SectionTitle as="h1">Domain Status</Layout.SectionTitle>
+          <Layout.SectionTitle as="h3">Domain Status</Layout.SectionTitle>
           <Text fontSize="200" color="gray.700">
             Domain status text
           </Text>

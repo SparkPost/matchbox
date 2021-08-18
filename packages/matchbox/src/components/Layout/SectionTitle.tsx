@@ -2,21 +2,13 @@ import React from 'react';
 
 import { Text } from '../Text';
 
-interface Props<C extends React.ElementType> {
-  /**
-   * An override of the default HTML tag.
-   * Can also be another React component. 😉
-   */
-  as?: C;
-
+type BaseProps = {
   children?: React.ReactNode;
   'data-id'?: string;
-}
+  as?: React.ElementType;
+};
 
-type SectionTitleProps<C extends React.ElementType> = Props<C> &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof Props<C>>;
-
-const SectionTitle = <C extends React.ElementType = 'h2'>(props: SectionTitleProps<C>) => {
+const SectionTitle = (props: BaseProps) => {
   const { children, as = 'h2' } = props;
 
   return (
