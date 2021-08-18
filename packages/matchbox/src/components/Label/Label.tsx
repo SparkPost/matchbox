@@ -1,10 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { deprecate } from '../../helpers/propTypes';
 
-function Label(props) {
+type LabelProps = Pick<typeof Box, 'fontWeight' | 'mb' | 'as'> & {
+  /**
+   * @deprecated Use children instead
+   */
+  label?: React.ReactNode;
+  children?: React.ReactNode;
+  id?: string;
+  htmlFor?: string;
+  className?: string;
+  labelHidden?: boolean;
+};
+
+function Label(props: LabelProps): JSX.Element {
   const {
     label,
     id,
@@ -51,11 +61,5 @@ function Label(props) {
 }
 
 Label.displayName = 'Label';
-Label.propTypes = {
-  label: deprecate(PropTypes.string, 'Use the children instead'),
-  children: PropTypes.node,
-  id: PropTypes.string,
-  htmlFor: PropTypes.string,
-};
 
 export default Label;
