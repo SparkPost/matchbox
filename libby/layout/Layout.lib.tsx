@@ -19,7 +19,7 @@ const breadcrumbAction = {
 describe('Layout', () => {
   add('column example', () => (
     <>
-      <Layout fake="true">
+      <Layout>
         <Layout.Section>
           <DemoBox>One Column Layout</DemoBox>
         </Layout.Section>
