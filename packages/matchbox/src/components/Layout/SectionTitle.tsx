@@ -5,7 +5,7 @@ import { Text } from '../Text';
 type BaseProps = {
   children?: React.ReactNode;
   'data-id'?: string;
-  as?: React.ElementType;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
 const SectionTitle = (props: BaseProps) => {
