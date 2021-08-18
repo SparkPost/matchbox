@@ -8,7 +8,7 @@ import useBreakpoint from '../../hooks/useBreakpoint';
 import { Box } from '../Box';
 import { ResponsiveValue } from 'styled-system';
 import { SpaceKeys } from '../ThemeProvider/theme';
-import { AlignX, AlignY, Breakpoints } from 'src/helpers/types';
+import { AlignX, AlignY, Breakpoints } from '../../helpers/types';
 
 const breakpoints = ['default', 'xs', 'sm', 'md', 'lg', 'xl'];
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Columns } from '../Columns';
-import { Text } from '../Text';
-import { Breakpoints } from 'src/helpers/types';
+import { Breakpoints } from '../../helpers/types';
 
 import Section from './Section';
 import SectionTitle from './SectionTitle';
@@ -12,7 +11,10 @@ type LayoutProps = {
   'data-id'?: string;
 };
 
-const Layout = React.forwardRef(function Layout(props, ref: React.ForwardedRef<HTMLDivElement>) {
+const Layout = React.forwardRef(function Layout(
+  props: LayoutProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const { children, collapseBelow = 'md' } = props;
 
   return (

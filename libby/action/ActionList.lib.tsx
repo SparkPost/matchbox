@@ -5,7 +5,6 @@ import { Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
 import { ActionList } from '@sparkpost/matchbox';
 
 describe('ActionList', () => {
-  const ref = React.useRef(null);
   add('within Popovers', () => {
     return (
       <Inline space="15rem">

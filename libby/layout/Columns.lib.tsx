@@ -19,7 +19,6 @@ const DemoBlock = ({ height = 'auto', children, p = '300' }: DemoProps) => {
 };
 
 describe('Columns', () => {
-  const ref = React.useRef(null);
   add('widths', () => (
     <Stack>
       <Columns space="300">
