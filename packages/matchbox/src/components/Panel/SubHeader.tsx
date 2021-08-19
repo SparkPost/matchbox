@@ -1,10 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Panel from './Panel';
 import { Box } from '../Box';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
+import { Headings } from '../../helpers/types';
 
-const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
-  const { as, children, className, appearance } = props;
+type SubHeaderProps = Pick<React.ComponentProps<typeof Panel>, 'appearance' | 'className'> & {
+  as?: Headings;
+};
+
+const SubHeader = React.forwardRef<HTMLDivElement, SubHeaderProps>(function SubHeader(
+  props,
+  userRef,
+) {
+  const { as = 'h4', children, className, appearance } = props;
 
   const paddingContext = React.useContext(PanelPaddingContext);
   const appearanceContext = appearance || React.useContext(PanelAppearanceContext);
@@ -20,23 +28,14 @@ const SubHeader = React.forwardRef(function SubHeader(props, userRef) {
       lineHeight="200"
       color={appearanceContext === 'inverted' ? 'gray.300' : 'gray.700'}
       bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
-      tabIndex="-1"
+      tabIndex={-1}
       ref={userRef}
     >
       {children}
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<SubHeaderProps>;
 
 SubHeader.displayName = 'Panel.SubHeader';
-SubHeader.defaultProps = {
-  as: 'h4',
-};
-SubHeader.propTypes = {
-  as: PropTypes.string,
-  appearance: PropTypes.oneOf(['appearance', 'default']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
 
 export default SubHeader;

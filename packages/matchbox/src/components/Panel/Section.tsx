@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { padding, PaddingProps } from 'styled-system';
+import Panel from './Panel';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Column } from '../Column';
@@ -17,7 +16,10 @@ const StyledSection = styled(Box)`
   }
 `;
 
-const Section = React.forwardRef(function Section(props, userRef) {
+type SectionProps = Pick<React.ComponentProps<typeof Panel>, 'appearance' | 'className'> &
+  PaddingProps;
+
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(props, userRef) {
   const { children, className, appearance, ...rest } = props;
   const actions = getChild('Panel.Action', children);
   const content = excludeChild(['Panel.Action'], children);
@@ -54,14 +56,8 @@ const Section = React.forwardRef(function Section(props, userRef) {
       </Columns>
     </StyledSection>
   );
-});
+}) as React.ForwardRefExoticComponent<SectionProps>;
 
 Section.displayName = 'Panel.Section';
-Section.propTypes = {
-  appearance: PropTypes.oneOf(['inverted', 'default']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  ...createPropTypes(padding.propNames),
-};
 
 export default Section;

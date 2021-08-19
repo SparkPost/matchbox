@@ -139,44 +139,6 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
 };
 
 ActionList.displayName = 'ActionList';
-ActionList.propTypes = {
-  /**
-   * Actions
-   * e.g. [{ content: 'action label', onClick: callback() }]
-   *
-   * Note: each item can include an optional "section" key that will be used to auto group into sections, declaratively
-   */
-  actions: deprecate(
-    PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired })),
-    'Use the ActionList.Action component instead',
-  ),
-  className: PropTypes.string,
-  'data-id': PropTypes.string,
-  'aria-labelledby': PropTypes.string,
-  id: PropTypes.string,
-  /**
-   * Creates sections
-   * e.g. [[{ content: 'action label', onClick: callback() }]]
-   */
-  sections: deprecate(
-    PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({ content: PropTypes.node.isRequired }))),
-    'Use the ActionList.Section component instead',
-  ),
-
-  /**
-   * Max height of list
-   */
-  maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onClick: PropTypes.func,
-
-  /**
-   * Group by key used to auto group actions into sections, defaults to "section"
-   */
-  groupByKey: deprecate(PropTypes.string, 'Use the ActionList.Section component instead'),
-  children: PropTypes.node,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(layout.propNames),
-};
 
 ActionList.Section = Section;
 ActionList.Action = Action;
