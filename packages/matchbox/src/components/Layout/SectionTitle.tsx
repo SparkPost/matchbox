@@ -1,10 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Text } from '../Text';
 
-function SectionTitle(props) {
-  const { children, as } = props;
+type BaseProps = {
+  children?: React.ReactNode;
+  'data-id'?: string;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+};
+
+const SectionTitle = (props: BaseProps) => {
+  const { children, as = 'h2' } = props;
 
   return (
     <Text
@@ -17,15 +22,6 @@ function SectionTitle(props) {
       {children}
     </Text>
   );
-}
-
-SectionTitle.propTypes = {
-  as: PropTypes.elementType,
-  'data-id': PropTypes.string,
-};
-
-SectionTitle.defaultProps = {
-  as: 'h2',
 };
 
 SectionTitle.displayName = 'Layout.SectionTitle';

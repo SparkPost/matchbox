@@ -51,7 +51,7 @@ const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
   props: ActionProps,
   userRef,
 ) {
-  const { content, children, disabled, helpText, is, selected, ...action } = props;
+  const { content, children, disabled, helpText, is = 'link', selected, ...action } = props;
 
   const linkContent = React.useMemo(() => {
     return (
@@ -86,24 +86,6 @@ const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
   );
 });
 
-Action.defaultProps = {
-  is: 'link',
-};
-
 Action.displayName = 'ActionList.Action';
-Action.propTypes = {
-  content: deprecate(PropTypes.node, 'Use children instead'),
-  disabled: PropTypes.bool,
-  /**
-   * Same as hover styles.
-   * Can be used for wrappers that manage focus within the menu, eg downshift
-   */
-  highlighted: PropTypes.bool,
-
-  // TODO fix this
-  // is: PropTypes.oneOf(['link', 'button']),
-  selected: deprecate(PropTypes.bool, 'Use the checkbox component instead'),
-  helpText: PropTypes.string,
-};
 
 export default Action;

@@ -211,7 +211,7 @@ const Button = React.forwardRef(function Button(props, ref) {
   const loadingIndicator = React.useMemo(() => {
     return (
       <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
-        {state => (
+        {(state) => (
           <StyledLoader state={state} ref={transitionRef}>
             <Spinner color={loaderColor} size="small" label={loadingLabel} rotationOnly />
           </StyledLoader>

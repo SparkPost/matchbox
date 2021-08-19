@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '../Box';
 import styled from 'styled-components';
+import { AlignX, AlignY } from '../../helpers/types';
 import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styles';
 import { ResponsiveValue } from 'styled-system';
 import { SpaceKeys } from '../ThemeProvider/theme';
@@ -25,21 +26,18 @@ const InnerWrapper = styled('div')`
   ${alignYChildren}
 `;
 
-type AlignType = 'center' | 'left' | 'right';
-type AlignYType = 'center' | 'top' | 'bottom';
-
 type InlineProps = {
   children?: React.ReactNode;
   /**
    * Positions children horizontally.
    * Styled-system responsive arrays work here.
    */
-  align?: ResponsiveValue<AlignType>;
+  align?: ResponsiveValue<AlignX>;
   /**
    * Positions children vertically.
    * Styled-system responsive arrays work here.
    */
-  alignY?: ResponsiveValue<AlignYType>;
+  alignY?: ResponsiveValue<AlignY>;
   /**
    * Sets the gutter space between children.
    * Styled-system responsive arrays work here.

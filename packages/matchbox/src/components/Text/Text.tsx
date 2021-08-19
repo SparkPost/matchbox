@@ -32,7 +32,7 @@ type PolymorphicText = Polymorphic.ForwardRefComponent<
 >;
 
 const Text = React.forwardRef(function Text(props, ref) {
-  const { as, looksLike, children, ...rest } = props;
+  const { as = 'p', looksLike, children, ...rest } = props;
 
   return (
     <StyledText as={as} lookslike={looksLike} ref={ref} {...rest}>

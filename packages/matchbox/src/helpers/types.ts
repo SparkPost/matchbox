@@ -5,12 +5,12 @@ import * as React from 'react';
 /* -------------------------------------------------------------------------------------------------
  * Utility types
  * -----------------------------------------------------------------------------------------------*/
-type Merge<P1 = {}, P2 = {}> = Omit<P1, keyof P2> & P2;
+type Merge<P1 = { [key: string]: any }, P2 = { [key: string]: any }> = Omit<P1, keyof P2> & P2;
 
 /**
  * Infers the OwnProps if E is a ForwardRefExoticComponentWithAs
  */
-type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : {};
+type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : { [key: string]: any };
 
 /**
  * Infers the JSX.IntrinsicElement if E is a ForwardRefExoticComponentWithAs
@@ -27,7 +27,7 @@ type ForwardRefExoticComponent<E, OwnProps> = React.ForwardRefExoticComponent<
 
 interface ForwardRefComponent<
   IntrinsicElementString,
-  OwnProps = {}
+  OwnProps = { [key: string]: any },
   /**
    * Extends original type to ensure built in React types play nice
    * with polymorphic components still e.g. `React.ElementRef` etc.
@@ -48,8 +48,16 @@ interface ForwardRefComponent<
       ? Merge<P, OwnProps & { as: As }>
       : As extends keyof JSX.IntrinsicElements
       ? Merge<JSX.IntrinsicElements[As], OwnProps & { as: As }>
-      : never
+      : never,
   ): React.ReactElement | null;
 }
 
-export type { ForwardRefComponent, OwnProps, IntrinsicElement, Merge };
+/**
+ * Alignment Types
+ */
+type AlignX = 'center' | 'left' | 'right';
+type AlignY = 'center' | 'top' | 'bottom';
+
+type Breakpoints = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+export type { ForwardRefComponent, OwnProps, IntrinsicElement, Merge, AlignX, AlignY, Breakpoints };
