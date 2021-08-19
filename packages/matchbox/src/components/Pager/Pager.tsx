@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '../../helpers/props';
 import styled from 'styled-components';
 
@@ -13,7 +11,13 @@ const StyledPager = styled('div')`
   display: inline-block;
 `;
 
-function Pager(props) {
+type PagerProps = MarginProps & {
+  'data-id'?: string;
+  children?: React.ReactNode;
+  id?: string;
+};
+
+function Pager(props: PagerProps): JSX.Element {
   const { children, id, 'data-id': dataId, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -23,11 +27,6 @@ function Pager(props) {
     </StyledPager>
   );
 }
-
-Pager.propTypes = {
-  children: PropTypes.node,
-  ...createPropTypes(margin.propNames),
-};
 
 Pager.Next = Next;
 Pager.Previous = Previous;
