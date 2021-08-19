@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Polymorphic from '../../helpers/types';
 import { tokens } from '@sparkpost/design-tokens';
 import styled, { keyframes } from 'styled-components';
 import { Box } from '../Box';
@@ -109,11 +108,9 @@ const SkeletonBody = React.forwardRef<HTMLDivElement, BodyProps>(function Skelet
 
 SkeletonBody.displayName = 'Skeleton.Body';
 
-type BoxProps = {
+type BoxProps = React.ComponentProps<typeof Box> & {
   'data-id'?: string;
 };
-
-type PolymorphicBox = Polymorphic.ForwardRefComponent<'div', BoxProps>;
 
 const SkeletonBox = React.forwardRef<HTMLDivElement, BoxProps>(function SkeletonBox(props, ref) {
   const { 'data-id': dataId, children, ...rest } = props;
@@ -124,7 +121,7 @@ const SkeletonBox = React.forwardRef<HTMLDivElement, BoxProps>(function Skeleton
       <Animator borderRadius="200" delay={delay} {...rest} />
     </Box>
   );
-}) as PolymorphicBox;
+});
 
 SkeletonBox.displayName = 'Skeleton.Box';
 
