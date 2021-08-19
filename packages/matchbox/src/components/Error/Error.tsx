@@ -2,8 +2,19 @@ import React from 'react';
 import { ErrorIcon } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 
-function Error(props) {
-  const { className, error, wrapper: WrapperComponent = 'div', id, ml = '0' } = props;
+type ErrorLabelProps = Pick<React.ComponentProps<typeof Box>, 'ml'> & {
+  id?: string;
+  className?: string;
+  /**
+   * @deprecated Use children instead
+   */
+  error?: React.ReactNode;
+  children?: React.ReactNode;
+  wrapper?: 'div' | 'span';
+};
+
+function ErrorLabel(props: ErrorLabelProps): JSX.Element {
+  const { className, children, error, wrapper: WrapperComponent = 'div', id, ml = '0' } = props;
 
   return (
     <Box id={id} as={WrapperComponent} className={className} ml={ml} data-id="error-message">
@@ -18,11 +29,14 @@ function Error(props) {
         <Box as="span" display="inline-block" mr="100" pt="2px" lineHeight="0">
           <ErrorIcon size={14} label="Error" />
         </Box>
-        <span>{error}</span>
+        <span>
+          {error}
+          {children}
+        </span>
       </Box>
     </Box>
   );
 }
 
-Error.displayName = 'Error';
-export default Error;
+ErrorLabel.displayName = 'Error';
+export default ErrorLabel;
