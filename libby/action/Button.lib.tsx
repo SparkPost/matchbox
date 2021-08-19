@@ -2,8 +2,8 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 
 // @ts-ignore
-import { Stack, Inline, Box } from '@sparkpost/matchbox';
-import { Button } from '../../packages/matchbox/src';
+import { Stack } from '@sparkpost/matchbox';
+import { Inline, Button, Box } from '@sparkpost/matchbox';
 
 // @ts-ignore
 import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
@@ -12,7 +12,7 @@ type TestComponentProps = {
   foo?: 'bar' | 'baz';
 };
 
-const TestComponent: React.FC<TestComponentProps> = props => {
+const TestComponent: React.FC<TestComponentProps> = (props) => {
   return <div>{props.children}</div>;
 };
 

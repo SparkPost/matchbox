@@ -32,7 +32,7 @@ function IconSection({ status, size }: IconProps) {
   return (
     <Box
       display="flex"
-      flexShrink="0"
+      flexShrink={0}
       alignItems="center"
       justifyContent="center"
       width={iconSize}
@@ -176,7 +176,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       id={id}
     >
       {status !== 'muted' && <IconSection status={status} size={size} />}
-      <Box flex="1" order={['1', null, '0']} flexBasis={['100%', null, 'auto']}>
+      <Box flex="1" order={[1, null, 0]} flexBasis={['100%', null, 'auto']}>
         {titleMarkup}
         <Box>
           <StyledChildren>{excludeChild('Banner.Media', children)}</StyledChildren>

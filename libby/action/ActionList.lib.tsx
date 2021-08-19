@@ -1,8 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 // @ts-ignore :(
-import { Button, Inline, Popover, Panel, Box } from '@sparkpost/matchbox';
-import { ActionList } from '@sparkpost/matchbox';
+import { Popover, Panel } from '@sparkpost/matchbox';
+import { Button, Inline, ActionList, Box } from '@sparkpost/matchbox';
 
 describe('ActionList', () => {
   add('within Popovers', () => {
