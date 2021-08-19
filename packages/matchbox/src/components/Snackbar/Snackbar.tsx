@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import PropTypes from 'prop-types';
-import { createPropTypes } from '@styled-system/prop-types';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
-import { margin, maxWidth as maxWidthSystem } from 'styled-system';
+import { margin, MarginProps, MaxWidthProps } from 'styled-system';
 import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { pick } from '../../helpers/props';
@@ -22,8 +20,23 @@ const StyledClose = styled(Box)`
   ${dismissStatus}
 `;
 
-const Snackbar = React.forwardRef(function Snackbar(props, userRef) {
-  const { children, status, maxWidth, onDismiss, 'data-id': dataId, ...rest } = props;
+type SnackbarProps = {
+  'data-id'?: string;
+  status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
+  onDismiss?: (any) => void;
+  children?: React.ReactNode;
+} & MarginProps &
+  MaxWidthProps;
+
+const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(function Snackbar(props, userRef) {
+  const {
+    children,
+    status = 'default',
+    maxWidth = 380,
+    onDismiss,
+    'data-id': dataId,
+    ...rest
+  } = props;
   const systemProps = pick(rest, margin.propNames);
 
   return (
@@ -59,31 +72,8 @@ const Snackbar = React.forwardRef(function Snackbar(props, userRef) {
       </StyledClose>
     </StyledBox>
   );
-});
+}) as React.ForwardRefExoticComponent<SnackbarProps>;
 
 Snackbar.displayName = 'Snackbar';
-Snackbar.defaultProps = {
-  status: 'default',
-  maxWidth: 380,
-};
-Snackbar.propTypes = {
-  'data-id': PropTypes.string,
-  /**
-   * The type of snackbar.
-   */
-  status: PropTypes.oneOf(['default', 'success', 'danger', 'error', 'warning']),
-
-  /**
-   * Callback when dismiss button is clicked.
-   */
-  onDismiss: PropTypes.func.isRequired,
-
-  /**
-   * Snackbar Content
-   */
-  children: PropTypes.node,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(maxWidthSystem.propNames),
-};
 
 export default Snackbar;
