@@ -16,7 +16,10 @@ const StyledSection = styled(Box)`
   }
 `;
 
-type SectionProps = Pick<React.ComponentProps<typeof Panel>, 'appearance' | 'className'> &
+type SectionProps = Pick<
+  React.ComponentProps<typeof Panel>,
+  'appearance' | 'className' | 'children'
+> &
   PaddingProps;
 
 const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(props, userRef) {

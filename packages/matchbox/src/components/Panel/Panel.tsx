@@ -28,9 +28,9 @@ const systemInner = compose(border, height);
 type PanelProps = {
   accent?: boolean | 'orange' | 'blue' | 'red' | 'yellow' | 'green' | 'gray';
   appearance?: 'inverted' | 'default';
-  chidren?: React.ReactNode;
   'data-id'?: string;
   className?: string;
+  children?: React.ReactNode;
 } & MarginProps &
   PaddingProps &
   BorderProps &

@@ -7,14 +7,15 @@ import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getChild, excludeChild } from '../../helpers/children';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
+import { Headings } from '../../helpers/types';
 
 type HeaderProps = Pick<
-  React.ComponentProps<typeof Box>,
-  'borderBottom' | 'children' | 'className'
-> &
-  Pick<React.ComponentProps<typeof Panel>, 'appearance'> & {
-    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  };
+  React.ComponentProps<typeof Panel>,
+  'appearance' | 'children' | 'className'
+> & {
+  as?: Headings;
+  borderBottom?: boolean;
+};
 
 const Header = React.forwardRef<HTMLDivElement, HeaderProps>(function Header(props, userRef) {
   const { as = 'h3', appearance, borderBottom, children, className } = props;

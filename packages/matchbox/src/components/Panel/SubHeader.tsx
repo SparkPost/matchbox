@@ -4,7 +4,10 @@ import { Box } from '../Box';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
 import { Headings } from '../../helpers/types';
 
-type SubHeaderProps = Pick<React.ComponentProps<typeof Panel>, 'appearance' | 'className'> & {
+type SubHeaderProps = Pick<
+  React.ComponentProps<typeof Panel>,
+  'appearance' | 'className' | 'children'
+> & {
   as?: Headings;
 };
 
