@@ -7,11 +7,9 @@ type SectionProps = {
   'data-id'?: string;
 };
 
-function Section(props) {
-  const { annotated, children }: SectionProps = props;
-
+function Section({ annotated, children, 'data-id': dataId }: SectionProps) {
   return (
-    <Column width={annotated ? 1 / 3 : 1} data-id={props['data-id']}>
+    <Column width={annotated ? 1 / 3 : 1} data-id={dataId}>
       {children}
     </Column>
   );

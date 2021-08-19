@@ -27,7 +27,7 @@ interface BaseProps {
 }
 
 type PolymorphicText = Polymorphic.ForwardRefComponent<
-  React.ElementType,
+  'p',
   BaseProps & ColorProps & SpaceProps & TypographyProps
 >;
 
