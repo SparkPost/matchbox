@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { system } from 'styled-system';
 import { Box } from '../Box';
 import styled from 'styled-components';
-import propTypes from '@styled-system/prop-types';
+import { ResponsiveValue } from 'styled-system';
+import { AlignX } from '../../helpers/types';
+import { SpaceKeys } from '../ThemeProvider/theme';
 
 const StyledBox = styled(Box)`
   display: flex;
@@ -28,7 +29,22 @@ const StyledBox = styled(Box)`
     })}
 `;
 
-function Stack(props) {
+type StackProps = {
+  children?: React.ReactNode;
+  /**
+   * Positions children horizontally.
+   * Styled-system responsive arrays work here.
+   */
+  align?: ResponsiveValue<AlignX>;
+  /**
+   * Sets the gutter space between children.
+   * Styled-system responsive arrays work here.
+   */
+  space?: ResponsiveValue<SpaceKeys | string>;
+  'data-id'?: string;
+};
+
+function Stack(props: StackProps): JSX.Element {
   const { children, align, space = '500' } = props;
   const items = React.Children.toArray(children);
 
@@ -46,21 +62,6 @@ function Stack(props) {
     </div>
   );
 }
-
-Stack.propTypes = {
-  'data-id': PropTypes.string,
-  /**
-   * Sets the gutter space between children.
-   * Styled-system responsive arrays work here.
-   */
-  space: propTypes.space.paddingBottom,
-  /**
-   * Positions children horizontally.
-   * Accepts 'center', 'left', 'right', null.
-   * Styled-system responsive arrays work here.
-   */
-  align: propTypes.flexbox.alignItems,
-};
 
 Stack.displayName = 'Stack';
 export default Stack;
