@@ -2,8 +2,8 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 
 // @ts-ignore
-import { Stack, Inline } from '@sparkpost/matchbox';
-import { Button, Box } from '@sparkpost/matchbox';
+import { Stack } from '@sparkpost/matchbox';
+import { Inline, Button, Box } from '@sparkpost/matchbox';
 
 // @ts-ignore
 import { Assessment, AddCircleOutline, ArrowDropDown } from '@sparkpost/matchbox-icons';
