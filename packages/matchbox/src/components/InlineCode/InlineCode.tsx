@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box } from '../Box';
 
-function InlineCode({ children }): JSX.Element {
+type InlineCodeProps = {
+  children?: React.ReactNode;
+};
+
+function InlineCode({ children }: InlineCodeProps): JSX.Element {
   return (
     <Box
       as="code"
