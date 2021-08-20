@@ -9,7 +9,7 @@ import {
   TypographyProps,
   compose,
 } from 'styled-system';
-import type * as Polymorphic from '../../helpers/types';
+import type * as Types from '../../helpers/types';
 
 const system = compose(color, space, typography);
 
@@ -28,26 +28,18 @@ const Styledlink = styled.a`
   }}
 `;
 
-export type BaseProps = React.ComponentPropsWithRef<'a'> & {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  to?: string | { [key: string]: any }; // object here to support react router: https://reactrouter.com/web/api/location
-  disabled?: boolean;
-  external?: boolean;
-  /**
-   * @deprecated Use `as` instead
-   */
-  component?: React.ElementType;
-  /**
-   * @deprecated Use `as` instead
-   */
-  Component?: React.ElementType;
-};
+export type BaseProps = React.ComponentPropsWithRef<'a'> &
+  Types.LinkActionProps &
+  ColorProps &
+  SpaceProps &
+  TypographyProps;
 
-type PolymorphicUnstyledLink = Polymorphic.ForwardRefComponent<
-  'a',
-  BaseProps & ColorProps & SpaceProps & TypographyProps
->;
+type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', BaseProps>;
 
+/**
+ * UnstyledLink component
+ * @see https://design.sparkpost.com/components/unstyledlink/api
+ */
 const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   const {
     children,
