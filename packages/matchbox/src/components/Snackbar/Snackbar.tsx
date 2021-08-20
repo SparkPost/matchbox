@@ -23,7 +23,7 @@ const StyledClose = styled(Box)`
 type SnackbarProps = {
   'data-id'?: string;
   status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
-  onDismiss?: (any) => void;
+  onDismiss?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
 } & MarginProps &
   MaxWidthProps;
