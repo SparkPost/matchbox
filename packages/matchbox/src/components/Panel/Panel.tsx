@@ -1,7 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { margin, padding, border, width, height, compose } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import {
+  margin,
+  MarginProps,
+  padding,
+  PaddingProps,
+  border,
+  BorderProps,
+  width,
+  WidthProps,
+  height,
+  HeightProps,
+  compose,
+} from 'styled-system';
 import Legacy from './legacy/Panel';
 import { Box } from '../Box';
 import Accent from './Accent';
@@ -15,7 +25,19 @@ import { PanelPaddingContext, PanelAppearanceContext } from './context';
 const systemOuter = compose(margin, width, height);
 const systemInner = compose(border, height);
 
-const Panel = React.forwardRef(function Panel(props, userRef) {
+type PanelProps = {
+  accent?: boolean | 'orange' | 'blue' | 'red' | 'yellow' | 'green' | 'gray';
+  appearance?: 'inverted' | 'default';
+  'data-id'?: string;
+  className?: string;
+  children?: React.ReactNode;
+} & MarginProps &
+  PaddingProps &
+  BorderProps &
+  WidthProps &
+  HeightProps;
+
+const Panel = React.forwardRef<HTMLDivElement, PanelProps>(function Panel(props, userRef) {
   const { accent, appearance, children, className, ...rest } = props;
 
   const outerSystemProps = pick(rest, systemOuter.propNames);
@@ -27,7 +49,7 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
   const { p: contextP, padding: contextPadding, ...context } = pick(rest, padding.propNames);
 
   return (
-    <Box {...outerSystemProps} ref={userRef} tabIndex="-1" data-id={props['data-id']}>
+    <Box {...outerSystemProps} ref={userRef} tabIndex={-1} data-id={props['data-id']}>
       <Box
         border="300"
         borderRadius="100"
@@ -48,28 +70,15 @@ const Panel = React.forwardRef(function Panel(props, userRef) {
       </Box>
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<PanelProps> & {
+  LEGACY: typeof Legacy;
+  Header: typeof Header;
+  SubHeader: typeof SubHeader;
+  Action: typeof Action;
+  Section: typeof Section;
+};
 
 Panel.displayName = 'Panel';
-Panel.propTypes = {
-  accent: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'gray']),
-  ]),
-  appearance: PropTypes.oneOf(['inverted', 'default']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  'data-id': PropTypes.string,
-  ...createPropTypes(border.propNames),
-  ...createPropTypes(height.propNames),
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(padding.propNames),
-  ...createPropTypes(width.propNames),
-};
-
-Panel.defaultProps = {
-  appearance: 'default',
-};
 
 Panel.LEGACY = Legacy;
 Panel.Header = Header;

@@ -1,7 +1,12 @@
 import React from 'react';
+import Panel from './Panel';
 import { Box } from '../Box';
 
-function Accent({ accentColor }) {
+type AccentProps = {
+  accentColor?: React.ComponentProps<typeof Panel>['accent'];
+};
+
+function Accent({ accentColor }: AccentProps) {
   const color = React.useMemo(() => {
     switch (accentColor) {
       case 'orange':

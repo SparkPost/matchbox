@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Panel from './Panel';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Button } from '../Button';
@@ -7,9 +7,18 @@ import { Column } from '../Column';
 import { Columns } from '../Columns';
 import { getChild, excludeChild } from '../../helpers/children';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
+import { Headings } from '../../helpers/types';
 
-const Header = React.forwardRef(function Header(props, userRef) {
-  const { as, appearance, borderBottom, children, className } = props;
+type HeaderProps = Pick<
+  React.ComponentProps<typeof Panel>,
+  'appearance' | 'children' | 'className'
+> & {
+  as?: Headings;
+  borderBottom?: boolean;
+};
+
+const Header = React.forwardRef<HTMLDivElement, HeaderProps>(function Header(props, userRef) {
+  const { as = 'h3', appearance, borderBottom, children, className } = props;
   const actions = getChild('Panel.Action', children);
   const title = excludeChild(['Panel.Action'], children);
   const paddingContext = React.useContext(PanelPaddingContext);
@@ -24,7 +33,7 @@ const Header = React.forwardRef(function Header(props, userRef) {
       // First null to inherit padding context
       pb={borderBottom ? null : [0, null, 0]}
       ref={userRef}
-      tabIndex="-1"
+      tabIndex={-1}
       color={appearanceContext === 'inverted' ? 'white' : ''}
       bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
     >
@@ -42,18 +51,8 @@ const Header = React.forwardRef(function Header(props, userRef) {
       </Columns>
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<HeaderProps>;
 
 Header.displayName = 'Panel.Header';
-Header.defaultProps = {
-  as: 'h3',
-};
-Header.propTypes = {
-  as: PropTypes.string,
-  appearance: PropTypes.oneOf(['inverted', 'default']),
-  borderBottom: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
 
 export default Header;

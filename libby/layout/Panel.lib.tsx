@@ -2,6 +2,14 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Button, Panel, Columns, Column } from '@sparkpost/matchbox';
 
+type TestComponentProps = {
+  foo?: 'bar' | 'baz';
+};
+
+const TestComponent: React.FC<TestComponentProps> = (props) => {
+  return <div>{props.children}</div>;
+};
+
 describe('Panel', () => {
   add('basic usage', () => (
     <Panel data-id="my-panel">
@@ -62,6 +70,21 @@ describe('Panel', () => {
       </Panel.Header>
       <Panel.Section>
         <Panel.Action>View Details</Panel.Action>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
+        reprehenderit, odio temporibus culpa beatae iure!
+      </Panel.Section>
+    </Panel>
+  ));
+
+  add('actions with as', () => (
+    <Panel>
+      <Panel.Header>
+        <Panel.Action as={TestComponent}>Action</Panel.Action>
+        <Panel.Action as="p" color="red">
+          Destructive Action
+        </Panel.Action>
+      </Panel.Header>
+      <Panel.Section>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis harum
         reprehenderit, odio temporibus culpa beatae iure!
       </Panel.Section>
