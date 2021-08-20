@@ -1,15 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { color, space, typography, compose } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import { deprecate } from '../../helpers/propTypes';
+import {
+  color,
+  ColorProps,
+  space,
+  SpaceProps,
+  typography,
+  TypographyProps,
+  compose,
+} from 'styled-system';
+import type * as Polymorphic from '../../helpers/types';
 
 const system = compose(color, space, typography);
 
 const Styledlink = styled.a`
   ${system}
-  ${props => {
+  ${(props) => {
     if (props.disabled) {
       return `
         &, &:visited {
@@ -21,6 +27,26 @@ const Styledlink = styled.a`
     }
   }}
 `;
+
+export type BaseProps = React.ComponentPropsWithRef<'a'> & {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  to?: string | { [key: string]: any }; // object here to support react router: https://reactrouter.com/web/api/location
+  disabled?: boolean;
+  external?: boolean;
+  /**
+   * @deprecated Use `as` instead
+   */
+  component?: React.ElementType;
+  /**
+   * @deprecated Use `as` instead
+   */
+  Component?: React.ElementType;
+};
+
+type PolymorphicUnstyledLink = Polymorphic.ForwardRefComponent<
+  'a',
+  BaseProps & ColorProps & SpaceProps & TypographyProps
+>;
 
 const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   const {
@@ -98,25 +124,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
       {children}
     </Styledlink>
   );
-});
+}) as PolymorphicUnstyledLink;
 
 UnstyledLink.displayName = 'UnstyledLink';
-
-UnstyledLink.propTypes = {
-  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  disabled: PropTypes.bool,
-  title: PropTypes.string,
-  external: PropTypes.bool,
-  component: deprecate(PropTypes.elementType, 'Use "as" instead'),
-  Component: deprecate(PropTypes.elementType, 'Use "as" instead'),
-  as: PropTypes.elementType,
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-  role: PropTypes.string,
-  tabIndex: PropTypes.string,
-  ...createPropTypes(color.propNames),
-  ...createPropTypes(space.propNames),
-  ...createPropTypes(typography.propNames),
-};
-
 export default UnstyledLink;

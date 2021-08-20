@@ -1,14 +1,18 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { UnstyledLink, Stack } from '@sparkpost/matchbox';
+import { UnstyledLink } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Stack } from '@sparkpost/matchbox';
 
-function DemoWrapper(props) {
-  return <a>{props.children}</a>;
-}
+const Test = (props: { children?: React.ReactNode; foo?: 'bar' | 'baz' }) => (
+  <div>{props.children}</div>
+);
 
 describe('UnstyledLink', () => {
   add('with an onClick', () => (
-    <UnstyledLink onClick={() => console.log('click')}>A link</UnstyledLink>
+    <UnstyledLink title="a title" onClick={() => console.log('click')}>
+      A link
+    </UnstyledLink>
   ));
 
   add('with an external link', () => (
@@ -17,12 +21,18 @@ describe('UnstyledLink', () => {
     </UnstyledLink>
   ));
 
-  add('wrapper components', () => (
-    <>
-      <UnstyledLink as={({ children }) => <a>{children}</a>}>A Function</UnstyledLink>
-      <UnstyledLink as={DemoWrapper}>A Component</UnstyledLink>
-    </>
-  ));
+  add('wrapper components', () => {
+    return (
+      <>
+        <UnstyledLink as={Test} foo="bar">
+          A component
+        </UnstyledLink>
+        <UnstyledLink as="button" data->
+          A button
+        </UnstyledLink>
+      </>
+    );
+  });
 
   add('disabled', () => (
     <Stack>
