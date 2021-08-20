@@ -2,7 +2,9 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Snackbar, Inline } from '@sparkpost/matchbox';
 
-function noop() {}
+function noop() {
+  return null;
+}
 
 describe('Snackbar', () => {
   add('all statuses', () => (
