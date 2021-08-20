@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from '../Button';
+import * as Polymorphic from '../../helpers/types';
 
-type ActionProps = React.ComponentProps<typeof Button>;
+type ActionProps = Omit<React.ComponentProps<typeof Button>, 'as'>;
+type PolymorphicAction = Polymorphic.ForwardRefComponent<'button', ActionProps>;
 
 const Action = React.forwardRef(function Action(props, userRef) {
   return <Button color="blue" {...props} variant="text" size="small" ref={userRef} />;
-}) as React.ForwardRefExoticComponent<ActionProps>;
+}) as PolymorphicAction;
 
 Action.displayName = 'Panel.Action';
 

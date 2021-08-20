@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { CheckBox } from '@sparkpost/matchbox-icons';
-import { deprecate } from '../../helpers/propTypes';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
