@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
@@ -11,7 +10,13 @@ const FocusHandler = styled(Box)`
   }
 `;
 
-function Connect(props) {
+type ConenctProps = {
+  children?: React.ReactNode;
+  left?: React.ReactNode;
+  right?: React.ReactNode;
+};
+
+function Connect(props: ConenctProps): JSX.Element {
   const { left, right, children } = props;
 
   const leftMarkup = left ? (
@@ -36,10 +41,4 @@ function Connect(props) {
 }
 
 Connect.displayName = 'Connect';
-Connect.propTypes = {
-  left: PropTypes.node,
-  right: PropTypes.node,
-  children: PropTypes.node,
-};
-
 export default Connect;
