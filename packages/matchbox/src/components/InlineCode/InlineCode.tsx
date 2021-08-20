@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 
-function InlineCode({ children }) {
+type InlineCodeProps = {
+  children?: React.ReactNode;
+};
+
+function InlineCode({ children }: InlineCodeProps): JSX.Element {
   return (
     <Box
       as="code"
@@ -21,9 +24,5 @@ function InlineCode({ children }) {
 }
 
 InlineCode.displayName = 'InlineCode';
-
-InlineCode.propTypes = {
-  children: PropTypes.node,
-};
 
 export default InlineCode;
