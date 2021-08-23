@@ -7,7 +7,7 @@ export const StyledHeader = styled('button')`
   ${buttonReset}
   user-select: none;
   outline: none;
-  ${props =>
+  ${(props) =>
     css({
       px: '450',
       py: props.variant === 'borderless' ? '200' : '300',
@@ -26,7 +26,7 @@ export const StyledHeader = styled('button')`
 `;
 
 export const StyledContentWrapper = styled('div')`
-  ${props => {
+  ${(props) => {
     let visibility = 'hidden';
     let display = 'none';
 
@@ -43,7 +43,7 @@ export const StyledContentWrapper = styled('div')`
   ${() => css({ px: '450', pb: '450' })}
 `;
 
-export const expandable = props => {
+export const expandable = (props) => {
   let borderRadius = tokens.borderRadius_100;
   if (props.variant === 'borderless') {
     return ``;
@@ -60,7 +60,7 @@ export const expandable = props => {
   `;
 };
 
-export const arrow = props => {
+export const arrow = (props) => {
   let rotate = 'rotate(-90deg)';
 
   if (props.isOpen) {
@@ -96,10 +96,9 @@ export const title = ({ variant }) => `
 
 export const subtitle = () => `
   font-weight: ${tokens.fontWeight_normal};
-
 `;
 
-export const accent = props => {
+export const accent = (props) => {
   let color;
 
   switch (props.accentColor) {

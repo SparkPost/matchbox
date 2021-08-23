@@ -1,8 +1,6 @@
 import React from 'react';
-import Proptypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
 import { pick } from '../../helpers/props';
@@ -30,10 +28,51 @@ const StyledSubtitle = styled(Box)`
 
 const StyledIcon = styled(Box)``;
 
-function Expandable(props) {
+export type ExpandableProps = MarginProps & {
+  /**
+   * Optional accent color or boolean to default to blue
+   */
+  accent?: React.ComponentProps<typeof Accent>['accentColor'];
+  /**
+   * Default open state when not controlled
+   */
+  defaultOpen?: boolean;
+  /**
+   * Optional React node for an image or icon. Works best with an SVG optimized for 40x40.
+   */
+  icon?: React.ReactNode;
+  /**
+   * Required for accessilibty between header and content
+   */
+  id: string;
+  /**
+   * Pass a boolean to control open state
+   */
+  open?: boolean;
+  /**
+   * Optional, but required when controlling open state
+   */
+  onToggle?: () => void;
+  /**
+   * Optional content area beneath header title
+   */
+  subtitle?: React.ReactNode;
+  /**
+   * Main header title content
+   */
+  title: React.ReactNode;
+  /**
+   * Contents of the expandable
+   */
+  children?: React.ReactNode;
+  'data-id'?: string;
+  variant?: 'bordered' | 'borderless';
+};
+
+function Expandable(props: ExpandableProps): JSX.Element {
   const {
     children,
-    defaultOpen,
+    defaultOpen = false,
     'data-id': dataId,
     icon,
     id,
@@ -42,7 +81,7 @@ function Expandable(props) {
     subtitle,
     title,
     accent,
-    variant,
+    variant = 'bordered',
     ...rest
   } = props;
 
@@ -67,7 +106,7 @@ function Expandable(props) {
   }
 
   function handleClick() {
-    header.current.blur();
+    (header as React.MutableRefObject<HTMLButtonElement>).current.blur();
     handleToggle();
   }
 
@@ -143,54 +182,4 @@ Expandable.Subtitle = StyledSubtitle;
 Expandable.ContentWrapper = StyledContentWrapper;
 Expandable.Arrow = StyledArrow;
 Expandable.Header = StyledHeader;
-
-Expandable.defaultProps = {
-  defaultOpen: false,
-  variant: 'bordered',
-};
-
-Expandable.propTypes = {
-  /**
-   * Default open state when not controlled
-   */
-  defaultOpen: Proptypes.bool,
-  /**
-   * Optional React node for an image or icon. Works best with an SVG optimized for 40x40.
-   */
-  icon: Proptypes.node,
-  /**
-   * Required for accessilibty between header and content
-   */
-  id: Proptypes.string.isRequired,
-  /**
-   * Pass a boolean to control open state
-   */
-  open: Proptypes.bool,
-  /**
-   * Optional, but required when controlling open state
-   */
-  onToggle: Proptypes.func,
-  /**
-   * Optional content area beneath header title
-   */
-  subtitle: Proptypes.node,
-  /**
-   * Main header title content
-   */
-  title: Proptypes.node.isRequired,
-  /**
-   * Optional accent color or boolean to default to blue
-   */
-  accent: Proptypes.oneOfType([
-    Proptypes.bool,
-    Proptypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
-  ]),
-
-  variant: Proptypes.oneOf(['bordered', 'borderless']),
-  /**
-   * Margin props
-   */
-  ...createPropTypes(margin.propNames),
-};
-
 export default Expandable;
