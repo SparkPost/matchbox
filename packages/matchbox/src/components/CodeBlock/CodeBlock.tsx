@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
 import { pre, code, prefix, line, chevron } from './styles';
