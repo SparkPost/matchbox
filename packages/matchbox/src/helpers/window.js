@@ -1,3 +1,7 @@
+function noop() {
+  return;
+}
+
 // Checks if window is available
 // To support Gatsby's static build
 export function getWindow() {
@@ -5,7 +9,9 @@ export function getWindow() {
     return window;
   }
   return {
-    matchMedia: () => ({}),
+    matchMedia: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
   };
 }
 
