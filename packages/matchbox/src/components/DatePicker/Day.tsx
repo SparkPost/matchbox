@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledDay } from './styles';
+import { DayModifiers } from 'react-day-picker';
 
 /** Supported modifiers:
  * firstSelected
@@ -10,7 +11,7 @@ import { StyledDay } from './styles';
  * outside - provided by react-day-picker
  * */
 
-function renderDay(date, modifiers = {}) {
+function renderDay(date: Date, modifiers: DayModifiers): JSX.Element | '' {
   if (modifiers.outside) {
     return '';
   }

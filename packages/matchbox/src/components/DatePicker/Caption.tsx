@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Text } from '../Text';
+import { CaptionElementProps } from 'react-day-picker';
 
-function Caption({ classNames = {}, onClick, date, localeUtils = {} }) {
+function Caption({ classNames, onClick, date, localeUtils }: CaptionElementProps): JSX.Element {
   const month = localeUtils.getMonths()[date.getMonth()];
   const year = date.getFullYear();
 
@@ -27,13 +27,4 @@ function Caption({ classNames = {}, onClick, date, localeUtils = {} }) {
 }
 
 Caption.displayName = 'Caption';
-
-// Props come from react-day-picker
-Caption.propTypes = {
-  classNames: PropTypes.object,
-  date: PropTypes.instanceOf(Date),
-  localeUtils: PropTypes.object,
-  onClick: PropTypes.func,
-};
-
 export default Caption;

@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Text } from '../Text';
+import { WeekdayElementProps } from 'react-day-picker';
 
 const shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-function Weekday({ className, weekday, localeUtils = {} }) {
+function Weekday({ className, weekday, localeUtils }: WeekdayElementProps): JSX.Element {
   return (
     <Box
       flex="1 0 0"
@@ -17,7 +17,6 @@ function Weekday({ className, weekday, localeUtils = {} }) {
     >
       <Text
         as="abbr"
-        color="gray.800"
         title={localeUtils.formatWeekdayLong(weekday)}
         fontWeight="medium"
         fontSize="200"
@@ -33,11 +32,4 @@ function Weekday({ className, weekday, localeUtils = {} }) {
 }
 
 Weekday.displayName = 'Weekday';
-
-// Props come from react-day-picker
-Weekday.propTypes = {
-  className: PropTypes.string,
-  weekday: PropTypes.number,
-};
-
 export default Weekday;

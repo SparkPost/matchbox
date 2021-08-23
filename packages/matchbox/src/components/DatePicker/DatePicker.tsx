@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import DayPicker from 'react-day-picker';
+import DayPicker, { DayPickerProps } from 'react-day-picker';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { omit } from '../../helpers/props';
 import Navbar from './Navbar';
@@ -17,7 +15,15 @@ export const Wrapper = styled.div`
   ${wrapper}
 `;
 
-const DatePicker = React.forwardRef(function DatePicker(props, ref) {
+type DatePickerProps = DayPickerProps &
+  MarginProps & {
+    numberOfMonths?: 1 | 2;
+  };
+
+const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(function DatePicker(
+  props,
+  ref,
+) {
   const systemProps = pick(props);
   const componentProps = omit(props, margin.propNames);
 
@@ -35,13 +41,6 @@ const DatePicker = React.forwardRef(function DatePicker(props, ref) {
 });
 
 DatePicker.displayName = 'DatePicker';
-
-DatePicker.propTypes = {
-  ...DayPicker.propTypes,
-  numberOfMonths: PropTypes.oneOf([1, 2]),
-  ...createPropTypes(margin.propNames),
-};
-
 DatePicker.defaultProps = {
   fixedWeeks: false,
   enableOutsideDaysClick: false,
