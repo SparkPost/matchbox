@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { UnstyledLink } from '@sparkpost/matchbox';
-// @ts-ignore
-import { Stack } from '@sparkpost/matchbox';
+import { Stack, UnstyledLink } from '@sparkpost/matchbox';
 
 const Test = (props: { children?: React.ReactNode; foo?: 'bar' | 'baz' }) => (
   <div>{props.children}</div>
@@ -27,9 +25,7 @@ describe('UnstyledLink', () => {
         <UnstyledLink as={Test} foo="bar">
           A component
         </UnstyledLink>
-        <UnstyledLink as="button" data->
-          A button
-        </UnstyledLink>
+        <UnstyledLink as="button">A button</UnstyledLink>
       </>
     );
   });
