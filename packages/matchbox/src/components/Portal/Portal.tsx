@@ -1,7 +1,17 @@
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-function Portal(props) {
+type PortalProps = {
+  /**
+   * ID of the target portal container. Appends a new portal to document body if not provided.
+   */
+  containerId?: string;
+  /**
+   * Content rendered inside the portal
+   */
+  children?: React.ReactNode;
+};
+
+function Portal(props: PortalProps): React.ReactPortal | null {
   const { containerId, children } = props;
 
   if (typeof document !== 'undefined') {
@@ -15,15 +25,4 @@ function Portal(props) {
 }
 
 Portal.displayName = 'Portal';
-Portal.propTypes = {
-  /**
-   * ID of the target portal container. Appends a new portal to document body if not provided.
-   */
-  containerId: PropTypes.string,
-  /**
-   * Content rendered inside the portal
-   */
-  children: PropTypes.node,
-};
-
 export default Portal;
