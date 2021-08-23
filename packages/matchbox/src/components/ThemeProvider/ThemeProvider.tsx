@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { ThemeProvider, createGlobalStyle, StyleSheetManager } from 'styled-components';
 import { normalize } from 'styled-normalize';
@@ -32,9 +33,10 @@ Manager.displayName = 'MatchboxStyleSheetManager';
 
 type ThemeProviderProps = {
   skipGlobalStyles?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  /**
+   * @warning Thar be dragons ahead. Provide an alternate DOM node to inject styles info.
+   */
   target?: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: any;
   children?: React.ReactNode;
 };
