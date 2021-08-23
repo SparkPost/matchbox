@@ -7,7 +7,7 @@ export const StyledDay = styled(Box)`
   color: ${tokens.color_gray_800};
   cursor: pointer;
 
-  ${props => {
+  ${(props) => {
     // Disabled styles
     if (props.modifiers.disabled) {
       return `
@@ -17,7 +17,7 @@ export const StyledDay = styled(Box)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // Today modifier styles
     if (props.modifiers.today) {
       if (props.modifiers.disabled) {
@@ -33,7 +33,7 @@ export const StyledDay = styled(Box)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // Selected modifier styles
     if (props.modifiers.selected) {
       return `
@@ -43,7 +43,7 @@ export const StyledDay = styled(Box)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // In Between selected modifier styles
     if (props.modifiers.inBetween) {
       return `
@@ -53,7 +53,7 @@ export const StyledDay = styled(Box)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // First and Last selected modifier styles
     if (props.modifiers.lastSelected || props.modifiers.firstSelected) {
       return `
@@ -63,7 +63,7 @@ export const StyledDay = styled(Box)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     // Hover styles
     if (
       !props.modifiers.disabled &&
@@ -82,7 +82,7 @@ export const StyledDay = styled(Box)`
 `;
 
 // Daypicker global styles where component overrides are not possible
-export const wrapper = props => `
+export const wrapper = (props) => `
   position: relative;
   max-width: ${props.numberOfMonths === 1 ? '17.5rem' : '36.5rem'};
 

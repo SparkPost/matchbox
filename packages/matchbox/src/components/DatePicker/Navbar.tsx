@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ChevronRight, ChevronLeft } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { NavbarElementProps } from 'react-day-picker';
 
-function Navbar(props) {
+type NavbarProps = NavbarElementProps & {
+  onPreviousClick?: () => void;
+  onNextClick?: () => void;
+  showNextButton?: boolean;
+  showPreviousButton?: boolean;
+};
+function Navbar(props: NavbarProps): JSX.Element {
   const { onPreviousClick, onNextClick, showNextButton, showPreviousButton } = props;
 
   return (
@@ -43,13 +49,4 @@ function Navbar(props) {
 }
 
 Navbar.displayName = 'Navbar';
-
-// Props come from react-day-picker
-Navbar.propTypes = {
-  onNextClick: PropTypes.func,
-  onPreviousClick: PropTypes.func,
-  showNextButton: PropTypes.bool,
-  showPreviousButton: PropTypes.bool,
-};
-
 export default Navbar;
