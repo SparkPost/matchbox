@@ -12,7 +12,7 @@ export const innerBase = () => `
   border-radius: ${tokens.borderRadius_100} ${tokens.borderRadius_0} ${tokens.borderRadius_0} ${tokens.borderRadius_100};
 `;
 
-export const visualSize = props => {
+export const visualSize = (props) => {
   switch (props.visualSize) {
     case 'small':
       return `
@@ -26,7 +26,7 @@ export const visualSize = props => {
   }
 };
 
-export const calculatedWidth = props => {
+export const calculatedWidth = (props) => {
   let percentage = props.completed;
 
   if (percentage > 100) {
