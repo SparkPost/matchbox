@@ -30,7 +30,7 @@ import {
   childwrapper,
 } from './styles';
 
-import * as Polymorphic from '../../helpers/types';
+import type * as Polymorphic from '../../helpers/types';
 
 export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}):
   | 'gray'

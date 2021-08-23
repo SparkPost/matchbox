@@ -3,7 +3,7 @@ import { CheckBox } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
 import { StyledLink } from './styles';
-import { LinkActionProps } from '../../types/actions';
+import { LinkActionProps } from '../../helpers/types';
 
 type BaseProps = {
   children?: React.ReactNode;

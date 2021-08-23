@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Taken from https://github.com/radix-ui/primitives/blob/main/packages/react/polymorphic/src/polymorphic.ts
 // Documentation: https://www.radix-ui.com/docs/primitives/utilities/polymorphic
 import * as React from 'react';
@@ -62,6 +63,20 @@ type Breakpoints = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
+type LinkActionProps = {
+  to?: string | { [key: string]: any }; // object here to support react router: https://reactrouter.com/web/api/location
+  disabled?: boolean;
+  external?: boolean;
+  /**
+   * @deprecated Use `as` instead
+   */
+  component?: React.ElementType;
+  /**
+   * @deprecated Use `as` instead
+   */
+  Component?: React.ElementType;
+};
+
 export type {
   ForwardRefComponent,
   OwnProps,
@@ -71,4 +86,5 @@ export type {
   AlignY,
   Breakpoints,
   Headings,
+  LinkActionProps,
 };
