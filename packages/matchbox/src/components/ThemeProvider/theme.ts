@@ -1,10 +1,11 @@
 /* eslint-disable max-lines */
 import { tokens } from '@sparkpost/design-tokens';
+import { DefaultTheme } from 'styled-components';
 
 // Style prop reference:
 // https://styled-system.com/table
 
-const theme = {
+const theme: DefaultTheme = {
   // Example: <Box bg="blue.100" color={gray.1000} />
   colors: {
     gray: {
