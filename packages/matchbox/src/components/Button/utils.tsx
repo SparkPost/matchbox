@@ -7,7 +7,7 @@ interface ButtonPropsWithContent extends BaseProps {
   content?: React.ReactNode;
 }
 
-export function buttonsFrom(actions: ButtonPropsWithContent[], overrides: BaseProps) {
+export function buttonsFrom(actions: ButtonPropsWithContent[], overrides?: BaseProps): JSX.Element {
   const filteredActions = filterByVisible(actions);
 
   if (filteredActions.length) {
@@ -23,8 +23,8 @@ export function buttonsFrom(actions: ButtonPropsWithContent[], overrides: BasePr
 
 export function buttonFrom(
   { content, ...action }: ButtonPropsWithContent,
-  overrides: BaseProps,
-  key: React.Key,
-) {
+  overrides?: BaseProps,
+  key?: React.Key,
+): JSX.Element {
   return <Button key={key} children={content} {...action} {...overrides} />; // eslint-disable-line
 }

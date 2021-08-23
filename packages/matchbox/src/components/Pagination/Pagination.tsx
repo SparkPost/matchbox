@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { tokens } from '@sparkpost/design-tokens';
 import { pick } from '@styled-system/props';
 import { useBreakpoint } from '../../hooks';
@@ -17,28 +14,53 @@ const StyledMoreHoriz = styled(MoreHoriz)`
   fill: ${tokens.color_gray_500};
 `;
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   ${margin}
 `;
 
-function Pagination(props) {
+type PaginationProps = MarginProps & {
+  /**
+   * Sets the current page number
+   */
+  currentPage?: number;
+  /**
+   * The total number of pages
+   */
+  pages: number;
+  /**
+   * The number of page buttons to display. Odd numbers look better.
+   */
+  pageRange: number;
+  /**
+   * Hides first and last buttons
+   */
+  marginsHidden?: boolean;
+  /**
+   * Callback when page is changed
+   */
+  onChange?: (index: number) => void;
+  /**
+   * @deprecated No longer supported
+   */
+  flat?: boolean;
+  /**
+   * @deprecated No longer supported
+   */
+  selectedColor?: boolean;
+};
+
+/**
+ * Pagination component
+ * @see https://design.sparkpost.com/components/pagination
+ */
+function Pagination(props: PaginationProps): JSX.Element {
   const [index, setIndex] = React.useState(0);
   const [hasPrevious, setHasPrevious] = React.useState(false);
   const [hasNext, setHasNext] = React.useState(false);
 
   const breakpoint = useBreakpoint();
 
-  const {
-    currentPage,
-    pages,
-    pageRange,
-    onChange,
-    marginsHidden,
-    flat,
-    selectedColor,
-    ...rest
-  } = props;
-
+  const { currentPage = 1, pages, pageRange, onChange, marginsHidden, ...rest } = props;
   const systemProps = pick(rest);
 
   const calculatedPageRange = React.useMemo(() => {
@@ -156,53 +178,4 @@ function Pagination(props) {
 }
 
 Pagination.displayName = 'Pagination';
-Pagination.propTypes = {
-  /**
-   * Sets the current page number
-   */
-  currentPage: PropTypes.number,
-
-  /**
-   * The total number of pages
-   */
-  pages: PropTypes.number.isRequired,
-
-  /**
-   * The number of page buttons to display. Odd numbers look better.
-   */
-  pageRange: PropTypes.number.isRequired,
-
-  /**
-   * Callback when page is changed. Index passed as argument.
-   */
-  onChange: PropTypes.func,
-
-  /**
-   * Hides first and last buttons
-   */
-  marginsHidden: PropTypes.bool,
-
-  /**
-   * Flat style buttons
-   */
-  flat: deprecate(PropTypes.bool, 'Flat has been deprecated'),
-
-  /**
-   * Selected page color
-   */
-  selectedColor: deprecate(
-    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
-    'Selected Color has been deprecated',
-  ),
-
-  /**
-   * System Margins
-   */
-  ...createPropTypes(margin.propNames),
-};
-
-Pagination.defaultProps = {
-  currentPage: 1,
-};
-
 export default Pagination;
