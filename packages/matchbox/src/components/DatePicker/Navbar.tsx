@@ -6,12 +6,11 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { NavbarElementProps } from 'react-day-picker';
 
 type NavbarProps = NavbarElementProps & {
-  onPreviousClick?: React.MouseEventHandler<HTMLButtonElement>;
-  onNextClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onPreviousClick?: () => void;
+  onNextClick?: () => void;
   showNextButton?: boolean;
   showPreviousButton?: boolean;
 };
-
 function Navbar(props: NavbarProps): JSX.Element {
   const { onPreviousClick, onNextClick, showNextButton, showPreviousButton } = props;
 
@@ -23,7 +22,7 @@ function Navbar(props: NavbarProps): JSX.Element {
           color="blue"
           data-id="datepicker-previous"
           disabled={!showPreviousButton}
-          onClick={(e) => onPreviousClick(e)}
+          onClick={() => onPreviousClick()}
           px="100"
           size="small"
         >
@@ -37,7 +36,7 @@ function Navbar(props: NavbarProps): JSX.Element {
           color="blue"
           data-id="datepicker-next"
           disabled={!showNextButton}
-          onClick={(e) => onNextClick(e)}
+          onClick={() => onNextClick()}
           px="100"
           size="small"
         >
