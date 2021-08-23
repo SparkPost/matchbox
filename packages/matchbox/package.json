@@ -57,7 +57,6 @@
     "@sparkpost/matchbox-icons": "^5.5.0",
     "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
-    "@types/styled-components": "^5.1.12",
     "@types/styled-system": "^5.1.13",
     "react": "^17.0.1",
     "react-day-picker": "^7.4.8",
