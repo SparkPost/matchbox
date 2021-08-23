@@ -5,7 +5,7 @@ import { Box } from '../Box';
 import { buttonReset } from '../../styles/helpers';
 
 export const StyledSection = styled(Box)`
-  border-top: ${props => props.theme.borders['300']};
+  border-top: ${(props) => props.theme.borders['300']};
   padding-bottom: ${tokens.spacing_200};
   padding-top: ${tokens.spacing_200};
 
@@ -20,7 +20,7 @@ export const StyledSection = styled(Box)`
 `;
 
 export const StyledLink = styled(UnstyledLink)`
-  ${props => (props.isType ? buttonReset : '')}
+  ${(props) => (props.isType ? buttonReset : '')}
   display: block;
   width: 100%;
   padding: ${tokens.spacing_200} ${tokens.spacing_300};
@@ -34,8 +34,8 @@ export const StyledLink = styled(UnstyledLink)`
   &,
   &:visited {
     text-decoration: none;
-    color: ${props => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
-    background: ${props => (props.highlighted ? tokens.color_blue_200 : 'none')};
+    color: ${(props) => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
+    background: ${(props) => (props.highlighted ? tokens.color_blue_200 : 'none')};
   }
 
   &:hover,
