@@ -6,9 +6,18 @@ import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styl
 import { ResponsiveValue } from 'styled-system';
 import { SpaceKeys } from '../ThemeProvider/theme';
 
+interface GutterProp {
+  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
+}
+
+interface AlignProps {
+  readonly $align?: ResponsiveValue<AlignX>;
+  readonly $alignY?: ResponsiveValue<AlignY>;
+}
+
 // Negates children padding top
 // This is set here to prevent margin collapse
-const OuterWrapper = styled('div')`
+const OuterWrapper = styled('div')<GutterProp>`
   padding-top: 1px;
   &:before {
     display: block;
@@ -18,7 +27,7 @@ const OuterWrapper = styled('div')`
 `;
 
 // Negates children padding left and aligns content
-const InnerWrapper = styled('div')`
+const InnerWrapper = styled('div')<GutterProp & AlignProps>`
   display: flex;
   flex-wrap: wrap;
   ${negativeLeft}
@@ -51,8 +60,8 @@ function Inline(props: InlineProps): JSX.Element {
   const items = React.Children.toArray(children);
 
   return (
-    <OuterWrapper gutter={space} data-id={props['data-id']}>
-      <InnerWrapper gutter={space} align={align} alignY={alignY}>
+    <OuterWrapper $gutter={space} data-id={props['data-id']}>
+      <InnerWrapper $gutter={space} $align={align} $alignY={alignY}>
         {items.map((child, i) => (
           <Box key={i} pt={space} pl={space}>
             {child}
