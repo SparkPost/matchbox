@@ -6,8 +6,8 @@ import {
   ReportProblemOutlined,
 } from '@sparkpost/matchbox-icons';
 
-export function container({ status }: { status?: string }) {
-  switch (status) {
+export function container(props) {
+  switch (props.$status) {
     case 'success':
       return `
         background: ${tokens.color_green_100};
@@ -88,8 +88,8 @@ transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}
 `;
 }
 
-export function dismissColor({ status }: { status?: string }) {
-  switch (status) {
+export function dismissColor(props) {
+  switch (props.$status) {
     case 'success':
       return `
   &: hover {
