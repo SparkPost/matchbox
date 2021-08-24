@@ -24,7 +24,7 @@ import {
 } from 'styled-system';
 import * as Polymorphic from '../../helpers/types';
 
-interface BoxProps
+export interface BoxProps
   extends BorderProps,
     ColorProps,
     FlexboxProps,
