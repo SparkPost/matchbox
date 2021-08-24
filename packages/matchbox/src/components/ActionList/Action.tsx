@@ -49,7 +49,16 @@ const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
   props: ActionProps,
   userRef,
 ) {
-  const { content, children, disabled, helpText, is = 'link', selected, ...action } = props;
+  const {
+    content,
+    children,
+    disabled,
+    helpText,
+    is = 'link',
+    selected,
+    highlighted,
+    ...action
+  } = props;
 
   const linkContent = React.useMemo(() => {
     return (
@@ -73,10 +82,11 @@ const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
       as={is === 'button' ? 'button' : null}
       type={is === 'button' ? 'button' : null}
       disabled={disabled}
-      isType={is}
+      $isType={is}
       ref={userRef}
       role="menuitem"
-      tabIndex="-1"
+      tabIndex={-1}
+      $highlighted={highlighted}
       {...action}
     >
       {linkContent}
@@ -85,5 +95,4 @@ const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
 });
 
 Action.displayName = 'ActionList.Action';
-
 export default Action;

@@ -32,7 +32,8 @@ interface ActionListProps extends React.ComponentPropsWithRef<'div'>, LayoutProp
 }
 
 const system = compose(margin, layout);
-const Wrapper = styled('div')`
+
+const Wrapper = styled.div`
   ${system}
   overflow-y: auto;
 `;
@@ -121,9 +122,11 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
       className={className}
       data-id={dataId}
       id={id}
-      maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
+      style={{
+        maxHeight: typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight,
+      }}
       onClick={onClick}
-      tabIndex="-1"
+      tabIndex={-1}
       role="menu"
       ref={assignRefs}
       onKeyDown={handleKeyDown}
