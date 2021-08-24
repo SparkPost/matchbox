@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { createPropTypes } from '@styled-system/prop-types';
-import { margin, layout, compose, LayoutProps, MarginProps } from 'styled-system';
+import {
+  margin,
+  layout,
+  compose,
+  LayoutProps,
+  MarginProps,
+  maxHeight,
+  MaxHeightProps,
+} from 'styled-system';
 import { groupByValues } from '../../helpers/array';
-import { deprecate } from '../../helpers/propTypes';
 import Section from './Section';
 import Action from './Action';
 import { onKey } from '../../helpers/keyEvents';
 
-interface ActionListProps extends React.ComponentPropsWithRef<'div'>, LayoutProps, MarginProps {
+interface ActionListProps
+  extends React.ComponentPropsWithRef<'div'>,
+    LayoutProps,
+    MarginProps,
+    MaxHeightProps {
   children?: React.ReactNode;
 
   /**
@@ -26,14 +36,13 @@ interface ActionListProps extends React.ComponentPropsWithRef<'div'>, LayoutProp
    * @deprecated Use the ActionList.Section component instead
    */
   groupByKey?: string;
-  maxHeight?: string | number;
   'aria-labelledby'?: string;
   'data-id'?: string;
 }
 
-const system = compose(margin, layout);
+const system = compose(margin, maxHeight, layout);
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<MaxHeightProps>`
   ${system}
   overflow-y: auto;
 `;
@@ -122,9 +131,7 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
       className={className}
       data-id={dataId}
       id={id}
-      style={{
-        maxHeight: typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight,
-      }}
+      maxHeight={typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight}
       onClick={onClick}
       tabIndex={-1}
       role="menu"
