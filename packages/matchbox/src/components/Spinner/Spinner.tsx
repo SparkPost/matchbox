@@ -18,17 +18,25 @@ import { circleOuter, circle, dimensions } from './styles';
 
 const system = compose(margin, position, width, height);
 
+interface SVGSizeProp {
+  readonly $size?: string;
+}
+
+interface SVGRotationOnlyProp {
+  readonly $rotationOnly?: boolean;
+}
+
 const StyledSpinner = styled(Box)`
   ${system}
   ${dimensions}
 `;
 
-const StyledSVG = styled('svg')`
+const StyledSVG = styled.svg<SVGSizeProp & SVGRotationOnlyProp>`
   ${circleOuter}
   ${dimensions}
 `;
 
-const StyledCircle = styled('circle')`
+const StyledCircle = styled.circle<SVGSizeProp & SVGRotationOnlyProp>`
   ${circle}
 `;
 
@@ -47,19 +55,19 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
   return (
     <StyledSpinner {...systemProps} ref={ref} data-id="loading-spinner">
       <StyledSVG
-        size={size}
+        $size={size}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="25 25 50 50"
-        rotationOnly={rotationOnly}
+        $rotationOnly={rotationOnly}
       >
         <StyledCircle
-          size={size}
+          $size={size}
           color={color}
           cx="50"
           cy="50"
           r="20"
           vectorEffect="non-scaling-stroke"
-          rotationOnly={rotationOnly}
+          $rotationOnly={rotationOnly}
         />
       </StyledSVG>
       <ScreenReaderOnly>{label}</ScreenReaderOnly>
