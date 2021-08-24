@@ -36,7 +36,7 @@ const Text = React.forwardRef(function Text(props, ref) {
   const { as = 'p', looksLike, children, truncate, ...rest } = props;
 
   return (
-    <StyledText as={as} $lookslike={looksLike} $truncate={truncate} ref={ref} {...rest}>
+    <StyledText as={as} $looksLike={looksLike} $truncate={truncate} ref={ref} {...rest}>
       {children}
     </StyledText>
   );
