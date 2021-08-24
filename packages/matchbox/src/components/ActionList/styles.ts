@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { tokens } from '@sparkpost/design-tokens';
-import { UnstyledLink } from '../UnstyledLink';
+import { UnstyledLink, UnstyledLinkBaseProps } from '../UnstyledLink';
 import { Box } from '../Box';
 import { buttonReset } from '../../styles/helpers';
 
@@ -19,8 +19,11 @@ export const StyledSection = styled(Box)`
   }
 `;
 
-export const StyledLink = styled(UnstyledLink)`
-  ${(props) => (props.isType ? buttonReset : '')}
+type LinkProps = {
+  $highlighted?: boolean;
+};
+
+const shared = `
   display: block;
   width: 100%;
   padding: ${tokens.spacing_200} ${tokens.spacing_300};
@@ -34,8 +37,8 @@ export const StyledLink = styled(UnstyledLink)`
   &,
   &:visited {
     text-decoration: none;
-    color: ${(props) => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
-    background: ${(props) => (props.highlighted ? tokens.color_blue_200 : 'none')};
+    color: ${(props) => (props.$highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
+    background: ${(props) => (props.$highlighted ? tokens.color_blue_200 : 'none')};
   }
 
   &:hover,
@@ -44,10 +47,25 @@ export const StyledLink = styled(UnstyledLink)`
     color: ${tokens.color_gray_900};
     background: ${tokens.color_blue_100};
   }
+`;
 
-  ${'' /* This only applies to buttons, not links */}
+const link = `
+  ${shared}
+`;
+
+const button = `
+  ${buttonReset}
+  ${shared}
   &:disabled {
     opacity: 0.6;
     pointer-events: none;
   }
+`;
+
+export const StyledLink = styled(UnstyledLink)<LinkProps>`
+  ${link}
+`;
+
+export const StyledButton = styled.button<React.ComponentPropsWithRef<'button'> & LinkProps>`
+  ${button}
 `;

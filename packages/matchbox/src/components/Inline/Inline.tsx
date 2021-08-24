@@ -6,14 +6,14 @@ import { negativeTop, negativeLeft, alignChildren, alignYChildren } from './styl
 import { ResponsiveValue } from 'styled-system';
 import { SpaceKeys } from '../ThemeProvider/theme';
 
-interface GutterProp {
-  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
-}
+type GutterProp = {
+  $gutter?: ResponsiveValue<SpaceKeys | string>;
+};
 
-interface AlignProps {
-  readonly $align?: ResponsiveValue<AlignX>;
-  readonly $alignY?: ResponsiveValue<AlignY>;
-}
+type AlignProps = {
+  $align?: ResponsiveValue<AlignX>;
+  $alignY?: ResponsiveValue<AlignY>;
+};
 
 // Negates children padding top
 // This is set here to prevent margin collapse

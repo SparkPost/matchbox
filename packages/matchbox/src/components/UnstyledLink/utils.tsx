@@ -1,11 +1,11 @@
 import React from 'react';
 import UnstyledLink from './UnstyledLink';
-import { BaseProps } from './UnstyledLink';
+import type { UnstyledLinkBaseProps } from './UnstyledLink';
 
-type LinkFromTypes = BaseProps & {
+interface LinkFromTypes extends UnstyledLinkBaseProps {
   content?: React.ReactNode;
   children?: React.ReactNode;
-};
+}
 
 export function linkFrom(
   { content, children, ...action }: LinkFromTypes,

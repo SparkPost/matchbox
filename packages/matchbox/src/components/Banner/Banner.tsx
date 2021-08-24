@@ -46,9 +46,9 @@ function IconSection({ status, size }: IconProps) {
   );
 }
 
-interface StatusProp {
-  readonly $status?: string;
-}
+type StatusProp = {
+  $status?: string;
+};
 
 const StyledContainer = styled(Box)<StatusProp>`
   ${container}

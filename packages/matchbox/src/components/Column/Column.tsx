@@ -7,9 +7,9 @@ import { SpaceKeys } from '../ThemeProvider/theme';
 import { Box } from '../Box';
 import { gutter } from './styles';
 
-interface GutterProp {
-  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
-}
+type GutterProp = {
+  $gutter?: ResponsiveValue<SpaceKeys | string>;
+};
 
 const StyledColumn = styled(Box)<GutterProp>`
   ${display}

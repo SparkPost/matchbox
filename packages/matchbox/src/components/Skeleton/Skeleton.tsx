@@ -1,13 +1,12 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import styled, { keyframes } from 'styled-components';
-import { Box } from '../Box';
-import { BoxProps } from '../Box/Box';
+import { Box, BoxProps } from '../Box';
 import { Stack } from '../Stack';
 
-interface DelayProp {
-  readonly $delay?: string | number;
-}
+type DelayProp = {
+  $delay?: string | number;
+};
 
 const Shimmer = keyframes`
   from { opacity: 0.5 }

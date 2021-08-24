@@ -11,7 +11,7 @@ import {
   compose,
 } from 'styled-system';
 import { omit } from '@styled-system/props';
-import { pick, clean } from '../../helpers/props';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
 import Icon from './Icon';
@@ -55,7 +55,7 @@ export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}):
 // TODO Categorize system props and abstract
 const system = compose(margin, width, padding);
 
-export const StyledButton = styled(Box).withConfig(clean(['loading']))`
+export const StyledButton = styled(Box)`
   ${base}
   ${focus}
   ${visualSize}
@@ -77,7 +77,7 @@ const StyledLoader = styled.div<LoaderStateProp>`
   ${loader}
 `;
 
-const ChildWrapper = styled.span.withConfig(clean(['loading']))<LoadingProp>`
+const ChildWrapper = styled.span<LoadingProp>`
   ${childwrapper}
 `;
 

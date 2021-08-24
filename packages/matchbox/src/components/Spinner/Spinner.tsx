@@ -18,13 +18,13 @@ import { circleOuter, circle, dimensions } from './styles';
 
 const system = compose(margin, position, width, height);
 
-interface SVGSizeProp {
-  readonly $size?: string;
-}
+type SVGSizeProp = {
+  $size?: string;
+};
 
-interface SVGRotationOnlyProp {
-  readonly $rotationOnly?: boolean;
-}
+type SVGRotationOnlyProp = {
+  $rotationOnly?: boolean;
+};
 
 const StyledSpinner = styled(Box)`
   ${system}

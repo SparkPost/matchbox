@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '../Box';
-import { BoxProps } from '../Box/Box';
+import { Box, BoxProps } from '../Box';
 
-interface FloatProp {
-  readonly $float?: boolean;
-}
+type FloatProp = {
+  $float?: boolean;
+};
 
 const StyledBox = styled(Box)<BoxProps & FloatProp>`
   float: ${(props) => (props.$float ? 'right' : 'none')};

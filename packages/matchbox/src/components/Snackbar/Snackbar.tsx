@@ -9,9 +9,9 @@ import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { pick } from '../../helpers/props';
 
-interface StyledButtonProps {
-  readonly $status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
-}
+type StyledButtonProps = {
+  $status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
+};
 
 const StyledBox = styled(Box)<StyledButtonProps>`
   ${base}

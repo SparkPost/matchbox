@@ -11,12 +11,24 @@ import {
 } from 'styled-system';
 import type * as Types from '../../helpers/types';
 
+// Omits the `color` styled-system prop because it conflicts with the native HTML 'color' attribute
+export type UnstyledLinkBaseProps = Omit<
+  Types.LinkActionProps & ColorProps & SpaceProps & TypographyProps,
+  'color'
+>;
+
+type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', UnstyledLinkBaseProps>;
+
+type DisabledProp = {
+  $disabled?: boolean;
+};
+
 const system = compose(color, space, typography);
 
-const Styledlink = styled.a`
+const Styledlink = styled.a<DisabledProp>`
   ${system}
   ${(props) => {
-    if (props.disabled) {
+    if (props.$disabled) {
       return `
         &, &:visited {
           opacity: 0.6;
@@ -27,14 +39,6 @@ const Styledlink = styled.a`
     }
   }}
 `;
-
-export type BaseProps = React.ComponentPropsWithRef<'a'> &
-  Types.LinkActionProps &
-  ColorProps &
-  SpaceProps &
-  TypographyProps;
-
-type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', BaseProps>;
 
 /**
  * UnstyledLink component
@@ -63,14 +67,13 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   const disabledAttributes = {
     'aria-disabled': disabled,
     disabled,
-    tabIndex: disabled ? '-1' : tabIndex,
+    tabIndex: disabled ? -1 : tabIndex,
     onClick: disabled ? () => false : onClick,
   };
 
   if (to && !WrapperComponent) {
     return (
       <Styledlink
-        as="a"
         href={to}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
@@ -105,7 +108,6 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
 
   return (
     <Styledlink
-      as="a"
       title={linkTitle}
       role={linkRole}
       onClick={onClick}

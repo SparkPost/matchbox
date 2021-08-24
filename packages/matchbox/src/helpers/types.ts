@@ -64,7 +64,7 @@ type Breakpoints = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type LinkActionProps = {
-  to?: string | { [key: string]: any }; // object here to support react router: https://reactrouter.com/web/api/location
+  to?: string;
   disabled?: boolean;
   external?: boolean;
   /**

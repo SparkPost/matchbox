@@ -12,18 +12,18 @@ import { AlignX, AlignY, Breakpoints } from '../../helpers/types';
 
 const breakpoints = ['default', 'xs', 'sm', 'md', 'lg', 'xl'];
 
-interface AlignProps {
-  readonly $align?: ResponsiveValue<AlignX>;
-  readonly $alignY?: ResponsiveValue<AlignY>;
-}
+type AlignProps = {
+  $align?: ResponsiveValue<AlignX>;
+  $alignY?: ResponsiveValue<AlignY>;
+};
 
-interface ReverseProp {
-  readonly $reverse?: ResponsiveValue<boolean>;
-}
+type ReverseProp = {
+  $reverse?: ResponsiveValue<boolean>;
+};
 
-interface GutterProp {
-  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
-}
+type GutterProp = {
+  $gutter?: ResponsiveValue<SpaceKeys | string>;
+};
 
 const StyledColumns = styled(Box)<AlignProps & ReverseProp & GutterProp>`
   ${verticalAlignment}

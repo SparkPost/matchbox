@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { HelpText } from '../HelpText';
-import { StyledLink } from './styles';
+import { StyledLink, StyledButton } from './styles';
 import { LinkActionProps } from '../../helpers/types';
 
 type BaseProps = {
@@ -32,6 +32,70 @@ type BaseProps = {
   visible?: boolean;
 };
 
+function Content(props) {
+  const { content, children, selected, helpText } = props;
+
+  return (
+    <Box as="span" alignItems="flex-start" display="flex">
+      <Box as="span" flex="1" fontSize="300" lineHeight="300">
+        {content}
+        {children}
+      </Box>
+      {selected && (
+        <Box as="span" color="blue.700">
+          <CheckBox size={20} />
+        </Box>
+      )}
+      {helpText && <HelpText>{helpText}</HelpText>}
+    </Box>
+  );
+}
+
+const ButtonAction = React.forwardRef<HTMLButtonElement, BaseProps>(function ButtonAction(
+  props,
+  userRef,
+) {
+  const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
+
+  return (
+    <StyledButton
+      type="button"
+      disabled={disabled}
+      ref={userRef}
+      role="menuitem"
+      tabIndex={-1}
+      $highlighted={highlighted}
+      {...action}
+    >
+      <Content content={content} helpText={helpText} selected={selected}>
+        {children}
+      </Content>
+    </StyledButton>
+  );
+});
+
+const LinkAction = React.forwardRef<HTMLAnchorElement, BaseProps>(function LinkAction(
+  props,
+  userRef,
+) {
+  const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
+
+  return (
+    <StyledLink
+      disabled={disabled}
+      ref={userRef}
+      role="menuitem"
+      tabIndex={-1}
+      $highlighted={highlighted}
+      {...action}
+    >
+      <Content content={content} helpText={helpText} selected={selected}>
+        {children}
+      </Content>
+    </StyledLink>
+  );
+});
+
 type LinkProps = {
   is?: 'link';
 } & LinkActionProps &
@@ -39,60 +103,20 @@ type LinkProps = {
   BaseProps;
 
 type ButtonProps = {
-  is: 'button';
-} & React.ComponentPropsWithoutRef<'button'> &
+  is?: 'button';
+} & LinkActionProps &
+  React.ComponentPropsWithoutRef<'button'> &
   BaseProps;
 
-type ActionProps = LinkProps | ButtonProps;
+function Action(props: LinkProps | ButtonProps): JSX.Element {
+  const { is = 'link', ...action } = props;
 
-const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
-  props: ActionProps,
-  userRef,
-) {
-  const {
-    content,
-    children,
-    disabled,
-    helpText,
-    is = 'link',
-    selected,
-    highlighted,
-    ...action
-  } = props;
+  if (is === 'button') {
+    <ButtonAction {...action} />;
+  }
 
-  const linkContent = React.useMemo(() => {
-    return (
-      <Box as="span" alignItems="flex-start" display="flex">
-        <Box as="span" flex="1" fontSize="300" lineHeight="300">
-          {content}
-          {children}
-        </Box>
-        {selected && (
-          <Box as="span" color="blue.700">
-            <CheckBox size={20} />
-          </Box>
-        )}
-        {helpText && <HelpText>{helpText}</HelpText>}
-      </Box>
-    );
-  }, [content, selected, helpText]);
-
-  return (
-    <StyledLink
-      as={is === 'button' ? 'button' : null}
-      type={is === 'button' ? 'button' : null}
-      disabled={disabled}
-      $isType={is}
-      ref={userRef}
-      role="menuitem"
-      tabIndex={-1}
-      $highlighted={highlighted}
-      {...action}
-    >
-      {linkContent}
-    </StyledLink>
-  );
-});
+  return <LinkAction {...action} />;
+}
 
 Action.displayName = 'ActionList.Action';
 export default Action;
