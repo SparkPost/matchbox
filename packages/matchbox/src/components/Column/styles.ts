@@ -1,7 +1,7 @@
 import { system } from 'styled-system';
 
 export const gutter = system({
-  gutter: {
+  $gutter: {
     property: 'marginLeft',
     scale: 'space',
   },

@@ -7,7 +7,11 @@ import { SpaceKeys } from '../ThemeProvider/theme';
 import { Box } from '../Box';
 import { gutter } from './styles';
 
-const StyledColumn = styled(Box)`
+interface GutterProp {
+  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
+}
+
+const StyledColumn = styled(Box)<GutterProp>`
   ${display}
   ${gutter}
 
@@ -24,7 +28,7 @@ type ColumnProps = {
   reverse?: ResponsiveValue<boolean>;
 } & DisplayProps;
 
-const Column = React.forwardRef(function Column(props, ref) {
+const Column = React.forwardRef<HTMLDivElement, ColumnProps>(function Column(props, ref) {
   const { width, children, className, display } = props;
   const { space, collapsed } = React.useContext(ColumnsContext);
 
@@ -46,9 +50,9 @@ const Column = React.forwardRef(function Column(props, ref) {
       width={widthOverride || width}
       flex={!width && !collapsed ? '1' : ''}
       pt={collapsed ? space : null}
-      gutter={space}
+      $gutter={space}
       ref={ref}
-      tabIndex="-1"
+      tabIndex={-1}
     >
       {children}
     </StyledColumn>

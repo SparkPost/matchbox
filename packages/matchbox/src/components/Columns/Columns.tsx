@@ -12,7 +12,20 @@ import { AlignX, AlignY, Breakpoints } from '../../helpers/types';
 
 const breakpoints = ['default', 'xs', 'sm', 'md', 'lg', 'xl'];
 
-const StyledColumns = styled(Box)`
+interface AlignProps {
+  readonly $align?: ResponsiveValue<AlignX>;
+  readonly $alignY?: ResponsiveValue<AlignY>;
+}
+
+interface ReverseProp {
+  readonly $reverse?: ResponsiveValue<boolean>;
+}
+
+interface GutterProp {
+  readonly $gutter?: ResponsiveValue<SpaceKeys | string>;
+}
+
+const StyledColumns = styled(Box)<AlignProps & ReverseProp & GutterProp>`
   ${verticalAlignment}
   ${horizontalAlignment}
   ${reverseColumns}
@@ -43,13 +56,13 @@ const Columns = React.forwardRef(function Columns(props: ColumnsProps, userRef) 
     <Box {...systemProps} data-id={props['data-id']}>
       <StyledColumns
         display="flex"
-        alignY={alignY}
-        align={align}
+        $alignY={alignY}
+        $align={align}
         ref={userRef}
-        reverse={reverse}
-        gutter={space}
+        $reverse={reverse}
+        $gutter={space}
         flexWrap={collapsed ? 'wrap' : 'nowrap'}
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <ColumnsContext.Provider value={{ space, collapsed }}>{children}</ColumnsContext.Provider>
       </StyledColumns>
