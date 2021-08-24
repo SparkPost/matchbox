@@ -82,7 +82,7 @@ const LinkAction = React.forwardRef<HTMLAnchorElement, BaseProps>(function LinkA
 
   return (
     <StyledLink
-      disabled={disabled}
+      $disabled={disabled}
       ref={userRef}
       role="menuitem"
       tabIndex={-1}
@@ -109,10 +109,10 @@ type ButtonProps = {
   BaseProps;
 
 function Action(props: LinkProps | ButtonProps): JSX.Element {
-  const { is = 'link', ...action } = props;
+  const { is, ...action } = props;
 
   if (is === 'button') {
-    <ButtonAction {...action} />;
+    return <ButtonAction {...action} />;
   }
 
   return <LinkAction {...action} />;
