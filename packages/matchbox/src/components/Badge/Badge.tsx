@@ -6,6 +6,7 @@ import { Box } from '../Box';
 
 const Wrapper = styled(Box)`
   ${margin}
+  box-sizing: border-box;
 `;
 
 const bgMap = {
@@ -62,7 +63,6 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       fontSize="50"
       fontWeight="medium"
       lineHeight="calc(1rem - 2px)"
-      boxSizing="border-box"
       id={id}
       data-id={dataId}
       tabIndex={tabIndex}
