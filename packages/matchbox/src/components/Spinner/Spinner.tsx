@@ -19,14 +19,14 @@ import { circleOuter, circle, dimensions } from './styles';
 const system = compose(margin, position, width, height);
 
 type SVGSizeProp = {
-  $size?: string;
+  $size?: 'small' | 'large' | 'medium';
 };
 
 type SVGRotationOnlyProp = {
   $rotationOnly?: boolean;
 };
 
-const StyledSpinner = styled(Box)`
+const StyledSpinner = styled(Box)<SVGSizeProp>`
   ${system}
   ${dimensions}
 `;
@@ -53,7 +53,7 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
   const { size = 'medium', color, label, rotationOnly, ...rest } = props;
   const systemProps = pick(rest, system.propNames);
   return (
-    <StyledSpinner {...systemProps} ref={ref} data-id="loading-spinner">
+    <StyledSpinner $size={size} {...systemProps} ref={ref} data-id="loading-spinner">
       <StyledSVG
         $size={size}
         xmlns="http://www.w3.org/2000/svg"
