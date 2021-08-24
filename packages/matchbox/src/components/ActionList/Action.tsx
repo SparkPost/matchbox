@@ -51,17 +51,13 @@ function Content(props) {
   );
 }
 
-const ButtonAction = React.forwardRef<HTMLButtonElement, BaseProps>(function ButtonAction(
-  props,
-  userRef,
-) {
+function ButtonAction(props: BaseProps) {
   const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
 
   return (
     <StyledButton
       type="button"
       disabled={disabled}
-      ref={userRef}
       role="menuitem"
       tabIndex={-1}
       $highlighted={highlighted}
@@ -72,18 +68,14 @@ const ButtonAction = React.forwardRef<HTMLButtonElement, BaseProps>(function But
       </Content>
     </StyledButton>
   );
-});
+}
 
-const LinkAction = React.forwardRef<HTMLAnchorElement, BaseProps>(function LinkAction(
-  props,
-  userRef,
-) {
+function LinkAction(props) {
   const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
 
   return (
     <StyledLink
       $disabled={disabled}
-      ref={userRef}
       role="menuitem"
       tabIndex={-1}
       $highlighted={highlighted}
@@ -94,7 +86,7 @@ const LinkAction = React.forwardRef<HTMLAnchorElement, BaseProps>(function LinkA
       </Content>
     </StyledLink>
   );
-});
+}
 
 type LinkProps = {
   is?: 'link';
@@ -108,7 +100,7 @@ type ButtonProps = {
   React.ComponentPropsWithoutRef<'button'> &
   BaseProps;
 
-const Action = React.forwardRef<HTMLElement, LinkProps | ButtonProps>(function Action(props) {
+function Action(props: LinkProps | ButtonProps): JSX.Element {
   const { is, ...action } = props;
 
   if (is === 'button') {
@@ -116,7 +108,7 @@ const Action = React.forwardRef<HTMLElement, LinkProps | ButtonProps>(function A
   }
 
   return <LinkAction {...action} />;
-});
+}
 
 Action.displayName = 'ActionList.Action';
 export default Action;
