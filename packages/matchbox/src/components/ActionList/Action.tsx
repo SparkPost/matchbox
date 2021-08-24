@@ -71,7 +71,24 @@ function ButtonAction(props: BaseProps) {
 }
 
 function LinkAction(props) {
-  const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
+  const {
+    content,
+    children,
+    disabled,
+    helpText,
+    selected,
+    tabIndex,
+    onClick,
+    highlighted,
+    ...action
+  } = props;
+
+  const disabledAttributes = {
+    'aria-disabled': disabled,
+    disabled,
+    tabIndex: disabled ? -1 : tabIndex,
+    onClick: disabled ? () => false : onClick,
+  };
 
   return (
     <StyledLink
@@ -80,6 +97,7 @@ function LinkAction(props) {
       tabIndex={-1}
       $highlighted={highlighted}
       {...action}
+      {...disabledAttributes}
     >
       <Content content={content} helpText={helpText} selected={selected}>
         {children}

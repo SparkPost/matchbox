@@ -80,7 +80,11 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
   // Creates a list of focusable links or buttons inside the actionlist
   React.useEffect(() => {
     if (!!wrapperRef && wrapperRef.current) {
-      setFocusableItemList(wrapperRef.current.querySelectorAll('[role="menuitem"]'));
+      setFocusableItemList(
+        wrapperRef.current.querySelectorAll(
+          '[role="menuitem"]:not(:disabled):not([aria-disabled="true"])',
+        ),
+      );
     }
   }, []);
 
