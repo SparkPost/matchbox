@@ -1,16 +1,68 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { padding, layout } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { PaddingProps, LayoutProps, ResponsiveValue } from 'styled-system';
 import { Box } from '../Box';
 import PopoverOverlay from './PopoverOverlay';
 import PopoverContent from './PopoverContent';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
-import { deprecate } from '../../helpers/propTypes';
 import { findFocusableChild } from '../../helpers/focus';
+import type * as Polymorphic from '../../helpers/types';
 
-const Popover = React.forwardRef(function Popover(props, ref) {
+type BaseProps = PaddingProps &
+  LayoutProps & {
+    id?: string;
+    /**
+     * A React component to will trigger the popover
+     * Click event is handled for you if this component is uncontrolled.
+     */
+    trigger?: React.ReactNode;
+    /**
+     * Adds a padding to the Popover
+     * @deprecated Use padding system props instead
+     */
+    sectioned?: boolean;
+    /**
+     * Opens the popover.
+     * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
+     */
+    open?: boolean;
+    /**
+     * @deprecated Use `position` instead
+     */
+    left?: boolean;
+    /**
+     * @deprecated Use `position` instead
+     */
+    right?: boolean;
+    /**
+     * @deprecated Use `position` instead
+     */
+    top?: boolean;
+    /**
+     * @deprecated Use `position` instead
+     */
+    bottom?: boolean;
+    position?: ResponsiveValue<'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight'>;
+    /**
+     * Callback function that is called when clicking outside the popover, or hitting escape.
+     */
+    onClose?: (any) => void;
+    /**
+     * Popover Content
+     */
+    children?: React.ReactNode;
+    as?: 'div' | 'span';
+    /**
+     * @deprecated Use `as` prop instead
+     */
+    wrapper?: 'div' | 'span';
+    portalId?: string;
+    closeOnTab?: boolean;
+  };
+
+type PolymorphicPopover = Polymorphic.ForwardRefComponent<'span', BaseProps>;
+
+const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(props, ref) {
   const {
     as,
     id,
@@ -20,7 +72,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
     trigger,
     wrapper,
     portalId,
-    closeOnTab,
+    closeOnTab = true,
     ...rest
   } = props;
   const [open, setOpen] = React.useState(null);
@@ -80,9 +132,9 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function handleOutsideClick(e) {
     const isOutside =
       popoverRef.current &&
-      !popoverRef.current.contains(e.target) &&
+      !(popoverRef as React.MutableRefObject<HTMLDivElement>).current.contains(e.target) &&
       activatorRef.current &&
-      !activatorRef.current.contains(e.target);
+      !(activatorRef as React.MutableRefObject<HTMLDivElement>).current.contains(e.target);
 
     if (isOutside && shouldBeOpen) {
       if (onClose) {
@@ -149,7 +201,7 @@ const Popover = React.forwardRef(function Popover(props, ref) {
   function renderPopover() {
     function assignRefs(node) {
       if (ref) {
-        ref.current = node;
+        (ref as React.MutableRefObject<HTMLDivElement>).current = node;
       }
       popoverRef.current = node;
     }
@@ -190,55 +242,14 @@ const Popover = React.forwardRef(function Popover(props, ref) {
       open={shouldBeOpen}
       renderActivator={renderActivator}
       renderPopover={renderPopover}
-      activatorRef={activatorRef}
       portalId={portalId}
     />
   );
-});
+}) as PolymorphicPopover & {
+  PopoverContent: typeof PopoverContent;
+  PopoverOverlay: typeof PopoverOverlay;
+};
 
 Popover.displayName = 'Popover';
-Popover.propTypes = {
-  id: PropTypes.string,
-  /**
-   * A React component to will trigger the popover
-   * Click event is handled for you if this component is uncontrolled.
-   */
-  trigger: PropTypes.node,
-  /**
-   * Adds a padding to the Popover
-   */
-  sectioned: deprecate(PropTypes.bool, 'Use padding system props instead'),
-  /**
-   * Opens the popover.
-   * By default, open state is handled automatically. Passing this value in will turn this into a controlled component.
-   */
-  open: PropTypes.bool,
-  left: deprecate(PropTypes.bool, 'Use `position` instead'),
-  right: deprecate(PropTypes.bool, 'Use `position` instead'),
-  top: deprecate(PropTypes.bool, 'Use `position` instead'),
-  bottom: deprecate(PropTypes.bool, 'Use `position` instead'),
-  position: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.oneOf(['topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
-  ]),
-  /**
-   * Callback function that is called when clicking outside the popover, or hitting escape.
-   */
-  onClose: PropTypes.func,
-  /**
-   * Popover Content
-   */
-  children: PropTypes.node,
-  as: PropTypes.oneOf(['div', 'span']),
-  wrapper: deprecate(PropTypes.oneOf(['div', 'span']), 'Use `as` prop instead'),
-  portalId: PropTypes.string,
-  closeOnTab: PropTypes.bool,
-  ...createPropTypes(padding.propNames),
-  ...createPropTypes(layout.propNames),
-};
-
-Popover.defaultProps = {
-  closeOnTab: true,
-};
 
 export default Popover;

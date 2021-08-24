@@ -1,6 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const content = props => `
+export const content = (props) => `
   position: absolute;
   background: ${tokens.color_white};
   border: ${props.theme.borders['300']};
@@ -8,7 +8,7 @@ export const content = props => `
   box-shadow: ${tokens.boxShadow_100};
 `;
 
-export const transition = props => {
+export const transition = (props) => {
   const visible = `
     opacity: 1;
     transform: translateY(0);

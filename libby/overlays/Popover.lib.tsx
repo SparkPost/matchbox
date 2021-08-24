@@ -2,7 +2,9 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
 
-function noop() {}
+function noop() {
+  return null;
+}
 function ControlledPopover() {
   const [open, setOpen] = React.useState(false);
   const [count, setCount] = React.useState(0);

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
 import styled from 'styled-components';
-import { padding, layout, compose, variant } from 'styled-system';
+import { padding, PaddingProps, layout, LayoutProps, compose, variant } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 import { tokens } from '@sparkpost/design-tokens';
 import { secondsToMS } from '../../helpers/string';
 import { content, transition } from './styles';
+import Popover from './Popover';
 
 const system = compose(layout, padding);
 
@@ -48,7 +49,7 @@ const StyledContent = styled('div')`
   })}
 `;
 
-function getPositionFromDeprecatedProps({ top, left }) {
+function getPositionFromDeprecatedProps({ top, left }: { top?: boolean; left?: boolean }) {
   if (left && !top) {
     return 'bottomLeft';
   }
@@ -66,7 +67,19 @@ function getPositionFromDeprecatedProps({ top, left }) {
   }
 }
 
-const Content = React.forwardRef(function Content(props, userRef) {
+type ContentProps = PaddingProps &
+  LayoutProps &
+  Pick<
+    React.ComponentProps<typeof Popover>,
+    'children' | 'top' | 'left' | 'position' | 'className' | 'sectioned' | 'open'
+  > & {
+    style?: any;
+  };
+
+const Content = React.forwardRef<HTMLDivElement, ContentProps>(function Content(
+  props: ContentProps,
+  userRef,
+) {
   const {
     children,
     open,
@@ -74,13 +87,11 @@ const Content = React.forwardRef(function Content(props, userRef) {
     // TODO: to be removed
     top = false,
     left = false,
-    bottom = true,
 
     // TODO: default to bottomRight when other deprecated props are removed
     position,
     sectioned,
     className = '',
-    trigger,
     style,
     ...rest
   } = props;
@@ -89,7 +100,7 @@ const Content = React.forwardRef(function Content(props, userRef) {
   const systemProps = pick(rest);
 
   // TODO: Remove in future
-  const variant = position || getPositionFromDeprecatedProps({ top, left, bottom });
+  const variant = position || getPositionFromDeprecatedProps({ top, left });
 
   return (
     <Transition
@@ -102,8 +113,8 @@ const Content = React.forwardRef(function Content(props, userRef) {
       }}
       nodeRef={transitionRef}
     >
-      {state => (
-        <Box position="relative" height="100%" ref={userRef} tabIndex="-1">
+      {(state) => (
+        <Box position="relative" height="100%" ref={userRef} tabIndex={-1}>
           <StyledContent
             data-id="popover-content"
             className={className}
@@ -111,7 +122,7 @@ const Content = React.forwardRef(function Content(props, userRef) {
             minWidth="13rem" // 208px
             variant={variant}
             // TODO: remove in future, isTop is still needed for animation
-            isTop={variant.includes('top')}
+            isTop={variant.toString().includes('top')}
             state={state}
             {...style}
             {...systemProps}
