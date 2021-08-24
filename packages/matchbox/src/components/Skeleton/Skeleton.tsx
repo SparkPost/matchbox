@@ -107,7 +107,6 @@ const SkeletonBody = React.forwardRef<HTMLDivElement, SkeletonBodyProps>(functio
 
   return (
     <Box ref={ref} mt="100" tabIndex={-1} aria-hidden="true" data-id={dataId}>
-      {/* @ts-ignore */}
       <Stack space="300">{body}</Stack>
     </Box>
   );
