@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { ThemeProvider, createGlobalStyle, StyleSheetManager } from 'styled-components';
 import { normalize } from 'styled-normalize';
@@ -9,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
   ${global}
 `;
+
+type TargetProp = Pick<React.ComponentProps<typeof StyleSheetManager>, 'target'>;
+type ManagerProps = TargetProp & {
+  children?: React.ReactNode;
+};
 
 /**
  * See https://styled-components.com/docs/api#stylesheetmanager
@@ -21,9 +25,9 @@ const GlobalStyle = createGlobalStyle`
  * When rendering ThemeProvider:
  * <ThemeProvider target={document.getElementById('styled-components-target')} />
  * */
-function Manager({ target, children }): JSX.Element {
+function Manager({ target, children }: ManagerProps): JSX.Element {
   if (!target) {
-    return children;
+    return <>{children}</>;
   }
 
   return <StyleSheetManager target={target}>{children}</StyleSheetManager>;
@@ -31,13 +35,10 @@ function Manager({ target, children }): JSX.Element {
 
 Manager.displayName = 'MatchboxStyleSheetManager';
 
-type ThemeProviderProps = {
+type ThemeProviderProps = TargetProp & {
   skipGlobalStyles?: boolean;
-  /**
-   * @warning Thar be dragons ahead. Provide an alternate DOM node to inject styles info.
-   */
-  target?: any;
-  theme?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  theme?: { [key: string]: any };
   children?: React.ReactNode;
 };
 

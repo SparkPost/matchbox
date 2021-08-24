@@ -1,6 +1,4 @@
 import { tokens } from '@sparkpost/design-tokens';
-import React from 'react';
-import Snackbar from './Snackbar';
 
 export const base = () => `
   display: inline-flex;
@@ -8,7 +6,7 @@ export const base = () => `
   color: ${tokens.color_white};
 `;
 
-export const status = ({ status }: Pick<React.ComponentProps<typeof Snackbar>, 'status'>) => {
+export const status = (props) => {
   function makeLinkColorStyles(color) {
     return `
       a, 
@@ -21,7 +19,7 @@ export const status = ({ status }: Pick<React.ComponentProps<typeof Snackbar>, '
   const whiteLinks = makeLinkColorStyles(tokens.color_white);
   const greyLinks = makeLinkColorStyles(tokens.color_gray_900);
 
-  switch (status) {
+  switch (props.$status) {
     case 'success':
       return `
         ${whiteLinks} 
@@ -54,12 +52,10 @@ export const dismiss = () => `
   }
 `;
 
-export const dismissStatus = ({
-  status,
-}: Pick<React.ComponentProps<typeof Snackbar>, 'status'>) => {
+export const dismissStatus = (props) => {
   let color;
 
-  switch (status) {
+  switch (props.$status) {
     case 'success':
       color = tokens.color_green_900;
       break;
