@@ -89,8 +89,8 @@ export const circle = (props) => {
     stroke-width: ${strokeWidth};
     stroke-linecap: round;
 
-    ${props.rotationOnly
-      ? getDefaultStrokes(props.size)
+    ${props.$rotationOnly
+      ? getDefaultStrokes(props.$size)
       : css`
           animation: ${animation} 1.5s ease-in-out infinite;
         `}
