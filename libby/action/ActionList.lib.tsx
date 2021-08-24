@@ -52,6 +52,23 @@ describe('ActionList', () => {
     </Box>
   ));
 
+  add('with refs', () => {
+    const ref = React.useRef();
+    return (
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList>
+            <ActionList.Action to="#" ref={ref}>
+              Action1
+            </ActionList.Action>
+            <ActionList.Action to="#">Action2</ActionList.Action>
+            <ActionList.Action to="#">Action3</ActionList.Action>
+          </ActionList>
+        </Panel>
+      </Box>
+    );
+  });
+
   add('selected actions', () => (
     <Box maxWidth="20rem">
       <Panel>

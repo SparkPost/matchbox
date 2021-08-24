@@ -108,7 +108,7 @@ type ButtonProps = {
   React.ComponentPropsWithoutRef<'button'> &
   BaseProps;
 
-function Action(props: LinkProps | ButtonProps): JSX.Element {
+const Action = React.forwardRef<HTMLElement, LinkProps | ButtonProps>(function Action(props) {
   const { is, ...action } = props;
 
   if (is === 'button') {
@@ -116,7 +116,7 @@ function Action(props: LinkProps | ButtonProps): JSX.Element {
   }
 
   return <LinkAction {...action} />;
-}
+});
 
 Action.displayName = 'ActionList.Action';
 export default Action;
