@@ -4,6 +4,14 @@ import { describe, add } from '@sparkpost/libby-react';
 import { Popover, Panel } from '@sparkpost/matchbox';
 import { Button, Inline, ActionList, Box } from '@sparkpost/matchbox';
 
+type TestComponentProps = {
+  foo?: 'bar' | 'baz';
+};
+
+const TestComponent: React.FC<TestComponentProps> = (props) => {
+  return <div>{props.children}</div>;
+};
+
 describe('ActionList', () => {
   add('within Popovers', () => {
     return (
@@ -122,11 +130,20 @@ describe('ActionList', () => {
             <ActionList.Action to="#" is="link" external>
               External Link
             </ActionList.Action>
-            <ActionList.Action is="button" disabled>
-              Disabled Button
-            </ActionList.Action>
-            <ActionList.Action to="#" is="link" external disabled>
-              Disabled External Link
+          </ActionList>
+        </Panel>
+      </Box>
+    );
+  });
+
+  add('with as', () => {
+    return (
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList data-id="test-data-id" className="test-class">
+            <ActionList.Action is="button">Button</ActionList.Action>
+            <ActionList.Action to="#" is="link" external as={TestComponent} foo="bar">
+              External Link
             </ActionList.Action>
           </ActionList>
         </Panel>

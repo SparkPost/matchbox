@@ -1,9 +1,10 @@
 import React from 'react';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
+import { UnstyledLink } from '../UnstyledLink';
 import { HelpText } from '../HelpText';
 import { StyledLink, StyledButton } from './styles';
-import { LinkActionProps } from '../../helpers/types';
+import { LinkActionProps, ForwardRefComponent } from '../../helpers/types';
 
 type ActionListActionProps = LinkActionProps & {
   children?: React.ReactNode;
@@ -123,17 +124,15 @@ const LinkAction = React.forwardRef<any, any>(function LinkAction(props, userRef
   );
 });
 
-const Action = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, LinkProps | ButtonProps>(
-  function Action(props, userRef): JSX.Element {
-    const { is, ...action } = props;
+const Action = React.forwardRef(function Action(props, userRef) {
+  const { is = 'link', ...action } = props;
 
-    if (is === 'button') {
-      return <ButtonAction ref={userRef} {...action} />;
-    }
+  if (is === 'button') {
+    return <ButtonAction ref={userRef} {...action} />;
+  }
 
-    return <LinkAction ref={userRef} {...action} />;
-  },
-);
+  return <LinkAction ref={userRef} {...action} />;
+}) as ForwardRefComponent<'a' | 'button', LinkProps | ButtonProps>;
 
 Action.displayName = 'ActionList.Action';
 export default Action;
