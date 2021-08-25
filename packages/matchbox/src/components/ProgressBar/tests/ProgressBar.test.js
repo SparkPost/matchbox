@@ -48,7 +48,7 @@ cases(
 );
 
 describe('renders progress bar inner styles', () => {
-  const progressBar = props => global.mountStyled(<ProgressBar {...props} />);
+  const progressBar = (props) => global.mountStyled(<ProgressBar {...props} />);
 
   it('Has relevant WAI-ARIA attributes', () => {
     const wrapper = progressBar({ label: 'this is a test progress bar', completed: 10 });
@@ -61,12 +61,7 @@ describe('renders progress bar inner styles', () => {
   it('renders progress bar width based on completed percent', () => {
     const wrapper = progressBar({ completed: 24 });
     expect(wrapper.find('div').at(1)).toHaveStyleRule('width', '24%');
-    expect(
-      wrapper
-        .find('div')
-        .at(0)
-        .prop('aria-valuenow'),
-    ).toEqual('24');
+    expect(wrapper.find('div').at(0).prop('aria-valuenow')).toEqual(24);
   });
 
   it('renders at 100% progress if given a value over 100', () => {
@@ -81,21 +76,11 @@ describe('renders progress bar inner styles', () => {
 
   it('renders at custom value text', () => {
     const wrapper = progressBar({ valueText: 'test', completed: 10 });
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .prop('aria-valuetext'),
-    ).toEqual('test');
+    expect(wrapper.find('div').first().prop('aria-valuetext')).toEqual('test');
   });
 
   it('renders a screen reader label', () => {
     const wrapper = progressBar({ label: 'test', completed: 10 });
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .prop('aria-label'),
-    ).toEqual('test');
+    expect(wrapper.find('div').first().prop('aria-label')).toEqual('test');
   });
 });
