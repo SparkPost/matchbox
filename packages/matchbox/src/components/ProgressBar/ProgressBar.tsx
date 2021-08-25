@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import { margin, MarginProps, compose } from 'styled-system';
 import { pick } from '../../helpers/props';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
 import { outerBase, innerBase, visualSize, calculatedWidth } from './styles';
 
 const system = compose(margin);
 
-export const StyledProgressBarOuter = styled(Box)`
+export const StyledProgressBarOuter = styled(Box)<BoxProps & { $visualSize?: string }>`
   ${outerBase}
   ${visualSize}
   ${system}
 `;
 
-export const StyledProgressBarInner = styled(Box)`
+export const StyledProgressBarInner = styled(Box)<
+  BoxProps & { $visualSize?: string; $completed?: number }
+>`
   ${innerBase}
   ${visualSize}
   ${calculatedWidth}
@@ -58,20 +60,19 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(function 
 
   return (
     <StyledProgressBarOuter
-      as="div"
-      visualSize={size}
+      $visualSize={size}
       role="progressbar"
       aria-label={label}
-      aria-valuenow={`${completed}`}
-      aria-valuemin="0"
-      aria-valuemax="100"
+      aria-valuenow={completed}
+      aria-valuemin={0}
+      aria-valuemax={100}
       aria-valuetext={valueText}
       {...systemProps}
       data-id={dataId}
       id={id}
       ref={userRef}
     >
-      <StyledProgressBarInner as="div" completed={completed} visualSize={size} />
+      <StyledProgressBarInner $completed={completed} $visualSize={size} />
     </StyledProgressBarOuter>
   );
 }) as React.ForwardRefExoticComponent<ProgressBarProps>;

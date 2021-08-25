@@ -13,7 +13,7 @@ export const innerBase = () => `
 `;
 
 export const visualSize = (props) => {
-  switch (props.visualSize) {
+  switch (props.$visualSize) {
     case 'small':
       return `
         height: 0.25rem;
@@ -27,7 +27,7 @@ export const visualSize = (props) => {
 };
 
 export const calculatedWidth = (props) => {
-  let percentage = props.completed;
+  let percentage = props.$completed;
 
   if (percentage > 100) {
     percentage = 100;
