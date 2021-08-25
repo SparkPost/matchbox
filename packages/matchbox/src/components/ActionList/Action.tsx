@@ -5,9 +5,8 @@ import { HelpText } from '../HelpText';
 import { StyledLink, StyledButton } from './styles';
 import { LinkActionProps } from '../../helpers/types';
 
-type BaseProps = {
+type ActionListActionProps = LinkActionProps & {
   children?: React.ReactNode;
-  disabled?: boolean;
   helpText?: React.ReactNode;
   highlighted?: boolean;
 
@@ -32,7 +31,19 @@ type BaseProps = {
   visible?: boolean;
 };
 
-function Content(props) {
+type LinkProps = {
+  is?: 'link';
+} & LinkActionProps &
+  React.ComponentPropsWithoutRef<'a'> &
+  ActionListActionProps;
+
+type ButtonProps = {
+  is?: 'button';
+} & LinkActionProps &
+  React.ComponentPropsWithoutRef<'button'> &
+  ActionListActionProps;
+
+function Content(props: ActionListActionProps): JSX.Element {
   const { content, children, selected, helpText } = props;
 
   return (
@@ -51,7 +62,9 @@ function Content(props) {
   );
 }
 
-function ButtonAction(props: BaseProps) {
+// TODO fix this any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ButtonAction = React.forwardRef<any, any>(function ButtonAction(props, userRef) {
   const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
 
   return (
@@ -61,6 +74,7 @@ function ButtonAction(props: BaseProps) {
       role="menuitem"
       tabIndex={-1}
       $highlighted={highlighted}
+      ref={userRef}
       {...action}
     >
       <Content content={content} helpText={helpText} selected={selected}>
@@ -68,9 +82,11 @@ function ButtonAction(props: BaseProps) {
       </Content>
     </StyledButton>
   );
-}
+});
 
-function LinkAction(props) {
+// TODO fix this any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const LinkAction = React.forwardRef<any, any>(function LinkAction(props, userRef) {
   const {
     content,
     children,
@@ -96,6 +112,7 @@ function LinkAction(props) {
       role="menuitem"
       tabIndex={-1}
       $highlighted={highlighted}
+      ref={userRef}
       {...action}
       {...disabledAttributes}
     >
@@ -104,29 +121,19 @@ function LinkAction(props) {
       </Content>
     </StyledLink>
   );
-}
+});
 
-type LinkProps = {
-  is?: 'link';
-} & LinkActionProps &
-  React.ComponentPropsWithoutRef<'a'> &
-  BaseProps;
+const Action = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, LinkProps | ButtonProps>(
+  function Action(props, userRef): JSX.Element {
+    const { is, ...action } = props;
 
-type ButtonProps = {
-  is?: 'button';
-} & LinkActionProps &
-  React.ComponentPropsWithoutRef<'button'> &
-  BaseProps;
+    if (is === 'button') {
+      return <ButtonAction ref={userRef} {...action} />;
+    }
 
-function Action(props: LinkProps | ButtonProps): JSX.Element {
-  const { is, ...action } = props;
-
-  if (is === 'button') {
-    return <ButtonAction {...action} />;
-  }
-
-  return <LinkAction {...action} />;
-}
+    return <LinkAction ref={userRef} {...action} />;
+  },
+);
 
 Action.displayName = 'ActionList.Action';
 export default Action;

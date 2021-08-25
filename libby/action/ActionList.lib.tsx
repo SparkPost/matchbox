@@ -107,6 +107,33 @@ describe('ActionList', () => {
     </Box>
   ));
 
+  add('with refs', () => {
+    const ref = React.useRef();
+    React.useEffect(() => {
+      console.log(ref.current);
+    });
+    return (
+      <Box maxWidth="20rem">
+        <Panel>
+          <ActionList data-id="test-data-id" className="test-class">
+            <ActionList.Action is="button" ref={ref}>
+              Button
+            </ActionList.Action>
+            <ActionList.Action to="#" is="link" external>
+              External Link
+            </ActionList.Action>
+            <ActionList.Action is="button" disabled>
+              Disabled Button
+            </ActionList.Action>
+            <ActionList.Action to="#" is="link" external disabled>
+              Disabled External Link
+            </ActionList.Action>
+          </ActionList>
+        </Panel>
+      </Box>
+    );
+  });
+
   add('works with system props', () => (
     <Box maxWidth="20rem">
       <Panel>
