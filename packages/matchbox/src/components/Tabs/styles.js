@@ -30,7 +30,6 @@ export const tabStyles = ({ selected, fitted }) => `
   white-space: nowrap;
 
   background: ${selected ? tokens.color_blue_200 : 'transparent'};
-  border-radius: ${tokens.borderRadius_200} ${tokens.borderRadius_200} 0 0;
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 
   &, &:visited {
