@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { tokens } from '@sparkpost/design-tokens';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '../../helpers/props';
 import { getChild } from '../../helpers/children';
 import { Box } from '../Box';
@@ -12,7 +10,17 @@ const StyledWrapper = styled.div`
   ${margin}
 `;
 
-const Label = ({ children, orientation, appearance }) => (
+type LabelValueProps = MarginProps & {
+  label?: string;
+  children?: React.ReactNode;
+  className?: string;
+  orientation?: 'horizontal' | 'vertical';
+  appearance?: 'inverted' | 'default';
+};
+
+type LabelProps = Pick<LabelValueProps, 'children' | 'orientation' | 'appearance'>;
+
+const Label = ({ children, orientation, appearance }: LabelProps): JSX.Element => (
   <Box
     fontSize="200"
     fontWeight="semibold"
@@ -25,14 +33,26 @@ const Label = ({ children, orientation, appearance }) => (
 
 Label.displayName = 'LabelValue.Label';
 
-const Value = ({ children, appearance }) => (
+type ValueProps = Pick<LabelValueProps, 'children' | 'appearance'>;
+
+const Value = ({ children, appearance }: ValueProps): JSX.Element => (
   <Box color={appearance == 'inverted' ? 'white' : ''}>{children}</Box>
 );
 
 Value.displayName = 'LabelValue.Value';
 
-const LabelValue = React.forwardRef(function LabelValue(props, userRef) {
-  const { label, children, className, orientation, appearance, ...rest } = props;
+const LabelValue = React.forwardRef<HTMLDivElement, LabelValueProps>(function LabelValue(
+  props,
+  userRef,
+) {
+  const {
+    label,
+    children,
+    className,
+    orientation = 'vertical',
+    appearance = 'default',
+    ...rest
+  } = props;
 
   const systemProps = pick(rest, margin.propNames);
 
@@ -48,22 +68,12 @@ const LabelValue = React.forwardRef(function LabelValue(props, userRef) {
       </Box>
     </StyledWrapper>
   );
-});
+}) as React.ForwardRefExoticComponent<LabelValueProps> & {
+  Label: typeof Label;
+  Value: typeof Value;
+};
 
 LabelValue.displayName = 'LabelValue';
-LabelValue.propTypes = {
-  label: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-  appearance: PropTypes.oneOf(['inverted', 'default']),
-  ...createPropTypes(margin.propNames),
-};
-
-LabelValue.defaultProps = {
-  orientation: 'vertical',
-  appearance: 'default',
-};
 
 LabelValue.Label = Label;
 LabelValue.Value = Value;
