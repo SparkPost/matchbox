@@ -1,10 +1,10 @@
 import { tokens } from '@sparkpost/design-tokens';
 import { focusOutline } from '../../styles/helpers';
 
-export function focus(props) {
+export function focus({ buttonColor }: { buttonColor?: string }) {
   let color = tokens.color_gray_300;
 
-  switch (props.buttonColor) {
+  switch (buttonColor) {
     case 'orange': // To be deprecated
     case 'blue':
       color = tokens.color_blue_700;
@@ -42,13 +42,13 @@ export const base = () => `
   cursor: pointer;
 `;
 
-export const childwrapper = props => `
+export const childwrapper = (props) => `
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   transform: translateY(${props.loading ? '-50%' : '0%'});
   opacity: ${props.loading ? '0' : '1'};
 `;
 
-export const loader = props => `
+export const loader = (props) => `
   position: absolute;
   top: 0;
   bottom: 0;
@@ -62,7 +62,7 @@ export const loader = props => `
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
-export const visualSize = props => {
+export const visualSize = (props) => {
   switch (props.buttonSize) {
     case 'large':
       return `
@@ -86,14 +86,23 @@ export const visualSize = props => {
   }
 };
 
-export const colorVariant = props => {
+export const colorVariant = ({
+  buttonColor,
+  theme,
+  buttonVariant,
+  disabled,
+}: {
+  buttonColor?: string;
+  theme?: any;
+  buttonVariant?: string;
+  disabled?: boolean;
+}) => {
   let color;
   let darkHoverColor;
   let lightHoverColor;
   let lightActiveColor;
-  const { theme } = props;
 
-  switch (props.buttonColor) {
+  switch (buttonColor) {
     case 'orange': // To be deprecated
     case 'blue':
       color = theme.colors.blue[700];
@@ -125,18 +134,18 @@ export const colorVariant = props => {
       break;
   }
 
-  switch (props.buttonVariant) {
+  switch (buttonVariant) {
     case 'filled':
       return `
         &, &:visited {
           background: ${color};
-          color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
+          color: ${buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
 
           &:hover {
-            ${!props.disabled ? `background: ${darkHoverColor};` : ''}
+            ${!disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${props.buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
+            color: ${buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
           }
           &:active {
             background: ${color};
@@ -149,7 +158,7 @@ export const colorVariant = props => {
           background: transparent;
           color: ${color};
           &:hover {
-            ${!props.disabled ? `background: ${lightHoverColor};` : ''}
+            ${!disabled ? `background: ${lightHoverColor};` : ''}
           }
           &:focus, &:hover {
             color: ${color};
@@ -165,8 +174,8 @@ export const colorVariant = props => {
       return `
         &, &:visited {
           border: 1px solid ${
-            props.buttonVariant == 'mutedOutline'
-              ? props.buttonColor === 'white'
+            buttonVariant == 'mutedOutline'
+              ? buttonColor === 'white'
                 ? theme.colors.gray[600]
                 : theme.colors.gray[400]
               : color
@@ -174,7 +183,7 @@ export const colorVariant = props => {
           background: transparent;
           color: ${color};
           &:hover {
-            ${!props.disabled ? `background: ${lightHoverColor};` : ''}
+            ${!disabled ? `background: ${lightHoverColor};` : ''}
           }
           &:focus, &:hover {
             color: ${color};
@@ -187,8 +196,8 @@ export const colorVariant = props => {
   }
 };
 
-export const disabled = props => {
-  if (props.disabled) {
+export const disabled = (props) => {
+  if (disabled) {
     return `
       opacity: 0.6;
       &:hover {
@@ -198,7 +207,7 @@ export const disabled = props => {
   }
 };
 
-export const fullWidth = props => {
+export const fullWidth = (props) => {
   if (props.fullWidth) {
     return `
       display: block;

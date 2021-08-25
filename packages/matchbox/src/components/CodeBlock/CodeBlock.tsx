@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
 import { pre, code, prefix, line, chevron } from './styles';
@@ -24,8 +23,29 @@ const StyledChevron = styled(ChevronRight)`
   ${chevron}
 `;
 
-function CodeBlock(props) {
-  const { children, code, height, className, numbered, dark } = props;
+type CodeBlockProps = {
+  /**
+   * The string of code to render
+   */
+  code: string;
+  className?: string;
+  /**
+   * Height in pixels of the <pre> block
+   */
+  height?: number;
+  /**
+   * Render line numbers
+   */
+  numbered?: boolean;
+  /**
+   * Whether the code block is styled dark or light
+   */
+  dark?: boolean;
+  children?: React.ReactNode;
+};
+
+function CodeBlock(props: CodeBlockProps): JSX.Element {
+  const { children, code, height, className, numbered = false, dark = false } = props;
 
   return (
     <StyledPre
@@ -38,8 +58,10 @@ function CodeBlock(props) {
       <StyledCode dark={dark}>
         {/* If children are passed in, render those, and pass in the code as a child of that element */}
         {children ? (
-          React.Children.map(children, child => {
-            return React.cloneElement(child, { children: code });
+          React.Children.map<ReactNode, ReactNode>(children, (child) => {
+            if (React.isValidElement(child)) {
+              return React.cloneElement(child, { children: code });
+            }
           })
         ) : (
           <>{code}</>
@@ -74,30 +96,5 @@ function CodePrefix({ code, numbered, dark }) {
     </StyledCodePrefix>
   );
 }
-
-CodeBlock.propTypes = {
-  /**
-   * The string of code to render
-   */
-  code: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  /**
-   * Height in pixels of the <pre> block
-   */
-  height: PropTypes.number,
-  /**
-   * Render line numbers
-   */
-  numbered: PropTypes.bool,
-  /**
-   * Whether the code block is styled dark or light
-   */
-  dark: PropTypes.bool,
-};
-
-CodeBlock.defaultProps = {
-  numbered: false,
-  dark: false,
-};
 
 export default CodeBlock;

@@ -3,7 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 const lineHeight = '25px';
 const fontSize = tokens.fontSize_100;
 
-export const pre = props => `
+export const pre = (props) => `
   position: relative;
   display: grid;
   grid-template-columns: ${tokens.spacing_700} auto;
@@ -15,7 +15,7 @@ export const pre = props => `
   padding: ${tokens.spacing_600} ${tokens.spacing_400} ${tokens.spacing_600} 0;
 `;
 
-export const code = props => `
+export const code = (props) => `
   position: absolute;
   padding: ${tokens.spacing_600} ${tokens.spacing_600} ${tokens.spacing_600} ${tokens.spacing_800};
   color: ${props.dark ? tokens.color_white : tokens.color_gray_800};
@@ -23,7 +23,7 @@ export const code = props => `
   line-height: ${lineHeight};
 `;
 
-export const line = props => `
+export const line = (props) => `
   display: block;
   text-align: right;
   line-height: ${lineHeight};
