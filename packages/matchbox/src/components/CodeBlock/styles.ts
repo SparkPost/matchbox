@@ -9,7 +9,7 @@ export const pre = (props) => `
   grid-template-columns: ${tokens.spacing_700} auto;
   font-family: ${tokens.fontFamily_monospace};
   border-radius: ${tokens.borderRadius_100};
-  background-color: ${props.dark ? tokens.color_gray_900 : tokens.color_gray_100};
+  background-color: ${props.$dark ? tokens.color_gray_900 : tokens.color_gray_100};
   border: 1px solid ${tokens.color_gray_400};
   overflow: auto;
   padding: ${tokens.spacing_600} ${tokens.spacing_400} ${tokens.spacing_600} 0;
@@ -18,7 +18,7 @@ export const pre = (props) => `
 export const code = (props) => `
   position: absolute;
   padding: ${tokens.spacing_600} ${tokens.spacing_600} ${tokens.spacing_600} ${tokens.spacing_800};
-  color: ${props.dark ? tokens.color_white : tokens.color_gray_800};
+  color: ${props.$dark ? tokens.color_white : tokens.color_gray_800};
   font-size: ${fontSize};
   line-height: ${lineHeight};
 `;
@@ -28,7 +28,7 @@ export const line = (props) => `
   text-align: right;
   line-height: ${lineHeight};
   font-size: ${fontSize};
-  color: ${props.dark ? tokens.color_white : tokens.color_gray_700};
+  color: ${props.$dark ? tokens.color_white : tokens.color_gray_700};
   user-select: none;
 `;
 
