@@ -3,7 +3,9 @@ import { describe, add } from '@sparkpost/libby-react';
 import { Inline, Tag } from '@sparkpost/matchbox';
 import { Language } from '@sparkpost/matchbox-icons';
 
-function noop() {}
+function noop() {
+  return null;
+}
 
 describe('Tag', () => {
   add('with remove', () => (
