@@ -24,7 +24,7 @@ import {
 } from 'styled-system';
 import * as Polymorphic from '../../helpers/types';
 
-interface BoxProps
+export interface BoxProps
   extends BorderProps,
     ColorProps,
     FlexboxProps,
@@ -43,14 +43,15 @@ type PolymorphicBox = Polymorphic.ForwardRefComponent<'div', BoxProps>;
 
 const system = compose(border, color, flexbox, grid, layout, position, shadow, space, typography);
 
-const truncate = (props: BoxProps) => {
+const truncate = (props: BoxProps): string => {
   if (props.truncate) {
-    return {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-    };
+    return `
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    `;
   }
+  return '';
 };
 
 const Box = styled.div`

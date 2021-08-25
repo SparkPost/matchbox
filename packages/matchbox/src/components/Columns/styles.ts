@@ -1,7 +1,7 @@
 import { system } from 'styled-system';
 
 export const verticalAlignment = system({
-  alignY: {
+  $alignY: {
     property: 'alignItems',
     defaultScale: {
       center: 'center',
@@ -12,7 +12,7 @@ export const verticalAlignment = system({
 });
 
 export const horizontalAlignment = system({
-  align: {
+  $align: {
     property: 'justifyContent',
     defaultScale: {
       center: 'center',
@@ -23,7 +23,7 @@ export const horizontalAlignment = system({
 });
 
 export const reverseColumns = system({
-  reverse: {
+  $reverse: {
     property: 'flexDirection',
     defaultScale: {
       true: 'row-reverse',
@@ -33,7 +33,7 @@ export const reverseColumns = system({
 });
 
 export const negativeMargin = system({
-  gutter: {
+  $gutter: {
     property: 'marginLeft',
     scale: 'space',
     transform: (value, scale) => `-${scale[value] || value}`,

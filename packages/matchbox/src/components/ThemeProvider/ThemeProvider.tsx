@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider, createGlobalStyle, StyleSheetManager } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import theme from './theme';
@@ -9,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
   ${normalize}
   ${global}
 `;
+
+type TargetProp = Pick<React.ComponentProps<typeof StyleSheetManager>, 'target'>;
+type ManagerProps = TargetProp & {
+  children?: React.ReactNode;
+};
 
 /**
  * See https://styled-components.com/docs/api#stylesheetmanager
@@ -21,15 +25,22 @@ const GlobalStyle = createGlobalStyle`
  * When rendering ThemeProvider:
  * <ThemeProvider target={document.getElementById('styled-components-target')} />
  * */
-function Manager({ target, children }) {
+function Manager({ target, children }: ManagerProps): JSX.Element {
   if (!target) {
-    return children;
+    return <>{children}</>;
   }
 
   return <StyleSheetManager target={target}>{children}</StyleSheetManager>;
 }
 
 Manager.displayName = 'MatchboxStyleSheetManager';
+
+type ThemeProviderProps = TargetProp & {
+  skipGlobalStyles?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  theme?: { [key: string]: any };
+  children?: React.ReactNode;
+};
 
 /**
  * Provides context for styled-system
@@ -39,7 +50,7 @@ Manager.displayName = 'MatchboxStyleSheetManager';
  *
  * @prop theme Overrides matchbox's theme
  */
-function Theme(props) {
+function Theme(props: ThemeProviderProps): JSX.Element {
   return (
     <Manager target={props.target}>
       <ThemeProvider theme={{ ...theme, ...props.theme }}>
@@ -58,9 +69,4 @@ function Theme(props) {
 }
 
 Theme.displayName = 'MatchboxThemeProvider';
-Theme.propTypes = {
-  skipGlobalStyles: PropTypes.bool,
-  target: PropTypes.object,
-};
-
 export default Theme;

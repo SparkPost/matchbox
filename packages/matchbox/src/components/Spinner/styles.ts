@@ -1,10 +1,10 @@
 import { tokens } from '@sparkpost/design-tokens';
 import { keyframes, css } from 'styled-components';
 
-export const dimensions = (props: { size?: string }) => {
+export const dimensions = (props) => {
   let size: string;
 
-  switch (props.size) {
+  switch (props.$size) {
     case 'small':
       size = '20px';
       break;
@@ -22,10 +22,10 @@ export const dimensions = (props: { size?: string }) => {
   `;
 };
 
-export const circleOuter = ({ rotationOnly }: { rotationOnly?: boolean }) => {
+export const circleOuter = (props) => {
   return css`
     fill: none;
-    animation: ${rotateAnimation} ${rotationOnly ? '1.2s' : '2s'} linear infinite;
+    animation: ${rotateAnimation} ${props.$rotationOnly ? '1.2s' : '2s'} linear infinite;
   `;
 };
 
@@ -50,8 +50,8 @@ function getDefaultStrokes(size: string) {
   }
 }
 
-export const circle = (props: { color?: string; size?: string; rotationOnly?: boolean }) => {
-  let color: string, strokeWidth: string, animation: typeof keyframes;
+export const circle = (props) => {
+  let color, strokeWidth, animation;
 
   switch (props.color) {
     case 'gray':
@@ -69,7 +69,7 @@ export const circle = (props: { color?: string; size?: string; rotationOnly?: bo
       break;
   }
 
-  switch (props.size) {
+  switch (props.$size) {
     case 'small':
       strokeWidth = '2px';
       animation = smallDashAnimation;
@@ -89,8 +89,8 @@ export const circle = (props: { color?: string; size?: string; rotationOnly?: bo
     stroke-width: ${strokeWidth};
     stroke-linecap: round;
 
-    ${props.rotationOnly
-      ? getDefaultStrokes(props.size)
+    ${props.$rotationOnly
+      ? getDefaultStrokes(props.$size)
       : css`
           animation: ${animation} 1.5s ease-in-out infinite;
         `}

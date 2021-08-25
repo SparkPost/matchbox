@@ -3,7 +3,7 @@ import { tokens } from '@sparkpost/design-tokens';
 import Spinner from '../Spinner';
 
 describe('Spinner', () => {
-  const subject = props => global.mountStyled(<Spinner label="label" {...props} />);
+  const subject = (props) => global.mountStyled(<Spinner label="label" {...props} />);
 
   it('renders default styles', () => {
     const wrapper = subject();

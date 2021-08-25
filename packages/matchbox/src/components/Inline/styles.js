@@ -1,7 +1,7 @@
 import { system } from 'styled-system';
 
 export const negativeTop = system({
-  gutter: {
+  $gutter: {
     property: 'marginTop',
     scale: 'space',
     transform: (value, scale) => `calc(-${scale[value] || value} - 1px)`,
@@ -9,7 +9,7 @@ export const negativeTop = system({
 });
 
 export const negativeLeft = system({
-  gutter: {
+  $gutter: {
     property: 'marginLeft',
     scale: 'space',
     transform: (value, scale) => `-${scale[value] || value}`,
@@ -17,7 +17,7 @@ export const negativeLeft = system({
 });
 
 export const alignChildren = system({
-  align: {
+  $align: {
     property: 'justifyContent',
     defaultScale: {
       center: 'center',
@@ -28,7 +28,7 @@ export const alignChildren = system({
 });
 
 export const alignYChildren = system({
-  alignY: {
+  $alignY: {
     property: 'alignItems',
     defaultScale: {
       center: 'center',

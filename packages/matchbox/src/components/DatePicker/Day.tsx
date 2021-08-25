@@ -25,7 +25,7 @@ function renderDay(date: Date, modifiers: DayModifiers): JSX.Element | '' {
       justifyContent="center"
       lineHeight="200"
       minWidth="650"
-      modifiers={modifiers}
+      $modifiers={modifiers}
     >
       {date.getDate()}
     </StyledDay>

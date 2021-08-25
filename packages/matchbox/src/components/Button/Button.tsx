@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import {
   margin,
@@ -12,9 +10,8 @@ import {
   PaddingProps,
   compose,
 } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
 import { omit } from '@styled-system/props';
-import { pick, clean } from '../../helpers/props';
+import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 import { Spinner } from '../Spinner';
 import Icon from './Icon';
@@ -58,7 +55,7 @@ export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}):
 // TODO Categorize system props and abstract
 const system = compose(margin, width, padding);
 
-export const StyledButton = styled(Box).withConfig(clean(['loading']))`
+export const StyledButton = styled(Box)`
   ${base}
   ${focus}
   ${visualSize}
@@ -68,11 +65,19 @@ export const StyledButton = styled(Box).withConfig(clean(['loading']))`
   ${system}
 `;
 
-const StyledLoader = styled.div`
+type LoaderStateProp = {
+  $state?: string;
+};
+
+type LoadingProp = {
+  $loading?: boolean;
+};
+
+const StyledLoader = styled.div<LoaderStateProp>`
   ${loader}
 `;
 
-const ChildWrapper = styled.span.withConfig(clean(['loading']))`
+const ChildWrapper = styled.span<LoadingProp>`
   ${childwrapper}
 `;
 
@@ -212,7 +217,7 @@ const Button = React.forwardRef(function Button(props, ref) {
     return (
       <Transition mountOnEnter unmountOnExit in={loading} timeout={0} nodeRef={transitionRef}>
         {(state) => (
-          <StyledLoader state={state} ref={transitionRef}>
+          <StyledLoader $state={state} ref={transitionRef}>
             <Spinner color={loaderColor} size="small" label={loadingLabel} rotationOnly />
           </StyledLoader>
         )}
@@ -238,7 +243,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
   const childrenMarkup = React.useMemo(() => {
     return (
-      <ChildWrapper aria-hidden={loading} loading={loading ? loading : undefined}>
+      <ChildWrapper aria-hidden={loading} $loading={loading ? loading : undefined}>
         {children}
       </ChildWrapper>
     );
@@ -287,40 +292,6 @@ const Button = React.forwardRef(function Button(props, ref) {
 Button.displayName = 'Button';
 Button.Group = Group;
 Button.Icon = Icon;
-
-Button.propTypes = {
-  as: PropTypes.elementType,
-  children: PropTypes.node,
-  color: PropTypes.oneOf(['gray', 'orange', 'blue', 'navy', 'purple', 'red', 'white']),
-  component: deprecate(PropTypes.elementType, 'Use `as` instead'),
-  disabled: PropTypes.bool,
-  external: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  loading: PropTypes.bool,
-  loadingLabel: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'large', 'default']),
-  submit: PropTypes.bool,
-  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  title: PropTypes.string,
-  variant: PropTypes.oneOf(['filled', 'outline', 'text', 'mutedOutline']),
-
-  // Deprecated props
-  Component: deprecate(PropTypes.elementType, 'Use `as` instead'),
-  destructive: deprecate(PropTypes.bool, 'Use the `color` prop instead'),
-  flat: deprecate(PropTypes.bool, 'Use `variant` instead'),
-  primary: deprecate(PropTypes.bool, 'Use `color` prop instead'),
-  outline: deprecate(PropTypes.bool, 'Use `variant` instead'),
-  outlineBorder: deprecate(PropTypes.bool, 'Use `variant` instead'),
-  plain: deprecate(PropTypes.bool, 'Use `variant` instead'),
-
-  // Undocumented helper function
-  // https://github.com/styled-system/styled-system/issues/618
-  // TODO Abstract when system props are grouped
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(padding.propNames),
-  ...createPropTypes(width.propNames),
-};
-
 Button.defaultProps = {
   size: 'default',
   loadingLabel: 'Loading',

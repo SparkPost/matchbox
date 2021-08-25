@@ -44,7 +44,7 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(
       borderBottom="300"
       className={className}
       ref={userRef}
-      tabIndex="-1"
+      tabIndex={-1}
       {...paddingProps}
       bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
       color={appearanceContext === 'inverted' ? 'white' : ''}

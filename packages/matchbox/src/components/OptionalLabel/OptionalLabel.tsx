@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
-const StyledBox = styled(Box)`
-  float: ${(props) => (props.float ? 'right' : 'none')};
+type FloatProp = {
+  $float?: boolean;
+};
+
+const StyledBox = styled(Box)<BoxProps & FloatProp>`
+  float: ${(props) => (props.$float ? 'right' : 'none')};
 `;
 
 type OptionalLabelProps = {
@@ -14,7 +18,7 @@ function OptionalLabel(props: OptionalLabelProps): JSX.Element {
   const { float } = props;
   return (
     <StyledBox
-      float={float}
+      $float={float}
       as="span"
       fontSize="200"
       fontWeight="400"
@@ -28,5 +32,4 @@ function OptionalLabel(props: OptionalLabelProps): JSX.Element {
 }
 
 OptionalLabel.displayName = 'OptionalLabel';
-
 export default OptionalLabel;

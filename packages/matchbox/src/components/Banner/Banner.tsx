@@ -46,16 +46,20 @@ function IconSection({ status, size }: IconProps) {
   );
 }
 
-const StyledContainer = styled(Box)`
+type StatusProp = {
+  $status?: string;
+};
+
+const StyledContainer = styled(Box)<StatusProp>`
   ${container}
   ${margin}
 `;
 
-const StyledChildren = styled('div')`
+const StyledChildren = styled.div`
   ${childLinks}
 `;
 
-const StyledDismiss = styled(Box)`
+const StyledDismiss = styled(Box)<Omit<React.ComponentProps<typeof Box>, 'as'> & StatusProp>`
   ${buttonReset}
   ${dismissBase}
   ${dismissColor}
@@ -132,7 +136,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       <StyledDismiss
         as="button"
         onClick={onDismiss}
-        status={status}
+        $status={status}
         color="gray.800"
         type="button"
         p={size === 'large' ? '100' : 0}
@@ -167,10 +171,10 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       p={size === 'large' ? '450' : '300'}
       py={size === 'large' ? null : '200'}
       borderRadius="100"
-      status={status}
+      $status={status}
       {...systemProps}
       ref={userRef}
-      tabIndex="-1"
+      tabIndex={-1}
       overflow="hidden"
       data-id={dataId}
       id={id}

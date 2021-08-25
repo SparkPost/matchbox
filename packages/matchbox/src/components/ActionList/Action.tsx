@@ -1,13 +1,13 @@
 import React from 'react';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
+import { UnstyledLink } from '../UnstyledLink';
 import { HelpText } from '../HelpText';
-import { StyledLink } from './styles';
-import { LinkActionProps } from '../../helpers/types';
+import { StyledLink, StyledButton } from './styles';
+import { LinkActionProps, ForwardRefComponent } from '../../helpers/types';
 
-type BaseProps = {
+type ActionListActionProps = LinkActionProps & {
   children?: React.ReactNode;
-  disabled?: boolean;
   helpText?: React.ReactNode;
   highlighted?: boolean;
 
@@ -36,54 +36,103 @@ type LinkProps = {
   is?: 'link';
 } & LinkActionProps &
   React.ComponentPropsWithoutRef<'a'> &
-  BaseProps;
+  ActionListActionProps;
 
 type ButtonProps = {
-  is: 'button';
-} & React.ComponentPropsWithoutRef<'button'> &
-  BaseProps;
+  is?: 'button';
+} & LinkActionProps &
+  React.ComponentPropsWithoutRef<'button'> &
+  ActionListActionProps;
 
-type ActionProps = LinkProps | ButtonProps;
+function Content(props: ActionListActionProps): JSX.Element {
+  const { content, children, selected, helpText } = props;
 
-const Action = React.forwardRef<HTMLAnchorElement, ActionProps>(function Action(
-  props: ActionProps,
-  userRef,
-) {
-  const { content, children, disabled, helpText, is = 'link', selected, ...action } = props;
-
-  const linkContent = React.useMemo(() => {
-    return (
-      <Box as="span" alignItems="flex-start" display="flex">
-        <Box as="span" flex="1" fontSize="300" lineHeight="300">
-          {content}
-          {children}
-        </Box>
-        {selected && (
-          <Box as="span" color="blue.700">
-            <CheckBox size={20} />
-          </Box>
-        )}
-        {helpText && <HelpText>{helpText}</HelpText>}
+  return (
+    <Box as="span" alignItems="flex-start" display="flex">
+      <Box as="span" flex="1" fontSize="300" lineHeight="300">
+        {content}
+        {children}
       </Box>
-    );
-  }, [content, selected, helpText]);
+      {selected && (
+        <Box as="span" color="blue.700">
+          <CheckBox size={20} />
+        </Box>
+      )}
+      {helpText && <HelpText>{helpText}</HelpText>}
+    </Box>
+  );
+}
+
+// TODO fix this any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ButtonAction = React.forwardRef<any, any>(function ButtonAction(props, userRef) {
+  const { content, children, disabled, helpText, selected, highlighted, ...action } = props;
+
+  return (
+    <StyledButton
+      type="button"
+      disabled={disabled}
+      role="menuitem"
+      tabIndex={-1}
+      $highlighted={highlighted}
+      ref={userRef}
+      {...action}
+    >
+      <Content content={content} helpText={helpText} selected={selected}>
+        {children}
+      </Content>
+    </StyledButton>
+  );
+});
+
+// TODO fix this any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const LinkAction = React.forwardRef<any, any>(function LinkAction(props, userRef) {
+  const {
+    content,
+    children,
+    disabled,
+    helpText,
+    selected,
+    tabIndex,
+    onClick,
+    highlighted,
+    ...action
+  } = props;
+
+  const disabledAttributes = {
+    'aria-disabled': disabled,
+    disabled,
+    tabIndex: disabled ? -1 : tabIndex,
+    onClick: disabled ? () => false : onClick,
+  };
 
   return (
     <StyledLink
-      as={is === 'button' ? 'button' : null}
-      type={is === 'button' ? 'button' : null}
-      disabled={disabled}
-      isType={is}
-      ref={userRef}
+      $disabled={disabled}
       role="menuitem"
-      tabIndex="-1"
+      tabIndex={-1}
+      $highlighted={highlighted}
+      ref={userRef}
       {...action}
+      {...disabledAttributes}
     >
-      {linkContent}
+      <Content content={content} helpText={helpText} selected={selected}>
+        {children}
+      </Content>
     </StyledLink>
   );
 });
 
-Action.displayName = 'ActionList.Action';
+const Action = React.forwardRef(function Action(props, userRef) {
+  const { is = 'link', ...action } = props;
 
+  if (is === 'button') {
+    return <ButtonAction ref={userRef} {...action} />;
+  }
+
+  return <LinkAction ref={userRef} {...action} />;
+}) as ForwardRefComponent<'a' | 'button', LinkProps | ButtonProps>;
+
+Action.displayName = 'ActionList.Action';
 export default Action;

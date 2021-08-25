@@ -1,19 +1,20 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const truncate = (props: { truncate?: boolean }) => {
-  if (props.truncate) {
-    return {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-    };
+export const truncate = (props: { $truncate?: boolean }): string => {
+  if (props.$truncate) {
+    return `
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    `;
   }
+  return '';
 };
 
-export const lookslike = (props: { lookslike?: string }) => {
+export const lookslike = (props: { $looksLike?: string }): string => {
   let styles = '';
 
-  switch (props.lookslike) {
+  switch (props.$looksLike) {
     case 'h1':
       styles = `
         font-size: ${tokens.fontSize_700};

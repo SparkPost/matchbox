@@ -4,18 +4,27 @@ import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Close, Info, CheckCircle, Warning, ErrorIcon } from '@sparkpost/matchbox-icons';
 import { margin, MarginProps, MaxWidthProps } from 'styled-system';
+import css from '@styled-system/css';
 import { base, status, dismiss, dismissStatus } from './styles';
 import { buttonReset } from '../../styles/helpers';
 import { pick } from '../../helpers/props';
 
-const StyledBox = styled(Box)`
+type StyledButtonProps = {
+  $status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
+};
+
+const StyledBox = styled(Box)<StyledButtonProps>`
   ${base}
   ${status}
   ${margin}
 `;
 
-const StyledClose = styled(Box)`
+const StyledClose = styled.button<StyledButtonProps>`
   ${buttonReset}
+  ${css({
+    p: '0.125rem',
+    mx: '100',
+  })}
   ${dismiss}
   ${dismissStatus}
 `;
@@ -41,12 +50,12 @@ const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(function Snackb
 
   return (
     <StyledBox
-      status={status}
+      $status={status}
       role="alert"
       p="300"
       borderRadius="100"
       ref={userRef}
-      tabIndex="-1"
+      tabIndex={-1}
       {...systemProps}
       data-id={dataId}
     >
@@ -59,14 +68,7 @@ const Snackbar = React.forwardRef<HTMLDivElement, SnackbarProps>(function Snackb
       <Box fontSize="200" lineHeight="200" py="100" pr="400" maxWidth={maxWidth} minWidth="12.5rem">
         {children}
       </Box>
-      <StyledClose
-        status={status}
-        as="button"
-        p="0.125rem"
-        mx="100"
-        onClick={onDismiss}
-        type="button"
-      >
+      <StyledClose $status={status} onClick={onDismiss} type="button">
         <Close size={24} />
         <ScreenReaderOnly>Close</ScreenReaderOnly>
       </StyledClose>

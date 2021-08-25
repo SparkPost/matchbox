@@ -14,7 +14,7 @@ import { truncate, lookslike } from './styles';
 
 const system = compose(color, space, typography);
 
-const StyledText = styled('p')`
+const StyledText = styled.p`
   ${system}
   ${truncate}
   ${lookslike}
@@ -23,6 +23,7 @@ const StyledText = styled('p')`
 interface BaseProps {
   'data-id'?: string;
   children: React.ReactNode;
+  truncate?: boolean;
   looksLike?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 }
 
@@ -32,10 +33,10 @@ type PolymorphicText = Polymorphic.ForwardRefComponent<
 >;
 
 const Text = React.forwardRef(function Text(props, ref) {
-  const { as = 'p', looksLike, children, ...rest } = props;
+  const { as = 'p', looksLike, children, truncate, ...rest } = props;
 
   return (
-    <StyledText as={as} lookslike={looksLike} ref={ref} {...rest}>
+    <StyledText as={as} $looksLike={looksLike} $truncate={truncate} ref={ref} {...rest}>
       {children}
     </StyledText>
   );

@@ -44,8 +44,8 @@ export const base = () => `
 
 export const childwrapper = (props) => `
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
-  transform: translateY(${props.loading ? '-50%' : '0%'});
-  opacity: ${props.loading ? '0' : '1'};
+  transform: translateY(${props.$loading ? '-50%' : '0%'});
+  opacity: ${props.$loading ? '0' : '1'};
 `;
 
 export const loader = (props) => `
@@ -57,8 +57,8 @@ export const loader = (props) => `
   align-items: center;
   pointer-events: none;
   user-select: none
-  opacity: ${props.state === 'entered' ? '1' : '0'};
-  transform: ${props.state === 'entered' ? 'translate(-50%, 0%)' : 'translate(-50%, 40%)'};
+  opacity: ${props.$state === 'entered' ? '1' : '0'};
+  transform: ${props.$state === 'entered' ? 'translate(-50%, 0%)' : 'translate(-50%, 40%)'};
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
@@ -197,7 +197,7 @@ export const colorVariant = ({
 };
 
 export const disabled = (props) => {
-  if (disabled) {
+  if (props.disabled) {
     return `
       opacity: 0.6;
       &:hover {

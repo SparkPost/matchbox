@@ -57,7 +57,7 @@ const LabelValue = React.forwardRef<HTMLDivElement, LabelValueProps>(function La
   const systemProps = pick(rest, margin.propNames);
 
   return (
-    <StyledWrapper className={className} {...systemProps} ref={userRef} tabIndex="-1">
+    <StyledWrapper className={className} {...systemProps} ref={userRef} tabIndex={-1}>
       <Box
         display={orientation === 'horizontal' ? 'grid' : 'block'}
         gridGap={orientation === 'horizontal' ? '300' : ''}

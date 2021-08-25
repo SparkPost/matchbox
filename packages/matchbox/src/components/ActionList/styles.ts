@@ -19,8 +19,12 @@ export const StyledSection = styled(Box)`
   }
 `;
 
-export const StyledLink = styled(UnstyledLink)`
-  ${(props) => (props.isType ? buttonReset : '')}
+type LinkProps = {
+  $highlighted?: boolean;
+  $disabled?: boolean;
+};
+
+const shared = `
   display: block;
   width: 100%;
   padding: ${tokens.spacing_200} ${tokens.spacing_300};
@@ -31,21 +35,40 @@ export const StyledLink = styled(UnstyledLink)`
   line-height: ${tokens.lineHeight_300};
   text-align: left;
 
-  &,
-  &:visited {
-    text-decoration: none;
-    color: ${(props) => (props.highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
-    background: ${(props) => (props.highlighted ? tokens.color_blue_200 : 'none')};
-  }
-
   &:hover,
   &:focus {
     outline: none;
     color: ${tokens.color_gray_900};
     background: ${tokens.color_blue_100};
   }
+`;
 
-  ${'' /* This only applies to buttons, not links */}
+export const StyledLink = styled(UnstyledLink)<LinkProps>`
+  ${shared}
+  &,
+  &:visited {
+    text-decoration: none;
+    color: ${(props) => (props.$highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
+    background: ${(props) => (props.$highlighted ? tokens.color_blue_200 : 'none')};
+  }
+  ${(props) =>
+    props.$disabled
+      ? `
+      opacity: 0.6;
+      pointer-events: none;
+    `
+      : ''}
+`;
+
+export const StyledButton = styled.button<React.ComponentPropsWithRef<'button'> & LinkProps>`
+  ${buttonReset}
+  ${shared}
+  &,
+  &:visited {
+    text-decoration: none;
+    color: ${(props) => (props.$highlighted ? tokens.color_blue_700 : tokens.color_gray_900)};
+    background: ${(props) => (props.$highlighted ? tokens.color_blue_200 : 'none')};
+  }
   &:disabled {
     opacity: 0.6;
     pointer-events: none;

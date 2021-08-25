@@ -2,14 +2,20 @@ import styled from 'styled-components';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
 
-export const StyledDay = styled(Box)`
+type ModifiersProp = {
+  $modifiers: {
+    [key: string]: any;
+  };
+};
+
+export const StyledDay = styled(Box)<ModifiersProp>`
   background: ${tokens.color_white};
   color: ${tokens.color_gray_800};
   cursor: pointer;
 
   ${(props) => {
     // Disabled styles
-    if (props.modifiers.disabled) {
+    if (props.$modifiers.disabled) {
       return `
         opacity: 0.3;
         cursor: not-allowed;
@@ -19,8 +25,8 @@ export const StyledDay = styled(Box)`
 
   ${(props) => {
     // Today modifier styles
-    if (props.modifiers.today) {
-      if (props.modifiers.disabled) {
+    if (props.$modifiers.today) {
+      if (props.$modifiers.disabled) {
         return `
           box-shadow: inset 0 0 0 1px ${tokens.color_gray_900};
         `;
@@ -35,7 +41,7 @@ export const StyledDay = styled(Box)`
 
   ${(props) => {
     // Selected modifier styles
-    if (props.modifiers.selected) {
+    if (props.$modifiers.selected) {
       return `
         color: ${tokens.color_blue_800};
         background: ${tokens.color_blue_300};
@@ -45,7 +51,7 @@ export const StyledDay = styled(Box)`
 
   ${(props) => {
     // In Between selected modifier styles
-    if (props.modifiers.inBetween) {
+    if (props.$modifiers.inBetween) {
       return `
         color: ${tokens.color_gray_900};
         background: ${tokens.color_blue_200};
@@ -55,7 +61,7 @@ export const StyledDay = styled(Box)`
 
   ${(props) => {
     // First and Last selected modifier styles
-    if (props.modifiers.lastSelected || props.modifiers.firstSelected) {
+    if (props.$modifiers.lastSelected || props.$modifiers.firstSelected) {
       return `
         color: ${tokens.color_blue_800};
         background: ${tokens.color_blue_300};
@@ -66,11 +72,11 @@ export const StyledDay = styled(Box)`
   ${(props) => {
     // Hover styles
     if (
-      !props.modifiers.disabled &&
-      !props.modifiers.selected &&
-      !props.modifiers.inBetween &&
-      !props.modifiers.firstSelected &&
-      !props.modifiers.lastSelected
+      !props.$modifiers.disabled &&
+      !props.$modifiers.selected &&
+      !props.$modifiers.inBetween &&
+      !props.$modifiers.firstSelected &&
+      !props.$modifiers.lastSelected
     ) {
       return `
         &:hover {

@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
 import { pre, code, prefix, line, chevron } from './styles';
 
-const StyledPre = styled('pre')`
+type DarkProp = {
+  $dark?: boolean;
+};
+
+const StyledPre = styled('pre')<DarkProp>`
   ${pre}
 `;
 
-const StyledCode = styled('code')`
+const StyledCode = styled('code')<DarkProp>`
   ${code}
 `;
 
-const StyledCodePrefix = styled('div')`
+const StyledCodePrefix = styled('div')<DarkProp>`
   ${prefix}
 `;
 
-const StyledLineNumber = styled('span')`
+const StyledLineNumber = styled('span')<DarkProp>`
   ${line}
 `;
 
@@ -51,11 +55,11 @@ function CodeBlock(props: CodeBlockProps): JSX.Element {
     <StyledPre
       className={className}
       style={{ height: height ? `${height}px` : 'auto' }}
-      dark={dark}
+      $dark={dark}
     >
       <CodePrefix dark={dark} code={code} numbered={numbered} />
 
-      <StyledCode dark={dark}>
+      <StyledCode $dark={dark}>
         {/* If children are passed in, render those, and pass in the code as a child of that element */}
         {children ? (
           React.Children.map<ReactNode, ReactNode>(children, (child) => {
@@ -81,14 +85,14 @@ function CodePrefix({ code, numbered, dark }) {
 
         if (numbered) {
           return (
-            <StyledLineNumber dark={dark} key={key}>
+            <StyledLineNumber $dark={dark} key={key}>
               {rowIndex + 1} {/* Line numbers in code editors do not start with "0"*/}
             </StyledLineNumber>
           );
         }
 
         return (
-          <StyledLineNumber dark={dark} key={key}>
+          <StyledLineNumber $dark={dark} key={key}>
             <StyledChevron />
           </StyledLineNumber>
         );

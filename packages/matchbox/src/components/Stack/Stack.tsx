@@ -6,19 +6,24 @@ import { ResponsiveValue } from 'styled-system';
 import { AlignX } from '../../helpers/types';
 import { SpaceKeys } from '../ThemeProvider/theme';
 
-const StyledBox = styled(Box)`
+type AlignmentAndGutterProps = {
+  $gutter?: ResponsiveValue<SpaceKeys | string>;
+  $alignment?: ResponsiveValue<AlignX>;
+};
+
+const StyledBox = styled(Box)<AlignmentAndGutterProps>`
   display: flex;
   flex-direction: column;
   ${() =>
     system({
-      gutter: {
+      $gutter: {
         property: 'paddingBottom',
         scale: 'space',
       },
     })}
   ${() =>
     system({
-      alignment: {
+      $alignment: {
         property: 'alignItems',
         defaultScale: {
           center: 'center',
@@ -55,7 +60,7 @@ function Stack(props: StackProps): JSX.Element {
   return (
     <div data-id={props['data-id']}>
       {items.map((child, i) => (
-        <StyledBox key={i} alignment={align} gutter={i < items.length - 1 ? space : null}>
+        <StyledBox key={i} $alignment={align} $gutter={i < items.length - 1 ? space : null}>
           {child}
         </StyledBox>
       ))}
