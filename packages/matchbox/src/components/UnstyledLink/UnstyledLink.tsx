@@ -74,7 +74,7 @@ const UnstyledLink = React.forwardRef(function UnstyledLink(props, ref) {
   if (to && !WrapperComponent) {
     return (
       <Styledlink
-        href={to}
+        href={typeof to === 'string' ? to : null}
         target={external ? '_blank' : ''}
         rel={external ? 'noopener noreferrer' : ''}
         title={linkTitle}
