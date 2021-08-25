@@ -8,7 +8,7 @@
   "coveragePathIgnorePatterns": ["index.js"],
   "coverageThreshold": {
     "global": {
-      "statements": 80
+      "statements": 75
     }
   },
   "setupFilesAfterEnv": ["<rootDir>/config/jest/setup.js"],
