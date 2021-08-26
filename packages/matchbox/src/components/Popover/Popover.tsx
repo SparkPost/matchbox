@@ -46,7 +46,7 @@ type BaseProps = PaddingProps &
     /**
      * Callback function that is called when clicking outside the popover, or hitting escape.
      */
-    onClose?: (any) => void;
+    onClose?: (e: Event) => void;
     /**
      * Popover Content
      */

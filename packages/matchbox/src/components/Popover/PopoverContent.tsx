@@ -73,7 +73,7 @@ type ContentProps = PaddingProps &
     React.ComponentProps<typeof Popover>,
     'children' | 'top' | 'left' | 'position' | 'className' | 'sectioned' | 'open'
   > & {
-    style?: any;
+    style?: React.CSSProperties;
   };
 
 const Content = React.forwardRef<HTMLDivElement, ContentProps>(function Content(
