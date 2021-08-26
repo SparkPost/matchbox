@@ -40,28 +40,28 @@ const StyledContent = styled('div')`
 type TooltipProps = {
   as?: 'span' | 'div';
   id: string;
-  content: React.ReactNode;
+  content?: React.ReactNode;
   /**
    * Disables hover events
    */
-  disabled: boolean;
+  disabled?: boolean;
   /**
    * @deprecated Use system props to set styles
    */
-  dark: boolean;
-  left: boolean;
-  right: boolean;
-  top: boolean;
-  bottom: boolean;
+  dark?: boolean;
+  left?: boolean;
+  right?: boolean;
+  top?: boolean;
+  bottom?: boolean;
   /**
    * Disables automatic positioning
    */
-  forcePosition: boolean;
-  children: React.ReactNode;
+  forcePosition?: boolean;
+  children?: React.ReactNode;
   /**
    * Element ID for the portal that will house tooltips. Appends to body if not provided.
    */
-  portalId: string;
+  portalId?: string;
 } & BorderProps &
   ColorProps &
   LayoutProps &
