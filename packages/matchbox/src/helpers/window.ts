@@ -2,12 +2,22 @@ function noop() {
   return;
 }
 
-// Checks if window is available
-// To support Gatsby's static build
-export function getWindow() {
+type GetWindowReturnType =
+  | (Window & typeof globalThis)
+  | {
+      matchMedia: () => void;
+      addEventListener: () => void;
+      removeEventListener: () => void;
+    };
+
+/**
+ * Checks if window is available to support SSG/SSR builds
+ */
+export function getWindow(): GetWindowReturnType {
   if (typeof window !== 'undefined') {
     return window;
   }
+
   return {
     matchMedia: noop,
     addEventListener: noop,
@@ -20,6 +30,6 @@ export function getWindow() {
  * window.top is not accessible from an iframe
  * @see https://stackoverflow.com/questions/326069/how-to-identify-if-a-webpage-is-being-loaded-inside-an-iframe-or-directly-into-t
  */
-export function isInIframe() {
+export function isInIframe(): boolean {
   return window.self !== window.top;
 }
