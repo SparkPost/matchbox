@@ -2,15 +2,17 @@ import React from 'react';
 import { Text, TextProps } from '../Text';
 import { Headings } from '../../helpers/types';
 
-type EmptyStateHeaderProps = Pick<TextProps, 'looksLike'> & {
+type EmptyStateHeaderProps = {
   as?: Headings;
+  looksLike?: TextProps['looksLike'];
+  children?: React.ReactNode;
 };
 
 const Header = React.forwardRef<HTMLHeadingElement, EmptyStateHeaderProps>(function Header(
   props,
   userRef,
 ) {
-  const { as = 'h1', looksLike } = props;
+  const { as = 'h1', looksLike, children } = props;
 
   return (
     <Text
@@ -21,7 +23,7 @@ const Header = React.forwardRef<HTMLHeadingElement, EmptyStateHeaderProps>(funct
       mb={300}
       ref={userRef}
     >
-      {props.children}
+      {children}
     </Text>
   );
 });
