@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { Box } from '../Box';
@@ -9,7 +8,6 @@ import { HelpText } from '../HelpText';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { pick } from '@styled-system/props';
 import { omit } from '../../helpers/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { margin } from 'styled-system';
 import {
   StyledLabel,
@@ -20,7 +18,23 @@ import {
   Wrapper,
 } from './styles';
 
-const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
+type CheckboxProps = {
+  id: string;
+  checked?: boolean | string | 'indeterminate';
+  defaultChecked?: boolean | string;
+  disabled?: boolean;
+  error?: React.ReactNode;
+  helpText?: React.ReactNode;
+  label?: React.ReactNode;
+  labelHidden?: boolean;
+  required?: boolean;
+  value?: string;
+} & React.ComponentPropsWithoutRef<'input'>;
+
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
+  props,
+  userRef,
+) {
   const {
     id,
     checked,
@@ -30,10 +44,6 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
     helpText,
     label,
     labelHidden,
-    onChange,
-    onFocus,
-    onBlur,
-    required,
     value,
     ...rest
   } = props;
@@ -47,26 +57,21 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
     hasError: !!error,
   });
 
-  const isIndeterminate = checked === 'indeterminate';
+  const isIndeterminate = typeof checked === 'string' && checked === 'indeterminate';
   const indeterminateAttributes = isIndeterminate
-    ? { indeterminate: 'true', 'aria-checked': 'mixed' }
-    : { 'aria-checked': checked, checked };
+    ? { $indeterminate: 'true', 'aria-checked': 'mixed' }
+    : { 'aria-checked': checked ? 'true' : 'false', checked };
 
   return (
     <Wrapper {...systemProps}>
-      <StyledLabel error={error} htmlFor={id} disabled={disabled}>
+      <StyledLabel htmlFor={id} $disabled={disabled}>
         <StyledInput
           aria-invalid={!!error}
           id={id}
           value={value}
           defaultChecked={defaultChecked}
           disabled={disabled}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
           type="checkbox"
-          required={required}
-          error={error}
           ref={userRef}
           {...indeterminateAttributes}
           {...describedBy}
@@ -86,8 +91,8 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
             borderRadius="200"
             size="1rem"
             lineHeight="200"
-            error={error}
-            indeterminate={isIndeterminate}
+            $error={!!error}
+            $indeterminate={isIndeterminate}
           />
           <StyledCheck position="absolute" width="1rem" height="1rem" as={Check} />
           <StyledIndeterminate
@@ -97,7 +102,7 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
             height="2px"
             bg="white"
             borderRadius="200"
-            indeterminate={isIndeterminate}
+            $indeterminate={isIndeterminate}
           />
         </Box>
         <Box flex="1" pl="200">
@@ -122,28 +127,10 @@ const Checkbox = React.forwardRef(function Checkbox(props, userRef) {
       {error && <Error id={errorId} error={error} ml="500" />}
     </Wrapper>
   );
-});
+}) as React.ForwardRefExoticComponent<CheckboxProps> & {
+  Group: typeof Group;
+};
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.Group = Group;
-Checkbox.propTypes = {
-  id: PropTypes.string.isRequired,
-  checked: PropTypes.oneOf([true, false, 'indeterminate']),
-  /**
-   * 'indeterminate' does not work with defaultChecked
-   */
-  defaultChecked: PropTypes.bool,
-  label: PropTypes.node,
-  labelHidden: PropTypes.bool,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  error: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  helpText: PropTypes.node,
-  ...createPropTypes(margin.propNames),
-};
-
 export default Checkbox;
