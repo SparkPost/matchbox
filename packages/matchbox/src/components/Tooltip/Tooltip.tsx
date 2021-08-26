@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import styled from 'styled-components';
 import {
@@ -18,13 +17,11 @@ import {
   ShadowProps,
 } from 'styled-system';
 import { pick } from '@styled-system/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import TooltipOverlay from './TooltipOverlay';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { visibility } from './styles';
-import { deprecate } from '../../helpers/propTypes';
 import { secondsToMS } from '../../helpers/string';
 
 const system = compose(border, color, layout, padding, typography, shadow);
@@ -56,7 +53,6 @@ type TooltipProps = {
   right: boolean;
   top: boolean;
   bottom: boolean;
-  horizontalOffset: string; // TODO Either deprecate or style Tooltip tips
   /**
    * Disables automatic positioning
    */
@@ -103,7 +99,7 @@ function Tooltip(props: TooltipProps): JSX.Element {
       // These two props are broken
       right, // Omitting as this is a valid system prop
       bottom, // Omitting as this is a valid system prop
-      forcePosition,
+      forcePosition = false,
       disabled,
       width = '13rem',
       ...rest
@@ -200,58 +196,4 @@ function Tooltip(props: TooltipProps): JSX.Element {
 }
 
 Tooltip.displayName = 'Tooltip';
-Tooltip.propTypes = {
-  as: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  content: PropTypes.node,
-  /**
-   * Disables hover events
-   */
-  disabled: PropTypes.bool,
-  dark: deprecate(PropTypes.bool, 'Use system props to set styles', 'error'),
-  left: PropTypes.bool,
-  right: PropTypes.bool,
-  top: PropTypes.bool,
-  bottom: PropTypes.bool,
-  horizontalOffset: PropTypes.string, // TODO Either deprecate or style Tooltip tips
-  /**
-   * Disables automatic positioning
-   */
-  forcePosition: PropTypes.bool,
-  children: PropTypes.node,
-  /**
-   * These props are provided automatically through the Overlay component
-   */
-  preferredDirection: PropTypes.shape({
-    top: PropTypes.bool,
-    bottom: PropTypes.bool,
-    left: PropTypes.bool,
-    right: PropTypes.bool,
-  }),
-
-  /**
-   * Element ID for the portal that will house tooltips. Appends to body if not provided.
-   */
-  portalId: PropTypes.string,
-  ...createPropTypes(border.propNames),
-  ...createPropTypes(color.propNames),
-  ...createPropTypes(layout.propNames),
-  ...createPropTypes(padding.propNames),
-  ...createPropTypes(typography.propNames),
-  ...createPropTypes(shadow.propNames),
-};
-
-Tooltip.defaultProps = {
-  right: true,
-  bottom: true,
-  horizontalOffset: '0px',
-  forcePosition: false,
-  preferredDirection: {
-    bottom: true,
-    left: false,
-    right: true,
-    top: false,
-  },
-};
-
 export default Tooltip;
