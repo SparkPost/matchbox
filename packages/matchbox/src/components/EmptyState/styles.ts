@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
-export const StyledContent = styled(Box)`
+export const StyledContent = styled(Box)<BoxProps>`
   p {
-    color: ${props => props.theme.colors.gray['900']};
+    color: ${(props) => props.theme.colors.gray['900']};
     ${css({
       fontSize: '300',
       lineHeight: '300',
@@ -12,7 +12,7 @@ export const StyledContent = styled(Box)`
   }
 `;
 
-export const StyledImage = styled(Box)`
+export const StyledImage = styled(Box)<BoxProps>`
   & > img {
     width: 100%;
   }
@@ -22,7 +22,7 @@ export const StyledImage = styled(Box)`
   }
 `;
 
-export const StyledImageLegacy = styled(Box)`
+export const StyledImageLegacy = styled(Box)<BoxProps>`
   transform: translate(0, -50%);
   & > svg {
     height: 100%;
@@ -30,14 +30,14 @@ export const StyledImageLegacy = styled(Box)`
   }
 `;
 
-export const StyledList = styled(Box)`
+export const StyledList = styled(Box)<BoxProps>`
   list-style: none;
   padding-left: 0;
   & > li {
     position: relative;
     padding-left: 24px;
-    padding-bottom: ${props => props.theme.space['500']};
-    color: ${props => props.theme.colors.gray['900']};
+    padding-bottom: ${(props) => props.theme.space['500']};
+    color: ${(props) => props.theme.colors.gray['900']};
 
     &:last-of-type {
       padding-bottom: 0;
@@ -50,11 +50,11 @@ export const StyledList = styled(Box)`
       content: '';
       position: absolute;
       left: 0;
-      top: ${props => props.theme.space['300']};
+      top: ${(props) => props.theme.space['300']};
       transform: translateY(-50%);
-      width: ${props => props.theme.space['200']};
-      height: ${props => props.theme.space['200']};
-      background: ${props => props.theme.colors.blue['700']};
+      width: ${(props) => props.theme.space['200']};
+      height: ${(props) => props.theme.space['200']};
+      background: ${(props) => props.theme.colors.blue['700']};
       border-radius: 50%;
     }
   }

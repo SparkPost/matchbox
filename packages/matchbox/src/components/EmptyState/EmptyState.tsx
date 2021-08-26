@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
@@ -17,7 +15,14 @@ import { getChild } from '../../helpers/children';
 import { pick } from '../../helpers/props';
 import useBreakpoint from '../../hooks/useBreakpoint';
 
-const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
+type EmptyStateProps = {
+  children?: React.ReactNode;
+} & MarginProps;
+
+const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(function EmptyState(
+  props,
+  userRef,
+) {
   const { children, ...rest } = props;
   const breakpoint = useBreakpoint();
   const isMobile = ['default', 'xs', 'sm'].includes(breakpoint);
@@ -46,15 +51,17 @@ const EmptyState = React.forwardRef(function EmptyState(props, userRef) {
       ) : null}
     </Columns>
   );
-});
-
-EmptyState.displayName = 'EmptyState';
-
-EmptyState.propTypes = {
-  children: PropTypes.node,
-  ...createPropTypes(margin.propNames),
+}) as React.ForwardRefExoticComponent<EmptyStateProps> & {
+  Action: typeof Action;
+  Header: typeof Header;
+  Content: typeof Content;
+  Image: typeof Image;
+  Media: typeof Media;
+  List: typeof List;
+  LEGACY: typeof Legacy;
 };
 
+EmptyState.displayName = 'EmptyState';
 EmptyState.Action = Action;
 EmptyState.Header = Header;
 EmptyState.Content = Content;
