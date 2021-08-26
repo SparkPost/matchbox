@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { WindowEvent } from '../WindowEvent';
 import { Portal } from '../Portal';
 import { Box } from '../Box';
 import { getPositionFor } from '../../helpers/geometry';
 import { tokens } from '@sparkpost/design-tokens';
+import Popover from './Popover';
 
 const defaultPosition = {
   top: 0,
@@ -13,7 +13,13 @@ const defaultPosition = {
   height: 0,
 };
 
-function PopoverOverlay(props) {
+type OverlayProps = Pick<React.ComponentProps<typeof Popover>, 'id' | 'open' | 'portalId'> & {
+  renderPopover: () => React.ReactNode;
+  renderActivator: (any) => React.ReactNode;
+  as?: 'div' | 'span';
+};
+
+function PopoverOverlay(props: OverlayProps): JSX.Element {
   const [position, setPosition] = React.useState(defaultPosition);
   const activatorRef = React.useRef(null);
   const { as, id, open, renderPopover, renderActivator, portalId } = props;
@@ -36,7 +42,7 @@ function PopoverOverlay(props) {
         position="relative"
       >
         {renderActivator({
-          activatorRef: node => {
+          activatorRef: (node) => {
             activatorRef.current = node;
           },
         })}
@@ -59,10 +65,7 @@ function PopoverOverlay(props) {
     </>
   );
 }
+
 PopoverOverlay.displayName = 'PopoverOverlay';
-PopoverOverlay.propTypes = {
-  renderActivator: PropTypes.func.isRequired,
-  renderPopover: PropTypes.func.isRequired,
-};
 
 export default PopoverOverlay;
