@@ -19,19 +19,29 @@ const defaultDirection = {
   right: null,
 };
 
-function TooltipOverlay(props) {
+type TooltipDirection = {
+  top?: boolean;
+  bottom?: boolean;
+  left?: boolean;
+  right?: boolean;
+};
+
+type TooltipOverlayProps = {
+  renderA11yContent: () => React.ReactNode;
+  renderTooltip: (args: { preferredDirection: TooltipDirection }) => React.ReactNode;
+  renderActivator: (args: { activatorRef: React.MutableRefObject<HTMLElement> }) => React.ReactNode;
+  hideTooltip?: () => void;
+  visible?: boolean;
+  portalId?: string;
+};
+
+function TooltipOverlay(props: TooltipOverlayProps): JSX.Element {
   const [position, setPosition] = React.useState(defaultPosition);
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);
 
-  const {
-    renderA11yContent,
-    renderTooltip,
-    renderActivator,
-    hideTooltip,
-    visible,
-    portalId,
-  } = props;
+  const { renderA11yContent, renderTooltip, renderActivator, hideTooltip, visible, portalId } =
+    props;
 
   function handleMeasurement() {
     if (activatorRef.current && visible) {

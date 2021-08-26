@@ -2,7 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import styled from 'styled-components';
-import { border, color, compose, layout, padding, typography, shadow } from 'styled-system';
+import {
+  border,
+  BorderProps,
+  color,
+  ColorProps,
+  compose,
+  layout,
+  LayoutProps,
+  padding,
+  PaddingProps,
+  typography,
+  TypographyProps,
+  shadow,
+  ShadowProps,
+} from 'styled-system';
 import { pick } from '@styled-system/props';
 import { createPropTypes } from '@styled-system/prop-types';
 import { tokens } from '@sparkpost/design-tokens';
@@ -15,7 +29,10 @@ import { secondsToMS } from '../../helpers/string';
 
 const system = compose(border, color, layout, padding, typography, shadow);
 
-const StyledTooltipContainer = styled(Box)`
+const StyledTooltipContainer = styled(Box)<{
+  $visible?: boolean;
+  $state?: string;
+}>`
   ${visibility}
 `;
 
@@ -23,7 +40,40 @@ const StyledContent = styled('div')`
   ${system}
 `;
 
-function Tooltip(props) {
+type TooltipProps = {
+  as?: 'span' | 'div';
+  id: string;
+  content: React.ReactNode;
+  /**
+   * Disables hover events
+   */
+  disabled: boolean;
+  /**
+   * @deprecated Use system props to set styles
+   */
+  dark: boolean;
+  left: boolean;
+  right: boolean;
+  top: boolean;
+  bottom: boolean;
+  horizontalOffset: string; // TODO Either deprecate or style Tooltip tips
+  /**
+   * Disables automatic positioning
+   */
+  forcePosition: boolean;
+  children: React.ReactNode;
+  /**
+   * Element ID for the portal that will house tooltips. Appends to body if not provided.
+   */
+  portalId: string;
+} & BorderProps &
+  ColorProps &
+  LayoutProps &
+  PaddingProps &
+  TypographyProps &
+  ShadowProps;
+
+function Tooltip(props: TooltipProps): JSX.Element {
   const [show, setshow] = React.useState(false);
 
   function handleShow() {
@@ -80,7 +130,7 @@ function Tooltip(props) {
         }}
         nodeRef={transitionRef}
       >
-        {state => (
+        {(state) => (
           <StyledTooltipContainer
             display="block"
             position="absolute"
@@ -91,8 +141,8 @@ function Tooltip(props) {
             // Tooltip gap to activator
             mt={positionTop ? '0' : '100'}
             mb={positionTop ? '100' : '0'}
-            visible={!disabled && show}
-            state={state}
+            $visible={!disabled && show}
+            $state={state}
             ref={transitionRef}
           >
             <StyledContent
@@ -139,7 +189,6 @@ function Tooltip(props) {
 
   return (
     <TooltipOverlay
-      id={props.id}
       hideTooltip={handleHide}
       portalId={props.portalId}
       renderA11yContent={renderA11yContent}
@@ -160,7 +209,6 @@ Tooltip.propTypes = {
    */
   disabled: PropTypes.bool,
   dark: deprecate(PropTypes.bool, 'Use system props to set styles', 'error'),
-  active: PropTypes.bool,
   left: PropTypes.bool,
   right: PropTypes.bool,
   top: PropTypes.bool,
