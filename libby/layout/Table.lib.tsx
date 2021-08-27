@@ -194,7 +194,7 @@ describe('Table', () => {
       <Table>
         <thead>
           <Table.Row>
-            <Table.HeaderCell width="50%">Padding 300</Table.HeaderCell>
+            <Table.HeaderCell width="20%">Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
           </Table.Row>
