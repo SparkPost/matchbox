@@ -9,17 +9,17 @@ export const table = () => `
   border-collapse: collapse;
 `;
 
-export const headerCell = ({ theme }) => `
+export const headerCell = ({ theme }): string => `
   font-size: ${theme.fontSizes['200']};
   line-height: ${theme.lineHeights['300']};
   font-weight: ${theme.fontWeights.semibold};
 `;
 
-export const sticky = ({ isScrolled, freezeFirstColumn }) => {
+export const sticky = ({ isScrolled, $freezeFirstColumn }): string => {
   return `
     td:first-child, th:first-child {
       ${
-        freezeFirstColumn
+        $freezeFirstColumn
           ? `
             position: sticky;
             left: 0;
@@ -43,17 +43,17 @@ export const sticky = ({ isScrolled, freezeFirstColumn }) => {
   `;
 };
 
-export const cell = () => `
+export const cell = (): string => `
   word-break: break-all;
 `;
 
-const zebra = theme => `
+const zebra = (theme): string => `
   tbody &:nth-of-type(odd) {
     background: ${theme.colors.gray['100']};
   }
 `;
 
-export const row = ({ theme }) => `
+export const row = ({ theme }): string => `
   background: ${theme.colors.white};
   border: none;
   thead & {
@@ -62,7 +62,7 @@ export const row = ({ theme }) => `
   ${zebra(theme)}
 `;
 
-export const totalsRow = ({ theme }) => `
+export const totalsRow = ({ theme }): string => `
   &:not(:last-child) {
     border-bottom: ${theme.borders['500']};
   }
@@ -74,8 +74,9 @@ export const totalsRow = ({ theme }) => `
   }
   ${zebra(theme)}
 `;
+
 export const verticalAlignment = system({
-  alignY: {
+  $alignY: {
     property: 'verticalAlign',
     defaultScale: {
       center: 'middle',
@@ -84,8 +85,9 @@ export const verticalAlignment = system({
     },
   },
 });
+
 export const horizontalAlignment = system({
-  align: {
+  $align: {
     property: 'textAlign',
     defaultScale: {
       center: 'center',
@@ -95,6 +97,6 @@ export const horizontalAlignment = system({
   },
 });
 
-export const wrapper = ({ freezeFirstColumn }) => `
-   ${freezeFirstColumn ? 'overflow: auto;' : ''}
+export const wrapper = ({ $freezeFirstColumn }): string => `
+   ${$freezeFirstColumn ? 'overflow: auto;' : ''}
 `;

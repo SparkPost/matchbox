@@ -23,7 +23,7 @@ describe('Table', () => {
     <Panel>
       <Table title="My Table">
         <thead>
-          <Table.Row header>
+          <Table.Row>
             <Table.HeaderCell>
               <Table.SortButton direction="asc">Heading 1</Table.SortButton>
             </Table.HeaderCell>
@@ -52,7 +52,7 @@ describe('Table', () => {
             <Table.Cell>4</Table.Cell>
           </Table.Row>
           <Table.TotalsRow>
-            <Table.Cell colSpan="3">Total</Table.Cell>
+            <Table.Cell colSpan={3}>Total</Table.Cell>
             <Table.Cell>100000</Table.Cell>
           </Table.TotalsRow>
           <Table.Row>
@@ -94,7 +94,7 @@ describe('Table', () => {
         <Panel>
           <Table title="My Table" freezeFirstColumn>
             <thead>
-              <Table.Row header>
+              <Table.Row>
                 <Table.HeaderCell>
                   <Table.SortButton direction="asc">Heading 1</Table.SortButton>
                 </Table.HeaderCell>
@@ -160,7 +160,7 @@ describe('Table', () => {
               </Table.Row>
               <Table.TotalsRow>
                 <Table.Cell>Total</Table.Cell>
-                <Table.Cell colSpan="4" align="right">
+                <Table.Cell colSpan={4} align="right">
                   100000
                 </Table.Cell>
               </Table.TotalsRow>
@@ -193,8 +193,8 @@ describe('Table', () => {
     <Panel>
       <Table>
         <thead>
-          <Table.Row header>
-            <Table.HeaderCell width="20%">Padding 300</Table.HeaderCell>
+          <Table.Row>
+            <Table.HeaderCell width="50%">Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
             <Table.HeaderCell>Padding 300</Table.HeaderCell>
           </Table.Row>
@@ -202,7 +202,7 @@ describe('Table', () => {
         <tbody>
           <Table.Row>
             <Table.Cell p="600">Padding 600</Table.Cell>
-            <Table.Cell colSpan="2">Padding 800 colspan 2</Table.Cell>
+            <Table.Cell colSpan={2}>Padding 800 colspan 2</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell p="200">Padding 200</Table.Cell>
@@ -229,7 +229,7 @@ describe('Table', () => {
     <Panel>
       <Table>
         <thead>
-          <Table.Row header alignY="bottom">
+          <Table.Row alignY="bottom">
             <Table.HeaderCell>Lorem ipsum</Table.HeaderCell>
             <Table.HeaderCell>
               Lorem ipsum A really longgggggggggggggggggggggggggggggg

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ArrowUpward, ArrowDownward } from '@sparkpost/matchbox-icons';
 import { focusOutline, buttonReset } from '../../styles/helpers';
 
-const Button = styled.button`
+const Button = styled.button<{ $sorted?: boolean }>`
   ${buttonReset}
   ${focusOutline()}
   display: inline-flex;
@@ -22,8 +21,8 @@ const Button = styled.button`
     transition: ${theme.motion.duration.fast};
   `}
 
-  ${({ sorted, theme }) =>
-    sorted
+  ${({ $sorted, theme }) =>
+    $sorted
       ? `
     background: ${theme.colors.blue[200]};
     color: ${theme.colors.blue[700]};
@@ -39,13 +38,13 @@ const Button = styled.button`
   }
 `;
 
-const IconWrapper = styled.span`
+const IconWrapper = styled.span<{ $sorted?: boolean }>`
   display: inline-block;
   margin-left: ${({ theme }) => theme.space[100]};
   color: ${({ theme }) => theme.colors.gray[700]};
   transition: ${({ theme }) => theme.motion.duration.fast};
 
-  ${({ sorted, theme }) => (sorted ? `color: ${theme.colors.blue[700]};` : '')}
+  ${({ $sorted, theme }) => ($sorted ? `color: ${theme.colors.blue[700]};` : '')}
 
   ${Button}:hover & {
     color: ${({ theme }) => theme.colors.blue[700]};
@@ -73,7 +72,7 @@ const UnsortedWrapper = styled.span`
   }
 `;
 
-function Unsorted() {
+function Unsorted(): JSX.Element {
   return (
     <UnsortedWrapper>
       <ArrowUpward size={14} />
@@ -82,7 +81,18 @@ function Unsorted() {
   );
 }
 
-const SortButton = React.forwardRef(function SortButton(props, userRef) {
+type TableSortButtonProps = {
+  children?: React.ReactNode;
+  direction?: 'asc' | 'desc';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onFocus?: React.FocusEventHandler<HTMLButtonElement>;
+  onBlur?: React.FocusEventHandler<HTMLButtonElement>;
+};
+
+const SortButton = React.forwardRef<HTMLButtonElement, TableSortButtonProps>(function SortButton(
+  props,
+  userRef,
+) {
   const { children, direction, onClick, onFocus, onBlur } = props;
 
   const Icon = React.useMemo(() => {
@@ -108,10 +118,10 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
       onBlur={onBlur}
       ref={userRef}
       type="button"
-      sorted={sorted}
+      $sorted={sorted}
     >
       <span>{children}</span>
-      <IconWrapper sorted={sorted}>
+      <IconWrapper $sorted={sorted}>
         <Icon size={16} />
       </IconWrapper>
     </Button>
@@ -119,12 +129,4 @@ const SortButton = React.forwardRef(function SortButton(props, userRef) {
 });
 
 SortButton.displayName = 'Table.SortButton';
-SortButton.propTypes = {
-  children: PropTypes.node,
-  direction: PropTypes.oneOf(['asc', 'desc', undefined]),
-  onBlur: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-};
-
 export default SortButton;
