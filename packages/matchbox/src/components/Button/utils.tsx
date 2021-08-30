@@ -1,13 +1,16 @@
 import React from 'react';
 import Button from './Button';
 import { filterByVisible } from '../../helpers/array';
-import type { BaseProps } from './Button';
+import type { ButtonProps } from './Button';
 
-interface ButtonPropsWithContent extends BaseProps {
+interface ButtonPropsWithContent extends ButtonProps {
   content?: React.ReactNode;
 }
 
-export function buttonsFrom(actions: ButtonPropsWithContent[], overrides?: BaseProps): JSX.Element {
+export function buttonsFrom(
+  actions: ButtonPropsWithContent[],
+  overrides?: ButtonProps,
+): JSX.Element {
   const filteredActions = filterByVisible(actions);
 
   if (filteredActions.length) {
@@ -23,7 +26,7 @@ export function buttonsFrom(actions: ButtonPropsWithContent[], overrides?: BaseP
 
 export function buttonFrom(
   { content, ...action }: ButtonPropsWithContent,
-  overrides?: BaseProps,
+  overrides?: ButtonProps,
   key?: React.Key,
 ): JSX.Element {
   return <Button key={key} children={content} {...action} {...overrides} />; // eslint-disable-line
