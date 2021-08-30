@@ -103,7 +103,7 @@ function getVariant({ outline, outlineBorder, plain, flat, variant }): string {
   return 'filled';
 }
 
-export type BaseProps = {
+export type ButtonProps = {
   /**
    * @deprecated Use `as` instead
    */
@@ -145,12 +145,11 @@ export type BaseProps = {
   external?: boolean;
   title?: string;
   children?: React.ReactNode;
-};
+} & MarginProps &
+  WidthProps &
+  PaddingProps;
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<
-  'button',
-  BaseProps & MarginProps & WidthProps & PaddingProps
->;
+type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
 
 const Button = React.forwardRef(function Button(props, ref) {
   const {

@@ -1,22 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { deprecate } from '../../helpers/propTypes';
 import styled from 'styled-components';
 import { ChevronLeft, MoreHoriz } from '@sparkpost/matchbox-icons';
 import { ActionList } from '../ActionList';
 import { Box } from '../Box';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { EmptyState } from '../EmptyState';
 import { Popover } from '../Popover';
-import { UnstyledLink } from '../UnstyledLink';
+import { UnstyledLink, UnstyledLinkProps } from '../UnstyledLink';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { filterByVisible } from '../../helpers/array';
+
+type ButtonActionProps = {
+  content?: React.ReactNode;
+  visible?: boolean;
+};
+
+type PageAction = ButtonProps & ButtonActionProps;
 
 const StyledLink = styled(UnstyledLink)`
   text-decoration: none;
 `;
 
-function Breadcrumb({ content, ...rest }) {
+type PageBreadcrumbProps = UnstyledLinkProps & {
+  content?: React.ReactNode;
+};
+
+function Breadcrumb({ content, ...rest }: PageBreadcrumbProps): JSX.Element {
   return (
     <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
       <Box as="span" display="inline-flex" alignItems="center">
@@ -27,7 +36,11 @@ function Breadcrumb({ content, ...rest }) {
   );
 }
 
-function Subtitle({ subtitle }) {
+type PageSubtitleProps = {
+  subtitle?: React.ReactNode;
+};
+
+function Subtitle({ subtitle }: PageSubtitleProps): JSX.Element {
   if (!subtitle) {
     return null;
   }
@@ -48,7 +61,12 @@ function Subtitle({ subtitle }) {
   return <div>{subtitle}</div>;
 }
 
-function SecondaryActions({ actions = [], hasPrimaryAction }) {
+type PageSecondaryActionsProps = {
+  hasPrimaryAction?: boolean;
+  actions?: PageAction[];
+};
+
+function SecondaryActions({ actions, hasPrimaryAction }: PageSecondaryActionsProps): JSX.Element {
   const visibleActions = React.useMemo(() => filterByVisible(actions), [actions]);
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -108,7 +126,12 @@ function SecondaryActions({ actions = [], hasPrimaryAction }) {
   );
 }
 
-function PrimaryAction({ area, action }) {
+type PagePrimaryActionProps = {
+  area?: React.ReactNode;
+  action?: PageAction;
+};
+
+function PrimaryAction({ area, action }: PagePrimaryActionProps): JSX.Element {
   if (!action && !area) {
     return null;
   }
@@ -124,7 +147,45 @@ function PrimaryAction({ area, action }) {
   );
 }
 
-function Page(props) {
+export type PageProps = {
+  /**
+   * The Page display title
+   */
+  title?: React.ReactNode;
+  /**
+   * Subtitle that appears next to the title
+   */
+  subtitle?: React.ReactNode;
+  /**
+   * Main cta. Most button props will work in here.
+   * e.g. { content: 'button label', onClick: callback() }
+   */
+  primaryAction?: PageAction;
+  /**
+   * Alternative to primaryAction
+   */
+  primaryArea?: React.ReactNode;
+  /**
+   * Actions that appear in an Actionlist
+   * e.g. { content: 'button label', onClick: callback() }
+   */
+  secondaryActions?: PageAction[];
+  /**
+   * The back link action
+   */
+  breadcrumbAction?: PageBreadcrumbProps;
+  /**
+   * Optional empty state object
+   * @deprecated Use EmptyState instead
+   */
+  empty?: any;
+  /**
+   * Page Children
+   */
+  children?: React.ReactNode;
+};
+
+function Page(props: PageProps): JSX.Element {
   const {
     title,
     subtitle,
@@ -139,8 +200,10 @@ function Page(props) {
 
   if (show) {
     return (
+      // @ts-ignore
       <EmptyState.LEGACY title={title} primaryAction={primaryAction} {...emptyProps}>
         {content}
+        {/* @ts-ignore */}
       </EmptyState.LEGACY>
     );
   }
@@ -177,7 +240,7 @@ function Page(props) {
           >
             <SecondaryActions
               actions={secondaryActions}
-              hasPrimaryAction={primaryAction || primaryArea}
+              hasPrimaryAction={!!primaryAction || !!primaryArea}
             />
             <PrimaryAction area={primaryArea} action={primaryAction} />
           </Box>
@@ -189,62 +252,4 @@ function Page(props) {
 }
 
 Page.displayName = 'Page';
-Page.propTypes = {
-  /**
-   * The Page display title
-   */
-  title: PropTypes.node,
-
-  /**
-   * Subtitle that appears to the right of the title
-   */
-  subtitle: PropTypes.node,
-
-  /**
-   * Main cta. Most button props will work in here.
-   * e.g. { content: 'button label', onClick: callback() }
-   */
-  primaryAction: PropTypes.shape({
-    content: PropTypes.node.isRequired,
-  }),
-
-  /**
-   * Alternative to primaryAction, accepts React nodes
-   */
-  primaryArea: PropTypes.node,
-
-  /**
-   * Actions that appear in an Actionlist
-   * e.g. { content: 'button label', onClick: callback() }
-   */
-  secondaryActions: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.node.isRequired,
-    }),
-  ),
-
-  /**
-   * The back link action
-   */
-  breadcrumbAction: PropTypes.shape({
-    content: PropTypes.node.isRequired,
-  }),
-
-  /**
-   * Optional empty state object
-   */
-  empty: deprecate(
-    PropTypes.shape({
-      show: PropTypes.bool,
-      content: PropTypes.node,
-    }),
-    'Use <EmptyState/> component instead',
-  ),
-
-  /**
-   * Page Children
-   */
-  children: PropTypes.node,
-};
-
 export default Page;
