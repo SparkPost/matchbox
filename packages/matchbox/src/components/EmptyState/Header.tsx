@@ -2,10 +2,8 @@ import React from 'react';
 import { Text, TextProps } from '../Text';
 import { Headings } from '../../helpers/types';
 
-type EmptyStateHeaderProps = {
+type EmptyStateHeaderProps = TextProps & {
   as?: Headings;
-  looksLike?: TextProps['looksLike'];
-  children?: React.ReactNode;
 };
 
 const Header = React.forwardRef<HTMLHeadingElement, EmptyStateHeaderProps>(function Header(
