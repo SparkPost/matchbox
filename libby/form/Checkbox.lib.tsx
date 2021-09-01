@@ -10,7 +10,7 @@ describe('Checkbox', () => {
       id="id"
       label={
         <span>
-          I agree to SparkPost's <UnstyledLink>Terms of Use</UnstyledLink>
+          I agree to SparkPost&apos;s <UnstyledLink>Terms of Use</UnstyledLink>
         </span>
       }
     />
@@ -59,7 +59,7 @@ describe('Checkbox', () => {
   add('indeterminate group', () => {
     const [checked1, setChecked1] = React.useState(false);
     const [checked2, setChecked2] = React.useState(false);
-    const [indeterminate, setIndeterminate] = React.useState(false);
+    const [indeterminate, setIndeterminate] = React.useState(null);
 
     React.useLayoutEffect(() => {
       if (checked1 || checked2) {

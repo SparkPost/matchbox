@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Label } from '../Label';
 import { Stack } from '../Stack';
 import { OptionalLabel } from '../OptionalLabel';
-import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 
 const StyledGroup = styled('fieldset')`
@@ -15,7 +13,17 @@ const StyledGroup = styled('fieldset')`
   ${margin}
 `;
 
-function Group(props) {
+export type CheckboxGroupProps = {
+  children: React.ReactNode;
+  className?: string;
+  'data-id'?: string;
+  label?: React.ReactNode;
+  required?: boolean;
+  labelHidden?: boolean;
+  optional?: boolean;
+} & MarginProps;
+
+function Group(props: CheckboxGroupProps): JSX.Element {
   const {
     'data-id': dataId,
     children,
@@ -49,17 +57,6 @@ function Group(props) {
     </StyledGroup>
   );
 }
-
-Group.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  'data-id': PropTypes.string,
-  label: PropTypes.node,
-  required: PropTypes.bool,
-  labelHidden: PropTypes.bool,
-  optional: PropTypes.bool,
-  ...createPropTypes(margin.propNames),
-};
 
 Group.displayName = 'Checkbox.Group';
 export default Group;
