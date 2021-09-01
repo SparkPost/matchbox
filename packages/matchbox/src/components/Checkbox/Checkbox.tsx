@@ -18,7 +18,7 @@ import {
   Wrapper,
 } from './styles';
 
-type CheckboxProps = {
+export type CheckboxProps = {
   id: string;
   checked?: boolean | string | 'indeterminate';
   defaultChecked?: boolean | string;

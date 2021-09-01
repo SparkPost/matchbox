@@ -13,7 +13,7 @@ const StyledGroup = styled('fieldset')`
   ${margin}
 `;
 
-type CheckboxGroupProps = {
+export type CheckboxGroupProps = {
   children: React.ReactNode;
   className?: string;
   'data-id'?: string;
