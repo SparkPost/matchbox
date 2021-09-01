@@ -17,7 +17,7 @@ import { Box, BoxProps } from '../Box';
 
 type AlignXProp = ResponsiveValue<AlignX>;
 
-type TableCellProps = {
+export type TableCellProps = {
   value?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;

@@ -19,7 +19,7 @@ const StyledHeaderCell = styled(Box)<
   ${horizontalAlignment}
 `;
 
-type TableHeaderCellProps = {
+export type TableHeaderCellProps = {
   'aria-sort'?: 'none' | 'ascending' | 'descending' | 'other';
   align?: AlignXProp;
   value?: string;

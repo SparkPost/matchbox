@@ -23,7 +23,7 @@ const Wrapper = styled(Box)`
   ${margin}
 `;
 
-type TableProps = {
+export type TableProps = {
   'aria-readonly'?: string;
   children?: React.ReactNode;
   /**

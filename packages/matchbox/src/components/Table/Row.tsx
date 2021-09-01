@@ -17,7 +17,7 @@ const StyledRow = styled.tr<{ $alignY?: AlignYProp }>`
   }
 `;
 
-type TableRowProps = {
+export type TableRowProps = {
   className?: string;
   onClick?: React.MouseEventHandler<HTMLTableRowElement>;
   alignY?: AlignYProp;

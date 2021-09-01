@@ -7,7 +7,7 @@ const StyledTotalsRow = styled.tr`
   ${totalsRow}
 `;
 
-type TableTotalsRowProps = {
+export type TableTotalsRowProps = {
   rowData?: React.ReactNode[];
   children?: React.ReactNode;
   className?: string;

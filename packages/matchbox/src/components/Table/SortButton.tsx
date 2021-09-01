@@ -81,7 +81,7 @@ function Unsorted(): JSX.Element {
   );
 }
 
-type TableSortButtonProps = {
+export type TableSortButtonProps = {
   children?: React.ReactNode;
   direction?: 'asc' | 'desc';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
