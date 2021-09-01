@@ -37,7 +37,7 @@ const StyledContent = styled('div')`
   ${system}
 `;
 
-type TooltipProps = {
+export type TooltipProps = {
   as?: 'span' | 'div';
   id: string;
   content?: React.ReactNode;
