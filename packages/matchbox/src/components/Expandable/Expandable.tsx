@@ -1,39 +1,82 @@
 import React from 'react';
-import Proptypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { KeyboardArrowLeft } from '@sparkpost/matchbox-icons';
 import { onKeys } from '../../helpers/keyEvents';
 import { pick } from '../../helpers/props';
 import { StyledHeader, StyledContentWrapper, expandable, title, subtitle, arrow } from './styles';
 
 import Accent from './Accent';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
-const StyledExpandable = styled('div')`
+type TransientProps = {
+  $accent?: React.ComponentProps<typeof Accent>['accentColor'];
+  $variant?: string;
+  $isOpen?: boolean;
+};
+
+const StyledExpandable = styled('div')<TransientProps>`
   ${expandable}
   ${margin}
 `;
 
-const StyledArrow = styled('div')`
+const StyledArrow = styled.div<TransientProps>`
   ${arrow}
 `;
 
-const StyledTitle = styled('h3')`
+const StyledTitle = styled('h3')<TransientProps>`
   ${title}
 `;
 
-const StyledSubtitle = styled(Box)`
+const StyledSubtitle = styled(Box)<BoxProps & TransientProps>`
   ${subtitle}
 `;
 
-const StyledIcon = styled(Box)``;
+export type ExpandableProps = MarginProps & {
+  /**
+   * Optional accent color or boolean to default to blue
+   */
+  accent?: React.ComponentProps<typeof Accent>['accentColor'];
+  /**
+   * Default open state when not controlled
+   */
+  defaultOpen?: boolean;
+  /**
+   * Optional React node for an image or icon. Works best with an SVG optimized for 40x40.
+   */
+  icon?: React.ReactNode;
+  /**
+   * Required for accessilibty between header and content
+   */
+  id: string;
+  /**
+   * Pass a boolean to control open state
+   */
+  open?: boolean;
+  /**
+   * Optional, but required when controlling open state
+   */
+  onToggle?: () => void;
+  /**
+   * Optional content area beneath header title
+   */
+  subtitle?: React.ReactNode;
+  /**
+   * Main header title content
+   */
+  title: React.ReactNode;
+  /**
+   * Contents of the expandable
+   */
+  children?: React.ReactNode;
+  'data-id'?: string;
+  variant?: 'bordered' | 'borderless';
+};
 
-function Expandable(props) {
+function Expandable(props: ExpandableProps): JSX.Element {
   const {
     children,
-    defaultOpen,
+    defaultOpen = false,
     'data-id': dataId,
     icon,
     id,
@@ -42,7 +85,7 @@ function Expandable(props) {
     subtitle,
     title,
     accent,
-    variant,
+    variant = 'bordered',
     ...rest
   } = props;
 
@@ -67,7 +110,7 @@ function Expandable(props) {
   }
 
   function handleClick() {
-    header.current.blur();
+    (header as React.MutableRefObject<HTMLButtonElement>).current.blur();
     handleToggle();
   }
 
@@ -83,9 +126,9 @@ function Expandable(props) {
   const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
   const iconMarkup = icon ? (
-    <StyledIcon flex="0" minWidth="40px" maxWidth="40px" mr="500">
+    <Box flex="0" minWidth="40px" maxWidth="40px" mr="500">
       {icon}
-    </StyledIcon>
+    </Box>
   ) : null;
 
   const subtitleMarkup = subtitle ? (
@@ -99,7 +142,7 @@ function Expandable(props) {
   return (
     <Box data-id={dataId} {...systemProps}>
       {accentMarkup}
-      <StyledExpandable accent={accent} variant={variant}>
+      <StyledExpandable $accent={accent} $variant={variant}>
         <StyledHeader
           aria-controls={id}
           aria-expanded={isOpen}
@@ -108,25 +151,25 @@ function Expandable(props) {
           ref={header}
           data-id="expandable-toggle"
           type="button"
-          variant={variant}
+          $variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
-            <StyledTitle variant={variant}>{title}</StyledTitle>
+            <StyledTitle $variant={variant}>{title}</StyledTitle>
             {subtitleMarkup}
           </Box>
           <Box display="inline-block" flex="0">
-            <StyledArrow isOpen={isOpen}>
+            <StyledArrow $isOpen={isOpen}>
               <KeyboardArrowLeft size={26} />
             </StyledArrow>
           </Box>
         </StyledHeader>
         <StyledContentWrapper
           aria-hidden={!isOpen}
-          isOpen={isOpen}
+          $isOpen={isOpen}
           id={id}
           data-id="expandable-content"
-          variant={variant}
+          $variant={variant}
         >
           {contentSpacer}
           <Box flex="1">{children}</Box>
@@ -137,60 +180,9 @@ function Expandable(props) {
 }
 
 Expandable.Accent = Accent;
-Expandable.Icon = StyledIcon;
 Expandable.Title = StyledTitle;
 Expandable.Subtitle = StyledSubtitle;
 Expandable.ContentWrapper = StyledContentWrapper;
 Expandable.Arrow = StyledArrow;
 Expandable.Header = StyledHeader;
-
-Expandable.defaultProps = {
-  defaultOpen: false,
-  variant: 'bordered',
-};
-
-Expandable.propTypes = {
-  /**
-   * Default open state when not controlled
-   */
-  defaultOpen: Proptypes.bool,
-  /**
-   * Optional React node for an image or icon. Works best with an SVG optimized for 40x40.
-   */
-  icon: Proptypes.node,
-  /**
-   * Required for accessilibty between header and content
-   */
-  id: Proptypes.string.isRequired,
-  /**
-   * Pass a boolean to control open state
-   */
-  open: Proptypes.bool,
-  /**
-   * Optional, but required when controlling open state
-   */
-  onToggle: Proptypes.func,
-  /**
-   * Optional content area beneath header title
-   */
-  subtitle: Proptypes.node,
-  /**
-   * Main header title content
-   */
-  title: Proptypes.node.isRequired,
-  /**
-   * Optional accent color or boolean to default to blue
-   */
-  accent: Proptypes.oneOfType([
-    Proptypes.bool,
-    Proptypes.oneOf(['orange', 'blue', 'red', 'yellow', 'green', 'purple', 'navy', 'gray']),
-  ]),
-
-  variant: Proptypes.oneOf(['bordered', 'borderless']),
-  /**
-   * Margin props
-   */
-  ...createPropTypes(margin.propNames),
-};
-
 export default Expandable;

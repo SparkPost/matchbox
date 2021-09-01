@@ -3,14 +3,14 @@ import css from '@styled-system/css';
 import { buttonReset, focusOutline } from '../../styles/helpers';
 import styled from 'styled-components';
 
-export const StyledHeader = styled('button')`
+export const StyledHeader = styled('button')<{ $variant?: string }>`
   ${buttonReset}
   user-select: none;
   outline: none;
-  ${props =>
+  ${(props) =>
     css({
       px: '450',
-      py: props.variant === 'borderless' ? '200' : '300',
+      py: props.$variant === 'borderless' ? '200' : '300',
     })}
 
   display: flex;
@@ -25,12 +25,12 @@ export const StyledHeader = styled('button')`
   }
 `;
 
-export const StyledContentWrapper = styled('div')`
-  ${props => {
+export const StyledContentWrapper = styled('div')<{ $variant?: string; $isOpen?: boolean }>`
+  ${(props) => {
     let visibility = 'hidden';
     let display = 'none';
 
-    if (props.isOpen) {
+    if (props.$isOpen) {
       visibility = 'visible';
       display = 'flex';
     }
@@ -43,13 +43,13 @@ export const StyledContentWrapper = styled('div')`
   ${() => css({ px: '450', pb: '450' })}
 `;
 
-export const expandable = props => {
+export const expandable = (props) => {
   let borderRadius = tokens.borderRadius_100;
-  if (props.variant === 'borderless') {
+  if (props.$variant === 'borderless') {
     return ``;
   }
 
-  if (props.accent) {
+  if (props.$accent) {
     borderRadius = `0 0 ${tokens.borderRadius_100} ${tokens.borderRadius_100}`;
   }
 
@@ -60,10 +60,10 @@ export const expandable = props => {
   `;
 };
 
-export const arrow = props => {
+export const arrow = (props) => {
   let rotate = 'rotate(-90deg)';
 
-  if (props.isOpen) {
+  if (props.$isOpen) {
     rotate = 'rotate(90deg)';
   }
 
@@ -82,10 +82,12 @@ export const arrow = props => {
   `;
 };
 
-export const title = ({ variant }) => `
-  font-size: ${variant === 'borderless' ? tokens.fontSize_300 : tokens.fontSize_400};
-  font-weight: ${variant === 'borderless' ? tokens.fontWeight_normal : tokens.fontWeight_semibold};
-  color: ${variant === 'borderless' ? tokens.color_gray_700 : tokens.color_gray_900};
+export const title = (props) => `
+  font-size: ${props.$variant === 'borderless' ? tokens.fontSize_300 : tokens.fontSize_400};
+  font-weight: ${
+    props.$variant === 'borderless' ? tokens.fontWeight_normal : tokens.fontWeight_semibold
+  };
+  color: ${props.$variant === 'borderless' ? tokens.color_gray_700 : tokens.color_gray_900};
   line-height: ${tokens.lineHeight_400};
   transition: color ${tokens.motionDuration_fast};
 
@@ -96,13 +98,12 @@ export const title = ({ variant }) => `
 
 export const subtitle = () => `
   font-weight: ${tokens.fontWeight_normal};
-
 `;
 
-export const accent = props => {
+export const accent = (props) => {
   let color;
 
-  switch (props.accentColor) {
+  switch (props.$accentColor) {
     case 'orange':
       color = tokens.color_brand_orange;
       break;
