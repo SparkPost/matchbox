@@ -1,7 +1,7 @@
 import React from 'react';
 import { getWindow } from '../../helpers/window';
 
-type WindowEventProps = {
+export type WindowEventProps = {
   /**
    * Type of event
    */
