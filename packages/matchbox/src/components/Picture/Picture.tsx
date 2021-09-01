@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
-type PictureImageProps = {
+export type PictureImageProps = {
   alt?: string;
   className?: string;
   src: string;
@@ -18,7 +18,7 @@ const Image = React.forwardRef<HTMLImageElement, PictureImageProps>(function Ima
 
 Image.displayName = 'Picture.Image';
 
-type PictureProps = {
+export type PictureProps = {
   children?: React.ReactNode; // For passing in child `<source />` elements - may have additional uses in the future, so not restricting that now
   seeThrough?: boolean;
   role?: string;
