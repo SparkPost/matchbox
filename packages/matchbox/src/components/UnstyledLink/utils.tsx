@@ -1,8 +1,8 @@
 import React from 'react';
 import UnstyledLink from './UnstyledLink';
-import type { UnstyledLinkBaseProps } from './UnstyledLink';
+import type { UnstyledLinkProps } from './UnstyledLink';
 
-interface LinkFromTypes extends UnstyledLinkBaseProps {
+interface LinkFromTypes extends UnstyledLinkProps {
   content?: React.ReactNode;
   children?: React.ReactNode;
 }

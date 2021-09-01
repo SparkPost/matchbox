@@ -33,7 +33,7 @@ export const groupByValues = (list, groupingKey) => Object.values(groupBy(list, 
  * // returns
  * [{ name: 'a' }, { name: 'c' }]
  */
-export const filterByVisible = actions => {
+export const filterByVisible = (actions) => {
   if (!actions) {
     return [];
   }

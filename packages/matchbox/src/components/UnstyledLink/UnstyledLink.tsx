@@ -12,12 +12,12 @@ import {
 import type * as Types from '../../helpers/types';
 
 // Omits the `color` styled-system prop because it conflicts with the native HTML 'color' attribute
-export type UnstyledLinkBaseProps = Omit<
+export type UnstyledLinkProps = Omit<
   Types.LinkActionProps & ColorProps & SpaceProps & TypographyProps,
   'color'
 >;
 
-type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', UnstyledLinkBaseProps>;
+type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', UnstyledLinkProps>;
 
 type DisabledProp = {
   $disabled?: boolean;
