@@ -20,17 +20,16 @@ const StyledText = styled.p`
   ${lookslike}
 `;
 
-interface BaseProps {
+export type TextProps = {
   'data-id'?: string;
   children: React.ReactNode;
   truncate?: boolean;
   looksLike?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
-}
+} & ColorProps &
+  SpaceProps &
+  TypographyProps;
 
-type PolymorphicText = Polymorphic.ForwardRefComponent<
-  'p',
-  BaseProps & ColorProps & SpaceProps & TypographyProps
->;
+type PolymorphicText = Polymorphic.ForwardRefComponent<'p', TextProps>;
 
 const Text = React.forwardRef(function Text(props, ref) {
   const { as = 'p', looksLike, children, truncate, ...rest } = props;

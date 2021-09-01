@@ -1,10 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Text, TextProps } from '../Text';
+import { Headings } from '../../helpers/types';
 
-import { Text } from '../Text';
+type EmptyStateHeaderProps = TextProps & {
+  as?: Headings;
+};
 
-const Header = React.forwardRef(function Header(props, userRef) {
-  const { as, looksLike } = props;
+const Header = React.forwardRef<HTMLHeadingElement, EmptyStateHeaderProps>(function Header(
+  props,
+  userRef,
+) {
+  const { as = 'h1', looksLike, children } = props;
 
   return (
     <Text
@@ -15,21 +21,10 @@ const Header = React.forwardRef(function Header(props, userRef) {
       mb={300}
       ref={userRef}
     >
-      {props.children}
+      {children}
     </Text>
   );
 });
 
 Header.displayName = 'EmptyState.Header';
-
-Header.defaultProps = {
-  as: 'h1',
-};
-
-Header.propTypes = {
-  children: PropTypes.node,
-  as: PropTypes.string,
-  looksLike: PropTypes.string,
-};
-
 export default Header;
