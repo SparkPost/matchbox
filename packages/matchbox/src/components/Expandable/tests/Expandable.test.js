@@ -46,7 +46,7 @@ describe('Expandable component', () => {
       icon: <svg>test</svg>,
       defaultOpen: true,
     });
-    expect(wrapper.find(Expandable.Icon).text()).toEqual('test');
+    expect(wrapper.find('svg').first().text()).toEqual('test');
   });
 
   describe('uncontrolled', () => {

@@ -103,7 +103,7 @@ export const subtitle = () => `
 export const accent = (props) => {
   let color;
 
-  switch (props.accentColor) {
+  switch (props.$accentColor) {
     case 'orange':
       color = tokens.color_brand_orange;
       break;
