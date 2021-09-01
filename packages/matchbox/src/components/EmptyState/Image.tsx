@@ -26,11 +26,9 @@ const Image = React.forwardRef<HTMLDivElement, EmptyStateImageProps>(function Im
       height="auto"
       ref={userRef}
     >
-      {/* @ts-ignore */}
-      <Picture className={className}>
+      <Picture>
         {children}
-        {/* @ts-ignore */}
-        <Picture.Image src={src} />
+        <Picture.Image src={src} className={className} />
       </Picture>
     </StyledImage>
   );
