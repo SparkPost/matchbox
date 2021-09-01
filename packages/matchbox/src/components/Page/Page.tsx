@@ -178,7 +178,11 @@ export type PageProps = {
    * Optional empty state object
    * @deprecated Use EmptyState instead
    */
-  empty?: any;
+  empty?: {
+    show?: boolean;
+    content?: React.ReactNode;
+    [k: string]: any;
+  };
   /**
    * Page Children
    */
