@@ -22,7 +22,7 @@ type TagColorProp = {
     | 'darkGray';
 };
 
-type TagProps = MarginProps & {
+export type TagProps = MarginProps & {
   color?: TagColorProp['$tagColor'];
   className?: string;
   /**
