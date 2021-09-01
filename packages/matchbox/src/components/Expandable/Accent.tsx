@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { accent } from './styles';
 
-const AccentOuter = styled('div')`
+const AccentOuter = styled('div')<{ $accentColor?: boolean | string }>`
   ${accent}
 `;
 
@@ -20,7 +20,7 @@ type ExpandableAccentProps = {
 };
 
 const Accent = ({ accentColor }: ExpandableAccentProps): JSX.Element => {
-  return <AccentOuter accentColor={accentColor} />;
+  return <AccentOuter $accentColor={accentColor} />;
 };
 
 Accent.displayName = 'Expandable.Accent';

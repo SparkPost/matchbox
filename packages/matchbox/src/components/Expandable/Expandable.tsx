@@ -7,26 +7,30 @@ import { pick } from '../../helpers/props';
 import { StyledHeader, StyledContentWrapper, expandable, title, subtitle, arrow } from './styles';
 
 import Accent from './Accent';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 
-const StyledExpandable = styled('div')`
+type TransientProps = {
+  $accent?: React.ComponentProps<typeof Accent>['accentColor'];
+  $variant?: string;
+  $isOpen?: boolean;
+};
+
+const StyledExpandable = styled('div')<TransientProps>`
   ${expandable}
   ${margin}
 `;
 
-const StyledArrow = styled('div')`
+const StyledArrow = styled.div<TransientProps>`
   ${arrow}
 `;
 
-const StyledTitle = styled('h3')`
+const StyledTitle = styled('h3')<TransientProps>`
   ${title}
 `;
 
-const StyledSubtitle = styled(Box)`
+const StyledSubtitle = styled(Box)<BoxProps & TransientProps>`
   ${subtitle}
 `;
-
-const StyledIcon = styled(Box)``;
 
 export type ExpandableProps = MarginProps & {
   /**
@@ -122,9 +126,9 @@ function Expandable(props: ExpandableProps): JSX.Element {
   const accentMarkup = accentColor ? <Accent accentColor={accentColor} /> : null;
 
   const iconMarkup = icon ? (
-    <StyledIcon flex="0" minWidth="40px" maxWidth="40px" mr="500">
+    <Box flex="0" minWidth="40px" maxWidth="40px" mr="500">
       {icon}
-    </StyledIcon>
+    </Box>
   ) : null;
 
   const subtitleMarkup = subtitle ? (
@@ -138,7 +142,7 @@ function Expandable(props: ExpandableProps): JSX.Element {
   return (
     <Box data-id={dataId} {...systemProps}>
       {accentMarkup}
-      <StyledExpandable accent={accent} variant={variant}>
+      <StyledExpandable $accent={accent} $variant={variant}>
         <StyledHeader
           aria-controls={id}
           aria-expanded={isOpen}
@@ -147,25 +151,25 @@ function Expandable(props: ExpandableProps): JSX.Element {
           ref={header}
           data-id="expandable-toggle"
           type="button"
-          variant={variant}
+          $variant={variant}
         >
           {iconMarkup}
           <Box display="inline-block" flex="1">
-            <StyledTitle variant={variant}>{title}</StyledTitle>
+            <StyledTitle $variant={variant}>{title}</StyledTitle>
             {subtitleMarkup}
           </Box>
           <Box display="inline-block" flex="0">
-            <StyledArrow isOpen={isOpen}>
+            <StyledArrow $isOpen={isOpen}>
               <KeyboardArrowLeft size={26} />
             </StyledArrow>
           </Box>
         </StyledHeader>
         <StyledContentWrapper
           aria-hidden={!isOpen}
-          isOpen={isOpen}
+          $isOpen={isOpen}
           id={id}
           data-id="expandable-content"
-          variant={variant}
+          $variant={variant}
         >
           {contentSpacer}
           <Box flex="1">{children}</Box>
@@ -176,7 +180,6 @@ function Expandable(props: ExpandableProps): JSX.Element {
 }
 
 Expandable.Accent = Accent;
-Expandable.Icon = StyledIcon;
 Expandable.Title = StyledTitle;
 Expandable.Subtitle = StyledSubtitle;
 Expandable.ContentWrapper = StyledContentWrapper;
