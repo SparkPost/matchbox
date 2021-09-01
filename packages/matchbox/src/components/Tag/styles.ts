@@ -1,11 +1,11 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const tagBase = props => `
+export const tagBase = (props) => `
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
   padding: 0 ${tokens.spacing_300};
-  padding-right: ${props.hasRemove ? '1px' : tokens.spacing_300};
+  padding-right: ${props.$hasRemove ? '1px' : tokens.spacing_300};
   border-radius: ${tokens.borderRadius_pill};
   height: 1.5rem;
   font-size: ${tokens.fontSize_200};
@@ -41,12 +41,12 @@ export const content = () => `
   }
 `;
 
-export const tagColor = props => {
+export const tagColor = (props) => {
   let bg = '';
   let border = '';
   let color = '';
 
-  switch (props.tagColor) {
+  switch (props.$tagColor) {
     case 'orange':
     case 'blue':
     case 'navy':
@@ -103,11 +103,11 @@ export const tagColor = props => {
   `;
 };
 
-export const closeColor = props => {
+export const closeColor = (props) => {
   let bg = '';
   let color = '';
 
-  switch (props.tagColor) {
+  switch (props.$tagColor) {
     case 'orange':
     case 'blue':
     case 'navy':
