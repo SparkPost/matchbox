@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin, padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps, padding, PaddingProps } from 'styled-system';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { pick } from '../../helpers/props';
-import { Cell, HeaderCell, Row, TotalsRow } from './TableElements';
+import Cell from './Cell';
+import HeaderCell from './HeaderCell';
+import Row from './Row';
+import TotalsRow from './TotalsRow';
 import SortButton from './SortButton';
 import { TablePaddingContext } from './context';
 import { table, wrapper, sticky } from './styles';
@@ -22,7 +23,22 @@ const Wrapper = styled(Box)`
   ${margin}
 `;
 
-function Table(props) {
+export type TableProps = {
+  'aria-readonly'?: string;
+  children?: React.ReactNode;
+  /**
+   * @deprecated Use children instead
+   */
+  data?: React.ReactNode[][];
+  'data-id'?: string;
+  freezeFirstColumn?: boolean;
+  id?: string;
+  role?: string;
+  title?: string;
+} & MarginProps &
+  PaddingProps;
+
+function Table(props: TableProps): JSX.Element {
   const {
     'aria-readonly': readOnly,
     children,
@@ -36,7 +52,7 @@ function Table(props) {
   } = props;
   const [isScrolled, setIsScrolled] = React.useState(false);
   const handleScroll = React.useCallback(
-    e => {
+    (e) => {
       setIsScrolled(e.target.scrollLeft > 10);
     },
     [freezeFirstColumn],
@@ -55,14 +71,14 @@ function Table(props) {
 
   return (
     <Wrapper
-      freezeFirstColumn={freezeFirstColumn}
+      $freezeFirstColumn={freezeFirstColumn}
       onScroll={freezeFirstColumn ? handleScroll : null}
       {...marginProps}
     >
       <StyledTable
         aria-readonly={readOnly}
         data-id={dataId}
-        freezeFirstColumn={freezeFirstColumn}
+        $freezeFirstColumn={freezeFirstColumn}
         id={id}
         isScrolled={isScrolled}
         role={role}
@@ -85,19 +101,5 @@ Table.HeaderCell = HeaderCell;
 Table.Row = Row;
 Table.TotalsRow = TotalsRow;
 Table.SortButton = SortButton;
-
 Table.displayName = 'Table';
-Table.propTypes = {
-  'aria-readonly': PropTypes.string,
-  children: PropTypes.node,
-  data: PropTypes.array,
-  'data-id': PropTypes.string,
-  freezeFirstColumn: PropTypes.bool,
-  id: PropTypes.string,
-  role: PropTypes.string,
-  title: PropTypes.string,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(padding.propNames),
-};
-
 export default Table;
