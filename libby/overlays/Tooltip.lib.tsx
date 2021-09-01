@@ -1,9 +1,13 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Tooltip, Button, Box, TextField } from '@sparkpost/matchbox';
+// @ts-ignore
+import { TextField } from '@sparkpost/matchbox';
+import { Tooltip, Button, Box } from '@sparkpost/matchbox';
 import { FileDownload } from '@sparkpost/matchbox-icons';
 
-function noop() {}
+function noop() {
+  return null;
+}
 
 describe('Tooltip', () => {
   add('default', () => (
