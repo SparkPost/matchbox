@@ -1,14 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getWindow } from '../../helpers/window';
+
+export type WindowEventProps = {
+  /**
+   * Type of event
+   */
+  event?: string;
+  /**
+   * Event callback function
+   */
+  handler?: EventListenerOrEventListenerObject;
+};
 
 /**
  * Adds and removes events for you
- * Usage:
- * <WindowEvent event='keydown' handler={this.handleKeyDown} />
+ * @example <WindowEvent event='keydown' handler={handleKeyDown} />
  */
-
-function WindowEvent(props) {
+function WindowEvent(props: WindowEventProps): JSX.Element {
   const { event, handler } = props;
   const environment = getWindow();
 
@@ -31,15 +39,4 @@ function WindowEvent(props) {
 }
 
 WindowEvent.displayName = 'WindowEvent';
-WindowEvent.propTypes = {
-  /**
-   * Type of event
-   */
-  event: PropTypes.string.isRequired,
-  /**
-   * Event callback function
-   */
-  handler: PropTypes.func.isRequired,
-};
-
 export default WindowEvent;
