@@ -1,16 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MoreHoriz } from '@sparkpost/matchbox-icons';
-import { margin, borderBottom } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps, borderBottom, BorderBottomProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { ActionList } from '../ActionList';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { deprecate } from '../../helpers/propTypes';
 import useTabConstructor from './useTabConstructor';
 import Tab, { TabProps } from './Tab';
 import { containerStyles, overflowTabs } from './styles';
@@ -31,11 +28,20 @@ const Container = styled('div')`
 export type TabsProps = {
   disableResponsiveBehavior?: boolean;
   keyboardActivation?: 'auto' | 'manual';
+  /**
+   * Tab Content
+   * Actions that build the tabs. Most button and unstyled link props will work in here.
+   * e.g. { content: 'Label', onClick: callback() }
+   */
   tabs?: TabProps[];
+  /**
+   * Index of selected tab
+   */
   selected: number;
   onSelect?: (index: number) => void;
   fitted?: boolean;
-};
+} & MarginProps &
+  BorderBottomProps;
 
 const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(function Tabs(props, userRef) {
   const {
@@ -170,34 +176,4 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(function Tabs(props, us
 });
 
 Tabs.displayName = 'Tabs';
-Tabs.propTypes = {
-  disableResponsiveBehavior: PropTypes.bool,
-  /**
-   * Tab Content
-   * Actions that build the tabs. Most button and unstyled link props will work in here.
-   * e.g. { content: 'Label', onClick: callback() }
-   */
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.node.isRequired,
-    }),
-  ),
-
-  /**
-   * Tab Color
-   */
-  color: deprecate(
-    PropTypes.oneOf(['orange', 'blue', 'navy', 'purple', 'red']),
-    'Tab color is no longer configurable',
-  ),
-  keyboardActivation: PropTypes.oneOf(['auto', 'manual']),
-  /**
-   * Index of selected tab
-   */
-  selected: PropTypes.number.isRequired,
-  onSelect: PropTypes.func,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(borderBottom.propNames),
-};
-
 export default Tabs;
