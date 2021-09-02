@@ -31,6 +31,9 @@ props:
   - name: sizing-900
     value: 10rem
     comment: 160px
+  - name: sizing-850
+    value: 7rem
+    comment: 112px
   - name: sizing-800
     value: 4rem
     comment: 64px
