@@ -1,12 +1,11 @@
 import React from 'react';
 import { CheckBox } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
-import { UnstyledLink } from '../UnstyledLink';
 import { HelpText } from '../HelpText';
 import { StyledLink, StyledButton } from './styles';
 import { LinkActionProps, ForwardRefComponent } from '../../helpers/types';
 
-type ActionListActionProps = LinkActionProps & {
+export type ActionListActionProps = LinkActionProps & {
   children?: React.ReactNode;
   helpText?: React.ReactNode;
   highlighted?: boolean;

@@ -12,7 +12,7 @@ import { Popover } from '../Popover';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { deprecate } from '../../helpers/propTypes';
 import useTabConstructor from './useTabConstructor';
-import Tab from './Tab';
+import Tab, { TabProps } from './Tab';
 import { containerStyles, overflowTabs } from './styles';
 import { useResizeObserver } from '../../hooks';
 
@@ -28,10 +28,19 @@ const Container = styled('div')`
   ${containerStyles}
 `;
 
-const Tabs = React.forwardRef(function Tabs(props, userRef) {
+export type TabsProps = {
+  disableResponsiveBehavior?: boolean;
+  keyboardActivation?: 'auto' | 'manual';
+  tabs?: TabProps[];
+  selected: number;
+  onSelect?: (index: number) => void;
+  fitted?: boolean;
+};
+
+const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(function Tabs(props, userRef) {
   const {
     disableResponsiveBehavior,
-    keyboardActivation,
+    keyboardActivation = 'auto',
     tabs,
     selected,
     onSelect,
@@ -46,7 +55,7 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
 
   const [resizeRef, { contentRect }] = useResizeObserver();
 
-  function handleClick(event, index) {
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement>, index: number) {
     const { onClick } = tabs[index];
 
     if (onClick) {
@@ -54,7 +63,7 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
     }
 
     if (onSelect && selected !== index) {
-      onSelect(index, selected);
+      onSelect(index);
     }
 
     if (isOverflowing) {
@@ -87,12 +96,12 @@ const Tabs = React.forwardRef(function Tabs(props, userRef) {
     disableResponsiveBehavior,
   });
 
-  const assignWrapperRefs = node => {
+  const assignWrapperRefs = (node) => {
     if (wrapperRef) {
       wrapperRef.current = node;
     }
     if (userRef) {
-      userRef.current = node;
+      (userRef as React.MutableRefObject<HTMLDivElement>).current = node;
     }
     if (resizeRef) {
       resizeRef(node);
@@ -189,10 +198,6 @@ Tabs.propTypes = {
   onSelect: PropTypes.func,
   ...createPropTypes(margin.propNames),
   ...createPropTypes(borderBottom.propNames),
-};
-
-Tabs.defaultProps = {
-  keyboardActivation: 'auto',
 };
 
 export default Tabs;

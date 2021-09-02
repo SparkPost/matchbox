@@ -1,7 +1,7 @@
 import { buttonReset, focusOutline } from '../../styles/helpers';
 import { tokens } from '@sparkpost/design-tokens';
 
-export const tabStyles = ({ selected, fitted }) => `
+export const tabStyles = ({ $selected, $fitted }) => `
   ${buttonReset}
   
   ${focusOutline({ offset: '0px', modifier: '&' })}
@@ -13,12 +13,12 @@ export const tabStyles = ({ selected, fitted }) => `
   display: inline-block;
   cursor: pointer;
   position: relative;
-  flex: ${fitted ? '1' : '0'};
+  flex: ${$fitted ? '1' : '0'};
   text-decoration: none;
   outline: none;
   
   padding: 0 ${tokens.spacing_400};
-  margin-left: ${fitted ? '0' : tokens.sizing_200};
+  margin-left: ${$fitted ? '0' : tokens.sizing_200};
 
   &:first-child {
     margin-left: 0;
@@ -29,11 +29,11 @@ export const tabStyles = ({ selected, fitted }) => `
   line-height: ${tokens.sizing_650};
   white-space: nowrap;
 
-  background: ${selected ? tokens.color_blue_200 : 'transparent'};
+  background: ${$selected ? tokens.color_blue_200 : 'transparent'};
   transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 
   &, &:visited {
-    color: ${selected ? tokens.color_blue_700 : tokens.color_gray_700};
+    color: ${$selected ? tokens.color_blue_700 : tokens.color_gray_700};
   }
 
   &:before {
@@ -47,13 +47,13 @@ export const tabStyles = ({ selected, fitted }) => `
 
   &:before {
     height: 1px;
-    background: ${selected ? tokens.color_blue_700 : 'transparent'};
+    background: ${$selected ? tokens.color_blue_700 : 'transparent'};
     transition: ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
   }
   
   &:hover {
     ${
-      !selected
+      !$selected
         ? `
       color: ${tokens.color_gray_900};
       background: ${tokens.color_gray_200};
@@ -61,7 +61,7 @@ export const tabStyles = ({ selected, fitted }) => `
         : ''
     };
     &:before {
-      ${!selected ? `background: ${tokens.color_gray_700};` : ''}
+      ${!$selected ? `background: ${tokens.color_gray_700};` : ''}
     }
   }
   

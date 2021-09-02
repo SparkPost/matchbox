@@ -14,7 +14,7 @@ import Section from './Section';
 import Action from './Action';
 import { onKey } from '../../helpers/keyEvents';
 
-interface ActionListProps
+export interface ActionListProps
   extends React.ComponentPropsWithRef<'div'>,
     LayoutProps,
     MarginProps,

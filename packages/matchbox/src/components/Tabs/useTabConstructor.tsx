@@ -1,6 +1,19 @@
 import React from 'react';
-import Tab from './Tab';
+import Tab, { TabProps } from './Tab';
+import { ActionListActionProps } from '../ActionList';
 import { onKey, onKeys } from '../../helpers/keyEvents';
+
+type TabRefs = React.MutableRefObject<any>;
+
+type UseTabConstructor = {
+  tabMarkup: React.ReactNode[];
+  tabActions?: ActionListActionProps[];
+  focusContainerProps?: {
+    onBlur: React.FocusEventHandler;
+    onKeyDown: React.KeyboardEventHandler;
+    ref: React.Ref<HTMLDivElement>;
+  };
+};
 
 function useTabConstructor({
   tabs,
@@ -10,13 +23,21 @@ function useTabConstructor({
   onSelect,
   keyboardActivation,
   disableResponsiveBehavior,
-}) {
+}: {
+  tabs?: TabProps[];
+  fitted?: boolean;
+  selected?: number;
+  handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, index: number) => void;
+  onSelect?: (index: number) => void;
+  keyboardActivation?: 'auto' | 'manual';
+  disableResponsiveBehavior: boolean;
+}): UseTabConstructor {
   const [focused, setFocused] = React.useState(0);
-  const focusContainerRef = React.useRef({});
+  const focusContainerRef = React.useRef(null);
   const tabRefs = React.useRef({ current: new Array(tabs.length) });
 
   // Handles keydown events on the tab focus container
-  const onFocusContainerKeyDown = e => {
+  const onFocusContainerKeyDown = (e: React.KeyboardEvent) => {
     const isWithin =
       focusContainerRef.current && focusContainerRef.current.contains(e.currentTarget);
 
@@ -61,9 +82,9 @@ function useTabConstructor({
 
   // Preps array of tab item refs
   React.useEffect(() => {
-    tabRefs.current = new Array(tabs.length);
+    (tabRefs as TabRefs).current = new Array(tabs.length);
     return () => {
-      tabRefs.current = [];
+      (tabRefs as TabRefs).current = [];
     };
   }, [tabs]);
 
@@ -86,14 +107,14 @@ function useTabConstructor({
   // Constructs Tabs with refs
   const tabMarkup = tabs.map((tab, i) => (
     <Tab
-      ref={n => (tabRefs.current[i] = n)}
+      ref={(n) => (tabRefs.current[i] = n)}
       key={i}
       index={i}
       fitted={fitted}
       selected={selected}
       {...tab}
       onClick={handleClick}
-      tabIndex={focused === i ? '0' : '-1'}
+      tabIndex={focused === i ? 0 : -1}
     />
   ));
 
@@ -103,7 +124,8 @@ function useTabConstructor({
       return;
     }
     return tabs.map((tab, i) => {
-      return { is: 'button', ...tab, onClick: e => handleClick(e, i), visible: i !== selected };
+      const { selected, ...rest } = tab;
+      return { is: 'button', ...rest, onClick: (e) => handleClick(e, i), visible: i !== selected };
     });
   }, [selected, tabs]);
 

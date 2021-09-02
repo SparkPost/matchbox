@@ -23,7 +23,7 @@ import ResizeObserver from 'resize-observer-polyfill';
  *  return <div ref={ref} />;
  * };
  */
-function useResizeObserver() {
+function useResizeObserver(): [React.Dispatch<any>, { contentRect?: { [k: string]: unknown } }] {
   const [entry, setEntry] = React.useState({ contentRect: {} });
   const [node, setNode] = React.useState(null);
   const observer = React.useRef(null);
