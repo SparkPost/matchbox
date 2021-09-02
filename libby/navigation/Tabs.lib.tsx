@@ -1,6 +1,12 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Tabs, Panel, useTabs } from '@sparkpost/matchbox';
+// @ts-ignore
+import { useTabs } from '@sparkpost/matchbox';
+import { Tabs, Panel } from '@sparkpost/matchbox';
+
+const TestComponent = React.forwardRef<HTMLAnchorElement, any>(function TestComponent(props, ref) {
+  return <a ref={ref} {...props} href="#" />;
+});
 
 const tabs = [
   {
@@ -14,7 +20,7 @@ const tabs = [
   },
   {
     content: 'Example with an `as` wrapper',
-    as: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
+    as: TestComponent,
   },
 ];
 
@@ -30,7 +36,7 @@ const dynamicTabs = [
   },
   {
     content: 'Example with a component wrapper Dynamic',
-    Component: React.forwardRef((props, ref) => <a ref={ref} {...props} href="#" />),
+    Component: TestComponent,
   },
 ];
 
