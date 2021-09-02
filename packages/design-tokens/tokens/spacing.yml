@@ -5,7 +5,7 @@ props:
   - name: spacing-900
     value: 10rem
     comment: 160px
-  - name: sizing-850
+  - name: spacing-850
     value: 7rem
     comment: 112px
   - name: spacing-800
