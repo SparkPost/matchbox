@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const toggleWidth = '2.25rem';
 
-export const toggle = props => `
+export const toggle = (props) => `
   display: inline-block;
   position: relative;
   height: 1.25rem;
@@ -13,7 +13,7 @@ export const toggle = props => `
   cursor: ${props.disabled ? 'not-allowed' : 'pointer'};
 `;
 
-export const StyledIndicator = styled('span')`
+export const StyledIndicator = styled('span')<{ $checked?: boolean }>`
   pointer-events: none;
   position: absolute;
   top: 1px;
@@ -23,7 +23,7 @@ export const StyledIndicator = styled('span')`
 
   background: ${tokens.color_white};
   transition: transform ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
-  transform: translate(${props => (props.checked ? tokens.spacing_400 : '0')}, 0);
+  transform: translate(${(props) => (props.$checked ? tokens.spacing_400 : '0')}, 0);
 
   border-radius: ${tokens.borderRadius_circle};
   box-shadow: ${tokens.boxShadow_100};
