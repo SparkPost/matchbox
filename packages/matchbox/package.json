@@ -25,7 +25,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@sparkpost/design-tokens": "^5.5.0",
+    "@sparkpost/design-tokens": "^6.0.0-beta.0",
     "@styled-system/prop-types": "^5.1.2",
     "@styled-system/props": "^5.1.5",
     "copy-to-clipboard": "^3.3.1",
