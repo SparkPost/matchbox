@@ -6,8 +6,8 @@ props:
     value: 10rem
     comment: 160px
   - name: spacing-850
-    value: 7rem
-    comment: 112px
+    value: 6rem
+    comment: 96px
   - name: spacing-800
     value: 4rem
     comment: 64px
