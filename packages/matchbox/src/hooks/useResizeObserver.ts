@@ -23,8 +23,8 @@ import ResizeObserver from 'resize-observer-polyfill';
  *  return <div ref={ref} />;
  * };
  */
-function useResizeObserver(): [
-  React.Dispatch<any>,
+function useResizeObserver<T extends HTMLElement>(): [
+  React.RefCallback<T>,
   {
     target?: HTMLElement;
     contentRect?: {
