@@ -1,11 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { StyledLink } from './styles';
 
 import { Box } from '../Box';
 
-const Option = React.forwardRef(function Option(props, ref) {
+type OptionProps = {
+  selected?: string;
+  value?: string | number;
+  disabled?: boolean;
+  index?: number;
+  setSize?: number;
+  onSelect?: (any) => any;
+  children?: React.ReactNode;
+};
+
+const Option = React.forwardRef<HTMLButtonElement, OptionProps>(function Option(props, ref) {
   const { value, index, disabled, setSize, selected, children, onSelect } = props;
 
   const isActive = React.useMemo(() => {
@@ -16,36 +25,26 @@ const Option = React.forwardRef(function Option(props, ref) {
     <Box
       as="li"
       role="option"
-      id={value}
+      id={value?.toString()}
       aria-setsize={setSize}
       aria-posinset={index}
       aria-selected={isActive}
-      disabled={disabled}
       onClick={() => onSelect(value)}
     >
       <StyledLink
-        active={isActive}
+        $active={isActive}
         as="button"
         type="button"
-        disabled={disabled}
-        tabIndex="-1"
+        $disabled={disabled}
+        tabIndex={-1}
         ref={ref}
       >
         {children}
       </StyledLink>
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<OptionProps>;
 
 Option.displayName = 'ListBox.Option';
-Option.propTypes = {
-  selected: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  disabled: PropTypes.bool,
-  index: PropTypes.number,
-  setSize: PropTypes.number,
-  onSelect: PropTypes.func,
-  children: PropTypes.node,
-};
 
 export default Option;
