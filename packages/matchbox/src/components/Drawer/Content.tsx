@@ -1,15 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { padding, PaddingProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 
 const Container = styled.div`
   ${padding}
 `;
 
-const Content = React.forwardRef(function Content(props, ref) {
+type DrawerContentProps = PaddingProps & {
+  children?: React.ReactNode;
+};
+
+const Content = React.forwardRef<HTMLDivElement, DrawerContentProps>(function Content(props, ref) {
   const systemProps = pick(props);
 
   return (
@@ -20,9 +22,4 @@ const Content = React.forwardRef(function Content(props, ref) {
 });
 
 Content.displayName = 'Drawer.Content';
-Content.propTypes = {
-  children: PropTypes.node,
-  ...createPropTypes(padding.propNames),
-};
-
 export default Content;

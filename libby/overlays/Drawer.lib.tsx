@@ -1,6 +1,8 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
+import { Box, Drawer, Button } from '@sparkpost/matchbox';
+// @ts-ignore
+import { useDrawer, Tabs } from '@sparkpost/matchbox';
 
 describe('Drawer', () => {
   add('example drawer', () => {
@@ -45,6 +47,7 @@ describe('Drawer', () => {
               Opened on the left
               <Button variant="outline">Button 1</Button>
               <Button variant="outline">Button 2</Button>
+              {/* eslint-disable-next-line prefer-spread */}
               {Array.apply(null, Array(100)).map((n, i) => (
                 <br key={i} />
               ))}

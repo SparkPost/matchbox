@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
@@ -17,7 +16,19 @@ import { getWindow, isInIframe } from '../../helpers/window';
 import { DrawerContext } from './context';
 import { Overlay, Container } from './styles';
 
-const Drawer = React.forwardRef(function Drawer(props, userRef) {
+export type DrawerProps = {
+  children?: React.ReactNode;
+  closeOnEscape?: boolean;
+  closeOnOutsideClick?: boolean;
+  id: string;
+  onChange: (open?: boolean) => void;
+  onClose: () => void;
+  open: boolean;
+  portalId?: string;
+  position?: 'right' | 'left';
+};
+
+const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(function Drawer(props, userRef) {
   const {
     children,
     closeOnEscape,
@@ -30,9 +41,9 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
     position,
   } = props;
 
-  const overlayRef = React.useRef();
-  const childrenRef = React.useRef();
-  const footerRef = React.useRef();
+  const overlayRef = React.useRef<HTMLDivElement>();
+  const childrenRef = React.useRef<HTMLDivElement>();
+  const footerRef = React.useRef<HTMLDivElement>();
   const [footerHeight, setFooterHeight] = React.useState('0px');
 
   // Calls onClose when clicking outside drawer content
@@ -44,6 +55,7 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
     const isOutside =
       overlayRef.current &&
       overlayRef.current.contains(e.target) &&
+      childrenRef &&
       childrenRef.current &&
       !childrenRef.current.contains(e.target);
 
@@ -111,7 +123,7 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
           }}
           nodeRef={overlayRef}
         >
-          {state => (
+          {(state) => (
             <FocusLock returnFocus disabled={!open || isInIframe()} autoFocus={false}>
               <Box
                 data-id="drawer-wrapper"
@@ -120,7 +132,7 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
                 position="fixed"
                 ref={userRef}
                 style={{ pointerEvents: 'none' }}
-                tabIndex="-1"
+                tabIndex={-1}
                 top="0"
                 width="100vw"
                 zIndex="overlay"
@@ -128,7 +140,7 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
                 <Overlay
                   data-id="drawer-overlay"
                   ref={overlayRef}
-                  state={state}
+                  $state={state}
                   position="absolute"
                   top="0"
                   left="0"
@@ -142,9 +154,9 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
                   id={id}
                   ref={childrenRef}
                   role="dialog"
-                  state={state}
-                  tabIndex="-1"
-                  viewportPosition={position}
+                  $state={state}
+                  $viewportPosition={position}
+                  tabIndex={-1}
                   bg="white"
                   position="absolute"
                   top="0"
@@ -173,21 +185,13 @@ const Drawer = React.forwardRef(function Drawer(props, userRef) {
       </Portal>
     </>
   );
-});
+}) as React.ForwardRefExoticComponent<DrawerProps> & {
+  Footer: typeof Footer;
+  Content: typeof Content;
+  Header: typeof Header;
+};
 
 Drawer.displayName = 'Drawer';
-
-Drawer.propTypes = {
-  children: PropTypes.node,
-  closeOnEscape: PropTypes.bool,
-  closeOnOutsideClick: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  portalId: PropTypes.string,
-  position: PropTypes.oneOf(['right', 'left']),
-};
 
 Drawer.defaultProps = {
   closeOnEscape: true,

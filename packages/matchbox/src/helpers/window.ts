@@ -8,6 +8,8 @@ type GetWindowReturnType =
       matchMedia: () => void;
       addEventListener: () => void;
       removeEventListener: () => void;
+      setTimeout: () => void;
+      clearTimeout: () => void;
     };
 
 /**
@@ -22,6 +24,8 @@ export function getWindow(): GetWindowReturnType {
     matchMedia: noop,
     addEventListener: noop,
     removeEventListener: noop,
+    setTimeout: noop,
+    clearTimeout: noop,
   };
 }
 
