@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { visuallyHidden } from '../../styles/helpers';
 import { omit } from '../../helpers/props';
-import { deprecate } from '../../helpers/propTypes';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { toggle, input, StyledIndicator, StyledOutline } from './styles';
 
@@ -20,7 +17,13 @@ const StyledInput = styled('input')`
   ${input}
 `;
 
-function Toggle(props) {
+export type ToggleProps = React.ComponentPropsWithoutRef<'input'> &
+  MarginProps & {
+    label?: React.ReactNode;
+    'data-id'?: string;
+  };
+
+function Toggle(props: ToggleProps): JSX.Element {
   const {
     id,
     value,
@@ -57,28 +60,11 @@ function Toggle(props) {
         data-id={dataId}
         {...componentProps}
       />
-      <StyledOutline checked={checked} />
-      <StyledIndicator checked={checked} />
+      <StyledOutline />
+      <StyledIndicator $checked={checked} />
     </StyledToggle>
   );
 }
 
 Toggle.displayName = 'Toggle';
-Toggle.propTypes = {
-  'aria-describedby': PropTypes.string,
-  'data-id': PropTypes.string,
-  checked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  defaultChecked: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  compact: deprecate(PropTypes.bool, 'Compact prop has been removed'),
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  required: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  ...createPropTypes(margin.propNames),
-};
-
 export default Toggle;
