@@ -3,7 +3,7 @@ import { onKey } from '../../helpers/keyEvents';
 
 import Option from './Option';
 
-type UseOptionConstructorReturnType = {
+type UseOptionConstructor = {
   optionsMarkup?: React.ReactNode;
   focusContainerProps?: {
     onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
@@ -18,7 +18,7 @@ type UseOptionConstructorProps = {
   placeholder?: string;
 };
 
-function useOptionConstructor(props: UseOptionConstructorProps): UseOptionConstructorReturnType {
+function useOptionConstructor(props: UseOptionConstructorProps): UseOptionConstructor {
   const { options, value, onSelect, open, placeholder } = props;
   const [focused, setFocused] = React.useState(
     value ? options.findIndex((option) => option.props.value === value) : 0,
