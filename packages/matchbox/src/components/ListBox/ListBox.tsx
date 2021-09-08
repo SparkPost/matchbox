@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
 import { chevron } from './styles';
@@ -10,14 +9,21 @@ import { Error } from '../Error';
 import { OptionalLabel } from '../OptionalLabel';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
-import { compose, margin, maxWidth, maxHeight } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import {
+  compose,
+  margin,
+  MarginProps,
+  maxWidth,
+  MaxWidthProps,
+  maxHeight,
+  MaxHeightProps,
+} from 'styled-system';
 import { pick } from '../../helpers/props';
 import { onKeys } from '../../helpers/keyEvents';
 import useOptionConstructor from './useOptionConstructor';
 
-import { Button } from '../Button';
-import { Box } from '../Box';
+import { Button, ButtonProps } from '../Button';
+import { Box, BoxProps } from '../Box';
 import { Popover } from '../Popover';
 
 import Option from './Option';
@@ -28,25 +34,33 @@ const StyledWrapper = styled(Box)`
   ${system}
 `;
 
-const StyledChevron = styled(KeyboardArrowDown)`
+const StyledChevron = styled(KeyboardArrowDown)<{ $disabled?: boolean }>`
   ${chevron}
 `;
 
-const StyledButton = styled(Button)`
+type StyledButtonProps = React.ComponentPropsWithoutRef<'button'> &
+  ButtonProps & {
+    $hasError?: boolean;
+  };
+
+const StyledButton = styled(Button)<StyledButtonProps>`
   text-align: left;
-  font-size: ${props => props.theme.fontSizes['200']};
-  font-weight: ${props => props.theme.fontWeights['medium']};
-  background: ${props => (props.disabled ? props.theme.colors.gray['200'] : '')};
-  padding-right: ${props => props.theme.space[650]};
-  border: ${props =>
-    props.hasError ? `1px solid ${props.theme.colors.red[700]}` : `${props.theme.borders[400]}`};
+  font-size: ${(props) => props.theme.fontSizes['200']};
+  font-weight: ${(props) => props.theme.fontWeights['medium']};
+  background: ${(props) => (props.disabled ? props.theme.colors.gray['200'] : '')};
+  padding-right: ${(props) => props.theme.space[650]};
+  border: ${(props) =>
+    props.$hasError ? `1px solid ${props.theme.colors.red[700]}` : `${props.theme.borders[400]}`};
   &:hover {
-    background: ${props => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
+    background: ${(props) => (props.disabled ? props.theme.colors.gray['200'] : 'transparent')};
   }
   ${focusOutline()}
 `;
 
-const ListBoxButton = React.forwardRef(function ListBoxButton(props, userRef) {
+const ListBoxButton = React.forwardRef<HTMLButtonElement, StyledButtonProps>(function ListBoxButton(
+  props,
+  userRef,
+) {
   return (
     <StyledButton {...props} ref={userRef}>
       {props.children}
@@ -54,14 +68,36 @@ const ListBoxButton = React.forwardRef(function ListBoxButton(props, userRef) {
   );
 });
 
-const StyledList = styled(Box)`
+const StyledList = styled(Box)<BoxProps>`
   ${maxHeight}
   list-style-type: none;
   padding: 0;
   margin: 0;
 `;
 
-const ListBox = React.forwardRef(function ListBox(props, userRef) {
+type ChangeObject = {
+  currentTarget?: {
+    value?: string | number;
+  };
+};
+
+export type ListBoxProps = {
+  'data-id'?: string;
+  'data-sensitive'?: string;
+  'data-track'?: string;
+  label?: string;
+  labelHidden?: boolean;
+  helpText?: React.ReactNode;
+  error?: string;
+  errorInLabel?: boolean;
+  optional?: boolean;
+  onChange?: (ChangeObject) => void;
+} & MarginProps &
+  MaxWidthProps &
+  MaxHeightProps &
+  React.ComponentPropsWithRef<'input'>;
+
+const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBox(props, userRef) {
   const {
     children,
     'data-id': dataId,
@@ -89,11 +125,11 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   const systemProps = pick(rest, system.propNames);
   const maxHeightProps = pick(rest, maxHeight.propNames);
 
-  const [open, setOpen] = React.useState(false);
-  const [currentValue, setCurrentValue] = React.useState(
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [currentValue, setCurrentValue] = React.useState<string | number | readonly string[]>(
     value ? value : defaultValue != null ? defaultValue : placeholder,
   );
-  const buttonRef = React.useRef();
+  const buttonRef = React.useRef<HTMLButtonElement>();
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -137,13 +173,13 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
     // Calls user's blur method
     if (onBlur) {
-      onBlur();
+      onBlur(null);
     }
   }
 
   const contentFromValue = React.useMemo(() => {
-    let options = getChild('ListBox.Option', children);
-    let activeOption = options.find(option => {
+    const options = getChild('ListBox.Option', children);
+    const activeOption = options.find((option) => {
       return option.props.value === currentValue;
     });
 
@@ -164,7 +200,7 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
 
   const helpMarkup = helpText ? <HelpText id={helpTextId}>{helpText}</HelpText> : null;
 
-  let options = React.useMemo(() => {
+  const options = React.useMemo(() => {
     return getChild('ListBox.Option', children);
   }, [children]);
 
@@ -189,12 +225,12 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
   function assignRefs(node) {
     buttonRef.current = node;
     if (userRef) {
-      userRef.current = node;
+      (userRef as React.MutableRefObject<HTMLButtonElement>).current = node;
     }
   }
 
   return (
-    <StyledWrapper tabIndex="-1" {...systemProps} {...focusContainerProps}>
+    <StyledWrapper tabIndex={-1} {...systemProps} {...focusContainerProps}>
       {labelMarkup}
       <Popover
         id="listbox-popover"
@@ -208,7 +244,6 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
             <ListBoxButton
               id={`${id}LabelButton`}
               data-id="open-listbox"
-              textAlign="left"
               fullWidth
               variant="mutedOutline"
               aria-invalid={!!error}
@@ -219,22 +254,23 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
               onFocus={onFocus}
               onKeyDown={activatorKeyDown}
               disabled={disabled}
-              hasError={!!error}
+              $hasError={!!error}
               {...describedBy}
               ref={assignRefs}
             >
               {contentFromValue}
             </ListBoxButton>
-            <StyledChevron size={24} disabled={disabled} />
+            <StyledChevron size={24} $disabled={disabled} />
           </Box>
         }
       >
         <StyledList
           as="ul"
-          aria-activedescendant={currentValue}
+          aria-activedescendant={currentValue?.toString()}
           width="100%"
           role="listbox"
           aria-labelledby={id}
+          maxHeight="400px"
           {...maxHeightProps}
           overflowY="scroll"
         >
@@ -255,37 +291,11 @@ const ListBox = React.forwardRef(function ListBox(props, userRef) {
       />
     </StyledWrapper>
   );
-});
+}) as React.ForwardRefExoticComponent<ListBoxProps> & {
+  Option: typeof Option;
+};
 
 ListBox.displayName = 'ListBox';
-ListBox.propTypes = {
-  'data-id': PropTypes.string,
-  'data-sensitive': PropTypes.string,
-  'data-track': PropTypes.string,
-  placeholder: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  labelHidden: PropTypes.bool,
-  helpText: PropTypes.node,
-  error: PropTypes.string,
-  errorInLabel: PropTypes.bool,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  name: PropTypes.string,
-  optional: PropTypes.bool,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(maxWidth.propNames),
-  ...createPropTypes(maxHeight.propNames),
-};
-
-ListBox.defaultProps = {
-  maxHeight: '400px',
-};
 
 ListBox.Option = Option;
 

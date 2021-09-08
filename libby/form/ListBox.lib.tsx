@@ -10,7 +10,7 @@ describe('ListBox', () => {
       defaultValue="option-1"
       label="Select an option"
       data-track="true"
-      onChange={e => console.log(e)}
+      onChange={(e) => console.log(e)}
       onFocus={() => console.log('focus')}
       onBlur={() => console.log('blur')}
     >
@@ -114,7 +114,7 @@ describe('ListBox', () => {
 
   add('with a custom ref', () => {
     function Example() {
-      const ref = React.useRef();
+      const ref = React.useRef<HTMLInputElement>();
       React.useEffect(() => {
         ref.current.focus();
       }, []);
@@ -123,7 +123,7 @@ describe('ListBox', () => {
           id="listbox-1"
           defaultValue="option-2"
           label="Select an option"
-          onChange={e => console.log(e.currentTarget.value)}
+          onChange={(e) => console.log(e.currentTarget.value)}
           ref={ref}
         >
           <ListBox.Option value="option-1">Option 1</ListBox.Option>
@@ -153,7 +153,7 @@ describe('ListBox', () => {
         id="listbox-5"
         label="Select an option"
         placeholder="Select One"
-        onChange={e => console.log(e)}
+        onChange={(e) => console.log(e)}
         name="listbox-form-test"
       >
         <ListBox.Option value="option-1">Option 1</ListBox.Option>
@@ -181,7 +181,7 @@ describe('ListBox', () => {
           label="Select an option"
           placeholder="Select One"
           value={`option-${value}`}
-          onChange={e => setValue(Number(e.currentTarget.value.split('-').pop()))}
+          onChange={(e) => setValue(Number(e.currentTarget.value.split('-').pop()))}
           name="listbox-form-test"
         >
           <ListBox.Option value="option-1">Option 1</ListBox.Option>

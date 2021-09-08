@@ -4,7 +4,6 @@ import { visuallyHidden } from '../../styles/helpers';
 import styled from 'styled-components';
 import { margin } from 'styled-system';
 import { focusOutline } from '../../styles/helpers';
-import React from 'react';
 
 type CheckboxIndeterminateProp = {
   $indeterminate?: boolean;

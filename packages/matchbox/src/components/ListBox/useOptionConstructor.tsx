@@ -3,14 +3,30 @@ import { onKey } from '../../helpers/keyEvents';
 
 import Option from './Option';
 
-function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
-  const [focused, setFocused] = React.useState(
-    value ? options.findIndex(option => option.props.value === value) : 0,
-  );
-  const [keysSoFar, setKeysSoFar] = React.useState('');
-  const [keyClear, setKeyClear] = React.useState();
+type UseOptionConstructor = {
+  optionsMarkup?: React.ReactNode;
+  focusContainerProps?: {
+    onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+  };
+};
 
-  const optionRefs = React.useRef({ current: new Array(options.length) });
+type UseOptionConstructorProps = {
+  options?: React.ReactElement[];
+  value?: string | number | readonly string[];
+  onSelect?: (value) => void;
+  open?: boolean;
+  placeholder?: string;
+};
+
+function useOptionConstructor(props: UseOptionConstructorProps): UseOptionConstructor {
+  const { options, value, onSelect, open, placeholder } = props;
+  const [focused, setFocused] = React.useState(
+    value ? options.findIndex((option) => option.props.value === value) : 0,
+  );
+  const [keysSoFar, setKeysSoFar] = React.useState<string>('');
+  const [keyClear, setKeyClear] = React.useState<boolean>();
+
+  const optionRefs = React.useRef<HTMLLIElement[]>(new Array(options.length));
 
   function onFocusContainerKeyDown(e) {
     if (open) {
@@ -38,7 +54,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
   }
 
   function clearKeysSoFarAfterDelay() {
-    let timeout = setTimeout(function() {
+    const timeout = setTimeout(function () {
       setKeysSoFar('');
       setKeyClear(false);
     }, 700);
@@ -68,7 +84,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
 
   React.useLayoutEffect(() => {
     if (keysSoFar && options) {
-      const index = options.findIndex(option =>
+      const index = options.findIndex((option) =>
         option.props.children.toLowerCase().startsWith(keysSoFar),
       );
       if (index >= 0) {
@@ -89,7 +105,7 @@ function useOptionConstructor({ options, value, onSelect, open, placeholder }) {
           selected: value,
           setSize: options.length,
           onSelect,
-          ref: n => {
+          ref: (n) => {
             optionRefs.current[i] = n;
           },
         });
