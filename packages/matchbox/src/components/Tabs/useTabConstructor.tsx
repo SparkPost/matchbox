@@ -27,7 +27,7 @@ function useTabConstructor({
   tabs?: TabProps[];
   fitted?: boolean;
   selected?: number;
-  handleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, index: number) => void;
+  handleClick?: (event: React.MouseEvent<HTMLAnchorElement>, index: number) => void;
   onSelect?: (index: number) => void;
   keyboardActivation?: 'auto' | 'manual';
   disableResponsiveBehavior: boolean;

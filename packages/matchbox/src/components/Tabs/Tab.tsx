@@ -9,7 +9,7 @@ export type TabProps = UnstyledLinkProps & {
   fitted?: boolean;
   content?: React.ReactNode;
   index?: number;
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, index: number) => void;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>, index: number) => void;
 };
 
 type PolymorphicTab = Polymorphic.ForwardRefComponent<'a', TabProps>;
