@@ -26,7 +26,7 @@ function useOptionConstructor(props: UseOptionConstructorProps): UseOptionConstr
   const [keysSoFar, setKeysSoFar] = React.useState<string>('');
   const [keyClear, setKeyClear] = React.useState<boolean>();
 
-  const optionRefs = React.useRef<HTMLInputElement[]>(new Array(options.length));
+  const optionRefs = React.useRef<HTMLLIElement[]>(new Array(options.length));
 
   function onFocusContainerKeyDown(e) {
     if (open) {

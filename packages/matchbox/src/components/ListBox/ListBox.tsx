@@ -95,7 +95,7 @@ export type ListBoxProps = {
 } & MarginProps &
   MaxWidthProps &
   MaxHeightProps &
-  React.ComponentPropsWithoutRef<'input'>;
+  React.ComponentPropsWithRef<'input'>;
 
 const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBox(props, userRef) {
   const {
