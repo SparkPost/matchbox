@@ -6,58 +6,34 @@ import { Error } from '../Error';
 import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
 import styled from 'styled-components';
 import { select, chevron } from './styles';
-import { Box } from '../Box';
+import { Box, BoxProps } from '../Box';
 import { OptionalLabel } from '../OptionalLabel';
 import { HelpText } from '../HelpText';
-import { compose, margin, maxWidth } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { compose, margin, MarginProps, maxWidth, MaxWidthProps } from 'styled-system';
 import { omit } from '@styled-system/props';
 import { pick } from '../../helpers/props';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { focusOutline } from '../../styles/helpers';
+import Options from './Options';
+import { OptionProps } from './Option';
 
-const Option = ({ option }) => {
-  if (typeof option === 'object') {
-    const { value, label = value, ...rest } = option;
-    return (
-      <option value={value} {...rest}>
-        {label}
-      </option>
-    );
-  } else if (typeof option === 'string' || typeof option === 'number') {
-    return <option value={option}>{option}</option>;
-  }
-};
-
-function Options({ options, placeholder, placeholderValue }) {
-  let combined = options;
-
-  if (placeholder) {
-    combined = [{ label: placeholder, value: placeholderValue, disabled: true }, ...combined];
-  }
-
-  if (!combined && !combined.length) {
-    return null;
-  }
-
-  return (
-    <>
-      {combined.map((option, key) => (
-        <Option option={option} key={key} />
-      ))}
-    </>
-  );
-}
-
-const StyledInputWrapper = styled(Box)`
+const StyledInputWrapper = styled(Box)<BoxProps>`
   ${focusOutline({ modifier: '&:focus-within', offset: '2px' })}
 `;
 
-const StyledInput = styled(Box)`
+const StyledInput = styled(Box)<BoxProps>`
   outline: none;
 `;
 
-const SelectBox = React.forwardRef(function SelectBox(props, userRef) {
+type SelectBoxProps = {
+  hasError?: boolean;
+  disabled?: boolean;
+};
+
+const SelectBox = React.forwardRef<HTMLSelectElement, SelectBoxProps>(function SelectBox(
+  props,
+  userRef,
+) {
   const { hasError, disabled, ...rest } = props;
   return (
     <StyledInputWrapper>
@@ -87,7 +63,7 @@ const StyledSelect = styled(SelectBox)`
   ${select}
 `;
 
-const StyledChevron = styled(KeyboardArrowDown)`
+const StyledChevron = styled(KeyboardArrowDown)<{ size?: number; $disabled?: boolean }>`
   ${chevron}
 `;
 
@@ -95,7 +71,20 @@ const StyledWrapper = styled('div')`
   ${system}
 `;
 
-const Select = React.forwardRef(function Select(props, userRef) {
+export type SelectProps = {
+  options: OptionProps[];
+  label?: string;
+  labelHidden?: boolean;
+  helpText?: React.ReactNode;
+  error?: string;
+  errorInLabel?: boolean;
+  optional?: boolean;
+  placeholderValue?: string;
+} & MarginProps &
+  MaxWidthProps &
+  React.ComponentPropsWithoutRef<'input'>;
+
+const Select = React.forwardRef<HTMLInputElement, SelectProps>(function Select(props, userRef) {
   const {
     id,
     options,
@@ -152,7 +141,7 @@ const Select = React.forwardRef(function Select(props, userRef) {
             placeholderValue={placeholderValue}
           />
         </StyledSelect>
-        <StyledChevron size={24} disabled={disabled} />
+        <StyledChevron size={24} $disabled={disabled} />
       </Box>
       {helpMarkup}
       {error && !errorInLabel && <Error id={errorId} error={error} />}
@@ -161,35 +150,5 @@ const Select = React.forwardRef(function Select(props, userRef) {
 });
 
 Select.displayName = 'Select';
-Select.propTypes = {
-  id: PropTypes.string,
-  /**
-   * Select options -
-   * Array of Objects with { value, label }, Strings, or Numbers
-   */
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.shape({
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        label: PropTypes.string.isRequired,
-      }),
-      PropTypes.string.isRequired,
-      PropTypes.number.isRequired,
-    ]),
-  ).isRequired,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  label: PropTypes.string,
-  labelHidden: PropTypes.bool,
-  helpText: PropTypes.node,
-  error: PropTypes.string,
-  errorInLabel: PropTypes.bool,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  optional: PropTypes.bool,
-  ...createPropTypes(margin.propNames),
-  ...createPropTypes(maxWidth.propNames),
-};
 
 export default Select;
