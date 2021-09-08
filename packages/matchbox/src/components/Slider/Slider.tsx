@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin, compose } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps, compose } from 'styled-system';
 import { getRectFor, lerp } from '../../helpers/geometry';
 import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
@@ -25,23 +23,28 @@ import { pick } from '@styled-system/props';
 
 const system = compose(margin);
 
+type SliderStyledProps = {
+  $included?: boolean;
+  $disabled?: boolean;
+};
+
 export const StyledSlider = styled('div')`
   ${slider}
   ${system}
 `;
 
-const StyledRail = styled('div')`
+const StyledRail = styled('div')<SliderStyledProps>`
   ${rail}
   ${StyledSlider}:hover & {
     ${railHover}
   }
 `;
 
-const StyledTrack = styled('div')`
+const StyledTrack = styled('div')<SliderStyledProps>`
   ${track}
 `;
 
-const StyledTick = styled('div')`
+const StyledTick = styled('div')<SliderStyledProps>`
   ${tick}
   ${StyledSlider}:hover & {
     ${tickHover}
@@ -53,15 +56,63 @@ const StyledTickLabel = styled('div')`
   ${tickLabelPosition}
 `;
 
-const StyledHandle = styled('div')`
+const StyledHandle = styled('div')<SliderStyledProps>`
   ${handle}
 `;
 
-const StyledHandleShadow = styled('div')`
+const StyledHandleShadow = styled('div')<SliderStyledProps>`
   ${handleShadow}
 `;
 
-function Slider(props) {
+export type SliderProps = {
+  id?: string;
+  /**
+   * The slider's initial value on first render
+   */
+  defaultValue?: number;
+  /**
+   * Disables focus, key down, mouse and touch events
+   */
+  disabled?: boolean;
+  /**
+   * The slider's lower bounds
+   */
+  min?: number;
+  /**
+   * The slider's upper bounds
+   */
+  max?: number;
+  onBlur?: () => void;
+  onChange?: (value: number) => void;
+  onFocus?: () => void;
+  /**
+   * The number of decimal places to round values to
+   */
+  precision?: number;
+
+  /**
+   * Generates tick marks
+   */
+  ticks?: { [k: number]: React.ReactNode };
+  /**
+   * A value to programatically control the slider
+   */
+  value?: number;
+  /**
+   * Describes a side-effect relationship with another DOM element
+   */
+  'aria-controls'?: string;
+  'aria-labelledby'?: string;
+  /**
+   * Identifier passed to the handle for testing or tracking purposes
+   */
+  'data-id'?: string;
+  /**
+   * System props for margin
+   */
+} & MarginProps;
+
+function Slider(props: SliderProps): JSX.Element {
   const {
     defaultValue,
     disabled,
@@ -85,8 +136,8 @@ function Slider(props) {
     value || defaultValue != null ? defaultValue : min,
   );
   const [sliderLocation, setSliderLocation] = React.useState(0);
-  const [rect, setRect] = React.useState({});
-  const [moving, setMoving] = React.useState();
+  const [rect, setRect] = React.useState({ width: 0, left: 0 });
+  const [moving, setMoving] = React.useState('');
   const sliderRef = React.useRef();
 
   React.useEffect(() => {
@@ -105,7 +156,7 @@ function Slider(props) {
 
   // Sets internal value when value is controlled externally
   React.useEffect(() => {
-    if (!isNaN(parseFloat(value)) && isFinite(value)) {
+    if (!isNaN(value) && isFinite(value)) {
       setValue(value);
     }
   }, [value]);
@@ -238,21 +289,21 @@ function Slider(props) {
     };
   }, [moving]);
 
-  const tickMarkup = Object.keys(tickLocations).map(tick => {
+  const tickMarkup = Object.keys(tickLocations).map((tick) => {
     const { label, position } = tickLocations[tick];
     return (
       <StyledTick
         key={tick}
         style={{ left: position }}
-        disabled={disabled}
-        included={tick < sliderValue}
+        $disabled={disabled}
+        $included={Number(tick) < sliderValue}
       >
-        <StyledTickLabel x={tick}>{label}</StyledTickLabel>
+        <StyledTickLabel $x={tick}>{label}</StyledTickLabel>
       </StyledTick>
     );
   });
 
-  const assignRefs = node => {
+  const assignRefs = (node) => {
     if (sliderRef) {
       sliderRef.current = node;
     }
@@ -271,9 +322,9 @@ function Slider(props) {
       ref={assignRefs}
       {...systemProps}
     >
-      <StyledRail disabled={disabled} />
+      <StyledRail $disabled={disabled} />
       {tickMarkup}
-      <StyledTrack disabled={disabled} style={{ width: sliderLocation }} />
+      <StyledTrack $disabled={disabled} style={{ width: sliderLocation }} />
       <StyledHandle
         id={id}
         aria-controls={props['aria-controls']}
@@ -287,11 +338,11 @@ function Slider(props) {
         onFocus={onFocus}
         onKeyDown={disabled ? noop : handleKeyDown}
         role="slider"
-        disabled={disabled}
+        $disabled={disabled}
         style={{ left: sliderLocation }}
-        tabIndex="0"
+        tabIndex={0}
       >
-        <StyledHandleShadow disabled={disabled} />
+        <StyledHandleShadow $disabled={disabled} />
       </StyledHandle>
     </StyledSlider>
   );
@@ -303,54 +354,6 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   precision: 0,
-};
-
-Slider.propTypes = {
-  /**
-   * The slider's initial value on first render
-   */
-  defaultValue: PropTypes.number,
-  /**
-   * Disables focus, key down, mouse and touch events
-   */
-  disabled: PropTypes.bool,
-  /**
-   * The slider's lower bounds
-   */
-  min: PropTypes.number,
-  /**
-   * The slider's upper bounds
-   */
-  max: PropTypes.number,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  /**
-   * The number of decimal places to round values to
-   */
-  precision: PropTypes.number,
-
-  /**
-   * Generates tick marks
-   */
-  ticks: PropTypes.objectOf(PropTypes.node),
-  /**
-   * A value to programatically control the slider
-   */
-  value: PropTypes.number,
-  /**
-   * Describes a side-effect relationship with another DOM element
-   */
-  'aria-controls': PropTypes.string,
-  'aria-labelledby': PropTypes.string,
-  /**
-   * Identifier passed to the handle for testing or tracking purposes
-   */
-  'data-id': PropTypes.string,
-  /**
-   * System props for margin
-   */
-  ...createPropTypes(margin.propNames),
 };
 
 export default Slider;

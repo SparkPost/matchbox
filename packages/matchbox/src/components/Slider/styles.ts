@@ -1,9 +1,9 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const slider = props => {
+export const slider = (props) => {
   let cursor = 'pointer';
 
-  if (props.disabled) {
+  if (props.$disabled) {
     cursor = 'not-allowed';
   }
 
@@ -26,14 +26,14 @@ export const rail = () => `
   transition: ${tokens.motionDuration_medium} background;
 `;
 
-export const railHover = props => `
-  background: ${props.disabled ? tokens.color_gray_300 : tokens.color_gray_400};
+export const railHover = (props) => `
+  background: ${props.$disabled ? tokens.color_gray_300 : tokens.color_gray_400};
 `;
 
-export const track = props => {
+export const track = (props) => {
   let background = tokens.color_blue_700;
 
-  if (props.disabled) {
+  if (props.$disabled) {
     background = tokens.color_gray_600;
   }
 
@@ -46,14 +46,14 @@ export const track = props => {
   `;
 };
 
-export const tick = props => {
+export const tick = (props) => {
   let background = tokens.color_gray_300;
 
-  if (props.disabled && props.included) {
+  if (props.$disabled && props.$included) {
     background = tokens.color_gray_600;
   }
 
-  if (!props.disabled && props.included) {
+  if (!props.$disabled && props.$included) {
     background = tokens.color_blue_700;
   }
 
@@ -72,8 +72,8 @@ export const tick = props => {
   `;
 };
 
-export const tickHover = props => `
-  ${!props.disabled && !props.included ? `background: ${tokens.color_gray_400};` : ''};
+export const tickHover = (props) => `
+  ${!props.$disabled && !props.$included ? `background: ${tokens.color_gray_400};` : ''};
 `;
 
 export const tickLabel = () => `
@@ -84,14 +84,14 @@ export const tickLabel = () => `
   font-size: ${tokens.fontSize_100};
 `;
 
-export const tickLabelPosition = ({ x }) => {
-  if (x === '0') {
+export const tickLabelPosition = ({ $x }) => {
+  if ($x === '0') {
     return `
       left: 0;
    `;
   }
 
-  if (x === '100') {
+  if ($x === '100') {
     return `
       right: 0;
    `;
@@ -111,10 +111,10 @@ const sharedStyles = `
   outline: none;
 `;
 
-export const handle = props => {
+export const handle = (props) => {
   let border = `3px solid ${tokens.color_blue_700}`;
 
-  if (props.disabled) {
+  if (props.$disabled) {
     border = `3px solid ${tokens.color_gray_600}`;
   }
 
@@ -130,10 +130,10 @@ export const handle = props => {
   `;
 };
 
-export const handleShadow = props => {
+export const handleShadow = (props) => {
   let boxShadow = `none`;
 
-  if (!props.disabled) {
+  if (!props.$disabled) {
     boxShadow = `0 0 0 5px ${tokens.color_blue_700}`;
   }
 
