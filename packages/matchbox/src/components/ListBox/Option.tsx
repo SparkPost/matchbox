@@ -4,7 +4,7 @@ import { StyledLink } from './styles';
 
 import { Box } from '../Box';
 
-type OptionProps = {
+export type OptionProps = {
   selected?: string;
   value?: string | number;
   disabled?: boolean;
