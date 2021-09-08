@@ -8,16 +8,11 @@ describe('Tabs', () => {
     selected: 0,
     onSelect: jest.fn(),
   };
-  const subject = props => global.mountStyled(<Tabs {...defaultprops} {...props} />);
+  const subject = (props) => global.mountStyled(<Tabs {...defaultprops} {...props} />);
 
   it('renders button type correctly', () => {
     const wrapper = subject();
-    expect(
-      wrapper
-        .find('button')
-        .first()
-        .props().type,
-    ).toEqual('button');
+    expect(wrapper.find('button').first().props().type).toEqual('button');
   });
 
   it('renders non-fitted styles', () => {
@@ -38,11 +33,8 @@ describe('Tabs', () => {
 
   it('handles clicking a tab', () => {
     const wrapper = subject();
-    wrapper
-      .find('button')
-      .at(2)
-      .simulate('click');
-    expect(defaultprops.onSelect).toHaveBeenCalledWith(2, 0);
+    wrapper.find('button').at(2).simulate('click');
+    expect(defaultprops.onSelect).toHaveBeenCalledWith(2);
     expect(defaultprops.tabs[2].onClick).toHaveBeenCalledTimes(1);
   });
 

@@ -1,35 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { UnstyledLink } from '../UnstyledLink';
+import { UnstyledLink, UnstyledLinkProps } from '../UnstyledLink';
 import { tabStyles } from './styles';
-import { deprecate } from '../../helpers/propTypes';
+import * as Polymorphic from '../../helpers/types';
+
+export type TabProps = UnstyledLinkProps & {
+  selected?: number;
+  fitted?: boolean;
+  content?: React.ReactNode;
+  index?: number;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>, index: number) => void;
+};
+
+type PolymorphicTab = Polymorphic.ForwardRefComponent<'a', TabProps>;
 
 // TODO Replace this when styled-components supports shouldForwardProps
 // See: https://github.com/styled-components/styled-components/commit/e02109e626ed117b76f220d0b9b926129655262d
 // Or when UnstyledLink is updated to use system props
-const LinkWrapper = React.forwardRef(function LinkWrapper(props, ref) {
-  const { selected, fitted, ...rest } = props;
-  return <UnstyledLink ref={ref} {...rest} />;
-});
+const LinkWrapper = React.forwardRef<HTMLAnchorElement, Omit<TabProps, 'onClick'>>(
+  function LinkWrapper(props, ref) {
+    const { selected, fitted, ...rest } = props;
+    return <UnstyledLink ref={ref} {...rest} />;
+  },
+);
 
 const StyledTab = styled(LinkWrapper)`
   ${tabStyles}
 `;
 
 const Tab = React.forwardRef(function Tab(props, ref) {
-  const {
-    as,
-    index,
-    content,
-    selected,
-    fitted,
-    component,
-    Component,
-    tabIndex,
-    type,
-    ...rest
-  } = props;
+  const { as, index, content, selected, fitted, component, Component, tabIndex, type, ...rest } =
+    props;
 
   function handleClick(event) {
     const { index, onClick } = props;
@@ -44,8 +45,8 @@ const Tab = React.forwardRef(function Tab(props, ref) {
     <StyledTab
       aria-selected={selected === index}
       as={wrapper}
-      selected={selected === index}
-      fitted={fitted}
+      $selected={selected === index}
+      $fitted={fitted}
       ref={ref}
       {...rest}
       onClick={handleClick}
@@ -58,20 +59,7 @@ const Tab = React.forwardRef(function Tab(props, ref) {
       {content}
     </StyledTab>
   );
-});
+}) as PolymorphicTab;
 
 Tab.displayName = 'Tab';
-Tab.propTypes = {
-  index: PropTypes.number,
-  selected: PropTypes.number,
-  fitted: PropTypes.bool,
-  type: PropTypes.string,
-  onClick: PropTypes.func,
-  tabIndex: PropTypes.string,
-  children: PropTypes.node,
-  as: PropTypes.elementType,
-  component: deprecate(PropTypes.elementType, 'Use `as` instead'),
-  Component: deprecate(PropTypes.elementType, 'Use `as` instead'),
-};
-
 export default Tab;
