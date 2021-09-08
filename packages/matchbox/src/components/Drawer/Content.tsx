@@ -7,7 +7,7 @@ const Container = styled.div`
   ${padding}
 `;
 
-type DrawerContentProps = PaddingProps & {
+export type DrawerContentProps = PaddingProps & {
   children?: React.ReactNode;
 };
 

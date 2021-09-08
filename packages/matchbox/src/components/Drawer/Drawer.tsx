@@ -21,8 +21,8 @@ export type DrawerProps = {
   closeOnEscape?: boolean;
   closeOnOutsideClick?: boolean;
   id: string;
-  onChange: (open?: boolean) => void;
-  onClose: () => void;
+  onChange?: (open?: boolean) => void;
+  onClose?: () => void;
   open: boolean;
   portalId?: string;
   position?: 'right' | 'left';
@@ -31,14 +31,14 @@ export type DrawerProps = {
 const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(function Drawer(props, userRef) {
   const {
     children,
-    closeOnEscape,
-    closeOnOutsideClick,
+    closeOnEscape = true,
+    closeOnOutsideClick = true,
     id,
     onChange,
     onClose,
     open,
     portalId,
-    position,
+    position = 'right',
   } = props;
 
   const overlayRef = React.useRef<HTMLDivElement>();
@@ -192,13 +192,6 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(function Drawer(pro
 };
 
 Drawer.displayName = 'Drawer';
-
-Drawer.defaultProps = {
-  closeOnEscape: true,
-  closeOnOutsideClick: true,
-  position: 'right',
-};
-
 Drawer.Footer = Footer;
 Drawer.Content = Content;
 Drawer.Header = Header;
