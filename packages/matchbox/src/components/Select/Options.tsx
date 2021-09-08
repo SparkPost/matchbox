@@ -1,13 +1,13 @@
 import React from 'react';
-import Option, { OptionProps } from './Option';
+import Option, { SelectOptionProps } from './Option';
 
-export type OptionsProps = {
-  options: OptionProps[];
+export type SelectOptionsProps = {
+  options: SelectOptionProps[];
   placeholderValue?: string;
   placeholder: string;
 };
 
-function Options({ options, placeholder, placeholderValue }) {
+function Options({ options, placeholder, placeholderValue }: SelectOptionsProps) {
   let combined = options;
 
   if (placeholder) {

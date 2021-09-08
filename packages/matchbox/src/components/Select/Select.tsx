@@ -15,7 +15,7 @@ import { pick } from '../../helpers/props';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { focusOutline } from '../../styles/helpers';
 import Options from './Options';
-import { OptionProps } from './Option';
+import { SelectOptionProps } from './Option';
 
 const StyledInputWrapper = styled(Box)<BoxProps>`
   ${focusOutline({ modifier: '&:focus-within', offset: '2px' })}
@@ -72,7 +72,7 @@ const StyledWrapper = styled('div')`
 `;
 
 export type SelectProps = {
-  options: OptionProps[];
+  options: SelectOptionProps[];
   label?: string;
   labelHidden?: boolean;
   helpText?: React.ReactNode;

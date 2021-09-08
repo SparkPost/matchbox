@@ -1,14 +1,14 @@
 import React from 'react';
 
-export type OptionProps =
+export type SelectOptionProps =
   | string
   | number
-  | {
+  | ({
       value: string | number;
       label: string;
-    };
+    } & React.ComponentPropsWithoutRef<'option'>);
 
-const Option = ({ option }: { option: OptionProps }): JSX.Element => {
+const Option = ({ option }: { option: SelectOptionProps }): JSX.Element => {
   if (typeof option === 'object') {
     const { value, label = value, ...rest } = option;
     return (
