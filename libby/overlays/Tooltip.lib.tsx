@@ -123,7 +123,7 @@ describe('Tooltip', () => {
         as="div"
         content="Tooltips are positioned automatically based on the components position."
       >
-        <TextField aria-describedby="test-tooltip" label="A block level element" />
+        <TextField id="textfield" aria-describedby="test-tooltip" label="A block level element" />
       </Tooltip>
     </Box>
   ));
