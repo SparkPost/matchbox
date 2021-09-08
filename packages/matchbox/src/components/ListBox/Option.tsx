@@ -10,7 +10,7 @@ type OptionProps = {
   disabled?: boolean;
   index?: number;
   setSize?: number;
-  onSelect?: (any) => any;
+  onSelect?: (value: string | number) => void;
   children?: React.ReactNode;
 };
 
@@ -43,7 +43,7 @@ const Option = React.forwardRef<HTMLButtonElement, OptionProps>(function Option(
       </StyledLink>
     </Box>
   );
-}) as React.ForwardRefExoticComponent<OptionProps>;
+});
 
 Option.displayName = 'ListBox.Option';
 

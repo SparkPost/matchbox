@@ -114,9 +114,9 @@ describe('ListBox', () => {
 
   add('with a custom ref', () => {
     function Example() {
-      const ref = React.useRef();
+      const ref = React.useRef<HTMLInputElement>();
       React.useEffect(() => {
-        (ref as React.MutableRefObject<HTMLDivElement>).current.focus();
+        ref.current.focus();
       }, []);
       return (
         <ListBox

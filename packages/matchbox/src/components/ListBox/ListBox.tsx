@@ -38,7 +38,7 @@ const StyledChevron = styled(KeyboardArrowDown)<{ $disabled?: boolean }>`
   ${chevron}
 `;
 
-type StyledButtonProps = React.ComponentPropsWithRef<'button'> &
+type StyledButtonProps = React.ComponentPropsWithoutRef<'button'> &
   ButtonProps & {
     $hasError?: boolean;
   };
@@ -66,7 +66,7 @@ const ListBoxButton = React.forwardRef<HTMLButtonElement, StyledButtonProps>(fun
       {props.children}
     </StyledButton>
   );
-}) as React.ForwardRefExoticComponent<StyledButtonProps>;
+});
 
 const StyledList = styled(Box)<BoxProps>`
   ${maxHeight}
@@ -85,20 +85,13 @@ export type ListBoxProps = {
   'data-id'?: string;
   'data-sensitive'?: string;
   'data-track'?: string;
-  placeholder?: string;
-  id?: string;
   label?: string;
   labelHidden?: boolean;
   helpText?: React.ReactNode;
   error?: string;
   errorInLabel?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  name?: string;
   optional?: boolean;
-  value?: string | number;
-  onChange?: (ChangeObject) => any;
-  defaultValue?: string | number;
+  onChange?: (ChangeObject) => void;
 } & MarginProps &
   MaxWidthProps &
   MaxHeightProps &
@@ -132,11 +125,11 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
   const systemProps = pick(rest, system.propNames);
   const maxHeightProps = pick(rest, maxHeight.propNames);
 
-  const [open, setOpen] = React.useState(false);
-  const [currentValue, setCurrentValue] = React.useState(
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [currentValue, setCurrentValue] = React.useState<string | number | readonly string[]>(
     value ? value : defaultValue != null ? defaultValue : placeholder,
   );
-  const buttonRef = React.useRef();
+  const buttonRef = React.useRef<HTMLButtonElement>();
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -176,7 +169,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
     setCurrentValue(value);
 
     // Returns focus to the button when closing the popover
-    (buttonRef as React.MutableRefObject<HTMLDivElement>).current.focus();
+    buttonRef.current.focus();
 
     // Calls user's blur method
     if (onBlur) {
