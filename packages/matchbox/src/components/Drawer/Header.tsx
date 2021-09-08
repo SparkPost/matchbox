@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { tokens } from '@sparkpost/design-tokens';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
@@ -8,8 +7,13 @@ import { Text } from '../Text';
 import { Button } from '../Button';
 import { DrawerContext } from './context';
 
-const Header = React.forwardRef(function Header(props, ref) {
-  const { children, showCloseButton } = props;
+export type DrawerHeaderProps = {
+  children?: React.ReactNode;
+  showCloseButton?: boolean;
+};
+
+const Header = React.forwardRef<HTMLDivElement, DrawerHeaderProps>(function Header(props, ref) {
+  const { children, showCloseButton = true } = props;
   const context = React.useContext(DrawerContext);
 
   return (
@@ -38,15 +42,4 @@ const Header = React.forwardRef(function Header(props, ref) {
 });
 
 Header.displayName = 'Drawer.Header';
-
-Header.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func,
-  showCloseButton: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  showCloseButton: true,
-};
-
 export default Header;

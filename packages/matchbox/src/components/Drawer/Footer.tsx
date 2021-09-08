@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { padding, PaddingProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 import { DrawerContext } from './context';
@@ -11,7 +9,14 @@ const Container = styled.div`
   ${padding}
 `;
 
-const Footer = React.forwardRef(function Footer({ children, ...rest }, userRef) {
+export type DrawerFooterProps = PaddingProps & {
+  children?: React.ReactNode;
+};
+
+const Footer = React.forwardRef<HTMLDivElement, DrawerFooterProps>(function Footer(
+  { children, ...rest },
+  userRef,
+) {
   const systemProps = pick(rest);
   const context = React.useContext(DrawerContext);
 
@@ -34,9 +39,4 @@ const Footer = React.forwardRef(function Footer({ children, ...rest }, userRef) 
 });
 
 Footer.displayName = 'Drawer.Footer';
-Footer.propTypes = {
-  children: PropTypes.node,
-  ...createPropTypes(padding.propNames),
-};
-
 export default Footer;
