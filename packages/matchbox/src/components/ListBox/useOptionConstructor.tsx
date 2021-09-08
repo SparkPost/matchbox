@@ -6,7 +6,7 @@ import Option from './Option';
 type UseOptionConstructorReturnType = {
   optionsMarkup?: React.ReactNode;
   focusContainerProps?: {
-    onKeyDown?: (KeyboardEvent) => void;
+    onKeyDown?: (e: KeyboardEvent) => void;
   };
 };
 
