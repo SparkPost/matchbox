@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import Group from './Group';

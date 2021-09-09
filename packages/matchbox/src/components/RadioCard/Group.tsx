@@ -19,7 +19,7 @@ const Fieldset = styled.fieldset`
 
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-export type RadioCardGroup = {
+export type RadioCardGroupProps = {
   children?: React.ReactNode;
   collapseBelow?: Breakpoints;
   'data-id'?: string;
@@ -30,7 +30,10 @@ export type RadioCardGroup = {
   orientation?: 'horizontal' | 'vertical' | 'grid';
 } & MarginProps;
 
-const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroup>(function Group(props, userRef) {
+const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(function Group(
+  props,
+  userRef,
+) {
   const {
     children,
     collapseBelow,
