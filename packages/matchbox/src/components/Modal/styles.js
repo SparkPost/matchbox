@@ -1,6 +1,6 @@
 import { tokens } from '@sparkpost/design-tokens';
 
-export const base = props => {
+export const base = (props) => {
   const overlayHex = `${tokens.color_gray_1000}70`;
 
   return `
@@ -12,10 +12,10 @@ export const base = props => {
     height: 100vh;
     min-height: 100%;
     max-height: 100vh;
-    pointer-events: ${props.open ? 'auto' : 'none'};
+    pointer-events: ${props.$open ? 'auto' : 'none'};
     overflow-y: auto;
     will-change: opacity;
-    background-color: ${props.open ? overlayHex : 'transparent'};
+    background-color: ${props.$open ? overlayHex : 'transparent'};
     transition: background-color ${tokens.motionDuration_fast} ${tokens.motionEase_in};
   `;
 };
@@ -28,7 +28,7 @@ export const wrapper = () => `
   align-items: center;
 `;
 
-export const focusLock = props => `
+export const focusLock = (props) => `
   width: 100%;
   max-width: ${props.maxWidth};
 `;
@@ -42,7 +42,7 @@ export const content = () => `
               opacity ${tokens.motionDuration_medium} ${tokens.motionEase_out};
 `;
 
-export const contentAnimation = props => {
+export const contentAnimation = (props) => {
   const commonExitStyles = `
     transform: translateY(${tokens.spacing_200});
     opacity: 0;
@@ -51,7 +51,7 @@ export const contentAnimation = props => {
                 opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in};
   `;
 
-  switch (props.state) {
+  switch (props.$state) {
     case 'entered':
       return `
         pointer-events: auto;

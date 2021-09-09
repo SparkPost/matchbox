@@ -25,13 +25,14 @@ import { PanelPaddingContext, PanelAppearanceContext } from './context';
 const systemOuter = compose(margin, width, height);
 const systemInner = compose(border, height);
 
-type PanelProps = {
+export type PanelProps = {
   accent?: boolean | 'orange' | 'blue' | 'red' | 'yellow' | 'green' | 'gray';
   appearance?: 'inverted' | 'default';
   'data-id'?: string;
   className?: string;
   children?: React.ReactNode;
-} & MarginProps &
+} & React.ComponentPropsWithRef<'div'> &
+  MarginProps &
   PaddingProps &
   BorderProps &
   WidthProps &

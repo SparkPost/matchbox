@@ -6,7 +6,7 @@ const PORTAL_ID = 'portal';
 
 describe('Modal', () => {
   add('open', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content>Modal Content</Modal.Content>
       <Modal.Footer>
@@ -18,7 +18,7 @@ describe('Modal', () => {
   ));
 
   add('footer without Buttons', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content>Modal Content</Modal.Content>
       <Modal.Footer>
@@ -30,7 +30,7 @@ describe('Modal', () => {
   ));
 
   add('empty footer', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content>Modal Content</Modal.Content>
       <Modal.Footer></Modal.Footer>
@@ -38,7 +38,7 @@ describe('Modal', () => {
   ));
 
   add('configurable buttons', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content>Modal Content</Modal.Content>
       <Modal.Footer>
@@ -56,7 +56,7 @@ describe('Modal', () => {
   ));
 
   add('tall modal', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content>
         <Box p="300" height="2000px" bg="blue.300">
@@ -72,7 +72,7 @@ describe('Modal', () => {
   ));
 
   add('tall modal without height restriction', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content restrictHeight={false}>
         <Box p="300" height="2000px" bg="blue.300">
@@ -112,10 +112,10 @@ describe('Modal', () => {
   });
 
   add('works with system props', () => (
-    <Modal p={800} showCloseButton open portalId={PORTAL_ID}>
+    <Modal open portalId={PORTAL_ID}>
       <Modal.Header showCloseButton>Modal Title</Modal.Header>
       <Modal.Content padding="0">
-        <Tabs tabs={[{ content: 'tab' }, { content: 'tab' }]} fitted />
+        <Tabs selected={0} tabs={[{ content: 'tab' }, { content: 'tab' }]} fitted />
         <Box bg="blue.300" p="300">
           Modal Content
         </Box>
