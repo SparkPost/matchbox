@@ -312,7 +312,7 @@ function Slider(props: SliderProps): JSX.Element {
   return (
     <StyledSlider
       hasTicks={ticks}
-      disabled={disabled}
+      $disabled={disabled}
       data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
