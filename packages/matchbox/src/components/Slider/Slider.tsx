@@ -82,9 +82,9 @@ export type SliderProps = {
    * The slider's upper bounds
    */
   max?: number;
-  onBlur?: () => void;
+  onBlur?: React.FocusEventHandler<HTMLDivElement>;
   onChange?: (value: number) => void;
-  onFocus?: () => void;
+  onFocus?: React.FocusEventHandler<HTMLDivElement>;
   /**
    * The number of decimal places to round values to
    */
