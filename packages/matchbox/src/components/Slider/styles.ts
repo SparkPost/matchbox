@@ -72,10 +72,6 @@ export const tick = (props) => {
   `;
 };
 
-export const tickHover = (props) => `
-  ${!props.$disabled && !props.$included ? `background: ${tokens.color_gray_400};` : ''};
-`;
-
 export const tickLabel = () => `
   position: absolute;
   top: ${tokens.spacing_400};

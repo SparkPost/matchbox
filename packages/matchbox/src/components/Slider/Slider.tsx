@@ -13,7 +13,6 @@ import {
   railHover,
   track,
   tick,
-  tickHover,
   tickLabel,
   tickLabelPosition,
   handle,
@@ -46,9 +45,6 @@ const StyledTrack = styled('div')<SliderStyledProps>`
 
 const StyledTick = styled('div')<SliderStyledProps>`
   ${tick}
-  ${StyledSlider}:hover & {
-    ${tickHover}
-  }
 `;
 
 const StyledTickLabel = styled('div')`
@@ -291,6 +287,7 @@ function Slider(props: SliderProps): JSX.Element {
 
   const tickMarkup = Object.keys(tickLocations).map((tick) => {
     const { label, position } = tickLocations[tick];
+
     return (
       <StyledTick
         key={tick}
