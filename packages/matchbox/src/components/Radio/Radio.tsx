@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Label } from '../Label';
 import { Error } from '../Error';
 import { HelpText } from '../HelpText';
@@ -8,12 +7,26 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@sparkpost/matchbox-icons';
 import { pick } from '@styled-system/props';
 import { omit } from '../../helpers/props';
-import { createPropTypes } from '@styled-system/prop-types';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import Group from './Group';
 import { Wrapper, StyledLabel, StyledInput, StyledChecked, StyledUnchecked } from './styles';
 
-const Radio = React.forwardRef(function Radio(props, userRef) {
+export type RadioProps = {
+  id: string;
+  name?: string;
+  checked?: boolean;
+  label?: React.ReactNode;
+  labelHidden?: boolean;
+  disabled?: boolean;
+  value?: string;
+  error?: string;
+  onChange?: React.ChangeEventHandler;
+  onFocus?: React.FocusEventHandler;
+  onBlur?: React.FocusEventHandler;
+  helpText?: React.ReactNode;
+} & MarginProps;
+
+const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(props, userRef) {
   const {
     id,
     name,
@@ -41,7 +54,7 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
 
   return (
     <Wrapper {...systemProps}>
-      <StyledLabel error={error} htmlFor={id} disabled={disabled}>
+      <StyledLabel htmlFor={id} $disabled={disabled}>
         <StyledInput
           aria-invalid={!!error}
           id={id}
@@ -53,7 +66,6 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
           onFocus={onFocus}
           onBlur={onBlur}
           type="radio"
-          error={error}
           ref={userRef}
           {...describedBy}
           {...componentProps}
@@ -65,8 +77,8 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
           alignItems="center"
           size="1rem" // Matches height of Label
         >
-          <StyledUnchecked error={error} size="1rem" as={RadioButtonUnchecked} />
-          <StyledChecked error={error} size="1rem" as={RadioButtonChecked} />
+          <StyledUnchecked $error={error} size="1rem" as={RadioButtonUnchecked} />
+          <StyledChecked $error={error} size="1rem" as={RadioButtonChecked} />
         </Box>
         <Box flex="1" pl="200">
           {label && (
@@ -89,26 +101,12 @@ const Radio = React.forwardRef(function Radio(props, userRef) {
       {error && <Error id={errorId} error={error} ml="500" />}
     </Wrapper>
   );
-});
+}) as React.ForwardRefExoticComponent<RadioProps> & {
+  Group: typeof Group;
+};
 
 Radio.displayName = 'Radio';
 
 Radio.Group = Group;
-
-Radio.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  checked: PropTypes.bool,
-  label: PropTypes.node,
-  labelHidden: PropTypes.bool,
-  disabled: PropTypes.bool,
-  value: PropTypes.string,
-  error: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  helpText: PropTypes.node,
-  ...createPropTypes(margin.propNames),
-};
 
 export default Radio;

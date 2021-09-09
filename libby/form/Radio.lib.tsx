@@ -18,7 +18,7 @@ describe('Radio', () => {
   ));
 
   add('disabled', () => (
-    <Radio.Group>
+    <Radio.Group label="Disabled radio group">
       <Radio id="id" label="Check Me" disabled />
       <Radio id="id" label="Check Me" checked disabled />
     </Radio.Group>

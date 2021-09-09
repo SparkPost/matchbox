@@ -7,7 +7,7 @@ import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
 import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 
 const StyledGroup = styled('fieldset')`
@@ -16,7 +16,17 @@ const StyledGroup = styled('fieldset')`
   ${margin}
 `;
 
-function Group(props) {
+export type RadioGroupProps = {
+  children: React.ReactNode;
+  className?: string;
+  'data-id'?: string;
+  label: React.ReactNode;
+  labelHidden?: boolean;
+  optional?: boolean;
+  required?: boolean;
+} & MarginProps;
+
+function Group(props: RadioGroupProps): JSX.Element {
   const {
     'data-id': dataId,
     children,
@@ -46,17 +56,6 @@ function Group(props) {
     </StyledGroup>
   );
 }
-
-Group.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  'data-id': PropTypes.string,
-  label: PropTypes.node.isRequired,
-  labelHidden: PropTypes.bool,
-  optional: PropTypes.bool,
-  required: PropTypes.bool,
-  ...createPropTypes(margin.propNames),
-};
 
 Group.displayName = 'Radio.Group';
 export default Group;
