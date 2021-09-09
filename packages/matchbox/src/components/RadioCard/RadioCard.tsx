@@ -5,7 +5,23 @@ import { Box } from '../Box';
 import Group from './Group';
 import { StyledLabel, StyledInput, StyledUnchecked, StyledChecked, StyledHeader } from './styles';
 
-const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
+export type RadioCardProps = {
+  checked?: boolean;
+  'data-id'?: string;
+  'data-track'?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  id: string;
+  label?: React.ReactNode;
+  name?: string;
+  value?: string;
+  weight?: 'light' | 'heavy';
+} & React.ComponentPropsWithoutRef<'input'>;
+
+const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
+  props,
+  userRef,
+) {
   const {
     id,
     checked,
@@ -68,25 +84,11 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
       </StyledLabel>
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<RadioCardProps> & {
+  Group: typeof Group;
+};
 
 RadioCard.displayName = 'RadioCard';
-
-RadioCard.propTypes = {
-  checked: PropTypes.bool,
-  'data-id': PropTypes.string,
-  'data-track': PropTypes.string,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.node,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  value: PropTypes.string,
-  weight: PropTypes.oneOf(['light', 'heavy']),
-};
 
 RadioCard.Group = Group;
 export default RadioCard;
