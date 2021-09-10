@@ -1,7 +1,7 @@
 import React from 'react';
 import Option, { SelectOptionProps } from './Option';
 
-export type SelectOptionsProps = {
+type SelectOptionsProps = {
   options: SelectOptionProps[];
   placeholderValue?: string;
   placeholder: string;

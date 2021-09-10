@@ -82,9 +82,9 @@ export type SelectProps = {
   placeholderValue?: string;
 } & MarginProps &
   MaxWidthProps &
-  React.ComponentPropsWithoutRef<'input'>;
+  React.ComponentPropsWithoutRef<'select'>;
 
-const Select = React.forwardRef<HTMLInputElement, SelectProps>(function Select(props, userRef) {
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(props, userRef) {
   const {
     id,
     options,
