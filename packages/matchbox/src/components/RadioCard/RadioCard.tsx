@@ -15,7 +15,7 @@ export type RadioCardProps = {
   name?: string;
   value?: string;
   weight?: 'light' | 'heavy';
-} & React.ComponentPropsWithoutRef<'input'>;
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
 
 const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
   props,
