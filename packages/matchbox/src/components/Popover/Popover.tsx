@@ -1,5 +1,6 @@
 import React from 'react';
 import { PaddingProps, LayoutProps, ResponsiveValue } from 'styled-system';
+import { PortalProps } from '../Portal';
 import { Box } from '../Box';
 import PopoverOverlay from './PopoverOverlay';
 import PopoverContent from './PopoverContent';
@@ -56,7 +57,7 @@ type BaseProps = PaddingProps &
      * @deprecated Use `as` prop instead
      */
     wrapper?: 'div' | 'span';
-    portalId?: string;
+    portalId?: PortalProps['containerId'];
     closeOnTab?: boolean;
   };
 

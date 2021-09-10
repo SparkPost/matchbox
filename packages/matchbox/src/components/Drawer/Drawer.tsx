@@ -4,7 +4,7 @@ import { Transition } from 'react-transition-group';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
@@ -24,7 +24,7 @@ export type DrawerProps = {
   onChange?: (open?: boolean) => void;
   onClose?: () => void;
   open: boolean;
-  portalId?: string;
+  portalId?: PortalProps['containerId'];
   position?: 'right' | 'left';
 };
 

@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { padding } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { padding, PaddingProps } from 'styled-system';
 import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
-const Content = React.forwardRef(function Content(props, ref) {
-  const { children, restrictHeight, ...rest } = props;
+export type ModalContentProps = {
+  children?: React.ReactNode;
+  restrictHeight?: boolean;
+} & PaddingProps;
+
+const Content = React.forwardRef<HTMLDivElement, ModalContentProps>(function Content(props, ref) {
+  const { children, restrictHeight = true, ...rest } = props;
   const systemProps = pick(rest, padding.propNames);
 
   return (
@@ -24,13 +27,5 @@ const Content = React.forwardRef(function Content(props, ref) {
 });
 
 Content.displayName = 'Modal.Content';
-Content.defaultProps = {
-  restrictHeight: true,
-};
-Content.propTypes = {
-  children: PropTypes.node,
-  restrictHeight: PropTypes.bool,
-  ...createPropTypes(padding.propNames),
-};
 
 export default Content;

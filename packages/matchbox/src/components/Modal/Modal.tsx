@@ -1,14 +1,12 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
-import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
-import { maxWidth } from 'styled-system';
+import { MaxWidthProps } from 'styled-system';
 import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
@@ -21,7 +19,7 @@ import Content from './Content';
 import Footer from './Footer';
 import Legacy from './Legacy';
 
-const StyledBase = styled('div')`
+const StyledBase = styled('div')<{ $open?: boolean }>`
   ${base}
 `;
 
@@ -33,26 +31,37 @@ const StyledFocusLock = styled(FocusLock)`
   ${focusLock}
 `;
 
-const StyledContent = styled(Box)`
+const StyledContent = styled(Box)<{ $state?: 'entered' | 'exiting' | 'exited' }>`
   ${content}
   ${contentAnimation}
 `;
 
-const Modal = React.forwardRef(function Modal(props, userRef) {
+export type ModalProps = {
+  children?: React.ReactNode;
+  className?: string;
+  closeOnEscape?: boolean;
+  closeOnOutsideClick?: boolean;
+  onClose?: () => void;
+  open: boolean;
+  portalId?: PortalProps['containerId'];
+  maxWidth?: string;
+} & MaxWidthProps;
+
+const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props, userRef) {
   const {
     children,
     className,
-    closeOnEscape,
-    closeOnOutsideClick,
+    closeOnEscape = true,
+    closeOnOutsideClick = true,
     onClose,
     open,
     portalId,
-    maxWidth,
+    maxWidth = '1200',
   } = props;
 
-  const overlayRef = useRef();
-  const contentRef = useRef();
-  const transitionRef = useRef();
+  const overlayRef = useRef<HTMLDivElement>();
+  const contentRef = useRef<HTMLDivElement>();
+  const transitionRef = useRef<HTMLDivElement>();
 
   // Calls onClose when clicking outside modal content
   function handleOutsideClick(e) {
@@ -93,13 +102,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
       <ScrollLock isActive={open} />
       <Portal containerId={portalId}>
         <TouchScrollable>
-          <StyledBase
-            open={open}
-            className={className}
-            onClose={onClose}
-            role="dialog"
-            aria-modal="true"
-          >
+          <StyledBase $open={open} className={className} role="dialog" aria-modal="true">
             <Box size="100%" ref={overlayRef} data-id="modal-overlay">
               <StyledWrapper>
                 <StyledFocusLock disabled={!open || isInIframe()} returnFocus>
@@ -114,11 +117,11 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                     nodeRef={transitionRef}
                   >
                     {/* Negative `tabIndex` required to programmatically focus */}
-                    {state => (
+                    {(state) => (
                       <div ref={transitionRef}>
                         <StyledContent
-                          state={state}
-                          tabIndex="-1"
+                          $state={state}
+                          tabIndex={-1}
                           ref={userRef}
                           display="flex"
                           justifyContent="center"
@@ -130,7 +133,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
                             width="100%"
                             maxWidth={maxWidth}
                             bg="white"
-                            tabIndex="-1"
+                            tabIndex={-1}
                             data-id="modal-content-panel"
                           >
                             <ModalContext.Provider value={{ onClose, open }}>
@@ -149,26 +152,14 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
       </Portal>
     </>
   );
-});
+}) as React.ForwardRefExoticComponent<ModalProps> & {
+  Header: typeof Header;
+  Content: typeof Content;
+  Footer: typeof Footer;
+  LEGACY: typeof Legacy;
+};
 
 Modal.displayName = 'Modal';
-
-Modal.propTypes = {
-  children: PropTypes.node,
-  closeOnEscape: PropTypes.bool,
-  closeOnOutsideClick: PropTypes.bool,
-  onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  portalId: PropTypes.string,
-  maxWidth: PropTypes.string,
-  ...createPropTypes(maxWidth.propNames),
-};
-
-Modal.defaultProps = {
-  closeOnEscape: true,
-  closeOnOutsideClick: true,
-  maxWidth: '1200',
-};
 
 Modal.Header = Header;
 Modal.Content = Content;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
 import { Box } from '../Box';
@@ -32,7 +32,7 @@ type TooltipOverlayProps = {
   renderActivator: (args: { activatorRef: React.MutableRefObject<HTMLElement> }) => React.ReactNode;
   hideTooltip?: () => void;
   visible?: boolean;
-  portalId?: string;
+  portalId?: PortalProps['containerId'];
 };
 
 function TooltipOverlay(props: TooltipOverlayProps): JSX.Element {

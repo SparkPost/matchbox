@@ -16,6 +16,7 @@ import {
   shadow,
   ShadowProps,
 } from 'styled-system';
+import { PortalProps } from '../Portal';
 import { pick } from '@styled-system/props';
 import { tokens } from '@sparkpost/design-tokens';
 import TooltipOverlay from './TooltipOverlay';
@@ -61,7 +62,7 @@ export type TooltipProps = {
   /**
    * Element ID for the portal that will house tooltips. Appends to body if not provided.
    */
-  portalId?: string;
+  portalId?: PortalProps['containerId'];
 } & BorderProps &
   ColorProps &
   LayoutProps &

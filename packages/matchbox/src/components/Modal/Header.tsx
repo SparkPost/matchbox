@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { tokens } from '@sparkpost/design-tokens';
 import styled from 'styled-components';
@@ -13,8 +12,13 @@ const StyledButton = styled(Button)`
   color: ${tokens.color_gray_700};
 `;
 
-const Header = React.forwardRef(function Header(props, ref) {
-  const { children, showCloseButton } = props;
+export type ModalHeaderProps = {
+  children?: React.ReactNode;
+  showCloseButton?: boolean;
+};
+
+const Header = React.forwardRef<HTMLDivElement, ModalHeaderProps>(function Header(props, ref) {
+  const { children, showCloseButton = true } = props;
   const { onClose } = React.useContext(ModalContext);
 
   return (
@@ -44,15 +48,5 @@ const Header = React.forwardRef(function Header(props, ref) {
 });
 
 Header.displayName = 'Modal.Header';
-
-Header.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func,
-  showCloseButton: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  showCloseButton: true,
-};
 
 export default Header;
