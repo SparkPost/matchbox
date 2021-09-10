@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Radio from '../Radio';
-import { StyledChecked, StyledUnchecked } from '../styles.js';
+import { StyledChecked, StyledUnchecked } from '../styles';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Radio', () => {
@@ -10,7 +10,7 @@ describe('Radio', () => {
     onBlur: jest.fn(),
     onFocus: jest.fn(),
   };
-  const subject = props => global.mountStyled(<Radio id="test-id" {...events} {...props} />);
+  const subject = (props) => global.mountStyled(<Radio id="test-id" {...events} {...props} />);
   const checked = `:checked ~ span ${StyledChecked}`;
   const unchecked = `:checked ~ span ${StyledUnchecked}`;
 

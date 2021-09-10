@@ -11,7 +11,7 @@ export const Wrapper = styled('div')`
   padding: 0;
 `;
 
-export const StyledLabel = styled('label')`
+export const StyledLabel = styled('label')<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   margin: 0;
@@ -20,7 +20,7 @@ export const StyledLabel = styled('label')`
   user-select: none;
 
   &:hover {
-    cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${(props) => (props.$disabled ? 'not-allowed' : 'pointer')};
   }
 `;
 
@@ -31,16 +31,16 @@ const commonCheckedStyles = `
   transition: opacity ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}, fill ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}, box-shadow ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
 `;
 
-export const StyledUnchecked = styled(Box)`
+export const StyledUnchecked = styled(Box)<{ $error?: string }>`
   ${commonCheckedStyles}
   opacity: 1;
-  fill: ${props => (props.error ? tokens.color_red_700 : tokens.color_gray_700)};
+  fill: ${(props) => (props.$error ? tokens.color_red_700 : tokens.color_gray_700)};
 `;
 
-export const StyledChecked = styled(Box)`
+export const StyledChecked = styled(Box)<{ $error?: string }>`
   ${commonCheckedStyles}
   opacity: 0;
-  fill: ${props => (props.error ? tokens.color_red_700 : tokens.color_blue_700)};
+  fill: ${(props) => (props.$error ? tokens.color_red_700 : tokens.color_blue_700)};
 `;
 
 export const StyledInput = styled('input')`
