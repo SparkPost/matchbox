@@ -1,13 +1,12 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { maxWidth, MaxWidthProps } from 'styled-system';
+import { MaxWidthProps } from 'styled-system';
 import FocusLock from 'react-focus-lock';
 import { Transition } from 'react-transition-group';
 import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import { tokens } from '@sparkpost/design-tokens';
 import { Box } from '../Box';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { useWindowEvent } from '../../hooks';
 import { onKey } from '../../helpers/keyEvents';
 import { secondsToMS } from '../../helpers/string';
@@ -44,7 +43,7 @@ export type ModalProps = {
   closeOnOutsideClick?: boolean;
   onClose?: () => void;
   open: boolean;
-  portalId?: string;
+  portalId?: PortalProps['containerId'];
   maxWidth?: string;
 } & MaxWidthProps;
 

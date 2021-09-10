@@ -5,7 +5,7 @@ import React from 'react';
  */
 
 type ContextProps = {
-  onClose?: (any) => void;
+  onClose?: () => void;
   open?: boolean;
 };
 

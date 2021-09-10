@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-type PortalProps = {
+export type PortalProps = {
   /**
    * ID of the target portal container. Appends a new portal to document body if not provided.
    */
