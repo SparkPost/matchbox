@@ -20,13 +20,17 @@ const StyledKey = styled.kbd`
   box-shadow: 0px 3px 0px -1px ${tokens.color_gray_200}, 0px 3px 0px ${tokens.color_gray_400};
 `;
 
-const KeyboardKey = React.forwardRef(function KeyboardKey(props, ref) {
-  return <StyledKey ref={ref}>{props.children}</StyledKey>;
+export type KeyboardKeyProps = {
+  children?: React.ReactNode;
+};
+
+const KeyboardKey = React.forwardRef<HTMLDivElement, KeyboardKeyProps>(function KeyboardKey(
+  { children },
+  ref,
+) {
+  return <StyledKey ref={ref}>{children}</StyledKey>;
 });
 
 KeyboardKey.displayName = 'KeyboardKey';
-KeyboardKey.propTypes = {
-  children: PropTypes.string,
-};
 
 export default KeyboardKey;
