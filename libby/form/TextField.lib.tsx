@@ -1,7 +1,9 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
+import { TextField, Button, Tooltip, Stack } from '@sparkpost/matchbox';
+// @ts-ignore
+import { Select } from '@sparkpost/matchbox';
 
 describe('TextField', () => {
   add('basic usage', () => <TextField id="id" label="Name" placeholder="Leslie Knope" />);
@@ -62,7 +64,7 @@ describe('TextField', () => {
       label="Date Range"
       value="July 21, 2017 - July 28, 2017"
       connectLeft={
-        <Tooltip content="Hey">
+        <Tooltip content="Hey" id="hey">
           <Button outline>Injection Time</Button>
         </Tooltip>
       }
@@ -84,7 +86,7 @@ describe('TextField', () => {
     />
   ));
 
-  add('multiline', () => <TextField id="id" label="Message" rows="5" multiline />);
+  add('multiline', () => <TextField id="id" label="Message" rows={5} multiline />);
 
   add('works with system props', () => (
     <>
