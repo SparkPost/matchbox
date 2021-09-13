@@ -4,8 +4,29 @@ import React from 'react';
  * Reusable hook to be used with the Drawer component
  */
 
-function useDrawer({ initialOpen = false, id = 'matchbox-drawer' } = {}) {
-  const [isOpen, setIsOpen] = React.useState(initialOpen);
+type UseDrawerProps = {
+  initialOpen?: boolean;
+  id?: string;
+};
+
+function useDrawer({ initialOpen = false, id = 'matchbox-drawer' }: UseDrawerProps = {}): {
+  isOpen: boolean;
+  toggleDrawer: () => void;
+  openDrawer: () => void;
+  closeDrawer: () => void;
+  getActivatorProps: ({}: { [x: string]: any }) => {
+    'aria-controls': UseDrawerProps['id'];
+    onClick: () => void;
+    [x: string]: any;
+  };
+  getDrawerProps: ({}: { [x: string]: any }) => {
+    id: UseDrawerProps['id'];
+    onClose: () => void;
+    open: boolean;
+    [x: string]: any;
+  };
+} {
+  const [isOpen, setIsOpen] = React.useState<boolean>(initialOpen);
 
   function toggle() {
     setIsOpen(!isOpen);
