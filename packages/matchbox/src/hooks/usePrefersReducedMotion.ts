@@ -14,7 +14,7 @@ import { getWindow } from '../helpers/window';
 
 const QUERY = '(prefers-reduced-motion: reduce)';
 
-function usePrefersReducedMotion() {
+function usePrefersReducedMotion(): 'reduce' | 'no-preference' {
   const environment = getWindow();
 
   const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(
@@ -24,17 +24,19 @@ function usePrefersReducedMotion() {
   React.useEffect(() => {
     const mql = environment.matchMedia(QUERY);
 
-    const listener = event => {
+    const listener = (event) => {
       setPrefersReducedMotion(event.matches);
     };
 
-    if (mql.addListener) {
-      mql.addListener(listener);
+    if (mql) {
+      mql.addEventListener ? mql.addEventListener('change', listener) : mql.addListener(listener);
     }
 
     return () => {
-      if (mql.removeListener) {
-        mql.removeListener(listener);
+      if (mql) {
+        mql.removeEventListener
+          ? mql.removeEventListener('change', listener)
+          : mql.removeListener(listener);
       }
     };
   });
