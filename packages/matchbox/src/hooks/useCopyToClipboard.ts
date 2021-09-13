@@ -12,11 +12,14 @@ import copy from 'copy-to-clipboard';
  *  {copied ? 'String has been copied' : 'Copy to clipboard'}
  * </Button>
  */
-function useCopyToClipboard({ timeout = 1000 } = {}) {
+function useCopyToClipboard({ timeout = 1000 }: { timeout?: number } = {}): {
+  copy: (string: string) => void;
+  copied: boolean;
+} {
   const environment = getWindow();
   const [copied, setCopied] = React.useState(false);
 
-  function handleCopy(string) {
+  function handleCopy(string: string) {
     copy(string);
     setCopied(true);
   }
