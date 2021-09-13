@@ -18,7 +18,6 @@ export function getChild(
   return React.Children.map(
     children,
     (child: { type?: { displayName?: string; name?: string } }, index) => {
-      console.log(child);
       if (
         React.isValidElement(child) &&
         (child.type.displayName === name || child.type.name === name)
