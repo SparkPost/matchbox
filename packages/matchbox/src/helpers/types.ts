@@ -77,8 +77,6 @@ type LinkActionProps = {
   Component?: React.ElementType;
 };
 
-type OptionalSpread<T> = T extends undefined ? [] : [T];
-
 export type {
   ForwardRefComponent,
   OwnProps,
@@ -89,5 +87,4 @@ export type {
   Breakpoints,
   Headings,
   LinkActionProps,
-  OptionalSpread,
 };

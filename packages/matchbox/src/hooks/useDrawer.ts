@@ -1,5 +1,4 @@
 import React from 'react';
-import { OptionalSpread } from '../helpers/types';
 
 /**
  * Reusable hook to be used with the Drawer component
@@ -15,20 +14,16 @@ function useDrawer({ initialOpen = false, id = 'matchbox-drawer' }: UseDrawerPro
   toggleDrawer: () => void;
   openDrawer: () => void;
   closeDrawer: () => void;
-  getActivatorProps: <T = undefined>(
-    ...args: OptionalSpread<T>
-  ) => {
+  getActivatorProps: (additionalProps?: { [k: string]: unknown }) => {
     'aria-controls': UseDrawerProps['id'];
     onClick: () => void;
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  getDrawerProps: <T = undefined>(
-    ...args: OptionalSpread<T>
-  ) => {
+  getDrawerProps: (props?: { [k: string]: unknown }) => {
     id: UseDrawerProps['id'];
     onClose: () => void;
     open: boolean;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 } {
   const [isOpen, setIsOpen] = React.useState<boolean>(initialOpen);
