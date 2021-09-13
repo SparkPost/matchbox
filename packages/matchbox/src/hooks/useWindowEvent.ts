@@ -12,7 +12,7 @@ import { getWindow } from '../helpers/window';
  *    ...
  *  }
  */
-function useWindowEvent(event, callback) {
+function useWindowEvent(event: string, callback: EventListenerOrEventListenerObject): void {
   const environment = getWindow();
 
   React.useEffect(() => {
