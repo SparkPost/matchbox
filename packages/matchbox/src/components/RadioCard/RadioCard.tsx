@@ -5,15 +5,9 @@ import Group from './Group';
 import { StyledLabel, StyledInput, StyledUnchecked, StyledChecked, StyledHeader } from './styles';
 
 export type RadioCardProps = {
-  checked?: boolean;
   'data-id'?: string;
   'data-track'?: string;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  id: string;
   label?: React.ReactNode;
-  name?: string;
-  value?: string;
   weight?: 'light' | 'heavy';
 } & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
 
@@ -34,6 +28,8 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onBlur,
     value,
     weight = 'light',
+    'data-id': dataId,
+    'data-track': dataTrack,
     ...rest
   } = props;
 
@@ -43,8 +39,8 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     <Box data-id="radio-card">
       <StyledInput
         checked={checked}
-        data-id={rest['data-id']}
-        data-track={rest['data-track']}
+        data-id={dataId}
+        data-track={dataTrack}
         disabled={disabled}
         defaultChecked={defaultChecked}
         id={id}
