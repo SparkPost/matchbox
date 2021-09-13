@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '../../helpers/props';
 import Tab from './Tab';
 import useTabConstructor from './useTabConstructor';
@@ -11,7 +9,16 @@ const Container = styled.div`
   ${margin}
 `;
 
-const TimelineTabs = React.forwardRef(function TimelineTabs(props, userRef) {
+export type TimelineTabsProps = {
+  children?: React.ReactNode;
+  id?: string;
+  initialIndex?: number;
+} & MarginProps;
+
+const TimelineTabs = React.forwardRef<HTMLDivElement, TimelineTabsProps>(function TimelineTabs(
+  props,
+  userRef,
+) {
   const { children, id, initialIndex, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
@@ -25,15 +32,9 @@ const TimelineTabs = React.forwardRef(function TimelineTabs(props, userRef) {
       </div>
     </Container>
   );
-});
-
-TimelineTabs.Tab = Tab;
-
-TimelineTabs.propTypes = {
-  id: PropTypes.string,
-  'data-id': PropTypes.string,
-  initialIndex: PropTypes.number,
-  ...createPropTypes(margin.propNames),
+}) as React.ForwardRefExoticComponent<TimelineTabsProps> & {
+  Tab: typeof Tab;
 };
 
+TimelineTabs.Tab = Tab;
 export default TimelineTabs;

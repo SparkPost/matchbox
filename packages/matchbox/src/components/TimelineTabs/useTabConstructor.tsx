@@ -1,9 +1,17 @@
 import React from 'react';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 
-function useTabConstructor({ tabs, initialIndex }) {
-  const tabRefs = React.useRef({ current: [] });
-  const focusRef = React.useRef();
+// TODO Refactor this
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useTabConstructor({ tabs, initialIndex }: { tabs: any[]; initialIndex: number }): {
+  tabs: React.ReactNode[];
+  focusContainerProps: {
+    onKeyDown: React.KeyboardEventHandler;
+    ref: React.Ref<HTMLDivElement>;
+  };
+} {
+  const tabRefs = React.useRef([]);
+  const focusRef = React.useRef<HTMLDivElement>();
   const [selectedIndex, setSelectedIndex] = React.useState(initialIndex || 0);
 
   // Preps array of tab item refs
@@ -14,7 +22,7 @@ function useTabConstructor({ tabs, initialIndex }) {
     };
   }, [tabs]);
 
-  const onFocusContainerKeyDown = e => {
+  const onFocusContainerKeyDown = (e) => {
     const isWithin = focusRef.current && focusRef.current.contains(e.currentTarget);
 
     if (!isWithin) {
@@ -66,7 +74,7 @@ function useTabConstructor({ tabs, initialIndex }) {
   const constructedItems = React.useMemo(() => {
     return tabs.map((tab, i) => ({
       ...tab,
-      ref: n => (tabRefs.current[i] = n),
+      ref: (n) => (tabRefs.current[i] = n),
       props: {
         ...tab.props,
         handleParentSelect: () => setSelectedIndex(i),

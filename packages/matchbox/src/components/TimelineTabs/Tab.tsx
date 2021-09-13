@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { buttonReset, focusOutline } from '../../styles/helpers';
 import { Box } from '../Box';
+import type * as Polymorphic from '../../helpers/types';
 
-const Container = styled.button`
+const Container = styled.button<{ $selected?: boolean }>`
   ${buttonReset}
   position: relative;
   cursor: pointer;
@@ -21,22 +21,22 @@ const Container = styled.button`
 
   svg [data-id='mb-tab-outer'] {
     fill: ${({ theme }) => theme.colors.white};
-    stroke: ${props =>
-      props.selected ? props.theme.colors.blue[700] : props.theme.colors.gray[700]};
+    stroke: ${(props) =>
+      props.$selected ? props.theme.colors.blue[700] : props.theme.colors.gray[700]};
   }
 
   svg [data-id='mb-tab-inner'] {
-    fill: ${props => (props.selected ? props.theme.colors.blue[700] : 'transparent')};
+    fill: ${(props) => (props.$selected ? props.theme.colors.blue[700] : 'transparent')};
   }
 
   &:hover {
     svg [data-id='mb-tab-outer'] {
-      stroke: ${({ theme, selected }) =>
-        !selected ? theme.colors.gray[800] : theme.colors.blue[700]};
+      stroke: ${({ theme, $selected }) =>
+        !$selected ? theme.colors.gray[800] : theme.colors.blue[700]};
     }
     svg [data-id='mb-tab-inner'] {
-      fill: ${({ theme, selected }) =>
-        !selected ? theme.colors.gray[400] : theme.colors.blue[700]};
+      fill: ${({ theme, $selected }) =>
+        !$selected ? theme.colors.gray[400] : theme.colors.blue[700]};
     }
   }
 
@@ -64,6 +64,14 @@ const FocusSvg = styled.div`
   }
 `;
 
+export type TimelineTabsTabProps = {
+  'data-id'?: string;
+  handleParentSelect?: () => void;
+  selected?: boolean;
+};
+
+type PolymorphicTab = Polymorphic.ForwardRefComponent<'button', TimelineTabsTabProps>;
+
 const Tab = React.forwardRef(function Tab(props, userRef) {
   const {
     as = 'button',
@@ -74,8 +82,7 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
     handleParentSelect,
     onClick,
     selected,
-    to,
-    href,
+    ...rest
   } = props;
 
   function handleClick(e) {
@@ -91,15 +98,14 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
       aria-selected={selected}
       as={as}
       data-id={dataId}
-      href={href}
       id={id}
       onClick={handleClick}
       ref={userRef}
       role="tab"
-      selected={selected}
-      tabIndex={selected ? '0' : '-1'}
-      to={to}
+      $selected={selected}
+      tabIndex={selected ? 0 : -1}
       type="button"
+      {...rest}
     >
       <Box display="grid" gridTemplateColumns="30px 1fr" gridGap="200">
         <Box position="relative" height="100%" gridColumn="0/1">
@@ -146,19 +152,6 @@ const Tab = React.forwardRef(function Tab(props, userRef) {
       </Box>
     </Container>
   );
-});
-
-Tab.propTypes = {
-  'aria-controls': PropTypes.string,
-  as: PropTypes.elementType,
-  'data-id': PropTypes.string,
-  children: PropTypes.node,
-  handleParentSelect: PropTypes.func,
-  href: PropTypes.string,
-  id: PropTypes.string,
-  onClick: PropTypes.func,
-  selected: PropTypes.bool,
-  to: PropTypes.string,
-};
+}) as PolymorphicTab;
 
 export default Tab;
