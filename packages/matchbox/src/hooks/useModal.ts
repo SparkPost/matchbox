@@ -18,16 +18,16 @@ function useModal({ initialOpen = false, id = 'matchbox-modal' } = {}): {
   toggleModal: () => void;
   openModal: () => void;
   closeModal: () => void;
-  getActivatorProps: ({}: AdditionalProps) => {
+  getActivatorProps: (additionalProps?: { [k: string]: unknown }) => {
     'aria-controls': UseModalProps['id'];
     onClick: () => void;
-    [key: string]: any;
+    [key: string]: unknown;
   };
-  getModalProps: ({}: AdditionalProps) => {
+  getModalProps: (additionalProps?: { [k: string]: unknown }) => {
     id?: UseModalProps['id'];
     onClose: () => void;
     open: boolean;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 } {
   const [isOpen, setIsOpen] = React.useState(initialOpen);
