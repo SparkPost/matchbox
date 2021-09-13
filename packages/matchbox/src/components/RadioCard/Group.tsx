@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { Box } from '../Box';
 import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Label } from '../Label';
 import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
+import { Breakpoints } from '../../helpers/types';
 
 import { pick } from '../../helpers/props';
 
@@ -20,8 +19,31 @@ const Fieldset = styled.fieldset`
 
 const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const Group = React.forwardRef(function Group(props, userRef) {
-  const { children, collapseBelow, id, label, labelHidden, orientation, optional, ...rest } = props;
+export type RadioCardGroupProps = {
+  children?: React.ReactNode;
+  collapseBelow?: Breakpoints;
+  'data-id'?: string;
+  label: string;
+  labelHidden?: boolean;
+  optional?: boolean;
+  id?: string;
+  orientation?: 'horizontal' | 'vertical' | 'grid';
+} & MarginProps;
+
+const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(function Group(
+  props,
+  userRef,
+) {
+  const {
+    children,
+    collapseBelow,
+    id,
+    label,
+    labelHidden,
+    orientation = 'vertical',
+    optional,
+    ...rest
+  } = props;
 
   const items = React.Children.toArray(children);
   const systemProps = pick(rest, margin.propNames);
@@ -44,7 +66,7 @@ const Group = React.forwardRef(function Group(props, userRef) {
       )}
 
       {orientation === 'vertical' && (
-        <Stack space="300" collapseBelow={collapseBelow}>
+        <Stack space="300">
           {items.map((item, i) => (
             <div key={i}>{item}</div>
           ))}
@@ -63,19 +85,5 @@ const Group = React.forwardRef(function Group(props, userRef) {
 });
 
 Group.displayName = 'RadioCard.Group';
-
-Group.propTypes = {
-  collapseBelow: PropTypes.oneOf(breakpoints),
-  'data-id': PropTypes.string,
-  label: PropTypes.string.isRequired,
-  labelHidden: PropTypes.bool,
-  optional: PropTypes.bool,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical', 'grid']),
-  ...createPropTypes(margin.propNames),
-};
-
-Group.defaultProps = {
-  orientation: 'vertical',
-};
 
 export default Group;

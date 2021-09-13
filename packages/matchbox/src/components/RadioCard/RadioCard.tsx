@@ -1,11 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { RadioButtonChecked, RadioButtonUnchecked } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import Group from './Group';
 import { StyledLabel, StyledInput, StyledUnchecked, StyledChecked, StyledHeader } from './styles';
 
-const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
+export type RadioCardProps = {
+  'data-id'?: string;
+  'data-track'?: string;
+  label?: React.ReactNode;
+  weight?: 'light' | 'heavy';
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
+
+const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
+  props,
+  userRef,
+) {
   const {
     id,
     checked,
@@ -19,6 +28,8 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
     onBlur,
     value,
     weight = 'light',
+    'data-id': dataId,
+    'data-track': dataTrack,
     ...rest
   } = props;
 
@@ -28,8 +39,8 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
     <Box data-id="radio-card">
       <StyledInput
         checked={checked}
-        data-id={rest['data-id']}
-        data-track={rest['data-track']}
+        data-id={dataId}
+        data-track={dataTrack}
         disabled={disabled}
         defaultChecked={defaultChecked}
         id={id}
@@ -68,25 +79,11 @@ const RadioCard = React.forwardRef(function RadioCard(props, userRef) {
       </StyledLabel>
     </Box>
   );
-});
+}) as React.ForwardRefExoticComponent<RadioCardProps> & {
+  Group: typeof Group;
+};
 
 RadioCard.displayName = 'RadioCard';
-
-RadioCard.propTypes = {
-  checked: PropTypes.bool,
-  'data-id': PropTypes.string,
-  'data-track': PropTypes.string,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.node,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  value: PropTypes.string,
-  weight: PropTypes.oneOf(['light', 'heavy']),
-};
 
 RadioCard.Group = Group;
 export default RadioCard;
