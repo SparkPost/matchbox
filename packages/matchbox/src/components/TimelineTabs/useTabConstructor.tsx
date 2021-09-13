@@ -1,6 +1,7 @@
 import React from 'react';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 
+// TODO Refactor this
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useTabConstructor({ tabs, initialIndex }: { tabs: any[]; initialIndex: number }): {
   tabs: React.ReactNode[];
