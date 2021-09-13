@@ -4,7 +4,32 @@ import React from 'react';
  * Reusable hook to be used with the Modal component
  */
 
-function useModal({ initialOpen = false, id = 'matchbox-modal' } = {}) {
+type UseModalProps = {
+  initialOpen?: boolean;
+  id?: string;
+};
+
+type AdditionalProps = {
+  [key: string]: any;
+};
+
+function useModal({ initialOpen = false, id = 'matchbox-modal' } = {}): {
+  isOpen: boolean;
+  toggleModal: () => void;
+  openModal: () => void;
+  closeModal: () => void;
+  getActivatorProps: ({}: AdditionalProps) => {
+    'aria-controls': UseModalProps['id'];
+    onClick: () => void;
+    [key: string]: any;
+  };
+  getModalProps: ({}: AdditionalProps) => {
+    id?: UseModalProps['id'];
+    onClose: () => void;
+    open: boolean;
+    [key: string]: any;
+  };
+} {
   const [isOpen, setIsOpen] = React.useState(initialOpen);
 
   function toggle() {
