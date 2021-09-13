@@ -1,14 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { maxHeight } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
-import { ActionList } from '../ActionList';
+import { MaxHeightProps } from 'styled-system';
+import { ActionList, ActionListActionProps } from '../ActionList';
 import { Box } from '../Box';
 import PopoverContent from '../Popover/PopoverContent';
 
-function ComboBoxMenu(props) {
+export type ComboBoxMenuProps = {
+  /**
+   * String displayed when item length is 0. Defaults to "No Results"
+   */
+  emptyMessage?: string;
+  /**
+   * Array of items. see ActionList prop types.
+   */
+  items?: ActionListActionProps[];
+  /**
+   * Controls menu visibility
+   */
+  isOpen?: boolean;
+  /**
+   * Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
+   */
+  menuRef?: React.MutableRefObject<HTMLDivElement>;
+} & MaxHeightProps;
+
+function ComboBoxMenu(props: ComboBoxMenuProps): JSX.Element {
   const {
-    items,
+    items = [],
     menuRef,
     isOpen,
     maxHeight = '20rem',
@@ -34,29 +52,5 @@ function ComboBoxMenu(props) {
     </Box>
   );
 }
-
-ComboBoxMenu.propTypes = {
-  /**
-   * String displayed when item length is 0. Defaults to "No Results"
-   */
-  emptyMessage: PropTypes.string,
-  /**
-   * Array of items. see ActionList prop types.
-   */
-  items: PropTypes.array,
-  /**
-   * Controls menu visibility
-   */
-  isOpen: PropTypes.bool,
-  /**
-   * Maps to Downshift's refKey set in getMenuProps. refKey must be set to "menuRef"
-   */
-  menuRef: PropTypes.func,
-  ...createPropTypes(maxHeight.propNames),
-};
-
-ComboBoxMenu.defaultProps = {
-  items: [],
-};
 
 export default ComboBoxMenu;

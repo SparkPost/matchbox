@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { margin } from 'styled-system';
-import { createPropTypes } from '@styled-system/prop-types';
+import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
 import { Error } from '../Error';
@@ -20,7 +19,21 @@ const StyledWrapper = styled('div')`
   ${margin}
 `;
 
-function ComboBoxTextField(props) {
+export type ComboBoxTextFieldProps = {
+  delimiter?: string;
+  error?: string;
+  errorInLabel?: boolean;
+  helpText?: React.ReactNode;
+  id: string;
+  itemToString?: (any) => string;
+  label?: string;
+  labelHidden?: boolean;
+  removeItem?: (a: React.ReactNode) => void;
+  selectedItems?: React.ReactNodeArray;
+} & MarginProps &
+  React.ComponentPropsWithoutRef<'input'>;
+
+function ComboBoxTextField(props: ComboBoxTextFieldProps): JSX.Element {
   const {
     autoFocus,
     disabled,
@@ -30,7 +43,7 @@ function ComboBoxTextField(props) {
     errorInLabel,
     helpText,
     id,
-    itemToString,
+    itemToString = identity,
     label,
     labelHidden,
     name,
@@ -40,10 +53,10 @@ function ComboBoxTextField(props) {
     onKeyDown,
     placeholder,
     readOnly,
-    removeItem,
+    removeItem = noop,
     required,
     style,
-    selectedItems,
+    selectedItems = [],
     value,
     ...rest
   } = props;
@@ -87,7 +100,7 @@ function ComboBoxTextField(props) {
           )}
         </Label>
       )}
-      <StyledInputWrapper hasError={!!error} isDisabled={disabled}>
+      <StyledInputWrapper $hasError={!!error} $isDisabled={disabled}>
         {selectedItems.length > 0 && (
           <Box display="flex" pl="200" pt="0.375rem">
             <Inline space="100">
@@ -140,35 +153,5 @@ function ComboBoxTextField(props) {
     </StyledWrapper>
   );
 }
-
-ComboBoxTextField.propTypes = {
-  autoFocus: PropTypes.bool,
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  delimiter: PropTypes.string,
-  error: PropTypes.string,
-  errorInLabel: PropTypes.bool,
-  helpText: PropTypes.node,
-  id: PropTypes.string.isRequired,
-  itemToString: PropTypes.func,
-  label: PropTypes.string,
-  labelHidden: PropTypes.bool,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  removeItem: PropTypes.func,
-  required: PropTypes.bool,
-  selectedItems: PropTypes.array,
-  ...createPropTypes(margin.propNames),
-};
-
-ComboBoxTextField.defaultProps = {
-  selectedItems: [],
-  itemToString: identity,
-  removeItem: noop,
-};
 
 export default ComboBoxTextField;
