@@ -9,21 +9,25 @@ type UseDrawerProps = {
   id?: string;
 };
 
+type OtherProps = {
+  [key: string]: any;
+};
+
 function useDrawer({ initialOpen = false, id = 'matchbox-drawer' }: UseDrawerProps = {}): {
   isOpen: boolean;
   toggleDrawer: () => void;
   openDrawer: () => void;
   closeDrawer: () => void;
-  getActivatorProps: ({}: { [x: string]: any }) => {
+  getActivatorProps: ({}: OtherProps) => {
     'aria-controls': UseDrawerProps['id'];
     onClick: () => void;
-    [x: string]: any;
+    [key: string]: any;
   };
-  getDrawerProps: ({}: { [x: string]: any }) => {
+  getDrawerProps: ({}: OtherProps) => {
     id: UseDrawerProps['id'];
     onClose: () => void;
     open: boolean;
-    [x: string]: any;
+    [key: string]: any;
   };
 } {
   const [isOpen, setIsOpen] = React.useState<boolean>(initialOpen);
