@@ -14,9 +14,22 @@ import React from 'react';
  *  <input {...describedBy} />
  *  <span id={errorId}>This is an error</span>
  *  <span id={helpTextId}>This is helptext</span>
- *
  */
-function useInputDescribedBy({ id, hasHelpText, hasError }) {
+function useInputDescribedBy({
+  id,
+  hasHelpText,
+  hasError,
+}: {
+  id: string;
+  hasHelpText?: boolean;
+  hasError?: boolean;
+}): {
+  describedBy: {
+    'aria-describedby'?: string;
+  };
+  helpTextId: string;
+  errorId: string;
+} {
   return React.useMemo(() => {
     let errorId = null;
     let helpTextId = null;
