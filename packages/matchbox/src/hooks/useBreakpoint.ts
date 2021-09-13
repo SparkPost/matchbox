@@ -1,6 +1,7 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import { getWindow } from '../helpers/window';
+import { Breakpoints } from '../helpers/types';
 
 // Defining queries here to ensure order is correct
 const queries = [
@@ -12,7 +13,7 @@ const queries = [
 ];
 
 // This order must be the same as above
-const keys = ['xl', 'lg', 'md', 'sm', 'xs'];
+const keys: Breakpoints[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
 /**
  * Hook that returns token breakpoint status based on window width
@@ -25,19 +26,19 @@ const keys = ['xl', 'lg', 'md', 'sm', 'xs'];
  *
  * @see https://usehooks.com/useMedia/
  */
-function useBreakpoint() {
+function useBreakpoint(): Breakpoints {
   const environment = getWindow();
-  const list = queries.map(q => environment.matchMedia(q));
+  const list = queries.map((q) => environment.matchMedia(q));
 
-  function getValue() {
+  function getValue(): Breakpoints {
     // Get index of first media query that matches
-    const index = list.findIndex(mql => mql.matches);
+    const index = list.findIndex((mql: MediaQueryList) => mql.matches);
     // Return related value or 'default' if none (smaller than xs size)
     return typeof keys[index] !== 'undefined' ? keys[index] : 'default';
   }
 
   // State and setter for matched value
-  const [value, setValue] = React.useState(getValue);
+  const [value, setValue] = React.useState<Breakpoints>(getValue);
 
   React.useEffect(
     () => {
@@ -46,9 +47,10 @@ function useBreakpoint() {
       // current values of hook args (as this hook callback is created once on mount).
       const handler = () => setValue(getValue);
       // Set a listener for each media query with above handler as callback.
-      list.forEach(mql => mql.addListener(handler));
+      list.forEach((mql: MediaQueryList) => mql.addEventListener('change', handler));
       // Remove listeners on cleanup
-      return () => list.forEach(mql => mql.removeListener(handler));
+      return () =>
+        list.forEach((mql: MediaQueryList) => mql.removeEventListener('change', handler));
     },
     [], // Empty array ensures effect is only run on mount and unmount
   );
