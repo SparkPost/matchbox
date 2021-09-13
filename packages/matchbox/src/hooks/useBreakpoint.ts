@@ -47,10 +47,16 @@ function useBreakpoint(): Breakpoints {
       // current values of hook args (as this hook callback is created once on mount).
       const handler = () => setValue(getValue);
       // Set a listener for each media query with above handler as callback.
-      list.forEach((mql: MediaQueryList) => mql.addEventListener('change', handler));
+      list.forEach((mql: MediaQueryList) =>
+        mql.addEventListener ? mql.addEventListener('change', handler) : mql.addListener(handler),
+      );
       // Remove listeners on cleanup
       return () =>
-        list.forEach((mql: MediaQueryList) => mql.removeEventListener('change', handler));
+        list.forEach((mql: MediaQueryList) =>
+          mql.addEventListener
+            ? mql.removeEventListener('change', handler)
+            : mql.removeListener(handler),
+        );
     },
     [], // Empty array ensures effect is only run on mount and unmount
   );
