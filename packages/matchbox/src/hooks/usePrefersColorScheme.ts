@@ -18,7 +18,7 @@ function usePrefersColorScheme(): 'dark' | 'light' {
   const environment = getWindow();
 
   const [prefersColorScheme, setPrefersColorScheme] = React.useState(
-    environment.matchMedia(QUERY).matches,
+    environment.matchMedia(QUERY)['matches'],
   );
 
   React.useEffect(() => {
