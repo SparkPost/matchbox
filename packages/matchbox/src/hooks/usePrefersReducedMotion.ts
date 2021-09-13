@@ -17,8 +17,8 @@ const QUERY = '(prefers-reduced-motion: reduce)';
 function usePrefersReducedMotion(): 'reduce' | 'no-preference' {
   const environment = getWindow();
 
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(
-    environment.matchMedia(QUERY).matches,
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(
+    environment.matchMedia(QUERY)['matches'],
   );
 
   React.useEffect(() => {
