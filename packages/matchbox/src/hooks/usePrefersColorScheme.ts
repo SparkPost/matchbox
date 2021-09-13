@@ -28,15 +28,13 @@ function usePrefersColorScheme(): 'dark' | 'light' {
       setPrefersColorScheme(event.matches);
     };
 
-    if (mql) {
-      mql.addEventListener ? mql.addEventListener('change', listener) : mql.addListener(listener);
+    if (mql && mql.addListener) {
+      mql.addListener(listener);
     }
 
     return () => {
-      if (mql) {
-        mql.removeEventListener
-          ? mql.removeEventListener('change', listener)
-          : mql.removeListener(listener);
+      if (mql && mql.removeListener) {
+        mql.removeListener(listener);
       }
     };
   });
