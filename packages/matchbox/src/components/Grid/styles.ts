@@ -3,31 +3,31 @@ import { tokens } from '@sparkpost/design-tokens';
 const gutterWidth = tokens.spacing_400;
 export const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 const alignmentStyleMap = {
-  start: {
+  $start: {
     justifyContent: 'flex-start',
     textAlign: 'start',
   },
-  center: {
+  $center: {
     justifyContent: 'center',
     textAlign: 'center',
   },
-  end: {
+  $end: {
     justifyContent: 'flex-end',
     textAlign: 'end',
   },
-  top: {
+  $top: {
     alignItems: 'flex-start',
   },
-  middle: {
+  $middle: {
     alignItems: 'center',
   },
-  bottom: {
+  $bottom: {
     alignItems: 'flex-end',
   },
-  around: {
+  $around: {
     justifyContent: 'space-around',
   },
-  between: {
+  $between: {
     justifyContent: 'space-between',
   },
 };
@@ -45,7 +45,7 @@ const wrapStyleWithMediaQuery = (breakpoint, style) => {
   };
 };
 
-export const gridStyle = props => {
+export const gridStyle = (props) => {
   const breakpointStyle = breakpoints.reduce((style, breakpoint) => {
     // match props with alignment style and merge for breakpoint
     const alignmentStyle = Object.keys(props).reduce(
@@ -67,9 +67,9 @@ export const gridStyle = props => {
   };
 };
 
-const calculateGridColumnWidth = index => (100 / 12) * index;
+const calculateGridColumnWidth = (index) => (100 / 12) * index;
 
-export const gridColumnStyle = props => {
+export const gridColumnStyle = (props) => {
   const breakpointStyle = breakpoints.reduce((style, breakpoint) => {
     const breakpointIndex = props[breakpoint];
     const breakpointOffsetIndex = props[`${breakpoint}Offset`];
