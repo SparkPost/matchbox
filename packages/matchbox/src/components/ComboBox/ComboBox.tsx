@@ -17,7 +17,9 @@ function ComboBox(props: ComboBoxProps): JSX.Element {
   // Clones children in order to pass the menu into the textfield
   // Textfield inserts the menu in the DOM directly after the input, before helptext and error
   const textfieldWithMenu = React.useMemo(() => {
-    return getChild('ComboBoxTextField', { children: getChild('ComboBoxMenu', {}) });
+    return getChild('ComboBoxTextField', children, {
+      children: getChild('ComboBoxMenu', children),
+    });
   }, [children]);
 
   return (
