@@ -5,11 +5,7 @@ function noop() {
 type GetWindowReturnType =
   | (Window & typeof globalThis)
   | {
-      matchMedia: () => void;
-      addEventListener: () => void;
-      removeEventListener: () => void;
-      setTimeout: () => void;
-      clearTimeout: () => void;
+      [k: string]: any;
     };
 
 /**
