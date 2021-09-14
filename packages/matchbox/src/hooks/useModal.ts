@@ -9,10 +9,6 @@ type UseModalProps = {
   id?: string;
 };
 
-type AdditionalProps = {
-  [key: string]: any;
-};
-
 function useModal({ initialOpen = false, id = 'matchbox-modal' } = {}): {
   isOpen: boolean;
   toggleModal: () => void;
