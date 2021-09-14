@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { layout, LayoutProps, margin, MarginProps, compose } from 'styled-system';
 import styled from 'styled-components';
 import { pick } from '../../helpers/props';
