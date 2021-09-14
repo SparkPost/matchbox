@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MaxHeightProps } from 'styled-system';
 import { ActionList, ActionListActionProps } from '../ActionList';
 import { Box } from '../Box';

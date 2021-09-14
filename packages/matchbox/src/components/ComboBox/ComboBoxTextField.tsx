@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
@@ -25,7 +24,7 @@ export type ComboBoxTextFieldProps = {
   errorInLabel?: boolean;
   helpText?: React.ReactNode;
   id: string;
-  itemToString?: (any) => string;
+  itemToString?: (item: any) => string;
   label?: string;
   labelHidden?: boolean;
   removeItem?: (a: React.ReactNode) => void;
