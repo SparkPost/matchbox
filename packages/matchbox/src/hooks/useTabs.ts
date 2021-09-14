@@ -11,11 +11,9 @@ type UseTabsProps = {
 };
 
 function useTabs({ tabs = [], initialSelected = 0 }: UseTabsProps): {
-  getTabsProps: <T extends HTMLElement>(userProps: {
-    [k: string]: unknown;
-  }) => {
-    tabs?: TabProps[];
-    selected?: number;
+  getTabsProps: (userProps?: { [k: string]: unknown }) => {
+    tabs: TabProps[];
+    selected: number;
     onSelect: React.EffectCallback;
     [k: string]: unknown;
   };
