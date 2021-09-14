@@ -16,13 +16,13 @@
  *   2: [ { name: 'b', section: 2 } ]
  * }
  */
-export const groupBy = (list: any[], groupingKey: string): unknown[] =>
+export const groupBy = (list: any[], groupingKey: string): any[] =>
   list.reduce((acc, item) => {
     const index = item[groupingKey];
     return { ...acc, [index]: [...(acc[index] || []), item] };
   }, {});
 
-export const groupByValues = (list: unknown[], groupingKey: string): unknown[] =>
+export const groupByValues = (list: any[], groupingKey: string): any[] =>
   Object.values(groupBy(list, groupingKey));
 
 /**
@@ -35,9 +35,7 @@ export const groupByValues = (list: unknown[], groupingKey: string): unknown[] =
  * // returns
  * [{ name: 'a' }, { name: 'c' }]
  */
-export const filterByVisible = (
-  actions: { visible?: boolean; [k: string]: unknown }[],
-): unknown[] => {
+export const filterByVisible = (actions: any[]): any[] => {
   if (!actions) {
     return [];
   }
