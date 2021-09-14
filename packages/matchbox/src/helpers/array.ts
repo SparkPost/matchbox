@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Group a list of items into sub groups based on the value of each item's groupingKey
  *
@@ -15,13 +16,14 @@
  *   2: [ { name: 'b', section: 2 } ]
  * }
  */
-export const groupBy = (list, groupingKey) =>
+export const groupBy = (list: any[], groupingKey: string): unknown[] =>
   list.reduce((acc, item) => {
     const index = item[groupingKey];
     return { ...acc, [index]: [...(acc[index] || []), item] };
   }, {});
 
-export const groupByValues = (list, groupingKey) => Object.values(groupBy(list, groupingKey));
+export const groupByValues = (list: unknown[], groupingKey: string): unknown[] =>
+  Object.values(groupBy(list, groupingKey));
 
 /**
  * Filters by an array of actions by the visible key
@@ -33,7 +35,9 @@ export const groupByValues = (list, groupingKey) => Object.values(groupBy(list, 
  * // returns
  * [{ name: 'a' }, { name: 'c' }]
  */
-export const filterByVisible = (actions) => {
+export const filterByVisible = (
+  actions: { visible?: boolean; [k: string]: unknown }[],
+): unknown[] => {
   if (!actions) {
     return [];
   }
