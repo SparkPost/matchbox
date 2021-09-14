@@ -23,7 +23,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
 }
 
 export function noop(): void {
-  return null;
+  return undefined;
 }
 
 export function identity<T>(a: T) {
