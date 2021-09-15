@@ -49,7 +49,7 @@ const IconBase: React.FC<IconBaseProps> = (props) => {
 
 IconBase.displayName = 'IconBase';
 
-export function createSvgIcon(path: JSX.Element, displayName: string): React.ReactNode {
+export function createSvgIcon(path: JSX.Element, displayName: string) {
   const Icon = (props: IconBaseProps) => <IconBase {...props}>{path}</IconBase>;
 
   Icon.displayName = displayName;
@@ -69,7 +69,7 @@ export function createExtendedSvgIcon({
     [k: string]: unknown;
   };
   viewBox?: string;
-}): React.ReactNode {
+}) {
   const Icon = ({ text, textFill = 'white', textProps, ...props }: IconBaseProps) => (
     <IconBase viewBox={viewBox} {...props}>
       <g>
