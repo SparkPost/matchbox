@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
   children?: React.ReactNode;
@@ -13,8 +12,17 @@ interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
   textProps?: React.ComponentPropsWithoutRef<'text'>;
 }
 
-const IconBase: React.FC<IconBaseProps> = props => {
-  const { children, width, height, size, style, viewBox = '0 0 24 24', label, ...rest } = props;
+const IconBase: React.FC<IconBaseProps> = (props) => {
+  const {
+    children,
+    width,
+    height,
+    size = 18,
+    style,
+    viewBox = '0 0 24 24',
+    label,
+    ...rest
+  } = props;
 
   const styleProp = {
     verticalAlign: 'middle',
@@ -41,25 +49,7 @@ const IconBase: React.FC<IconBaseProps> = props => {
 
 IconBase.displayName = 'IconBase';
 
-IconBase.defaultProps = {
-  size: 18,
-};
-
-IconBase.propTypes = {
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  label: PropTypes.string,
-  viewBox: PropTypes.string,
-  /** FileType icon only */
-  text: PropTypes.string,
-  /** FileType icon only */
-  textFill: PropTypes.string,
-  /** FileType icon only */
-  textProps: PropTypes.object,
-};
-
-export function createSvgIcon(path: JSX.Element, displayName: string) {
+export function createSvgIcon(path: JSX.Element, displayName: string): React.ReactNode {
   const Icon = (props: IconBaseProps) => <IconBase {...props}>{path}</IconBase>;
 
   Icon.displayName = displayName;
@@ -75,9 +65,11 @@ export function createExtendedSvgIcon({
 }: {
   displayName: string;
   path: JSX.Element;
-  textContainer?: object;
+  textContainer?: {
+    [k: string]: unknown;
+  };
   viewBox?: string;
-}) {
+}): React.ReactNode {
   const Icon = ({ text, textFill = 'white', textProps, ...props }: IconBaseProps) => (
     <IconBase viewBox={viewBox} {...props}>
       <g>

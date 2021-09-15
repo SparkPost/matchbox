@@ -161,7 +161,7 @@ const Button = React.forwardRef(function Button(props, ref) {
     disabled,
     destructive, // Deprecate in favor of color
     loading,
-    loadingLabel,
+    loadingLabel = 'Loading',
 
     // Below 3 props to be deprecated for a 'variant' prop
     plain, // Deprecate in favor of flat
@@ -173,7 +173,7 @@ const Button = React.forwardRef(function Button(props, ref) {
     // Options
     // Renaming to prevent `width` and `height` pass through
     // Size is a valid styled-system prop
-    size: buttonSize,
+    size: buttonSize = 'default',
     fullWidth,
     submit,
 
@@ -291,9 +291,5 @@ const Button = React.forwardRef(function Button(props, ref) {
 Button.displayName = 'Button';
 Button.Group = Group;
 Button.Icon = Icon;
-Button.defaultProps = {
-  size: 'default',
-  loadingLabel: 'Loading',
-};
 
 export default Button;

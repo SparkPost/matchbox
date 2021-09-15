@@ -1,6 +1,5 @@
 import React from 'react';
 import { pick, omit } from '../../helpers/props';
-import { createPropTypes } from '@styled-system/prop-types';
 import { Close } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 import { Button } from '../Button';

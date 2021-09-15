@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Action from './Action';
 import { filterByVisible } from '../../helpers/array';
 
@@ -35,8 +34,5 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(
 });
 
 Section.displayName = 'ActionList.Section';
-Section.propTypes = {
-  children: PropTypes.node,
-};
 
 export default Section;

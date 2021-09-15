@@ -47,7 +47,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   props: BadgeProps,
   userRef,
 ) {
-  const { children, color, 'data-id': dataId, id, tabIndex, ...rest } = props;
+  const { children, color = 'lightGray', 'data-id': dataId, id, tabIndex, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
   return (
@@ -75,9 +75,5 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
 });
 
 Badge.displayName = 'Badge';
-
-Badge.defaultProps = {
-  color: 'lightGray',
-};
 
 export default Badge;
