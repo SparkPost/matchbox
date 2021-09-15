@@ -14,26 +14,26 @@ import { getWindow } from '../helpers/window';
 
 const QUERY = '(prefers-reduced-motion: reduce)';
 
-function usePrefersReducedMotion() {
+function usePrefersReducedMotion(): 'reduce' | 'no-preference' {
   const environment = getWindow();
 
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(
-    environment.matchMedia(QUERY).matches,
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(
+    environment.matchMedia(QUERY)['matches'],
   );
 
   React.useEffect(() => {
     const mql = environment.matchMedia(QUERY);
 
-    const listener = event => {
+    const listener = (event) => {
       setPrefersReducedMotion(event.matches);
     };
 
-    if (mql.addListener) {
+    if (mql && mql.addListener) {
       mql.addListener(listener);
     }
 
     return () => {
-      if (mql.removeListener) {
+      if (mql && mql.removeListener) {
         mql.removeListener(listener);
       }
     };
