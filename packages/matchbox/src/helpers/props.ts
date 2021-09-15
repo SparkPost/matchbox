@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Omits styled system props from an object
  * @param {Object} props
@@ -9,11 +10,11 @@
  * omit({ my: '100', className: 'classs' }, margin.propNames)
  *  > { className: 'class' }
  */
-export function omit(props, names) {
+export function omit(props: { [k: string]: any }, names: string[]): { [k: string]: any } {
   const next = {};
   const regex = new RegExp(`^(${names.join('|')})$`);
 
-  for (let key in props) {
+  for (const key in props) {
     if (regex.test(key)) continue;
     next[key] = props[key];
   }
@@ -31,11 +32,11 @@ export function omit(props, names) {
  * pick({ my: '100', py: '100' }, margin.propNames)
  *  > { my: '100' }
  */
-export function pick(props, names) {
+export function pick(props: { [k: string]: any }, names: string[]): { [k: string]: any } {
   const next = {};
   const regex = new RegExp(`^(${names.join('|')})$`);
 
-  for (let key in props) {
+  for (const key in props) {
     if (!regex.test(key)) continue;
     next[key] = props[key];
   }
@@ -49,7 +50,13 @@ export function pick(props, names) {
  *
  * @see https://styled-components.com/docs/api#shouldforwardprop
  */
-export function clean(arr = [], config = {}) {
+export function clean(
+  arr: string[] = [],
+  config: { [k: string]: any } = {},
+): {
+  shouldForwardProp: (prop: string, defaultFn: (prop: string) => boolean) => void;
+  [k: string]: any;
+} {
   return {
     shouldForwardProp: (prop, defaultFn) => !arr.includes(prop) && defaultFn(prop),
     ...config,
