@@ -32,6 +32,6 @@ export function identity<T>(a: T) {
   return a;
 }
 
-export function isNotTouchEvent<T extends HTMLElement>(e: React.TouchEvent<T>): boolean {
+export function isNotTouchEvent(e: TouchEvent): boolean {
   return e.touches.length > 1 || (e.type.toLowerCase() === 'touchend' && e.touches.length > 0);
 }
