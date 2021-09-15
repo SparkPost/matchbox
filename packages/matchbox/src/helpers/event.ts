@@ -3,7 +3,7 @@ import React from 'react';
 export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number,
-  immediate: boolean,
+  immediate?: boolean,
 ) {
   let timeout;
   return function(...rest) { // eslint-disable-line
