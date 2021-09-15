@@ -1,14 +1,14 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore :(
-import { Picture, Video } from '@sparkpost/matchbox';
-import { Banner } from '@sparkpost/matchbox';
+import { Banner, Picture, Video } from '@sparkpost/matchbox';
 
 import Image from '@sparkpost/matchbox-media/images/Accounts.jpg';
 import Analytics from '@sparkpost/matchbox-media/videos/Analytics.webm';
 import Analytics2 from '@sparkpost/matchbox-media/videos/Analytics.mp4';
 
-function noop() {}
+function noop() {
+  return null;
+}
 
 describe('Banner', () => {
   add('success Banner', () => {
@@ -22,7 +22,7 @@ describe('Banner', () => {
   add('default Banner', () => (
     <Banner title="Heads up!" onDismiss={noop}>
       <p>
-        If you're importing recipients from a previous provider, be sure to also{' '}
+        If you&apos;re importing recipients from a previous provider, be sure to also{' '}
         <a href="https://design.sparkpost.com">import your suppressions</a> later.
       </p>
     </Banner>
@@ -31,8 +31,8 @@ describe('Banner', () => {
   add('empty Banner', () => (
     <Banner status="muted" title="Sending Domains" onDismiss={noop}>
       <p>
-        Sending domains are used to indicate who an email is from via the "From:" header. DNS
-        records can be configured for a sending domain, which allows recipient mail servers to
+        Sending domains are used to indicate who an email is from via the &quot;From:&quot; header.
+        DNS records can be configured for a sending domain, which allows recipient mail servers to
         authenticate your messages.
       </p>
       <Banner.Action variant="outline" color="blue" onClick={noop}>
@@ -49,8 +49,8 @@ describe('Banner', () => {
   add('empty Banner with video', () => (
     <Banner status="muted" title="Sending Domains" onDismiss={noop}>
       <p>
-        Sending domains are used to indicate who an email is from via the "From:" header. DNS
-        records can be configured for a sending domain, which allows recipient mail servers to
+        Sending domains are used to indicate who an email is from via the &quot;From:&quot; header.
+        DNS records can be configured for a sending domain, which allows recipient mail servers to
         authenticate your messages.
       </p>
       <Banner.Action variant="outline" color="blue" onClick={noop}>
@@ -81,6 +81,7 @@ describe('Banner', () => {
         <a
           href="https://support.sparkpost.com/customer/portal/articles/1972209-ip-warm-up-overview"
           target="_blank"
+          rel="noreferrer"
         >
           IP Warm-up Overview article
         </a>{' '}

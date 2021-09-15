@@ -1,10 +1,11 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { useTabs } from '@sparkpost/matchbox';
-import { Tabs, Panel } from '@sparkpost/matchbox';
+import { Tabs, Panel, useTabs } from '@sparkpost/matchbox';
 
-const TestComponent = React.forwardRef<HTMLAnchorElement, any>(function TestComponent(props, ref) {
+const TestComponent = React.forwardRef<HTMLAnchorElement, unknown>(function TestComponent(
+  props,
+  ref,
+) {
   return <a ref={ref} {...props} href="#" />;
 });
 

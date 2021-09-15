@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { Stack, Box } from '@sparkpost/matchbox';
-import { Column, Columns } from '@sparkpost/matchbox';
+import { Column, Columns, Stack, Box } from '@sparkpost/matchbox';
 
 type DemoProps = {
   height?: string | number;

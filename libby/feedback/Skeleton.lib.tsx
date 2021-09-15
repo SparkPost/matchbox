@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { Stack, Panel } from '@sparkpost/matchbox';
-import { Skeleton } from '@sparkpost/matchbox';
+import { Skeleton, Stack, Panel } from '@sparkpost/matchbox';
 
 describe('Skeleton', () => {
   add('heading', () => (

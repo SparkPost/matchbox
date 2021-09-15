@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore :(
-import { Popover, Panel } from '@sparkpost/matchbox';
-import { Button, Inline, ActionList, Box } from '@sparkpost/matchbox';
+import { Button, Inline, ActionList, Box, Popover, Panel } from '@sparkpost/matchbox';
 
 type TestComponentProps = {
   foo?: 'bar' | 'baz';
