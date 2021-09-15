@@ -4,7 +4,14 @@ import { clamp } from './math';
 import { debounce } from './event';
 import { getWindow } from './window';
 
-export function getWindowRect() {
+export type WindowRect = {
+  top: number;
+  left: number;
+  height: number;
+  width: number;
+};
+
+export function getWindowRect(): WindowRect {
   const environment = getWindow();
   return {
     top: environment.scrollY,
@@ -14,11 +21,12 @@ export function getWindowRect() {
   };
 }
 
-export function getRectFor(node) {
-  const rect = findDOMNode(node);
+export function getRectFor(node?: React.ReactInstance): ClientRect {
+  // Need to update this soon since findDomNode is deprecated
+  const rect = findDOMNode(node) as Element; //eslint-disable-line
 
   if (!rect) {
-    return {};
+    return {} as ClientRect;
   }
 
   return rect.getBoundingClientRect();
@@ -29,7 +37,7 @@ export function getRectFor(node) {
  * @param  {number} [wait=100] Timer for debounced dimension calculation
  * @return {Shape}             Same results as `getWindowRect``
  */
-export function useWindowSize(wait = 100) {
+export function useWindowSize(wait = 100): WindowRect {
   const environment = getWindow();
   const [size, setSize] = React.useState(getWindowRect());
 
@@ -55,7 +63,12 @@ export function useWindowSize(wait = 100) {
  * top: true if component is in the bottom half of the screen
  * right: true if component in the left half of the screen
  */
-export function getPreferredDirectionFor(node) {
+export function getPreferredDirectionFor(node?: React.ReactInstance): {
+  top: boolean;
+  left: boolean;
+  right: boolean;
+  bottom: boolean;
+} {
   const windowRect = getWindowRect();
   const elementRect = getRectFor(node);
 
@@ -75,7 +88,7 @@ export function getPreferredDirectionFor(node) {
  * @param  {React Node} node
  * @return {Shape}
  */
-export function getPositionFor(node, { fixed = false } = {}) {
+export function getPositionFor(node?: React.ReactInstance, { fixed = false } = {}): WindowRect {
   const windowRect = getWindowRect();
   const elementRect = getRectFor(node);
 
@@ -97,7 +110,7 @@ export function getPositionFor(node, { fixed = false } = {}) {
  *   lerp(10, 20, 0.5)
  *   > 15
  */
-export function lerp(min, max, n) {
+export function lerp(min: number, max: number, n: number): number {
   const value = (max - min) * n + min;
   return clamp(value, min, max);
 }
@@ -105,6 +118,6 @@ export function lerp(min, max, n) {
 /**
  * Rounds a number to the nearest baseline ceiling
  */
-export function roundToBaseline(n, base = 4) {
+export function roundToBaseline(n: number, base = 4): number {
   return Math.ceil(n / base) * base;
 }
