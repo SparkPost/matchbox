@@ -111,7 +111,7 @@ const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(pr
     if (activatorRef && activatorRef.current) {
       const activatorElem = findFocusableChild(activatorRef.current) || activatorRef.current;
       activatorElem.setAttribute('aria-haspopup', 'true');
-      activatorElem.setAttribute('aria-expanded', Boolean(shouldBeOpen));
+      activatorElem.setAttribute('aria-expanded', Boolean(shouldBeOpen).toString());
     }
   }, [trigger, activatorRef, open, controlledOpen]);
 

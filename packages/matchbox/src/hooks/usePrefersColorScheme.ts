@@ -14,26 +14,26 @@ import { getWindow } from '../helpers/window';
 
 const QUERY = '(prefers-color-scheme: dark)';
 
-function usePrefersColorScheme() {
+function usePrefersColorScheme(): 'dark' | 'light' {
   const environment = getWindow();
 
   const [prefersColorScheme, setPrefersColorScheme] = React.useState(
-    environment.matchMedia(QUERY).matches,
+    environment.matchMedia(QUERY)['matches'],
   );
 
   React.useEffect(() => {
     const mql = environment.matchMedia(QUERY);
 
-    const listener = event => {
+    const listener = (event) => {
       setPrefersColorScheme(event.matches);
     };
 
-    if (mql.addListener) {
+    if (mql && mql.addListener) {
       mql.addListener(listener);
     }
 
     return () => {
-      if (mql.removeListener) {
+      if (mql && mql.removeListener) {
         mql.removeListener(listener);
       }
     };
