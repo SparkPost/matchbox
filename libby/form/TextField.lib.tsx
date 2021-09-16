@@ -1,9 +1,7 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import { TextField, Button, Tooltip, Stack } from '@sparkpost/matchbox';
-// @ts-ignore
-import { Select } from '@sparkpost/matchbox';
+import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
 
 describe('TextField', () => {
   add('basic usage', () => <TextField id="id" label="Name" placeholder="Leslie Knope" />);

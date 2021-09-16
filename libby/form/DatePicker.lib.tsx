@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { useBreakpoint } from '@sparkpost/matchbox';
-import { DatePicker } from '@sparkpost/matchbox';
+import { DatePicker, useBreakpoint } from '@sparkpost/matchbox';
 import { DateUtils } from 'react-day-picker';
 
 // @example

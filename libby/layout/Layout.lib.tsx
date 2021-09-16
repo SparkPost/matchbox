@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { Page, Panel, Box, Tag } from '@sparkpost/matchbox';
-import { Layout, Text, Columns, Column } from '@sparkpost/matchbox';
+import { Layout, Text, Columns, Column, Page, Panel, Box, Tag } from '@sparkpost/matchbox';
 
 function DemoBox({ children }) {
   return (

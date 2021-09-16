@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-// @ts-ignore
-import { Tooltip } from '@sparkpost/matchbox';
-import { Badge, Inline } from '../../packages/matchbox/src';
+import { Badge, Inline, Tooltip } from '../../packages/matchbox/src';
 
 describe('Badge', () => {
   add('default', () => <Badge>50</Badge>);

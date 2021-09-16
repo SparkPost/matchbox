@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Box, Drawer, Button } from '@sparkpost/matchbox';
-// @ts-ignore
-import { useDrawer, Tabs } from '@sparkpost/matchbox';
+import { Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
 
 describe('Drawer', () => {
   add('example drawer', () => {

@@ -1,8 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Pager } from '@sparkpost/matchbox';
-// @ts-ignore
-import { Box } from '@sparkpost/matchbox';
+import { Box, Pager } from '@sparkpost/matchbox';
 
 describe('Pager', () => {
   add('basic usage', () => (
