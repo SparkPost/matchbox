@@ -27,9 +27,7 @@
     "prepublishOnly": "npm run build",
     "watch": "rollup -cw"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"

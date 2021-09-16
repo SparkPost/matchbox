@@ -24,14 +24,26 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(function Da
   props,
   ref,
 ) {
+  const {
+    fixedWeeks = false,
+    enableOutsideDaysClick = false,
+    numberOfMonths = 2,
+    showOutsideDays = false,
+    ...rest
+  } = props;
+
   const systemProps = pick(props);
-  const componentProps = omit(props, margin.propNames);
+  const componentProps = omit(rest, margin.propNames);
 
   return (
-    <Wrapper ref={ref} {...systemProps} data-id="datepicker" numberOfMonths={props.numberOfMonths}>
+    <Wrapper ref={ref} {...systemProps} data-id="datepicker" numberOfMonths={numberOfMonths}>
       <DayPicker
         captionElement={Caption}
         weekdayElement={Weekday}
+        numberOfMonths={numberOfMonths}
+        enableOutsideDaysClick={enableOutsideDaysClick}
+        showOutsideDays={showOutsideDays}
+        fixedWeeks={fixedWeeks}
         renderDay={renderDay}
         navbarElement={Navbar}
         {...componentProps}
@@ -41,11 +53,5 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(function Da
 });
 
 DatePicker.displayName = 'DatePicker';
-DatePicker.defaultProps = {
-  fixedWeeks: false,
-  enableOutsideDaysClick: false,
-  numberOfMonths: 2,
-  showOutsideDays: false,
-};
 
 export default DatePicker;

@@ -6,7 +6,7 @@ import pkg from '../package.json';
 export const inputOptions = {
   input: 'src/index.ts',
   plugins: [...jsPlugins],
-  external: ['react', 'react-dom', 'prop-types'],
+  external: ['react', 'react-dom'],
 };
 
 export const outputOptions = [

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { tokens } from '@sparkpost/design-tokens';
 import { Label } from '../Label';
 import { Error } from '../Error';

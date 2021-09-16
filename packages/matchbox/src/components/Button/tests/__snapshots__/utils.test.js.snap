@@ -3,8 +3,6 @@
 exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
 <Button
   foo="bar"
-  loadingLabel="Loading"
-  size="default"
   type="submit"
 >
   <span>
@@ -16,8 +14,6 @@ exports[`Button Utils buttonFrom passes any custom overrides 1`] = `
 exports[`Button Utils buttonFrom renders correctly 1`] = `
 <Button
   disabled={false}
-  loadingLabel="Loading"
-  size="default"
 >
   <span>
     button content
@@ -35,8 +31,6 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
         </span>,
       }
     }
-    loadingLabel="Loading"
-    size="default"
   >
     <span>
       button 1 content
@@ -44,8 +38,6 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
   </Button>
   <Button
     action={Object {}}
-    loadingLabel="Loading"
-    size="default"
   >
     <span>
       button 2 content

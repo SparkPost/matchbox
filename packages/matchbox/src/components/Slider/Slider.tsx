@@ -113,12 +113,12 @@ function Slider(props: SliderProps): JSX.Element {
     defaultValue,
     disabled,
     id,
-    max,
-    min,
+    max = 100,
+    min = 0,
     onBlur,
     onFocus,
     onChange,
-    precision,
+    precision = 0,
     ticks,
     value,
     ...rest
@@ -346,11 +346,5 @@ function Slider(props: SliderProps): JSX.Element {
 }
 
 Slider.displayName = 'Slider';
-
-Slider.defaultProps = {
-  min: 0,
-  max: 100,
-  precision: 0,
-};
 
 export default Slider;

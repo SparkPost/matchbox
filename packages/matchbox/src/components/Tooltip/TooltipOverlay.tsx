@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Portal, PortalProps } from '../Portal';
 import { WindowEvent } from '../WindowEvent';
 import { getPositionFor, getPreferredDirectionFor } from '../../helpers/geometry';
@@ -94,9 +93,5 @@ function TooltipOverlay(props: TooltipOverlayProps): JSX.Element {
 }
 
 TooltipOverlay.displayName = 'TooltipOverlay';
-TooltipOverlay.propTypes = {
-  renderActivator: PropTypes.func.isRequired,
-  renderTooltip: PropTypes.func.isRequired,
-};
 
 export default TooltipOverlay;

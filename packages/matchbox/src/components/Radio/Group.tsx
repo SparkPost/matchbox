@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../Box';
 import { Label } from '../Label';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
-import { createPropTypes } from '@styled-system/prop-types';
 import styled from 'styled-components';
 import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
