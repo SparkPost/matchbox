@@ -1,399 +1,258 @@
+
 ## 6.0.0 (2021-09-17)
 
 #### Features
-
-- `matchbox`
-  - [#978](https://github.com/SparkPost/matchbox/pull/978) UX-679 convert event helpers to
-    typescript ([@logansparlin](https://github.com/logansparlin))
-  - [#983](https://github.com/SparkPost/matchbox/pull/983) UX-684 Convert prop helpers to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#981](https://github.com/SparkPost/matchbox/pull/981) UX-626 Convert Grid to typescript, Add
-    grid stories back in ([@jonambas](https://github.com/jonambas))
-  - [#984](https://github.com/SparkPost/matchbox/pull/984) UX-686 convert string helper to
-    typescript ([@logansparlin](https://github.com/logansparlin))
-  - [#979](https://github.com/SparkPost/matchbox/pull/979) UX-682 Convert keyEvent helpers to
-    typescript ([@jonambas](https://github.com/jonambas))
-  - [#977](https://github.com/SparkPost/matchbox/pull/977) UX-677 Convert array helpers to
-    typescript ([@jonambas](https://github.com/jonambas))
-  - [#980](https://github.com/SparkPost/matchbox/pull/980) UX-683 Convert math helpers to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#969](https://github.com/SparkPost/matchbox/pull/969) UX-671 convert useModal to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#965](https://github.com/SparkPost/matchbox/pull/965) UX-619 convert ComboBox to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#982](https://github.com/SparkPost/matchbox/pull/982) UX-681 convert geometry helpers to
-    typescript ([@logansparlin](https://github.com/logansparlin))
-  - [#966](https://github.com/SparkPost/matchbox/pull/966) UX-664 convert Video to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#967](https://github.com/SparkPost/matchbox/pull/967) UX-666 😈 Convert useBreakpoint to
-    typescript ([@logansparlin](https://github.com/logansparlin))
-  - [#968](https://github.com/SparkPost/matchbox/pull/968) UX-668 Convert useDrawer to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#961](https://github.com/SparkPost/matchbox/pull/961) UX-646 Convert RadioCard to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#962](https://github.com/SparkPost/matchbox/pull/962) UX-660 Convert TimelineTabs to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#957](https://github.com/SparkPost/matchbox/pull/957) UX-650 Convert Slider to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#963](https://github.com/SparkPost/matchbox/pull/963) UX-667 Convert useCopyToClipboard to
-    typescript ([@jonambas](https://github.com/jonambas))
-  - [#960](https://github.com/SparkPost/matchbox/pull/960) UX-645 convert Radio to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#959](https://github.com/SparkPost/matchbox/pull/959) UX-630 convert KeyboardKey to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#958](https://github.com/SparkPost/matchbox/pull/958) UX-635 Convert modal to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#955](https://github.com/SparkPost/matchbox/pull/955) UX-658 Convert TextField to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#947](https://github.com/SparkPost/matchbox/pull/947) UX-655, UX-674 Convert Tabs to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#953](https://github.com/SparkPost/matchbox/pull/953) UX-622 Convert Drawer to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#954](https://github.com/SparkPost/matchbox/pull/954) UX-634 Convert ListBox to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#949](https://github.com/SparkPost/matchbox/pull/949) UX-661 Convert Toggle to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#950](https://github.com/SparkPost/matchbox/pull/950) UX-647 Convert ScreenReaderOnly to
-    typescript ([@jonambas](https://github.com/jonambas))
-  - [#943](https://github.com/SparkPost/matchbox/pull/943) UX-654 Convert Table to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#944](https://github.com/SparkPost/matchbox/pull/944) UX-637 Convert Page to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#941](https://github.com/SparkPost/matchbox/pull/941) UX-623 Convert EmptyState to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#940](https://github.com/SparkPost/matchbox/pull/940) UX-659 Convert Tooltip to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#946](https://github.com/SparkPost/matchbox/pull/946) UX-641 Convert Picture to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#938](https://github.com/SparkPost/matchbox/pull/938) UX-656 Convert Tag to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#933](https://github.com/SparkPost/matchbox/pull/933) UX-625 Convert Expandable to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#932](https://github.com/SparkPost/matchbox/pull/932) UX-665, UX-687 Converts WindowEvent and
-    window helpers to typescript ([@jonambas](https://github.com/jonambas))
-  - [#937](https://github.com/SparkPost/matchbox/pull/937) UX-642 convert Popover to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#931](https://github.com/SparkPost/matchbox/pull/931) UX-659 Convert ThemeProvider to
-    typescript. Fixes various styled-component issues. Fixes focusable behavior on Actionlist
-    Actions. ([@jonambas](https://github.com/jonambas))
-  - [#936](https://github.com/SparkPost/matchbox/pull/936) UX-632 convert LabelValue to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#935](https://github.com/SparkPost/matchbox/pull/935) UX-644 convert ProgressBar to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#934](https://github.com/SparkPost/matchbox/pull/934) UX-616 convert CodeBlock to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#928](https://github.com/SparkPost/matchbox/pull/928) UX-663 Convert UnstyledLink to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#927](https://github.com/SparkPost/matchbox/pull/927) UX-639 Convert Pagination to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#921](https://github.com/SparkPost/matchbox/pull/921) UX-653 Convert Stack to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#929](https://github.com/SparkPost/matchbox/pull/929) UX-643 Convert Portal to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#922](https://github.com/SparkPost/matchbox/pull/922) UX-624 Convert Error label component to
-    typescript, Deprecates `error` prop ([@jonambas](https://github.com/jonambas))
-  - [#926](https://github.com/SparkPost/matchbox/pull/926) UX-620 Convert Connect to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#923](https://github.com/SparkPost/matchbox/pull/923) UX-640 Convert Panel to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#924](https://github.com/SparkPost/matchbox/pull/924) UX-629 convert InlineCode to typescript
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#917](https://github.com/SparkPost/matchbox/pull/917) UX-633, UX-617, UX-618 Convert Layout,
-    Columns and Column components to TypeScript ([@logansparlin](https://github.com/logansparlin))
-  - [#913](https://github.com/SparkPost/matchbox/pull/913) UX-611 Convert Badge to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#915](https://github.com/SparkPost/matchbox/pull/915) UX-638 Convert Pager to typescript, Fixes
-    Pager.Previous margin prop ([@jonambas](https://github.com/jonambas))
-  - [#914](https://github.com/SparkPost/matchbox/pull/914) UX-649 UX-613 Convert Skeleton and Box to
-    ts ([@jonambas](https://github.com/jonambas))
-  - [#911](https://github.com/SparkPost/matchbox/pull/911) UX-614 Convert Inline to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#909](https://github.com/SparkPost/matchbox/pull/909) UX-652 Convert Spinner to ts, Specifies
-    width and height system props ([@jonambas](https://github.com/jonambas))
-  - [#912](https://github.com/SparkPost/matchbox/pull/912) UX-612, UX-657 Convert Banner and Text
-    components to TypeScript ([@logansparlin](https://github.com/logansparlin))
-  - [#908](https://github.com/SparkPost/matchbox/pull/908) UX-614 Convert Button to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#889](https://github.com/SparkPost/matchbox/pull/889) UX-500 Add new `position` prop to
-    `Popover` ([@jonambas](https://github.com/jonambas))
-- `design-tokens`
-  - [#952](https://github.com/SparkPost/matchbox/pull/952) UX-691 Update 850 token to 6 rem
-    ([@jonambas](https://github.com/jonambas))
-  - [#948](https://github.com/SparkPost/matchbox/pull/948) UX-690 Add spacing and sizing 850
-    ([@jonambas](https://github.com/jonambas))
-- `matchbox-icons`, `matchbox`
-  - [#907](https://github.com/SparkPost/matchbox/pull/907) UX-610 Convert ActionList to typescript
-    ([@jonambas](https://github.com/jonambas))
-  - [#905](https://github.com/SparkPost/matchbox/pull/905) UX-608 Setup typescript in matchbox
-    ([@jonambas](https://github.com/jonambas))
-- `matchbox-icons`
-  - [#901](https://github.com/SparkPost/matchbox/pull/901) UX-607 Setup typescript in matchbox-icons
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#978](https://github.com/SparkPost/matchbox/pull/978) UX-679 convert event helpers to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#983](https://github.com/SparkPost/matchbox/pull/983) UX-684 Convert prop helpers to typescript ([@jonambas](https://github.com/jonambas))
+  * [#981](https://github.com/SparkPost/matchbox/pull/981) UX-626 Convert Grid to typescript, Add grid stories back in ([@jonambas](https://github.com/jonambas))
+  * [#984](https://github.com/SparkPost/matchbox/pull/984) UX-686 convert string helper to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#979](https://github.com/SparkPost/matchbox/pull/979) UX-682 Convert keyEvent helpers to typescript ([@jonambas](https://github.com/jonambas))
+  * [#977](https://github.com/SparkPost/matchbox/pull/977) UX-677 Convert array helpers to typescript ([@jonambas](https://github.com/jonambas))
+  * [#980](https://github.com/SparkPost/matchbox/pull/980) UX-683 Convert math helpers to typescript ([@jonambas](https://github.com/jonambas))
+  * [#969](https://github.com/SparkPost/matchbox/pull/969) UX-671 convert useModal to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#965](https://github.com/SparkPost/matchbox/pull/965) UX-619 convert ComboBox to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#982](https://github.com/SparkPost/matchbox/pull/982) UX-681 convert geometry helpers to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#966](https://github.com/SparkPost/matchbox/pull/966) UX-664 convert Video to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#967](https://github.com/SparkPost/matchbox/pull/967) UX-666 😈 Convert useBreakpoint to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#968](https://github.com/SparkPost/matchbox/pull/968) UX-668 Convert useDrawer to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#961](https://github.com/SparkPost/matchbox/pull/961) UX-646 Convert RadioCard to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#962](https://github.com/SparkPost/matchbox/pull/962) UX-660 Convert TimelineTabs to typescript ([@jonambas](https://github.com/jonambas))
+  * [#957](https://github.com/SparkPost/matchbox/pull/957) UX-650 Convert Slider to typescript ([@jonambas](https://github.com/jonambas))
+  * [#963](https://github.com/SparkPost/matchbox/pull/963) UX-667 Convert useCopyToClipboard to typescript ([@jonambas](https://github.com/jonambas))
+  * [#960](https://github.com/SparkPost/matchbox/pull/960) UX-645 convert Radio to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#959](https://github.com/SparkPost/matchbox/pull/959) UX-630 convert KeyboardKey to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#958](https://github.com/SparkPost/matchbox/pull/958) UX-635 Convert modal to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#955](https://github.com/SparkPost/matchbox/pull/955) UX-658 Convert TextField to typescript ([@jonambas](https://github.com/jonambas))
+  * [#947](https://github.com/SparkPost/matchbox/pull/947) UX-655, UX-674 Convert Tabs to typescript ([@jonambas](https://github.com/jonambas))
+  * [#953](https://github.com/SparkPost/matchbox/pull/953) UX-622 Convert Drawer to typescript ([@jonambas](https://github.com/jonambas))
+  * [#954](https://github.com/SparkPost/matchbox/pull/954) UX-634 Convert ListBox to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#949](https://github.com/SparkPost/matchbox/pull/949) UX-661 Convert Toggle to typescript ([@jonambas](https://github.com/jonambas))
+  * [#950](https://github.com/SparkPost/matchbox/pull/950) UX-647 Convert ScreenReaderOnly to typescript ([@jonambas](https://github.com/jonambas))
+  * [#943](https://github.com/SparkPost/matchbox/pull/943) UX-654 Convert Table to typescript ([@jonambas](https://github.com/jonambas))
+  * [#944](https://github.com/SparkPost/matchbox/pull/944) UX-637 Convert Page to typescript ([@jonambas](https://github.com/jonambas))
+  * [#941](https://github.com/SparkPost/matchbox/pull/941) UX-623 Convert EmptyState to typescript ([@jonambas](https://github.com/jonambas))
+  * [#940](https://github.com/SparkPost/matchbox/pull/940) UX-659 Convert Tooltip to typescript ([@jonambas](https://github.com/jonambas))
+  * [#946](https://github.com/SparkPost/matchbox/pull/946) UX-641 Convert Picture to typescript ([@jonambas](https://github.com/jonambas))
+  * [#938](https://github.com/SparkPost/matchbox/pull/938) UX-656 Convert Tag to typescript ([@jonambas](https://github.com/jonambas))
+  * [#933](https://github.com/SparkPost/matchbox/pull/933) UX-625 Convert Expandable to typescript ([@jonambas](https://github.com/jonambas))
+  * [#932](https://github.com/SparkPost/matchbox/pull/932) UX-665, UX-687 Converts WindowEvent and window helpers to typescript ([@jonambas](https://github.com/jonambas))
+  * [#937](https://github.com/SparkPost/matchbox/pull/937) UX-642 convert Popover to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#931](https://github.com/SparkPost/matchbox/pull/931) UX-659 Convert ThemeProvider to typescript. Fixes various styled-component issues. Fixes focusable behavior on Actionlist Actions. ([@jonambas](https://github.com/jonambas))
+  * [#936](https://github.com/SparkPost/matchbox/pull/936) UX-632 convert LabelValue to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#935](https://github.com/SparkPost/matchbox/pull/935) UX-644 convert ProgressBar to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#934](https://github.com/SparkPost/matchbox/pull/934) UX-616 convert CodeBlock to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#928](https://github.com/SparkPost/matchbox/pull/928) UX-663 Convert UnstyledLink to typescript ([@jonambas](https://github.com/jonambas))
+  * [#927](https://github.com/SparkPost/matchbox/pull/927) UX-639 Convert Pagination to typescript ([@jonambas](https://github.com/jonambas))
+  * [#921](https://github.com/SparkPost/matchbox/pull/921) UX-653 Convert Stack to typescript ([@jonambas](https://github.com/jonambas))
+  * [#929](https://github.com/SparkPost/matchbox/pull/929) UX-643 Convert Portal to typescript ([@jonambas](https://github.com/jonambas))
+  * [#922](https://github.com/SparkPost/matchbox/pull/922) UX-624 Convert Error label component to typescript, Deprecates `error` prop ([@jonambas](https://github.com/jonambas))
+  * [#926](https://github.com/SparkPost/matchbox/pull/926) UX-620 Convert Connect to typescript ([@jonambas](https://github.com/jonambas))
+  * [#923](https://github.com/SparkPost/matchbox/pull/923) UX-640 Convert Panel to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#924](https://github.com/SparkPost/matchbox/pull/924) UX-629 convert InlineCode to typescript ([@logansparlin](https://github.com/logansparlin))
+  * [#917](https://github.com/SparkPost/matchbox/pull/917) UX-633, UX-617, UX-618 Convert Layout, Columns and Column components to TypeScript ([@logansparlin](https://github.com/logansparlin))
+  * [#913](https://github.com/SparkPost/matchbox/pull/913) UX-611 Convert Badge to typescript ([@jonambas](https://github.com/jonambas))
+  * [#915](https://github.com/SparkPost/matchbox/pull/915) UX-638 Convert Pager to typescript, Fixes Pager.Previous margin prop ([@jonambas](https://github.com/jonambas))
+  * [#914](https://github.com/SparkPost/matchbox/pull/914) UX-649 UX-613 Convert Skeleton and Box to ts ([@jonambas](https://github.com/jonambas))
+  * [#911](https://github.com/SparkPost/matchbox/pull/911) UX-614 Convert Inline to typescript ([@jonambas](https://github.com/jonambas))
+  * [#909](https://github.com/SparkPost/matchbox/pull/909) UX-652 Convert Spinner to ts, Specifies width and height system props ([@jonambas](https://github.com/jonambas))
+  * [#912](https://github.com/SparkPost/matchbox/pull/912) UX-612, UX-657 Convert Banner and Text components to TypeScript ([@logansparlin](https://github.com/logansparlin))
+  * [#908](https://github.com/SparkPost/matchbox/pull/908) UX-614 Convert Button to typescript ([@jonambas](https://github.com/jonambas))
+  * [#889](https://github.com/SparkPost/matchbox/pull/889) UX-500 Add new `position` prop to `Popover` ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#952](https://github.com/SparkPost/matchbox/pull/952) UX-691 Update 850 token to 6 rem ([@jonambas](https://github.com/jonambas))
+  * [#948](https://github.com/SparkPost/matchbox/pull/948) UX-690 Add spacing and sizing 850 ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`, `matchbox`
+  * [#907](https://github.com/SparkPost/matchbox/pull/907) UX-610 Convert ActionList to typescript ([@jonambas](https://github.com/jonambas))
+  * [#905](https://github.com/SparkPost/matchbox/pull/905) UX-608 Setup typescript in matchbox ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`
+  * [#901](https://github.com/SparkPost/matchbox/pull/901) UX-607 Setup typescript in matchbox-icons ([@jonambas](https://github.com/jonambas))
 
 #### Enhancements
-
-- `matchbox`
-  - [#891](https://github.com/SparkPost/matchbox/pull/891) UX-599 Restyle Tabs and Page header
-    components ([@jonambas](https://github.com/jonambas))
-  - [#892](https://github.com/SparkPost/matchbox/pull/892) UX-598 Restyle large Banners
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#891](https://github.com/SparkPost/matchbox/pull/891) UX-599 Restyle Tabs and Page header components ([@jonambas](https://github.com/jonambas))
+  * [#892](https://github.com/SparkPost/matchbox/pull/892) UX-598 Restyle large Banners ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
 
 ## 5.5.0 (2021-07-27)
 
 #### Features
-
-- `matchbox`
-  - [#895](https://github.com/SparkPost/matchbox/pull/895) Closes
-    [#894](https://github.com/SparkPost/matchbox/issues/894) Support color in panel actions
-    ([@jonambas](https://github.com/jonambas))
-- `matchbox-icons`
-  - [#893](https://github.com/SparkPost/matchbox/pull/893) UX-601 Add CloseCircleOutline icon
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#895](https://github.com/SparkPost/matchbox/pull/895) Closes [#894](https://github.com/SparkPost/matchbox/issues/894) Support color in panel actions ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`
+  * [#893](https://github.com/SparkPost/matchbox/pull/893) UX-601 Add CloseCircleOutline icon ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
-
 ## 5.4.0 (2021-07-07)
 
 #### Enhancements
-
-- `matchbox`
-  - [#884](https://github.com/SparkPost/matchbox/pull/884) Closes
-    [#879](https://github.com/SparkPost/matchbox/issues/879) & #880 – Support data-id and className
-    in input groups ([@jonambas](https://github.com/jonambas))
-- `matchbox-icons`
-  - [#877](https://github.com/SparkPost/matchbox/pull/877) UX-583 add LinkedInSimple icon
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#876](https://github.com/SparkPost/matchbox/pull/876) UX-582 add FacebookSimple icon
-    ([@logansparlin](https://github.com/logansparlin))
+* `matchbox`
+  * [#884](https://github.com/SparkPost/matchbox/pull/884) Closes [#879](https://github.com/SparkPost/matchbox/issues/879) & #880 – Support data-id and className in input groups ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`
+  * [#877](https://github.com/SparkPost/matchbox/pull/877) UX-583 add LinkedInSimple icon ([@logansparlin](https://github.com/logansparlin))
+  * [#876](https://github.com/SparkPost/matchbox/pull/876) UX-582 add FacebookSimple icon ([@logansparlin](https://github.com/logansparlin))
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#886](https://github.com/SparkPost/matchbox/pull/886) UX-584 Fix Popover Overlay bug
-    ([@logansparlin](https://github.com/logansparlin))
-  - [#882](https://github.com/SparkPost/matchbox/pull/882) Resloves #878 Fix error label icon
-    alignment ([@jonambas](https://github.com/jonambas))
-  - [#875](https://github.com/SparkPost/matchbox/pull/875) UX-581 Fix Inline child being excluded
-    from Banner component ([@logansparlin](https://github.com/logansparlin))
-  - [#868](https://github.com/SparkPost/matchbox/pull/868) UX-567 Fix floated optional labels
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#886](https://github.com/SparkPost/matchbox/pull/886) UX-584 Fix Popover Overlay bug ([@logansparlin](https://github.com/logansparlin))
+  * [#882](https://github.com/SparkPost/matchbox/pull/882) Resloves #878 Fix error label icon alignment ([@jonambas](https://github.com/jonambas))
+  * [#875](https://github.com/SparkPost/matchbox/pull/875) UX-581 Fix Inline child being excluded from Banner component ([@logansparlin](https://github.com/logansparlin))
+  * [#868](https://github.com/SparkPost/matchbox/pull/868) UX-567 Fix floated optional labels ([@jonambas](https://github.com/jonambas))
 
 #### Security
-
-- `matchbox-media`
-  - [#885](https://github.com/SparkPost/matchbox/pull/885) UX-589 Remove webp conversion script
-    ([@jonambas](https://github.com/jonambas))
-- `design-tokens`, `matchbox-icons`, `matchbox`
-  - [#881](https://github.com/SparkPost/matchbox/pull/881) UX-587 Resolve security dependabot alerts
-    ([@jonambas](https://github.com/jonambas))
-- `design-tokens`
-  - [#867](https://github.com/SparkPost/matchbox/pull/867) UX-568 Use theo instead of gulp-theo
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox-media`
+  * [#885](https://github.com/SparkPost/matchbox/pull/885) UX-589 Remove webp conversion script ([@jonambas](https://github.com/jonambas))
+* `design-tokens`, `matchbox-icons`, `matchbox`
+  * [#881](https://github.com/SparkPost/matchbox/pull/881) UX-587 Resolve security dependabot alerts ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#867](https://github.com/SparkPost/matchbox/pull/867) UX-568 Use theo instead of gulp-theo ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 
 ## 5.3.0 (2021-06-10)
 
 #### Features
-
-- `matchbox`
-  - [#864](https://github.com/SparkPost/matchbox/pull/864) UX-565 Massively change ActionList and
-    Popover interactions ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#864](https://github.com/SparkPost/matchbox/pull/864) UX-565 Massively change ActionList and Popover interactions ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.2.1 (2021-06-03)
 
 #### Features
-
-- `design-tokens`
-  - [#863](https://github.com/SparkPost/matchbox/pull/863) Add system prop names to meta
-    ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#863](https://github.com/SparkPost/matchbox/pull/863) Add system prop names to meta ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.2.0 (2021-06-02)
 
 #### Features
-
-- `matchbox`
-  - [#853](https://github.com/SparkPost/matchbox/pull/853) UX-533 Support popovers in frozen columns
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#853](https://github.com/SparkPost/matchbox/pull/853) UX-533 Support popovers in frozen columns ([@jonambas](https://github.com/jonambas))
 
 #### Enhancements
-
-- `matchbox`
-  - [#851](https://github.com/SparkPost/matchbox/pull/851) UX-530 Lower default tooltip sizing
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#851](https://github.com/SparkPost/matchbox/pull/851) UX-530 Lower default tooltip sizing ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#862](https://github.com/SparkPost/matchbox/pull/862) Closes
-    [#858](https://github.com/SparkPost/matchbox/issues/858) Update rowSpan and colSpan proptypes
-    ([@jonambas](https://github.com/jonambas))
-  - [#854](https://github.com/SparkPost/matchbox/pull/854) UX-538 Fix controlled Listboxes
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#862](https://github.com/SparkPost/matchbox/pull/862) Closes [#858](https://github.com/SparkPost/matchbox/issues/858) Update rowSpan and colSpan proptypes ([@jonambas](https://github.com/jonambas))
+  * [#854](https://github.com/SparkPost/matchbox/pull/854) UX-538 Fix controlled Listboxes ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.1.5 (2021-05-11)
 
 #### Enhancements
-
-- `matchbox`
-  - [#850](https://github.com/SparkPost/matchbox/pull/850) UX-531 Support tracking on ListBox and
-    RadioCard ([@jonambas](https://github.com/jonambas))
-  - [#839](https://github.com/SparkPost/matchbox/pull/839) UX-516 Lower small button padding-x to
-    300 ([@jonambas](https://github.com/jonambas))
-  - [#829](https://github.com/SparkPost/matchbox/pull/829) UX-508 Remove visual indicator for
-    required fields ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#850](https://github.com/SparkPost/matchbox/pull/850) UX-531 Support tracking on ListBox and RadioCard ([@jonambas](https://github.com/jonambas))
+  * [#839](https://github.com/SparkPost/matchbox/pull/839) UX-516 Lower small button padding-x to 300 ([@jonambas](https://github.com/jonambas))
+  * [#829](https://github.com/SparkPost/matchbox/pull/829) UX-508 Remove visual indicator for required fields ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#846](https://github.com/SparkPost/matchbox/pull/846) issue-836 Sliders should no longer trap
-    focus ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#846](https://github.com/SparkPost/matchbox/pull/846) issue-836 Sliders should no longer trap focus ([@jonambas](https://github.com/jonambas))
 
 #### Security
-
-- [#847](https://github.com/SparkPost/matchbox/pull/847) UX-528 Resolve xmlhttprequest-ssl
-  vulnerabilities ([@jonambas](https://github.com/jonambas))
+* [#847](https://github.com/SparkPost/matchbox/pull/847) UX-528 Resolve xmlhttprequest-ssl vulnerabilities ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.1.4 (2021-05-05)
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#835](https://github.com/SparkPost/matchbox/pull/835) UX-518 prevent form from submitting when
-    ListBox value is changed ([@logansparlin](https://github.com/logansparlin))
-  - [#834](https://github.com/SparkPost/matchbox/pull/834) UX-517 Fix wrapping and alignment on
-    Slider ticks ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#835](https://github.com/SparkPost/matchbox/pull/835) UX-518 prevent form from submitting when ListBox value is changed ([@logansparlin](https://github.com/logansparlin))
+  * [#834](https://github.com/SparkPost/matchbox/pull/834) UX-517 Fix wrapping and alignment on Slider ticks ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 2
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 - Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
 
 ## 5.1.3 (2021-04-29)
 
 #### Enhancements
-
-- `matchbox-icons`, `matchbox`
-  - [#832](https://github.com/SparkPost/matchbox/pull/832) UX-505 Upgrade build dependencies
-    ([@jonambas](https://github.com/jonambas))
-- `matchbox`
-  - [#828](https://github.com/SparkPost/matchbox/pull/828) UX-511 Correctly pass through props to
-    Toggle input ([@jonambas](https://github.com/jonambas))
+* `matchbox-icons`, `matchbox`
+  * [#832](https://github.com/SparkPost/matchbox/pull/832) UX-505 Upgrade build dependencies ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#828](https://github.com/SparkPost/matchbox/pull/828) UX-511 Correctly pass through props to Toggle input ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#831](https://github.com/SparkPost/matchbox/pull/831) UX-512 Resolve circular dependency
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#831](https://github.com/SparkPost/matchbox/pull/831) UX-512 Resolve circular dependency ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.1.2 (2021-04-23)
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#827](https://github.com/SparkPost/matchbox/pull/827) UX-510 Fix Popover activators being
-    focused by default ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#827](https://github.com/SparkPost/matchbox/pull/827) UX-510 Fix Popover activators being focused by default ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.1.1 (2021-04-21)
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#826](https://github.com/SparkPost/matchbox/pull/826) 5.1.1-Hotfix: Fix wrapping of content in
-    Sort Button ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#826](https://github.com/SparkPost/matchbox/pull/826) 5.1.1-Hotfix: Fix wrapping of content in Sort Button ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
+
 
 ## 5.1.0 (2021-04-21)
 
 #### Features
-
-- `matchbox`
-  - [#817](https://github.com/SparkPost/matchbox/pull/817) Closes
-    [#811](https://github.com/SparkPost/matchbox/issues/811) Support Label htmlFor
-    ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#817](https://github.com/SparkPost/matchbox/pull/817) Closes [#811](https://github.com/SparkPost/matchbox/issues/811) Support Label htmlFor ([@jonambas](https://github.com/jonambas))
 
 #### Enhancements
-
-- `matchbox`
-  - [#824](https://github.com/SparkPost/matchbox/pull/824) UX-504 Lower CodeBlock font size, Hide
-    scrollbars ([@jonambas](https://github.com/jonambas))
-  - [#822](https://github.com/SparkPost/matchbox/pull/822) UX-502 Add name id and data attributes to
-    hidden field in Listbox ([@jonambas](https://github.com/jonambas))
-  - [#819](https://github.com/SparkPost/matchbox/pull/819) UX-499 Harden Badge unit testing
-    ([@jonambas](https://github.com/jonambas))
-  - [#818](https://github.com/SparkPost/matchbox/pull/818) UX-491 Pass through data-id to all
-    Skeletons, Prevent rendering children ([@jonambas](https://github.com/jonambas))
-  - [#816](https://github.com/SparkPost/matchbox/pull/816) Closes
-    [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label
-    prop ([@jonambas](https://github.com/jonambas))
-  - [#815](https://github.com/SparkPost/matchbox/pull/815) UX-489 Remove indent on RadioCard
-    component ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#824](https://github.com/SparkPost/matchbox/pull/824) UX-504 Lower CodeBlock font size, Hide scrollbars ([@jonambas](https://github.com/jonambas))
+  * [#822](https://github.com/SparkPost/matchbox/pull/822) UX-502 Add name id and data attributes to hidden field in Listbox ([@jonambas](https://github.com/jonambas))
+  * [#819](https://github.com/SparkPost/matchbox/pull/819) UX-499 Harden Badge unit testing ([@jonambas](https://github.com/jonambas))
+  * [#818](https://github.com/SparkPost/matchbox/pull/818) UX-491 Pass through data-id to all Skeletons, Prevent rendering children ([@jonambas](https://github.com/jonambas))
+  * [#816](https://github.com/SparkPost/matchbox/pull/816) Closes [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label prop ([@jonambas](https://github.com/jonambas))
+  * [#815](https://github.com/SparkPost/matchbox/pull/815) UX-489 Remove indent on RadioCard component ([@jonambas](https://github.com/jonambas))
 
 #### Bug Fixes
-
-- `matchbox`
-  - [#823](https://github.com/SparkPost/matchbox/pull/823) UX-503 Adds new `align` prop to Cell and
-    HeaderCell ([@jonambas](https://github.com/jonambas))
-  - [#825](https://github.com/SparkPost/matchbox/pull/825) UX-507 Pass through all ActionList props
-    for downshift ([@jonambas](https://github.com/jonambas))
-  - [#821](https://github.com/SparkPost/matchbox/pull/821) Closes
-    [#820](https://github.com/SparkPost/matchbox/issues/820) Fix button loader colors
-    ([@jonambas](https://github.com/jonambas))
-  - [#812](https://github.com/SparkPost/matchbox/pull/812) UX-492 Focus on activator when Popovers
-    close ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#823](https://github.com/SparkPost/matchbox/pull/823) UX-503 Adds new `align` prop to Cell and HeaderCell ([@jonambas](https://github.com/jonambas))
+  * [#825](https://github.com/SparkPost/matchbox/pull/825) UX-507 Pass through all ActionList props for downshift ([@jonambas](https://github.com/jonambas))
+  * [#821](https://github.com/SparkPost/matchbox/pull/821) Closes [#820](https://github.com/SparkPost/matchbox/issues/820) Fix button loader colors ([@jonambas](https://github.com/jonambas))
+  * [#812](https://github.com/SparkPost/matchbox/pull/812) UX-492 Focus on activator when Popovers close ([@jonambas](https://github.com/jonambas))
 
 #### Breaking Changes
-
-- `matchbox`
-  - [#816](https://github.com/SparkPost/matchbox/pull/816) Closes
-    [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label
-    prop ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#816](https://github.com/SparkPost/matchbox/pull/816) Closes [#810](https://github.com/SparkPost/matchbox/issues/810) – Support Label children over label prop ([@jonambas](https://github.com/jonambas))
 
 #### Security
-
-- [#814](https://github.com/SparkPost/matchbox/pull/814) UX-486 Resolve certain security
-  vulnerabilities ([@jonambas](https://github.com/jonambas))
+* [#814](https://github.com/SparkPost/matchbox/pull/814) UX-486 Resolve certain security vulnerabilities ([@jonambas](https://github.com/jonambas))
 
 #### Committers: 1
-
 - Jon Ambas ([@jonambas](https://github.com/jonambas))
 
 ## 5.0.0 (2021-04-02)
