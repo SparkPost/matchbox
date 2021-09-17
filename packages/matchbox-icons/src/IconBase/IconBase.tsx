@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
+export type IconBaseProps = React.ComponentPropsWithoutRef<'svg'> & {
   children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
@@ -10,9 +10,9 @@ interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
   text?: string;
   textFill?: string;
   textProps?: React.ComponentPropsWithoutRef<'text'>;
-}
+};
 
-const IconBase: React.FC<IconBaseProps> = (props) => {
+const IconBase = (props: IconBaseProps): JSX.Element => {
   const {
     children,
     width,
@@ -49,7 +49,7 @@ const IconBase: React.FC<IconBaseProps> = (props) => {
 
 IconBase.displayName = 'IconBase';
 
-export function createSvgIcon(path: JSX.Element, displayName: string) {
+export function createSvgIcon(path: JSX.Element, displayName: string): React.ElementType {
   const Icon = (props: IconBaseProps) => <IconBase {...props}>{path}</IconBase>;
 
   Icon.displayName = displayName;
@@ -69,7 +69,7 @@ export function createExtendedSvgIcon({
     [k: string]: unknown;
   };
   viewBox?: string;
-}) {
+}): React.ElementType {
   const Icon = ({ text, textFill = 'white', textProps, ...props }: IconBaseProps) => (
     <IconBase viewBox={viewBox} {...props}>
       <g>
