@@ -51,3 +51,12 @@ describe('The Modal component', () => {
     cy.focused().should('have.attr', 'data-id', 'modal-close');
   });
 });
+
+describe('Legacy Modal', () => {
+  it('renders correctly', () => {
+    cy.visit('/iframe.html?path=Modal-Deprecated__legacy-usage');
+    cy.contains('Delete Template').should('be.visible');
+    cy.findByText('Cancel').click();
+    cy.focused().should('have.text', 'Cancel');
+  });
+});
