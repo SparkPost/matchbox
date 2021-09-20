@@ -6,7 +6,7 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 type PreviousProps = React.ComponentProps<typeof Button>;
 
 const Previous = (props: PreviousProps): JSX.Element => (
-  <Button {...props} mr={props.mr || props.marginRight || 200}>
+  <Button size="small" width="600" {...props} mr={props.mr || props.marginRight || 200}>
     <ArrowBack size={16} />
     <ScreenReaderOnly>Previous</ScreenReaderOnly>
   </Button>
