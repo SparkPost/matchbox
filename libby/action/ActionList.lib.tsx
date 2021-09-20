@@ -165,6 +165,13 @@ describe('ActionList', () => {
   ));
 
   describe('Deprecated', () => {
+    add('should only render either content or children', () => (
+      <ActionList>
+        <ActionList.Action content="render me">not me</ActionList.Action>
+        <ActionList.Action>render me</ActionList.Action>
+      </ActionList>
+    ));
+
     add('without Action component', () => (
       <Inline space="15rem">
         <Popover open trigger={<Button>Actions</Button>} style={{ width: '200px' }}>

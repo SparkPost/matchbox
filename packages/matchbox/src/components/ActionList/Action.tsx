@@ -49,8 +49,7 @@ function Content(props: ActionListActionProps): JSX.Element {
   return (
     <Box as="span" alignItems="flex-start" display="flex">
       <Box as="span" flex="1" fontSize="300" lineHeight="300">
-        {content}
-        {children}
+        {content || children}
       </Box>
       {selected && (
         <Box as="span" color="blue.700">
