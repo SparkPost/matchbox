@@ -12,7 +12,10 @@ import { getWindow } from '../helpers/window';
  *    ...
  *  }
  */
-function useWindowEvent(event: string, callback: EventListenerOrEventListenerObject): void {
+function useWindowEvent<T extends keyof WindowEventMap>(
+  event: T,
+  callback: (e: WindowEventMap[T]) => void,
+): void {
   const environment = getWindow();
 
   React.useEffect(() => {

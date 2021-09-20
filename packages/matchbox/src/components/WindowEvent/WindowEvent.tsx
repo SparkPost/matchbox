@@ -1,22 +1,22 @@
 import React from 'react';
 import { getWindow } from '../../helpers/window';
 
-export type WindowEventProps = {
+export type WindowEventProps<T extends keyof WindowEventMap> = {
   /**
    * Type of event
    */
-  event?: string;
+  event?: T;
   /**
    * Event callback function
    */
-  handler?: EventListenerOrEventListenerObject;
+  handler?: (e: WindowEventMap[T]) => void;
 };
 
 /**
  * Adds and removes events for you
  * @example <WindowEvent event='keydown' handler={handleKeyDown} />
  */
-function WindowEvent(props: WindowEventProps): JSX.Element {
+function WindowEvent<T extends keyof WindowEventMap>(props: WindowEventProps<T>): JSX.Element {
   const { event, handler } = props;
   const environment = getWindow();
 
