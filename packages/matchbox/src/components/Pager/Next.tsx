@@ -6,7 +6,7 @@ import { ScreenReaderOnly } from '../ScreenReaderOnly';
 type NextProps = React.ComponentProps<typeof Button>;
 
 const Next = (props: NextProps): JSX.Element => (
-  <Button {...props} ml={props.ml || props.marginRight || 200}>
+  <Button size="small" width="600" {...props} ml={props.ml || props.marginRight || 200}>
     <ArrowForward size={16} />
     <ScreenReaderOnly>Next</ScreenReaderOnly>
   </Button>
