@@ -1,5 +1,10 @@
 import React from 'react';
-import { ThemeProvider, createGlobalStyle, StyleSheetManager } from 'styled-components';
+import {
+  ThemeProvider,
+  createGlobalStyle,
+  StyleSheetManager,
+  StyleSheetManagerProps,
+} from 'styled-components';
 import { normalize } from 'styled-normalize';
 import theme from './theme';
 import global from './globalStyles';
@@ -9,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
   ${global}
 `;
 
-type TargetProp = Pick<React.ComponentProps<typeof StyleSheetManager>, 'target'>;
-type ManagerProps = TargetProp & {
+type ManagerProps = {
   children?: React.ReactNode;
+  target?: StyleSheetManagerProps['target'];
 };
 
 /**
@@ -35,10 +40,11 @@ function Manager({ target, children }: ManagerProps): JSX.Element {
 
 Manager.displayName = 'MatchboxStyleSheetManager';
 
-export type ThemeProviderProps = TargetProp & {
+export type ThemeProviderProps = {
   skipGlobalStyles?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: { [key: string]: any };
+  target?: StyleSheetManagerProps['target'];
   children?: React.ReactNode;
 };
 
