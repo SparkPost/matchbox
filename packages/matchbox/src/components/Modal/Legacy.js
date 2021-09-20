@@ -42,26 +42,18 @@ const StyledContent = styled('div')`
 `;
 
 const Modal = React.forwardRef(function Modal(props, userRef) {
-  const {
-    onClose,
-    children,
-    portalId,
-    className,
-    showCloseButton,
-    maxWidth,
-    open,
-    ...rest
-  } = props;
+  const { onClose, children, portalId, className, showCloseButton, maxWidth, open, ...rest } =
+    props;
   const container = useRef();
   const content = useRef();
 
-  const handleKeydown = e => {
+  const handleKeydown = (e) => {
     if (open && onClose) {
       onKey('escape', onClose)(e);
     }
   };
 
-  const handleOutsideClick = e => {
+  const handleOutsideClick = (e) => {
     const isOutside =
       content &&
       !content.current.contains(e.target) &&
@@ -79,7 +71,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
       <Portal containerId={portalId}>
         <TouchScrollable>
           <StyledBase
-            open={open}
+            $open={open}
             {...rest}
             className={className}
             onClose={onClose}
@@ -137,8 +129,8 @@ const ModalContent = React.forwardRef(function ModalContent(props, userRef) {
         }}
       >
         {/* Negative `tabIndex` required to programmatically focus */}
-        {state => (
-          <StyledContent state={state} tabIndex="-1" ref={userRef} data-id="modal-content-wrapper">
+        {(state) => (
+          <StyledContent $state={state} tabIndex="-1" ref={userRef} data-id="modal-content-wrapper">
             {children}
           </StyledContent>
         )}
