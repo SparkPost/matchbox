@@ -1,4 +1,15 @@
 
+## 6.0.1 (2021-09-20)
+
+#### Bug Fixes
+* `matchbox`
+  * [#990](https://github.com/SparkPost/matchbox/pull/990) UX-696 Only render either content or children in ActionLists ([@jonambas](https://github.com/jonambas))
+  * [#988](https://github.com/SparkPost/matchbox/pull/988) UX-694 Fix Legacy Modals ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 6.0.0 (2021-09-17)
 
 #### Features
