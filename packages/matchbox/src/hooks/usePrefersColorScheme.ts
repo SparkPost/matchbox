@@ -16,10 +16,9 @@ const QUERY = '(prefers-color-scheme: dark)';
 
 function usePrefersColorScheme(): 'dark' | 'light' {
   const environment = getWindow();
+  const matches = environment.matchMedia(QUERY) ? environment.matchMedia(QUERY).matches : false;
 
-  const [prefersColorScheme, setPrefersColorScheme] = React.useState(
-    environment.matchMedia(QUERY)['matches'],
-  );
+  const [prefersColorScheme, setPrefersColorScheme] = React.useState(matches);
 
   React.useEffect(() => {
     const mql = environment.matchMedia(QUERY);
