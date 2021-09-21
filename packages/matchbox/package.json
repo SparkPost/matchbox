@@ -38,7 +38,7 @@
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
-    "@sparkpost/matchbox-icons": "^5.0.0",
+    "@sparkpost/matchbox-icons": "^6.0.0",
     "react": "^16.8.0 || ^17.0.0",
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.8.0 || ^17.0.0",
