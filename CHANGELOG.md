@@ -1,4 +1,20 @@
 
+## 6.0.2 (2021-09-21)
+
+#### Bug Fixes
+* `matchbox`
+  * [#992](https://github.com/SparkPost/matchbox/pull/992) UX-701 Window event should correctly type its event parameter ([@jonambas](https://github.com/jonambas))
+  * [#994](https://github.com/SparkPost/matchbox/pull/994) UX-700 fix usePrefersColorScheme .matches check ([@logansparlin](https://github.com/logansparlin))
+  * [#993](https://github.com/SparkPost/matchbox/pull/993) UX-695 Fix Pager button sizing ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* [#995](https://github.com/SparkPost/matchbox/pull/995) Bump tmpl from 1.0.4 to 1.0.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 6.0.1 (2021-09-20)
 
 #### Bug Fixes
