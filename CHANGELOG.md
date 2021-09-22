@@ -1,4 +1,14 @@
 
+## 6.0.3 (2021-09-22)
+
+#### Bug Fixes
+* `matchbox`
+  * [#996](https://github.com/SparkPost/matchbox/pull/996) UX-704 Update icons peer dependency in Matchbox ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 6.0.2 (2021-09-21)
 
 #### Bug Fixes
