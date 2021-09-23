@@ -47,7 +47,8 @@ type BaseProps = PaddingProps &
     /**
      * Callback function that is called when clicking outside the popover, or hitting escape.
      */
-    onClose?: (e: Event) => void;
+    onClose?: (e: MouseEvent | KeyboardEvent) => void;
+
     /**
      * Popover Content
      */
@@ -58,7 +59,14 @@ type BaseProps = PaddingProps &
      */
     wrapper?: 'div' | 'span';
     portalId?: PortalProps['containerId'];
+    /**
+     * Closes the popover when tabbing out of the popover. On by default.
+     */
     closeOnTab?: boolean;
+    /**
+     * Closes the popover when clicking inside the popover. Off by default.
+     */
+    closeOnInsideClick?: boolean;
   };
 
 type PolymorphicPopover = Polymorphic.ForwardRefComponent<'span', BaseProps>;
@@ -74,16 +82,17 @@ const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(pr
     wrapper,
     portalId,
     closeOnTab = true,
+    closeOnInsideClick = false,
     ...rest
   } = props;
   const [open, setOpen] = React.useState(null);
-  const popoverRef = React.useRef();
-  const activatorRef = React.useRef();
+  const popoverRef = React.useRef<HTMLDivElement>();
+  const activatorRef = React.useRef<HTMLDivElement>();
 
   const shouldBeOpen = controlledOpen || open;
   const Wrapper = as || wrapper || 'span';
 
-  useWindowEvent('click', handleOutsideClick);
+  useWindowEvent('click', handleClick);
   useWindowEvent('keydown', handleEsc);
 
   // Mount hook – sets initial close state if uncontrolled
@@ -130,14 +139,14 @@ const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(pr
   }
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
-  function handleOutsideClick(e) {
+  function handleClick(e: MouseEvent) {
     const isOutside =
       popoverRef.current &&
-      !(popoverRef as React.MutableRefObject<HTMLDivElement>).current.contains(e.target) &&
+      !popoverRef.current.contains(e.target as Node) &&
       activatorRef.current &&
-      !(activatorRef as React.MutableRefObject<HTMLDivElement>).current.contains(e.target);
+      !activatorRef.current.contains(e.target as Node);
 
-    if (isOutside && shouldBeOpen) {
+    if ((isOutside && shouldBeOpen) || (closeOnInsideClick && shouldBeOpen)) {
       if (onClose) {
         onClose(e);
       }
@@ -149,7 +158,7 @@ const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(pr
   }
 
   // Toggles uncontrolled popovers on escape keydown, and calls `onClose` for controlled popovers
-  function handleEsc(e) {
+  function handleEsc(e: KeyboardEvent) {
     if (onClose && shouldBeOpen) {
       onKey('escape', () => {
         onClose(e);
