@@ -1,3 +1,5 @@
+import React from 'react';
+
 type EventKeys =
   | 'backspace'
   | 'enter'
@@ -81,7 +83,7 @@ const keys = {
   },
 };
 
-function compareEvent(event: EventKeys, e: KeyboardEvent): boolean {
+function compareEvent(event: EventKeys, e: React.KeyboardEvent | KeyboardEvent): boolean {
   return (
     !!keys[event] &&
     (e.key === keys[event].key || e.keyCode === keys[event].keyCode) &&
@@ -93,8 +95,11 @@ function compareEvent(event: EventKeys, e: KeyboardEvent): boolean {
  * Key down event handler
  * @example onKey('escape', () => foo())(e)
  */
-export function onKey(event: EventKeys, callback: (e: KeyboardEvent) => void) {
-  return function handleEvent(e: KeyboardEvent): void {
+export function onKey(
+  event: EventKeys,
+  callback: (e: React.KeyboardEvent | KeyboardEvent) => void,
+) {
+  return function handleEvent(e: React.KeyboardEvent | KeyboardEvent): void {
     if (compareEvent(event, e)) {
       return callback(e);
     }
@@ -105,8 +110,11 @@ export function onKey(event: EventKeys, callback: (e: KeyboardEvent) => void) {
  * Multiple key down event handler
  * @example onKeys(['escape', 'enter'], () => foo())(e)
  */
-export function onKeys(events: EventKeys[], callback: (e: KeyboardEvent) => void) {
-  return function handleEvents(e: KeyboardEvent): void {
+export function onKeys(
+  events: EventKeys[],
+  callback: (e: React.KeyboardEvent | KeyboardEvent) => void,
+) {
+  return function handleEvents(e: React.KeyboardEvent | KeyboardEvent): void {
     events.forEach((event) => onKey(event, callback)(e));
   };
 }
