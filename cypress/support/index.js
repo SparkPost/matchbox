@@ -16,6 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 
+// Import Percy for snapshot testing
+import '@percy/cypress';
+
 require('cypress-plugin-tab');
 
 // Alternatively you can use CommonJS syntax:
