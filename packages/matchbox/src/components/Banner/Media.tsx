@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box } from '../Box';
 
-type MediaProps = {
+export type BannerMediaProps = {
   children?: React.ReactNode;
   className?: string;
 };
@@ -20,8 +20,8 @@ const StyledMedia = styled(Box)`
   }
 `;
 
-const Media = React.forwardRef<HTMLDivElement, MediaProps>(function Media(
-  { children, className }: MediaProps,
+const Media = React.forwardRef<HTMLDivElement, BannerMediaProps>(function Media(
+  { children, className },
   userRef,
 ) {
   return (

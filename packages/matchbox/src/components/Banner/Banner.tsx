@@ -68,7 +68,7 @@ type ActionProps = React.ComponentProps<typeof Button> & {
   content: string;
 };
 
-interface BannerProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps {
+export type BannerProps = MarginProps & {
   children?: React.ReactNode;
   'data-id'?: string;
   title?: string;
@@ -84,7 +84,8 @@ interface BannerProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps
 
   onDismiss?: (any) => void;
   size?: 'small' | 'large';
-}
+  id?: string;
+};
 
 const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
   props: BannerProps,
