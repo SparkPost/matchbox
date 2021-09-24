@@ -32,7 +32,7 @@ const StyledColumns = styled(Box)<AlignProps & ReverseProp & GutterProp>`
   ${negativeMargin}
 `;
 
-interface ColumnsProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
+export type ColumnsProps = MarginProps & {
   children?: React.ReactNode;
   reverse?: ResponsiveValue<boolean>;
   space?: ResponsiveValue<SpaceKeys | string>;
@@ -40,9 +40,9 @@ interface ColumnsProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
   align?: ResponsiveValue<AlignX>;
   collapseBelow?: Breakpoints;
   'data-id'?: string;
-}
+};
 
-const Columns = React.forwardRef(function Columns(props: ColumnsProps, userRef) {
+const Columns = React.forwardRef<HTMLDivElement, ColumnsProps>(function Columns(props, userRef) {
   const { children, reverse, space = '500', alignY, align, collapseBelow, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
   const breakpoint = useBreakpoint();

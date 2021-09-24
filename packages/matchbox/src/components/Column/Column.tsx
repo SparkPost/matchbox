@@ -20,7 +20,7 @@ const StyledColumn = styled(Box)<GutterProp>`
   }
 `;
 
-type ColumnProps = {
+export type ColumnProps = {
   children?: React.ReactNode;
   width?: 'content' | ResponsiveValue<SpaceKeys | number>;
   'data-id'?: string;
