@@ -9,7 +9,7 @@ import useWindowEvent from '../../hooks/useWindowEvent';
 import { findFocusableChild } from '../../helpers/focus';
 import type * as Polymorphic from '../../helpers/types';
 
-type BaseProps = PaddingProps &
+export type PopoverProps = PaddingProps &
   LayoutProps & {
     id?: string;
     /**
@@ -61,9 +61,9 @@ type BaseProps = PaddingProps &
     closeOnTab?: boolean;
   };
 
-type PolymorphicPopover = Polymorphic.ForwardRefComponent<'span', BaseProps>;
+type PolymorphicPopover = Polymorphic.ForwardRefComponent<'span', PopoverProps>;
 
-const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(props, ref) {
+const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover(props, ref) {
   const {
     as,
     id,
