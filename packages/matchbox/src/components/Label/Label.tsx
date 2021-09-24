@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '../Box';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 
-type LabelProps = Pick<React.ComponentProps<typeof Box>, 'fontWeight' | 'mb'> & {
+export type LabelProps = Pick<React.ComponentProps<typeof Box>, 'fontWeight' | 'mb'> & {
   /**
    * @deprecated Use children instead
    */

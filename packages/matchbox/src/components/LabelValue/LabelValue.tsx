@@ -10,17 +10,16 @@ const StyledWrapper = styled.div`
   ${margin}
 `;
 
-type LabelValueProps = MarginProps & {
-  label?: string;
+export type LabelValueProps = MarginProps & {
   children?: React.ReactNode;
   className?: string;
   orientation?: 'horizontal' | 'vertical';
   appearance?: 'inverted' | 'default';
 };
 
-type LabelProps = Pick<LabelValueProps, 'children' | 'orientation' | 'appearance'>;
+export type LabelValueLabelProps = Pick<LabelValueProps, 'children' | 'orientation' | 'appearance'>;
 
-const Label = ({ children, orientation, appearance }: LabelProps): JSX.Element => (
+const Label = ({ children, orientation, appearance }: LabelValueLabelProps): JSX.Element => (
   <Box
     fontSize="200"
     fontWeight="semibold"
@@ -33,9 +32,9 @@ const Label = ({ children, orientation, appearance }: LabelProps): JSX.Element =
 
 Label.displayName = 'LabelValue.Label';
 
-type ValueProps = Pick<LabelValueProps, 'children' | 'appearance'>;
+export type LabelValueValueProps = Pick<LabelValueProps, 'children' | 'appearance'>;
 
-const Value = ({ children, appearance }: ValueProps): JSX.Element => (
+const Value = ({ children, appearance }: LabelValueValueProps): JSX.Element => (
   <Box color={appearance == 'inverted' ? 'white' : ''}>{children}</Box>
 );
 
@@ -45,15 +44,7 @@ const LabelValue = React.forwardRef<HTMLDivElement, LabelValueProps>(function La
   props,
   userRef,
 ) {
-  const {
-    label,
-    children,
-    className,
-    orientation = 'vertical',
-    appearance = 'default',
-    ...rest
-  } = props;
-
+  const { children, className, orientation = 'vertical', appearance = 'default', ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 
   return (
