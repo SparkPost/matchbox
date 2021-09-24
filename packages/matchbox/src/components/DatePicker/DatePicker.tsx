@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   ${wrapper}
 `;
 
-type DatePickerProps = DayPickerProps &
+export type DatePickerProps = DayPickerProps &
   MarginProps & {
     numberOfMonths?: 1 | 2;
   };

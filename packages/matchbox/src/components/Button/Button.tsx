@@ -149,7 +149,7 @@ export type ButtonProps = {
   WidthProps &
   PaddingProps;
 
-type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
+export type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
 
 const Button = React.forwardRef(function Button(props, ref) {
   const {
