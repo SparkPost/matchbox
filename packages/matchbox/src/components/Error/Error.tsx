@@ -2,7 +2,7 @@ import React from 'react';
 import { ErrorIcon } from '@sparkpost/matchbox-icons';
 import { Box } from '../Box';
 
-type ErrorLabelProps = Pick<React.ComponentProps<typeof Box>, 'ml'> & {
+export type ErrorProps = Pick<React.ComponentProps<typeof Box>, 'ml'> & {
   id?: string;
   className?: string;
   /**
@@ -13,7 +13,7 @@ type ErrorLabelProps = Pick<React.ComponentProps<typeof Box>, 'ml'> & {
   wrapper?: 'div' | 'span';
 };
 
-function ErrorLabel(props: ErrorLabelProps): JSX.Element {
+function ErrorLabel(props: ErrorProps): JSX.Element {
   const { className, children, error, wrapper: WrapperComponent = 'div', id, ml = '0' } = props;
 
   return (

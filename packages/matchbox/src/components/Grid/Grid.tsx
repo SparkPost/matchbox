@@ -17,7 +17,7 @@ const StyledGrid = styled('div')<{
   ${gridStyle}
 `;
 
-type GridProps = {
+export type GridProps = {
   start?: BreakpointsWithoutDefault;
   center?: BreakpointsWithoutDefault;
   end?: BreakpointsWithoutDefault;
