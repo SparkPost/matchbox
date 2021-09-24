@@ -34,7 +34,7 @@ const StyledBox = styled(Box)<AlignmentAndGutterProps>`
     })}
 `;
 
-type StackProps = {
+export type StackProps = {
   children?: React.ReactNode;
   /**
    * Positions children horizontally.

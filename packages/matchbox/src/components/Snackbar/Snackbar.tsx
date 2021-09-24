@@ -29,7 +29,7 @@ const StyledClose = styled.button<StyledButtonProps>`
   ${dismissStatus}
 `;
 
-type SnackbarProps = {
+export type SnackbarProps = {
   'data-id'?: string;
   status?: 'default' | 'success' | 'danger' | 'warning' | 'error';
   onDismiss?: React.MouseEventHandler<HTMLButtonElement>;

@@ -40,14 +40,15 @@ const StyledCircle = styled.circle<SVGSizeProp & SVGRotationOnlyProp>`
   ${circle}
 `;
 
-type BaseProps = {
+export type SpinnerProps = {
   color?: 'gray' | 'orange' | 'blue' | 'white';
   label: string;
   rotationOnly?: boolean;
   size?: 'small' | 'medium' | 'large';
-};
-
-type SpinnerProps = BaseProps & MarginProps & PositionProps & WidthProps & HeightProps;
+} & MarginProps &
+  PositionProps &
+  WidthProps &
+  HeightProps;
 
 const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(props, ref) {
   const { size = 'medium', color, label, rotationOnly, ...rest } = props;
