@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { Text } from '../Text';
 
-type BaseProps = {
+export type LayoutSectionTitleProps = {
   children?: React.ReactNode;
   'data-id'?: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-const SectionTitle = (props: BaseProps) => {
+const SectionTitle = (props: LayoutSectionTitleProps): JSX.Element => {
   const { children, as = 'h2' } = props;
 
   return (

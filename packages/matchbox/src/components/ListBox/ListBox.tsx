@@ -91,7 +91,7 @@ export type ListBoxProps = {
   error?: string;
   errorInLabel?: boolean;
   optional?: boolean;
-  onChange?: (ChangeObject) => void;
+  onChange?: (e: ChangeObject) => void;
 } & MarginProps &
   MaxWidthProps &
   MaxHeightProps &
