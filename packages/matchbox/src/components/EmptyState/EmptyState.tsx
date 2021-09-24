@@ -15,7 +15,7 @@ import { getChild } from '../../helpers/children';
 import { pick } from '../../helpers/props';
 import useBreakpoint from '../../hooks/useBreakpoint';
 
-type EmptyStateProps = {
+export type EmptyStateProps = {
   children?: React.ReactNode;
 } & MarginProps;
 

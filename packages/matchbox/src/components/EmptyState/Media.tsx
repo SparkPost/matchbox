@@ -7,7 +7,7 @@ const StyledMedia = styled(Box)`
   pointer-events: none;
 `;
 
-type EmptyStateMediaProps = {
+export type EmptyStateMediaProps = {
   children?: React.ReactNode;
   className?: string;
 } & MaxWidthProps;

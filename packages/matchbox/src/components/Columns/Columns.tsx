@@ -68,7 +68,7 @@ const Columns = React.forwardRef<HTMLDivElement, ColumnsProps>(function Columns(
       </StyledColumns>
     </Box>
   );
-}) as React.ForwardRefExoticComponent<ColumnsProps>;
+});
 
 Columns.displayName = 'Columns';
 
