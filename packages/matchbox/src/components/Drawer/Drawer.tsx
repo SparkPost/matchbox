@@ -65,7 +65,7 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(function Drawer(pro
   }
 
   // Calls onClose when receiving a escape keydown event
-  function handleEscape(e) {
+  function handleEscape(e: KeyboardEvent) {
     if (closeOnEscape && open && onClose) {
       onKey('escape', onClose)(e);
     }

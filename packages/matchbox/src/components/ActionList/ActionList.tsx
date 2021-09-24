@@ -97,7 +97,7 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
     }
   }, [focusIndex, focusableItemList]);
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: React.KeyboardEvent) {
     onKey('arrowDown', () => {
       // Stop arrow keys from scrolling the page
       e.preventDefault();
