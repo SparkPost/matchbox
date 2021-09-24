@@ -3,17 +3,18 @@ import { margin, MarginProps } from 'styled-system';
 import styled from 'styled-components';
 import { pick } from '../../helpers/props';
 
-interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
+type IconBaseProps = {
   children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
   size?: number | string;
   label?: string;
-}
+};
 
-interface ButtonIconProps extends IconBaseProps, MarginProps {
-  as?: React.ElementType;
-}
+export type ButtonIconProps = IconBaseProps &
+  MarginProps & {
+    as?: React.ElementType;
+  };
 
 const StyledIcon = styled.svg`
   ${margin}
