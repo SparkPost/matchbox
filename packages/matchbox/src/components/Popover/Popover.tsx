@@ -149,7 +149,7 @@ const Popover = React.forwardRef<HTMLSpanElement, BaseProps>(function Popover(pr
   }
 
   // Toggles uncontrolled popovers on escape keydown, and calls `onClose` for controlled popovers
-  function handleEsc(e) {
+  function handleEsc(e: KeyboardEvent) {
     if (onClose && shouldBeOpen) {
       onKey('escape', () => {
         onClose(e);
