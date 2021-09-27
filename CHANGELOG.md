@@ -1,4 +1,16 @@
 
+## 6.0.4 (2021-09-27)
+
+#### Bug Fixes
+* `matchbox-icons`, `matchbox`
+  * [#1002](https://github.com/SparkPost/matchbox/pull/1002) UX-706 Export all component types ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#1001](https://github.com/SparkPost/matchbox/pull/1001) UX-705 Support both window and react key events in keyEvent helpers ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 6.0.3 (2021-09-22)
 
 #### Bug Fixes
