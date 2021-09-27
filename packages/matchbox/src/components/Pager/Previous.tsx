@@ -1,17 +1,22 @@
 import React from 'react';
 import { ArrowBack } from '@sparkpost/matchbox-icons';
-import { Button } from '../Button';
+import { Button, PolymorphicButton } from '../Button';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 
-type PreviousProps = React.ComponentProps<typeof Button>;
-
-const Previous = (props: PreviousProps): JSX.Element => (
-  <Button size="small" width="600" {...props} mr={props.mr || props.marginRight || 200}>
-    <ArrowBack size={16} />
-    <ScreenReaderOnly>Previous</ScreenReaderOnly>
-  </Button>
-);
+const Previous = React.forwardRef(function Previous(props, userRef) {
+  return (
+    <Button
+      size="small"
+      width="600"
+      {...props}
+      mr={props.mr || props.marginRight || 200}
+      ref={userRef}
+    >
+      <ArrowBack size={16} />
+      <ScreenReaderOnly>Previous</ScreenReaderOnly>
+    </Button>
+  );
+}) as PolymorphicButton;
 
 Previous.displayName = 'Pager.Previous';
-
 export default Previous;

@@ -39,10 +39,14 @@ const borderMap = {
   black: 'gray.900',
 };
 
-interface BadgeProps extends React.ComponentPropsWithoutRef<'div'>, MarginProps {
+export type BadgeProps = MarginProps & {
   color?: 'lightGray' | 'darkGray' | 'green' | 'red' | 'blue' | 'white' | 'black';
   'data-id'?: string;
-}
+  children?: React.ReactNode;
+  id?: string;
+  tabIndex?: number;
+};
+
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   props: BadgeProps,
   userRef,

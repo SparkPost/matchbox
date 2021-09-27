@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   ${margin}
 `;
 
-type PaginationProps = MarginProps & {
+export type PaginationProps = MarginProps & {
   /**
    * Sets the current page number
    */

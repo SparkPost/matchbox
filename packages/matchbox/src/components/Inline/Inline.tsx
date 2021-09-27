@@ -35,7 +35,7 @@ const InnerWrapper = styled('div')<GutterProp & AlignProps>`
   ${alignYChildren}
 `;
 
-type InlineProps = {
+export type InlineProps = {
   children?: React.ReactNode;
   /**
    * Positions children horizontally.

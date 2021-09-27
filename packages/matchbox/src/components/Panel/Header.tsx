@@ -9,7 +9,7 @@ import { getChild, excludeChild } from '../../helpers/children';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
 import { Headings } from '../../helpers/types';
 
-type HeaderProps = Pick<
+export type PanelHeaderProps = Pick<
   React.ComponentProps<typeof Panel>,
   'appearance' | 'children' | 'className'
 > & {
@@ -17,7 +17,7 @@ type HeaderProps = Pick<
   borderBottom?: boolean;
 };
 
-const Header = React.forwardRef<HTMLDivElement, HeaderProps>(function Header(props, userRef) {
+const Header = React.forwardRef<HTMLDivElement, PanelHeaderProps>(function Header(props, userRef) {
   const { as = 'h3', appearance, borderBottom, children, className } = props;
   const actions = getChild('Panel.Action', children);
   const title = excludeChild(['Panel.Action'], children);
@@ -51,7 +51,7 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(function Header(pro
       </Columns>
     </Box>
   );
-}) as React.ForwardRefExoticComponent<HeaderProps>;
+});
 
 Header.displayName = 'Panel.Header';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TextProps } from '../Text';
 import { Headings } from '../../helpers/types';
 
-type EmptyStateHeaderProps = TextProps & {
+export type EmptyStateHeaderProps = TextProps & {
   as?: Headings;
 };
 

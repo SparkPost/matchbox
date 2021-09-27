@@ -10,7 +10,7 @@ const StyledText = styled(Box)`
   }
 `;
 
-type HelpTextProps = Pick<React.ComponentProps<typeof Box>, 'id' | 'children' | 'ml' | 'mt'>;
+export type HelpTextProps = Pick<React.ComponentProps<typeof Box>, 'id' | 'children' | 'ml' | 'mt'>;
 
 function HelpText(props: HelpTextProps): JSX.Element {
   const { id, children, ml = '0', mt = '100' } = props;

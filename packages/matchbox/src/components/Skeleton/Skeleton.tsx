@@ -19,7 +19,7 @@ export const Animator = styled(Box)<Omit<BoxProps, 'as'>>`
   will-change: opacity;
 `;
 
-type SkeletonHeaderProps = {
+export type SkeletonHeaderProps = {
   'data-id'?: string;
   looksLike?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   width?: string;
@@ -66,7 +66,7 @@ const SkeletonHeader = React.forwardRef<HTMLDivElement, SkeletonHeaderProps>(
 
 SkeletonHeader.displayName = 'Skeleton.Header';
 
-type SkeletonBodyProps = {
+export type SkeletonBodyProps = {
   'data-id'?: string;
   lines?: number;
 };
@@ -104,9 +104,9 @@ const SkeletonBody = React.forwardRef<HTMLDivElement, SkeletonBodyProps>(functio
 
 SkeletonBody.displayName = 'Skeleton.Body';
 
-interface SkeletonBoxProps extends Omit<BoxProps, 'as'> {
+export type SkeletonBoxProps = Omit<BoxProps, 'as'> & {
   'data-id'?: string;
-}
+};
 
 const SkeletonBox = React.forwardRef<HTMLDivElement, SkeletonBoxProps>(function SkeletonBox(
   props,

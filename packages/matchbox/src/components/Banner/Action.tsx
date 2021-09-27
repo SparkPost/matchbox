@@ -1,14 +1,9 @@
 import React from 'react';
-import { Button } from '../Button';
+import { Button, PolymorphicButton } from '../Button';
 
-type ActionProps = React.ComponentProps<typeof Button>;
-
-const Action = React.forwardRef<HTMLButtonElement, ActionProps>(function Action(
-  props: ActionProps,
-  userRef,
-) {
+const Action = React.forwardRef(function Action(props, userRef) {
   return <Button mt={['300', null, '500']} mr="400" {...props} ref={userRef} />;
-}) as React.ForwardRefExoticComponent<ActionProps>;
+}) as PolymorphicButton;
 
 Action.displayName = 'Banner.Action';
 

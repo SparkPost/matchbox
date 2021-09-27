@@ -17,7 +17,7 @@ export type UnstyledLinkProps = Omit<
   'color'
 >;
 
-type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', UnstyledLinkProps>;
+export type PolymorphicUnstyledLink = Types.ForwardRefComponent<'a', UnstyledLinkProps>;
 
 type DisabledProp = {
   $disabled?: boolean;

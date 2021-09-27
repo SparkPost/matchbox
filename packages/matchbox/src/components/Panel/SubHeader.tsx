@@ -4,14 +4,14 @@ import { Box } from '../Box';
 import { PanelPaddingContext, PanelAppearanceContext } from './context';
 import { Headings } from '../../helpers/types';
 
-type SubHeaderProps = Pick<
+export type PanelSubHeaderProps = Pick<
   React.ComponentProps<typeof Panel>,
   'appearance' | 'className' | 'children'
 > & {
   as?: Headings;
 };
 
-const SubHeader = React.forwardRef<HTMLDivElement, SubHeaderProps>(function SubHeader(
+const SubHeader = React.forwardRef<HTMLDivElement, PanelSubHeaderProps>(function SubHeader(
   props,
   userRef,
 ) {
@@ -37,7 +37,7 @@ const SubHeader = React.forwardRef<HTMLDivElement, SubHeaderProps>(function SubH
       {children}
     </Box>
   );
-}) as React.ForwardRefExoticComponent<SubHeaderProps>;
+});
 
 SubHeader.displayName = 'Panel.SubHeader';
 

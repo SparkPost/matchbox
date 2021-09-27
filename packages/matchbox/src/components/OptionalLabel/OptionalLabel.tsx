@@ -10,7 +10,7 @@ const StyledBox = styled(Box)<BoxProps & FloatProp>`
   float: ${(props) => (props.$float ? 'right' : 'none')};
 `;
 
-type OptionalLabelProps = {
+export type OptionalLabelProps = {
   float?: boolean;
 };
 

@@ -1,4 +1,8 @@
 /* eslint-disable max-lines */
+
+// Exporting types
+export * from './IconBase';
+
 // Extended Icons
 export { default as FileType } from './extendedIcons/FileType';
 

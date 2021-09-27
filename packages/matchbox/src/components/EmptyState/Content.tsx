@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledContent } from './styles';
 
-type EmptyStateContentProps = {
+export type EmptyStateContentProps = {
   children?: React.ReactNode;
 };
 

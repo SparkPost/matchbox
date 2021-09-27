@@ -10,13 +10,13 @@ const FocusHandler = styled(Box)`
   }
 `;
 
-type ConenctProps = {
+export type ConnectProps = {
   children?: React.ReactNode;
   left?: React.ReactNode;
   right?: React.ReactNode;
 };
 
-function Connect(props: ConenctProps): JSX.Element {
+function Connect(props: ConnectProps): JSX.Element {
   const { left, right, children } = props;
 
   const leftMarkup = left ? (

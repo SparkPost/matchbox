@@ -6,7 +6,7 @@ type AccentProps = {
   accentColor?: React.ComponentProps<typeof Panel>['accent'];
 };
 
-function Accent({ accentColor }: AccentProps) {
+function Accent({ accentColor }: AccentProps): JSX.Element {
   const color = React.useMemo(() => {
     switch (accentColor) {
       case 'orange':

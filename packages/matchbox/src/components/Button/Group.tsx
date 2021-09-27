@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 import { group } from './styles';
 
-type GroupProps = {
+export type ButtonGroupProps = {
   className?: string;
   children?: React.ReactNode;
 };
@@ -12,7 +12,7 @@ const StyledGroup = styled(Box)`
   ${group}
 `;
 
-const Group = ({ children, className = '' }: GroupProps): JSX.Element => (
+const Group = ({ children, className = '' }: ButtonGroupProps): JSX.Element => (
   <StyledGroup display="inline-flex" alignItems="center" className={className}>
     {children}
   </StyledGroup>

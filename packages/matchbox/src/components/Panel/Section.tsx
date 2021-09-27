@@ -16,13 +16,16 @@ const StyledSection = styled(Box)`
   }
 `;
 
-type SectionProps = Pick<
+export type PanelSectionProps = Pick<
   React.ComponentProps<typeof Panel>,
   'appearance' | 'className' | 'children'
 > &
   PaddingProps;
 
-const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(props, userRef) {
+const Section = React.forwardRef<HTMLDivElement, PanelSectionProps>(function Section(
+  props,
+  userRef,
+) {
   const { children, className, appearance, ...rest } = props;
   const actions = getChild('Panel.Action', children);
   const content = excludeChild(['Panel.Action'], children);
@@ -59,7 +62,7 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(function Section(
       </Columns>
     </StyledSection>
   );
-}) as React.ForwardRefExoticComponent<SectionProps>;
+});
 
 Section.displayName = 'Panel.Section';
 

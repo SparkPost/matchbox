@@ -22,7 +22,7 @@ export const StyledProgressBarInner = styled(Box)<
   ${calculatedWidth}
 `;
 
-type ProgressBarProps = MarginProps & {
+export type ProgressBarProps = MarginProps & {
   completed: number;
 
   /**
@@ -75,7 +75,7 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(function 
       <StyledProgressBarInner $completed={completed} $visualSize={size} />
     </StyledProgressBarOuter>
   );
-}) as React.ForwardRefExoticComponent<ProgressBarProps>;
+});
 
 ProgressBar.displayName = 'ProgressBar';
 

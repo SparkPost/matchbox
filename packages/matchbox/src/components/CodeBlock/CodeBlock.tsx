@@ -27,7 +27,7 @@ const StyledChevron = styled(ChevronRight)`
   ${chevron}
 `;
 
-type CodeBlockProps = {
+export type CodeBlockProps = {
   /**
    * The string of code to render
    */

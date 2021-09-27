@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '../Box';
 
-type InlineCodeProps = {
+export type InlineCodeProps = {
   children?: React.ReactNode;
 };
 

@@ -4,7 +4,7 @@ import { StyledLink } from './styles';
 
 import { Box } from '../Box';
 
-export type OptionProps = {
+export type ListBoxOptionProps = {
   selected?: string;
   value?: string | number;
   disabled?: boolean;
@@ -14,7 +14,7 @@ export type OptionProps = {
   children?: React.ReactNode;
 };
 
-const Option = React.forwardRef<HTMLButtonElement, OptionProps>(function Option(props, ref) {
+const Option = React.forwardRef<HTMLButtonElement, ListBoxOptionProps>(function Option(props, ref) {
   const { value, index, disabled, setSize, selected, children, onSelect } = props;
 
   const isActive = React.useMemo(() => {

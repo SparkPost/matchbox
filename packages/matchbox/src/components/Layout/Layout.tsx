@@ -6,13 +6,13 @@ import SectionTitle from './SectionTitle';
 
 import { Breakpoints } from '../../helpers/types';
 
-type LayoutProps = {
+export type LayoutProps = {
   children?: React.ReactNode;
   collapseBelow?: Breakpoints;
   'data-id'?: string;
 };
 
-const Layout = React.forwardRef(function Layout(props, ref: React.ForwardedRef<HTMLDivElement>) {
+const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(function Layout(props, ref) {
   const { children, collapseBelow = 'md' } = props;
 
   return (

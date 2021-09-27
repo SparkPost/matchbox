@@ -35,7 +35,7 @@ function Manager({ target, children }: ManagerProps): JSX.Element {
 
 Manager.displayName = 'MatchboxStyleSheetManager';
 
-type ThemeProviderProps = TargetProp & {
+export type ThemeProviderProps = TargetProp & {
   skipGlobalStyles?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: { [key: string]: any };

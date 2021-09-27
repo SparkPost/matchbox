@@ -11,7 +11,7 @@ const StyledPager = styled('div')`
   display: inline-block;
 `;
 
-type PagerProps = MarginProps & {
+export type PagerProps = MarginProps & {
   'data-id'?: string;
   children?: React.ReactNode;
   id?: string;

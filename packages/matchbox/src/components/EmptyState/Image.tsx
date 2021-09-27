@@ -4,7 +4,7 @@ import { StyledImage } from './styles';
 
 import { Picture } from '../Picture';
 
-type EmptyStateImageProps = {
+export type EmptyStateImageProps = {
   src?: string;
   className?: string;
   children?: React.ReactNode;

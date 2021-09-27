@@ -11,7 +11,7 @@ const StyledSvg = styled.svg`
   pointer-events: none;
 `;
 
-type EmptyStateListProps = {
+export type EmptyStateListProps = {
   children?: React.ReactNode;
 };
 
