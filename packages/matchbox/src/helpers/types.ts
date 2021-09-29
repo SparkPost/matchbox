@@ -6,19 +6,20 @@ import * as React from 'react';
 /* -------------------------------------------------------------------------------------------------
  * Utility types
  * -----------------------------------------------------------------------------------------------*/
-type Merge<P1 = { [key: string]: any }, P2 = { [key: string]: any }> = Omit<P1, keyof P2> & P2;
+export type Merge<P1 = { [key: string]: any }, P2 = { [key: string]: any }> = Omit<P1, keyof P2> &
+  P2;
 
 /**
  * Infers the OwnProps if E is a ForwardRefExoticComponentWithAs
  */
-type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : { [key: string]: any };
+export type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : { [key: string]: any };
 
 /**
  * Infers the JSX.IntrinsicElement if E is a ForwardRefExoticComponentWithAs
  */
-type IntrinsicElement<E> = E extends ForwardRefComponent<infer I, any> ? I : never;
+export type IntrinsicElement<E> = E extends ForwardRefComponent<infer I, any> ? I : never;
 
-type ForwardRefExoticComponent<E, OwnProps> = React.ForwardRefExoticComponent<
+export type ForwardRefExoticComponent<E, OwnProps> = React.ForwardRefExoticComponent<
   Merge<E extends React.ElementType ? React.ComponentPropsWithRef<E> : never, OwnProps & { as?: E }>
 >;
 
@@ -26,7 +27,7 @@ type ForwardRefExoticComponent<E, OwnProps> = React.ForwardRefExoticComponent<
  * ForwardRefComponent
  * -----------------------------------------------------------------------------------------------*/
 
-interface ForwardRefComponent<
+export interface ForwardRefComponent<
   IntrinsicElementString,
   OwnProps = { [key: string]: any },
   /**
@@ -56,15 +57,15 @@ interface ForwardRefComponent<
 /**
  * Alignment Types
  */
-type AlignX = 'center' | 'left' | 'right';
-type AlignY = 'center' | 'top' | 'bottom';
+export type AlignX = 'center' | 'left' | 'right';
+export type AlignY = 'center' | 'top' | 'bottom';
 
-type Breakpoints = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type BreakpointsWithoutDefault = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type Breakpoints = 'default' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type BreakpointsWithoutDefault = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type Headings = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-type LinkActionProps = {
+export type LinkActionProps = {
   to?: string | { [key: string]: any }; // object here to support react router: https://reactrouter.com/web/api/location
   disabled?: boolean;
   external?: boolean;
@@ -78,15 +79,10 @@ type LinkActionProps = {
   Component?: React.ElementType;
 };
 
-export type {
-  ForwardRefComponent,
-  OwnProps,
-  IntrinsicElement,
-  Merge,
-  AlignX,
-  AlignY,
-  Breakpoints,
-  BreakpointsWithoutDefault,
-  Headings,
-  LinkActionProps,
-};
+/**
+ * Omits a single prop from React.ComponentPropsWithoutRef
+ */
+export type ComponentPropsWithout<T extends React.ElementType, K extends string> = Omit<
+  React.ComponentPropsWithoutRef<T>,
+  K
+>;

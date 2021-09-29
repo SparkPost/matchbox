@@ -14,6 +14,7 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import useResizeObserver from '../../hooks/useResizeObserver';
 import { pick } from '../../helpers/props';
 import { focusOutline } from '../../styles/helpers';
+import type { ComponentPropsWithout } from '../../helpers/types';
 
 const system = compose(margin, maxWidth);
 const StyledWrapper = styled('div')`
@@ -112,12 +113,14 @@ type SharedTextFieldProps = {
 } & MarginProps &
   MaxWidthProps;
 
-type MultiLineProps = React.ComponentPropsWithoutRef<'textarea'> &
+// Omitting 'prefix' because it is a native html attribute
+type MultiLineProps = ComponentPropsWithout<'textarea', 'prefix'> &
   SharedTextFieldProps & {
     multiline: true;
   };
 
-type InputProps = React.ComponentPropsWithoutRef<'input'> &
+// Omitting 'prefix' because it is a native html attribute
+type InputProps = ComponentPropsWithout<'input', 'prefix'> &
   SharedTextFieldProps & {
     multiline?: false;
   };
