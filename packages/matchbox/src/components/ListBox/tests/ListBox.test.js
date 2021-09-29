@@ -11,11 +11,10 @@ describe('Select', () => {
       </ListBox>,
     );
     expect(document.querySelector('input#test-id')).toBeTruthy();
-    expect(document.querySelector('label#test-idLabel')).toBeTruthy();
     expect(document.querySelector('input[data-track="true"]')).toBeTruthy();
   });
 
-  const subject = props =>
+  const subject = (props) =>
     global.mountStyled(
       <ListBox {...props}>
         <ListBox.Option value="option-1">Option 1</ListBox.Option>
@@ -53,24 +52,14 @@ describe('Select', () => {
 
   it('should render with help text', () => {
     const wrapper = subject({ id: 'test-id', helpText: 'test-help' });
-    expect(
-      wrapper
-        .find('div')
-        .last()
-        .text(),
-    ).toEqual('test-help');
+    expect(wrapper.find('div').last().text()).toEqual('test-help');
     expect(wrapper.find('button')).toHaveAttributeValue('aria-describedby', 'test-id-helptext');
     expect(wrapper.find('div').last()).toHaveAttributeValue('id', 'test-id-helptext');
   });
 
   it('should render with error', () => {
     const wrapper = subject({ id: 'test-id', error: 'test-error' });
-    expect(
-      wrapper
-        .find('#test-id-error')
-        .at(1)
-        .text(),
-    ).toEqual('test-error');
+    expect(wrapper.find('#test-id-error').at(1).text()).toEqual('test-error');
   });
 
   it('should render with error and helptext describedby', () => {
@@ -92,12 +81,7 @@ describe('Select', () => {
     wrapper.find('button').simulate('click');
 
     expect(wrapper.find('li')).toHaveLength(2);
-    expect(
-      wrapper
-        .find('li')
-        .first()
-        .text(),
-    ).toEqual('Option 1');
+    expect(wrapper.find('li').first().text()).toEqual('Option 1');
   });
 
   it('should render placeholder option', () => {
@@ -106,11 +90,6 @@ describe('Select', () => {
     wrapper.find('button').simulate('click');
 
     expect(wrapper.find('li')).toHaveLength(3);
-    expect(
-      wrapper
-        .find('li')
-        .first()
-        .text(),
-    ).toEqual('placeholder');
+    expect(wrapper.find('li').first().text()).toEqual('placeholder');
   });
 });
