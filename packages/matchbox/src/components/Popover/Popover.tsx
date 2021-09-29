@@ -140,9 +140,11 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
   function handleClick(e: MouseEvent) {
-    const isInside = popoverRef.current.contains(e.target as Node);
+    const isInside = popoverRef.current && popoverRef.current.contains(e.target as Node);
     const isOutside =
+      popoverRef.current &&
       !popoverRef.current.contains(e.target as Node) &&
+      activatorRef.current &&
       !activatorRef.current.contains(e.target as Node);
 
     if ((isOutside && shouldBeOpen) || (isInside && closeOnInsideClick && shouldBeOpen)) {
