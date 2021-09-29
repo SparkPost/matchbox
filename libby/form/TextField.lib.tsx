@@ -74,13 +74,14 @@ describe('TextField', () => {
     <TextField id="id" prefix="$" suffix={<Autorenew />} suffixClassname="test" />
   ));
 
-  add('connected with suffix', () => (
+  add('connected with suffix and suffix', () => (
     <TextField
       id="id"
       label="Date Range"
       value="July 21, 2017 - July 28, 2017"
       connectLeft={<Select options={['Last Week', 'Last 24 Hours']} />}
       suffix={<Search />}
+      prefix={<Search />}
     />
   ));
 

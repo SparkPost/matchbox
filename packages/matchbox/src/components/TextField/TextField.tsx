@@ -112,12 +112,15 @@ type SharedTextFieldProps = {
 } & MarginProps &
   MaxWidthProps;
 
-type MultiLineProps = React.ComponentPropsWithoutRef<'textarea'> &
+// Omitting 'prefix' because it is a native html attribute
+type OmitPrefix<T extends React.ElementType> = Omit<React.ComponentPropsWithoutRef<T>, 'prefix'>;
+
+type MultiLineProps = OmitPrefix<'textarea'> &
   SharedTextFieldProps & {
     multiline: true;
   };
 
-type InputProps = React.ComponentPropsWithoutRef<'input'> &
+type InputProps = OmitPrefix<'input'> &
   SharedTextFieldProps & {
     multiline?: false;
   };
