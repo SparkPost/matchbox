@@ -186,7 +186,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
     return activeOption ? activeOption.props.children : currentValue;
   }, [currentValue]);
 
-  const labelMarkup = (
+  const labelMarkup = label && (
     <Label id={`${id}Label`} htmlFor={`${id}LabelButton`} labelHidden={labelHidden}>
       <Box as="span" pr="200">
         {label}
@@ -239,6 +239,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
         open={open}
         as="div"
         width="100%"
+        minWidth="5rem"
         trigger={
           <Box position="relative">
             <ListBoxButton

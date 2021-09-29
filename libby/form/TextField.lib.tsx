@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Autorenew, Search } from '@sparkpost/matchbox-icons';
-import { TextField, Button, Tooltip, Stack, Select } from '@sparkpost/matchbox';
+import { TextField, Button, Tooltip, Stack, Select, ListBox } from '@sparkpost/matchbox';
 
 describe('TextField', () => {
   add('basic usage', () => <TextField id="id" label="Name" placeholder="Leslie Knope" />);
@@ -66,7 +66,14 @@ describe('TextField', () => {
           <Button outline>Injection Time</Button>
         </Tooltip>
       }
-      connectRight={<Select options={['Last Week', 'Last 24 Hours']} />}
+      connectRight={
+        <ListBox id="listbox-1" defaultValue="option-1">
+          <ListBox.Option value="option-1">Option 1</ListBox.Option>
+          <ListBox.Option value="option-2">Option 2</ListBox.Option>
+          <ListBox.Option value="option-3">Option 3</ListBox.Option>
+          <ListBox.Option value="option-4">Option 4</ListBox.Option>
+        </ListBox>
+      }
     />
   ));
 
