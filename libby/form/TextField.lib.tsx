@@ -74,7 +74,7 @@ describe('TextField', () => {
     <TextField id="id" prefix="$" suffix={<Autorenew />} suffixClassname="test" />
   ));
 
-  add('connected with suffix and suffix', () => (
+  add('connected with prefix and suffix', () => (
     <TextField
       id="id"
       label="Date Range"
