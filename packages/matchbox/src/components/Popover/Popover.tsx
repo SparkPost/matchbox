@@ -140,13 +140,12 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
 
   // Toggles uncontrolled popovers on clicking outside, and calls `onClose` for controlled popovers
   function handleClick(e: MouseEvent) {
+    const isInside = popoverRef.current.contains(e.target as Node);
     const isOutside =
-      popoverRef.current &&
       !popoverRef.current.contains(e.target as Node) &&
-      activatorRef.current &&
       !activatorRef.current.contains(e.target as Node);
 
-    if ((isOutside && shouldBeOpen) || (closeOnInsideClick && shouldBeOpen)) {
+    if ((isOutside && shouldBeOpen) || (isInside && closeOnInsideClick && shouldBeOpen)) {
       if (onClose) {
         onClose(e);
       }
@@ -197,7 +196,7 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
     }
   }
 
-  function handleActivatorKey(e) {
+  function handleActivatorKey(e: React.KeyboardEvent) {
     if (open === false) {
       onKeys(['arrowUp', 'arrowDown'], () => {
         // Stop arrow keys from scrolling the page
