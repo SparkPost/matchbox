@@ -9,7 +9,7 @@ export type WindowEventProps<T extends keyof WindowEventMap> = {
   /**
    * Event callback function
    */
-  handler: React.EventHandler<any> | ((e: WindowEventMap[T]) => void);
+  handler: (e: WindowEventMap[T]) => void;
 };
 
 /**
