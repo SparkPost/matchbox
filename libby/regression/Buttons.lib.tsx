@@ -3,8 +3,8 @@ import { describe, add } from '@sparkpost/libby-react';
 import { Button, Inline, Stack, Box } from '@sparkpost/matchbox';
 import { Search } from '@sparkpost/matchbox-icons';
 
-describe('Buttons - Visual Regression', () => {
-  add('renders properly', () => {
+describe('Visual Regression', () => {
+  add('Buttons', () => {
     return (
       <Stack>
         <div>
