@@ -1,5 +1,6 @@
 describe('TextField component', () => {
   it('renders correctly', () => {
+    cy.viewport(1280, 660);
     cy.visit('/iframe.html?path=Visual-Regression__TextField');
     // Overriding width here because we don't need to check responsiveness
     cy.findAllByText('Option 1').last().click();
