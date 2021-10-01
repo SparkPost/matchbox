@@ -33,11 +33,31 @@ export const visuallyHidden = `
   word-wrap: normal !important;
 `;
 
+type FocusOutline = {
+  /**
+   * Color of the focus ring. Defaults to color_blue_700.
+   */
+  color?: string;
+  /**
+   * CSS selector to target the pseudo-element with the ring. Defaults to '&:focus'.
+   */
+  modifier?: string;
+  /**
+   * Pixel offset of the focus ring. Defaults to '3px'.
+   */
+  offset?: string;
+  /**
+   * Border radius of the focus ring. Defaults to borderRadius_200.
+   */
+  radius?: string;
+};
+
 /**
- * Creates focus styles on an :after pseudo-element. Defaults to blue 700.
- * @param string color, defaults to 'color_blue_700'
- * @param modifier CSS selector to target the pseudo-element, defaults to '&:focus'
- * @param offset string, pixel value, defaults to '3px'
+ * Creates focus styles on an :after pseudo-element.
+ * @param string Color of the focus ring. Defaults to color_blue_700.
+ * @param modifier CSS selector to target the pseudo-element with the ring, defaults to '&:focus'
+ * @param offset Pixel offset of the focus ring. Defaults to '3px'.
+ * @param radius Border radius of the focus ring. Defaults to borderRadius_200.
  *
  * @example
  * const Styled = styled.div`
@@ -49,7 +69,7 @@ export const focusOutline = ({
   modifier = '&:focus',
   offset = '3px',
   radius = tokens.borderRadius_200,
-} = {}) => `
+}: FocusOutline = {}): string => `
   position: relative;
   outline: none;
 
@@ -71,5 +91,4 @@ export const focusOutline = ({
     z-index: ${tokens.zIndex_default};
     box-shadow: 0 0 0 2px ${color};
   }
-
 `;
