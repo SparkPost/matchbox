@@ -1,4 +1,17 @@
 
+## 6.0.5 (2021-10-01)
+
+#### Bug Fixes
+* `matchbox`
+  * [#1010](https://github.com/SparkPost/matchbox/pull/1010) UX-718 Add TS types to style helpers ([@jonambas](https://github.com/jonambas))
+  * [#991](https://github.com/SparkPost/matchbox/pull/991) UX-702 ThemeProvider target should not be required ([@jonambas](https://github.com/jonambas))
+  * [#1007](https://github.com/SparkPost/matchbox/pull/1007) UX-715 Fix ListBox minWidth and label rendering ([@jonambas](https://github.com/jonambas))
+  * [#1006](https://github.com/SparkPost/matchbox/pull/1006) UX-714 Fix prefix type on TextField ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 6.0.4 (2021-09-27)
 
 #### Bug Fixes
