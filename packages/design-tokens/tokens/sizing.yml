@@ -49,7 +49,7 @@ props:
   - name: sizing-600
     value: 2rem
     comment: 32px
-  - name: spacing-550
+  - name: sizing-550
     value: 1.75rem
     comment: 28px
   - name: sizing-500

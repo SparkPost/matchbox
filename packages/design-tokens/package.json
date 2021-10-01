@@ -4,6 +4,7 @@
   "description": "SparkPost Design Tokens",
   "main": "index.js",
   "style": "dist/index.scss",
+  "types": "index.d.ts",
   "author": "SparkPost",
   "license": "MIT",
   "publishConfig": {
