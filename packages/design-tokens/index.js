@@ -3,5 +3,5 @@ const meta = require('./dist/index.meta.js');
 
 module.exports = {
   tokens,
-  meta
+  meta,
 };

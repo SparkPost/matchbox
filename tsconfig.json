@@ -21,6 +21,15 @@
       "@sparkpost/matchbox-media*": ["packages/matchbox-media*"]
     }
   },
-  "include": ["index.d.ts", "libby/**/*.ts", "libby/**/*.tsx", "libby/**/*.js", "packages/matchbox/src/*", "packages/matchbox-media/*"],
+  "include": [
+    "index.d.ts",
+    "libby/**/*.ts",
+    "libby/**/*.tsx",
+    "libby/**/*.js",
+    "packages/matchbox/src/*",
+    "packages/matchbox-media/*",
+    "packages/matchbox-icons/*",
+    "packages/design-tokens/*"
+  ],
   "exclude": ["node_modules", "dist", "src/**/*.test.js"]
 }
