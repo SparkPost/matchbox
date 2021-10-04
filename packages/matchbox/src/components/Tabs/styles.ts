@@ -1,7 +1,13 @@
 import { buttonReset, focusOutline } from '../../styles/helpers';
 import { tokens } from '@sparkpost/design-tokens';
 
-export const tabStyles = ({ $selected, $fitted }) => `
+export const tabStyles = ({
+  $selected,
+  $fitted,
+}: {
+  $selected?: boolean;
+  $fitted?: boolean;
+}): string => `
   ${buttonReset}
   
   ${focusOutline({ offset: '0px', modifier: '&' })}
@@ -16,7 +22,8 @@ export const tabStyles = ({ $selected, $fitted }) => `
   flex: ${$fitted ? '1' : '0'};
   text-decoration: none;
   outline: none;
-  
+  text-align: center;
+
   padding: 0 ${tokens.spacing_400};
   margin-left: ${$fitted ? '0' : tokens.sizing_200};
 
@@ -70,7 +77,7 @@ export const tabStyles = ({ $selected, $fitted }) => `
   }
 `;
 
-export const overflowTabs = ({ isOverflowing }) => `
+export const overflowTabs = ({ isOverflowing }: { isOverflowing?: boolean }): string => `
   position: absolute;
   left: 0;
   top: 0;
@@ -81,7 +88,7 @@ export const overflowTabs = ({ isOverflowing }) => `
   overflow: ${isOverflowing ? 'hidden' : 'unset'};
 `;
 
-export const containerStyles = () => `
+export const containerStyles = (): string => `
   position: relative;
   height: ${tokens.sizing_650};
 `;
