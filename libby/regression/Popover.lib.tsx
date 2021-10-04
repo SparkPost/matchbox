@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import { Popover, Button, Box, ActionList } from '@sparkpost/matchbox';
+import { Popover, Button, ActionList } from '@sparkpost/matchbox';
 
 function noop() {
   return null;
