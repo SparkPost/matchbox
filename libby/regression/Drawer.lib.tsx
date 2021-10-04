@@ -2,8 +2,8 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { Box, Drawer, Button, useDrawer, Tabs } from '@sparkpost/matchbox';
 
-describe('Drawer - Visual Regression', () => {
-  add('renders properly', () => {
+describe('Visual Regression', () => {
+  add('Drawer', () => {
     const drawer = useDrawer();
 
     return (
