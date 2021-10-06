@@ -1,4 +1,16 @@
 
+## 6.0.6 (2021-10-06)
+
+#### Bug Fixes
+* `matchbox`
+  * [#1012](https://github.com/SparkPost/matchbox/pull/1012) UX-712 Fix center aligned custom Tabs, Add Percy snapshots for tabs ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#1011](https://github.com/SparkPost/matchbox/pull/1011) UX-720 Fix missing `sizing-550`, Add types to design-tokens ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 6.0.5 (2021-10-01)
 
 #### Bug Fixes
