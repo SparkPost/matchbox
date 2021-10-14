@@ -182,7 +182,6 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
     const activeOption = options.find((option) => {
       return option.props.value === currentValue;
     });
-
     return activeOption ? activeOption.props.children : currentValue;
   }, [currentValue]);
 
@@ -259,7 +258,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
               {...describedBy}
               ref={assignRefs}
             >
-              {contentFromValue}
+              {contentFromValue || placeholder}
             </ListBoxButton>
             <StyledChevron size={24} $disabled={disabled} />
           </Box>
