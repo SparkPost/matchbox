@@ -13,7 +13,7 @@ describe('Visual Regression', () => {
         <ListBox.Option value="option-4">Option 4</ListBox.Option>
       </ListBox>
       {/* Placeholder */}
-      <ListBox id="listbox-2" label="Select an option" placeholder="Select One">
+      <ListBox id="listbox-2" label="Select an option" placeholder="Select One" value="">
         <ListBox.Option value="option-1">Option 1</ListBox.Option>
         <ListBox.Option value="option-2">Option 2</ListBox.Option>
         <ListBox.Option value="option-3">Option 3</ListBox.Option>
