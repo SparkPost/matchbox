@@ -57,6 +57,18 @@ describe('Popover', () => {
 
   add('controlled', () => <ControlledPopover />);
 
+  add('with closeOnInsideClick', () => (
+    <Popover
+      id="test-popover"
+      p="400"
+      width="30rem"
+      trigger={<Button aria-describedby="test-popover">Button</Button>}
+      closeOnInsideClick
+    >
+      Popover Content
+    </Popover>
+  ));
+
   add('with an ActionList', () => (
     <Popover
       trigger={

@@ -5,17 +5,13 @@ describe('Controlled Popover component', () => {
 
   it('should open when clicking the trigger', () => {
     cy.focused().should('not.exist');
-    cy.get('button')
-      .first()
-      .click();
+    cy.get('button').first().click();
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
 
   describe('when opened', () => {
     beforeEach(() => {
-      cy.get('button')
-        .first()
-        .click();
+      cy.get('button').first().click();
     });
 
     it('should close when clicking outside the popover', () => {
@@ -53,6 +49,15 @@ describe('Uncontrolled Popover with Actionlist', () => {
   it('should open when clicking the trigger', () => {
     cy.focused().should('not.exist');
     cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+  });
+
+  it('should not close when clicking inside', () => {
+    cy.focused().should('not.exist');
+    cy.contains('More Actions').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.contains('Edit').click();
+    cy.wait(500); // Wait for close animation
     cy.get('[data-id="popover-content"]').should('be.visible');
   });
 
@@ -143,5 +148,20 @@ describe('Uncontrolled Popover with Actionlist', () => {
     cy.findByRole('button', { name: 'More Actions' }).should('have.attr', 'aria-expanded', 'false');
     cy.contains('More Actions').click();
     cy.findByRole('button', { name: 'More Actions' }).should('have.attr', 'aria-expanded', 'true');
+  });
+});
+
+describe('Uncontrolled Popover with closeOnInsideClick', () => {
+  beforeEach(() => {
+    cy.visit('/iframe.html?path=Popover__with-closeOnInsideClick');
+    cy.wait(500); // The element that handles click events requires time to calculate dimensions
+  });
+
+  it('should open', () => {
+    cy.contains('Button').click();
+    cy.get('[data-id="popover-content"]').should('be.visible');
+    cy.contains('Popover Content').click();
+    cy.wait(500); // Wait for close animation
+    cy.get('[data-id="popover-content"]').should('not.be.visible');
   });
 });
