@@ -19,7 +19,7 @@ export type WindowEventProps<T extends keyof WindowEventMap> = {
 function WindowEvent<T extends keyof WindowEventMap>(props: WindowEventProps<T>): JSX.Element {
   const { event, handler } = props;
 
-  if (isBrowser()) {
+  if (!isBrowser()) {
     return null;
   }
 
