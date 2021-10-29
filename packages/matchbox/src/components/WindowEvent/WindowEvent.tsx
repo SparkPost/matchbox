@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWindow } from '../../helpers/window';
+import { getWindow, isBrowser } from '../../helpers/window';
 
 export type WindowEventProps<T extends keyof WindowEventMap> = {
   /**
@@ -18,6 +18,11 @@ export type WindowEventProps<T extends keyof WindowEventMap> = {
  */
 function WindowEvent<T extends keyof WindowEventMap>(props: WindowEventProps<T>): JSX.Element {
   const { event, handler } = props;
+
+  if (isBrowser()) {
+    return null;
+  }
+
   const environment = getWindow();
 
   function addEvent() {

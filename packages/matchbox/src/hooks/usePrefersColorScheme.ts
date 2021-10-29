@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWindow } from '../helpers/window';
+import { getWindow, isBrowser } from '../helpers/window';
 
 /**
  * SSR friendly hook that returns prefers-color-scheme status
@@ -15,6 +15,10 @@ import { getWindow } from '../helpers/window';
 const QUERY = '(prefers-color-scheme: dark)';
 
 function usePrefersColorScheme(): 'dark' | 'light' {
+  if (!isBrowser()) {
+    return 'light';
+  }
+
   const environment = getWindow();
   const matches = environment.matchMedia(QUERY) ? environment.matchMedia(QUERY).matches : false;
 

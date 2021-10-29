@@ -1,5 +1,10 @@
-function noop() {
-  return;
+import { noop } from './noop';
+
+/**
+ * Checks if operating in a browser-based environment
+ */
+export function isBrowser(): boolean {
+  return typeof window !== 'undefined';
 }
 
 type GetWindowReturnType =
@@ -12,7 +17,7 @@ type GetWindowReturnType =
  * Checks if window is available to support SSG/SSR builds
  */
 export function getWindow(): GetWindowReturnType {
-  if (typeof window !== 'undefined') {
+  if (isBrowser()) {
     return window;
   }
 
