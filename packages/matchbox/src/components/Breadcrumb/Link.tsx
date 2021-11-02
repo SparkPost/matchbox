@@ -8,7 +8,6 @@ import styled from 'styled-components';
 export type BreadcrumbLinkProps = Pick<UnstyledLinkProps, 'to'> & {
   children?: React.ReactNode;
   active?: boolean;
-  lastLink?: boolean;
 };
 
 const StyledChevron = styled.div`
@@ -46,7 +45,7 @@ const Link = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(function L
   props: BreadcrumbLinkProps,
   userRef,
 ) {
-  const { to, active = false, lastLink = false, children } = props;
+  const { to, active = false, children } = props;
   return (
     <LinkWrapper display="inline-flex" alignItems="flex-end">
       <StyledLink
