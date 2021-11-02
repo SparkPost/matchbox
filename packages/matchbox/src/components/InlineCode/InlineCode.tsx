@@ -9,12 +9,12 @@ function InlineCode({ children }: InlineCodeProps): JSX.Element {
   return (
     <Box
       as="code"
-      borderRadius="200"
+      borderRadius="100"
       fontFamily="monospace"
       display="inline"
-      bg="gray.200"
-      color="gray.900"
-      px="200"
+      bg="blue.200"
+      color="blue.700"
+      px="100"
       lineHeight="inherit"
       fontSize="75%"
     >
