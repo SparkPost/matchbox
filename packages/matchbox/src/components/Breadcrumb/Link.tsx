@@ -30,6 +30,11 @@ const StyledLink = styled(UnstyledLink)`
   ${css({
     color: 'gray.900',
   })}
+  &:visited {
+    ${css({
+      color: 'gray.900',
+    })}
+  }
   &:hover {
     ${css({
       color: 'blue.700',
