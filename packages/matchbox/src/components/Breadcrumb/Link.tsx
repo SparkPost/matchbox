@@ -11,6 +11,20 @@ export type BreadcrumbLinkProps = Pick<UnstyledLinkProps, 'to'> & {
   lastLink?: boolean;
 };
 
+const StyledChevron = styled.div`
+  ${css({
+    px: '100',
+  })}
+`;
+
+const LinkWrapper = styled(Box)`
+  &:last-of-type {
+    ${StyledChevron} {
+      display: none;
+    }
+  }
+`;
+
 const StyledLink = styled(UnstyledLink)`
   text-decoration: none;
   ${css({
@@ -29,7 +43,7 @@ const Link = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(function L
 ) {
   const { to, active = false, lastLink = false, children } = props;
   return (
-    <Box display="inline-flex" alignItems="flex-end">
+    <LinkWrapper display="inline-flex" alignItems="flex-end">
       <StyledLink
         to={to}
         fontSize="200"
@@ -39,12 +53,10 @@ const Link = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(function L
       >
         {children}
       </StyledLink>
-      {!lastLink && (
-        <Box px="100">
-          <ChevronRight size="18" />
-        </Box>
-      )}
-    </Box>
+      <StyledChevron>
+        <ChevronRight size="18" />
+      </StyledChevron>
+    </LinkWrapper>
   );
 });
 
