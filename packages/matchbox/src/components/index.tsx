@@ -2,6 +2,7 @@ export * from './ActionList';
 export * from './Badge';
 export * from './Banner';
 export * from './Box';
+export * from './Breadcrumb';
 export * from './Button';
 export * from './Checkbox';
 export * from './CodeBlock';
