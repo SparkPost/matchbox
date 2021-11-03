@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-media",
-  "version": "6.0.6",
+  "version": "6.1.0",
   "description": "Images and Videos for Matchbox",
   "main": "matchbox-media.js",
   "publishConfig": {
