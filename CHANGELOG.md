@@ -1,4 +1,25 @@
 
+## 6.1.0 (2021-11-03)
+
+#### Features
+* `matchbox`
+  * [#1020](https://github.com/SparkPost/matchbox/pull/1020) UX-725 Add Breadcrumb component ([@logansparlin](https://github.com/logansparlin))
+  * [#1008](https://github.com/SparkPost/matchbox/pull/1008) Issue 920 - Adds `closeOnInsideClick` prop to Popover ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+* `matchbox`
+  * [#1019](https://github.com/SparkPost/matchbox/pull/1019) UX-726 Modify InlineCode styling ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#1018](https://github.com/SparkPost/matchbox/pull/1018) UX-724 Check browser before performing browser specific operations ([@jonambas](https://github.com/jonambas))
+  * [#1017](https://github.com/SparkPost/matchbox/pull/1017) UX-722 Fix placeholder rendering when value is controlled ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 6.0.6 (2021-10-06)
 
 #### Bug Fixes
