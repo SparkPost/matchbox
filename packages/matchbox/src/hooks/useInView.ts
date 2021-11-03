@@ -1,7 +1,8 @@
 import React from 'react';
 import useWindowEvent from './useWindowEvent';
 import { getRectFor } from '../helpers/geometry';
-import { getWindow } from '../helpers/window';
+import { getWindow, isBrowser } from '../helpers/window';
+import { noop } from '../helpers/noop';
 
 /**
  * Reusable hook that returns true when element is scrolled into view
@@ -17,6 +18,10 @@ function useInView<T extends HTMLElement>({
   offset = 0,
   once = true,
 }: { offset?: number; once?: boolean } = {}): [React.RefCallback<T>, boolean] {
+  if (!isBrowser()) {
+    return [noop, false];
+  }
+
   const [node, setNode] = React.useState(null);
   const [inView, setInView] = React.useState(false);
   const [scroll, setScroll] = React.useState(0);

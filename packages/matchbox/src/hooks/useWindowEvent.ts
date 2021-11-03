@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWindow } from '../helpers/window';
+import { getWindow, isBrowser } from '../helpers/window';
 
 /**
  * Handles global window event listeners in a reusable hook
@@ -16,6 +16,10 @@ function useWindowEvent<T extends keyof WindowEventMap>(
   event: T,
   callback: (e: WindowEventMap[T]) => void,
 ): void {
+  if (!isBrowser()) {
+    return;
+  }
+
   const environment = getWindow();
 
   React.useEffect(() => {

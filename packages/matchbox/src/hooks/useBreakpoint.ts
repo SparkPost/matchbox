@@ -1,6 +1,6 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
-import { getWindow } from '../helpers/window';
+import { getWindow, isBrowser } from '../helpers/window';
 import { Breakpoints } from '../helpers/types';
 
 // Defining queries here to ensure order is correct
@@ -27,6 +27,10 @@ const keys: Breakpoints[] = ['xl', 'lg', 'md', 'sm', 'xs'];
  * @see https://usehooks.com/useMedia/
  */
 function useBreakpoint(): Breakpoints {
+  if (!isBrowser()) {
+    return 'default';
+  }
+
   const environment = getWindow();
   const list = queries.map((q) => environment.matchMedia(q));
 

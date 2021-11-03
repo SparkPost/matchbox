@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWindow } from '../helpers/window';
+import { getWindow, isBrowser } from '../helpers/window';
 
 /**
  * SSR friendly hook that returns prefers-reduced-state status to disable animations
@@ -15,6 +15,10 @@ import { getWindow } from '../helpers/window';
 const QUERY = '(prefers-reduced-motion: reduce)';
 
 function usePrefersReducedMotion(): 'reduce' | 'no-preference' {
+  if (!isBrowser()) {
+    return 'no-preference';
+  }
+
   const environment = getWindow();
   const matches = environment.matchMedia(QUERY) ? environment.matchMedia(QUERY).matches : false;
 
