@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';
 import { Box } from '../Box';
-import { Error } from '../Error';
+import { ErrorLabel } from '../Error';
 import { HelpText } from '../HelpText';
 import { Inline } from '../Inline';
 import { Label } from '../Label';
@@ -95,7 +95,9 @@ function ComboBoxTextField(props: ComboBoxTextFieldProps): JSX.Element {
             </Box>
           )}
           {error && errorInLabel && (
-            <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+            <ErrorLabel id={errorId} wrapper="span">
+              {error}
+            </ErrorLabel>
           )}
         </Label>
       )}
@@ -148,7 +150,7 @@ function ComboBoxTextField(props: ComboBoxTextFieldProps): JSX.Element {
       {/* Menu is rendered here so it is positioned correctly before error and helptext */}
       {children}
       {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
+      {error && !errorInLabel && <ErrorLabel id={errorId}>{error}</ErrorLabel>}
     </StyledWrapper>
   );
 }

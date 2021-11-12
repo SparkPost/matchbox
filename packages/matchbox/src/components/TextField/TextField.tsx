@@ -4,7 +4,7 @@ import { compose, margin, MarginProps, maxWidth, MaxWidthProps } from 'styled-sy
 import { omit } from '@styled-system/props';
 import styled from 'styled-components';
 import { Label } from '../Label';
-import { Error } from '../Error';
+import { ErrorLabel } from '../Error';
 import { Connect } from '../Connect';
 import { Box, BoxProps } from '../Box';
 import { OptionalLabel } from '../OptionalLabel';
@@ -221,7 +221,9 @@ const TextField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, TextF
               {label}
             </Box>
             {error && errorInLabel && (
-              <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+              <ErrorLabel id={errorId} wrapper="span">
+                {error}
+              </ErrorLabel>
             )}
             {optional && <OptionalLabel float />}
           </Label>
@@ -244,7 +246,7 @@ const TextField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, TextF
           </Box>
         </Connect>
         {helpText && <HelpText id={helpTextId}>{helpText}</HelpText>}
-        {error && !errorInLabel && <Error id={errorId} error={error} />}
+        {error && !errorInLabel && <ErrorLabel id={errorId}>{error}</ErrorLabel>}
       </StyledWrapper>
     );
   },
