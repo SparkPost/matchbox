@@ -1,0 +1,33 @@
+{
+  "name": "@sparkpost/cra-template",
+  "description": "A template for Create React App using Matchbox, the Design System from SparkPost.",
+  "author": "SparkPost",
+  "license": "MIT",
+  "version": "6.1.0",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "keywords": [
+    "react",
+    "create-react-app",
+    "matchbox",
+    "sparkpost",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SparkPost/matchbox.git",
+    "directory": "packages/matchbox-cra"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "bugs": {
+    "url": "https://github.com/SparkPost/matchbox/issues"
+  }
+}
