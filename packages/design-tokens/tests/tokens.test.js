@@ -1,4 +1,6 @@
 import { tokens, meta } from '../';
+import path from 'path';
+import fs from 'fs';
 
 it('should format a standard tokens correctly', () => {
   const token = meta.find(({ name }) => name === 'border-radius-200');
@@ -30,4 +32,37 @@ it('should format root font size correctly', () => {
 it('should format consistently', () => {
   expect(tokens).toMatchSnapshot();
   expect(meta).toMatchSnapshot();
+});
+
+// Non-JS File Snapshots
+
+function readFile(file) {
+  return fs.readFileSync(path.join(process.cwd(), `packages/design-tokens/dist/${file}`), 'utf-8');
+}
+
+it('should generate CSS', () => {
+  const file = readFile('index.custom-properties.css');
+  expect(file).toMatchSnapshot();
+});
+
+it('should generate SCSS', () => {
+  const files = [
+    'border-radius.map.scss',
+    'border-width.map.scss',
+    'box-shadow.map.scss',
+    'font-family.map.scss',
+    'font-size.map.scss',
+    'font-weight.map.scss',
+    'line-height.map.scss',
+    'media-query.map.scss',
+    'motion-duration.map.scss',
+    'motion-ease.map.scss',
+    'sizing.map.scss',
+    'spacing.map.scss',
+    'z-index.map.scss',
+    'color.deep-map.scss',
+  ];
+  for (const file of files) {
+    expect(readFile(file)).toMatchSnapshot();
+  }
 });
