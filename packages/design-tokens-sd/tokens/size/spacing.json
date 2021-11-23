@@ -1,0 +1,19 @@
+{
+  "spacing": {
+    "900": { "value": "10rem", "comment": "160px" },
+    "850": { "value": "6rem", "comment": "96px" },
+    "800": { "value": "4rem", "comment": "64px" },
+    "750": { "value": "3.5rem", "comment": "56px" },
+    "700": { "value": "3rem", "comment": "48px" },
+    "650": { "value": "2.5rem", "comment": "40px" },
+    "600": { "value": "2rem", "comment": "32px" },
+    "550": { "value": "1.75rem", "comment": "28px" },
+    "500": { "value": "1.5rem", "comment": "24px" },
+    "450": { "value": "1.25rem", "comment": "20px" },
+    "400": { "value": "1rem", "comment": "16px" },
+    "300": { "value": "0.75rem", "comment": "12px" },
+    "200": { "value": "0.5rem", "comment": "8px" },
+    "100": { "value": "0.25rem", "comment": "4px" },
+    "0": { "value": "0rem", "comment": "0px" }
+  }
+}

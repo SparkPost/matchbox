@@ -1,0 +1,16 @@
+{
+  "font": {
+    "size": {
+      "800": { "value": "5rem", "comment": "56px" },
+      "700": { "value": "75rem", "comment": "44px" },
+      "600": { "value": "2rem", "comment": "32px" },
+      "500": { "value": "5rem", "comment": "24px" },
+      "400": { "value": "25rem", "comment": "20px" },
+      "300": { "value": "125rem", "comment": "18px" },
+      "200": { "value": "1rem", "comment": "16px" },
+      "100": { "value": "875rem", "comment": "14px" },
+      "50": { "value": "75rem", "comment": "12px" },
+      "root": { "value": "16px" }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "motion": {
+    "ease": {
+      "in": { "value": "cubic-bezier(.35, 0, .7, .2)" },
+      "out": { "value": "cubic-bezier(0, 0, .3, 1)" },
+      "in-out": { "value": "cubic-bezier(.4, 0, .3, 1)" }
+    }
+  }
+}
