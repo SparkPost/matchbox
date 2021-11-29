@@ -7,8 +7,8 @@ const mapGet = (key) => `
   @function ${key}($variant) {
     $parent-map: map-get($${MAP}, '${key}');
       
-    @if map-has-key($parent-map, $variant) {
-      @return map-get($parent-map, $variant);
+    @if map-has-key($parent-map, '#{$variant}') {
+      @return map-get($parent-map, '#{$variant}');
     }
     
     @error '${key} '#{$variant}' not found.';
@@ -41,12 +41,12 @@ const colorMapGet = () => `
   @function color($palette, $variant: base) {
     $color-map: map-get($${MAP}, 'color');
 
-    @if map-has-key($color-map, $variant) {
-      $palette-map: map-get($color-map, $palette);
-      @return map-get($palette-map, $variant);
+    @if map-has-key($color-map, '#{$palette}') {
+      $palette-map: map-get($color-map, '#{$palette}');
+      @return map-get($palette-map, '#{$variant}');
     }
     
-    @error 'color '#{$palette} - #{$variant}' not found.';
+    @error 'color' #{$palette} - #{$variant}' not found.';
   }
 `;
 
