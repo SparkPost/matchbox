@@ -1,10 +1,8 @@
 {
-  "font": {
-    "weight": {
-      "light": { "value": "300" },
-      "normal": { "value": "400" },
-      "medium": { "value": "500" },
-      "semibold": { "value": "600" }
-    }
+  "font-weight": {
+    "light": { "value": "300" },
+    "normal": { "value": "400" },
+    "medium": { "value": "500" },
+    "semibold": { "value": "600" }
   }
 }
