@@ -109,11 +109,7 @@ module.exports = {
         })
         .join(',\n');
 
-      return `
-        module.exports = [
-          ${tokens}
-        ]
-      `;
+      return `module.exports = [${tokens}]`;
     },
   },
 };
