@@ -32,7 +32,7 @@ module.exports = {
         },
       ],
     },
-    // Generates JS files in camel case
+    // Generates JS files in snake case
     js: {
       transformGroup: 'js',
       buildPath: 'dist/js/',
@@ -45,10 +45,10 @@ module.exports = {
       ],
     },
     // Generates JS files in the old format of snake & camel using a custom transform
-    js_deprecated: {
+    js_legacy: {
       transformGroup: 'js',
       buildPath: 'dist/js/',
-      transforms: ['name/cti/deprecated'],
+      transforms: ['name/cti/legacy'],
       files: [
         {
           destination: 'tokens.legacy.js',
@@ -58,7 +58,7 @@ module.exports = {
     },
   },
   transform: {
-    'name/cti/deprecated': {
+    'name/cti/legacy': {
       type: 'name',
       transformer: (token) => {
         const [category, ...rest] = token.path;
