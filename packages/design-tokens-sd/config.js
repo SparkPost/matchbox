@@ -51,7 +51,7 @@ module.exports = {
       transforms: ['name/cti/deprecated'],
       files: [
         {
-          destination: 'deprecated.js',
+          destination: 'tokens.legacy.js',
           format: 'javascript/module-flat',
         },
       ],
