@@ -91,9 +91,7 @@ module.exports = {
       const tokens = all
         .map((token) => {
           const { path, value, pixel_value } = token;
-          const unitless = !!pixel_value ? pixel_value.replace(/px$/, '') : undefined;
           const [head, ...tail] = path;
-          const system = tail.join('.');
 
           return JSON.stringify({
             category: head,
@@ -102,9 +100,9 @@ module.exports = {
             javascript: transforms['name/cti/snake'].transformer(token, {}),
             name: path.join('-'),
             pixel_value: pixel_value,
-            pixel_value_unitless: unitless,
+            pixel_value_unitless: !!pixel_value ? pixel_value.replace(/px$/, '') : undefined,
             scss: `${head}(${tail.join(',')})`,
-            system: system,
+            system: tail.join('.'),
             type: head,
             value: value,
           });
