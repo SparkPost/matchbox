@@ -104,7 +104,7 @@ module.exports = {
             scss: `${head}(${tail.join(',')})`,
             system: tail.join('.'),
             type: head,
-            value: value,
+            value: head.match(/^color$/) ? value.toUpperCase() : value,
           });
         })
         .join(',\n');
