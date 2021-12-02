@@ -1,0 +1,31 @@
+{
+  "name": "@sparkpost/matchbox-css",
+  "version": "1.0.0",
+  "description": "Matchbox CSS Utility Library",
+  "main": "index.js",
+  "style": "dist/index.css",
+  "author": "SparkPost",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparkPost/matchbox.git"
+  },
+  "scripts": {
+    "prebuild": "npm run clean",
+    "compile": "node-sass index.scss --importer node_modules/node-sass-import -o dist/index.css",
+    "build": "npm run compile -- --output-style compressed",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "@sparkpost/design-tokens": "^6.1.0"
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "node-sass-import": "^2.0.1",
+    "prettier": "^2.5.0",
+    "rimraf": "^3.0.2"
+  }
+}

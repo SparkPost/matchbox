@@ -1,0 +1,26 @@
+@import '@sparkpost/design-tokens/dist/media-query.map.scss';
+@import '@sparkpost/design-tokens/dist/font-size.map.scss';
+
+@each $fsKey, $fs in $font-size-map {
+  .#{$fsKey} {
+    font-size: #{$fs};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $fsKey, $fs in $font-size-map {
+    .#{$interaction}:#{$fsKey}:#{$interaction} {
+      font-size: #{$fs};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+    @each $fsKey, $fs in $font-size-map {
+      @media (min-width: #{$mq}) {
+        .#{str-slice($mqKey, 13)}:#{$fsKey} {
+          font-size: #{$fs};
+        }
+      }
+    }
+}
