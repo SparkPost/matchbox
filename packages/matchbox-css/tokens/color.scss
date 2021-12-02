@@ -1,0 +1,32 @@
+@import '@sparkpost/design-tokens/dist/media-query.map.scss';
+@import '@sparkpost/design-tokens/dist/color.deep-map.scss';
+
+@each $catKey, $cat in $color-map {
+  @each $colorKey, $color in $cat {
+    .color-#{$catKey}-#{$colorKey} {
+      color: $color;
+    }
+  }
+}
+
+@each $interaction in $interactions {
+  @each $catKey, $cat in $color-map {
+    @each $colorKey, $color in $cat {
+      .#{$interaction}:color-#{$catKey}-#{$colorKey}:#{$interaction} {
+        color: $color;
+      }
+    }
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $catKey, $cat in $color-map {
+      @each $colorKey, $color in $cat {
+        .#{str-slice($mqKey, 13)}:color-#{$catKey}-#{$colorKey} {
+          color: $color;
+        }
+      }
+    }
+  }
+}
