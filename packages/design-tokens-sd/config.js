@@ -1,5 +1,6 @@
 const { mapGet, utils, colorMapGet } = require('./templates/scss-functions');
-const { toSnake, toCamel } = require('./utils/utils');
+const { toSnake, toCamel, toFriendly } = require('./utils/utils');
+const transforms = require('style-dictionary/lib/common/transforms');
 
 module.exports = {
   source: ['tokens/**/*.json'],
@@ -56,6 +57,17 @@ module.exports = {
         },
       ],
     },
+    // Generates meta JS file
+    js_meta: {
+      transformGroup: 'js',
+      buildPath: 'dist/meta/',
+      files: [
+        {
+          destination: 'meta.js',
+          format: 'javascript/meta',
+        },
+      ],
+    },
   },
   transform: {
     'name/cti/legacy': {
@@ -72,6 +84,32 @@ module.exports = {
       const rootFontSize = args.dictionary.allTokens.find(({ name }) => name === 'font-size-root');
       const functions = keys.map((key) => (key !== 'color' ? mapGet(key) : colorMapGet())).join('');
       return `${utils(rootFontSize)}\n${functions}`;
+    },
+    'javascript/meta': (args) => {
+      const all = args.dictionary.allTokens;
+
+      const tokens = all
+        .map((token) => {
+          const { path, value, pixel_value } = token;
+          const [head, ...tail] = path;
+
+          return JSON.stringify({
+            category: head,
+            css: `--${path.join('-')}`,
+            friendly: toFriendly(path.join(' ')),
+            javascript: transforms['name/cti/snake'].transformer(token, {}),
+            name: path.join('-'),
+            pixel_value: pixel_value,
+            pixel_value_unitless: !!pixel_value ? pixel_value.replace(/px$/, '') : undefined,
+            scss: `${head}(${tail.join(',')})`,
+            system: tail.join('.'),
+            type: head,
+            value: value,
+          });
+        })
+        .join(',\n');
+
+      return `module.exports = [${tokens}]`;
     },
   },
 };

@@ -15,7 +15,17 @@ function toSnake(string) {
     .join('_');
 }
 
+function toFriendly(string) {
+  return string
+    .toLowerCase()
+    .replace('-', ' ')
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+}
+
 module.exports = {
   toCamel,
   toSnake,
+  toFriendly,
 };
