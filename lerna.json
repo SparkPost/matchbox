@@ -2,6 +2,7 @@
   "lerna": "4.0.9",
   "packages": [
     "packages/design-tokens",
+    "packages/design-tokens-sd",
     "packages/matchbox-icons",
     "packages/matchbox",
     "packages/matchbox-media"
@@ -9,23 +10,14 @@
   "version": "6.1.0",
   "command": {
     "publish": {
-      "ignoreChanges": [
-        "**/tests/**",
-        "**/*.md"
-      ]
+      "ignoreChanges": ["**/tests/**", "**/*.md"]
     },
     "bootstrap": {
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
+      "npmClientArgs": ["--no-package-lock"]
     },
     "version": {
       "message": "Publish %s"
     }
   },
-  "ignoreChanges": [
-    "**/matchbox-site/**",
-    "**/tests/**",
-    "**/*.md"
-  ]
+  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
 }
