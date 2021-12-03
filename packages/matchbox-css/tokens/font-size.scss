@@ -16,8 +16,8 @@
 } 
 
 @each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
     @each $fsKey, $fs in $font-size-map {
-      @media (min-width: #{$mq}) {
         .#{str-slice($mqKey, 13)}:#{$fsKey} {
           font-size: #{$fs};
         }
