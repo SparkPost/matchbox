@@ -20,3 +20,17 @@ Commands:
 # Compiles tokens
 npm run build
 ```
+
+Importing:
+
+```css
+@import '~@sparkpost/design-tokens/dist/css/tokens.css';
+```
+
+```css
+@import '~@sparkpost/design-tokens/dist/scss/tokens.scss';
+```
+
+```js
+import { tokens, tokens_next, tokens_legacy, meta } from '@sparkpost/design-tokens';
+```
