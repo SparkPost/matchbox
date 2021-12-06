@@ -38,8 +38,12 @@ const utils = (rootFontSize) => {
 };
 
 const colorMapGet = () => `
-  @function color($palette, $variant: base) {
+  @function color($palette, $variant) {
     $color-map: map-get($${MAP}, 'color');
+
+    @if $palette == 'white' {
+      @return map-get($color-map, 'white');
+    }
 
     @if map-has-key($color-map, '#{$palette}') {
       $palette-map: map-get($color-map, '#{$palette}');

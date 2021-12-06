@@ -101,6 +101,6 @@
       "200": { "value": "#EBF0F5" },
       "100": { "value": "#F5F8FA" }
     },
-    "white": { "base": { "value": "#FFFFFF" } }
+    "white": { "value": "#FFFFFF" }
   }
 }
