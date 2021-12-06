@@ -267,7 +267,7 @@ type Tokens = {
   color_gray_800: string;
   color_gray_900: string;
   color_gray_1000: string;
-  color_white_base: string;
+  color_white: string;
   box_shadow_0: string;
   box_shadow_100: string;
   box_shadow_200: string;
