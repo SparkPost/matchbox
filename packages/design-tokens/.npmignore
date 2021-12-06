@@ -1,7 +1,4 @@
 /node_modules
-/data
-/gulpfile
-/scripts
 
 # misc
 .DS_Store

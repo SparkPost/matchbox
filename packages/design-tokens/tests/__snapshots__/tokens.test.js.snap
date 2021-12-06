@@ -5,7 +5,7 @@ Object {
   "category": "border-radius",
   "css": "--border-radius-200",
   "friendly": "Border Radius 200",
-  "javascript": "borderRadius_200",
+  "javascript": "border_radius_200",
   "name": "border-radius-200",
   "scss": "border-radius(200)",
   "system": "200",
@@ -16,138 +16,138 @@ Object {
 
 exports[`should format consistently 1`] = `
 Object {
-  "borderRadius_0": "0",
-  "borderRadius_100": "1px",
-  "borderRadius_200": "2px",
-  "borderRadius_circle": "50%",
-  "borderRadius_pill": "9999em",
-  "borderWidth_0": "0",
-  "borderWidth_100": "1px",
-  "borderWidth_200": "2px",
-  "boxShadow_0": "none",
-  "boxShadow_100": "0px 1px 2px rgba(44,53,61,.2)",
-  "boxShadow_200": "0px 2px 4px rgba(44,53,61,.2)",
-  "boxShadow_300": "0px 4px 8px rgba(44,53,61,.2)",
-  "boxShadow_400": "0px 8px 16px rgba(44,53,61,.2)",
-  "color_blue_100": "#f2f8ff",
+  "border_radius_0": "0",
+  "border_radius_100": "1px",
+  "border_radius_200": "2px",
+  "border_radius_circle": "50%",
+  "border_radius_pill": "9999em",
+  "border_width_0": "0",
+  "border_width_100": "1px",
+  "border_width_200": "2px",
+  "box_shadow_0": "none",
+  "box_shadow_100": "0px 1px 2px rgba(44,53,61,.2)",
+  "box_shadow_200": "0px 2px 4px rgba(44,53,61,.2)",
+  "box_shadow_300": "0px 4px 8px rgba(44,53,61,.2)",
+  "box_shadow_400": "0px 8px 16px rgba(44,53,61,.2)",
+  "color_blue_100": "#F2F8FF",
   "color_blue_1000": "#203752",
-  "color_blue_200": "#e8f3ff",
-  "color_blue_300": "#cce3ff",
-  "color_blue_400": "#abd2ff",
-  "color_blue_500": "#78b6ff",
-  "color_blue_600": "#429bff",
-  "color_blue_700": "#1273e6",
-  "color_blue_800": "#0060cc",
-  "color_blue_900": "#1a497d",
-  "color_brand_blue": "#37aadc",
-  "color_brand_gray": "#55555a",
-  "color_brand_orange": "#fa6423",
-  "color_gray_100": "#f5f8fa",
-  "color_gray_1000": "#2c353d",
-  "color_gray_200": "#ebf0f5",
-  "color_gray_300": "#d9e0e6",
-  "color_gray_400": "#c5ced6",
-  "color_gray_500": "#a2adb8",
-  "color_gray_600": "#818e9a",
-  "color_gray_700": "#626f7a",
-  "color_gray_800": "#46525c",
-  "color_gray_900": "#39444d",
-  "color_green_100": "#e8fff7",
-  "color_green_1000": "#233b33",
-  "color_green_200": "#d6fff1",
-  "color_green_300": "#b5f5e0",
-  "color_green_400": "#8debcb",
-  "color_green_500": "#52d9ac",
-  "color_green_600": "#28bd8b",
-  "color_green_700": "#009f6a",
+  "color_blue_200": "#E8F3FF",
+  "color_blue_300": "#CCE3FF",
+  "color_blue_400": "#ABD2FF",
+  "color_blue_500": "#78B6FF",
+  "color_blue_600": "#429BFF",
+  "color_blue_700": "#1273E6",
+  "color_blue_800": "#0060CC",
+  "color_blue_900": "#1A497D",
+  "color_brand_blue": "#37AADC",
+  "color_brand_gray": "#55555A",
+  "color_brand_orange": "#fA6423",
+  "color_gray_100": "#F5F8FA",
+  "color_gray_1000": "#2C353D",
+  "color_gray_200": "#EBF0F5",
+  "color_gray_300": "#D9E0E6",
+  "color_gray_400": "#C5CED6",
+  "color_gray_500": "#A2ADB8",
+  "color_gray_600": "#818E9A",
+  "color_gray_700": "#626F7A",
+  "color_gray_800": "#46525C",
+  "color_gray_900": "#39444D",
+  "color_green_100": "#E8FFF7",
+  "color_green_1000": "#233B33",
+  "color_green_200": "#D6FFF1",
+  "color_green_300": "#B5F5E0",
+  "color_green_400": "#8DEBCB",
+  "color_green_500": "#52D9AC",
+  "color_green_600": "#28BD8B",
+  "color_green_700": "#009F6A",
   "color_green_800": "#067852",
-  "color_green_900": "#1b5441",
-  "color_magenta_100": "#fff2f8",
+  "color_green_900": "#1B5441",
+  "color_magenta_100": "#FFF2F8",
   "color_magenta_1000": "#522338",
-  "color_magenta_200": "#ffe8f2",
-  "color_magenta_300": "#ffcce3",
-  "color_magenta_400": "#ffb0d3",
-  "color_magenta_500": "#ff7db7",
-  "color_magenta_600": "#f0549a",
-  "color_magenta_700": "#d1347a",
+  "color_magenta_200": "#FFE8F2",
+  "color_magenta_300": "#FFCCE3",
+  "color_magenta_400": "#FFB0D3",
+  "color_magenta_500": "#FF7DB7",
+  "color_magenta_600": "#F0549A",
+  "color_magenta_700": "#D1347A",
   "color_magenta_800": "#992659",
   "color_magenta_900": "#782449",
-  "color_purple_100": "#f9f5ff",
-  "color_purple_1000": "#352e4a",
-  "color_purple_200": "#f3ebff",
-  "color_purple_300": "#e5d4ff",
-  "color_purple_400": "#d7bdff",
-  "color_purple_500": "#bd91ff",
-  "color_purple_600": "#a469ff",
-  "color_purple_700": "#8c40ff",
-  "color_purple_800": "#7122e3",
-  "color_purple_900": "#4c2e87",
-  "color_red_100": "#fff2f3",
-  "color_red_1000": "#5c2121",
-  "color_red_200": "#ffebec",
-  "color_red_300": "#ffcfd1",
-  "color_red_400": "#ffb5b9",
-  "color_red_500": "#ff858b",
-  "color_red_600": "#ff5760",
-  "color_red_700": "#d9363e",
-  "color_red_800": "#a12b2b",
-  "color_red_900": "#80252a",
-  "color_teal_100": "#e3ffff",
-  "color_teal_1000": "#223a3b",
-  "color_teal_200": "#ccffff",
-  "color_teal_300": "#96feff",
-  "color_teal_400": "#6ef4f5",
-  "color_teal_500": "#37e4e6",
-  "color_teal_600": "#13bebf",
+  "color_purple_100": "#F9F5FF",
+  "color_purple_1000": "#352E4A",
+  "color_purple_200": "#F3EBFF",
+  "color_purple_300": "#E5D4FF",
+  "color_purple_400": "#D7BDFF",
+  "color_purple_500": "#BD91FF",
+  "color_purple_600": "#A469FF",
+  "color_purple_700": "#8C40FF",
+  "color_purple_800": "#7122E3",
+  "color_purple_900": "#4C2E87",
+  "color_red_100": "#FFF2F3",
+  "color_red_1000": "#5C2121",
+  "color_red_200": "#FFEBEC",
+  "color_red_300": "#FFCFD1",
+  "color_red_400": "#FFB5B9",
+  "color_red_500": "#FF858B",
+  "color_red_600": "#FF5760",
+  "color_red_700": "#D9363E",
+  "color_red_800": "#A12B2B",
+  "color_red_900": "#80252A",
+  "color_teal_100": "#E3FFFF",
+  "color_teal_1000": "#223A3B",
+  "color_teal_200": "#CCFFFF",
+  "color_teal_300": "#96FEFF",
+  "color_teal_400": "#6EF4F5",
+  "color_teal_500": "#37E4E6",
+  "color_teal_600": "#13BEBF",
   "color_teal_700": "#199091",
   "color_teal_800": "#226363",
-  "color_teal_900": "#274c4d",
-  "color_white": "#ffffff",
-  "color_yellow_100": "#fffadb",
-  "color_yellow_1000": "#3d3121",
-  "color_yellow_200": "#fff4b5",
-  "color_yellow_300": "#ffe75c",
-  "color_yellow_400": "#ffda00",
-  "color_yellow_500": "#e3ad0b",
-  "color_yellow_600": "#b58c12",
-  "color_yellow_700": "#876a2f",
-  "color_yellow_800": "#614d27",
-  "color_yellow_900": "#523e21",
-  "fontFamily_monospace": "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace",
-  "fontFamily_sans": "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif",
-  "fontSize_100": "0.875rem",
-  "fontSize_200": "1rem",
-  "fontSize_300": "1.125rem",
-  "fontSize_400": "1.25rem",
-  "fontSize_50": "0.75rem",
-  "fontSize_500": "1.5rem",
-  "fontSize_600": "2rem",
-  "fontSize_700": "2.75rem",
-  "fontSize_800": "3.5rem",
-  "fontSize_root": "16px",
-  "fontWeight_light": "300",
-  "fontWeight_medium": "500",
-  "fontWeight_normal": "400",
-  "fontWeight_semibold": "600",
-  "lineHeight_100": "1rem",
-  "lineHeight_200": "1.25rem",
-  "lineHeight_300": "1.5rem",
-  "lineHeight_400": "1.750rem",
-  "lineHeight_500": "2rem",
-  "lineHeight_600": "2.5rem",
-  "lineHeight_700": "3.5rem",
-  "lineHeight_800": "4.25rem",
-  "mediaQuery_lg": "1200px",
-  "mediaQuery_md": "960px",
-  "mediaQuery_sm": "720px",
-  "mediaQuery_xl": "1440px",
-  "mediaQuery_xs": "448px",
-  "motionDuration_fast": "0.15s",
-  "motionDuration_medium": "0.3s",
-  "motionDuration_slow": "0.7s",
-  "motionEase_in": "cubic-bezier(.35, 0, .7, .2)",
-  "motionEase_in_out": "cubic-bezier(.4, 0, .3, 1)",
-  "motionEase_out": "cubic-bezier(0, 0, .3, 1)",
+  "color_teal_900": "#274C4D",
+  "color_white": "#FFFFFF",
+  "color_yellow_100": "#FFFADB",
+  "color_yellow_1000": "#3D3121",
+  "color_yellow_200": "#FFF4B5",
+  "color_yellow_300": "#FFE75C",
+  "color_yellow_400": "#FFDA00",
+  "color_yellow_500": "#E3AD0B",
+  "color_yellow_600": "#B58C12",
+  "color_yellow_700": "#876A2F",
+  "color_yellow_800": "#614D27",
+  "color_yellow_900": "#523E21",
+  "font_family_monospace": "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace",
+  "font_family_sans": "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif",
+  "font_size_100": "0.875rem",
+  "font_size_200": "1rem",
+  "font_size_300": "1.125rem",
+  "font_size_400": "1.25rem",
+  "font_size_50": "0.75rem",
+  "font_size_500": "1.5rem",
+  "font_size_600": "2rem",
+  "font_size_700": "2.75rem",
+  "font_size_800": "3.5rem",
+  "font_size_root": "16px",
+  "font_weight_light": "300",
+  "font_weight_medium": "500",
+  "font_weight_normal": "400",
+  "font_weight_semibold": "600",
+  "line_height_100": "1rem",
+  "line_height_200": "1.25rem",
+  "line_height_300": "1.5rem",
+  "line_height_400": "1.750rem",
+  "line_height_500": "2rem",
+  "line_height_600": "2.5rem",
+  "line_height_700": "3.5rem",
+  "line_height_800": "4.25rem",
+  "media_query_lg": "1200px",
+  "media_query_md": "960px",
+  "media_query_sm": "720px",
+  "media_query_xl": "1440px",
+  "media_query_xs": "448px",
+  "motion_duration_fast": "0.15s",
+  "motion_duration_medium": "0.3s",
+  "motion_duration_slow": "0.7s",
+  "motion_ease_in": "cubic-bezier(.35, 0, .7, .2)",
+  "motion_ease_in_out": "cubic-bezier(.4, 0, .3, 1)",
+  "motion_ease_out": "cubic-bezier(0, 0, .3, 1)",
   "sizing_0": "0rem",
   "sizing_100": "0.25rem",
   "sizing_1000": "20rem",
@@ -186,10 +186,10 @@ Object {
   "spacing_800": "4rem",
   "spacing_850": "6rem",
   "spacing_900": "10rem",
-  "zIndex_auto": "auto",
-  "zIndex_below": "-1",
-  "zIndex_default": "1",
-  "zIndex_overlay": "1000",
+  "z_index_auto": "auto",
+  "z_index_below": "-1",
+  "z_index_default": "1",
+  "z_index_overlay": "1000",
 }
 `;
 
@@ -199,7 +199,7 @@ Array [
     "category": "border-radius",
     "css": "--border-radius-0",
     "friendly": "Border Radius 0",
-    "javascript": "borderRadius_0",
+    "javascript": "border_radius_0",
     "name": "border-radius-0",
     "scss": "border-radius(0)",
     "system": "0",
@@ -210,7 +210,7 @@ Array [
     "category": "border-radius",
     "css": "--border-radius-100",
     "friendly": "Border Radius 100",
-    "javascript": "borderRadius_100",
+    "javascript": "border_radius_100",
     "name": "border-radius-100",
     "scss": "border-radius(100)",
     "system": "100",
@@ -221,7 +221,7 @@ Array [
     "category": "border-radius",
     "css": "--border-radius-200",
     "friendly": "Border Radius 200",
-    "javascript": "borderRadius_200",
+    "javascript": "border_radius_200",
     "name": "border-radius-200",
     "scss": "border-radius(200)",
     "system": "200",
@@ -232,7 +232,7 @@ Array [
     "category": "border-radius",
     "css": "--border-radius-pill",
     "friendly": "Border Radius Pill",
-    "javascript": "borderRadius_pill",
+    "javascript": "border_radius_pill",
     "name": "border-radius-pill",
     "scss": "border-radius(pill)",
     "system": "pill",
@@ -243,7 +243,7 @@ Array [
     "category": "border-radius",
     "css": "--border-radius-circle",
     "friendly": "Border Radius Circle",
-    "javascript": "borderRadius_circle",
+    "javascript": "border_radius_circle",
     "name": "border-radius-circle",
     "scss": "border-radius(circle)",
     "system": "circle",
@@ -254,7 +254,7 @@ Array [
     "category": "border-width",
     "css": "--border-width-0",
     "friendly": "Border Width 0",
-    "javascript": "borderWidth_0",
+    "javascript": "border_width_0",
     "name": "border-width-0",
     "scss": "border-width(0)",
     "system": "0",
@@ -265,7 +265,7 @@ Array [
     "category": "border-width",
     "css": "--border-width-100",
     "friendly": "Border Width 100",
-    "javascript": "borderWidth_100",
+    "javascript": "border_width_100",
     "name": "border-width-100",
     "scss": "border-width(100)",
     "system": "100",
@@ -276,7 +276,7 @@ Array [
     "category": "border-width",
     "css": "--border-width-200",
     "friendly": "Border Width 200",
-    "javascript": "borderWidth_200",
+    "javascript": "border_width_200",
     "name": "border-width-200",
     "scss": "border-width(200)",
     "system": "200",
@@ -284,10 +284,934 @@ Array [
     "value": "2px",
   },
   Object {
+    "category": "color",
+    "css": "--color-brand-orange",
+    "friendly": "Color Brand Orange",
+    "javascript": "color_brand_orange",
+    "name": "color-brand-orange",
+    "scss": "color(brand,orange)",
+    "system": "brand.orange",
+    "type": "color",
+    "value": "#FA6423",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-brand-gray",
+    "friendly": "Color Brand Gray",
+    "javascript": "color_brand_gray",
+    "name": "color-brand-gray",
+    "scss": "color(brand,gray)",
+    "system": "brand.gray",
+    "type": "color",
+    "value": "#55555A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-brand-blue",
+    "friendly": "Color Brand Blue",
+    "javascript": "color_brand_blue",
+    "name": "color-brand-blue",
+    "scss": "color(brand,blue)",
+    "system": "brand.blue",
+    "type": "color",
+    "value": "#37AADC",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-100",
+    "friendly": "Color Yellow 100",
+    "javascript": "color_yellow_100",
+    "name": "color-yellow-100",
+    "scss": "color(yellow,100)",
+    "system": "yellow.100",
+    "type": "color",
+    "value": "#FFFADB",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-200",
+    "friendly": "Color Yellow 200",
+    "javascript": "color_yellow_200",
+    "name": "color-yellow-200",
+    "scss": "color(yellow,200)",
+    "system": "yellow.200",
+    "type": "color",
+    "value": "#FFF4B5",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-300",
+    "friendly": "Color Yellow 300",
+    "javascript": "color_yellow_300",
+    "name": "color-yellow-300",
+    "scss": "color(yellow,300)",
+    "system": "yellow.300",
+    "type": "color",
+    "value": "#FFE75C",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-400",
+    "friendly": "Color Yellow 400",
+    "javascript": "color_yellow_400",
+    "name": "color-yellow-400",
+    "scss": "color(yellow,400)",
+    "system": "yellow.400",
+    "type": "color",
+    "value": "#FFDA00",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-500",
+    "friendly": "Color Yellow 500",
+    "javascript": "color_yellow_500",
+    "name": "color-yellow-500",
+    "scss": "color(yellow,500)",
+    "system": "yellow.500",
+    "type": "color",
+    "value": "#E3AD0B",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-600",
+    "friendly": "Color Yellow 600",
+    "javascript": "color_yellow_600",
+    "name": "color-yellow-600",
+    "scss": "color(yellow,600)",
+    "system": "yellow.600",
+    "type": "color",
+    "value": "#B58C12",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-700",
+    "friendly": "Color Yellow 700",
+    "javascript": "color_yellow_700",
+    "name": "color-yellow-700",
+    "scss": "color(yellow,700)",
+    "system": "yellow.700",
+    "type": "color",
+    "value": "#876A2F",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-800",
+    "friendly": "Color Yellow 800",
+    "javascript": "color_yellow_800",
+    "name": "color-yellow-800",
+    "scss": "color(yellow,800)",
+    "system": "yellow.800",
+    "type": "color",
+    "value": "#614D27",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-900",
+    "friendly": "Color Yellow 900",
+    "javascript": "color_yellow_900",
+    "name": "color-yellow-900",
+    "scss": "color(yellow,900)",
+    "system": "yellow.900",
+    "type": "color",
+    "value": "#523E21",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-yellow-1000",
+    "friendly": "Color Yellow 1000",
+    "javascript": "color_yellow_1000",
+    "name": "color-yellow-1000",
+    "scss": "color(yellow,1000)",
+    "system": "yellow.1000",
+    "type": "color",
+    "value": "#3D3121",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-100",
+    "friendly": "Color Green 100",
+    "javascript": "color_green_100",
+    "name": "color-green-100",
+    "scss": "color(green,100)",
+    "system": "green.100",
+    "type": "color",
+    "value": "#E8FFF7",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-200",
+    "friendly": "Color Green 200",
+    "javascript": "color_green_200",
+    "name": "color-green-200",
+    "scss": "color(green,200)",
+    "system": "green.200",
+    "type": "color",
+    "value": "#D6FFF1",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-300",
+    "friendly": "Color Green 300",
+    "javascript": "color_green_300",
+    "name": "color-green-300",
+    "scss": "color(green,300)",
+    "system": "green.300",
+    "type": "color",
+    "value": "#B5F5E0",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-400",
+    "friendly": "Color Green 400",
+    "javascript": "color_green_400",
+    "name": "color-green-400",
+    "scss": "color(green,400)",
+    "system": "green.400",
+    "type": "color",
+    "value": "#8DEBCB",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-500",
+    "friendly": "Color Green 500",
+    "javascript": "color_green_500",
+    "name": "color-green-500",
+    "scss": "color(green,500)",
+    "system": "green.500",
+    "type": "color",
+    "value": "#52D9AC",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-600",
+    "friendly": "Color Green 600",
+    "javascript": "color_green_600",
+    "name": "color-green-600",
+    "scss": "color(green,600)",
+    "system": "green.600",
+    "type": "color",
+    "value": "#28BD8B",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-700",
+    "friendly": "Color Green 700",
+    "javascript": "color_green_700",
+    "name": "color-green-700",
+    "scss": "color(green,700)",
+    "system": "green.700",
+    "type": "color",
+    "value": "#009F6A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-800",
+    "friendly": "Color Green 800",
+    "javascript": "color_green_800",
+    "name": "color-green-800",
+    "scss": "color(green,800)",
+    "system": "green.800",
+    "type": "color",
+    "value": "#067852",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-900",
+    "friendly": "Color Green 900",
+    "javascript": "color_green_900",
+    "name": "color-green-900",
+    "scss": "color(green,900)",
+    "system": "green.900",
+    "type": "color",
+    "value": "#1B5441",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-green-1000",
+    "friendly": "Color Green 1000",
+    "javascript": "color_green_1000",
+    "name": "color-green-1000",
+    "scss": "color(green,1000)",
+    "system": "green.1000",
+    "type": "color",
+    "value": "#233B33",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-100",
+    "friendly": "Color Teal 100",
+    "javascript": "color_teal_100",
+    "name": "color-teal-100",
+    "scss": "color(teal,100)",
+    "system": "teal.100",
+    "type": "color",
+    "value": "#E3FFFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-200",
+    "friendly": "Color Teal 200",
+    "javascript": "color_teal_200",
+    "name": "color-teal-200",
+    "scss": "color(teal,200)",
+    "system": "teal.200",
+    "type": "color",
+    "value": "#CCFFFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-300",
+    "friendly": "Color Teal 300",
+    "javascript": "color_teal_300",
+    "name": "color-teal-300",
+    "scss": "color(teal,300)",
+    "system": "teal.300",
+    "type": "color",
+    "value": "#96FEFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-400",
+    "friendly": "Color Teal 400",
+    "javascript": "color_teal_400",
+    "name": "color-teal-400",
+    "scss": "color(teal,400)",
+    "system": "teal.400",
+    "type": "color",
+    "value": "#6EF4F5",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-500",
+    "friendly": "Color Teal 500",
+    "javascript": "color_teal_500",
+    "name": "color-teal-500",
+    "scss": "color(teal,500)",
+    "system": "teal.500",
+    "type": "color",
+    "value": "#37E4E6",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-600",
+    "friendly": "Color Teal 600",
+    "javascript": "color_teal_600",
+    "name": "color-teal-600",
+    "scss": "color(teal,600)",
+    "system": "teal.600",
+    "type": "color",
+    "value": "#13BEBF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-700",
+    "friendly": "Color Teal 700",
+    "javascript": "color_teal_700",
+    "name": "color-teal-700",
+    "scss": "color(teal,700)",
+    "system": "teal.700",
+    "type": "color",
+    "value": "#199091",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-800",
+    "friendly": "Color Teal 800",
+    "javascript": "color_teal_800",
+    "name": "color-teal-800",
+    "scss": "color(teal,800)",
+    "system": "teal.800",
+    "type": "color",
+    "value": "#226363",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-900",
+    "friendly": "Color Teal 900",
+    "javascript": "color_teal_900",
+    "name": "color-teal-900",
+    "scss": "color(teal,900)",
+    "system": "teal.900",
+    "type": "color",
+    "value": "#274C4D",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-teal-1000",
+    "friendly": "Color Teal 1000",
+    "javascript": "color_teal_1000",
+    "name": "color-teal-1000",
+    "scss": "color(teal,1000)",
+    "system": "teal.1000",
+    "type": "color",
+    "value": "#223A3B",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-100",
+    "friendly": "Color Blue 100",
+    "javascript": "color_blue_100",
+    "name": "color-blue-100",
+    "scss": "color(blue,100)",
+    "system": "blue.100",
+    "type": "color",
+    "value": "#F2F8FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-200",
+    "friendly": "Color Blue 200",
+    "javascript": "color_blue_200",
+    "name": "color-blue-200",
+    "scss": "color(blue,200)",
+    "system": "blue.200",
+    "type": "color",
+    "value": "#E8F3FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-300",
+    "friendly": "Color Blue 300",
+    "javascript": "color_blue_300",
+    "name": "color-blue-300",
+    "scss": "color(blue,300)",
+    "system": "blue.300",
+    "type": "color",
+    "value": "#CCE3FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-400",
+    "friendly": "Color Blue 400",
+    "javascript": "color_blue_400",
+    "name": "color-blue-400",
+    "scss": "color(blue,400)",
+    "system": "blue.400",
+    "type": "color",
+    "value": "#ABD2FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-500",
+    "friendly": "Color Blue 500",
+    "javascript": "color_blue_500",
+    "name": "color-blue-500",
+    "scss": "color(blue,500)",
+    "system": "blue.500",
+    "type": "color",
+    "value": "#78B6FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-600",
+    "friendly": "Color Blue 600",
+    "javascript": "color_blue_600",
+    "name": "color-blue-600",
+    "scss": "color(blue,600)",
+    "system": "blue.600",
+    "type": "color",
+    "value": "#429BFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-700",
+    "friendly": "Color Blue 700",
+    "javascript": "color_blue_700",
+    "name": "color-blue-700",
+    "scss": "color(blue,700)",
+    "system": "blue.700",
+    "type": "color",
+    "value": "#1273E6",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-800",
+    "friendly": "Color Blue 800",
+    "javascript": "color_blue_800",
+    "name": "color-blue-800",
+    "scss": "color(blue,800)",
+    "system": "blue.800",
+    "type": "color",
+    "value": "#0060CC",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-900",
+    "friendly": "Color Blue 900",
+    "javascript": "color_blue_900",
+    "name": "color-blue-900",
+    "scss": "color(blue,900)",
+    "system": "blue.900",
+    "type": "color",
+    "value": "#1A497D",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-blue-1000",
+    "friendly": "Color Blue 1000",
+    "javascript": "color_blue_1000",
+    "name": "color-blue-1000",
+    "scss": "color(blue,1000)",
+    "system": "blue.1000",
+    "type": "color",
+    "value": "#203752",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-100",
+    "friendly": "Color Purple 100",
+    "javascript": "color_purple_100",
+    "name": "color-purple-100",
+    "scss": "color(purple,100)",
+    "system": "purple.100",
+    "type": "color",
+    "value": "#F9F5FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-200",
+    "friendly": "Color Purple 200",
+    "javascript": "color_purple_200",
+    "name": "color-purple-200",
+    "scss": "color(purple,200)",
+    "system": "purple.200",
+    "type": "color",
+    "value": "#F3EBFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-300",
+    "friendly": "Color Purple 300",
+    "javascript": "color_purple_300",
+    "name": "color-purple-300",
+    "scss": "color(purple,300)",
+    "system": "purple.300",
+    "type": "color",
+    "value": "#E5D4FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-400",
+    "friendly": "Color Purple 400",
+    "javascript": "color_purple_400",
+    "name": "color-purple-400",
+    "scss": "color(purple,400)",
+    "system": "purple.400",
+    "type": "color",
+    "value": "#D7BDFF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-500",
+    "friendly": "Color Purple 500",
+    "javascript": "color_purple_500",
+    "name": "color-purple-500",
+    "scss": "color(purple,500)",
+    "system": "purple.500",
+    "type": "color",
+    "value": "#BD91FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-600",
+    "friendly": "Color Purple 600",
+    "javascript": "color_purple_600",
+    "name": "color-purple-600",
+    "scss": "color(purple,600)",
+    "system": "purple.600",
+    "type": "color",
+    "value": "#A469FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-700",
+    "friendly": "Color Purple 700",
+    "javascript": "color_purple_700",
+    "name": "color-purple-700",
+    "scss": "color(purple,700)",
+    "system": "purple.700",
+    "type": "color",
+    "value": "#8C40FF",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-800",
+    "friendly": "Color Purple 800",
+    "javascript": "color_purple_800",
+    "name": "color-purple-800",
+    "scss": "color(purple,800)",
+    "system": "purple.800",
+    "type": "color",
+    "value": "#7122E3",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-900",
+    "friendly": "Color Purple 900",
+    "javascript": "color_purple_900",
+    "name": "color-purple-900",
+    "scss": "color(purple,900)",
+    "system": "purple.900",
+    "type": "color",
+    "value": "#4C2E87",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-purple-1000",
+    "friendly": "Color Purple 1000",
+    "javascript": "color_purple_1000",
+    "name": "color-purple-1000",
+    "scss": "color(purple,1000)",
+    "system": "purple.1000",
+    "type": "color",
+    "value": "#352E4A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-100",
+    "friendly": "Color Magenta 100",
+    "javascript": "color_magenta_100",
+    "name": "color-magenta-100",
+    "scss": "color(magenta,100)",
+    "system": "magenta.100",
+    "type": "color",
+    "value": "#FFF2F8",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-200",
+    "friendly": "Color Magenta 200",
+    "javascript": "color_magenta_200",
+    "name": "color-magenta-200",
+    "scss": "color(magenta,200)",
+    "system": "magenta.200",
+    "type": "color",
+    "value": "#FFE8F2",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-300",
+    "friendly": "Color Magenta 300",
+    "javascript": "color_magenta_300",
+    "name": "color-magenta-300",
+    "scss": "color(magenta,300)",
+    "system": "magenta.300",
+    "type": "color",
+    "value": "#FFCCE3",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-400",
+    "friendly": "Color Magenta 400",
+    "javascript": "color_magenta_400",
+    "name": "color-magenta-400",
+    "scss": "color(magenta,400)",
+    "system": "magenta.400",
+    "type": "color",
+    "value": "#FFB0D3",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-500",
+    "friendly": "Color Magenta 500",
+    "javascript": "color_magenta_500",
+    "name": "color-magenta-500",
+    "scss": "color(magenta,500)",
+    "system": "magenta.500",
+    "type": "color",
+    "value": "#FF7DB7",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-600",
+    "friendly": "Color Magenta 600",
+    "javascript": "color_magenta_600",
+    "name": "color-magenta-600",
+    "scss": "color(magenta,600)",
+    "system": "magenta.600",
+    "type": "color",
+    "value": "#F0549A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-700",
+    "friendly": "Color Magenta 700",
+    "javascript": "color_magenta_700",
+    "name": "color-magenta-700",
+    "scss": "color(magenta,700)",
+    "system": "magenta.700",
+    "type": "color",
+    "value": "#D1347A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-800",
+    "friendly": "Color Magenta 800",
+    "javascript": "color_magenta_800",
+    "name": "color-magenta-800",
+    "scss": "color(magenta,800)",
+    "system": "magenta.800",
+    "type": "color",
+    "value": "#992659",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-900",
+    "friendly": "Color Magenta 900",
+    "javascript": "color_magenta_900",
+    "name": "color-magenta-900",
+    "scss": "color(magenta,900)",
+    "system": "magenta.900",
+    "type": "color",
+    "value": "#782449",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-magenta-1000",
+    "friendly": "Color Magenta 1000",
+    "javascript": "color_magenta_1000",
+    "name": "color-magenta-1000",
+    "scss": "color(magenta,1000)",
+    "system": "magenta.1000",
+    "type": "color",
+    "value": "#522338",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-100",
+    "friendly": "Color Red 100",
+    "javascript": "color_red_100",
+    "name": "color-red-100",
+    "scss": "color(red,100)",
+    "system": "red.100",
+    "type": "color",
+    "value": "#FFF2F3",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-200",
+    "friendly": "Color Red 200",
+    "javascript": "color_red_200",
+    "name": "color-red-200",
+    "scss": "color(red,200)",
+    "system": "red.200",
+    "type": "color",
+    "value": "#FFEBEC",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-300",
+    "friendly": "Color Red 300",
+    "javascript": "color_red_300",
+    "name": "color-red-300",
+    "scss": "color(red,300)",
+    "system": "red.300",
+    "type": "color",
+    "value": "#FFCFD1",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-400",
+    "friendly": "Color Red 400",
+    "javascript": "color_red_400",
+    "name": "color-red-400",
+    "scss": "color(red,400)",
+    "system": "red.400",
+    "type": "color",
+    "value": "#FFB5B9",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-500",
+    "friendly": "Color Red 500",
+    "javascript": "color_red_500",
+    "name": "color-red-500",
+    "scss": "color(red,500)",
+    "system": "red.500",
+    "type": "color",
+    "value": "#FF858B",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-600",
+    "friendly": "Color Red 600",
+    "javascript": "color_red_600",
+    "name": "color-red-600",
+    "scss": "color(red,600)",
+    "system": "red.600",
+    "type": "color",
+    "value": "#FF5760",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-700",
+    "friendly": "Color Red 700",
+    "javascript": "color_red_700",
+    "name": "color-red-700",
+    "scss": "color(red,700)",
+    "system": "red.700",
+    "type": "color",
+    "value": "#D9363E",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-800",
+    "friendly": "Color Red 800",
+    "javascript": "color_red_800",
+    "name": "color-red-800",
+    "scss": "color(red,800)",
+    "system": "red.800",
+    "type": "color",
+    "value": "#A12B2B",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-900",
+    "friendly": "Color Red 900",
+    "javascript": "color_red_900",
+    "name": "color-red-900",
+    "scss": "color(red,900)",
+    "system": "red.900",
+    "type": "color",
+    "value": "#80252A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-red-1000",
+    "friendly": "Color Red 1000",
+    "javascript": "color_red_1000",
+    "name": "color-red-1000",
+    "scss": "color(red,1000)",
+    "system": "red.1000",
+    "type": "color",
+    "value": "#5C2121",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-100",
+    "friendly": "Color Gray 100",
+    "javascript": "color_gray_100",
+    "name": "color-gray-100",
+    "scss": "color(gray,100)",
+    "system": "gray.100",
+    "type": "color",
+    "value": "#F5F8FA",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-200",
+    "friendly": "Color Gray 200",
+    "javascript": "color_gray_200",
+    "name": "color-gray-200",
+    "scss": "color(gray,200)",
+    "system": "gray.200",
+    "type": "color",
+    "value": "#EBF0F5",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-300",
+    "friendly": "Color Gray 300",
+    "javascript": "color_gray_300",
+    "name": "color-gray-300",
+    "scss": "color(gray,300)",
+    "system": "gray.300",
+    "type": "color",
+    "value": "#D9E0E6",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-400",
+    "friendly": "Color Gray 400",
+    "javascript": "color_gray_400",
+    "name": "color-gray-400",
+    "scss": "color(gray,400)",
+    "system": "gray.400",
+    "type": "color",
+    "value": "#C5CED6",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-500",
+    "friendly": "Color Gray 500",
+    "javascript": "color_gray_500",
+    "name": "color-gray-500",
+    "scss": "color(gray,500)",
+    "system": "gray.500",
+    "type": "color",
+    "value": "#A2ADB8",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-600",
+    "friendly": "Color Gray 600",
+    "javascript": "color_gray_600",
+    "name": "color-gray-600",
+    "scss": "color(gray,600)",
+    "system": "gray.600",
+    "type": "color",
+    "value": "#818E9A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-700",
+    "friendly": "Color Gray 700",
+    "javascript": "color_gray_700",
+    "name": "color-gray-700",
+    "scss": "color(gray,700)",
+    "system": "gray.700",
+    "type": "color",
+    "value": "#626F7A",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-800",
+    "friendly": "Color Gray 800",
+    "javascript": "color_gray_800",
+    "name": "color-gray-800",
+    "scss": "color(gray,800)",
+    "system": "gray.800",
+    "type": "color",
+    "value": "#46525C",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-900",
+    "friendly": "Color Gray 900",
+    "javascript": "color_gray_900",
+    "name": "color-gray-900",
+    "scss": "color(gray,900)",
+    "system": "gray.900",
+    "type": "color",
+    "value": "#39444D",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-gray-1000",
+    "friendly": "Color Gray 1000",
+    "javascript": "color_gray_1000",
+    "name": "color-gray-1000",
+    "scss": "color(gray,1000)",
+    "system": "gray.1000",
+    "type": "color",
+    "value": "#2C353D",
+  },
+  Object {
+    "category": "color",
+    "css": "--color-white",
+    "friendly": "Color White",
+    "javascript": "color_white",
+    "name": "color-white",
+    "scss": "color(white)",
+    "system": "white",
+    "type": "color",
+    "value": "#FFFFFF",
+  },
+  Object {
     "category": "box-shadow",
     "css": "--box-shadow-0",
     "friendly": "Box Shadow 0",
-    "javascript": "boxShadow_0",
+    "javascript": "box_shadow_0",
     "name": "box-shadow-0",
     "scss": "box-shadow(0)",
     "system": "0",
@@ -298,7 +1222,7 @@ Array [
     "category": "box-shadow",
     "css": "--box-shadow-100",
     "friendly": "Box Shadow 100",
-    "javascript": "boxShadow_100",
+    "javascript": "box_shadow_100",
     "name": "box-shadow-100",
     "scss": "box-shadow(100)",
     "system": "100",
@@ -309,7 +1233,7 @@ Array [
     "category": "box-shadow",
     "css": "--box-shadow-200",
     "friendly": "Box Shadow 200",
-    "javascript": "boxShadow_200",
+    "javascript": "box_shadow_200",
     "name": "box-shadow-200",
     "scss": "box-shadow(200)",
     "system": "200",
@@ -320,7 +1244,7 @@ Array [
     "category": "box-shadow",
     "css": "--box-shadow-300",
     "friendly": "Box Shadow 300",
-    "javascript": "boxShadow_300",
+    "javascript": "box_shadow_300",
     "name": "box-shadow-300",
     "scss": "box-shadow(300)",
     "system": "300",
@@ -331,7 +1255,7 @@ Array [
     "category": "box-shadow",
     "css": "--box-shadow-400",
     "friendly": "Box Shadow 400",
-    "javascript": "boxShadow_400",
+    "javascript": "box_shadow_400",
     "name": "box-shadow-400",
     "scss": "box-shadow(400)",
     "system": "400",
@@ -339,934 +1263,54 @@ Array [
     "value": "0px 8px 16px rgba(44,53,61,.2)",
   },
   Object {
-    "category": "background-color",
-    "css": "--color-brand-orange",
-    "friendly": "Color Brand Orange",
-    "javascript": "color_brand_orange",
-    "name": "color-brand-orange",
-    "scss": "color(brand, orange)",
-    "system": "brand.orange",
-    "type": "color",
-    "value": "#fa6423",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-brand-gray",
-    "friendly": "Color Brand Gray",
-    "javascript": "color_brand_gray",
-    "name": "color-brand-gray",
-    "scss": "color(brand, gray)",
-    "system": "brand.gray",
-    "type": "color",
-    "value": "#55555a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-brand-blue",
-    "friendly": "Color Brand Blue",
-    "javascript": "color_brand_blue",
-    "name": "color-brand-blue",
-    "scss": "color(brand, blue)",
-    "system": "brand.blue",
-    "type": "color",
-    "value": "#37aadc",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-1000",
-    "friendly": "Color Yellow 1000",
-    "javascript": "color_yellow_1000",
-    "name": "color-yellow-1000",
-    "scss": "color(yellow, 1000)",
-    "system": "yellow.1000",
-    "type": "color",
-    "value": "#3d3121",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-900",
-    "friendly": "Color Yellow 900",
-    "javascript": "color_yellow_900",
-    "name": "color-yellow-900",
-    "scss": "color(yellow, 900)",
-    "system": "yellow.900",
-    "type": "color",
-    "value": "#523e21",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-800",
-    "friendly": "Color Yellow 800",
-    "javascript": "color_yellow_800",
-    "name": "color-yellow-800",
-    "scss": "color(yellow, 800)",
-    "system": "yellow.800",
-    "type": "color",
-    "value": "#614d27",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-700",
-    "friendly": "Color Yellow 700",
-    "javascript": "color_yellow_700",
-    "name": "color-yellow-700",
-    "scss": "color(yellow, 700)",
-    "system": "yellow.700",
-    "type": "color",
-    "value": "#876a2f",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-600",
-    "friendly": "Color Yellow 600",
-    "javascript": "color_yellow_600",
-    "name": "color-yellow-600",
-    "scss": "color(yellow, 600)",
-    "system": "yellow.600",
-    "type": "color",
-    "value": "#b58c12",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-500",
-    "friendly": "Color Yellow 500",
-    "javascript": "color_yellow_500",
-    "name": "color-yellow-500",
-    "scss": "color(yellow, 500)",
-    "system": "yellow.500",
-    "type": "color",
-    "value": "#e3ad0b",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-400",
-    "friendly": "Color Yellow 400",
-    "javascript": "color_yellow_400",
-    "name": "color-yellow-400",
-    "scss": "color(yellow, 400)",
-    "system": "yellow.400",
-    "type": "color",
-    "value": "#ffda00",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-300",
-    "friendly": "Color Yellow 300",
-    "javascript": "color_yellow_300",
-    "name": "color-yellow-300",
-    "scss": "color(yellow, 300)",
-    "system": "yellow.300",
-    "type": "color",
-    "value": "#ffe75c",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-200",
-    "friendly": "Color Yellow 200",
-    "javascript": "color_yellow_200",
-    "name": "color-yellow-200",
-    "scss": "color(yellow, 200)",
-    "system": "yellow.200",
-    "type": "color",
-    "value": "#fff4b5",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-yellow-100",
-    "friendly": "Color Yellow 100",
-    "javascript": "color_yellow_100",
-    "name": "color-yellow-100",
-    "scss": "color(yellow, 100)",
-    "system": "yellow.100",
-    "type": "color",
-    "value": "#fffadb",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-1000",
-    "friendly": "Color Green 1000",
-    "javascript": "color_green_1000",
-    "name": "color-green-1000",
-    "scss": "color(green, 1000)",
-    "system": "green.1000",
-    "type": "color",
-    "value": "#233b33",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-900",
-    "friendly": "Color Green 900",
-    "javascript": "color_green_900",
-    "name": "color-green-900",
-    "scss": "color(green, 900)",
-    "system": "green.900",
-    "type": "color",
-    "value": "#1b5441",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-800",
-    "friendly": "Color Green 800",
-    "javascript": "color_green_800",
-    "name": "color-green-800",
-    "scss": "color(green, 800)",
-    "system": "green.800",
-    "type": "color",
-    "value": "#067852",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-700",
-    "friendly": "Color Green 700",
-    "javascript": "color_green_700",
-    "name": "color-green-700",
-    "scss": "color(green, 700)",
-    "system": "green.700",
-    "type": "color",
-    "value": "#009f6a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-600",
-    "friendly": "Color Green 600",
-    "javascript": "color_green_600",
-    "name": "color-green-600",
-    "scss": "color(green, 600)",
-    "system": "green.600",
-    "type": "color",
-    "value": "#28bd8b",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-500",
-    "friendly": "Color Green 500",
-    "javascript": "color_green_500",
-    "name": "color-green-500",
-    "scss": "color(green, 500)",
-    "system": "green.500",
-    "type": "color",
-    "value": "#52d9ac",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-400",
-    "friendly": "Color Green 400",
-    "javascript": "color_green_400",
-    "name": "color-green-400",
-    "scss": "color(green, 400)",
-    "system": "green.400",
-    "type": "color",
-    "value": "#8debcb",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-300",
-    "friendly": "Color Green 300",
-    "javascript": "color_green_300",
-    "name": "color-green-300",
-    "scss": "color(green, 300)",
-    "system": "green.300",
-    "type": "color",
-    "value": "#b5f5e0",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-200",
-    "friendly": "Color Green 200",
-    "javascript": "color_green_200",
-    "name": "color-green-200",
-    "scss": "color(green, 200)",
-    "system": "green.200",
-    "type": "color",
-    "value": "#d6fff1",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-green-100",
-    "friendly": "Color Green 100",
-    "javascript": "color_green_100",
-    "name": "color-green-100",
-    "scss": "color(green, 100)",
-    "system": "green.100",
-    "type": "color",
-    "value": "#e8fff7",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-1000",
-    "friendly": "Color Teal 1000",
-    "javascript": "color_teal_1000",
-    "name": "color-teal-1000",
-    "scss": "color(teal, 1000)",
-    "system": "teal.1000",
-    "type": "color",
-    "value": "#223a3b",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-900",
-    "friendly": "Color Teal 900",
-    "javascript": "color_teal_900",
-    "name": "color-teal-900",
-    "scss": "color(teal, 900)",
-    "system": "teal.900",
-    "type": "color",
-    "value": "#274c4d",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-800",
-    "friendly": "Color Teal 800",
-    "javascript": "color_teal_800",
-    "name": "color-teal-800",
-    "scss": "color(teal, 800)",
-    "system": "teal.800",
-    "type": "color",
-    "value": "#226363",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-700",
-    "friendly": "Color Teal 700",
-    "javascript": "color_teal_700",
-    "name": "color-teal-700",
-    "scss": "color(teal, 700)",
-    "system": "teal.700",
-    "type": "color",
-    "value": "#199091",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-600",
-    "friendly": "Color Teal 600",
-    "javascript": "color_teal_600",
-    "name": "color-teal-600",
-    "scss": "color(teal, 600)",
-    "system": "teal.600",
-    "type": "color",
-    "value": "#13bebf",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-500",
-    "friendly": "Color Teal 500",
-    "javascript": "color_teal_500",
-    "name": "color-teal-500",
-    "scss": "color(teal, 500)",
-    "system": "teal.500",
-    "type": "color",
-    "value": "#37e4e6",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-400",
-    "friendly": "Color Teal 400",
-    "javascript": "color_teal_400",
-    "name": "color-teal-400",
-    "scss": "color(teal, 400)",
-    "system": "teal.400",
-    "type": "color",
-    "value": "#6ef4f5",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-300",
-    "friendly": "Color Teal 300",
-    "javascript": "color_teal_300",
-    "name": "color-teal-300",
-    "scss": "color(teal, 300)",
-    "system": "teal.300",
-    "type": "color",
-    "value": "#96feff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-200",
-    "friendly": "Color Teal 200",
-    "javascript": "color_teal_200",
-    "name": "color-teal-200",
-    "scss": "color(teal, 200)",
-    "system": "teal.200",
-    "type": "color",
-    "value": "#ccffff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-teal-100",
-    "friendly": "Color Teal 100",
-    "javascript": "color_teal_100",
-    "name": "color-teal-100",
-    "scss": "color(teal, 100)",
-    "system": "teal.100",
-    "type": "color",
-    "value": "#e3ffff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-1000",
-    "friendly": "Color Blue 1000",
-    "javascript": "color_blue_1000",
-    "name": "color-blue-1000",
-    "scss": "color(blue, 1000)",
-    "system": "blue.1000",
-    "type": "color",
-    "value": "#203752",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-900",
-    "friendly": "Color Blue 900",
-    "javascript": "color_blue_900",
-    "name": "color-blue-900",
-    "scss": "color(blue, 900)",
-    "system": "blue.900",
-    "type": "color",
-    "value": "#1a497d",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-800",
-    "friendly": "Color Blue 800",
-    "javascript": "color_blue_800",
-    "name": "color-blue-800",
-    "scss": "color(blue, 800)",
-    "system": "blue.800",
-    "type": "color",
-    "value": "#0060cc",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-700",
-    "friendly": "Color Blue 700",
-    "javascript": "color_blue_700",
-    "name": "color-blue-700",
-    "scss": "color(blue, 700)",
-    "system": "blue.700",
-    "type": "color",
-    "value": "#1273e6",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-600",
-    "friendly": "Color Blue 600",
-    "javascript": "color_blue_600",
-    "name": "color-blue-600",
-    "scss": "color(blue, 600)",
-    "system": "blue.600",
-    "type": "color",
-    "value": "#429bff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-500",
-    "friendly": "Color Blue 500",
-    "javascript": "color_blue_500",
-    "name": "color-blue-500",
-    "scss": "color(blue, 500)",
-    "system": "blue.500",
-    "type": "color",
-    "value": "#78b6ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-400",
-    "friendly": "Color Blue 400",
-    "javascript": "color_blue_400",
-    "name": "color-blue-400",
-    "scss": "color(blue, 400)",
-    "system": "blue.400",
-    "type": "color",
-    "value": "#abd2ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-300",
-    "friendly": "Color Blue 300",
-    "javascript": "color_blue_300",
-    "name": "color-blue-300",
-    "scss": "color(blue, 300)",
-    "system": "blue.300",
-    "type": "color",
-    "value": "#cce3ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-200",
-    "friendly": "Color Blue 200",
-    "javascript": "color_blue_200",
-    "name": "color-blue-200",
-    "scss": "color(blue, 200)",
-    "system": "blue.200",
-    "type": "color",
-    "value": "#e8f3ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-blue-100",
-    "friendly": "Color Blue 100",
-    "javascript": "color_blue_100",
-    "name": "color-blue-100",
-    "scss": "color(blue, 100)",
-    "system": "blue.100",
-    "type": "color",
-    "value": "#f2f8ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-1000",
-    "friendly": "Color Purple 1000",
-    "javascript": "color_purple_1000",
-    "name": "color-purple-1000",
-    "scss": "color(purple, 1000)",
-    "system": "purple.1000",
-    "type": "color",
-    "value": "#352e4a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-900",
-    "friendly": "Color Purple 900",
-    "javascript": "color_purple_900",
-    "name": "color-purple-900",
-    "scss": "color(purple, 900)",
-    "system": "purple.900",
-    "type": "color",
-    "value": "#4c2e87",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-800",
-    "friendly": "Color Purple 800",
-    "javascript": "color_purple_800",
-    "name": "color-purple-800",
-    "scss": "color(purple, 800)",
-    "system": "purple.800",
-    "type": "color",
-    "value": "#7122e3",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-700",
-    "friendly": "Color Purple 700",
-    "javascript": "color_purple_700",
-    "name": "color-purple-700",
-    "scss": "color(purple, 700)",
-    "system": "purple.700",
-    "type": "color",
-    "value": "#8c40ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-600",
-    "friendly": "Color Purple 600",
-    "javascript": "color_purple_600",
-    "name": "color-purple-600",
-    "scss": "color(purple, 600)",
-    "system": "purple.600",
-    "type": "color",
-    "value": "#a469ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-500",
-    "friendly": "Color Purple 500",
-    "javascript": "color_purple_500",
-    "name": "color-purple-500",
-    "scss": "color(purple, 500)",
-    "system": "purple.500",
-    "type": "color",
-    "value": "#bd91ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-400",
-    "friendly": "Color Purple 400",
-    "javascript": "color_purple_400",
-    "name": "color-purple-400",
-    "scss": "color(purple, 400)",
-    "system": "purple.400",
-    "type": "color",
-    "value": "#d7bdff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-300",
-    "friendly": "Color Purple 300",
-    "javascript": "color_purple_300",
-    "name": "color-purple-300",
-    "scss": "color(purple, 300)",
-    "system": "purple.300",
-    "type": "color",
-    "value": "#e5d4ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-200",
-    "friendly": "Color Purple 200",
-    "javascript": "color_purple_200",
-    "name": "color-purple-200",
-    "scss": "color(purple, 200)",
-    "system": "purple.200",
-    "type": "color",
-    "value": "#f3ebff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-purple-100",
-    "friendly": "Color Purple 100",
-    "javascript": "color_purple_100",
-    "name": "color-purple-100",
-    "scss": "color(purple, 100)",
-    "system": "purple.100",
-    "type": "color",
-    "value": "#f9f5ff",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-1000",
-    "friendly": "Color Magenta 1000",
-    "javascript": "color_magenta_1000",
-    "name": "color-magenta-1000",
-    "scss": "color(magenta, 1000)",
-    "system": "magenta.1000",
-    "type": "color",
-    "value": "#522338",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-900",
-    "friendly": "Color Magenta 900",
-    "javascript": "color_magenta_900",
-    "name": "color-magenta-900",
-    "scss": "color(magenta, 900)",
-    "system": "magenta.900",
-    "type": "color",
-    "value": "#782449",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-800",
-    "friendly": "Color Magenta 800",
-    "javascript": "color_magenta_800",
-    "name": "color-magenta-800",
-    "scss": "color(magenta, 800)",
-    "system": "magenta.800",
-    "type": "color",
-    "value": "#992659",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-700",
-    "friendly": "Color Magenta 700",
-    "javascript": "color_magenta_700",
-    "name": "color-magenta-700",
-    "scss": "color(magenta, 700)",
-    "system": "magenta.700",
-    "type": "color",
-    "value": "#d1347a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-600",
-    "friendly": "Color Magenta 600",
-    "javascript": "color_magenta_600",
-    "name": "color-magenta-600",
-    "scss": "color(magenta, 600)",
-    "system": "magenta.600",
-    "type": "color",
-    "value": "#f0549a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-500",
-    "friendly": "Color Magenta 500",
-    "javascript": "color_magenta_500",
-    "name": "color-magenta-500",
-    "scss": "color(magenta, 500)",
-    "system": "magenta.500",
-    "type": "color",
-    "value": "#ff7db7",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-400",
-    "friendly": "Color Magenta 400",
-    "javascript": "color_magenta_400",
-    "name": "color-magenta-400",
-    "scss": "color(magenta, 400)",
-    "system": "magenta.400",
-    "type": "color",
-    "value": "#ffb0d3",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-300",
-    "friendly": "Color Magenta 300",
-    "javascript": "color_magenta_300",
-    "name": "color-magenta-300",
-    "scss": "color(magenta, 300)",
-    "system": "magenta.300",
-    "type": "color",
-    "value": "#ffcce3",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-200",
-    "friendly": "Color Magenta 200",
-    "javascript": "color_magenta_200",
-    "name": "color-magenta-200",
-    "scss": "color(magenta, 200)",
-    "system": "magenta.200",
-    "type": "color",
-    "value": "#ffe8f2",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-magenta-100",
-    "friendly": "Color Magenta 100",
-    "javascript": "color_magenta_100",
-    "name": "color-magenta-100",
-    "scss": "color(magenta, 100)",
-    "system": "magenta.100",
-    "type": "color",
-    "value": "#fff2f8",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-1000",
-    "friendly": "Color Red 1000",
-    "javascript": "color_red_1000",
-    "name": "color-red-1000",
-    "scss": "color(red, 1000)",
-    "system": "red.1000",
-    "type": "color",
-    "value": "#5c2121",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-900",
-    "friendly": "Color Red 900",
-    "javascript": "color_red_900",
-    "name": "color-red-900",
-    "scss": "color(red, 900)",
-    "system": "red.900",
-    "type": "color",
-    "value": "#80252a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-800",
-    "friendly": "Color Red 800",
-    "javascript": "color_red_800",
-    "name": "color-red-800",
-    "scss": "color(red, 800)",
-    "system": "red.800",
-    "type": "color",
-    "value": "#a12b2b",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-700",
-    "friendly": "Color Red 700",
-    "javascript": "color_red_700",
-    "name": "color-red-700",
-    "scss": "color(red, 700)",
-    "system": "red.700",
-    "type": "color",
-    "value": "#d9363e",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-600",
-    "friendly": "Color Red 600",
-    "javascript": "color_red_600",
-    "name": "color-red-600",
-    "scss": "color(red, 600)",
-    "system": "red.600",
-    "type": "color",
-    "value": "#ff5760",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-500",
-    "friendly": "Color Red 500",
-    "javascript": "color_red_500",
-    "name": "color-red-500",
-    "scss": "color(red, 500)",
-    "system": "red.500",
-    "type": "color",
-    "value": "#ff858b",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-400",
-    "friendly": "Color Red 400",
-    "javascript": "color_red_400",
-    "name": "color-red-400",
-    "scss": "color(red, 400)",
-    "system": "red.400",
-    "type": "color",
-    "value": "#ffb5b9",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-300",
-    "friendly": "Color Red 300",
-    "javascript": "color_red_300",
-    "name": "color-red-300",
-    "scss": "color(red, 300)",
-    "system": "red.300",
-    "type": "color",
-    "value": "#ffcfd1",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-200",
-    "friendly": "Color Red 200",
-    "javascript": "color_red_200",
-    "name": "color-red-200",
-    "scss": "color(red, 200)",
-    "system": "red.200",
-    "type": "color",
-    "value": "#ffebec",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-red-100",
-    "friendly": "Color Red 100",
-    "javascript": "color_red_100",
-    "name": "color-red-100",
-    "scss": "color(red, 100)",
-    "system": "red.100",
-    "type": "color",
-    "value": "#fff2f3",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-1000",
-    "friendly": "Color Gray 1000",
-    "javascript": "color_gray_1000",
-    "name": "color-gray-1000",
-    "scss": "color(gray, 1000)",
-    "system": "gray.1000",
-    "type": "color",
-    "value": "#2c353d",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-900",
-    "friendly": "Color Gray 900",
-    "javascript": "color_gray_900",
-    "name": "color-gray-900",
-    "scss": "color(gray, 900)",
-    "system": "gray.900",
-    "type": "color",
-    "value": "#39444d",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-800",
-    "friendly": "Color Gray 800",
-    "javascript": "color_gray_800",
-    "name": "color-gray-800",
-    "scss": "color(gray, 800)",
-    "system": "gray.800",
-    "type": "color",
-    "value": "#46525c",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-700",
-    "friendly": "Color Gray 700",
-    "javascript": "color_gray_700",
-    "name": "color-gray-700",
-    "scss": "color(gray, 700)",
-    "system": "gray.700",
-    "type": "color",
-    "value": "#626f7a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-600",
-    "friendly": "Color Gray 600",
-    "javascript": "color_gray_600",
-    "name": "color-gray-600",
-    "scss": "color(gray, 600)",
-    "system": "gray.600",
-    "type": "color",
-    "value": "#818e9a",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-500",
-    "friendly": "Color Gray 500",
-    "javascript": "color_gray_500",
-    "name": "color-gray-500",
-    "scss": "color(gray, 500)",
-    "system": "gray.500",
-    "type": "color",
-    "value": "#a2adb8",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-400",
-    "friendly": "Color Gray 400",
-    "javascript": "color_gray_400",
-    "name": "color-gray-400",
-    "scss": "color(gray, 400)",
-    "system": "gray.400",
-    "type": "color",
-    "value": "#c5ced6",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-300",
-    "friendly": "Color Gray 300",
-    "javascript": "color_gray_300",
-    "name": "color-gray-300",
-    "scss": "color(gray, 300)",
-    "system": "gray.300",
-    "type": "color",
-    "value": "#d9e0e6",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-200",
-    "friendly": "Color Gray 200",
-    "javascript": "color_gray_200",
-    "name": "color-gray-200",
-    "scss": "color(gray, 200)",
-    "system": "gray.200",
-    "type": "color",
-    "value": "#ebf0f5",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-gray-100",
-    "friendly": "Color Gray 100",
-    "javascript": "color_gray_100",
-    "name": "color-gray-100",
-    "scss": "color(gray, 100)",
-    "system": "gray.100",
-    "type": "color",
-    "value": "#f5f8fa",
-  },
-  Object {
-    "category": "background-color",
-    "css": "--color-white",
-    "friendly": "Color White",
-    "javascript": "color_white",
-    "name": "color-white",
-    "scss": "color(white)",
-    "system": "white",
-    "type": "color",
-    "value": "#ffffff",
+    "category": "z-index",
+    "css": "--z-index-auto",
+    "friendly": "Z Index Auto",
+    "javascript": "z_index_auto",
+    "name": "z-index-auto",
+    "scss": "z-index(auto)",
+    "system": "auto",
+    "type": "z-index",
+    "value": "auto",
+  },
+  Object {
+    "category": "z-index",
+    "css": "--z-index-below",
+    "friendly": "Z Index Below",
+    "javascript": "z_index_below",
+    "name": "z-index-below",
+    "scss": "z-index(below)",
+    "system": "below",
+    "type": "z-index",
+    "value": "-1",
+  },
+  Object {
+    "category": "z-index",
+    "css": "--z-index-default",
+    "friendly": "Z Index Default",
+    "javascript": "z_index_default",
+    "name": "z-index-default",
+    "scss": "z-index(default)",
+    "system": "default",
+    "type": "z-index",
+    "value": "1",
+  },
+  Object {
+    "category": "z-index",
+    "css": "--z-index-overlay",
+    "friendly": "Z Index Overlay",
+    "javascript": "z_index_overlay",
+    "name": "z-index-overlay",
+    "scss": "z-index(overlay)",
+    "system": "overlay",
+    "type": "z-index",
+    "value": "1000",
   },
   Object {
     "category": "font-family",
     "css": "--font-family-sans",
     "friendly": "Font Family Sans",
-    "javascript": "fontFamily_sans",
+    "javascript": "font_family_sans",
     "name": "font-family-sans",
     "scss": "font-family(sans)",
     "system": "sans",
@@ -1277,7 +1321,7 @@ Array [
     "category": "font-family",
     "css": "--font-family-monospace",
     "friendly": "Font Family Monospace",
-    "javascript": "fontFamily_monospace",
+    "javascript": "font_family_monospace",
     "name": "font-family-monospace",
     "scss": "font-family(monospace)",
     "system": "monospace",
@@ -1285,260 +1329,23 @@ Array [
     "value": "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace",
   },
   Object {
-    "category": "font-size",
-    "css": "--font-size-800",
-    "friendly": "Font Size 800",
-    "javascript": "fontSize_800",
-    "name": "font-size-800",
-    "pixel_value": "56px",
-    "pixel_value_unitless": "56",
-    "scss": "font-size(800)",
-    "system": "800",
-    "type": "font-size",
-    "value": "3.5rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-700",
-    "friendly": "Font Size 700",
-    "javascript": "fontSize_700",
-    "name": "font-size-700",
-    "pixel_value": "44px",
-    "pixel_value_unitless": "44",
-    "scss": "font-size(700)",
-    "system": "700",
-    "type": "font-size",
-    "value": "2.75rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-600",
-    "friendly": "Font Size 600",
-    "javascript": "fontSize_600",
-    "name": "font-size-600",
-    "pixel_value": "32px",
-    "pixel_value_unitless": "32",
-    "scss": "font-size(600)",
-    "system": "600",
-    "type": "font-size",
-    "value": "2rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-500",
-    "friendly": "Font Size 500",
-    "javascript": "fontSize_500",
-    "name": "font-size-500",
-    "pixel_value": "24px",
-    "pixel_value_unitless": "24",
-    "scss": "font-size(500)",
-    "system": "500",
-    "type": "font-size",
-    "value": "1.5rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-400",
-    "friendly": "Font Size 400",
-    "javascript": "fontSize_400",
-    "name": "font-size-400",
-    "pixel_value": "20px",
-    "pixel_value_unitless": "20",
-    "scss": "font-size(400)",
-    "system": "400",
-    "type": "font-size",
-    "value": "1.25rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-300",
-    "friendly": "Font Size 300",
-    "javascript": "fontSize_300",
-    "name": "font-size-300",
-    "pixel_value": "18px",
-    "pixel_value_unitless": "18",
-    "scss": "font-size(300)",
-    "system": "300",
-    "type": "font-size",
-    "value": "1.125rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-200",
-    "friendly": "Font Size 200",
-    "javascript": "fontSize_200",
-    "name": "font-size-200",
+    "category": "line-height",
+    "css": "--line-height-100",
+    "friendly": "Line Height 100",
+    "javascript": "line_height_100",
+    "name": "line-height-100",
     "pixel_value": "16px",
     "pixel_value_unitless": "16",
-    "scss": "font-size(200)",
-    "system": "200",
-    "type": "font-size",
-    "value": "1rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-100",
-    "friendly": "Font Size 100",
-    "javascript": "fontSize_100",
-    "name": "font-size-100",
-    "pixel_value": "14px",
-    "pixel_value_unitless": "14",
-    "scss": "font-size(100)",
+    "scss": "line-height(100)",
     "system": "100",
-    "type": "font-size",
-    "value": "0.875rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-50",
-    "friendly": "Font Size 50",
-    "javascript": "fontSize_50",
-    "name": "font-size-50",
-    "pixel_value": "12px",
-    "pixel_value_unitless": "12",
-    "scss": "font-size(50)",
-    "system": "50",
-    "type": "font-size",
-    "value": "0.75rem",
-  },
-  Object {
-    "category": "font-size",
-    "css": "--font-size-root",
-    "friendly": "Font Size Root",
-    "javascript": "fontSize_root",
-    "name": "font-size-root",
-    "scss": "font-size(root)",
-    "system": "root",
-    "type": "font-size",
-    "value": "16px",
-  },
-  Object {
-    "category": "font-weight",
-    "css": "--font-weight-light",
-    "friendly": "Font Weight Light",
-    "javascript": "fontWeight_light",
-    "name": "font-weight-light",
-    "scss": "font-weight(light)",
-    "system": "light",
-    "type": "font-weight",
-    "value": "300",
-  },
-  Object {
-    "category": "font-weight",
-    "css": "--font-weight-normal",
-    "friendly": "Font Weight Normal",
-    "javascript": "fontWeight_normal",
-    "name": "font-weight-normal",
-    "scss": "font-weight(normal)",
-    "system": "normal",
-    "type": "font-weight",
-    "value": "400",
-  },
-  Object {
-    "category": "font-weight",
-    "css": "--font-weight-medium",
-    "friendly": "Font Weight Medium",
-    "javascript": "fontWeight_medium",
-    "name": "font-weight-medium",
-    "scss": "font-weight(medium)",
-    "system": "medium",
-    "type": "font-weight",
-    "value": "500",
-  },
-  Object {
-    "category": "font-weight",
-    "css": "--font-weight-semibold",
-    "friendly": "Font Weight Semibold",
-    "javascript": "fontWeight_semibold",
-    "name": "font-weight-semibold",
-    "scss": "font-weight(semibold)",
-    "system": "semibold",
-    "type": "font-weight",
-    "value": "600",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-800",
-    "friendly": "Line Height 800",
-    "javascript": "lineHeight_800",
-    "name": "line-height-800",
-    "pixel_value": "68px",
-    "pixel_value_unitless": "68",
-    "scss": "line-height(800)",
-    "system": "800",
     "type": "line-height",
-    "value": "4.25rem",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-700",
-    "friendly": "Line Height 700",
-    "javascript": "lineHeight_700",
-    "name": "line-height-700",
-    "pixel_value": "56px",
-    "pixel_value_unitless": "56",
-    "scss": "line-height(700)",
-    "system": "700",
-    "type": "line-height",
-    "value": "3.5rem",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-600",
-    "friendly": "Line Height 600",
-    "javascript": "lineHeight_600",
-    "name": "line-height-600",
-    "pixel_value": "40px",
-    "pixel_value_unitless": "40",
-    "scss": "line-height(600)",
-    "system": "600",
-    "type": "line-height",
-    "value": "2.5rem",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-500",
-    "friendly": "Line Height 500",
-    "javascript": "lineHeight_500",
-    "name": "line-height-500",
-    "pixel_value": "32px",
-    "pixel_value_unitless": "32",
-    "scss": "line-height(500)",
-    "system": "500",
-    "type": "line-height",
-    "value": "2rem",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-400",
-    "friendly": "Line Height 400",
-    "javascript": "lineHeight_400",
-    "name": "line-height-400",
-    "pixel_value": "28px",
-    "pixel_value_unitless": "28",
-    "scss": "line-height(400)",
-    "system": "400",
-    "type": "line-height",
-    "value": "1.750rem",
-  },
-  Object {
-    "category": "line-height",
-    "css": "--line-height-300",
-    "friendly": "Line Height 300",
-    "javascript": "lineHeight_300",
-    "name": "line-height-300",
-    "pixel_value": "24px",
-    "pixel_value_unitless": "24",
-    "scss": "line-height(300)",
-    "system": "300",
-    "type": "line-height",
-    "value": "1.5rem",
+    "value": "1rem",
   },
   Object {
     "category": "line-height",
     "css": "--line-height-200",
     "friendly": "Line Height 200",
-    "javascript": "lineHeight_200",
+    "javascript": "line_height_200",
     "name": "line-height-200",
     "pixel_value": "20px",
     "pixel_value_unitless": "20",
@@ -1549,22 +1356,259 @@ Array [
   },
   Object {
     "category": "line-height",
-    "css": "--line-height-100",
-    "friendly": "Line Height 100",
-    "javascript": "lineHeight_100",
-    "name": "line-height-100",
+    "css": "--line-height-300",
+    "friendly": "Line Height 300",
+    "javascript": "line_height_300",
+    "name": "line-height-300",
+    "pixel_value": "24px",
+    "pixel_value_unitless": "24",
+    "scss": "line-height(300)",
+    "system": "300",
+    "type": "line-height",
+    "value": "1.5rem",
+  },
+  Object {
+    "category": "line-height",
+    "css": "--line-height-400",
+    "friendly": "Line Height 400",
+    "javascript": "line_height_400",
+    "name": "line-height-400",
+    "pixel_value": "28px",
+    "pixel_value_unitless": "28",
+    "scss": "line-height(400)",
+    "system": "400",
+    "type": "line-height",
+    "value": "1.750rem",
+  },
+  Object {
+    "category": "line-height",
+    "css": "--line-height-500",
+    "friendly": "Line Height 500",
+    "javascript": "line_height_500",
+    "name": "line-height-500",
+    "pixel_value": "32px",
+    "pixel_value_unitless": "32",
+    "scss": "line-height(500)",
+    "system": "500",
+    "type": "line-height",
+    "value": "2rem",
+  },
+  Object {
+    "category": "line-height",
+    "css": "--line-height-600",
+    "friendly": "Line Height 600",
+    "javascript": "line_height_600",
+    "name": "line-height-600",
+    "pixel_value": "40px",
+    "pixel_value_unitless": "40",
+    "scss": "line-height(600)",
+    "system": "600",
+    "type": "line-height",
+    "value": "2.5rem",
+  },
+  Object {
+    "category": "line-height",
+    "css": "--line-height-700",
+    "friendly": "Line Height 700",
+    "javascript": "line_height_700",
+    "name": "line-height-700",
+    "pixel_value": "56px",
+    "pixel_value_unitless": "56",
+    "scss": "line-height(700)",
+    "system": "700",
+    "type": "line-height",
+    "value": "3.5rem",
+  },
+  Object {
+    "category": "line-height",
+    "css": "--line-height-800",
+    "friendly": "Line Height 800",
+    "javascript": "line_height_800",
+    "name": "line-height-800",
+    "pixel_value": "68px",
+    "pixel_value_unitless": "68",
+    "scss": "line-height(800)",
+    "system": "800",
+    "type": "line-height",
+    "value": "4.25rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-50",
+    "friendly": "Font Size 50",
+    "javascript": "font_size_50",
+    "name": "font-size-50",
+    "pixel_value": "12px",
+    "pixel_value_unitless": "12",
+    "scss": "font-size(50)",
+    "system": "50",
+    "type": "font-size",
+    "value": "0.75rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-100",
+    "friendly": "Font Size 100",
+    "javascript": "font_size_100",
+    "name": "font-size-100",
+    "pixel_value": "14px",
+    "pixel_value_unitless": "14",
+    "scss": "font-size(100)",
+    "system": "100",
+    "type": "font-size",
+    "value": "0.875rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-200",
+    "friendly": "Font Size 200",
+    "javascript": "font_size_200",
+    "name": "font-size-200",
     "pixel_value": "16px",
     "pixel_value_unitless": "16",
-    "scss": "line-height(100)",
-    "system": "100",
-    "type": "line-height",
+    "scss": "font-size(200)",
+    "system": "200",
+    "type": "font-size",
     "value": "1rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-300",
+    "friendly": "Font Size 300",
+    "javascript": "font_size_300",
+    "name": "font-size-300",
+    "pixel_value": "18px",
+    "pixel_value_unitless": "18",
+    "scss": "font-size(300)",
+    "system": "300",
+    "type": "font-size",
+    "value": "1.125rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-400",
+    "friendly": "Font Size 400",
+    "javascript": "font_size_400",
+    "name": "font-size-400",
+    "pixel_value": "20px",
+    "pixel_value_unitless": "20",
+    "scss": "font-size(400)",
+    "system": "400",
+    "type": "font-size",
+    "value": "1.25rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-500",
+    "friendly": "Font Size 500",
+    "javascript": "font_size_500",
+    "name": "font-size-500",
+    "pixel_value": "24px",
+    "pixel_value_unitless": "24",
+    "scss": "font-size(500)",
+    "system": "500",
+    "type": "font-size",
+    "value": "1.5rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-600",
+    "friendly": "Font Size 600",
+    "javascript": "font_size_600",
+    "name": "font-size-600",
+    "pixel_value": "32px",
+    "pixel_value_unitless": "32",
+    "scss": "font-size(600)",
+    "system": "600",
+    "type": "font-size",
+    "value": "2rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-700",
+    "friendly": "Font Size 700",
+    "javascript": "font_size_700",
+    "name": "font-size-700",
+    "pixel_value": "44px",
+    "pixel_value_unitless": "44",
+    "scss": "font-size(700)",
+    "system": "700",
+    "type": "font-size",
+    "value": "2.75rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-800",
+    "friendly": "Font Size 800",
+    "javascript": "font_size_800",
+    "name": "font-size-800",
+    "pixel_value": "56px",
+    "pixel_value_unitless": "56",
+    "scss": "font-size(800)",
+    "system": "800",
+    "type": "font-size",
+    "value": "3.5rem",
+  },
+  Object {
+    "category": "font-size",
+    "css": "--font-size-root",
+    "friendly": "Font Size Root",
+    "javascript": "font_size_root",
+    "name": "font-size-root",
+    "scss": "font-size(root)",
+    "system": "root",
+    "type": "font-size",
+    "value": "16px",
+  },
+  Object {
+    "category": "font-weight",
+    "css": "--font-weight-light",
+    "friendly": "Font Weight Light",
+    "javascript": "font_weight_light",
+    "name": "font-weight-light",
+    "scss": "font-weight(light)",
+    "system": "light",
+    "type": "font-weight",
+    "value": "300",
+  },
+  Object {
+    "category": "font-weight",
+    "css": "--font-weight-normal",
+    "friendly": "Font Weight Normal",
+    "javascript": "font_weight_normal",
+    "name": "font-weight-normal",
+    "scss": "font-weight(normal)",
+    "system": "normal",
+    "type": "font-weight",
+    "value": "400",
+  },
+  Object {
+    "category": "font-weight",
+    "css": "--font-weight-medium",
+    "friendly": "Font Weight Medium",
+    "javascript": "font_weight_medium",
+    "name": "font-weight-medium",
+    "scss": "font-weight(medium)",
+    "system": "medium",
+    "type": "font-weight",
+    "value": "500",
+  },
+  Object {
+    "category": "font-weight",
+    "css": "--font-weight-semibold",
+    "friendly": "Font Weight Semibold",
+    "javascript": "font_weight_semibold",
+    "name": "font-weight-semibold",
+    "scss": "font-weight(semibold)",
+    "system": "semibold",
+    "type": "font-weight",
+    "value": "600",
   },
   Object {
     "category": "media-query",
     "css": "--media-query-xs",
     "friendly": "Media Query Xs",
-    "javascript": "mediaQuery_xs",
+    "javascript": "media_query_xs",
     "name": "media-query-xs",
     "scss": "media-query(xs)",
     "system": "xs",
@@ -1575,7 +1619,7 @@ Array [
     "category": "media-query",
     "css": "--media-query-sm",
     "friendly": "Media Query Sm",
-    "javascript": "mediaQuery_sm",
+    "javascript": "media_query_sm",
     "name": "media-query-sm",
     "scss": "media-query(sm)",
     "system": "sm",
@@ -1586,7 +1630,7 @@ Array [
     "category": "media-query",
     "css": "--media-query-md",
     "friendly": "Media Query Md",
-    "javascript": "mediaQuery_md",
+    "javascript": "media_query_md",
     "name": "media-query-md",
     "scss": "media-query(md)",
     "system": "md",
@@ -1597,7 +1641,7 @@ Array [
     "category": "media-query",
     "css": "--media-query-lg",
     "friendly": "Media Query Lg",
-    "javascript": "mediaQuery_lg",
+    "javascript": "media_query_lg",
     "name": "media-query-lg",
     "scss": "media-query(lg)",
     "system": "lg",
@@ -1608,7 +1652,7 @@ Array [
     "category": "media-query",
     "css": "--media-query-xl",
     "friendly": "Media Query Xl",
-    "javascript": "mediaQuery_xl",
+    "javascript": "media_query_xl",
     "name": "media-query-xl",
     "scss": "media-query(xl)",
     "system": "xl",
@@ -1619,7 +1663,7 @@ Array [
     "category": "motion-duration",
     "css": "--motion-duration-fast",
     "friendly": "Motion Duration Fast",
-    "javascript": "motionDuration_fast",
+    "javascript": "motion_duration_fast",
     "name": "motion-duration-fast",
     "scss": "motion-duration(fast)",
     "system": "fast",
@@ -1630,7 +1674,7 @@ Array [
     "category": "motion-duration",
     "css": "--motion-duration-medium",
     "friendly": "Motion Duration Medium",
-    "javascript": "motionDuration_medium",
+    "javascript": "motion_duration_medium",
     "name": "motion-duration-medium",
     "scss": "motion-duration(medium)",
     "system": "medium",
@@ -1641,7 +1685,7 @@ Array [
     "category": "motion-duration",
     "css": "--motion-duration-slow",
     "friendly": "Motion Duration Slow",
-    "javascript": "motionDuration_slow",
+    "javascript": "motion_duration_slow",
     "name": "motion-duration-slow",
     "scss": "motion-duration(slow)",
     "system": "slow",
@@ -1652,7 +1696,7 @@ Array [
     "category": "motion-ease",
     "css": "--motion-ease-in",
     "friendly": "Motion Ease In",
-    "javascript": "motionEase_in",
+    "javascript": "motion_ease_in",
     "name": "motion-ease-in",
     "scss": "motion-ease(in)",
     "system": "in",
@@ -1663,7 +1707,7 @@ Array [
     "category": "motion-ease",
     "css": "--motion-ease-out",
     "friendly": "Motion Ease Out",
-    "javascript": "motionEase_out",
+    "javascript": "motion_ease_out",
     "name": "motion-ease-out",
     "scss": "motion-ease(out)",
     "system": "out",
@@ -1673,286 +1717,26 @@ Array [
   Object {
     "category": "motion-ease",
     "css": "--motion-ease-in-out",
-    "friendly": "Motion Ease In Out",
-    "javascript": "motionEase_in_out",
+    "friendly": "Motion Ease In-out",
+    "javascript": "motion_ease_in_out",
     "name": "motion-ease-in-out",
     "scss": "motion-ease(in-out)",
-    "system": "inOut",
+    "system": "in-out",
     "type": "motion-ease",
     "value": "cubic-bezier(.4, 0, .3, 1)",
   },
   Object {
     "category": "sizing",
-    "css": "--sizing-1500",
-    "friendly": "Sizing 1500",
-    "javascript": "sizing_1500",
-    "name": "sizing-1500",
-    "pixel_value": "1440px",
-    "pixel_value_unitless": "1440",
-    "scss": "sizing(1500)",
-    "system": "1500",
+    "css": "--sizing-0",
+    "friendly": "Sizing 0",
+    "javascript": "sizing_0",
+    "name": "sizing-0",
+    "pixel_value": "0px",
+    "pixel_value_unitless": "0",
+    "scss": "sizing(0)",
+    "system": "0",
     "type": "sizing",
-    "value": "90rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1400",
-    "friendly": "Sizing 1400",
-    "javascript": "sizing_1400",
-    "name": "sizing-1400",
-    "pixel_value": "1200px",
-    "pixel_value_unitless": "1200",
-    "scss": "sizing(1400)",
-    "system": "1400",
-    "type": "sizing",
-    "value": "75rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1350",
-    "friendly": "Sizing 1350",
-    "javascript": "sizing_1350",
-    "name": "sizing-1350",
-    "pixel_value": "1056px",
-    "pixel_value_unitless": "1056",
-    "scss": "sizing(1350)",
-    "system": "1350",
-    "type": "sizing",
-    "value": "66rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1300",
-    "friendly": "Sizing 1300",
-    "javascript": "sizing_1300",
-    "name": "sizing-1300",
-    "pixel_value": "960px",
-    "pixel_value_unitless": "960",
-    "scss": "sizing(1300)",
-    "system": "1300",
-    "type": "sizing",
-    "value": "60rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1200",
-    "friendly": "Sizing 1200",
-    "javascript": "sizing_1200",
-    "name": "sizing-1200",
-    "pixel_value": "720px",
-    "pixel_value_unitless": "720",
-    "scss": "sizing(1200)",
-    "system": "1200",
-    "type": "sizing",
-    "value": "45rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1150",
-    "friendly": "Sizing 1150",
-    "javascript": "sizing_1150",
-    "name": "sizing-1150",
-    "pixel_value": "560px",
-    "pixel_value_unitless": "560",
-    "scss": "sizing(1150)",
-    "system": "1150",
-    "type": "sizing",
-    "value": "35rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1100",
-    "friendly": "Sizing 1100",
-    "javascript": "sizing_1100",
-    "name": "sizing-1100",
-    "pixel_value": "448px",
-    "pixel_value_unitless": "448",
-    "scss": "sizing(1100)",
-    "system": "1100",
-    "type": "sizing",
-    "value": "28rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-1000",
-    "friendly": "Sizing 1000",
-    "javascript": "sizing_1000",
-    "name": "sizing-1000",
-    "pixel_value": "320px",
-    "pixel_value_unitless": "320",
-    "scss": "sizing(1000)",
-    "system": "1000",
-    "type": "sizing",
-    "value": "20rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-900",
-    "friendly": "Sizing 900",
-    "javascript": "sizing_900",
-    "name": "sizing-900",
-    "pixel_value": "160px",
-    "pixel_value_unitless": "160",
-    "scss": "sizing(900)",
-    "system": "900",
-    "type": "sizing",
-    "value": "10rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-850",
-    "friendly": "Sizing 850",
-    "javascript": "sizing_850",
-    "name": "sizing-850",
-    "pixel_value": "96px",
-    "pixel_value_unitless": "96",
-    "scss": "sizing(850)",
-    "system": "850",
-    "type": "sizing",
-    "value": "6rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-800",
-    "friendly": "Sizing 800",
-    "javascript": "sizing_800",
-    "name": "sizing-800",
-    "pixel_value": "64px",
-    "pixel_value_unitless": "64",
-    "scss": "sizing(800)",
-    "system": "800",
-    "type": "sizing",
-    "value": "4rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-750",
-    "friendly": "Sizing 750",
-    "javascript": "sizing_750",
-    "name": "sizing-750",
-    "pixel_value": "56px",
-    "pixel_value_unitless": "56",
-    "scss": "sizing(750)",
-    "system": "750",
-    "type": "sizing",
-    "value": "3.5rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-700",
-    "friendly": "Sizing 700",
-    "javascript": "sizing_700",
-    "name": "sizing-700",
-    "pixel_value": "48px",
-    "pixel_value_unitless": "48",
-    "scss": "sizing(700)",
-    "system": "700",
-    "type": "sizing",
-    "value": "3rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-650",
-    "friendly": "Sizing 650",
-    "javascript": "sizing_650",
-    "name": "sizing-650",
-    "pixel_value": "40px",
-    "pixel_value_unitless": "40",
-    "scss": "sizing(650)",
-    "system": "650",
-    "type": "sizing",
-    "value": "2.5rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-600",
-    "friendly": "Sizing 600",
-    "javascript": "sizing_600",
-    "name": "sizing-600",
-    "pixel_value": "32px",
-    "pixel_value_unitless": "32",
-    "scss": "sizing(600)",
-    "system": "600",
-    "type": "sizing",
-    "value": "2rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-550",
-    "friendly": "Sizing 550",
-    "javascript": "sizing_550",
-    "name": "sizing-550",
-    "pixel_value": "28px",
-    "pixel_value_unitless": "28",
-    "scss": "sizing(550)",
-    "system": "550",
-    "type": "sizing",
-    "value": "1.75rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-500",
-    "friendly": "Sizing 500",
-    "javascript": "sizing_500",
-    "name": "sizing-500",
-    "pixel_value": "24px",
-    "pixel_value_unitless": "24",
-    "scss": "sizing(500)",
-    "system": "500",
-    "type": "sizing",
-    "value": "1.5rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-450",
-    "friendly": "Sizing 450",
-    "javascript": "sizing_450",
-    "name": "sizing-450",
-    "pixel_value": "20px",
-    "pixel_value_unitless": "20",
-    "scss": "sizing(450)",
-    "system": "450",
-    "type": "sizing",
-    "value": "1.25rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-400",
-    "friendly": "Sizing 400",
-    "javascript": "sizing_400",
-    "name": "sizing-400",
-    "pixel_value": "16px",
-    "pixel_value_unitless": "16",
-    "scss": "sizing(400)",
-    "system": "400",
-    "type": "sizing",
-    "value": "1rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-300",
-    "friendly": "Sizing 300",
-    "javascript": "sizing_300",
-    "name": "sizing-300",
-    "pixel_value": "12px",
-    "pixel_value_unitless": "12",
-    "scss": "sizing(300)",
-    "system": "300",
-    "type": "sizing",
-    "value": "0.75rem",
-  },
-  Object {
-    "category": "sizing",
-    "css": "--sizing-200",
-    "friendly": "Sizing 200",
-    "javascript": "sizing_200",
-    "name": "sizing-200",
-    "pixel_value": "8px",
-    "pixel_value_unitless": "8",
-    "scss": "sizing(200)",
-    "system": "200",
-    "type": "sizing",
-    "value": "0.5rem",
+    "value": "0rem",
   },
   Object {
     "category": "sizing",
@@ -1969,185 +1753,289 @@ Array [
   },
   Object {
     "category": "sizing",
-    "css": "--sizing-0",
-    "friendly": "Sizing 0",
-    "javascript": "sizing_0",
-    "name": "sizing-0",
-    "pixel_value": "0px",
-    "pixel_value_unitless": "0",
-    "scss": "sizing(0)",
-    "system": "0",
+    "css": "--sizing-200",
+    "friendly": "Sizing 200",
+    "javascript": "sizing_200",
+    "name": "sizing-200",
+    "pixel_value": "8px",
+    "pixel_value_unitless": "8",
+    "scss": "sizing(200)",
+    "system": "200",
     "type": "sizing",
-    "value": "0rem",
+    "value": "0.5rem",
   },
   Object {
-    "category": "spacing",
-    "css": "--spacing-900",
-    "friendly": "Spacing 900",
-    "javascript": "spacing_900",
-    "name": "spacing-900",
-    "pixel_value": "160px",
-    "pixel_value_unitless": "160",
-    "scss": "spacing(900)",
-    "system": "900",
-    "type": "spacing",
-    "value": "10rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-850",
-    "friendly": "Spacing 850",
-    "javascript": "spacing_850",
-    "name": "spacing-850",
-    "pixel_value": "96px",
-    "pixel_value_unitless": "96",
-    "scss": "spacing(850)",
-    "system": "850",
-    "type": "spacing",
-    "value": "6rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-800",
-    "friendly": "Spacing 800",
-    "javascript": "spacing_800",
-    "name": "spacing-800",
-    "pixel_value": "64px",
-    "pixel_value_unitless": "64",
-    "scss": "spacing(800)",
-    "system": "800",
-    "type": "spacing",
-    "value": "4rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-750",
-    "friendly": "Spacing 750",
-    "javascript": "spacing_750",
-    "name": "spacing-750",
-    "pixel_value": "56px",
-    "pixel_value_unitless": "56",
-    "scss": "spacing(750)",
-    "system": "750",
-    "type": "spacing",
-    "value": "3.5rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-700",
-    "friendly": "Spacing 700",
-    "javascript": "spacing_700",
-    "name": "spacing-700",
-    "pixel_value": "48px",
-    "pixel_value_unitless": "48",
-    "scss": "spacing(700)",
-    "system": "700",
-    "type": "spacing",
-    "value": "3rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-650",
-    "friendly": "Spacing 650",
-    "javascript": "spacing_650",
-    "name": "spacing-650",
-    "pixel_value": "40px",
-    "pixel_value_unitless": "40",
-    "scss": "spacing(650)",
-    "system": "650",
-    "type": "spacing",
-    "value": "2.5rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-600",
-    "friendly": "Spacing 600",
-    "javascript": "spacing_600",
-    "name": "spacing-600",
-    "pixel_value": "32px",
-    "pixel_value_unitless": "32",
-    "scss": "spacing(600)",
-    "system": "600",
-    "type": "spacing",
-    "value": "2rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-550",
-    "friendly": "Spacing 550",
-    "javascript": "spacing_550",
-    "name": "spacing-550",
-    "pixel_value": "28px",
-    "pixel_value_unitless": "28",
-    "scss": "spacing(550)",
-    "system": "550",
-    "type": "spacing",
-    "value": "1.75rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-500",
-    "friendly": "Spacing 500",
-    "javascript": "spacing_500",
-    "name": "spacing-500",
-    "pixel_value": "24px",
-    "pixel_value_unitless": "24",
-    "scss": "spacing(500)",
-    "system": "500",
-    "type": "spacing",
-    "value": "1.5rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-450",
-    "friendly": "Spacing 450",
-    "javascript": "spacing_450",
-    "name": "spacing-450",
-    "pixel_value": "20px",
-    "pixel_value_unitless": "20",
-    "scss": "spacing(450)",
-    "system": "450",
-    "type": "spacing",
-    "value": "1.25rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-400",
-    "friendly": "Spacing 400",
-    "javascript": "spacing_400",
-    "name": "spacing-400",
-    "pixel_value": "16px",
-    "pixel_value_unitless": "16",
-    "scss": "spacing(400)",
-    "system": "400",
-    "type": "spacing",
-    "value": "1rem",
-  },
-  Object {
-    "category": "spacing",
-    "css": "--spacing-300",
-    "friendly": "Spacing 300",
-    "javascript": "spacing_300",
-    "name": "spacing-300",
+    "category": "sizing",
+    "css": "--sizing-300",
+    "friendly": "Sizing 300",
+    "javascript": "sizing_300",
+    "name": "sizing-300",
     "pixel_value": "12px",
     "pixel_value_unitless": "12",
-    "scss": "spacing(300)",
+    "scss": "sizing(300)",
     "system": "300",
-    "type": "spacing",
+    "type": "sizing",
     "value": "0.75rem",
   },
   Object {
+    "category": "sizing",
+    "css": "--sizing-400",
+    "friendly": "Sizing 400",
+    "javascript": "sizing_400",
+    "name": "sizing-400",
+    "pixel_value": "16px",
+    "pixel_value_unitless": "16",
+    "scss": "sizing(400)",
+    "system": "400",
+    "type": "sizing",
+    "value": "1rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-450",
+    "friendly": "Sizing 450",
+    "javascript": "sizing_450",
+    "name": "sizing-450",
+    "pixel_value": "20px",
+    "pixel_value_unitless": "20",
+    "scss": "sizing(450)",
+    "system": "450",
+    "type": "sizing",
+    "value": "1.25rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-500",
+    "friendly": "Sizing 500",
+    "javascript": "sizing_500",
+    "name": "sizing-500",
+    "pixel_value": "24px",
+    "pixel_value_unitless": "24",
+    "scss": "sizing(500)",
+    "system": "500",
+    "type": "sizing",
+    "value": "1.5rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-550",
+    "friendly": "Sizing 550",
+    "javascript": "sizing_550",
+    "name": "sizing-550",
+    "pixel_value": "28px",
+    "pixel_value_unitless": "28",
+    "scss": "sizing(550)",
+    "system": "550",
+    "type": "sizing",
+    "value": "1.75rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-600",
+    "friendly": "Sizing 600",
+    "javascript": "sizing_600",
+    "name": "sizing-600",
+    "pixel_value": "32px",
+    "pixel_value_unitless": "32",
+    "scss": "sizing(600)",
+    "system": "600",
+    "type": "sizing",
+    "value": "2rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-650",
+    "friendly": "Sizing 650",
+    "javascript": "sizing_650",
+    "name": "sizing-650",
+    "pixel_value": "40px",
+    "pixel_value_unitless": "40",
+    "scss": "sizing(650)",
+    "system": "650",
+    "type": "sizing",
+    "value": "2.5rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-700",
+    "friendly": "Sizing 700",
+    "javascript": "sizing_700",
+    "name": "sizing-700",
+    "pixel_value": "48px",
+    "pixel_value_unitless": "48",
+    "scss": "sizing(700)",
+    "system": "700",
+    "type": "sizing",
+    "value": "3rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-750",
+    "friendly": "Sizing 750",
+    "javascript": "sizing_750",
+    "name": "sizing-750",
+    "pixel_value": "56px",
+    "pixel_value_unitless": "56",
+    "scss": "sizing(750)",
+    "system": "750",
+    "type": "sizing",
+    "value": "3.5rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-800",
+    "friendly": "Sizing 800",
+    "javascript": "sizing_800",
+    "name": "sizing-800",
+    "pixel_value": "64px",
+    "pixel_value_unitless": "64",
+    "scss": "sizing(800)",
+    "system": "800",
+    "type": "sizing",
+    "value": "4rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-850",
+    "friendly": "Sizing 850",
+    "javascript": "sizing_850",
+    "name": "sizing-850",
+    "pixel_value": "96px",
+    "pixel_value_unitless": "96",
+    "scss": "sizing(850)",
+    "system": "850",
+    "type": "sizing",
+    "value": "6rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-900",
+    "friendly": "Sizing 900",
+    "javascript": "sizing_900",
+    "name": "sizing-900",
+    "pixel_value": "160px",
+    "pixel_value_unitless": "160",
+    "scss": "sizing(900)",
+    "system": "900",
+    "type": "sizing",
+    "value": "10rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1000",
+    "friendly": "Sizing 1000",
+    "javascript": "sizing_1000",
+    "name": "sizing-1000",
+    "pixel_value": "320px",
+    "pixel_value_unitless": "320",
+    "scss": "sizing(1000)",
+    "system": "1000",
+    "type": "sizing",
+    "value": "20rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1100",
+    "friendly": "Sizing 1100",
+    "javascript": "sizing_1100",
+    "name": "sizing-1100",
+    "pixel_value": "448px",
+    "pixel_value_unitless": "448",
+    "scss": "sizing(1100)",
+    "system": "1100",
+    "type": "sizing",
+    "value": "28rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1150",
+    "friendly": "Sizing 1150",
+    "javascript": "sizing_1150",
+    "name": "sizing-1150",
+    "pixel_value": "560px",
+    "pixel_value_unitless": "560",
+    "scss": "sizing(1150)",
+    "system": "1150",
+    "type": "sizing",
+    "value": "35rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1200",
+    "friendly": "Sizing 1200",
+    "javascript": "sizing_1200",
+    "name": "sizing-1200",
+    "pixel_value": "720px",
+    "pixel_value_unitless": "720",
+    "scss": "sizing(1200)",
+    "system": "1200",
+    "type": "sizing",
+    "value": "45rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1300",
+    "friendly": "Sizing 1300",
+    "javascript": "sizing_1300",
+    "name": "sizing-1300",
+    "pixel_value": "960px",
+    "pixel_value_unitless": "960",
+    "scss": "sizing(1300)",
+    "system": "1300",
+    "type": "sizing",
+    "value": "60rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1350",
+    "friendly": "Sizing 1350",
+    "javascript": "sizing_1350",
+    "name": "sizing-1350",
+    "pixel_value": "1056px",
+    "pixel_value_unitless": "1056",
+    "scss": "sizing(1350)",
+    "system": "1350",
+    "type": "sizing",
+    "value": "66rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1400",
+    "friendly": "Sizing 1400",
+    "javascript": "sizing_1400",
+    "name": "sizing-1400",
+    "pixel_value": "1200px",
+    "pixel_value_unitless": "1200",
+    "scss": "sizing(1400)",
+    "system": "1400",
+    "type": "sizing",
+    "value": "75rem",
+  },
+  Object {
+    "category": "sizing",
+    "css": "--sizing-1500",
+    "friendly": "Sizing 1500",
+    "javascript": "sizing_1500",
+    "name": "sizing-1500",
+    "pixel_value": "1440px",
+    "pixel_value_unitless": "1440",
+    "scss": "sizing(1500)",
+    "system": "1500",
+    "type": "sizing",
+    "value": "90rem",
+  },
+  Object {
     "category": "spacing",
-    "css": "--spacing-200",
-    "friendly": "Spacing 200",
-    "javascript": "spacing_200",
-    "name": "spacing-200",
-    "pixel_value": "8px",
-    "pixel_value_unitless": "8",
-    "scss": "spacing(200)",
-    "system": "200",
+    "css": "--spacing-0",
+    "friendly": "Spacing 0",
+    "javascript": "spacing_0",
+    "name": "spacing-0",
+    "pixel_value": "0px",
+    "pixel_value_unitless": "0",
+    "scss": "spacing(0)",
+    "system": "0",
     "type": "spacing",
-    "value": "0.5rem",
+    "value": "0rem",
   },
   Object {
     "category": "spacing",
@@ -2164,894 +2052,172 @@ Array [
   },
   Object {
     "category": "spacing",
-    "css": "--spacing-0",
-    "friendly": "Spacing 0",
-    "javascript": "spacing_0",
-    "name": "spacing-0",
-    "pixel_value": "0px",
-    "pixel_value_unitless": "0",
-    "scss": "spacing(0)",
-    "system": "0",
+    "css": "--spacing-200",
+    "friendly": "Spacing 200",
+    "javascript": "spacing_200",
+    "name": "spacing-200",
+    "pixel_value": "8px",
+    "pixel_value_unitless": "8",
+    "scss": "spacing(200)",
+    "system": "200",
     "type": "spacing",
-    "value": "0rem",
+    "value": "0.5rem",
   },
   Object {
-    "category": "z-index",
-    "css": "--z-index-auto",
-    "friendly": "Z Index Auto",
-    "javascript": "zIndex_auto",
-    "name": "z-index-auto",
-    "scss": "z-index(auto)",
-    "system": "auto",
-    "type": "z-index",
-    "value": "auto",
+    "category": "spacing",
+    "css": "--spacing-300",
+    "friendly": "Spacing 300",
+    "javascript": "spacing_300",
+    "name": "spacing-300",
+    "pixel_value": "12px",
+    "pixel_value_unitless": "12",
+    "scss": "spacing(300)",
+    "system": "300",
+    "type": "spacing",
+    "value": "0.75rem",
   },
   Object {
-    "category": "z-index",
-    "css": "--z-index-below",
-    "friendly": "Z Index Below",
-    "javascript": "zIndex_below",
-    "name": "z-index-below",
-    "scss": "z-index(below)",
-    "system": "below",
-    "type": "z-index",
-    "value": "-1",
+    "category": "spacing",
+    "css": "--spacing-400",
+    "friendly": "Spacing 400",
+    "javascript": "spacing_400",
+    "name": "spacing-400",
+    "pixel_value": "16px",
+    "pixel_value_unitless": "16",
+    "scss": "spacing(400)",
+    "system": "400",
+    "type": "spacing",
+    "value": "1rem",
   },
   Object {
-    "category": "z-index",
-    "css": "--z-index-default",
-    "friendly": "Z Index Default",
-    "javascript": "zIndex_default",
-    "name": "z-index-default",
-    "scss": "z-index(default)",
-    "system": "default",
-    "type": "z-index",
-    "value": "1",
+    "category": "spacing",
+    "css": "--spacing-450",
+    "friendly": "Spacing 450",
+    "javascript": "spacing_450",
+    "name": "spacing-450",
+    "pixel_value": "20px",
+    "pixel_value_unitless": "20",
+    "scss": "spacing(450)",
+    "system": "450",
+    "type": "spacing",
+    "value": "1.25rem",
   },
   Object {
-    "category": "z-index",
-    "css": "--z-index-overlay",
-    "friendly": "Z Index Overlay",
-    "javascript": "zIndex_overlay",
-    "name": "z-index-overlay",
-    "scss": "z-index(overlay)",
-    "system": "overlay",
-    "type": "z-index",
-    "value": "1000",
+    "category": "spacing",
+    "css": "--spacing-500",
+    "friendly": "Spacing 500",
+    "javascript": "spacing_500",
+    "name": "spacing-500",
+    "pixel_value": "24px",
+    "pixel_value_unitless": "24",
+    "scss": "spacing(500)",
+    "system": "500",
+    "type": "spacing",
+    "value": "1.5rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-550",
+    "friendly": "Spacing 550",
+    "javascript": "spacing_550",
+    "name": "spacing-550",
+    "pixel_value": "28px",
+    "pixel_value_unitless": "28",
+    "scss": "spacing(550)",
+    "system": "550",
+    "type": "spacing",
+    "value": "1.75rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-600",
+    "friendly": "Spacing 600",
+    "javascript": "spacing_600",
+    "name": "spacing-600",
+    "pixel_value": "32px",
+    "pixel_value_unitless": "32",
+    "scss": "spacing(600)",
+    "system": "600",
+    "type": "spacing",
+    "value": "2rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-650",
+    "friendly": "Spacing 650",
+    "javascript": "spacing_650",
+    "name": "spacing-650",
+    "pixel_value": "40px",
+    "pixel_value_unitless": "40",
+    "scss": "spacing(650)",
+    "system": "650",
+    "type": "spacing",
+    "value": "2.5rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-700",
+    "friendly": "Spacing 700",
+    "javascript": "spacing_700",
+    "name": "spacing-700",
+    "pixel_value": "48px",
+    "pixel_value_unitless": "48",
+    "scss": "spacing(700)",
+    "system": "700",
+    "type": "spacing",
+    "value": "3rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-750",
+    "friendly": "Spacing 750",
+    "javascript": "spacing_750",
+    "name": "spacing-750",
+    "pixel_value": "56px",
+    "pixel_value_unitless": "56",
+    "scss": "spacing(750)",
+    "system": "750",
+    "type": "spacing",
+    "value": "3.5rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-800",
+    "friendly": "Spacing 800",
+    "javascript": "spacing_800",
+    "name": "spacing-800",
+    "pixel_value": "64px",
+    "pixel_value_unitless": "64",
+    "scss": "spacing(800)",
+    "system": "800",
+    "type": "spacing",
+    "value": "4rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-850",
+    "friendly": "Spacing 850",
+    "javascript": "spacing_850",
+    "name": "spacing-850",
+    "pixel_value": "96px",
+    "pixel_value_unitless": "96",
+    "scss": "spacing(850)",
+    "system": "850",
+    "type": "spacing",
+    "value": "6rem",
+  },
+  Object {
+    "category": "spacing",
+    "css": "--spacing-900",
+    "friendly": "Spacing 900",
+    "javascript": "spacing_900",
+    "name": "spacing-900",
+    "pixel_value": "160px",
+    "pixel_value_unitless": "160",
+    "scss": "spacing(900)",
+    "system": "900",
+    "type": "spacing",
+    "value": "10rem",
   },
 ]
-`;
-
-exports[`should generate CSS 1`] = `
-":root {
-  --border-radius-0: 0;
-  --border-radius-100: 1px;
-  --border-radius-200: 2px;
-  --border-radius-pill: 9999em;
-  --border-radius-circle: 50%;
-  --border-width-0: 0;
-  --border-width-100: 1px;
-  --border-width-200: 2px;
-  --box-shadow-0: none;
-  --box-shadow-100: 0px 1px 2px rgba(44, 53, 61, 0.2);
-  --box-shadow-200: 0px 2px 4px rgba(44, 53, 61, 0.2);
-  --box-shadow-300: 0px 4px 8px rgba(44, 53, 61, 0.2);
-  --box-shadow-400: 0px 8px 16px rgba(44, 53, 61, 0.2);
-  --color-brand-orange: #fa6423;
-  --color-brand-gray: #55555a;
-  --color-brand-blue: #37aadc;
-  --color-yellow-1000: #3d3121;
-  --color-yellow-900: #523e21;
-  --color-yellow-800: #614d27;
-  --color-yellow-700: #876a2f;
-  --color-yellow-600: #b58c12;
-  --color-yellow-500: #e3ad0b;
-  --color-yellow-400: #ffda00;
-  --color-yellow-300: #ffe75c;
-  --color-yellow-200: #fff4b5;
-  --color-yellow-100: #fffadb;
-  --color-green-1000: #233b33;
-  --color-green-900: #1b5441;
-  --color-green-800: #067852;
-  --color-green-700: #009f6a;
-  --color-green-600: #28bd8b;
-  --color-green-500: #52d9ac;
-  --color-green-400: #8debcb;
-  --color-green-300: #b5f5e0;
-  --color-green-200: #d6fff1;
-  --color-green-100: #e8fff7;
-  --color-teal-1000: #223a3b;
-  --color-teal-900: #274c4d;
-  --color-teal-800: #226363;
-  --color-teal-700: #199091;
-  --color-teal-600: #13bebf;
-  --color-teal-500: #37e4e6;
-  --color-teal-400: #6ef4f5;
-  --color-teal-300: #96feff;
-  --color-teal-200: #ccffff;
-  --color-teal-100: #e3ffff;
-  --color-blue-1000: #203752;
-  --color-blue-900: #1a497d;
-  --color-blue-800: #0060cc;
-  --color-blue-700: #1273e6;
-  --color-blue-600: #429bff;
-  --color-blue-500: #78b6ff;
-  --color-blue-400: #abd2ff;
-  --color-blue-300: #cce3ff;
-  --color-blue-200: #e8f3ff;
-  --color-blue-100: #f2f8ff;
-  --color-purple-1000: #352e4a;
-  --color-purple-900: #4c2e87;
-  --color-purple-800: #7122e3;
-  --color-purple-700: #8c40ff;
-  --color-purple-600: #a469ff;
-  --color-purple-500: #bd91ff;
-  --color-purple-400: #d7bdff;
-  --color-purple-300: #e5d4ff;
-  --color-purple-200: #f3ebff;
-  --color-purple-100: #f9f5ff;
-  --color-magenta-1000: #522338;
-  --color-magenta-900: #782449;
-  --color-magenta-800: #992659;
-  --color-magenta-700: #d1347a;
-  --color-magenta-600: #f0549a;
-  --color-magenta-500: #ff7db7;
-  --color-magenta-400: #ffb0d3;
-  --color-magenta-300: #ffcce3;
-  --color-magenta-200: #ffe8f2;
-  --color-magenta-100: #fff2f8;
-  --color-red-1000: #5c2121;
-  --color-red-900: #80252a;
-  --color-red-800: #a12b2b;
-  --color-red-700: #d9363e;
-  --color-red-600: #ff5760;
-  --color-red-500: #ff858b;
-  --color-red-400: #ffb5b9;
-  --color-red-300: #ffcfd1;
-  --color-red-200: #ffebec;
-  --color-red-100: #fff2f3;
-  --color-gray-1000: #2c353d;
-  --color-gray-900: #39444d;
-  --color-gray-800: #46525c;
-  --color-gray-700: #626f7a;
-  --color-gray-600: #818e9a;
-  --color-gray-500: #a2adb8;
-  --color-gray-400: #c5ced6;
-  --color-gray-300: #d9e0e6;
-  --color-gray-200: #ebf0f5;
-  --color-gray-100: #f5f8fa;
-  --color-white: #ffffff;
-  --font-family-sans: \\"Calibre\\", -apple-system, BlinkMacSystemFont,
-    \\"San Francisco\\", \\"Segoe UI\\", Roboto, Helvetica, sans-serif;
-  --font-family-monospace: \\"SFMono-Regular\\", Monaco, Consolas, \\"Lucida Console\\",
-    monospace;
-  /* 56px */
-  --font-size-800: 3.5rem;
-  /* 44px */
-  --font-size-700: 2.75rem;
-  /* 32px */
-  --font-size-600: 2rem;
-  /* 24px */
-  --font-size-500: 1.5rem;
-  /* 20px */
-  --font-size-400: 1.25rem;
-  /* 18px */
-  --font-size-300: 1.125rem;
-  /* 16px */
-  --font-size-200: 1rem;
-  /* 14px */
-  --font-size-100: 0.875rem;
-  /* 12px */
-  --font-size-50: 0.75rem;
-  --font-size-root: 16px;
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  /* 68px */
-  --line-height-800: 4.25rem;
-  /* 56px */
-  --line-height-700: 3.5rem;
-  /* 40px */
-  --line-height-600: 2.5rem;
-  /* 32px */
-  --line-height-500: 2rem;
-  /* 28px */
-  --line-height-400: 1.75rem;
-  /* 24px */
-  --line-height-300: 1.5rem;
-  /* 20px */
-  --line-height-200: 1.25rem;
-  /* 16px */
-  --line-height-100: 1rem;
-  --media-query-xs: 448px;
-  --media-query-sm: 720px;
-  --media-query-md: 960px;
-  --media-query-lg: 1200px;
-  --media-query-xl: 1440px;
-  --motion-duration-fast: 0.15s;
-  --motion-duration-medium: 0.3s;
-  --motion-duration-slow: 0.7s;
-  --motion-ease-in: cubic-bezier(0.35, 0, 0.7, 0.2);
-  --motion-ease-out: cubic-bezier(0, 0, 0.3, 1);
-  --motion-ease-in-out: cubic-bezier(0.4, 0, 0.3, 1);
-  /* 1440px */
-  --sizing-1500: 90rem;
-  /* 1200px */
-  --sizing-1400: 75rem;
-  /* 1056px */
-  --sizing-1350: 66rem;
-  /* 960px */
-  --sizing-1300: 60rem;
-  /* 720px */
-  --sizing-1200: 45rem;
-  /* 560px */
-  --sizing-1150: 35rem;
-  /* 448px */
-  --sizing-1100: 28rem;
-  /* 320px */
-  --sizing-1000: 20rem;
-  /* 160px */
-  --sizing-900: 10rem;
-  /* 96px */
-  --sizing-850: 6rem;
-  /* 64px */
-  --sizing-800: 4rem;
-  /* 56px */
-  --sizing-750: 3.5rem;
-  /* 48px */
-  --sizing-700: 3rem;
-  /* 40px */
-  --sizing-650: 2.5rem;
-  /* 32px */
-  --sizing-600: 2rem;
-  /* 28px */
-  --sizing-550: 1.75rem;
-  /* 24px */
-  --sizing-500: 1.5rem;
-  /* 20px */
-  --sizing-450: 1.25rem;
-  /* 16px */
-  --sizing-400: 1rem;
-  /* 12px */
-  --sizing-300: 0.75rem;
-  /* 8px */
-  --sizing-200: 0.5rem;
-  /* 4px */
-  --sizing-100: 0.25rem;
-  /* 0px */
-  --sizing-0: 0rem;
-  /* 160px */
-  --spacing-900: 10rem;
-  /* 96px */
-  --spacing-850: 6rem;
-  /* 64px */
-  --spacing-800: 4rem;
-  /* 56px */
-  --spacing-750: 3.5rem;
-  /* 48px */
-  --spacing-700: 3rem;
-  /* 40px */
-  --spacing-650: 2.5rem;
-  /* 32px */
-  --spacing-600: 2rem;
-  /* 28px */
-  --spacing-550: 1.75rem;
-  /* 24px */
-  --spacing-500: 1.5rem;
-  /* 20px */
-  --spacing-450: 1.25rem;
-  /* 16px */
-  --spacing-400: 1rem;
-  /* 12px */
-  --spacing-300: 0.75rem;
-  /* 8px */
-  --spacing-200: 0.5rem;
-  /* 4px */
-  --spacing-100: 0.25rem;
-  /* 0px */
-  --spacing-0: 0rem;
-  --z-index-auto: auto;
-  --z-index-below: -1;
-  --z-index-default: 1;
-  --z-index-overlay: 1000;
-}
-"
-`;
-
-exports[`should generate SCSS 1`] = `
-"$border-radius-map: (
-  border-radius-0: (
-    0
-  ),
-  border-radius-100: (
-    1px
-  ),
-  border-radius-200: (
-    2px
-  ),
-  border-radius-pill: (
-    9999em
-  ),
-  border-radius-circle: (
-    50%
-  )
-);
-
-@function border-radius($variant) {
-  @if map-has-key($border-radius-map, \\"border-radius-#{$variant}\\") {
-    @return map-get($border-radius-map, \\"border-radius-#{$variant}\\");
-  }
-
-  @error 'border-radius #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 2`] = `
-"$border-width-map: (
-  border-width-0: (
-    0
-  ),
-  border-width-100: (
-    1px
-  ),
-  border-width-200: (
-    2px
-  )
-);
-
-@function border-width($variant) {
-  @if map-has-key($border-width-map, \\"border-width-#{$variant}\\") {
-    @return map-get($border-width-map, \\"border-width-#{$variant}\\");
-  }
-
-  @error 'border-width #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 3`] = `
-"$box-shadow-map: (
-  box-shadow-0: (
-    none
-  ),
-  box-shadow-100: (
-    0px 1px 2px rgba(44, 53, 61, 0.2)
-  ),
-  box-shadow-200: (
-    0px 2px 4px rgba(44, 53, 61, 0.2)
-  ),
-  box-shadow-300: (
-    0px 4px 8px rgba(44, 53, 61, 0.2)
-  ),
-  box-shadow-400: (
-    0px 8px 16px rgba(44, 53, 61, 0.2)
-  )
-);
-
-@function box-shadow($variant) {
-  @if map-has-key($box-shadow-map, \\"box-shadow-#{$variant}\\") {
-    @return map-get($box-shadow-map, \\"box-shadow-#{$variant}\\");
-  }
-
-  @error 'box-shadow #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 4`] = `
-"$font-family-map: (
-  font-family-sans: (
-    \\"Calibre\\",
-    -apple-system,
-    BlinkMacSystemFont,
-    \\"San Francisco\\",
-    \\"Segoe UI\\",
-    Roboto,
-    Helvetica,
-    sans-serif
-  ),
-  font-family-monospace: (
-    \\"SFMono-Regular\\",
-    Monaco,
-    Consolas,
-    \\"Lucida Console\\",
-    monospace
-  )
-);
-
-@function font-family($variant) {
-  @if map-has-key($font-family-map, \\"font-family-#{$variant}\\") {
-    @return map-get($font-family-map, \\"font-family-#{$variant}\\");
-  }
-
-  @error 'font-family #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 5`] = `
-"$font-size-map: (
-  font-size-800: (
-    3.5rem
-  ),
-  font-size-700: (
-    2.75rem
-  ),
-  font-size-600: (
-    2rem
-  ),
-  font-size-500: (
-    1.5rem
-  ),
-  font-size-400: (
-    1.25rem
-  ),
-  font-size-300: (
-    1.125rem
-  ),
-  font-size-200: (
-    1rem
-  ),
-  font-size-100: (
-    0.875rem
-  ),
-  font-size-50: (
-    0.75rem
-  ),
-  font-size-root: (
-    16px
-  )
-);
-
-$DEFAULT_FONT_SIZE: 16px;
-$DEFAULT_FONT_SIZE_UNITLESS: 16;
-
-@function rem($n) {
-  $result: 0rem + $n / $DEFAULT_FONT_SIZE_UNITLESS;
-  @return $result;
-}
-
-@function em($n) {
-  $result: 0em + $n / $DEFAULT_FONT_SIZE_UNITLESS;
-  @return $result;
-}
-
-@function font-size($variant) {
-  @if map-has-key($font-size-map, \\"font-size-#{$variant}\\") {
-    $result: map-get($font-size-map, \\"font-size-#{$variant}\\");
-    @return $result;
-  }
-
-  @error 'font-size #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 6`] = `
-"$font-weight-map: (
-  font-weight-light: (
-    300
-  ),
-  font-weight-normal: (
-    400
-  ),
-  font-weight-medium: (
-    500
-  ),
-  font-weight-semibold: (
-    600
-  )
-);
-
-@function font-weight($variant) {
-  @if map-has-key($font-weight-map, \\"font-weight-#{$variant}\\") {
-    @return map-get($font-weight-map, \\"font-weight-#{$variant}\\");
-  }
-
-  @error 'font-weight #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 7`] = `
-"$line-height-map: (
-  line-height-800: (
-    4.25rem
-  ),
-  line-height-700: (
-    3.5rem
-  ),
-  line-height-600: (
-    2.5rem
-  ),
-  line-height-500: (
-    2rem
-  ),
-  line-height-400: (
-    1.75rem
-  ),
-  line-height-300: (
-    1.5rem
-  ),
-  line-height-200: (
-    1.25rem
-  ),
-  line-height-100: (
-    1rem
-  )
-);
-
-@function line-height($variant) {
-  @if map-has-key($line-height-map, \\"line-height-#{$variant}\\") {
-    @return map-get($line-height-map, \\"line-height-#{$variant}\\");
-  }
-
-  @error 'line-height #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 8`] = `
-"$media-query-map: (
-  media-query-xs: (
-    448px
-  ),
-  media-query-sm: (
-    720px
-  ),
-  media-query-md: (
-    960px
-  ),
-  media-query-lg: (
-    1200px
-  ),
-  media-query-xl: (
-    1440px
-  )
-);
-
-@function media-query($variant) {
-  @if map-has-key($media-query-map, \\"media-query-#{$variant}\\") {
-    @return map-get($media-query-map, \\"media-query-#{$variant}\\");
-  }
-
-  @error 'media-query #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 9`] = `
-"$motion-duration-map: (
-  motion-duration-fast: (
-    0.15s
-  ),
-  motion-duration-medium: (
-    0.3s
-  ),
-  motion-duration-slow: (
-    0.7s
-  )
-);
-
-@function motion-duration($variant) {
-  @if map-has-key($motion-duration-map, \\"motion-duration-#{$variant}\\") {
-    @return map-get($motion-duration-map, \\"motion-duration-#{$variant}\\");
-  }
-
-  @error 'motion-duration #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 10`] = `
-"$motion-ease-map: (
-  motion-ease-in: (
-    cubic-bezier(0.35, 0, 0.7, 0.2)
-  ),
-  motion-ease-out: (
-    cubic-bezier(0, 0, 0.3, 1)
-  ),
-  motion-ease-in-out: (
-    cubic-bezier(0.4, 0, 0.3, 1)
-  )
-);
-
-@function motion-ease($variant) {
-  @if map-has-key($motion-ease-map, \\"motion-ease-#{$variant}\\") {
-    @return map-get($motion-ease-map, \\"motion-ease-#{$variant}\\");
-  }
-
-  @error 'motion-ease #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 11`] = `
-"$sizing-map: (
-  sizing-1500: (
-    90rem
-  ),
-  sizing-1400: (
-    75rem
-  ),
-  sizing-1350: (
-    66rem
-  ),
-  sizing-1300: (
-    60rem
-  ),
-  sizing-1200: (
-    45rem
-  ),
-  sizing-1150: (
-    35rem
-  ),
-  sizing-1100: (
-    28rem
-  ),
-  sizing-1000: (
-    20rem
-  ),
-  sizing-900: (
-    10rem
-  ),
-  sizing-850: (
-    6rem
-  ),
-  sizing-800: (
-    4rem
-  ),
-  sizing-750: (
-    3.5rem
-  ),
-  sizing-700: (
-    3rem
-  ),
-  sizing-650: (
-    2.5rem
-  ),
-  sizing-600: (
-    2rem
-  ),
-  sizing-550: (
-    1.75rem
-  ),
-  sizing-500: (
-    1.5rem
-  ),
-  sizing-450: (
-    1.25rem
-  ),
-  sizing-400: (
-    1rem
-  ),
-  sizing-300: (
-    0.75rem
-  ),
-  sizing-200: (
-    0.5rem
-  ),
-  sizing-100: (
-    0.25rem
-  ),
-  sizing-0: (
-    0rem
-  )
-);
-
-@function sizing($variant) {
-  @if map-has-key($sizing-map, \\"sizing-#{$variant}\\") {
-    @return map-get($sizing-map, \\"sizing-#{$variant}\\");
-  }
-
-  @error 'sizing #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 12`] = `
-"$spacing-map: (
-  spacing-900: (
-    10rem
-  ),
-  spacing-850: (
-    6rem
-  ),
-  spacing-800: (
-    4rem
-  ),
-  spacing-750: (
-    3.5rem
-  ),
-  spacing-700: (
-    3rem
-  ),
-  spacing-650: (
-    2.5rem
-  ),
-  spacing-600: (
-    2rem
-  ),
-  spacing-550: (
-    1.75rem
-  ),
-  spacing-500: (
-    1.5rem
-  ),
-  spacing-450: (
-    1.25rem
-  ),
-  spacing-400: (
-    1rem
-  ),
-  spacing-300: (
-    0.75rem
-  ),
-  spacing-200: (
-    0.5rem
-  ),
-  spacing-100: (
-    0.25rem
-  ),
-  spacing-0: (
-    0rem
-  )
-);
-
-@function spacing($variant) {
-  @if map-has-key($spacing-map, \\"spacing-#{$variant}\\") {
-    @return map-get($spacing-map, \\"spacing-#{$variant}\\");
-  }
-
-  @error 'spacing #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 13`] = `
-"$z-index-map: (
-  z-index-auto: (
-    auto
-  ),
-  z-index-below: (
-    -1
-  ),
-  z-index-default: (
-    1
-  ),
-  z-index-overlay: (
-    1000
-  )
-);
-
-@function z-index($variant) {
-  @if map-has-key($z-index-map, \\"z-index-#{$variant}\\") {
-    @return map-get($z-index-map, \\"z-index-#{$variant}\\");
-  }
-
-  @error 'z-index #{$variant} not found.';
-}
-"
-`;
-
-exports[`should generate SCSS 14`] = `
-"$color-map: (
-  brand: (
-    orange: #fa6423,
-    gray: #55555a,
-    blue: #37aadc
-  ),
-  yellow: (
-    1000: #3d3121,
-    900: #523e21,
-    800: #614d27,
-    700: #876a2f,
-    600: #b58c12,
-    500: #e3ad0b,
-    400: #ffda00,
-    300: #ffe75c,
-    200: #fff4b5,
-    100: #fffadb
-  ),
-  green: (
-    1000: #233b33,
-    900: #1b5441,
-    800: #067852,
-    700: #009f6a,
-    600: #28bd8b,
-    500: #52d9ac,
-    400: #8debcb,
-    300: #b5f5e0,
-    200: #d6fff1,
-    100: #e8fff7
-  ),
-  teal: (
-    1000: #223a3b,
-    900: #274c4d,
-    800: #226363,
-    700: #199091,
-    600: #13bebf,
-    500: #37e4e6,
-    400: #6ef4f5,
-    300: #96feff,
-    200: #ccffff,
-    100: #e3ffff
-  ),
-  blue: (
-    1000: #203752,
-    900: #1a497d,
-    800: #0060cc,
-    700: #1273e6,
-    600: #429bff,
-    500: #78b6ff,
-    400: #abd2ff,
-    300: #cce3ff,
-    200: #e8f3ff,
-    100: #f2f8ff
-  ),
-  purple: (
-    1000: #352e4a,
-    900: #4c2e87,
-    800: #7122e3,
-    700: #8c40ff,
-    600: #a469ff,
-    500: #bd91ff,
-    400: #d7bdff,
-    300: #e5d4ff,
-    200: #f3ebff,
-    100: #f9f5ff
-  ),
-  magenta: (
-    1000: #522338,
-    900: #782449,
-    800: #992659,
-    700: #d1347a,
-    600: #f0549a,
-    500: #ff7db7,
-    400: #ffb0d3,
-    300: #ffcce3,
-    200: #ffe8f2,
-    100: #fff2f8
-  ),
-  red: (
-    1000: #5c2121,
-    900: #80252a,
-    800: #a12b2b,
-    700: #d9363e,
-    600: #ff5760,
-    500: #ff858b,
-    400: #ffb5b9,
-    300: #ffcfd1,
-    200: #ffebec,
-    100: #fff2f3
-  ),
-  gray: (
-    1000: #2c353d,
-    900: #39444d,
-    800: #46525c,
-    700: #626f7a,
-    600: #818e9a,
-    500: #a2adb8,
-    400: #c5ced6,
-    300: #d9e0e6,
-    200: #ebf0f5,
-    100: #f5f8fa
-  ),
-  white: (
-    base: #ffffff
-  )
-);
-
-@function color($parent, $variant: base) {
-  @if map-has-key($color-map, $parent) {
-    $parent-map: map-get($color-map, $parent);
-    @if map-has-key($parent-map, $variant) {
-      @return map-get($parent-map, $variant);
-    }
-  }
-  @error 'color '#{$parent} - #{$variant}' not found.';
-}
-"
 `;

@@ -1,13 +1,12 @@
-# design-tokens
+# @sparkpost/design-tokens
 
 Want to start using tokens? See:
 
-- [Getting Started](https://design.sparkpost.com/design/tokens)
+- [Getting Started](https://design.sparkpost.com/foundations/design-tokens)
 
 Looking for documentation? See:
 
 - [Design System Website](https://design.sparkpost.com)
-- [Playroom](https://matchbox-playroom.netlify.app/)
 
 Want to contribute? See:
 
@@ -18,9 +17,20 @@ Want to contribute? See:
 Commands:
 
 ```bash
-# Runs docs task and starts a local server at http://localhost:3000
-npm run start
-
-# Compiles tokens for packaging
+# Compiles tokens
 npm run build
+```
+
+Importing:
+
+```css
+@import '~@sparkpost/design-tokens/dist/css/tokens.css';
+```
+
+```css
+@import '~@sparkpost/design-tokens/dist/scss/tokens.scss';
+```
+
+```js
+import { tokens, tokens_next, tokens_legacy, meta } from '@sparkpost/design-tokens';
 ```

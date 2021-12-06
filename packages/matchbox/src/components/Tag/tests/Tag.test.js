@@ -6,8 +6,8 @@ import Tag from '../Tag';
 describe('Tag', () => {
   it('should render a default tag', () => {
     const wrapper = global.mountStyled(<Tag>Hola!</Tag>);
-    expect(wrapper).toHaveStyleRule('background', '#f5f8fa');
-    expect(wrapper).toHaveStyleRule('color', '#39444d');
+    expect(wrapper).toHaveStyleRule('background', '#F5F8FA');
+    expect(wrapper).toHaveStyleRule('color', '#39444D');
     expect(wrapper.find('button')).not.toExist();
   });
 
