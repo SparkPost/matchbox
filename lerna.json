@@ -2,7 +2,6 @@
   "lerna": "4.0.9",
   "packages": [
     "packages/design-tokens",
-    "packages/design-tokens-sd",
     "packages/matchbox-icons",
     "packages/matchbox",
     "packages/matchbox-media"

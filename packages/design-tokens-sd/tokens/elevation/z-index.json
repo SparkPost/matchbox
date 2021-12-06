@@ -1,8 +1,0 @@
-{
-  "z-index": {
-    "auto": { "value": "auto" },
-    "below": { "value": "-1" },
-    "default": { "value": "1" },
-    "overlay": { "value": "1000" }
-  }
-}
