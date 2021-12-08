@@ -1,4 +1,9 @@
+@import '@sparkpost/design-tokens/dist/scss/maps.scss';
+
 $interactions: "hover", "focus", "focus-visible", "active", "visited", "disabled";
+$media-query-map: map-get($matchbox-tokens, "media-query");
 
 @import './tokens/font-size.scss';
 @import './tokens/color.scss';
+@import './tokens/sizing.scss';
+@import './tokens/spacing.scss';

@@ -1,10 +1,17 @@
-@import '@sparkpost/design-tokens/dist/media-query.map.scss';
-@import '@sparkpost/design-tokens/dist/color.deep-map.scss';
+$color-prefix: "color";
+$color-map: map-get($matchbox-tokens, $color-prefix);
 
 @each $catKey, $cat in $color-map {
   @each $colorKey, $color in $cat {
-    .color-#{$catKey}-#{$colorKey} {
-      color: $color;
+    @if $catKey == "white" {
+      .color-white {
+        color: $color;
+      }
+    }
+    @if $catKey != "white" {
+      .#{$color-prefix}-#{$catKey}-#{$colorKey} {
+        color: $color;
+      }
     }
   }
 }
@@ -12,8 +19,15 @@
 @each $interaction in $interactions {
   @each $catKey, $cat in $color-map {
     @each $colorKey, $color in $cat {
-      .#{$interaction}:color-#{$catKey}-#{$colorKey}:#{$interaction} {
-        color: $color;
+      @if $catKey == "white" {
+        .#{$interaction}:color-white:#{$interaction} {
+          color: $color;
+        }
+      }
+      @if $catKey != "white" {
+        .#{$interaction}:#{$color-prefix}-#{$catKey}-#{$colorKey}:#{$interaction} {
+          color: $color;
+        }
       }
     }
   }
@@ -23,8 +37,15 @@
   @media (min-width: #{$mq}) {
     @each $catKey, $cat in $color-map {
       @each $colorKey, $color in $cat {
-        .#{str-slice($mqKey, 13)}:color-#{$catKey}-#{$colorKey} {
-          color: $color;
+        @if $catKey == "white" {
+          .#{$mqKey}:color-white {
+            color: $color;
+          }
+        }
+        @if $catKey != "white" {
+          .#{$mqKey}:#{$color-prefix}-#{$catKey}-#{$colorKey} {
+            color: $color;
+          }
         }
       }
     }
