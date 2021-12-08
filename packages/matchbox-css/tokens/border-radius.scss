@@ -1,0 +1,26 @@
+$border-radius-prefix: "border-radius";
+$border-radius-map: map-get($matchbox-tokens, $border-radius-prefix);
+
+@each $brKey, $br in $border-radius-map {
+  .#{$border-radius-prefix}-#{$brKey} {
+    border-radius: #{$br};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $brKey, $br in $border-radius-map {
+    .#{$interaction}:#{$border-radius-prefix}-#{$brKey}:#{$interaction} {
+      border-radius: #{$br};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $brKey, $br in $border-radius-map {
+      .#{$mqKey}:#{$border-radius-prefix}-#{$brKey} {
+        border-radius: #{$br};
+      }
+    }
+  }
+}

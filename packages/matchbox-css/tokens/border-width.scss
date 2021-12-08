@@ -1,0 +1,26 @@
+$border-width-prefix: "border-width";
+$border-width-map: map-get($matchbox-tokens, $border-width-prefix);
+
+@each $bwKey, $bw in $border-width-map {
+  .#{$border-width-prefix}-#{$bwKey} {
+    border-width: #{$bw};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $bwKey, $bw in $border-width-map {
+    .#{$interaction}:#{$border-width-prefix}-#{$bwKey}:#{$interaction} {
+      border-width: #{$bw};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $bwKey, $bw in $border-width-map {
+      .#{$mqKey}:#{$border-width-prefix}-#{$bwKey} {
+        border-width: #{$bw};
+      }
+    }
+  }
+}
