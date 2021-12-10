@@ -4,6 +4,15 @@ $interactions: "hover", "focus", "focus-visible", "active", "visited", "disabled
 $media-query-map: map-get($matchbox-tokens, "media-query");
 
 @import './tokens/font-size.scss';
+@import './tokens/font-family.scss';
+@import './tokens/font-weight.scss';
+@import './tokens/line-height.scss';
 @import './tokens/color.scss';
 @import './tokens/sizing.scss';
 @import './tokens/spacing.scss';
+@import './tokens/box-shadow.scss';
+@import './tokens/z-index.scss';
+@import './tokens/motion-duration.scss';
+@import './tokens/motion-ease.scss';
+@import './tokens/border-radius.scss';
+@import './tokens/border-width.scss';

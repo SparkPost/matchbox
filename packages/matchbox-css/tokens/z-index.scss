@@ -1,0 +1,18 @@
+$z-index-prefix: "z-index";
+$z-index-map: map-get($matchbox-tokens, $z-index-prefix);
+
+@each $zKey, $z in $z-index-map {
+  .#{$z-index-prefix}-#{$zKey} {
+    z-index: #{$z};
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $zKey, $z in $z-index-map {
+      .#{$mqKey}:#{$z-index-prefix}-#{$zKey} {
+        z-index: #{$z};
+      }
+    }
+  }
+}

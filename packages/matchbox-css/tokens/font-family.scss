@@ -1,0 +1,18 @@
+$font-family-prefix: "font-family";
+$font-family-map: map-get($matchbox-tokens, $font-family-prefix);
+
+@each $ffKey, $ff in $font-family-map {
+  .#{$font-family-prefix}-#{$ffKey} {
+    font-family: #{$ff};
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $ffKey, $ff in $font-family-map {
+      .#{$mqKey}:#{$font-family-prefix}-#{$ffKey} {
+        font-family: #{$ff};
+      }
+    }
+  }
+}

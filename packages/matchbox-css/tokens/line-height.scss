@@ -1,0 +1,18 @@
+$line-height-prefix: "line-height";
+$line-height-map: map-get($matchbox-tokens, $line-height-prefix);
+
+@each $lhKey, $lh in $line-height-map {
+  .#{$line-height-prefix}-#{$lhKey} {
+    line-height: #{$lh};
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $lhKey, $lh in $line-height-map {
+      .#{$mqKey}:#{$line-height-prefix}-#{$lhKey} {
+        line-height: #{$lh};
+      }
+    }
+  }
+}
