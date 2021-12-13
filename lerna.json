@@ -5,7 +5,7 @@
     "packages/matchbox-icons",
     "packages/matchbox",
     "packages/matchbox-media",
-    "packages/matchbox-cra"
+    "packages/cra-template-matchbox"
   ],
   "version": "6.1.0",
   "command": {
