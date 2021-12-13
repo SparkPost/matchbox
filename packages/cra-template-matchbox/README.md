@@ -5,7 +5,7 @@ This is a template for [Create React App](https://github.com/facebook/create-rea
 To create a new CRA app using this template use the following command:
 
 ```
-npx create-react-app --template @sparkpost my-app
+npx create-react-app --template @sparkpost/matchbox my-app
 ```
 
 For more information, please refer to:
