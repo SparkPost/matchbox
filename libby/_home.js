@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, Box } from '@sparkpost/matchbox';
 
-export default function() {
+function Home() {
   return (
     <>
       <Text as="h1" looksLike="h3" mb="500">
@@ -20,10 +20,9 @@ export default function() {
         <Box as="li">
           <a href="https://github.com/sparkpost/matchbox/">Matchbox on Github</a>
         </Box>
-        <Box as="li">
-          <a href="https://matchbox-playroom.netlify.app/">Matchbox with Playroom</a>
-        </Box>
       </Box>
     </>
   );
 }
+
+export default Home;
