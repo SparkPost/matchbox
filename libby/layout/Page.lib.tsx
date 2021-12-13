@@ -5,7 +5,6 @@ import { Save } from '@sparkpost/matchbox-icons';
 
 const primaryAction = {
   content: 'Publish',
-  color: 'orange',
 };
 
 const secondaryActions = [
@@ -70,7 +69,6 @@ describe('Page', () => {
         secondaryActions={secondaryActions}
         breadcrumbAction={breadcrumbAction}
         title="Template #3"
-        pb="0"
       >
         <Tabs {...getTabsProps()} mb="600" />
         <Panel>
