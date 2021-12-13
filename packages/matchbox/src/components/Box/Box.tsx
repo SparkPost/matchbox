@@ -22,6 +22,7 @@ import {
   compose,
   ResponsiveValue,
 } from 'styled-system';
+import { clean } from '../../helpers/props';
 import * as Polymorphic from '../../helpers/types';
 
 export interface BoxProps
@@ -54,7 +55,7 @@ const truncate = (props: BoxProps): string => {
   return '';
 };
 
-const Box = styled.div`
+const Box = styled.div.withConfig(clean([...system.propNames, 'truncate']))`
   ${system}
   ${truncate}
 ` as PolymorphicBox;
