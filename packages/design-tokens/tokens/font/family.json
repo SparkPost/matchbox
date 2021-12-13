@@ -1,0 +1,8 @@
+{
+  "font-family": {
+    "sans": {
+      "value": "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif"
+    },
+    "monospace": { "value": "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace" }
+  }
+}

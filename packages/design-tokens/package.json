@@ -3,13 +3,17 @@
   "version": "6.1.0",
   "description": "SparkPost Design Tokens",
   "main": "index.js",
-  "style": "dist/index.scss",
   "types": "index.d.ts",
   "author": "SparkPost",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sparkpost/design-tokens.git"
@@ -17,16 +21,14 @@
   "scripts": {
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
-    "build": "node scripts/theo.js && npm run format",
-    "format": "prettier ./{dist,docs}/*.{js,json,css,scss} --write --no-config",
+    "build": "style-dictionary build && npm run format",
+    "format": "prettier ./dist/**/*.{js,json,css,scss} --write --no-config",
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
-    "path": "^0.12.7",
-    "plugin-error": "^1.0.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3",
-    "theo": "^8.1.5"
+    "style-dictionary": "^3.0.3"
   },
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
 }
