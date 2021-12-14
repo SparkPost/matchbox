@@ -9,7 +9,7 @@ $font-weight-map: map-get($matchbox-tokens, $font-weight-prefix);
 
 @each $interaction in $interactions {
   @each $fwKey, $fw in $font-weight-map {
-    .#{$interaction}:#{$font-weight-prefix}-#{$fwKey}:#{$interaction} {
+    .#{$interaction}\:#{$font-weight-prefix}-#{$fwKey}:#{$interaction} {
       font-weight: #{$fw};
     }
   }

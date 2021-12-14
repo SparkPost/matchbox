@@ -9,7 +9,7 @@ $motion-duration-map: map-get($matchbox-tokens, $motion-duration-prefix);
 
 @each $interaction in $interactions {
   @each $mdKey, $md in $motion-duration-map {
-    .#{$interaction}:#{$motion-duration-prefix}-#{$mdKey}:#{$interaction} {
+    .#{$interaction}\:#{$motion-duration-prefix}-#{$mdKey}:#{$interaction} {
       transition-duration: #{$md};
     }
   }

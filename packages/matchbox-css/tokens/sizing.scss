@@ -23,7 +23,7 @@ $sizing-map: map-get($matchbox-tokens, "sizing");
   @media (min-width: #{$mq}) {
     @each $prefixKey, $prefix in $sizing-prefixes {
       @each $sizingKey, $size in $sizing-map {
-        .#{$prefixKey}-#{$sizingKey} {
+        .#{$mqKey}:#{$prefixKey}-#{$sizingKey} {
           #{$prefix}: #{$size};
         }
       }

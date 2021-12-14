@@ -9,7 +9,7 @@ $motion-ease-map: map-get($matchbox-tokens, $motion-ease-prefix);
 
 @each $interaction in $interactions {
   @each $meKey, $me in $motion-ease-map {
-    .#{$interaction}:#{$motion-ease-prefix}-#{$meKey}:#{$interaction} {
+    .#{$interaction}\:#{$motion-ease-prefix}-#{$meKey}:#{$interaction} {
       transition-timing-function: #{$me};
     }
   }
