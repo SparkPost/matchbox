@@ -1,7 +1,7 @@
 import React from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import { Label } from '../Label';
-import { Error } from '../Error';
+import { ErrorLabel } from '../Error';
 import { KeyboardArrowDown } from '@sparkpost/matchbox-icons';
 import styled from 'styled-components';
 import { select, chevron } from './styles';
@@ -113,7 +113,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
         {label}
       </Box>
       {error && errorInLabel && (
-        <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+        <ErrorLabel id={errorId} wrapper="span">
+          {error}
+        </ErrorLabel>
       )}
       {optional && <OptionalLabel float />}
     </Label>
@@ -143,7 +145,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
         <StyledChevron size={24} $disabled={disabled} />
       </Box>
       {helpMarkup}
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
+      {error && !errorInLabel && <ErrorLabel id={errorId}>{error}</ErrorLabel>}
     </StyledWrapper>
   );
 });

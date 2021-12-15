@@ -7,7 +7,7 @@ describe('Snackbar', () => {
     'data-id': 'test-id',
   };
 
-  const subject = props =>
+  const subject = (props) =>
     global.mountStyled(
       <Snackbar {...defaults} {...props}>
         Snacksssss
@@ -18,25 +18,20 @@ describe('Snackbar', () => {
     const wrapper = subject();
     expect(wrapper.find('[aria-label="Info"]')).toExist();
     expect(wrapper.find('[data-id="test-id"]')).toExist();
-    expect(
-      wrapper
-        .find('Box')
-        .at(1)
-        .text(),
-    ).toEqual('Snacksssss');
+    expect(wrapper.find('Box').at(1).text()).toEqual('Snacksssss');
     expect(wrapper.find('button').text()).toEqual('Close');
   });
 
   it('renders Snackbar with a danger status and maxwidth', () => {
     const wrapper = subject({ status: 'danger', maxWidth: '1000px' });
     expect(wrapper.find('Box').at(1)).toHaveStyleRule('max-width', '1000px');
-    expect(wrapper).toHaveStyleRule('background', '#d9363e');
+    expect(wrapper).toHaveStyleRule('background', '#D9363E');
     expect(wrapper.find('[aria-label="Error"]')).toExist();
   });
 
   it('renders Snackbar with a warning status', () => {
     const wrapper = subject({ status: 'warning' });
-    expect(wrapper).toHaveStyleRule('background', '#ffe75c');
+    expect(wrapper).toHaveStyleRule('background', '#FFE75C');
     expect(wrapper.find('[aria-label="Warning"]')).toExist();
   });
 
@@ -48,7 +43,7 @@ describe('Snackbar', () => {
 
   it('renders Snackbar with an error status', () => {
     const wrapper = subject({ status: 'error' });
-    expect(wrapper).toHaveStyleRule('background', '#d9363e');
+    expect(wrapper).toHaveStyleRule('background', '#D9363E');
     expect(wrapper.find('[aria-label="Error"]')).toExist();
   });
 

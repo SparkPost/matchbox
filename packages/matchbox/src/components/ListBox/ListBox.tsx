@@ -5,7 +5,7 @@ import { chevron } from './styles';
 import { focusOutline } from '../../styles/helpers';
 import { getChild } from '../../helpers/children';
 import { Label } from '../Label';
-import { Error } from '../Error';
+import { ErrorLabel } from '../Error';
 import { OptionalLabel } from '../OptionalLabel';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import { HelpText } from '../HelpText';
@@ -191,7 +191,9 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
         {label}
       </Box>
       {error && errorInLabel && (
-        <Box as={Error} id={errorId} wrapper="span" error={error} fontWeight="400" />
+        <ErrorLabel id={errorId} wrapper="span">
+          {error}
+        </ErrorLabel>
       )}
       {optional && <OptionalLabel float />}
     </Label>
@@ -278,7 +280,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
         </StyledList>
       </Popover>
       {helpMarkup}
-      {error && !errorInLabel && <Error id={errorId} error={error} />}
+      {error && !errorInLabel && <ErrorLabel id={errorId}>{error}</ErrorLabel>}
       <input
         id={id}
         type="hidden"

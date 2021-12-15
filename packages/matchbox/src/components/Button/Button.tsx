@@ -235,7 +235,6 @@ const Button = React.forwardRef(function Button(props, ref) {
     buttonVariant,
     buttonColor,
     ref,
-    loading,
     ...systemProps,
     ...componentProps,
   };

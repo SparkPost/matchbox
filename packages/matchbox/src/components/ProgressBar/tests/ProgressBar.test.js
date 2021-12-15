@@ -10,7 +10,7 @@ const styleCases = [
     },
     assert: [
       ['height', '0.75rem'],
-      ['background-color', '#d9e0e6'],
+      ['background-color', '#D9E0E6'],
     ],
   },
   {
