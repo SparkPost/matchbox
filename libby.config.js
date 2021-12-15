@@ -58,7 +58,9 @@ module.exports = {
           '@sparkpost/matchbox': '/packages/matchbox/src',
           '@sparkpost/design-tokens': '/packages/design-tokens',
           '@sparkpost/matchbox-media': '/packages/matchbox-media',
+          '@sparkpost/matchbox-css': '/packages/matchbox-css',
         },
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
       },
     };
   },

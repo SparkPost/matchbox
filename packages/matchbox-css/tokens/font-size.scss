@@ -9,7 +9,7 @@ $font-size-map: map-get($matchbox-tokens, $font-size-prefix);
 
 @each $interaction in $interactions {
   @each $fsKey, $fs in $font-size-map {
-    .#{$interaction}:#{$font-size-prefix}-#{$fsKey}:#{$interaction} {
+    .#{$interaction}\:#{$font-size-prefix}-#{$fsKey}:#{$interaction} {
       font-size: #{$fs};
     }
   }
