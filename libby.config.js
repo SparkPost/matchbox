@@ -31,6 +31,10 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'ts-loader',
+              options: {
+                // See https://github.com/TypeStrong/ts-loader#transpileonly
+                transpileOnly: process.env.NODE_ENV !== 'production',
+              },
             },
           },
           {
