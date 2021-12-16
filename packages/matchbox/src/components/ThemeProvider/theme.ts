@@ -239,6 +239,7 @@ const theme = {
   zIndices: {
     below: tokens.zIndex_below,
     default: tokens.zIndex_default,
+    above: tokens.zIndex_above,
     overlay: tokens.zIndex_overlay,
   },
 

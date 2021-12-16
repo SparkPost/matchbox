@@ -9,7 +9,7 @@ const FocusHandler = styled(Box)<{ $zIncrement: number }>`
   z-index: ${(props) => tokens.zIndex_default + props.$zIncrement};
   &:focus-within {
     position: relative;
-    z-index: ${tokens.zIndex_default + 2};
+    z-index: ${tokens.zIndex_above};
   }
 `;
 
