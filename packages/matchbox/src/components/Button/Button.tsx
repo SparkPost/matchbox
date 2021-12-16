@@ -27,7 +27,7 @@ import {
   childwrapper,
 } from './styles';
 
-import type * as Polymorphic from '../../helpers/types';
+import type * as Types from '../../helpers/types';
 
 export function getLoaderColor({ variant = 'filled', color = 'gray' } = {}):
   | 'gray'
@@ -139,7 +139,7 @@ export type ButtonProps = {
   outlineBorder?: boolean;
   variant?: 'outline' | 'mutedOutline' | 'text' | 'filled';
   size?: 'default' | 'small' | 'large';
-  to?: string;
+  to?: Types.LinkActionProps['to'];
   fullWidth?: boolean;
   submit?: boolean;
   external?: boolean;
@@ -149,7 +149,7 @@ export type ButtonProps = {
   WidthProps &
   PaddingProps;
 
-export type PolymorphicButton = Polymorphic.ForwardRefComponent<'button', ButtonProps>;
+export type PolymorphicButton = Types.ForwardRefComponent<'button', ButtonProps>;
 
 const Button = React.forwardRef(function Button(props, ref) {
   const {
