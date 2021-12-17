@@ -9,7 +9,7 @@ $border-radius-map: map-get($matchbox-tokens, $border-radius-prefix);
 
 @each $interaction in $interactions {
   @each $brKey, $br in $border-radius-map {
-    .#{$interaction}:#{$border-radius-prefix}-#{$brKey}:#{$interaction} {
+    .#{$interaction}\:#{$border-radius-prefix}-#{$brKey}:#{$interaction} {
       border-radius: #{$br};
     }
   }

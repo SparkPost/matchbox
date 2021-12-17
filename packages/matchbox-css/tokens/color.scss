@@ -1,16 +1,24 @@
-$color-prefix: "color";
-$color-map: map-get($matchbox-tokens, $color-prefix);
+$color-prefixes: (
+  "color": "color",
+  "bg": "background-color",
+  "background": "background-color",
+  "border-color": "border-color"
+);
+
+$color-map: map-get($matchbox-tokens, "color");
 
 @each $catKey, $cat in $color-map {
-  @each $colorKey, $color in $cat {
-    @if $catKey == "white" {
-      .color-white {
-        color: $color;
+  @each $prefixKey, $prefix in $color-prefixes {
+    @each $colorKey, $color in $cat {
+      @if $catKey == "white" {
+        .#{$prefixKey}-white {
+          #{$prefix}: white;
+        }
       }
-    }
-    @if $catKey != "white" {
-      .#{$color-prefix}-#{$catKey}-#{$colorKey} {
-        color: $color;
+      @if $catKey != "white" {
+        .#{$prefixKey}-#{$catKey}-#{$colorKey} {
+          #{$prefix}: $color;
+        }
       }
     }
   }
@@ -18,15 +26,17 @@ $color-map: map-get($matchbox-tokens, $color-prefix);
 
 @each $interaction in $interactions {
   @each $catKey, $cat in $color-map {
-    @each $colorKey, $color in $cat {
-      @if $catKey == "white" {
-        .#{$interaction}:color-white:#{$interaction} {
-          color: $color;
+    @each $prefixKey, $prefix in $color-prefixes {
+      @each $colorKey, $color in $cat {
+        @if $catKey == "white" {
+          .#{$interaction}\:#{prefixKey}-white:#{$interaction} {
+            #{$prefix}: white;
+          }
         }
-      }
-      @if $catKey != "white" {
-        .#{$interaction}:#{$color-prefix}-#{$catKey}-#{$colorKey}:#{$interaction} {
-          color: $color;
+        @if $catKey != "white" {
+          .#{$interaction}\:#{$prefixKey}-#{$catKey}-#{$colorKey}:#{$interaction} {
+            #{$prefix}: $color;
+          }
         }
       }
     }
@@ -35,16 +45,18 @@ $color-map: map-get($matchbox-tokens, $color-prefix);
 
 @each $mqKey, $mq in $media-query-map {
   @media (min-width: #{$mq}) {
-    @each $catKey, $cat in $color-map {
-      @each $colorKey, $color in $cat {
-        @if $catKey == "white" {
-          .#{$mqKey}:color-white {
-            color: $color;
+    @each $prefixKey, $prefix in $color-prefixes {
+      @each $catKey, $cat in $color-map {
+        @each $colorKey, $color in $cat {
+          @if $catKey == "white" {
+            .#{$mqKey}:#{$prefixKey}-white {
+              #{$prefix}: white;
+            }
           }
-        }
-        @if $catKey != "white" {
-          .#{$mqKey}:#{$color-prefix}-#{$catKey}-#{$colorKey} {
-            color: $color;
+          @if $catKey != "white" {
+            .#{$mqKey}:#{$prefixKey}-#{$catKey}-#{$colorKey} {
+              #{$prefix}: $color;
+            }
           }
         }
       }
