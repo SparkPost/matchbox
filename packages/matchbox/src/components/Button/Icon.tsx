@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { pick } from '../../helpers/props';
 
 type IconBaseProps = {
-  children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
   size?: number | string;
