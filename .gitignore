@@ -23,9 +23,6 @@ yarn-error.log*
 
 storybook-static
 
-# playroom
-/playroom-build
-
 # libby
 /libby-build
 
