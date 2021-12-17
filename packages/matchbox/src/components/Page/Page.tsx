@@ -172,6 +172,7 @@ export type PageProps = {
   secondaryActions?: PageAction[];
   /**
    * The back link action
+   * @deprecated Use Breadcrumb component instead
    */
   breadcrumbAction?: PageBreadcrumbProps;
   /**

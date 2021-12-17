@@ -10,11 +10,12 @@ import {
   compose,
 } from 'styled-system';
 import type * as Polymorphic from '../../helpers/types';
+import { clean } from '../../helpers/props';
 import { truncate, lookslike } from './styles';
 
 const system = compose(color, space, typography);
 
-const StyledText = styled.p`
+const StyledText = styled.p.withConfig(clean([...system.propNames, 'truncate']))`
   ${system}
   ${truncate}
   ${lookslike}

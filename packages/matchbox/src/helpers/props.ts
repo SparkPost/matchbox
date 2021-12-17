@@ -54,7 +54,7 @@ export function clean(
   arr: string[] = [],
   config: { [k: string]: any } = {},
 ): {
-  shouldForwardProp: (prop: string, defaultFn: (prop: string) => boolean) => void;
+  shouldForwardProp: (prop: string, defaultFn: (prop: string) => boolean) => boolean;
   [k: string]: any;
 } {
   return {

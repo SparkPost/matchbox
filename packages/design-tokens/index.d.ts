@@ -172,6 +172,7 @@ export type LegacyTokens = {
   zIndex_auto: string;
   zIndex_below: string;
   zIndex_default: string;
+  zIndex_above: string;
   zIndex_overlay: string;
 };
 
@@ -276,6 +277,7 @@ type Tokens = {
   z_index_auto: string;
   z_index_below: string;
   z_index_default: string;
+  z_index_above: string;
   z_index_overlay: string;
   font_family_sans: "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif";
   font_family_monospace: "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace";
