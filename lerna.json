@@ -4,7 +4,8 @@
     "packages/design-tokens",
     "packages/matchbox-icons",
     "packages/matchbox",
-    "packages/matchbox-media"
+    "packages/matchbox-media",
+    "packages/cra-template-matchbox"
   ],
   "version": "6.1.0",
   "command": {
@@ -18,5 +19,5 @@
       "message": "Publish %s"
     }
   },
-  "ignoreChanges": ["**/matchbox-site/**", "**/tests/**", "**/*.md"]
+  "ignoreChanges": ["**/tests/**", "**/*.md"]
 }
