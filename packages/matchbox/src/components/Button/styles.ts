@@ -139,13 +139,13 @@ export const colorVariant = ({
       return `
         &, &:visited {
           background: ${color};
-          color: ${buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
+          color: ${buttonColor === 'white' ? theme.colors.blue[700] : theme.colors.white};
 
           &:hover {
             ${!disabled ? `background: ${darkHoverColor};` : ''}
           }
           &:focus, &:hover {
-            color: ${buttonColor === 'white' ? theme.colors.gray[900] : theme.colors.white};
+            color: ${buttonColor === 'white' ? theme.colors.blue[700] : theme.colors.white};
           }
           &:active {
             background: ${color};
