@@ -25,7 +25,6 @@ export type ColumnProps = {
   width?: 'content' | ResponsiveValue<SpaceKeys | number>;
   'data-id'?: string;
   className?: string;
-  reverse?: ResponsiveValue<boolean>;
 } & DisplayProps;
 
 const Column = React.forwardRef<HTMLDivElement, ColumnProps>(function Column(props, ref) {

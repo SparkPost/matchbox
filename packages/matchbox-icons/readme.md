@@ -7,7 +7,6 @@ Want to start using Matchbox? See:
 Looking for documentation? See:
 
 - [Design System Website](https://design.sparkpost.com)
-- [Playroom](https://matchbox-playroom.netlify.app/)
 
 Want to contribute? See:
 

@@ -5,7 +5,8 @@
     "packages/matchbox-icons",
     "packages/matchbox",
     "packages/matchbox-media",
-    "packages/matchbox-css"
+    "packages/matchbox-css",
+    "packages/cra-template-matchbox"
   ],
   "version": "6.1.0",
   "command": {
@@ -25,7 +26,6 @@
     }
   },
   "ignoreChanges": [
-    "**/matchbox-site/**",
     "**/tests/**",
     "**/*.md"
   ]
