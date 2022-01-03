@@ -1,0 +1,26 @@
+$box-shadow-prefix: "box-shadow";
+$box-shadow-map: map-get($matchbox-tokens, $box-shadow-prefix);
+
+@each $bsKey, $bs in $box-shadow-map {
+  .#{$box-shadow-prefix}-#{$bsKey} {
+    box-shadow: #{$bs};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $bsKey, $bs in $box-shadow-map {
+    .#{$interaction}\:#{$box-shadow-prefix}-#{$bsKey}:#{$interaction} {
+      box-shadow: #{$bs};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $bsKey, $bs in $box-shadow-map {
+      .#{$mqKey}:#{$box-shadow-prefix}-#{$bsKey} {
+        box-shadow: #{$bs};
+      }
+    }
+  }
+}

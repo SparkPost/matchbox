@@ -1,0 +1,50 @@
+$border-width-prefixes: (
+  "border-width": "border-width",
+  "border-x-width": ("border-left-width", "border-right-width"),
+  "border-y-width": ("border-top-width", "border-bottom-width"),
+  "border-top-width": "border-top-width",
+  "border-right-width": "border-right-width",
+  "border-bottom-width": "border-bottom-width",
+  "border-left-width": "border-left-width"
+);
+
+$border-width-map: map-get($matchbox-tokens, "border-width");
+
+@each $bwKey, $bw in $border-width-map {
+  @each $prefixKey, $prefixValue in $border-width-prefixes {
+    .#{$prefixKey}-#{$bwKey} {
+      border-style: solid;
+      @each $attribute in $prefixValue {
+        #{$attribute}: #{$bw};
+      }
+    }
+  }
+}
+
+@each $interaction in $interactions {
+  @each $prefixKey, $prefixValue in $border-width-prefixes {
+    @each $bwKey, $bw in $border-width-map {
+      .#{$interaction}\:#{$prefixKey}-#{$bwKey}:#{$interaction} {
+        border-style: solid;
+        @each $attribute in $prefixValue {
+          #{$attribute}: #{$bw};
+        }
+      }
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $prefixKey, $prefixValue in $border-width-prefixes {
+      @each $bwKey, $bw in $border-width-map {
+        .#{$mqKey}:#{$prefixKey}-#{$bwKey} {
+          border-style: solid;
+          @each $attribute in $prefixValue {
+            #{$attribute}: #{$bw};
+          }
+        }
+      }
+    }
+  }
+}

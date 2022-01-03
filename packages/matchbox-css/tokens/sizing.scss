@@ -1,0 +1,32 @@
+$sizing-prefixes: (
+  "h": "height",
+  "height": "height",
+  "w": "width",
+  "width": "width",
+  "max-h": "max-height",
+  "max-height": "max-height",
+  "max-w": "max-width",
+  "max-width": "max-width"
+);
+
+$sizing-map: map-get($matchbox-tokens, "sizing");
+
+@each $prefixKey, $prefix in $sizing-prefixes {
+  @each $sizingKey, $size in $sizing-map {
+    .#{$prefixKey}-#{$sizingKey} {
+      #{$prefix}: #{$size};
+    }
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $prefixKey, $prefix in $sizing-prefixes {
+      @each $sizingKey, $size in $sizing-map {
+        .#{$mqKey}:#{$prefixKey}-#{$sizingKey} {
+          #{$prefix}: #{$size};
+        }
+      }
+    }
+  }
+}

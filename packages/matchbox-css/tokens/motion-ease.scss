@@ -1,0 +1,26 @@
+$motion-ease-prefix: "motion-ease";
+$motion-ease-map: map-get($matchbox-tokens, $motion-ease-prefix);
+
+@each $meKey, $me in $motion-ease-map {
+  .#{$motion-ease-prefix}-#{$meKey} {
+    transition-timing-function: #{$me};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $meKey, $me in $motion-ease-map {
+    .#{$interaction}\:#{$motion-ease-prefix}-#{$meKey}:#{$interaction} {
+      transition-timing-function: #{$me};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $meKey, $me in $motion-ease-map {
+      .#{$mqKey}:#{$motion-ease-prefix}-#{$meKey} {
+        transition-timing-function: #{$me};
+      }
+    }
+  }
+}

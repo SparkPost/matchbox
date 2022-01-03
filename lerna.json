@@ -5,19 +5,28 @@
     "packages/matchbox-icons",
     "packages/matchbox",
     "packages/matchbox-media",
+    "packages/matchbox-css",
     "packages/cra-template-matchbox"
   ],
   "version": "6.1.0",
   "command": {
     "publish": {
-      "ignoreChanges": ["**/tests/**", "**/*.md"]
+      "ignoreChanges": [
+        "**/tests/**",
+        "**/*.md"
+      ]
     },
     "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     },
     "version": {
       "message": "Publish %s"
     }
   },
-  "ignoreChanges": ["**/tests/**", "**/*.md"]
+  "ignoreChanges": [
+    "**/tests/**",
+    "**/*.md"
+  ]
 }

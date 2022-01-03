@@ -1,0 +1,60 @@
+$spacing-prefixes: (
+  "p": "padding",
+  "padding": "padding",
+  "pt": "padding-top",
+  "padding-top": "padding-top",
+  "pr": "padding-right",
+  "padding-right": "padding-right",
+  "pb": "padding-bottom",
+  "padding-bottom": "padding-bottom",
+  "pl": "padding-left",
+  "padding-left": "padding-left",
+  "px": ("padding-left", "padding-right"),
+  "paddingX": ("padding-left", "padding-right"),
+  "py": ("padding-top", "padding-bottom"),
+  "paddingY": ("padding-top", "padding-bottom"),
+  "m": "margin",
+  "margin": "margin",
+  "mt": "margin-top",
+  "margin-top": "margin-top",
+  "mr": "margin-right",
+  "margin-right": "margin-right",
+  "mb": "margin-bottom",
+  "margin-bottom": "margin-bottom",
+  "ml": "margin-left",
+  "margin-left": "margin-left",
+  "mx": ("margin-left", "margin-right"),
+  "marginX": ("margin-left", "margin-right"),
+  "my": ("margin-top", "margin-bottom"),
+  "marginY": ("margin-top", "margin-bottom"),
+  "top": "top",
+  "right": "right",
+  "bottom": "bottom",
+  "left": "left"
+);
+
+$spacing-map: map-get($matchbox-tokens, "spacing");
+
+@each $prefixKey, $prefix in $spacing-prefixes {
+  @each $spacingKey, $space in $spacing-map {
+    .#{$prefixKey}-#{$spacingKey} {
+      @each $property in $prefix {
+        #{$property}: #{$space};
+      }
+    }
+  }
+}
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $prefixKey, $prefix in $spacing-prefixes {
+      @each $spacingKey, $space in $spacing-map {
+        .#{$mqKey}:#{$prefixKey}-#{$spacingKey} {
+          @each $property in $prefix {
+            #{$property}: #{$space};
+          }
+        }
+      }
+    }
+  }
+}

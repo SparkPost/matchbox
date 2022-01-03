@@ -1,0 +1,26 @@
+$font-size-prefix: "font-size";
+$font-size-map: map-get($matchbox-tokens, $font-size-prefix);
+
+@each $fsKey, $fs in $font-size-map {
+  .#{$font-size-prefix}-#{$fsKey} {
+    font-size: #{$fs};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $fsKey, $fs in $font-size-map {
+    .#{$interaction}\:#{$font-size-prefix}-#{$fsKey}:#{$interaction} {
+      font-size: #{$fs};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $fsKey, $fs in $font-size-map {
+      .#{$mqKey}:#{$font-size-prefix}-#{$fsKey} {
+        font-size: #{$fs};
+      }
+    }
+  }
+}

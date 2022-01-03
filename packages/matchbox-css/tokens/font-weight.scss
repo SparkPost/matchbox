@@ -1,0 +1,26 @@
+$font-weight-prefix: "font-weight";
+$font-weight-map: map-get($matchbox-tokens, $font-weight-prefix);
+
+@each $fwKey, $fw in $font-weight-map {
+  .#{$font-weight-prefix}-#{$fwKey} {
+    font-weight: #{$fw};
+  }
+}
+
+@each $interaction in $interactions {
+  @each $fwKey, $fw in $font-weight-map {
+    .#{$interaction}\:#{$font-weight-prefix}-#{$fwKey}:#{$interaction} {
+      font-weight: #{$fw};
+    }
+  }
+} 
+
+@each $mqKey, $mq in $media-query-map {
+  @media (min-width: #{$mq}) {
+    @each $fwKey, $fw in $font-weight-map {
+      .#{$mqKey}:#{$font-weight-prefix}-#{$fwKey} {
+        font-weight: #{$fw};
+      }
+    }
+  }
+}
