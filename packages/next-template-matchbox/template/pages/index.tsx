@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
       <main>
         <Box as="h1" color="gray.900">
-          SparkPost <UnstyledLink to="https://nextjs.org" external>Next.js!</UnstyledLink> Template
+          SparkPost <UnstyledLink to="https://nextjs.org" external>Next.js</UnstyledLink> Template
         </Box>
         <Box as="h2" color="gray.700" mt="200" fontWeight="light">
           Edit <InlineCode>index.tsx</InlineCode> to get started.
