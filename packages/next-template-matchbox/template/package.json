@@ -5,18 +5,35 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write '**/*.{js,ts,tsx}'"
   },
   "dependencies": {
+    "@sparkpost/design-tokens": "^6.1.0",
+    "@sparkpost/matchbox": "^6.1.0",
+    "@sparkpost/matchbox-icons": "^6.1.0",
+    "@sparkpost/matchbox-media": "^6.1.0",
+    "@types/styled-components": "^5.1.19",
+    "@types/styled-system": "^5.1.14",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-day-picker": "^8.0.0-beta.36",
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
     "typescript": "4.5.4"
+  },
+  "lint-staged": {
+    "**/*.{tsx,ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
