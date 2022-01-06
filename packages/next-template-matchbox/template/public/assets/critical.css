@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre.woff2') format('woff2'), url('/assets/Calibre.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre-Italic.woff2') format('woff2'),
+    url('/assets/Calibre-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre-Medium.woff2') format('woff2'),
+    url('/assets/Calibre-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre-MediumItalic.woff2') format('woff2'),
+    url('/assets/Calibre-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre-SemiBold.woff2') format('woff2'),
+    url('/assets/Calibre-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/assets/Calibre-SemiBoldItalic.woff2') format('woff2'),
+    url('/assets/Calibre-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
