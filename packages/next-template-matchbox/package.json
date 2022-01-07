@@ -1,6 +1,8 @@
 {
-  "name": "template",
-  "private": true,
+  "name": "@sparkpost/next-template-matchbox",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
