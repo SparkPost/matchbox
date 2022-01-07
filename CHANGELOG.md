@@ -1,4 +1,14 @@
 
+## 7.0.1 (2022-01-07)
+
+#### Infrastructure
+* `matchbox`
+  * [#1052](https://github.com/SparkPost/matchbox/pull/1052) Hotfix 7.0.0 ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.0.0 (2022-01-07)
 
 #### Features
