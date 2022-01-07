@@ -1,4 +1,49 @@
 
+## 7.0.0 (2022-01-07)
+
+#### Features
+* `next-template-matchbox`
+  * [#1049](https://github.com/SparkPost/matchbox/pull/1049) UX-757 Nextjs template ([@logansparlin](https://github.com/logansparlin))
+* `design-tokens`, `matchbox-css`
+  * [#1045](https://github.com/SparkPost/matchbox/pull/1045) UX-742 matchbox-css ([@logansparlin](https://github.com/logansparlin))
+* `cra-template-matchbox`
+  * [#1024](https://github.com/SparkPost/matchbox/pull/1024) UX-745 Add CRA template ([@jonambas](https://github.com/jonambas))
+* `design-tokens`, `matchbox`
+  * [#1038](https://github.com/SparkPost/matchbox/pull/1038) UX-754 Style Dictionary (#1029) ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+* `matchbox-icons`, `matchbox`
+  * [#1039](https://github.com/SparkPost/matchbox/pull/1039) UX-753 Decommission Playroom ([@jonambas](https://github.com/jonambas))
+* `matchbox`
+  * [#1037](https://github.com/SparkPost/matchbox/pull/1037) UX-744 Deprecate breadcrumbAction ([@jonambas](https://github.com/jonambas))
+* `design-tokens`
+  * [#1025](https://github.com/SparkPost/matchbox/pull/1025) UX-746 Snapshot all generated design token files ([@jonambas](https://github.com/jonambas))
+
+#### Bug Fixes
+* `matchbox`
+  * [#1048](https://github.com/SparkPost/matchbox/pull/1048) UX-765 Fix white button text color ([@jonambas](https://github.com/jonambas))
+  * [#1046](https://github.com/SparkPost/matchbox/pull/1046) UX-762 (Type fix) Remove reverse prop from Column ([@jonambas](https://github.com/jonambas))
+  * [#1044](https://github.com/SparkPost/matchbox/pull/1044) UX-761 Remove children from Button.Icon types ([@jonambas](https://github.com/jonambas))
+  * [#1043](https://github.com/SparkPost/matchbox/pull/1043) UX-760 Fix button `to`  types ([@jonambas](https://github.com/jonambas))
+  * [#1036](https://github.com/SparkPost/matchbox/pull/1036) UX-729 Prevent button loading prop from rendering in DOM ([@jonambas](https://github.com/jonambas))
+  * [#1023](https://github.com/SparkPost/matchbox/pull/1023) UX-730 Do not pass system props to DOM on Text and Box ([@jonambas](https://github.com/jonambas))
+* `design-tokens`, `matchbox`
+  * [#1042](https://github.com/SparkPost/matchbox/pull/1042) UX-717 Adds new z-index token, Fix textfield z-indexing with error outlines ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* [#1021](https://github.com/SparkPost/matchbox/pull/1021) Bump axios from 0.21.1 to 0.21.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Infrastructure
+* Other
+  * [#1047](https://github.com/SparkPost/matchbox/pull/1047) Upgrade libby & npm audit fix ([@jonambas](https://github.com/jonambas))
+* `design-tokens`, `matchbox-icons`, `matchbox-media`, `matchbox`
+  * [#1022](https://github.com/SparkPost/matchbox/pull/1022) UX-728 Update lockfiles to v2, Upgrade libby ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 6.1.0 (2021-11-03)
 
 #### Features
