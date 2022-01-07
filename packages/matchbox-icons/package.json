@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-icons",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "React icons for Matchbox",
   "main": "dist/matchbox-icons.js",
   "module": "dist/matchbox-icons.esm.js",
