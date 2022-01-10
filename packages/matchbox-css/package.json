@@ -2,6 +2,7 @@
   "name": "@sparkpost/matchbox-css",
   "version": "7.0.1",
   "description": "Matchbox CSS Utility Library",
+  "main": "dist/index.css",
   "style": "dist/index.css",
   "author": "SparkPost",
   "license": "MIT",
