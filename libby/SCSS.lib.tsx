@@ -2,8 +2,8 @@ import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import './scss.scss';
 
-describe('Visual Regression', () => {
-  add('SCSS Tokens', () => (
+describe('SCSS Tokens', () => {
+  add('Color Function', () => (
     <div
       className="green"
       style={{
