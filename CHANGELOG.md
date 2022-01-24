@@ -1,4 +1,19 @@
 
+## 7.0.2 (2022-01-24)
+
+#### Bug Fixes
+* `design-tokens`
+  * [#1054](https://github.com/SparkPost/matchbox/pull/1054) UX-771 Fix design token scss import ([@jonambas](https://github.com/jonambas))
+
+#### Infrastructure
+* `matchbox-css`
+  * [#1053](https://github.com/SparkPost/matchbox/pull/1053) add main declaration for matchbox-css package.json ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 7.0.1 (2022-01-07)
 
 #### Infrastructure
