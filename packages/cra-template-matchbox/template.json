@@ -4,10 +4,10 @@
       "format": "prettier --write ."
     },
     "dependencies": {
-      "@sparkpost/matchbox": "^7.0.0",
-      "@sparkpost/matchbox-icons": "^7.0.0",
-      "@sparkpost/matchbox-media": "^7.0.0",
-      "@sparkpost/design-tokens": "^7.0.0",
+      "@sparkpost/matchbox": "^7.0.3",
+      "@sparkpost/matchbox-icons": "^7.0.3",
+      "@sparkpost/matchbox-media": "^7.0.3",
+      "@sparkpost/design-tokens": "^7.0.3",
       "react-day-picker": "^7.4.10",
       "@testing-library/jest-dom": "^5.14.1",
       "@testing-library/react": "^12.0.0",
