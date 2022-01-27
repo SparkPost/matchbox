@@ -12,7 +12,9 @@
   "files": [
     "dist",
     "index.d.ts",
-    "index.js"
+    "index.js",
+    "index.scss",
+    "tokens.scss"
   ],
   "repository": {
     "type": "git",
