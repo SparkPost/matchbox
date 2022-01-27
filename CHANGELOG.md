@@ -1,4 +1,14 @@
 
+## 7.0.3 (2022-01-27)
+
+#### Bug Fixes
+* `design-tokens`
+  * [#1055](https://github.com/SparkPost/matchbox/pull/1055) UX-773 Fix color function ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.0.2 (2022-01-24)
 
 #### Bug Fixes
