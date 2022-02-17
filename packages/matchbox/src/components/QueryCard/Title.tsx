@@ -12,7 +12,14 @@ const Title = React.forwardRef<HTMLDivElement, QueryCardTitleProps>(function Que
   const { children } = props;
 
   return (
-    <Text as="span" fontSize="200" fontWeight="medium" color="gray.900" ref={userRef}>
+    <Text
+      as="span"
+      fontSize="200"
+      lineHeight="200"
+      fontWeight="medium"
+      color="gray.900"
+      ref={userRef}
+    >
       {children}
     </Text>
   );

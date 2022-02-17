@@ -12,7 +12,7 @@ const Subtitle = React.forwardRef<HTMLDivElement, QueryCardSubtitleProps>(functi
   const { children } = props;
 
   return (
-    <Text fontSize="200" lineHeight="100" fontWeight="medium" color="gray.700" ref={userRef}>
+    <Text fontSize="200" lineHeight="200" fontWeight="medium" color="gray.700" ref={userRef}>
       {children}
     </Text>
   );

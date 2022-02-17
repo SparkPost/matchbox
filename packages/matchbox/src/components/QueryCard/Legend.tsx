@@ -9,14 +9,9 @@ const Legend = React.forwardRef<HTMLDivElement, QueryCardLegendProps>(function Q
   props,
   userRef,
 ) {
+  const { color = 'blue.700' } = props;
   return (
-    <Box
-      display="inline-block"
-      borderRadius="circle"
-      size="400"
-      bg={props.color}
-      ref={userRef}
-    ></Box>
+    <Box display="inline-block" borderRadius="circle" size="400" bg={color} ref={userRef}></Box>
   );
 });
 

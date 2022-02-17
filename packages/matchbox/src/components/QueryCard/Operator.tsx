@@ -12,7 +12,14 @@ const Operator = React.forwardRef<HTMLDivElement, QueryCardOperatorProps>(functi
   const { children } = props;
 
   return (
-    <Text as="span" fontSize="200" fontWeight="normal" color="gray.700" ref={userRef}>
+    <Text
+      as="span"
+      fontSize="200"
+      lineHeight="200"
+      fontWeight="normal"
+      color="gray.700"
+      ref={userRef}
+    >
       {children}
     </Text>
   );

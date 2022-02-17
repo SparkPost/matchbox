@@ -8,7 +8,7 @@ const StyledWrapper = styled.div`
     border-top-left-radius: 0;
   }
 
-  & > div:first-child {
+  & > div:first-child:not(:only-child) {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }

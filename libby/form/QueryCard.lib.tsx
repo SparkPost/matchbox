@@ -12,7 +12,7 @@ describe('QueryCard', () => {
           <QueryCard.Subtitle>Bobs Subacount</QueryCard.Subtitle>
         </QueryCard>
         <QueryCard onClose={() => console.log('close')}>
-          <QueryCard.Legend color="blue.700" />
+          <QueryCard.Legend color="red.700" />
           <QueryCard.Title>Inbox Folder Rate</QueryCard.Title>
           <QueryCard.Subtitle>Weighted</QueryCard.Subtitle>
         </QueryCard>
@@ -22,6 +22,13 @@ describe('QueryCard', () => {
             <QueryCard.Operator>equals</QueryCard.Operator>
             <QueryCard.Subtitle>Bobs Subacount</QueryCard.Subtitle>
           </QueryCard>
+          <QueryCard onClose={() => console.log('close')}>
+            <QueryCard.Title>Subaccount</QueryCard.Title>
+            <QueryCard.Operator>equals</QueryCard.Operator>
+            <QueryCard.Subtitle>Bobs Subacount</QueryCard.Subtitle>
+          </QueryCard>
+        </QueryCard.Group>
+        <QueryCard.Group>
           <QueryCard onClose={() => console.log('close')}>
             <QueryCard.Title>Subaccount</QueryCard.Title>
             <QueryCard.Operator>equals</QueryCard.Operator>
