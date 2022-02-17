@@ -46,6 +46,7 @@ describe('Tag', () => {
       <Tag onRemove={noop} color="darkGray">
         domain.com
       </Tag>
+      <Tag onRemove={noop}>domain.com</Tag>
       <Tag>domain.com</Tag>
     </Inline>
   ));

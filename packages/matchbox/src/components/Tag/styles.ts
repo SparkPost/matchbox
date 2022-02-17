@@ -4,8 +4,8 @@ export const tagBase = (props) => `
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding: 0 ${tokens.spacing_300};
-  padding-right: ${props.$hasRemove ? '1px' : tokens.spacing_300};
+  padding: 0 ${tokens.spacing_200};
+  padding-right: ${props.$hasRemove ? '1px' : tokens.spacing_200};
   border-radius: ${tokens.borderRadius_pill};
   height: 1.5rem;
   font-size: ${tokens.fontSize_200};
@@ -43,62 +43,51 @@ export const content = () => `
 
 export const tagColor = (props) => {
   let bg = '';
-  let border = '';
   let color = '';
 
   switch (props.$tagColor) {
     case 'orange':
     case 'blue':
     case 'navy':
-      bg = tokens.color_blue_300;
-      border = tokens.color_blue_500;
-      color = tokens.color_blue_800;
+      bg = tokens.color_blue_400;
+      color = tokens.color_blue_1000;
       break;
     case 'green':
-      bg = tokens.color_green_300;
-      border = tokens.color_green_500;
-      color = tokens.color_green_900;
+      bg = tokens.color_green_400;
+      color = tokens.color_green_1000;
       break;
     case 'yellow':
-      bg = tokens.color_yellow_200;
-      border = tokens.color_yellow_400;
-      color = tokens.color_yellow_700;
+      bg = tokens.color_yellow_300;
+      color = tokens.color_yellow_1000;
       break;
     case 'red':
-      bg = tokens.color_red_300;
-      border = tokens.color_red_500;
-      color = tokens.color_red_800;
+      bg = tokens.color_red_400;
+      color = tokens.color_red_1000;
       break;
     case 'magenta':
-      bg = tokens.color_magenta_300;
-      border = tokens.color_magenta_500;
-      color = tokens.color_magenta_800;
+      bg = tokens.color_magenta_400;
+      color = tokens.color_magenta_1000;
       break;
     case 'purple':
-      bg = tokens.color_purple_300;
-      border = tokens.color_purple_500;
-      color = tokens.color_purple_800;
+      bg = tokens.color_purple_400;
+      color = tokens.color_purple_1000;
       break;
     case 'teal':
-      bg = tokens.color_teal_200;
-      border = tokens.color_teal_500;
-      color = tokens.color_teal_800;
+      bg = tokens.color_teal_500;
+      color = tokens.color_teal_1000;
       break;
     case 'darkGray':
-      bg = tokens.color_gray_300;
-      border = tokens.color_gray_500;
-      color = tokens.color_gray_900;
+      bg = tokens.color_gray_500;
+      color = tokens.color_gray_1000;
       break;
     case 'lightGray':
     default:
-      bg = tokens.color_gray_100;
-      border = tokens.color_gray_400;
-      color = tokens.color_gray_900;
+      bg = tokens.color_gray_300;
+      color = tokens.color_gray_1000;
   }
 
   return `
     background: ${bg};
-    border: 1px solid ${border};
     color: ${color};
   `;
 };
@@ -119,7 +108,7 @@ export const closeColor = (props) => {
       color = tokens.color_green_900;
       break;
     case 'yellow':
-      bg = tokens.color_yellow_400;
+      bg = tokens.color_yellow_500;
       color = tokens.color_yellow_700;
       break;
     case 'red':
@@ -135,16 +124,16 @@ export const closeColor = (props) => {
       color = tokens.color_purple_800;
       break;
     case 'teal':
-      bg = tokens.color_teal_500;
+      bg = tokens.color_teal_600;
       color = tokens.color_teal_800;
       break;
     case 'darkGray':
-      bg = tokens.color_gray_500;
+      bg = tokens.color_gray_600;
       color = tokens.color_gray_900;
       break;
     case 'lightGray':
     default:
-      bg = tokens.color_gray_300;
+      bg = tokens.color_gray_400;
       color = tokens.color_gray_900;
       break;
   }
