@@ -90,6 +90,17 @@ describe('Visual Regression', () => {
           I am help text
         </RadioCard>
       </RadioCard.Group>
+
+      {/* Small */}
+      <RadioCard.Group label="Radio Card Group" space="compact">
+        <RadioCard id="id20" label="Check Me 1" name="group-small" defaultChecked variant="small">
+          I am help text
+        </RadioCard>
+        <RadioCard id="id21" label="Check Me 2" name="group-small" variant="small">
+          I am help text
+        </RadioCard>
+        <RadioCard id="id23" label="Check Me 3" name="group-small" variant="small"></RadioCard>
+      </RadioCard.Group>
     </>
   ));
 });

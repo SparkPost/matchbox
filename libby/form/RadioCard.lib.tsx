@@ -104,4 +104,14 @@ describe('RadioCard', () => {
       </RadioCard>
     </RadioCard.Group>
   ));
+
+  add('small variant', () => (
+    <RadioCard.Group label="Radio Card Group" space="compact">
+      <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked variant="small">
+        I am help text
+      </RadioCard>
+      <RadioCard id="id2" label="Check Me 2" name="group" variant="small"></RadioCard>
+      <RadioCard id="id3" label="Check Me 3" name="group" variant="small"></RadioCard>
+    </RadioCard.Group>
+  ));
 });

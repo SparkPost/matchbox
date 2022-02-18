@@ -9,6 +9,7 @@ export type RadioCardProps = {
   'data-track'?: string;
   label?: React.ReactNode;
   weight?: 'light' | 'heavy';
+  variant?: 'small' | 'default';
 } & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
 
 const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
@@ -26,6 +27,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onChange,
     onFocus,
     onBlur,
+    variant,
     value,
     weight = 'light',
     'data-id': dataId,
@@ -52,10 +54,14 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         type="radio"
         value={value}
       />
-      <StyledLabel as="label" htmlFor={id}>
+      <StyledLabel as="label" htmlFor={id} $variant={variant}>
         <Box display="flex">
-          <Box flex="0 0 auto" width="400">
-            <Box position="absolute" top="500" left="500">
+          <Box flex="0 0 auto" width={variant === 'small' ? '200' : '400'}>
+            <Box
+              position="absolute"
+              top={variant === 'small' ? '100' : '500'}
+              left={variant === 'small' ? '200' : '500'}
+            >
               <StyledUnchecked size="1rem" as={RadioButtonUnchecked} />
               <StyledChecked size="1rem" as={RadioButtonChecked} />
             </Box>
@@ -63,16 +69,22 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={fontSize}
-              lineHeight="400"
-              fontWeight="semibold"
+              fontSize={variant === 'small' ? '200' : fontSize}
+              lineHeight={variant === 'small' ? '200' : '400'}
+              fontWeight={variant === 'small' ? 'medium' : 'semibold'}
             >
               {label}
             </StyledHeader>
           </Box>
         </Box>
         {children && (
-          <Box data-id="radio-card-content" pt="200">
+          <Box
+            data-id="radio-card-content"
+            pt={variant === 'small' ? '0' : '200'}
+            pl={variant === 'small' ? '450' : '0'}
+            fontSize={variant === 'small' ? '100' : '300'}
+            lineHeight={variant === 'small' ? '100' : '300'}
+          >
             {children}
           </Box>
         )}
