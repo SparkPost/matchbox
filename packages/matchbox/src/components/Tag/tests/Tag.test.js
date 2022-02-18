@@ -1,13 +1,9 @@
 import React from 'react';
 import Tag from '../Tag';
 
-// Feels unecessary to test color variations here /shrug
-
 describe('Tag', () => {
   it('should render a default tag', () => {
     const wrapper = global.mountStyled(<Tag>Hola!</Tag>);
-    expect(wrapper).toHaveStyleRule('background', '#F5F8FA');
-    expect(wrapper).toHaveStyleRule('color', '#39444D');
     expect(wrapper.find('button')).not.toExist();
   });
 
