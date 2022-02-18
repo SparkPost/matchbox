@@ -8,6 +8,18 @@ function noop() {
 }
 
 describe('Tag', () => {
+  describe('deprecated', () => {
+    add('colors', () => (
+      <Inline space="100">
+        <Tag onRemove={noop} color="orange">
+          domain.com
+        </Tag>
+        <Tag onRemove={noop} color="navy">
+          domain.com
+        </Tag>
+      </Inline>
+    ));
+  });
   add('with remove', () => (
     <Tag onRemove={noop} className="test-class">
       domain.com
@@ -16,13 +28,7 @@ describe('Tag', () => {
   ));
   add('colors', () => (
     <Inline space="100">
-      <Tag onRemove={noop} color="orange">
-        domain.com
-      </Tag>
       <Tag onRemove={noop} color="blue">
-        domain.com
-      </Tag>
-      <Tag onRemove={noop} color="navy">
         domain.com
       </Tag>
       <Tag onRemove={noop} color="yellow">
