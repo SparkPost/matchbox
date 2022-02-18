@@ -93,13 +93,13 @@ describe('Visual Regression', () => {
 
       {/* Small */}
       <RadioCard.Group label="Radio Card Group" space="compact">
-        <RadioCard id="id20" label="Check Me 1" name="group-small" defaultChecked variant="small">
+        <RadioCard id="id20" label="Check Me 1" name="group-small" defaultChecked size="small">
           I am help text
         </RadioCard>
-        <RadioCard id="id21" label="Check Me 2" name="group-small" variant="small">
+        <RadioCard id="id21" label="Check Me 2" name="group-small" size="small">
           I am help text
         </RadioCard>
-        <RadioCard id="id23" label="Check Me 3" name="group-small" variant="small"></RadioCard>
+        <RadioCard id="id23" label="Check Me 3" name="group-small" size="small"></RadioCard>
       </RadioCard.Group>
     </>
   ));

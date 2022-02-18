@@ -9,8 +9,8 @@ export type RadioCardProps = {
   'data-track'?: string;
   label?: React.ReactNode;
   weight?: 'light' | 'heavy';
-  variant?: 'small' | 'default';
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
+  size?: 'small' | 'default';
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
 
 const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
   props,
@@ -27,7 +27,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onChange,
     onFocus,
     onBlur,
-    variant,
+    size,
     value,
     weight = 'light',
     'data-id': dataId,
@@ -54,13 +54,13 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         type="radio"
         value={value}
       />
-      <StyledLabel as="label" htmlFor={id} $variant={variant}>
+      <StyledLabel as="label" htmlFor={id} $size={size}>
         <Box display="flex">
-          <Box flex="0 0 auto" width={variant === 'small' ? '200' : '400'}>
+          <Box flex="0 0 auto" width={size === 'small' ? '200' : '400'}>
             <Box
               position="absolute"
-              top={variant === 'small' ? '100' : '500'}
-              left={variant === 'small' ? '200' : '500'}
+              top={size === 'small' ? '100' : '500'}
+              left={size === 'small' ? '200' : '500'}
             >
               <StyledUnchecked size="1rem" as={RadioButtonUnchecked} />
               <StyledChecked size="1rem" as={RadioButtonChecked} />
@@ -69,9 +69,9 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={variant === 'small' ? '200' : fontSize}
-              lineHeight={variant === 'small' ? '200' : '400'}
-              fontWeight={variant === 'small' ? 'medium' : 'semibold'}
+              fontSize={size === 'small' ? '200' : fontSize}
+              lineHeight={size === 'small' ? '200' : '400'}
+              fontWeight={size === 'small' ? 'medium' : 'semibold'}
             >
               {label}
             </StyledHeader>
@@ -80,10 +80,10 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         {children && (
           <Box
             data-id="radio-card-content"
-            pt={variant === 'small' ? '0' : '200'}
-            pl={variant === 'small' ? '450' : '0'}
-            fontSize={variant === 'small' ? '100' : '300'}
-            lineHeight={variant === 'small' ? '100' : '300'}
+            pt={size === 'small' ? '0' : '200'}
+            pl={size === 'small' ? '450' : '0'}
+            fontSize={size === 'small' ? '100' : '300'}
+            lineHeight={size === 'small' ? '100' : '300'}
           >
             {children}
           </Box>

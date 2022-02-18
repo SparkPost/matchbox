@@ -3,12 +3,12 @@ import { tokens } from '@sparkpost/design-tokens';
 import { focusOutline, visuallyHidden } from '../../styles/helpers';
 import { Box } from '../Box';
 
-export const StyledLabel = styled(Box)<{ $variant?: 'small' | 'default' }>`
+export const StyledLabel = styled(Box)<{ $size?: 'small' | 'default' }>`
   display: block;
   position: relative;
   background: ${(props) => props.theme.colors.white};
   padding: ${(props) =>
-    props.$variant === 'small' ? props.theme.space['200'] : props.theme.space['500']};
+    props.$size === 'small' ? props.theme.space['200'] : props.theme.space['500']};
   border: ${(props) => props.theme.borders['400']};
   border-radius: ${(props) => props.theme.radii['200']};
   cursor: pointer;
