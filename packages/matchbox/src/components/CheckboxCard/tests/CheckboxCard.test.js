@@ -103,5 +103,16 @@ describe('CheckboxCard', () => {
       );
       expect(wrapper.find('#test-id')).toExist();
     });
+
+    it('renders a compact space when vertical', () => {
+      const wrapper = global.mountStyled(
+        <CheckboxCard.Group label="label" space="compact">
+          <CheckboxCard id="test-id" />
+          <CheckboxCard id="test-id-2" />
+        </CheckboxCard.Group>,
+      );
+      expect(wrapper.find('#test-id')).toExist();
+      expect(wrapper.find('#test-id-2')).toExist();
+    });
   });
 });

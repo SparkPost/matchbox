@@ -8,7 +8,8 @@ export type CheckboxCardProps = {
   'data-id'?: string;
   'data-track'?: string;
   label?: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
+  size?: 'small' | 'default';
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
 
 const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(function CheckboxCard(
   props,
@@ -25,11 +26,14 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
     onChange,
     onFocus,
     onBlur,
+    size = 'default',
     value,
     'data-id': dataId,
     'data-track': dataTrack,
     ...rest
   } = props;
+
+  const isSmall = size === 'small';
 
   return (
     <Box data-id="radio-card">
@@ -49,10 +53,10 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
         value={value}
         {...rest}
       />
-      <StyledLabel as="label" htmlFor={id}>
+      <StyledLabel as="label" htmlFor={id} $size={size}>
         <Box display="flex">
-          <Box flex="0 0 auto" width="400">
-            <Box position="absolute" top="500" left="500">
+          <Box flex="0 0 auto" width={isSmall ? '200' : '400'}>
+            <Box position="absolute" top={isSmall ? '100' : '500'} left={isSmall ? '200' : '500'}>
               <StyledUnchecked size="1rem" as={CheckBoxOutlineBlank} />
               <StyledChecked size="1rem" as={CheckBox} />
             </Box>
@@ -60,16 +64,22 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize="300"
-              lineHeight="400"
-              fontWeight="semibold"
+              fontSize={isSmall ? '200' : '300'}
+              lineHeight={isSmall ? '200' : '400'}
+              fontWeight={isSmall ? 'medium' : 'semibold'}
             >
               {label}
             </StyledHeader>
           </Box>
         </Box>
         {children && (
-          <Box data-id="checkbox-card-content" pt="200">
+          <Box
+            data-id="checkbox-card-content"
+            pt={isSmall ? '0' : '200'}
+            pl={isSmall ? '450' : '0'}
+            fontSize={isSmall ? '100' : '300'}
+            lineHeight={isSmall ? '100' : '300'}
+          >
             {children}
           </Box>
         )}

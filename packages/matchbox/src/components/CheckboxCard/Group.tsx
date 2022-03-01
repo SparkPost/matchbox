@@ -8,8 +8,26 @@ import { Label } from '../Label';
 import { OptionalLabel } from '../OptionalLabel';
 import { Stack } from '../Stack';
 import { Breakpoints } from '../../helpers/types';
-
 import { pick } from '../../helpers/props';
+
+const CardWrapper = styled.div<{ $space: 'compact' | 'default' }>`
+  ${(props) => {
+    if (props.$space === 'compact') {
+      return `
+        & > div:not(:first-child) label {
+          margin-top: -1px;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+        & > div:not(:last-child) label {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      `;
+    }
+    return ``;
+  }}
+`;
 
 const Fieldset = styled.fieldset`
   border: none;
@@ -26,6 +44,7 @@ export type CheckboxCardGroupProps = {
   optional?: boolean;
   id?: string;
   orientation?: 'horizontal' | 'vertical' | 'grid';
+  space?: 'compact' | 'default';
 } & MarginProps;
 
 const Group = React.forwardRef<HTMLFieldSetElement, CheckboxCardGroupProps>(function Group(
@@ -40,6 +59,7 @@ const Group = React.forwardRef<HTMLFieldSetElement, CheckboxCardGroupProps>(func
     labelHidden,
     orientation = 'vertical',
     optional,
+    space = 'default',
     ...rest
   } = props;
 
@@ -64,11 +84,21 @@ const Group = React.forwardRef<HTMLFieldSetElement, CheckboxCardGroupProps>(func
       )}
 
       {orientation === 'vertical' && (
-        <Stack space="300">
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </Stack>
+        <CardWrapper $space={space}>
+          {space !== 'compact' ? (
+            <Stack space="300">
+              {items.map((item, i) => (
+                <div key={i}>{item}</div>
+              ))}
+            </Stack>
+          ) : (
+            <>
+              {items.map((item, i) => (
+                <div key={i}>{item}</div>
+              ))}
+            </>
+          )}
+        </CardWrapper>
       )}
 
       {orientation === 'grid' && (

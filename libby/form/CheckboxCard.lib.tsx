@@ -102,4 +102,14 @@ describe('CheckboxCard', () => {
       </CheckboxCard>
     </CheckboxCard.Group>
   ));
+
+  add('small variant', () => (
+    <CheckboxCard.Group label="Radio Card Group" space="compact">
+      <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked size="small">
+        I am help text
+      </CheckboxCard>
+      <CheckboxCard id="id2" label="Check Me 2" name="group" size="small"></CheckboxCard>
+      <CheckboxCard id="id3" label="Check Me 3" name="group" size="small"></CheckboxCard>
+    </CheckboxCard.Group>
+  ));
 });
