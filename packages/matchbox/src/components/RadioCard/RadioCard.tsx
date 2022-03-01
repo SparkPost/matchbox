@@ -27,7 +27,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onChange,
     onFocus,
     onBlur,
-    size,
+    size = 'small',
     value,
     weight = 'light',
     'data-id': dataId,
@@ -36,6 +36,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
   } = props;
 
   const fontSize = weight === 'heavy' ? '400' : '300';
+  const isSmall = size === 'small';
 
   return (
     <Box data-id="radio-card">
@@ -53,15 +54,12 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         ref={userRef}
         type="radio"
         value={value}
+        {...rest}
       />
       <StyledLabel as="label" htmlFor={id} $size={size}>
         <Box display="flex">
-          <Box flex="0 0 auto" width={size === 'small' ? '200' : '400'}>
-            <Box
-              position="absolute"
-              top={size === 'small' ? '100' : '500'}
-              left={size === 'small' ? '200' : '500'}
-            >
+          <Box flex="0 0 auto" width={isSmall ? '200' : '400'}>
+            <Box position="absolute" top={isSmall ? '100' : '500'} left={isSmall ? '200' : '500'}>
               <StyledUnchecked size="1rem" as={RadioButtonUnchecked} />
               <StyledChecked size="1rem" as={RadioButtonChecked} />
             </Box>
@@ -69,9 +67,9 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={size === 'small' ? '200' : fontSize}
-              lineHeight={size === 'small' ? '200' : '400'}
-              fontWeight={size === 'small' ? 'medium' : 'semibold'}
+              fontSize={isSmall ? '200' : fontSize}
+              lineHeight={isSmall ? '200' : '400'}
+              fontWeight={isSmall ? 'medium' : 'semibold'}
             >
               {label}
             </StyledHeader>
@@ -80,10 +78,10 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         {children && (
           <Box
             data-id="radio-card-content"
-            pt={size === 'small' ? '0' : '200'}
-            pl={size === 'small' ? '450' : '0'}
-            fontSize={size === 'small' ? '100' : '300'}
-            lineHeight={size === 'small' ? '100' : '300'}
+            pt={isSmall ? '0' : '200'}
+            pl={isSmall ? '450' : '0'}
+            fontSize={isSmall ? '100' : '300'}
+            lineHeight={isSmall ? '100' : '300'}
           >
             {children}
           </Box>
