@@ -27,7 +27,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onChange,
     onFocus,
     onBlur,
-    size = 'small',
+    size = 'default',
     value,
     weight = 'light',
     'data-id': dataId,
