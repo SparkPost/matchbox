@@ -91,8 +91,9 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
             data-id="radio-card-content"
             pt={isSmall ? '0' : '200'}
             pl={isSmall ? '450' : '0'}
-            fontSize={isSmall ? '100' : '300'}
-            lineHeight={isSmall ? '100' : '300'}
+            fontSize={isSmall ? '200' : '300'}
+            lineHeight={isSmall ? '200' : '300'}
+            color={isSmall ? 'gray.700' : 'gray.900'}
           >
             {children}
           </Box>
