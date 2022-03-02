@@ -3,9 +3,7 @@ import { describe, add } from '@sparkpost/libby-react';
 import { RadioCard } from '@sparkpost/matchbox';
 
 describe('RadioCard', () => {
-  add('basic usage', () => (
-    <RadioCard id="id1" label="Check Me" data-track="true" weight="light" />
-  ));
+  add('basic usage', () => <RadioCard id="id1" label="Check Me" data-track="true" />);
 
   add('disabled', () => (
     <RadioCard.Group label="Radio Card Group">
@@ -102,6 +100,16 @@ describe('RadioCard', () => {
       <RadioCard id="id3" label="Check Me 3" name="group">
         I am help text
       </RadioCard>
+    </RadioCard.Group>
+  ));
+
+  add('small variant', () => (
+    <RadioCard.Group label="Radio Card Group" space="compact">
+      <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked size="small">
+        I am help text
+      </RadioCard>
+      <RadioCard id="id2" label="Check Me 2" name="group" size="small"></RadioCard>
+      <RadioCard id="id3" label="Check Me 3" name="group" size="small"></RadioCard>
     </RadioCard.Group>
   ));
 });

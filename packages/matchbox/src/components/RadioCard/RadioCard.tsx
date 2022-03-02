@@ -8,8 +8,8 @@ export type RadioCardProps = {
   'data-id'?: string;
   'data-track'?: string;
   label?: React.ReactNode;
-  weight?: 'light' | 'heavy';
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
+  size?: 'small' | 'default';
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
 
 const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
   props,
@@ -26,14 +26,14 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onChange,
     onFocus,
     onBlur,
+    size = 'default',
     value,
-    weight = 'light',
     'data-id': dataId,
     'data-track': dataTrack,
     ...rest
   } = props;
 
-  const fontSize = weight === 'heavy' ? '400' : '300';
+  const isSmall = size === 'small';
 
   return (
     <Box data-id="radio-card">
@@ -51,11 +51,12 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
         ref={userRef}
         type="radio"
         value={value}
+        {...rest}
       />
-      <StyledLabel as="label" htmlFor={id}>
+      <StyledLabel as="label" htmlFor={id} $size={size}>
         <Box display="flex">
-          <Box flex="0 0 auto" width="400">
-            <Box position="absolute" top="500" left="500">
+          <Box flex="0 0 auto" width={isSmall ? '200' : '400'}>
+            <Box position="absolute" top={isSmall ? '100' : '500'} left={isSmall ? '200' : '500'}>
               <StyledUnchecked size="1rem" as={RadioButtonUnchecked} />
               <StyledChecked size="1rem" as={RadioButtonChecked} />
             </Box>
@@ -63,16 +64,23 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={fontSize}
-              lineHeight="400"
-              fontWeight="semibold"
+              fontSize={isSmall ? '200' : '300'}
+              lineHeight={isSmall ? '200' : '400'}
+              fontWeight={isSmall ? 'medium' : 'semibold'}
             >
               {label}
             </StyledHeader>
           </Box>
         </Box>
         {children && (
-          <Box data-id="radio-card-content" pt="200">
+          <Box
+            data-id="radio-card-content"
+            pt={isSmall ? '0' : '200'}
+            pl={isSmall ? '450' : '0'}
+            fontSize={isSmall ? '200' : '300'}
+            lineHeight={isSmall ? '200' : '300'}
+            color={isSmall ? 'gray.700' : 'gray.900'}
+          >
             {children}
           </Box>
         )}

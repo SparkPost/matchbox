@@ -17,7 +17,26 @@ const Fieldset = styled.fieldset`
   ${margin}
 `;
 
-const breakpoints = ['xs', 'sm', 'md', 'lg', 'xl'];
+const CardWrapper = styled.div<{ $space: 'compact' | 'default' }>`
+  ${(props) => {
+    if (props.$space === 'compact') {
+      return `
+        & > div:not(:first-child) label {
+          margin-top: -1px;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+
+        & > div:not(:last-child) label {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      `;
+    }
+
+    return ``;
+  }}
+`;
 
 export type RadioCardGroupProps = {
   children?: React.ReactNode;
@@ -28,6 +47,7 @@ export type RadioCardGroupProps = {
   optional?: boolean;
   id?: string;
   orientation?: 'horizontal' | 'vertical' | 'grid';
+  space?: 'compact' | 'default';
 } & MarginProps;
 
 const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(function Group(
@@ -42,6 +62,7 @@ const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(functio
     labelHidden,
     orientation = 'vertical',
     optional,
+    space,
     ...rest
   } = props;
 
@@ -66,11 +87,21 @@ const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(functio
       )}
 
       {orientation === 'vertical' && (
-        <Stack space="300">
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </Stack>
+        <CardWrapper $space={space}>
+          {space !== 'compact' ? (
+            <Stack space="300">
+              {items.map((item, i) => (
+                <div key={i}>{item}</div>
+              ))}
+            </Stack>
+          ) : (
+            <>
+              {items.map((item, i) => (
+                <div key={i}>{item}</div>
+              ))}
+            </>
+          )}
+        </CardWrapper>
       )}
 
       {orientation === 'grid' && (
