@@ -5,7 +5,7 @@ import { RadioCard } from '@sparkpost/matchbox';
 describe('Visual Regression', () => {
   add('RadioCard', () => (
     <>
-      <RadioCard id="id1" label="Check Me" data-track="true" weight="light" />
+      <RadioCard id="id1" label="Check Me" data-track="true" />
       {/* Disabled */}
       <RadioCard.Group label="Radio Card Group">
         <RadioCard id="id1" label="Check Me 1" disabled>
