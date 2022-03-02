@@ -8,7 +8,7 @@ describe('RadioCard', () => {
     onBlur: jest.fn(),
     onFocus: jest.fn(),
   };
-  const subject = props => global.mountStyled(<RadioCard id="test-id" {...events} {...props} />);
+  const subject = (props) => global.mountStyled(<RadioCard id="test-id" {...events} {...props} />);
 
   it('renders with id and default attributes', () => {
     render(<RadioCard id="test-id" data-track="true" />);
@@ -36,19 +36,6 @@ describe('RadioCard', () => {
   it('renders disabled', () => {
     const wrapper = subject({ disabled: true });
     expect(wrapper.find('input')).toBeDisabled();
-  });
-
-  it('renders heavy weight', () => {
-    const wrapper = subject({ weight: 'heavy' });
-    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule(
-      'font-size',
-      '1rem',
-    );
-  });
-
-  it('renders light weight', () => {
-    const wrapper = subject({ weight: 'light' });
-    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule('font-size', '300');
   });
 
   it('should invoke events', () => {
@@ -114,6 +101,17 @@ describe('RadioCard', () => {
         </RadioCard.Group>,
       );
       expect(wrapper.find('#test-id')).toExist();
+    });
+
+    it('renders a compact space when vertical', () => {
+      const wrapper = global.mountStyled(
+        <RadioCard.Group label="label" space="compact">
+          <RadioCard id="test-id" />
+          <RadioCard id="test-id-2" />
+        </RadioCard.Group>,
+      );
+      expect(wrapper.find('#test-id')).toExist();
+      expect(wrapper.find('#test-id-2')).toExist();
     });
   });
 });

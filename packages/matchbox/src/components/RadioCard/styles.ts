@@ -3,11 +3,12 @@ import { tokens } from '@sparkpost/design-tokens';
 import { focusOutline, visuallyHidden } from '../../styles/helpers';
 import { Box } from '../Box';
 
-export const StyledLabel = styled(Box)`
+export const StyledLabel = styled(Box)<{ $size?: 'small' | 'default' }>`
   display: block;
   position: relative;
   background: ${(props) => props.theme.colors.white};
-  padding: ${(props) => props.theme.space['500']};
+  padding: ${(props) =>
+    props.$size === 'small' ? props.theme.space['200'] : props.theme.space['500']};
   border: ${(props) => props.theme.borders['400']};
   border-radius: ${(props) => props.theme.radii['200']};
   cursor: pointer;
@@ -36,6 +37,16 @@ export const StyledLabel = styled(Box)`
 
 export const StyledInput = styled.input`
   ${visuallyHidden}
+  &:hover {
+    & + ${StyledLabel} {
+      z-index: ${tokens.zIndex_default};
+    }
+  }
+  &:checked {
+    & + ${StyledLabel} {
+      z-index: ${tokens.zIndex_above};
+    }
+  }
 `;
 
 const commonCheckStyle = (props) => `
