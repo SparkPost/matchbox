@@ -35,8 +35,19 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     ...rest
   } = props;
 
-  const fontSize = weight === 'heavy' ? '400' : '300';
   const isSmall = size === 'small';
+
+  const headerFontSize = React.useMemo(() => {
+    if (isSmall) {
+      return '200';
+    }
+
+    if (weight === 'heavy') {
+      return '400';
+    }
+
+    return '300';
+  }, [weight, isSmall]);
 
   return (
     <Box data-id="radio-card">
@@ -67,7 +78,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={isSmall ? '200' : fontSize}
+              fontSize={headerFontSize}
               lineHeight={isSmall ? '200' : '400'}
               fontWeight={isSmall ? 'medium' : 'semibold'}
             >
