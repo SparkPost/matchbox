@@ -61,7 +61,7 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
               <StyledChecked size="1.25rem" as={CheckBox} />
             </Box>
           </Box>
-          <Box flex="1" pl="300">
+          <Box flex="1" pl={isSmall ? '400' : '300'}>
             <StyledHeader
               data-id="radio-card-header"
               fontSize={isSmall ? '200' : '300'}
@@ -76,9 +76,10 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
           <Box
             data-id="checkbox-card-content"
             pt={isSmall ? '0' : '200'}
-            pl={isSmall ? '450' : '0'}
-            fontSize={isSmall ? '100' : '300'}
-            lineHeight={isSmall ? '100' : '300'}
+            pl={isSmall ? '500' : '0'}
+            fontSize={isSmall ? '200' : '300'}
+            lineHeight={isSmall ? '200' : '300'}
+            color={isSmall ? 'gray.700' : 'gray.900'}
           >
             {children}
           </Box>
