@@ -57,8 +57,8 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
         <Box display="flex">
           <Box flex="0 0 auto" width={isSmall ? '200' : '400'}>
             <Box position="absolute" top={isSmall ? '100' : '500'} left={isSmall ? '200' : '500'}>
-              <StyledUnchecked size="1rem" as={CheckBoxOutlineBlank} />
-              <StyledChecked size="1rem" as={CheckBox} />
+              <StyledUnchecked size="1.25rem" as={CheckBoxOutlineBlank} />
+              <StyledChecked size="1.25rem" as={CheckBox} />
             </Box>
           </Box>
           <Box flex="1" pl="300">
