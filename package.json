@@ -64,7 +64,7 @@
     "@babel/preset-react": "^7.12.5",
     "@percy/cli": "^1.0.0-beta.70",
     "@percy/cypress": "^3.1.1",
-    "@sparkpost/libby-react": "^0.0.45",
+    "@sparkpost/libby-react": "^0.0.46",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.24",
