@@ -38,19 +38,6 @@ describe('RadioCard', () => {
     expect(wrapper.find('input')).toBeDisabled();
   });
 
-  it('renders heavy weight', () => {
-    const wrapper = subject({ weight: 'heavy' });
-    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule(
-      'font-size',
-      '1rem',
-    );
-  });
-
-  it('renders light weight', () => {
-    const wrapper = subject({ weight: 'light' });
-    expect(wrapper.find('[data-id="radio-card-header"]').at(0)).toHaveStyleRule('font-size', '300');
-  });
-
   it('should invoke events', () => {
     const wrapper = subject();
     wrapper.find('input').simulate('change');

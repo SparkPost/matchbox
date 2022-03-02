@@ -8,7 +8,6 @@ export type RadioCardProps = {
   'data-id'?: string;
   'data-track'?: string;
   label?: React.ReactNode;
-  weight?: 'light' | 'heavy';
   size?: 'small' | 'default';
 } & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
 
@@ -29,25 +28,12 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
     onBlur,
     size = 'default',
     value,
-    weight = 'light',
     'data-id': dataId,
     'data-track': dataTrack,
     ...rest
   } = props;
 
   const isSmall = size === 'small';
-
-  const headerFontSize = React.useMemo(() => {
-    if (isSmall) {
-      return '200';
-    }
-
-    if (weight === 'heavy') {
-      return '400';
-    }
-
-    return '300';
-  }, [weight, isSmall]);
 
   return (
     <Box data-id="radio-card">
@@ -78,7 +64,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
-              fontSize={headerFontSize}
+              fontSize={isSmall ? '200' : '300'}
               lineHeight={isSmall ? '200' : '400'}
               fontWeight={isSmall ? 'medium' : 'semibold'}
             >
