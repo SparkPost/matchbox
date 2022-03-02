@@ -5,6 +5,7 @@ export * from './Box';
 export * from './Breadcrumb';
 export * from './Button';
 export * from './Checkbox';
+export * from './CheckboxCard';
 export * from './CodeBlock';
 export * from './Column';
 export * from './Columns';
