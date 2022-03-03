@@ -103,6 +103,8 @@ export type ProgressStepProps = Types.LinkActionProps & {
    * Whether this step is completed or not
    */
   completed?: boolean;
+  'data-id'?: string;
+  id?: string;
 };
 
 export type PolymorphicProgressStep = Types.ForwardRefComponent<'a', ProgressStepProps>;

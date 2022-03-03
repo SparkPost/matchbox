@@ -12,14 +12,16 @@ const Wrapper = styled.div`
 
 export type ProgressProps = MarginProps & {
   children?: React.ReactNode;
+  'data-id'?: string;
+  id?: string;
 };
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(function Progress(props, userRef) {
-  const { children, ...rest } = props;
+  const { children, id, 'data-id': dataId, ...rest } = props;
   const systemProps = pick(rest, system.propNames);
 
   return (
-    <Wrapper {...systemProps} ref={userRef}>
+    <Wrapper id={id} data-id={dataId} {...systemProps} ref={userRef}>
       {children}
     </Wrapper>
   );

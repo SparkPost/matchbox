@@ -39,19 +39,12 @@ describe('Progress', () => {
     </Progress>
   ));
 
-  // add('system props', () => (
-  //   <>
-  //     <Breadcrumb mb="600">
-  //       <Breadcrumb.Link to="#one">Link One</Breadcrumb.Link>
-  //       <Breadcrumb.Link to="#two" active>
-  //         Link Two
-  //       </Breadcrumb.Link>
-  //     </Breadcrumb>
-  //     <Panel>
-  //       <Panel.Section>
-  //         <Panel.Header>Panel Header</Panel.Header>
-  //       </Panel.Section>
-  //     </Panel>
-  //   </>
-  // ));
+  add('system props', () => (
+    <Progress mx="600" my="200">
+      <Progress.Step to="#one" completed>
+        Completed
+      </Progress.Step>
+      <Progress.Step to="#two">Not Completed</Progress.Step>
+    </Progress>
+  ));
 });
