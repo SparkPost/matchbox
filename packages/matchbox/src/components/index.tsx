@@ -33,6 +33,7 @@ export * from './Panel';
 export * from './Picture';
 export * from './Popover';
 export * from './Portal';
+export * from './Progress';
 export * from './ProgressBar';
 export * from './QueryCard';
 export * from './Radio';
