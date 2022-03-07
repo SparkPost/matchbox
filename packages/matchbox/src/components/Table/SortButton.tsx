@@ -40,6 +40,7 @@ const Button = styled.button<{ $sorted?: boolean }>`
 
 const IconWrapper = styled.span<{ $sorted?: boolean }>`
   display: inline-block;
+  align-self: end;
   margin-left: ${({ theme }) => theme.space[100]};
   color: ${({ theme }) => theme.colors.gray[700]};
   transition: ${({ theme }) => theme.motion.duration.fast};
