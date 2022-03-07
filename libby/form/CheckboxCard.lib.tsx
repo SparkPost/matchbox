@@ -89,6 +89,20 @@ describe('CheckboxCard', () => {
     </CheckboxCard.Group>
   ));
 
+  add('help text', () => (
+    <CheckboxCard.Group label="Radio Card Group" helpText="Help Text">
+      <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
+        I am help text
+      </CheckboxCard>
+      <CheckboxCard id="id2" label="Check Me 2" name="group">
+        I am help text
+      </CheckboxCard>
+      <CheckboxCard id="id3" label="Check Me 3" name="group">
+        I am help text
+      </CheckboxCard>
+    </CheckboxCard.Group>
+  ));
+
   add('works with system props', () => (
     <CheckboxCard.Group label="Radio Card Group" my="500" mx="700">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>

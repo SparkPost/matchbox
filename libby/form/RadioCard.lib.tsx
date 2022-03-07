@@ -75,6 +75,20 @@ describe('RadioCard', () => {
     </RadioCard.Group>
   ));
 
+  add('help text', () => (
+    <RadioCard.Group label="Radio Card Group" helpText="Help Text">
+      <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>
+        I am help text
+      </RadioCard>
+      <RadioCard id="id2" label="Check Me 2" name="group">
+        I am help text
+      </RadioCard>
+      <RadioCard id="id3" label="Check Me 3" name="group">
+        I am help text
+      </RadioCard>
+    </RadioCard.Group>
+  ));
+
   add('group with optional label', () => (
     <RadioCard.Group label="Radio Card Group" optional>
       <RadioCard id="id1" label="Check Me 1" name="group" defaultChecked>

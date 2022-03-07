@@ -7,7 +7,7 @@ describe('Visual Regression', () => {
     <>
       <RadioCard id="id1" label="Check Me" data-track="true" />
       {/* Disabled */}
-      <RadioCard.Group label="Radio Card Group">
+      <RadioCard.Group label="Radio Card Group" helpText="Help">
         <RadioCard id="id1" label="Check Me 1" disabled>
           This one is disabled
         </RadioCard>

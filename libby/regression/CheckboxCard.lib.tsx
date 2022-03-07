@@ -7,7 +7,7 @@ describe('Visual Regression', () => {
     <>
       <CheckboxCard id="id1" label="Check Me" data-track="true" />
       {/* Disabled */}
-      <CheckboxCard.Group label="Radio Card Group">
+      <CheckboxCard.Group label="Radio Card Group" helpText="Help">
         <CheckboxCard id="id1" label="Check Me 1" disabled>
           This one is disabled
         </CheckboxCard>
