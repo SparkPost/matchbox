@@ -6,6 +6,7 @@ import { Columns } from '../Columns';
 import { Column } from '../Column';
 import { Label } from '../Label';
 import { OptionalLabel } from '../OptionalLabel';
+import { HelpText } from '../HelpText';
 import { Stack } from '../Stack';
 import { Breakpoints } from '../../helpers/types';
 
@@ -42,6 +43,7 @@ export type RadioCardGroupProps = {
   children?: React.ReactNode;
   collapseBelow?: Breakpoints;
   'data-id'?: string;
+  helpText?: React.ReactNode;
   label: string;
   labelHidden?: boolean;
   optional?: boolean;
@@ -57,6 +59,7 @@ const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(functio
   const {
     children,
     collapseBelow,
+    helpText,
     id,
     label,
     labelHidden,
@@ -77,6 +80,11 @@ const Group = React.forwardRef<HTMLFieldSetElement, RadioCardGroupProps>(functio
         </Box>
         {optional && <OptionalLabel />}
       </Label>
+      {helpText && (
+        <Box mb="200">
+          <HelpText mt="0">{helpText}</HelpText>
+        </Box>
+      )}
 
       {orientation === 'horizontal' && (
         <Columns space="300" collapseBelow={collapseBelow}>
