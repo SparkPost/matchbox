@@ -114,5 +114,14 @@ describe('CheckboxCard', () => {
       expect(wrapper.find('#test-id')).toExist();
       expect(wrapper.find('#test-id-2')).toExist();
     });
+
+    it('renders helpText', () => {
+      const { getByText } = render(
+        <CheckboxCard.Group label="label" helpText="help">
+          <CheckboxCard id="test-id" />
+        </CheckboxCard.Group>,
+      );
+      expect(getByText('help')).toBeTruthy();
+    });
   });
 });

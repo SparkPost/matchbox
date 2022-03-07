@@ -113,5 +113,14 @@ describe('RadioCard', () => {
       expect(wrapper.find('#test-id')).toExist();
       expect(wrapper.find('#test-id-2')).toExist();
     });
+
+    it('renders helpText', () => {
+      const { getByText } = render(
+        <RadioCard.Group label="label" helpText="help">
+          <RadioCard id="test-id" />
+        </RadioCard.Group>,
+      );
+      expect(getByText('help')).toBeTruthy();
+    });
   });
 });
