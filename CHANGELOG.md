@@ -1,4 +1,29 @@
 
+## 7.1.0 (2022-03-08)
+
+#### Features
+* `matchbox`
+  * [#1068](https://github.com/SparkPost/matchbox/pull/1068) UX-769 Add Progress Component ([@jonambas](https://github.com/jonambas))
+  * [#1069](https://github.com/SparkPost/matchbox/pull/1069) UX-779 Add helpText prop to RadioCard.Group and CheckboxCard.Group ([@jonambas](https://github.com/jonambas))
+  * [#1067](https://github.com/SparkPost/matchbox/pull/1067) UX-253 Add CheckboxCard component ([@jonambas](https://github.com/jonambas))
+  * [#1056](https://github.com/SparkPost/matchbox/pull/1056) UX-774 Add QueryCard Component ([@jonambas](https://github.com/jonambas))
+
+#### Enhancements
+* `matchbox`
+  * [#1070](https://github.com/SparkPost/matchbox/pull/1070) UX-780 Bottom align sort button icons ([@jonambas](https://github.com/jonambas))
+  * [#1065](https://github.com/SparkPost/matchbox/pull/1065) UX-777 Add small radio card variant ([@jonambas](https://github.com/jonambas))
+  * [#1063](https://github.com/SparkPost/matchbox/pull/1063) UX-778 Update Tag colors ([@jonambas](https://github.com/jonambas))
+
+#### Security
+* `matchbox-css`
+  * [#1062](https://github.com/SparkPost/matchbox/pull/1062) Bump node-sass from 6.0.1 to 7.0.0 in /packages/matchbox-css ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `next-template-matchbox`
+  * [#1064](https://github.com/SparkPost/matchbox/pull/1064) Bump next from 12.0.10 to 12.1.0 in /packages/next-template-matchbox ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.0.3 (2022-01-27)
 
 #### Bug Fixes
