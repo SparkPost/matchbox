@@ -36,7 +36,12 @@ const StyledLink = styled(UnstyledLink)<{
 
   ${({ disabled }) => {
     if (disabled) {
-      return `pointer-events: none;`;
+      return `
+        cursor: not-allowed;
+        &:hover {
+          color: inherit;
+        }
+      `;
     }
   }}
 `;
