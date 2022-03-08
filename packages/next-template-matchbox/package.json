@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.3",
+  "version": "7.1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,10 +12,10 @@
     "format": "prettier --write '**/*.{js,ts,tsx}'"
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "^7.0.3",
-    "@sparkpost/matchbox": "^7.0.3",
-    "@sparkpost/matchbox-icons": "^7.0.3",
-    "@sparkpost/matchbox-media": "^7.0.3",
+    "@sparkpost/design-tokens": "^7.1.0",
+    "@sparkpost/matchbox": "^7.1.0",
+    "@sparkpost/matchbox-icons": "^7.1.0",
+    "@sparkpost/matchbox-media": "^7.1.0",
     "@types/styled-components": "^5.1.19",
     "@types/styled-system": "^5.1.14",
     "next": "^12.1.0",

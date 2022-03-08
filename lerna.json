@@ -9,7 +9,7 @@
     "packages/cra-template-matchbox",
     "packages/next-template-matchbox"
   ],
-  "version": "7.0.3",
+  "version": "7.1.0",
   "command": {
     "publish": {
       "ignoreChanges": [
