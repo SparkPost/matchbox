@@ -1,5 +1,15 @@
-export function get(theme: { [k: string]: any }, str: string): string {
-  return str.split('.').reduce((o, i) => o[i], theme);
+export function get(object: { [k: string]: any }, str: string): string {
+  const parts = str.split('.');
+
+  const result = parts.reduce((o, key) => {
+    if (!o || !o[key]) {
+      return undefined;
+    }
+
+    return o[key];
+  }, object);
+
+  return result;
 }
 
 export function getTheme(str: string) {
