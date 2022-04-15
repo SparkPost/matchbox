@@ -26,9 +26,9 @@ const SubHeader = React.forwardRef<HTMLDivElement, PanelSubHeaderProps>(function
       {...paddingContext}
       className={className}
       pb={[0, null, 0]}
-      fontSize="200"
+      fontSize="300"
       fontWeight="normal"
-      lineHeight="200"
+      lineHeight="300"
       color={appearanceContext === 'inverted' ? 'gray.300' : 'gray.700'}
       bg={appearanceContext === 'inverted' ? 'gray.900' : ''}
       tabIndex={-1}
