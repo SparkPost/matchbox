@@ -87,9 +87,10 @@ export const StyledChecked = styled.svg`
   }
 `;
 
-export const StyledHeader = styled(Box)`
+export const StyledHeader = styled(Box)<{ $size?: 'small' | 'default' }>`
   input:checked ~ ${StyledLabel} & {
-    color: ${(props) => props.theme.colors.blue['700']};
+    color: ${(props) =>
+      props.$size === 'small' ? props.theme.colors.gray['800'] : props.theme.colors.blue['700']};
   }
 
   input:disabled ~ ${StyledLabel} & {
