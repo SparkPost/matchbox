@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import { compose, margin, MarginProps, maxWidth, MaxWidthProps } from 'styled-system';
 import { omit } from '@styled-system/props';
@@ -9,11 +9,12 @@ import { Connect } from '../Connect';
 import { Box, BoxProps } from '../Box';
 import { OptionalLabel } from '../OptionalLabel';
 import { HelpText } from '../HelpText';
+import { KeyboardArrowDown, KeyboardArrowUp } from '@sparkpost/matchbox-icons';
 import { roundToBaseline } from '../../helpers/geometry';
 import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import useResizeObserver from '../../hooks/useResizeObserver';
 import { pick } from '../../helpers/props';
-import { focusOutline } from '../../styles/helpers';
+import { focusOutline, buttonReset } from '../../styles/helpers';
 import type { ComponentPropsWithout } from '../../helpers/types';
 
 const system = compose(margin, maxWidth);
@@ -27,6 +28,38 @@ const StyledInputWrapper = styled(Box)`
 
 const StyledInput = styled(Box)<BoxProps>`
   outline: none;
+  &[type='number'],
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+`;
+
+const StyledButton = styled(Box)<Omit<React.ComponentProps<typeof Box>, 'as'>>`
+  ${buttonReset}
+  cursor: pointer;
+`;
+
+const StyledNumberControls = styled(Box)<BoxProps & { $disabled?: boolean }>`
+  padding: 0 6px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-left: ${(props) => props.theme.borders['400']};
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledArrowUp = styled(KeyboardArrowUp)`
+  color: ${(props) => props.theme.colors.blue['700']};
+  display: block;
+`;
+
+const StyledArrowDown = styled(KeyboardArrowDown)`
+  color: ${(props) => props.theme.colors.blue['700']};
+  display: block;
 `;
 
 type FieldBoxProps = BoxProps &
@@ -38,7 +71,23 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
   props,
   userRef,
 ) {
-  const { hasError, disabled, height, lineHeight, required, py, ...rest } = props;
+  const { hasError, disabled, height, type, lineHeight, required, py, ...rest } = props;
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const increment = () => {
+    inputRef.current.stepUp();
+  };
+  const decrement = () => {
+    inputRef.current.stepDown();
+  };
+
+  function assignRefs(node) {
+    inputRef.current = node;
+    if (userRef) {
+      (userRef as React.MutableRefObject<HTMLButtonElement>).current = node;
+    }
+  }
 
   return (
     <StyledInputWrapper>
@@ -47,6 +96,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         as="input"
         px="400"
         {...rest}
+        type={type}
         disabled={disabled}
         width="100%"
         border={hasError ? `1px solid ${tokens.color_red_700}` : '400'}
@@ -57,8 +107,18 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         lineHeight={lineHeight}
         py={py}
         required={required}
-        ref={userRef}
+        ref={assignRefs}
       />
+      {type == 'number' && !disabled && (
+        <StyledNumberControls $disabled={disabled}>
+          <StyledButton onClick={increment} as="button" disabled={disabled}>
+            <StyledArrowUp size={20} />
+          </StyledButton>
+          <StyledButton onClick={decrement} as="button" disabled={disabled}>
+            <StyledArrowDown size={20} />
+          </StyledButton>
+        </StyledNumberControls>
+      )}
     </StyledInputWrapper>
   );
 });

@@ -31,6 +31,25 @@ describe('TextField', () => {
 
   add('disabled', () => <TextField id="id" label="Template ID" value="template-12" disabled />);
 
+  add('number', () => <TextField type="number" id="id" label="Alert Threshold" />);
+
+  add('number disabled', () => (
+    <TextField type="number" id="id" label="Alert Threshold" disabled />
+  ));
+
+  add('number with buttons', () => (
+    <TextField
+      type="number"
+      id="id"
+      label="Alert Threshold"
+      connectRight={
+        <Button color="red" outline>
+          Delete
+        </Button>
+      }
+    />
+  ));
+
   add('text alignment', () => (
     <Stack>
       <TextField id="id" label="Right" value={500} align="right" suffix="emails" />
