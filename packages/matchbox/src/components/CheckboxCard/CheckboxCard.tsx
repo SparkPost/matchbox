@@ -67,6 +67,7 @@ const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(funct
               fontSize={isSmall ? '200' : '300'}
               lineHeight={isSmall ? '200' : '400'}
               fontWeight={isSmall ? 'medium' : 'semibold'}
+              $size={size}
             >
               {label}
             </StyledHeader>

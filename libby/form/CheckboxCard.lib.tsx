@@ -6,7 +6,7 @@ describe('CheckboxCard', () => {
   add('basic usage', () => <CheckboxCard id="id1" label="Check Me" />);
 
   add('disabled', () => (
-    <CheckboxCard.Group label="Radio Card Group">
+    <CheckboxCard.Group label="Checkbox Card Group">
       <CheckboxCard id="id1" label="Check Me 1" disabled>
         This one is disabled
       </CheckboxCard>
@@ -20,7 +20,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('vertical', () => (
-    <CheckboxCard.Group label="Radio Card Group">
+    <CheckboxCard.Group label="Checkbox Card Group">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -34,7 +34,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('grid', () => (
-    <CheckboxCard.Group label="Radio Card Group" orientation="grid">
+    <CheckboxCard.Group label="Checkbox Card Group" orientation="grid">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -51,7 +51,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('collapsing horizontal', () => (
-    <CheckboxCard.Group collapseBelow="sm" label="Radio Card Group" orientation="horizontal">
+    <CheckboxCard.Group collapseBelow="sm" label="Checkbox Card Group" orientation="horizontal">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -62,7 +62,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('group with hidden label', () => (
-    <CheckboxCard.Group label="Radio Card Group" labelHidden>
+    <CheckboxCard.Group label="Checkbox Card Group" labelHidden>
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -76,7 +76,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('group with optional label', () => (
-    <CheckboxCard.Group label="Radio Card Group" optional>
+    <CheckboxCard.Group label="Checkbox Card Group" optional>
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -90,7 +90,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('help text', () => (
-    <CheckboxCard.Group label="Radio Card Group" helpText="Help Text">
+    <CheckboxCard.Group label="Checkbox Card Group" helpText="Help Text">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -104,7 +104,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('works with system props', () => (
-    <CheckboxCard.Group label="Radio Card Group" my="500" mx="700">
+    <CheckboxCard.Group label="Checkbox Card Group" my="500" mx="700">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked>
         I am help text
       </CheckboxCard>
@@ -118,7 +118,7 @@ describe('CheckboxCard', () => {
   ));
 
   add('small variant', () => (
-    <CheckboxCard.Group label="Radio Card Group" space="compact">
+    <CheckboxCard.Group label="Checkbox Card Group" space="compact">
       <CheckboxCard id="id1" label="Check Me 1" name="group" defaultChecked size="small">
         I am help text
       </CheckboxCard>

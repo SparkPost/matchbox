@@ -18,12 +18,20 @@ export const StyledLabel = styled(Box)<{ $size?: 'small' | 'default' }>`
 
   &:hover {
     border: ${(props) => props.theme.borderWidths['100']} solid
-      ${(props) => props.theme.colors.gray['600']};
+      ${(props) => {
+        return props.$size === 'small'
+          ? props.theme.colors.gray['400']
+          : props.theme.colors.gray['600'];
+      }};
   }
 
   input:checked ~ & {
     border: ${(props) => props.theme.borderWidths['100']} solid
-      ${(props) => props.theme.colors.blue['700']};
+      ${(props) => {
+        return props.$size === 'small'
+          ? props.theme.colors.gray['400']
+          : props.theme.colors.blue['700'];
+      }};
   }
 
   input:disabled ~ & {
@@ -84,9 +92,10 @@ export const StyledChecked = styled.svg`
   }
 `;
 
-export const StyledHeader = styled(Box)`
+export const StyledHeader = styled(Box)<{ $size?: 'small' | 'default' }>`
   input:checked ~ ${StyledLabel} & {
-    color: ${(props) => props.theme.colors.blue['700']};
+    color: ${(props) =>
+      props.$size === 'small' ? props.theme.colors.gray['800'] : props.theme.colors.blue['700']};
   }
 
   input:disabled ~ ${StyledLabel} & {

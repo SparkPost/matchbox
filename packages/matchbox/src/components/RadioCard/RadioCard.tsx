@@ -64,6 +64,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
           <Box flex="1" pl="300">
             <StyledHeader
               data-id="radio-card-header"
+              $size={size}
               fontSize={isSmall ? '200' : '300'}
               lineHeight={isSmall ? '200' : '400'}
               fontWeight={isSmall ? 'medium' : 'semibold'}
