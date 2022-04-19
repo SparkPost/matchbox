@@ -35,8 +35,9 @@ const StyledInput = styled(Box)<BoxProps>`
     margin: 0;
   }
 `;
-
-const StyledButton = styled(Box)<Omit<React.ComponentProps<typeof Box>, 'as'>>`
+const StyledButton = styled.button<
+  React.ComponentPropsWithRef<'button'> & Omit<React.ComponentProps<typeof Box>, 'as'>
+>`
   ${buttonReset}
   cursor: pointer;
 `;
@@ -110,11 +111,23 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         ref={assignRefs}
       />
       {type == 'number' && !disabled && (
-        <StyledNumberControls $disabled={disabled}>
-          <StyledButton onClick={increment} as="button" disabled={disabled}>
+        <StyledNumberControls $disabled={disabled} tabIndex={-1}>
+          <StyledButton
+            onClick={increment}
+            as="button"
+            type="button"
+            aria-hidden={true}
+            disabled={disabled}
+          >
             <StyledArrowUp size={20} />
           </StyledButton>
-          <StyledButton onClick={decrement} as="button" disabled={disabled}>
+          <StyledButton
+            onClick={decrement}
+            as="button"
+            type="button"
+            aria-hidden={true}
+            disabled={disabled}
+          >
             <StyledArrowDown size={20} />
           </StyledButton>
         </StyledNumberControls>
