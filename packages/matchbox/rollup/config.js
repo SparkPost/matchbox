@@ -24,6 +24,7 @@ export const inputOptions = {
     'styled-components',
     'styled-system',
     'styled-normalize',
+    '@types/styled-system',
   ],
 };
 
