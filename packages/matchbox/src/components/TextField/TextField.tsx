@@ -111,13 +111,14 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         ref={assignRefs}
       />
       {type == 'number' && !disabled && (
-        <StyledNumberControls $disabled={disabled} tabIndex={-1}>
+        <StyledNumberControls $disabled={disabled}>
           <StyledButton
             onClick={increment}
             as="button"
             type="button"
             aria-hidden={true}
             disabled={disabled}
+            tabIndex={-1}
           >
             <StyledArrowUp size={20} />
           </StyledButton>
@@ -127,6 +128,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
             type="button"
             aria-hidden={true}
             disabled={disabled}
+            tabIndex={-1}
           >
             <StyledArrowDown size={20} />
           </StyledButton>
