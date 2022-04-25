@@ -13,9 +13,11 @@ function noop() {
 describe('Banner', () => {
   add('success Banner', () => {
     return (
-      <Banner title="Thank you for your dedicated IP purchase" status="success" onDismiss={noop}>
-        <p>Happy Sending!</p>
-      </Banner>
+      <Banner
+        title="Thank you for your dedicated IP purchase"
+        status="success"
+        onDismiss={noop}
+      ></Banner>
     );
   });
 
