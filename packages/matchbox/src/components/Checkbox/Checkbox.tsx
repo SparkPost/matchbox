@@ -20,8 +20,8 @@ import {
 
 export type CheckboxProps = {
   id: string;
-  checked?: boolean | string | 'indeterminate';
-  defaultChecked?: boolean | string;
+  checked?: boolean | 'indeterminate';
+  defaultChecked?: boolean;
   disabled?: boolean;
   error?: React.ReactNode;
   helpText?: React.ReactNode;
@@ -29,7 +29,7 @@ export type CheckboxProps = {
   labelHidden?: boolean;
   required?: boolean;
   value?: string;
-} & React.ComponentPropsWithoutRef<'input'>;
+} & Omit<React.ComponentPropsWithoutRef<'input'>, 'checked'>;
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   props,
@@ -59,7 +59,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
 
   const isIndeterminate = typeof checked === 'string' && checked === 'indeterminate';
   const indeterminateAttributes = isIndeterminate
-    ? { $indeterminate: 'true', 'aria-checked': 'mixed' }
+    ? { 'aria-checked': 'mixed', checked: false }
     : { 'aria-checked': checked ? 'true' : 'false', checked };
 
   return (
