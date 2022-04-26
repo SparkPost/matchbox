@@ -50,6 +50,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
 
   const componentProps = omit(rest, margin.propNames);
   const systemProps = pick(rest);
+  const isControlled = checked !== undefined;
 
   const { describedBy, errorId, helpTextId } = useInputDescribedBy({
     id,
@@ -60,7 +61,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
   const isIndeterminate = typeof checked === 'string' && checked === 'indeterminate';
   const indeterminateAttributes = isIndeterminate
     ? { 'aria-checked': 'mixed', checked: false }
-    : { 'aria-checked': checked ? 'true' : 'false', checked };
+    : { 'aria-checked': checked ? 'true' : 'false', checked: Boolean(checked) };
 
   return (
     <Wrapper {...systemProps}>
@@ -73,7 +74,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Chec
           disabled={disabled}
           type="checkbox"
           ref={userRef}
-          {...indeterminateAttributes}
+          {...(isControlled ? indeterminateAttributes : {})}
           {...describedBy}
           {...componentProps}
         />
