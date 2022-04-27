@@ -1,4 +1,22 @@
 
+## 7.1.1 (2022-04-27)
+
+#### Enhancements
+* `matchbox`
+  * [#1080](https://github.com/SparkPost/matchbox/pull/1080) UX-784 add arrow controls to Text Field with type 'number' ([@logansparlin](https://github.com/logansparlin))
+
+#### Bug Fixes
+* `matchbox`
+  * [#1082](https://github.com/SparkPost/matchbox/pull/1082) Fix uncontrolled checked state conflicting with controlled indeterminate state ([@jonambas](https://github.com/jonambas))
+  * [#1079](https://github.com/SparkPost/matchbox/pull/1079) UX-786 Include styled-system types as runtime dependency ([@jonambas](https://github.com/jonambas))
+  * [#1077](https://github.com/SparkPost/matchbox/pull/1077) UX-782 remove selected and hover states from small CheckboxCard and RadioCard ([@logansparlin](https://github.com/logansparlin))
+  * [#1078](https://github.com/SparkPost/matchbox/pull/1078) UX-785 update font size on Panel.Subheader ([@logansparlin](https://github.com/logansparlin))
+
+#### Committers: 2
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+- Logan Sparlin ([@logansparlin](https://github.com/logansparlin))
+
+
 ## 7.1.0 (2022-03-08)
 
 #### Features
