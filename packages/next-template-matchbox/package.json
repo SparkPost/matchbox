@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.1.0",
+  "version": "7.1.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@sparkpost/design-tokens": "^7.1.0",
-    "@sparkpost/matchbox": "^7.1.0",
+    "@sparkpost/matchbox": "^7.1.1",
     "@sparkpost/matchbox-icons": "^7.1.0",
     "@sparkpost/matchbox-media": "^7.1.0",
     "@types/styled-components": "^5.1.19",
