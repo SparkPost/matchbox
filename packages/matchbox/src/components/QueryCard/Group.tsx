@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-type QueryCardGroupProps = {
+export type QueryCardGroupProps = {
   children?: React.ReactNode;
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, BoxProps } from '../Box';
 
-type QueryCardLegendProps = {
+export type QueryCardLegendProps = {
   color?: BoxProps['bg'];
 };
 
