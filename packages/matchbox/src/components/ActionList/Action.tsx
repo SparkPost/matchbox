@@ -5,7 +5,7 @@ import { HelpText } from '../HelpText';
 import { StyledLink, StyledButton } from './styles';
 import { LinkActionProps, ForwardRefComponent } from '../../helpers/types';
 
-type ActionListActionOwnProps = LinkActionProps & {
+export type ActionListActionOwnProps = LinkActionProps & {
   children?: React.ReactNode;
   helpText?: React.ReactNode;
   highlighted?: boolean;
@@ -34,13 +34,13 @@ type ActionListActionOwnProps = LinkActionProps & {
 type LinkProps = {
   is?: 'link';
 } & LinkActionProps &
-  Omit<React.ComponentPropsWithoutRef<'a'>, 'is'> &
+  React.ComponentPropsWithoutRef<'a'> &
   ActionListActionOwnProps;
 
 type ButtonProps = {
   is?: 'button';
 } & LinkActionProps &
-  Omit<React.ComponentPropsWithoutRef<'button'>, 'is'> &
+  React.ComponentPropsWithoutRef<'button'> &
   ActionListActionOwnProps;
 
 export type ActionListActionProps = LinkProps | ButtonProps;
