@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '../Text';
 
-type QueryCardOperatorProps = {
+export type QueryCardOperatorProps = {
   children?: React.ReactNode;
 };
 
