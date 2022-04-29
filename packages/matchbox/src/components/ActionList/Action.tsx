@@ -34,13 +34,13 @@ type ActionListActionOwnProps = LinkActionProps & {
 type LinkProps = {
   is?: 'link';
 } & LinkActionProps &
-  React.ComponentPropsWithoutRef<'a'> &
+  Omit<React.ComponentPropsWithoutRef<'a'>, 'is'> &
   ActionListActionOwnProps;
 
 type ButtonProps = {
   is?: 'button';
 } & LinkActionProps &
-  React.ComponentPropsWithoutRef<'button'> &
+  Omit<React.ComponentPropsWithoutRef<'button'>, 'is'> &
   ActionListActionOwnProps;
 
 export type ActionListActionProps = LinkProps | ButtonProps;
