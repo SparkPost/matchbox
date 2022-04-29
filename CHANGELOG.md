@@ -1,4 +1,15 @@
 
+## 7.1.2 (2022-04-29)
+
+#### Bug Fixes
+* `matchbox`
+  * [#1084](https://github.com/SparkPost/matchbox/pull/1084) Fix type exports ([@jonambas](https://github.com/jonambas))
+  * [#1083](https://github.com/SparkPost/matchbox/pull/1083) Fix Banner types export ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.1.1 (2022-04-27)
 
 #### Enhancements
