@@ -8,6 +8,7 @@ import { onKey, onKeys } from '../../helpers/keyEvents';
 import useWindowEvent from '../../hooks/useWindowEvent';
 import { findFocusableChild } from '../../helpers/focus';
 import type * as Polymorphic from '../../helpers/types';
+import { combineRefs } from '../../helpers/ref';
 
 export type PopoverProps = PaddingProps &
   LayoutProps & {
@@ -210,15 +211,8 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
 
   // Renders popover content
   function renderPopover() {
-    function assignRefs(node) {
-      if (ref) {
-        (ref as React.MutableRefObject<HTMLDivElement>).current = node;
-      }
-      popoverRef.current = node;
-    }
-
     return (
-      <PopoverContent open={shouldBeOpen} ref={assignRefs} {...rest}>
+      <PopoverContent open={shouldBeOpen} ref={combineRefs(ref, popoverRef)} {...rest}>
         {children}
       </PopoverContent>
     );
@@ -226,11 +220,6 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
 
   // Renders popover trigger
   function renderActivator({ activatorRef: forwardedRef }) {
-    function assignRefs(node) {
-      forwardedRef(node);
-      activatorRef.current = node;
-    }
-
     return (
       <Box
         as={Wrapper}
@@ -239,7 +228,7 @@ const Popover = React.forwardRef<HTMLSpanElement, PopoverProps>(function Popover
         position="relative"
         onClick={handleTrigger}
         onKeyDown={handleActivatorKey}
-        ref={assignRefs}
+        ref={combineRefs(forwardedRef, activatorRef)}
       >
         {trigger}
       </Box>

@@ -16,6 +16,7 @@ import useResizeObserver from '../../hooks/useResizeObserver';
 import { pick } from '../../helpers/props';
 import { focusOutline, buttonReset } from '../../styles/helpers';
 import type { ComponentPropsWithout } from '../../helpers/types';
+import { combineRefs } from '../../helpers/ref';
 
 const system = compose(margin, maxWidth);
 const StyledWrapper = styled('div')`
@@ -83,13 +84,6 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
     inputRef.current.stepDown();
   };
 
-  function assignRefs(node) {
-    inputRef.current = node;
-    if (userRef) {
-      (userRef as React.MutableRefObject<HTMLButtonElement>).current = node;
-    }
-  }
-
   return (
     <StyledInputWrapper>
       <StyledInput
@@ -108,7 +102,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         lineHeight={lineHeight}
         py={py}
         required={required}
-        ref={assignRefs}
+        ref={combineRefs(inputRef, userRef)}
       />
       {type == 'number' && !disabled && (
         <StyledNumberControls $disabled={disabled}>

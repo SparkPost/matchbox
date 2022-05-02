@@ -13,7 +13,7 @@ import { groupByValues } from '../../helpers/array';
 import Section from './Section';
 import Action from './Action';
 import { onKey } from '../../helpers/keyEvents';
-
+import { combineRefs } from '../../helpers/ref';
 export interface ActionListProps
   extends React.ComponentPropsWithRef<'div'>,
     LayoutProps,
@@ -121,13 +121,6 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
     })(e);
   }
 
-  function assignRefs(node) {
-    wrapperRef.current = node;
-    if (userRef) {
-      (userRef as React.MutableRefObject<HTMLDivElement>).current = node;
-    }
-  }
-
   return (
     <Wrapper
       aria-labelledby={labelledBy}
@@ -138,7 +131,7 @@ const ActionList = React.forwardRef<HTMLDivElement, ActionListProps>(function Ac
       onClick={onClick}
       tabIndex={-1}
       role="menu"
-      ref={assignRefs}
+      ref={combineRefs(wrapperRef, userRef)}
       onKeyDown={handleKeyDown}
       {...rest}
     >
