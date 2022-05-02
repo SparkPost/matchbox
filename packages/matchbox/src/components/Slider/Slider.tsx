@@ -6,6 +6,7 @@ import { noop, isNotTouchEvent } from '../../helpers/event';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 import { roundToPlaces, clamp } from '../../helpers/math';
 import { getWindow } from '../../helpers/window';
+import { combineRefs } from '../../helpers/ref';
 import { useResizeObserver } from '../../hooks';
 import {
   slider,
@@ -300,15 +301,6 @@ function Slider(props: SliderProps): JSX.Element {
     );
   });
 
-  const assignRefs = (node) => {
-    if (sliderRef) {
-      sliderRef.current = node;
-    }
-    if (resizeRef) {
-      resizeRef(node);
-    }
-  };
-
   return (
     <StyledSlider
       hasTicks={ticks}
@@ -316,7 +308,7 @@ function Slider(props: SliderProps): JSX.Element {
       data-id="slider-wrapper"
       onTouchStart={disabled ? noop : handleTouchStart}
       onMouseDown={disabled ? noop : handleMouseDown}
-      ref={assignRefs}
+      ref={combineRefs(sliderRef, resizeRef)}
       {...systemProps}
     >
       <StyledRail $disabled={disabled} />

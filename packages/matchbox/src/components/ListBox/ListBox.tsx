@@ -20,6 +20,7 @@ import {
 } from 'styled-system';
 import { pick } from '../../helpers/props';
 import { onKeys } from '../../helpers/keyEvents';
+import { combineRefs } from '../../helpers/ref';
 import useOptionConstructor from './useOptionConstructor';
 
 import { Button, ButtonProps } from '../Button';
@@ -223,13 +224,6 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
     }
   }
 
-  function assignRefs(node) {
-    buttonRef.current = node;
-    if (userRef) {
-      (userRef as React.MutableRefObject<HTMLButtonElement>).current = node;
-    }
-  }
-
   return (
     <StyledWrapper tabIndex={-1} {...systemProps} {...focusContainerProps}>
       {labelMarkup}
@@ -258,7 +252,7 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
               disabled={disabled}
               $hasError={!!error}
               {...describedBy}
-              ref={assignRefs}
+              ref={combineRefs(buttonRef, userRef)}
             >
               {contentFromValue || placeholder}
             </ListBoxButton>
