@@ -1,13 +1,13 @@
 import React from 'react';
 import Tab, { TabProps } from './Tab';
-import { ActionListActionProps } from '../ActionList';
+import { ActionListActionOwnProps } from '../ActionList';
 import { onKey, onKeys } from '../../helpers/keyEvents';
 
 type TabRefs = React.MutableRefObject<any>;
 
 type UseTabConstructor = {
   tabMarkup: React.ReactNode[];
-  tabActions?: ActionListActionProps[];
+  tabActions?: ActionListActionOwnProps[];
   focusContainerProps?: {
     onBlur: React.FocusEventHandler;
     onKeyDown: React.KeyboardEventHandler;

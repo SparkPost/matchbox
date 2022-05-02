@@ -5,7 +5,7 @@ import { HelpText } from '../HelpText';
 import { StyledLink, StyledButton } from './styles';
 import { LinkActionProps, ForwardRefComponent } from '../../helpers/types';
 
-export type ActionListActionProps = LinkActionProps & {
+export type ActionListActionOwnProps = LinkActionProps & {
   children?: React.ReactNode;
   helpText?: React.ReactNode;
   highlighted?: boolean;
@@ -35,15 +35,17 @@ type LinkProps = {
   is?: 'link';
 } & LinkActionProps &
   React.ComponentPropsWithoutRef<'a'> &
-  ActionListActionProps;
+  ActionListActionOwnProps;
 
 type ButtonProps = {
   is?: 'button';
 } & LinkActionProps &
   React.ComponentPropsWithoutRef<'button'> &
-  ActionListActionProps;
+  ActionListActionOwnProps;
 
-function Content(props: ActionListActionProps): JSX.Element {
+export type ActionListActionProps = LinkProps | ButtonProps;
+
+function Content(props: ActionListActionOwnProps): JSX.Element {
   const { content, children, selected, helpText } = props;
 
   return (
@@ -130,7 +132,7 @@ const Action = React.forwardRef(function Action(props, userRef) {
   }
 
   return <LinkAction ref={userRef} {...action} />;
-}) as ForwardRefComponent<'a' | 'button', LinkProps | ButtonProps>;
+}) as ForwardRefComponent<'a' | 'button', ActionListActionProps>;
 
 Action.displayName = 'ActionList.Action';
 export default Action;
