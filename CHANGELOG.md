@@ -1,4 +1,15 @@
 
+## 7.1.3 (2022-05-03)
+
+#### Bug Fixes
+* `matchbox`
+  * [#1086](https://github.com/SparkPost/matchbox/pull/1086) fix: Fix combining legacy refs ([@jonambas](https://github.com/jonambas))
+  * [#1085](https://github.com/SparkPost/matchbox/pull/1085) Fix Actionlist.Action types export ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.1.2 (2022-04-29)
 
 #### Bug Fixes
