@@ -1,4 +1,14 @@
 
+## 7.1.4 (2022-05-05)
+
+#### Bug Fixes
+* `matchbox-icons`, `matchbox`
+  * [#1087](https://github.com/SparkPost/matchbox/pull/1087) fix: extending component props with ref ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.1.3 (2022-05-03)
 
 #### Bug Fixes
