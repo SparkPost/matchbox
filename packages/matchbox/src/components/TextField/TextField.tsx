@@ -182,20 +182,18 @@ type SharedTextFieldProps = {
   MaxWidthProps;
 
 // Omitting 'prefix' because it is a native html attribute
-type MultiLineProps = Omit<React.ComponentPropsWithRef<'textarea'>, 'prefix'> &
-  SharedTextFieldProps & {
-    multiline: true;
-    rows?: number;
-    cols?: number;
-  };
+type MultiLineProps = SharedTextFieldProps & {
+  multiline: true;
+  rows?: number;
+  cols?: number;
+} & Omit<React.ComponentPropsWithRef<'textarea'>, 'prefix' | 'id'>;
 
 // Omitting 'prefix' because it is a native html attribute
-type InputProps = Omit<React.ComponentPropsWithoutRef<'input'>, 'prefix'> &
-  SharedTextFieldProps & {
-    multiline?: false;
-    rows?: never;
-    cols?: never;
-  };
+type InputProps = SharedTextFieldProps & {
+  multiline?: false;
+  rows?: never;
+  cols?: never;
+} & Omit<React.ComponentPropsWithRef<'input'>, 'prefix' | 'id'>;
 
 export type TextFieldProps = MultiLineProps | InputProps;
 
