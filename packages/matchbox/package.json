@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "7.1.3",
+  "version": "7.1.4",
   "description": "A React UI component library",
   "main": "dist/matchbox.js",
   "module": "dist/matchbox.esm.js",
@@ -55,7 +55,7 @@
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.15.0",
     "@rollup/plugin-typescript": "^8.2.5",
-    "@sparkpost/matchbox-icons": "^7.1.0",
+    "@sparkpost/matchbox-icons": "^7.1.4",
     "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.12",
