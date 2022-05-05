@@ -29,7 +29,7 @@ export type CheckboxProps = {
   labelHidden?: boolean;
   required?: boolean;
   value?: string;
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'checked'>;
+} & Omit<React.ComponentPropsWithRef<'input'>, 'checked'>;
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   props,

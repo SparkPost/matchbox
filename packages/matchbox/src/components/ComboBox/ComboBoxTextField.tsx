@@ -30,7 +30,7 @@ export type ComboBoxTextFieldProps = {
   removeItem?: (a: React.ReactNode) => void;
   selectedItems?: React.ReactNodeArray;
 } & MarginProps &
-  React.ComponentPropsWithoutRef<'input'>;
+  React.ComponentPropsWithRef<'input'>;
 
 function ComboBoxTextField(props: ComboBoxTextFieldProps): JSX.Element {
   const {

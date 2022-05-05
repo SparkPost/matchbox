@@ -111,7 +111,7 @@ describe('TextField', () => {
     />
   ));
 
-  add('multiline', () => <TextField id="id" label="Message" rows={5} multiline />);
+  add('multiline', () => <TextField id="id" label="Message" multiline={true} rows={5} cols={5} />);
 
   add('works with system props', () => (
     <>
@@ -130,4 +130,9 @@ describe('TextField', () => {
       />
     </>
   ));
+
+  add('works with a ref', () => {
+    const ref = React.useRef<HTMLInputElement | HTMLTextAreaElement>();
+    return <TextField id="id" ref={ref} />;
+  });
 });

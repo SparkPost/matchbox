@@ -6,7 +6,7 @@ export type SelectOptionProps =
   | ({
       value: string | number;
       label: string;
-    } & React.ComponentPropsWithoutRef<'option'>);
+    } & React.ComponentPropsWithRef<'option'>);
 
 const Option = ({ option }: { option: SelectOptionProps }): JSX.Element => {
   if (typeof option === 'object') {

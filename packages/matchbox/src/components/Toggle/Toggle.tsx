@@ -17,7 +17,7 @@ const StyledInput = styled('input')`
   ${input}
 `;
 
-export type ToggleProps = React.ComponentPropsWithoutRef<'input'> &
+export type ToggleProps = React.ComponentPropsWithRef<'input'> &
   MarginProps & {
     label?: React.ReactNode;
     'data-id'?: string;

@@ -15,7 +15,6 @@ import useInputDescribedBy from '../../hooks/useInputDescribedBy';
 import useResizeObserver from '../../hooks/useResizeObserver';
 import { pick } from '../../helpers/props';
 import { focusOutline, buttonReset } from '../../styles/helpers';
-import type { ComponentPropsWithout } from '../../helpers/types';
 import { combineRefs } from '../../helpers/ref';
 
 const system = compose(margin, maxWidth);
@@ -65,7 +64,7 @@ const StyledArrowDown = styled(KeyboardArrowDown)`
 `;
 
 type FieldBoxProps = BoxProps &
-  React.ComponentPropsWithoutRef<'input'> & {
+  React.ComponentPropsWithRef<'input'> & {
     hasError?: boolean;
   };
 
@@ -133,7 +132,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
 });
 
 type PrefixOrSuffixProps = BoxProps &
-  React.ComponentPropsWithoutRef<'span'> & {
+  React.ComponentPropsWithRef<'span'> & {
     content?: React.ReactNode;
   };
 
@@ -183,16 +182,18 @@ type SharedTextFieldProps = {
   MaxWidthProps;
 
 // Omitting 'prefix' because it is a native html attribute
-type MultiLineProps = ComponentPropsWithout<'textarea', 'prefix'> &
-  SharedTextFieldProps & {
-    multiline: true;
-  };
+type MultiLineProps = SharedTextFieldProps & {
+  multiline: true;
+  rows?: number;
+  cols?: number;
+} & Omit<React.ComponentPropsWithRef<'textarea'>, 'prefix' | 'id'>;
 
 // Omitting 'prefix' because it is a native html attribute
-type InputProps = ComponentPropsWithout<'input', 'prefix'> &
-  SharedTextFieldProps & {
-    multiline?: false;
-  };
+type InputProps = SharedTextFieldProps & {
+  multiline?: false;
+  rows?: never;
+  cols?: never;
+} & Omit<React.ComponentPropsWithRef<'input'>, 'prefix' | 'id'>;
 
 export type TextFieldProps = MultiLineProps | InputProps;
 
