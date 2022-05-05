@@ -78,11 +78,3 @@ export type LinkActionProps = {
    */
   Component?: React.ElementType;
 };
-
-/**
- * Omits a single prop from React.ComponentPropsWithRef
- */
-export type ComponentPropsWithout<T extends React.ElementType, K extends string> = Omit<
-  React.ComponentPropsWithRef<T>,
-  K
->;
