@@ -9,7 +9,7 @@ export type RadioCardProps = {
   'data-track'?: string;
   label?: React.ReactNode;
   size?: 'small' | 'default';
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
+} & Omit<React.ComponentPropsWithRef<'input'>, 'type' | 'size'>;
 
 const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function RadioCard(
   props,

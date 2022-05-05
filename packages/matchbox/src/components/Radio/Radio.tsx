@@ -25,7 +25,7 @@ export type RadioProps = {
   onBlur?: React.FocusEventHandler;
   helpText?: React.ReactNode;
 } & MarginProps &
-  Omit<React.ComponentPropsWithoutRef<'input'>, 'type'>;
+  Omit<React.ComponentPropsWithRef<'input'>, 'type'>;
 
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(props, userRef) {
   const {

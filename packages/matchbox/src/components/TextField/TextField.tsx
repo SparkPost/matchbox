@@ -65,7 +65,7 @@ const StyledArrowDown = styled(KeyboardArrowDown)`
 `;
 
 type FieldBoxProps = BoxProps &
-  React.ComponentPropsWithoutRef<'input'> & {
+  React.ComponentPropsWithRef<'input'> & {
     hasError?: boolean;
   };
 
@@ -133,7 +133,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
 });
 
 type PrefixOrSuffixProps = BoxProps &
-  React.ComponentPropsWithoutRef<'span'> & {
+  React.ComponentPropsWithRef<'span'> & {
     content?: React.ReactNode;
   };
 

@@ -39,7 +39,7 @@ const StyledChevron = styled(KeyboardArrowDown)<{ $disabled?: boolean }>`
   ${chevron}
 `;
 
-type StyledButtonProps = React.ComponentPropsWithoutRef<'button'> &
+type StyledButtonProps = React.ComponentPropsWithRef<'button'> &
   ButtonProps & {
     $hasError?: boolean;
   };

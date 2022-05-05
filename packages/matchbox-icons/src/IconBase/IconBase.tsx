@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type IconBaseProps = React.ComponentPropsWithoutRef<'svg'> & {
+export type IconBaseProps = React.ComponentPropsWithRef<'svg'> & {
   children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
@@ -9,7 +9,7 @@ export type IconBaseProps = React.ComponentPropsWithoutRef<'svg'> & {
   viewBox?: string;
   text?: string;
   textFill?: string;
-  textProps?: React.ComponentPropsWithoutRef<'text'>;
+  textProps?: React.ComponentPropsWithRef<'text'>;
 };
 
 const IconBase = (props: IconBaseProps): JSX.Element => {

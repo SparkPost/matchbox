@@ -81,7 +81,7 @@ export type SelectProps = {
   placeholderValue?: string;
 } & MarginProps &
   MaxWidthProps &
-  React.ComponentPropsWithoutRef<'select'>;
+  React.ComponentPropsWithRef<'select'>;
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(props, userRef) {
   const {

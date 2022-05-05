@@ -9,7 +9,7 @@ export type CheckboxCardProps = {
   'data-track'?: string;
   label?: React.ReactNode;
   size?: 'small' | 'default';
-} & Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'>;
+} & Omit<React.ComponentPropsWithRef<'input'>, 'type' | 'size'>;
 
 const CheckboxCard = React.forwardRef<HTMLInputElement, CheckboxCardProps>(function CheckboxCard(
   props,
