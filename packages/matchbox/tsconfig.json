@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@sparkpost/matchbox-icons*": ["../matchbox-icons/src", "../matchbox-icons/src*"]
+    },
     "target": "es6",
     "lib": ["es6", "dom", "dom.iterable", "esnext"],
     "allowJs": true,
