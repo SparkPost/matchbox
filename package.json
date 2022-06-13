@@ -8,14 +8,11 @@
   "scripts": {
     "start:libby": "npm run build:tokens && npm run build:css && NODE_ENV=development libby start",
     "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
-    "prebuild": "lerna bootstrap",
-    "build": "lerna run build",
-    "build:tokens": "lerna run build --scope @sparkpost/design-tokens",
-    "build:css": "lerna run build --scope @sparkpost/matchbox-css",
+    "build": "npm run build --workspaces",
+    "build:tokens": "npm run build --workspace=@sparkpost/design-tokens",
+    "build:css": "lerna run build --workspace=@sparkpost/matchbox-css",
     "build:libby": "npm run build && NODE_ENV=production libby build",
-    "clean": "lerna clean --yes",
-    "pretest": "npm run clean && lerna link",
-    "pretest:ci": "npm run build && npm run clean && lerna link",
+    "pretest:ci": "npm run build",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
     "test:e2e:ci": "start-server-and-test start:libby:static http://localhost:9001 test:e2e:headless",
@@ -27,8 +24,7 @@
     "lint": "node node_modules/eslint/bin/eslint.js packages",
     "lintfix": "npm run lint -- --fix",
     "lint:css": "stylelint './packages/**/!(*.spec|*.test).js'",
-    "precommit": "lint-staged",
-    "changelog": "dotenv lerna-changelog 2>&1 | tee .temp_changes.md && bash scripts/changelog.sh"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "**/(*.js|*.ts|*.tsx)": [
@@ -60,7 +56,6 @@
     "@babel/preset-react": "^7.12.5",
     "@percy/cli": "^1.0.0-beta.70",
     "@percy/cypress": "^3.1.1",
-    "@sparkpost/libby-react": "^0.0.48",
     "@testing-library/cypress": "^7.0.4",
     "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.24",
@@ -115,5 +110,12 @@
   "overrides": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "workspaces": [
+    "packages/matchbox",
+    "packages/matchbox-css",
+    "packages/matchbox-icons",
+    "packages/matchbox-media",
+    "packages/next-template-matchbox"
+  ]
 }
