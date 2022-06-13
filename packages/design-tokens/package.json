@@ -24,12 +24,10 @@
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
     "build": "style-dictionary build && npm run format",
-    "format": "prettier ./dist/**/*.{js,json,css,scss} --write --no-config",
+    "format": "prettier ./dist/**/*.{js,css,scss} --write --no-config",
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
-    "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
     "style-dictionary": "^3.0.3"
   },
   "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
