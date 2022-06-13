@@ -8,7 +8,7 @@
   "scripts": {
     "start:libby": "npm run build:tokens && npm run build:css && NODE_ENV=development libby start",
     "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
-    "build": "npm run build --workspaces",
+    "build": "npm run build --workspaces --if-present",
     "build:tokens": "npm run build --workspace=@sparkpost/design-tokens",
     "build:css": "npm run build --workspace=@sparkpost/matchbox-css",
     "build:libby": "npm run build && NODE_ENV=production libby build",
@@ -57,7 +57,6 @@
     "@types/jest": "^26.0.24",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
-    "@types/styled-components": "^5.1.12",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
@@ -108,11 +107,14 @@
     "react-dom": "^17.0.2"
   },
   "workspaces": [
-    "packages/matchbox",
+    "packages/design-tokens",
     "packages/matchbox-css",
     "packages/matchbox-icons",
     "packages/matchbox-media",
-    "packages/next-template-matchbox",
-    "packages/design-tokens"
-  ]
+    "packages/matchbox"
+  ],
+  "engines": {
+    "npm": "8.12.1",
+    "node": "16.15.1"
+  }
 }
