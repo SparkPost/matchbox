@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
-import * as icons from '../../packages/matchbox-icons/src';
+import * as icons from '@sparkpost/matchbox-icons';
+
 const Assessment = icons.Assessment;
 const FileType = icons.FileType;
 

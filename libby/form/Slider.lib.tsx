@@ -46,7 +46,7 @@ describe('Slider', () => {
 
     return (
       <>
-        <TextField value={value} onChange={e => setValue(e.target.value)} />
+        <TextField id='id' value={value} onChange={e => setValue(e.target.value)} />
         <Slider
           precision={1}
           max={100}

@@ -6,7 +6,7 @@ type TestComponentProps = {
   foo?: 'bar' | 'baz';
 };
 
-const TestComponent: React.FC<TestComponentProps> = (props) => {
+const TestComponent: React.FC<React.PropsWithChildren<TestComponentProps>> = (props) => {
   return <div>{props.children}</div>;
 };
 
