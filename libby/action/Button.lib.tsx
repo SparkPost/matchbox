@@ -217,8 +217,8 @@ describe('Button', () => {
   add('ref', () => {
     const ref = React.useRef(null);
     React.useLayoutEffect(() => {
-      ref.current.focus();
-    });
+      ref?.current?.focus();
+    }, []);
     return <Button ref={ref}>With a Ref</Button>;
   });
 
