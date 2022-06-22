@@ -22,12 +22,6 @@ export default {
       },
       resolve: {
         alias: {
-          /**
-           * Libby uses React 18, but enzyme requires 17
-           * 18 is  installed under an alias
-           */
-          react: '/node_modules/react-18',
-          'react-dom': '/node_modules/react-dom-18',
           '@sparkpost/matchbox-icons': '/packages/matchbox-icons/src',
           '@sparkpost/matchbox': '/packages/matchbox/src',
           '@sparkpost/design-tokens': '/packages/design-tokens',
