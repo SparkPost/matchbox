@@ -29,10 +29,6 @@
     "**/(*.js|*.ts|*.tsx)": [
       "eslint --fix",
       "git add"
-    ],
-    "packages/**/!(*.spec|*.test).(js|ts|tsx)": [
-      "stylelint",
-      "git add"
     ]
   },
   "dependencies": {
@@ -50,6 +46,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "@changesets/cli": "^2.23.0",
     "@percy/cli": "^1.0.0-beta.70",
     "@percy/cypress": "^3.1.1",
     "@sparkpost/libby-react": "^0.0.57",
@@ -102,12 +99,6 @@
     "serve": "^13.0.2",
     "start-server-and-test": "^1.11.7",
     "style-loader": "^1.3.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-prettier": "^1.1.2",
-    "stylelint-processor-styled-components": "^1.10.0",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
