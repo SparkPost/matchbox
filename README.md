@@ -39,10 +39,9 @@ We use `changesets` to handle versioning and publishing to NPM. Before publishin
 
 **Publishing Steps**
 
-1. Merge all pull requests you wish to release to `main`.
-1. Run `npx changset`. This will let you select which packages you'd like to include and to which version. Hint: use `space` to select options, and `enter` to proceed. Don't worry about the summary, this is editable later on.
+1. Run `npx changset` in your pull request. This will let you select which packages you'd like to include and to which version. Hint: use `space` to select options, and `enter` to proceed. Don't worry about the summary, this is editable later on.
 1. Ensure the changeset you just created has an accurate summary, located in the `.changeset` directory.
-1. If you are not ready to publish just yet, commit your changeset to git.
+1. Commit your changset to your pull request. The remaining steps should be taken after merging to `main`.
 1. Run `npx changeset version`. This will consume any changesets previously created, bump the packages, and update changelogs.
 1. Run `npm run build` to build all packages.
 1. Run `npx changeset publish`. This will publish all bumped packages to NPM. You will be required to enter your NPM OTP.
