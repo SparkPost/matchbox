@@ -6,13 +6,10 @@
     "url": "git+https://github.com/SparkPost/matchbox.git"
   },
   "scripts": {
-    "start": "libby start",
-    "start:libby": "npm run build:tokens && npm run build:css && NODE_ENV=development libby start",
+    "start:libby": "turbo run prelibby && NODE_ENV=development libby start",
     "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
-    "build": "npm run build --workspaces --if-present",
-    "build:tokens": "npm run build --workspace=@sparkpost/design-tokens",
-    "build:css": "npm run build --workspace=@sparkpost/matchbox-css",
-    "build:libby": "npm run build:tokens && npm run build:css && NODE_ENV=production libby build",
+    "build": "turbo run build",
+    "build:libby": "turbo run prelibby && NODE_ENV=production libby build",
     "pretest:ci": "npm run build",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
@@ -100,6 +97,7 @@
     "start-server-and-test": "^1.11.7",
     "style-loader": "^1.3.0",
     "tslib": "^2.3.0",
+    "turbo": "^1.3.1",
     "typescript": "^4.3.5"
   },
   "overrides": {

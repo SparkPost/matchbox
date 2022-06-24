@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "prelibby": {
+      "dependsOn": ["@sparkpost/design-tokens#build", "@sparkpost/matchbox-css#build"],
+      "outputs": ["dist/**"]
+    }
+  }
+}
