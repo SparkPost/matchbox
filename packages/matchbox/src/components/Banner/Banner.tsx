@@ -14,8 +14,10 @@ import { getChild, excludeChild } from '../../helpers/children';
 import Action from './Action';
 import Media from './Media';
 
+type Status = 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted' | 'promo';
+
 type IconProps = {
-  status: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
+  status: Status;
   size: 'small' | 'large';
 };
 
@@ -46,7 +48,7 @@ function IconSection({ status, size }: IconProps) {
 }
 
 type StatusProp = {
-  $status?: string;
+  $status?: Status;
 };
 
 const StyledContainer = styled(Box)<StatusProp>`
@@ -72,7 +74,7 @@ export type BannerProps = MarginProps & {
   children?: React.ReactNode;
   'data-id'?: string;
   title?: string;
-  status?: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'muted';
+  status?: Status;
   /**
    * @deprecated Use the Banner.Action component instead
    */
