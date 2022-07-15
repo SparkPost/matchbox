@@ -81,9 +81,8 @@ export const statusIcons = {
   },
   promo: {
     iconName: Rocket,
-    iconLabel: 'Error',
-    bg: 'gray.700',
-    fill: 'gray.700',
+    bg: 'gray.900',
+    fill: 'gray.900',
   },
 };
 
