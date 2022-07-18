@@ -110,6 +110,25 @@ describe('Banner', () => {
     </Banner>
   ));
 
+  add('promo Banner', () => {
+    return (
+      <Banner title="Promo Title" status="promo" onDismiss={noop}>
+        <p>
+          Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet.
+        </p>
+        <Banner.Media>
+          <Picture seeThrough>
+            <Picture.Image src={Image} />
+          </Picture>
+        </Banner.Media>
+        <Banner.Action onClick={noop}>Action One</Banner.Action>
+        <Banner.Action outline onClick={noop}>
+          Action Two
+        </Banner.Action>
+      </Banner>
+    );
+  });
+
   add('with actions', () => (
     <Banner title="Banner Title" status="info" onDismiss={noop}>
       <p>Banner content.</p>

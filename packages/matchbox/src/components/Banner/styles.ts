@@ -4,9 +4,10 @@ import {
   CheckCircleOutline,
   InfoOutline,
   ReportProblemOutlined,
+  Rocket,
 } from '@sparkpost/matchbox-icons';
 
-export function container(props) {
+export function container(props): string {
   switch (props.$status) {
     case 'success':
       return `
@@ -24,6 +25,7 @@ export function container(props) {
         border: 1px solid ${tokens.color_red_700};
       `;
     case 'muted':
+    case 'promo':
       return `
         background: ${tokens.color_gray_100};
         border: 1px solid ${tokens.color_gray_400};
@@ -38,7 +40,7 @@ export function container(props) {
 }
 
 // Overwrites unstyled link colors within Banner content to be color-contrast accessible
-export function childLinks(props) {
+export function childLinks(props): string {
   return `
   p, ul, ol {
     font-size: ${props.theme.fontSizes[200]};
@@ -77,9 +79,14 @@ export const statusIcons = {
     bg: 'red.700',
     fill: 'red.700',
   },
+  promo: {
+    iconName: Rocket,
+    bg: 'gray.900',
+    fill: 'gray.900',
+  },
 };
 
-export function dismissBase() {
+export function dismissBase(): string {
   return `
 transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out};
     &: hover {
@@ -88,7 +95,7 @@ transition: background ${tokens.motionDuration_fast} ${tokens.motionEase_in_out}
 `;
 }
 
-export function dismissColor(props) {
+export function dismissColor(props): string {
   switch (props.$status) {
     case 'success':
       return `
