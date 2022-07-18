@@ -1,4 +1,14 @@
 
+## 7.2.0 (2022-07-18)
+
+#### Features
+* `matchbox`
+  * [#1089](https://github.com/SparkPost/matchbox/pull/1089) UX-792 - feat(Banner): add promo variant ([@jonambas](https://github.com/jonambas))
+
+#### Committers: 1
+- Jon Ambas ([@jonambas](https://github.com/jonambas))
+
+
 ## 7.1.4 (2022-05-05)
 
 #### Bug Fixes
