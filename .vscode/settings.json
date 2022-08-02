@@ -1,4 +1,11 @@
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/.turbo": true
+  },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

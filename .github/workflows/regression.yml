@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+      - name: Install
+        run: npm ci
       - name: Prepare tests
         run: npm run pretest:ci
       - name: Visual Regression tests

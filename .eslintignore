@@ -5,3 +5,6 @@ packages/matchbox-icons/*
 !packages/matchbox-icons/src
 
 packages/next-template-matchbox/*
+
+**/*.test.js
+**/dist/**

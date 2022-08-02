@@ -18,16 +18,14 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "compile": "node-sass index.scss --importer node_modules/node-sass-import -o dist/index.css",
-    "build": "npm run compile -- --output-style compressed",
+    "build": "node scripts/compile.js",
     "clean": "rimraf ./dist"
   },
   "dependencies": {
     "@sparkpost/design-tokens": "^7.1.0"
   },
   "devDependencies": {
-    "node-sass": "^7.0.0",
-    "node-sass-import": "^2.0.1",
-    "rimraf": "^3.0.2"
+    "node-sass": "^7.0.1",
+    "node-sass-import": "^2.0.1"
   }
 }

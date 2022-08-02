@@ -1,12 +1,11 @@
-import React from 'react';
-
 export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number,
   immediate?: boolean,
 ) {
   let timeout;
-  return function(...rest) { // eslint-disable-line
+  return function (...rest) {
+    // eslint-disable-line
     const context = this; // eslint-disable-line
     const args = rest;
     const later = function () {

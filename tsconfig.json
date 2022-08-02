@@ -17,7 +17,7 @@
     "paths": {
       "@sparkpost/matchbox*": ["packages/matchbox/src", "packages/matchbox/src*"],
       "@sparkpost/matchbox-icons*": ["packages/matchbox-icons/src", "packages/matchbox-icons/src*"],
-      "@sparkpost/design-tokens/*": ["packages/design-tokens*"],
+      "@sparkpost/design-tokens": ["packages/design-tokens"],
       "@sparkpost/matchbox-media*": ["packages/matchbox-media*"]
     }
   },

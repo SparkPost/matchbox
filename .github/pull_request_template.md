@@ -1,21 +1,16 @@
-<!-- Give your PR a recognizable title. For example: "FE-123: Add new prop to component" or "Resolve Issue #123: Fix bug in component" -->
-<!-- Your PR title will be visible in changelogs -->
-
 ### What Changed
 
-<!--
-What changes does this PR propose?
-Provide screenshots or [screen recordings](https://getkap.co/) for any visual changes.
--->
+<!-- What changes does this PR propose? -->
 
-### How To Test or Verify
+### How To Verify
 
 <!--
 Describe any steps that may help reviewers verify changes.
 Anything beyond basic unit testing, such as assistive tech usage, or special interactions.
 -->
 
-### PR Checklist
+#### If your PR contains package changes:
 
-- [ ] Add the correct `type` label
-- [ ] Pull request approval from #uxfe or #design-guild
+1. Create a changeset with `npx changeset`
+1. Ensure the changeset in the `.changeset` directory includes a descriptive summary
+1. Commit the changeset to your pull request
