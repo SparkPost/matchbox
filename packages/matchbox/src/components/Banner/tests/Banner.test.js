@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Banner from '../Banner';
 import { Picture } from '../../Picture';
 import { tokens } from '@sparkpost/design-tokens';
@@ -12,7 +13,7 @@ describe('Banner', () => {
     onClick: jest.fn(),
   };
 
-  const subject = newProps =>
+  const subject = (newProps) =>
     global.mountStyled(
       <Banner {...props} {...newProps}>
         <p>You know this is a banner</p>
@@ -30,12 +31,7 @@ describe('Banner', () => {
     expect(wrapper.find('[aria-label="Info"]')).toExist();
     expect(wrapper.find('h5').text()).toEqual('Test Banner');
     expect(wrapper.find('p').text()).toEqual('You know this is a banner');
-    expect(
-      wrapper
-        .find('button')
-        .at(1)
-        .text(),
-    ).toEqual('Dismiss');
+    expect(wrapper.find('button').at(1).text()).toEqual('Dismiss');
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
@@ -63,6 +59,16 @@ describe('Banner', () => {
     expect(wrapper).toHaveStyleRule('background', tokens.color_blue_100);
   });
 
+  // RTL
+  it('renders promo status icon that is hidden from screen readers', () => {
+    render(
+      <Banner id="test-id" status="promo">
+        <p>content</p>
+      </Banner>,
+    );
+    expect(document.querySelector('svg[aria-hidden="true"]')).toBeTruthy();
+  });
+
   it('renders media correctly', () => {
     let wrapper = subject();
     expect(wrapper.find('img').props().src).toEqual('/test.jpg');
@@ -70,20 +76,14 @@ describe('Banner', () => {
 
   it('dismisses banner correctly upon clicking dismiss icon', () => {
     let wrapper = subject();
-    wrapper
-      .find('button')
-      .at(1)
-      .simulate('click');
+    wrapper.find('button').at(1).simulate('click');
     expect(props.onDismiss).toHaveBeenCalledTimes(1);
   });
 
   it('creats a clickable primary action if deprecated action prop is passed', () => {
     const action = { content: 'Click me', onClick: jest.fn() };
     const wrapper = subject({ action });
-    wrapper
-      .find('button')
-      .at(1)
-      .simulate('click');
+    wrapper.find('button').at(1).simulate('click');
     expect(action.onClick).toHaveBeenCalledTimes(1);
     expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'gray');
   });
@@ -95,17 +95,11 @@ describe('Banner', () => {
     ];
 
     const wrapper = subject({ actions });
-    wrapper
-      .find('button')
-      .at(1)
-      .simulate('click');
+    wrapper.find('button').at(1).simulate('click');
     expect(actions[0].onClick).toHaveBeenCalledTimes(1);
     expect(wrapper.find('button').at(1)).toHaveStyleRule('background', 'blue');
 
-    wrapper
-      .find('button')
-      .at(2)
-      .simulate('click');
+    wrapper.find('button').at(2).simulate('click');
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
     expect(wrapper.find('button').at(2)).toHaveStyleRule('background', 'transparent');
   });
@@ -131,16 +125,8 @@ describe('Banner', () => {
   it('renders Banner.Action', () => {
     const wrapper = subject();
 
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('button')
-        .at(0)
-        .text(),
-    ).toEqual('Banner Action');
+    wrapper.find('button').at(0).simulate('click');
+    expect(wrapper.find('button').at(0).text()).toEqual('Banner Action');
     expect(props.onClick).toHaveBeenCalledTimes(1);
   });
 });
