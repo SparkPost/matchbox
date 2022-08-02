@@ -1,7 +1,6 @@
 import React from 'react';
 import { margin, MarginProps } from 'styled-system';
 import styled from 'styled-components';
-import { pick } from '../../helpers/props';
 import { Box } from '../Box';
 
 const Wrapper = styled(Box)`
@@ -41,18 +40,14 @@ const borderMap = {
 
 export type BadgeProps = MarginProps & {
   color?: 'lightGray' | 'darkGray' | 'green' | 'red' | 'blue' | 'white' | 'black';
-  'data-id'?: string;
   children?: React.ReactNode;
-  id?: string;
-  tabIndex?: number;
-};
+} & React.ComponentPropsWithRef<'div'>;
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
   props: BadgeProps,
   userRef,
 ) {
-  const { children, color = 'lightGray', 'data-id': dataId, id, tabIndex, ...rest } = props;
-  const systemProps = pick(rest, margin.propNames);
+  const { children, color = 'lightGray', ...rest } = props;
 
   return (
     <Wrapper
@@ -67,11 +62,8 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       fontSize="50"
       fontWeight="medium"
       lineHeight="calc(1rem - 2px)"
-      id={id}
-      data-id={dataId}
-      tabIndex={tabIndex}
       ref={userRef}
-      {...systemProps}
+      {...rest}
     >
       {children}
     </Wrapper>
