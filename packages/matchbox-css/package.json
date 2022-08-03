@@ -25,7 +25,6 @@
     "@sparkpost/design-tokens": "^7.1.0"
   },
   "devDependencies": {
-    "node-sass": "^7.0.1",
-    "node-sass-import": "^2.0.1"
+    "sass": "^1.54.1"
   }
 }

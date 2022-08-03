@@ -1,22 +1,12 @@
-const sass = require('node-sass');
+const sass = require('sass');
 const fs = require('fs');
 
-/**
- * Because of NPM workspaces, the cli can't resolve this import properly
- */
-const importer = require('node-sass-import');
+const result = sass.compile('index.scss', {
+  loadPaths: ['..'], // loads paths for `design-tokens` exports
+  style: 'compressed',
+});
 
-sass.render(
-  {
-    file: 'index.scss',
-    importer: importer,
-    outFile: 'dist/index.css',
-    outputStyle: 'compressed',
-  },
-  (err, result) => {
-    if (!err) {
-      fs.mkdirSync('dist');
-      fs.writeFileSync('dist/index.css', result.css);
-    }
-  },
-);
+if (result) {
+  fs.mkdirSync('dist');
+  fs.writeFileSync('dist/index.css', result.css);
+}
