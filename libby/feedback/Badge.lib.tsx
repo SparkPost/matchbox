@@ -3,7 +3,7 @@ import { describe, add } from '@sparkpost/libby-react';
 import { Badge, Inline, Tooltip } from '../../packages/matchbox/src';
 
 describe('Badge', () => {
-  add('default', () => <Badge>50</Badge>);
+  add('default', () => <Badge data-testid="testid">50</Badge>);
   add('colors', () => (
     <Inline>
       <Badge color="lightGray">100</Badge>
