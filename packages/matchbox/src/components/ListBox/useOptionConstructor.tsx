@@ -84,9 +84,12 @@ function useOptionConstructor(props: UseOptionConstructorProps): UseOptionConstr
 
   React.useLayoutEffect(() => {
     if (keysSoFar && options) {
-      const index = options.findIndex((option) =>
-        option.props.children.toLowerCase().startsWith(keysSoFar),
-      );
+      const index = options.findIndex((option) => {
+        if (typeof option.props.children === 'string') {
+          return option.props.children.toLowerCase().startsWith(keysSoFar);
+        }
+        return -1;
+      });
       if (index >= 0) {
         setFocused(index);
       }

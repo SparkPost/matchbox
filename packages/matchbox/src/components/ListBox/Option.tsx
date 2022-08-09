@@ -12,6 +12,10 @@ export type ListBoxOptionProps = {
   setSize?: number;
   onSelect?: (value: string | number) => void;
   children?: React.ReactNode;
+  /**
+   * If using JSX within the Option's children, this label is used in the button trigger when the option is selected
+   */
+  label?: React.ReactNode;
 };
 
 const Option = React.forwardRef<HTMLButtonElement, ListBoxOptionProps>(function Option(props, ref) {
