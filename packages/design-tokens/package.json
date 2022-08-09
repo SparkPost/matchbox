@@ -22,7 +22,6 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "prepublishOnly": "npm run build",
     "build": "style-dictionary build && npm run format",
     "format": "prettier ./dist/**/*.{js,css,scss} --write --no-config",
     "clean": "rimraf ./dist"

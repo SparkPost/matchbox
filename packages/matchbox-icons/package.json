@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "prepublishOnly": "npm run build",
     "watch": "rollup -cw"
   },
   "peerDependencies": {

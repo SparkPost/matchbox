@@ -8,7 +8,7 @@
   "scripts": {
     "start:libby": "turbo run prelibby && NODE_ENV=development libby start",
     "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
-    "build": "turbo run build",
+    "build": "NODE=--max-old-space-size=8192 turbo run build",
     "build:libby": "turbo run prelibby && NODE_ENV=production libby build",
     "pretest:ci": "npm run build",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
