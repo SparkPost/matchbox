@@ -183,6 +183,11 @@ const ListBox = React.forwardRef<HTMLInputElement, ListBoxProps>(function ListBo
     const activeOption = options.find((option) => {
       return option.props.value === currentValue;
     });
+
+    if (activeOption && activeOption.props.label) {
+      return activeOption.props.label;
+    }
+
     return activeOption ? activeOption.props.children : currentValue;
   }, [currentValue]);
 

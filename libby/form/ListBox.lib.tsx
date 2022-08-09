@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { describe, add } from '@sparkpost/libby-react';
-import { ListBox, Inline } from '@sparkpost/matchbox';
+import { ListBox, Inline, Box } from '@sparkpost/matchbox';
 
 describe('ListBox', () => {
   add('basic usage', () => (
@@ -43,6 +43,26 @@ describe('ListBox', () => {
   add('placeholder', () => (
     <ListBox id="listbox-2" label="Select an option" placeholder="Select One" value="">
       <ListBox.Option value="option-1">Option 1</ListBox.Option>
+      <ListBox.Option value="option-2">Option 2</ListBox.Option>
+      <ListBox.Option value="option-3">Option 3</ListBox.Option>
+      <ListBox.Option value="option-4">Option 4</ListBox.Option>
+    </ListBox>
+  ));
+
+  add('react node in options', () => (
+    <ListBox
+      id="listbox-1"
+      defaultValue="option-1"
+      label="Select an option"
+      data-track="true"
+      onChange={(e) => console.log(e)}
+      onFocus={() => console.log('focus')}
+      onBlur={() => console.log('blur')}
+    >
+      <ListBox.Option value="option-1" label="Option 1">
+        <Box>Option 1</Box>
+        <Box color="gray.700">Description lorem ipsum dolor sit amet</Box>
+      </ListBox.Option>
       <ListBox.Option value="option-2">Option 2</ListBox.Option>
       <ListBox.Option value="option-3">Option 3</ListBox.Option>
       <ListBox.Option value="option-4">Option 4</ListBox.Option>
