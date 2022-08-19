@@ -14,6 +14,7 @@ export const StyledLabel = styled(Box)<{ $size?: 'small' | 'default' }>`
   cursor: pointer;
   transition: ${tokens.motionDuration_medium};
   transition-property: box-shadow, border;
+  height: 100%;
   ${focusOutline({ offset: '2px', modifier: 'input:focus ~ &' })}
 
   &:hover {
