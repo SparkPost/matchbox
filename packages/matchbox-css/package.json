@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-css",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "description": "Matchbox CSS Utility Library",
   "main": "dist/index.css",
   "style": "dist/index.css",
@@ -22,7 +22,7 @@
     "clean": "rimraf ./dist"
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "^7.1.0"
+    "@sparkpost/design-tokens": "^7.1.1"
   },
   "devDependencies": {
     "sass": "^1.54.1"

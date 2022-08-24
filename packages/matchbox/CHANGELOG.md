@@ -1,5 +1,14 @@
 # @sparkpost/matchbox
 
+## 7.2.2
+
+### Patch Changes
+
+- Fix missing dist
+- Updated dependencies
+  - @sparkpost/design-tokens@7.1.1
+  - @sparkpost/matchbox-icons@7.1.6
+
 ## 7.2.1
 
 ### Patch Changes

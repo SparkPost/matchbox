@@ -1,5 +1,11 @@
 # @sparkpost/matchbox-icons
 
+## 7.1.6
+
+### Patch Changes
+
+- Fix missing dist
+
 ## 7.1.5
 
 ### Patch Changes
