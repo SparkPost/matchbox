@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
       "@sparkpost/matchbox-icons*": ["../matchbox-icons/src", "../matchbox-icons/src*"]
     },
@@ -10,7 +10,6 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "declarationDir": "./",
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
