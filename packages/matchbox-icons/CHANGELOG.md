@@ -1,5 +1,11 @@
 # @sparkpost/matchbox-icons
 
+## 7.1.7
+
+### Patch Changes
+
+- b6c6f083: Typescript types are now bundled properly
+
 ## 7.1.6
 
 ### Patch Changes

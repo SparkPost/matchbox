@@ -1,5 +1,14 @@
 # @sparkpost/matchbox
 
+## 7.2.3
+
+### Patch Changes
+
+- c6273f06: RadioCard component height updated to 100%
+- b6c6f083: Typescript types are now bundled properly
+- Updated dependencies [b6c6f083]
+  - @sparkpost/matchbox-icons@7.1.7
+
 ## 7.2.2
 
 ### Patch Changes

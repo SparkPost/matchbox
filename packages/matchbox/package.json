@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "7.2.2",
+  "version": "7.2.3",
   "description": "A React UI component library",
   "main": "dist/matchbox.js",
   "module": "dist/matchbox.esm.js",
@@ -38,7 +38,7 @@
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
-    "@sparkpost/matchbox-icons": "^7.1.6",
+    "@sparkpost/matchbox-icons": "^7.1.7",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
@@ -54,7 +54,7 @@
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.15.0",
     "@rollup/plugin-typescript": "^8.2.5",
-    "@sparkpost/matchbox-icons": "^7.1.6",
+    "@sparkpost/matchbox-icons": "^7.1.7",
     "react-day-picker": "^7.4.8",
     "rimraf": "^3.0.2",
     "rollup": "^2.45.2",
