@@ -36,7 +36,7 @@ const RadioCard = React.forwardRef<HTMLInputElement, RadioCardProps>(function Ra
   const isSmall = size === 'small';
 
   return (
-    <Box data-id="radio-card">
+    <Box data-id="radio-card" height="100%">
       <StyledInput
         checked={checked}
         data-id={dataId}
