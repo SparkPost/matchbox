@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { ChangeEvent, useRef } from 'react';
 import { tokens } from '@sparkpost/design-tokens';
 import { compose, margin, MarginProps, maxWidth, MaxWidthProps } from 'styled-system';
 import { omit } from '@styled-system/props';
@@ -26,7 +26,7 @@ const StyledInputWrapper = styled(Box)`
   ${focusOutline({ modifier: '&:focus-within', offset: '2px' })}
 `;
 
-const StyledInput = styled(Box)<BoxProps>`
+const StyledInput = styled(Box) <BoxProps>`
   outline: none;
   &[type='number'],
   &[type='number']::-webkit-inner-spin-button,
@@ -42,7 +42,7 @@ const StyledButton = styled.button<
   cursor: pointer;
 `;
 
-const StyledNumberControls = styled(Box)<BoxProps & { $disabled?: boolean }>`
+const StyledNumberControls = styled(Box) <BoxProps & { $disabled?: boolean }>`
   padding: 0 6px;
   position: absolute;
   right: 0;
@@ -72,15 +72,17 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
   props,
   userRef,
 ) {
-  const { hasError, disabled, height, type, lineHeight, required, py, ...rest } = props;
+  const { hasError, disabled, height, type, lineHeight, required, py, onChange, ...rest } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const increment = () => {
     inputRef.current.stepUp();
+    onChange({ target: inputRef.current } as ChangeEvent<HTMLInputElement>);
   };
   const decrement = () => {
     inputRef.current.stepDown();
+    onChange({ target: inputRef.current } as ChangeEvent<HTMLInputElement>);
   };
 
   return (
@@ -89,6 +91,7 @@ const FieldBox = React.forwardRef<HTMLInputElement, FieldBoxProps>(function Fiel
         aria-invalid={!!hasError}
         as="input"
         px="400"
+        onChange={onChange}
         {...rest}
         type={type}
         disabled={disabled}
