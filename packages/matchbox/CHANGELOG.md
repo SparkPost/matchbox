@@ -1,5 +1,11 @@
 # @sparkpost/matchbox
 
+## 7.2.4
+
+### Patch Changes
+
+- Fix number arrow not triggering change
+
 ## 7.2.3
 
 ### Patch Changes
