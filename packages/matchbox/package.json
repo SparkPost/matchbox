@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox",
-  "version": "7.2.5",
+  "version": "7.2.6",
   "description": "A React UI component library",
   "main": "dist/matchbox.js",
   "module": "dist/matchbox.esm.js",
