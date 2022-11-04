@@ -1,5 +1,17 @@
 # @sparkpost/matchbox
 
+## 7.2.6
+
+### Patch Changes
+
+- Fix dist
+
+## 7.2.5
+
+### Patch Changes
+
+- Bump version
+
 ## 7.2.4
 
 ### Patch Changes
