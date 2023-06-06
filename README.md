@@ -1,6 +1,6 @@
 # Matchbox
 
-Matchbox is an open source design system and React component library, built for [SparkPost's UI](https://github.com/SparkPost/2web2ui).
+Matchbox is an open source design system and React component library, built for [SparkPost's UI](https://app.sparkpost.com/).
 
 ![Build](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Build?label=Build&style=flat-square) ![Tests](https://img.shields.io/github/workflow/status/SparkPost/matchbox/Unit%20and%20Cypress%20Tests?label=Tests&style=flat-square)
 
