@@ -28,8 +28,5 @@
   },
   "devDependencies": {
     "style-dictionary": "^4.4.0"
-  },
-  "engines": {
-    "node": "^20.19.0"
   }
 }
