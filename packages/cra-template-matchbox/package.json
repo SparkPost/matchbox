@@ -25,7 +25,6 @@
     "directory": "packages/matchbox-cra"
   },
   "engines": {
-    "npm": "^11.4.0",
     "node": "^20.19.0"
   },
   "bugs": {

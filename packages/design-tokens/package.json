@@ -30,7 +30,6 @@
     "style-dictionary": "^4.4.0"
   },
   "engines": {
-    "npm": "^11.4.0",
     "node": "^20.19.0"
   }
 }
