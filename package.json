@@ -104,6 +104,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "packageManager": "npm@10.8.0",
   "workspaces": [
     "packages/design-tokens",
     "packages/matchbox-css",
