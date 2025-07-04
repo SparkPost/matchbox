@@ -27,6 +27,6 @@
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
-    "style-dictionary": "^4.4.0"
+    "style-dictionary": "3.9.2"
   }
 }
