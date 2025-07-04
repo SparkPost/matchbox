@@ -1,7 +1,7 @@
 'use strict';
 
-import jsPlugins from './plugins/js';
-import pkg from '../package.json';
+import jsPlugins from './plugins/js.js';
+import pkg from '../package.json' assert { type: 'json' };
 
 export const inputOptions = {
   input: 'src/index.tsx',

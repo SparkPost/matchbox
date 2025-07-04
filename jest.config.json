@@ -19,7 +19,9 @@
     "/cypress/"
   ],
   "testEnvironment": "jsdom",
-  "testURL": "http://localhost",
+  "testEnvironmentOptions": {
+    "url": "http://localhost"
+  },
   "transform": {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",

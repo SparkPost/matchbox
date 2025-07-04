@@ -13,7 +13,8 @@
     "moduleResolution": "node",
     "declaration": false,
     "resolveJsonModule": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "types": ["node", "react"],
     "paths": {
       "@sparkpost/matchbox*": ["packages/matchbox/src", "packages/matchbox/src*"],
       "@sparkpost/matchbox-icons*": ["packages/matchbox-icons/src", "packages/matchbox-icons/src*"],

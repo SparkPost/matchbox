@@ -13,17 +13,17 @@ module.exports = {
         'react-app',
       ],
       plugins: [
-        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-transform-class-properties',
         ['babel-plugin-styled-components', { ssr: true, displayName: false, namespace: 'sc-' }],
       ],
     },
     production: {
       presets: [['@babel/preset-env'], '@babel/preset-react', 'react-app'],
-      plugins: ['@babel/plugin-proposal-class-properties'],
+      plugins: ['@babel/plugin-transform-class-properties'],
     },
     development: {
       presets: [['@babel/preset-env'], '@babel/preset-react', 'react-app'],
-      plugins: ['@babel/plugin-proposal-class-properties'],
+      plugins: ['@babel/plugin-transform-class-properties'],
     },
   },
 };

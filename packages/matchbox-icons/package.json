@@ -1,5 +1,6 @@
 {
   "name": "@sparkpost/matchbox-icons",
+  "type": "module",
   "version": "7.2.7",
   "description": "React icons for Matchbox",
   "main": "dist/matchbox-icons.js",
@@ -33,7 +34,6 @@
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
-    "@babel/plugin-external-helpers": "^7.27.1",
     "@babel/plugin-transform-class-properties": "^7.27.1",
     "@babel/plugin-transform-object-rest-spread": "^7.28.0",
     "@babel/preset-env": "^7.28.0",

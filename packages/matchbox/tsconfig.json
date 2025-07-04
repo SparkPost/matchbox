@@ -18,7 +18,8 @@
     "moduleResolution": "node",
     "declaration": true,
     "resolveJsonModule": true,
-    "jsx": "react"
+    "jsx": "react-jsx",
+    "types": ["node", "react"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"],
   "exclude": ["node_modules", "dist3", "src/**/*.test.js"]
