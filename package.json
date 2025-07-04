@@ -6,10 +6,10 @@
     "url": "git+https://github.com/SparkPost/matchbox.git"
   },
   "scripts": {
-    "start:libby": "turbo run prelibby && NODE_ENV=development libby start",
+    "start:libby": "turbo run prelibby --baseBranch=origin/main && NODE_ENV=development libby start",
     "start:libby:static": "NODE_ENV=production libby build && serve -c ./serve.json -p 9001",
-    "build": "NODE=--max-old-space-size=8192 turbo run build",
-    "build:libby": "turbo run prelibby && NODE_ENV=production libby build",
+    "build": "NODE=--max-old-space-size=8192 turbo run build --baseBranch=origin/main",
+    "build:libby": "turbo run prelibby --baseBranch=origin/main && NODE_ENV=production libby build",
     "pretest:ci": "npm run build",
     "test:e2e:headless": "NODE_ENV=test node_modules/.bin/cypress run",
     "test:e2e:gui": "NODE_ENV=test node_modules/.bin/cypress open",
