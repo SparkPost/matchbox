@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/design-tokens",
-  "version": "7.1.1",
+  "version": "7.2.7",
   "description": "SparkPost Design Tokens",
   "main": "index.js",
   "types": "index.d.ts",
@@ -27,7 +27,10 @@
     "clean": "rimraf ./dist"
   },
   "devDependencies": {
-    "style-dictionary": "^3.0.3"
+    "style-dictionary": "^4.4.0"
   },
-  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
+  "engines": {
+    "npm": "^11.4.0",
+    "node": "^20.19.0"
+  }
 }

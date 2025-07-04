@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.1.4",
+  "version": "7.2.7",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,26 +12,26 @@
     "format": "prettier --write '**/*.{js,ts,tsx}'"
   },
   "dependencies": {
-    "@sparkpost/design-tokens": "^7.1.0",
-    "@sparkpost/matchbox": "^7.1.4",
-    "@sparkpost/matchbox-icons": "^7.1.4",
-    "@sparkpost/matchbox-media": "^7.1.0",
-    "@types/styled-components": "^5.1.19",
-    "@types/styled-system": "^5.1.14",
-    "next": "^12.1.0",
-    "react": "17.0.2",
-    "react-day-picker": "^8.0.0-beta.36",
-    "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "@sparkpost/design-tokens": "^7.2.7",
+    "@sparkpost/matchbox": "^7.2.7",
+    "@sparkpost/matchbox-icons": "^7.2.7",
+    "@sparkpost/matchbox-media": "^7.2.7",
+    "@types/styled-components": "^5.1.34",
+    "@types/styled-system": "^5.1.23",
+    "next": "^15.3.5",
+    "react": "^19.1.0",
+    "react-day-picker": "^9.7.0",
+    "react-dom": "^19.1.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "@types/node": "17.0.8",
-    "@types/react": "17.0.38",
-    "eslint": "8.6.0",
-    "eslint-config-next": "12.0.7",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
-    "typescript": "4.5.4"
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "eslint": "^9.30.1",
+    "eslint-config-next": "^15.3.5",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
   },
   "lint-staged": {
     "**/*.{tsx,ts,js}": [

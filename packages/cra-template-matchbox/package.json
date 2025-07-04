@@ -3,7 +3,7 @@
   "description": "A template for Create React App using Matchbox, the Design System from SparkPost.",
   "author": "SparkPost",
   "license": "MIT",
-  "version": "7.1.0",
+  "version": "7.2.7",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
@@ -25,7 +25,8 @@
     "directory": "packages/matchbox-cra"
   },
   "engines": {
-    "node": ">=10"
+    "npm": "^11.4.0",
+    "node": "^20.19.0"
   },
   "bugs": {
     "url": "https://github.com/SparkPost/matchbox/issues"

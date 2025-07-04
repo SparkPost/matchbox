@@ -1,4 +1,13 @@
 
+## 7.2.7 (2025-07-04)
+
+#### Enhancements
+* `matchbox`, `matchbox-icons`
+  * [#1136](https://github.com/SparkPost/matchbox/pull/1136) Bump Node.js version and dependencies ([@dkoerichbird](https://github.com/dkoerichbird))
+
+#### Committers: 1
+- Douglas Koerich ([@dkoerichbird](https://github.com/dkoerichbird))
+
 ## 7.2.0 (2022-07-18)
 
 #### Features
