@@ -112,7 +112,7 @@
     "packages/matchbox"
   ],
   "engines": {
-    "npm": "8.12.1",
-    "node": "16.15.1"
+    "npm": "^10.9.2",
+    "node": "^22.16.0"
   }
 }
