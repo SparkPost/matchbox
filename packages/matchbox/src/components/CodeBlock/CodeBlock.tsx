@@ -48,7 +48,7 @@ export type CodeBlockProps = {
   children?: React.ReactNode;
 };
 
-function CodeBlock(props: CodeBlockProps): JSX.Element {
+function CodeBlock(props: CodeBlockProps): React.JSX.Element {
   const { children, code, height, className, numbered = false, dark = false } = props;
 
   return (

@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $font-family-prefix: "font-family";
-$font-family-map: map-get($matchbox-tokens, $font-family-prefix);
+$font-family-map: map.get(maps.$matchbox-tokens, $font-family-prefix);
 
 @each $ffKey, $ff in $font-family-map {
   .#{$font-family-prefix}-#{$ffKey} {
@@ -7,7 +11,7 @@ $font-family-map: map-get($matchbox-tokens, $font-family-prefix);
   }
 }
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $ffKey, $ff in $font-family-map {
       .#{$mqKey}:#{$font-family-prefix}-#{$ffKey} {

@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $box-shadow-prefix: "box-shadow";
-$box-shadow-map: map-get($matchbox-tokens, $box-shadow-prefix);
+$box-shadow-map: map.get(maps.$matchbox-tokens, $box-shadow-prefix);
 
 @each $bsKey, $bs in $box-shadow-map {
   .#{$box-shadow-prefix}-#{$bsKey} {
@@ -7,7 +11,7 @@ $box-shadow-map: map-get($matchbox-tokens, $box-shadow-prefix);
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $bsKey, $bs in $box-shadow-map {
     .#{$interaction}\:#{$box-shadow-prefix}-#{$bsKey}:#{$interaction} {
       box-shadow: #{$bs};
@@ -15,7 +19,7 @@ $box-shadow-map: map-get($matchbox-tokens, $box-shadow-prefix);
   }
 } 
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $bsKey, $bs in $box-shadow-map {
       .#{$mqKey}:#{$box-shadow-prefix}-#{$bsKey} {

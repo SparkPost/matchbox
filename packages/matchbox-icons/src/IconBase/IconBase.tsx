@@ -12,7 +12,7 @@ export type IconBaseProps = React.ComponentPropsWithRef<'svg'> & {
   textProps?: React.ComponentPropsWithRef<'text'>;
 };
 
-const IconBase = (props: IconBaseProps): JSX.Element => {
+const IconBase = (props: IconBaseProps): React.JSX.Element => {
   const {
     children,
     width,
@@ -49,7 +49,7 @@ const IconBase = (props: IconBaseProps): JSX.Element => {
 
 IconBase.displayName = 'IconBase';
 
-export function createSvgIcon(path: JSX.Element, displayName: string) {
+export function createSvgIcon(path: React.JSX.Element, displayName: string) {
   const Icon = (props: IconBaseProps) => <IconBase {...props}>{path}</IconBase>;
 
   Icon.displayName = displayName;
@@ -64,7 +64,7 @@ export function createExtendedSvgIcon({
   viewBox,
 }: {
   displayName: string;
-  path: JSX.Element;
+  path: React.JSX.Element;
   textContainer?: Record<string, unknown>;
   viewBox?: string;
 }) {

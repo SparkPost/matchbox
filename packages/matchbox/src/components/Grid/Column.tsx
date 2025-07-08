@@ -19,7 +19,7 @@ type GridColumnProps = {
   children?: React.ReactNode;
 };
 
-function Column({ children, ...props }: GridColumnProps): JSX.Element {
+function Column({ children, ...props }: GridColumnProps): React.JSX.Element {
   return <StyledGridColumn {...props}>{children}</StyledGridColumn>;
 }
 

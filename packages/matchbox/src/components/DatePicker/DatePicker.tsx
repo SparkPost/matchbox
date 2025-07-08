@@ -1,5 +1,5 @@
 import React from 'react';
-import DayPicker, { DayPickerProps } from 'react-day-picker';
+import { DayPicker, DayPickerProps } from 'react-day-picker';
 import styled from 'styled-components';
 import { margin, MarginProps } from 'styled-system';
 import { pick } from '@styled-system/props';

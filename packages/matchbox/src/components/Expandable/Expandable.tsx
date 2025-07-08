@@ -73,7 +73,7 @@ export type ExpandableProps = MarginProps & {
   variant?: 'bordered' | 'borderless';
 };
 
-function Expandable(props: ExpandableProps): JSX.Element {
+function Expandable(props: ExpandableProps): React.JSX.Element {
   const {
     children,
     defaultOpen = false,

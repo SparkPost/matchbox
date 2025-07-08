@@ -3,7 +3,7 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { CaptionElementProps } from 'react-day-picker';
 
-function Caption({ classNames, onClick, date, localeUtils }: CaptionElementProps): JSX.Element {
+function Caption({ classNames, onClick, date, localeUtils }: CaptionElementProps): React.JSX.Element {
   const month = localeUtils.getMonths()[date.getMonth()];
   const year = date.getFullYear();
 

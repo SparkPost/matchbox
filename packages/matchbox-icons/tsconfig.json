@@ -7,7 +7,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "declarationDir": "./",
+    "declarationDir": "./dist",
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
@@ -16,8 +16,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "types": ["node", "react"]
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js"],
   "exclude": ["node_modules", "./dist", "src/**/*.test.js"]

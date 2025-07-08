@@ -9,7 +9,7 @@ it('should format a standard tokens correctly', () => {
 it('should format a nested map tokens correctly', () => {
   const token = meta.find(({ name }) => name === 'color-green-700');
   expect(tokens_next[token.javascript]).toEqual(token.value);
-  expect(token.scss).toEqual('color(green,700)');
+  expect(token.scss).toEqual('color-get(green,700)');
 });
 
 it('should format a font size token correctly', () => {

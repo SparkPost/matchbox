@@ -24,11 +24,11 @@ npm run build
 Importing:
 
 ```css
-@import '~@sparkpost/design-tokens/dist/css/tokens.css';
+@use '~@sparkpost/design-tokens/dist/css/tokens.css';
 ```
 
 ```css
-@import '~@sparkpost/design-tokens/dist/scss/tokens.scss';
+@use '~@sparkpost/design-tokens/dist/scss/tokens.scss';
 ```
 
 ```js

@@ -12,7 +12,7 @@ export type ScreenReaderOnlyProps = {
   children: React.ReactNode;
 };
 
-const ScreenReaderOnly = ({ children, as = 'span', id }: ScreenReaderOnlyProps): JSX.Element => (
+const ScreenReaderOnly = ({ children, as = 'span', id }: ScreenReaderOnlyProps): React.JSX.Element => (
   <StyledScreenReaderOnly id={id} as={as}>
     {children}
   </StyledScreenReaderOnly>

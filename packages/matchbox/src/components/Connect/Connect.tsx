@@ -19,7 +19,7 @@ export type ConnectProps = {
   right?: React.ReactNode;
 };
 
-function Connect(props: ConnectProps): JSX.Element {
+function Connect(props: ConnectProps): React.JSX.Element {
   const { left, right, children } = props;
 
   const leftMarkup = left ? (

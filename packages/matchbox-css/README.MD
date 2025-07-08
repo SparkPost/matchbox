@@ -14,7 +14,7 @@ npm install @spkarpost/design-tokens
 ## Usage
 
 ```css
-@import '~@sparkpost/matchbox-css/dist/index.css';
+@use '~@sparkpost/matchbox-css/dist/index.css';
 ```
 
 ## Documentation

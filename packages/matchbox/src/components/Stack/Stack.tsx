@@ -49,7 +49,7 @@ export type StackProps = {
   'data-id'?: string;
 };
 
-function Stack(props: StackProps): JSX.Element {
+function Stack(props: StackProps): React.JSX.Element {
   const { children, align, space = '500' } = props;
   const items = React.Children.toArray(children);
 

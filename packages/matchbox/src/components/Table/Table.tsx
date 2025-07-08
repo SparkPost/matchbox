@@ -38,7 +38,7 @@ export type TableProps = {
 } & MarginProps &
   PaddingProps;
 
-function Table(props: TableProps): JSX.Element {
+function Table(props: TableProps): React.JSX.Element {
   const {
     'aria-readonly': readOnly,
     children,

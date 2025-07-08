@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $spacing-prefixes: (
   "p": "padding",
   "padding": "padding",
@@ -33,7 +37,7 @@ $spacing-prefixes: (
   "left": "left"
 );
 
-$spacing-map: map-get($matchbox-tokens, "spacing");
+$spacing-map: map.get(maps.$matchbox-tokens, "spacing");
 
 @each $prefixKey, $prefix in $spacing-prefixes {
   @each $spacingKey, $space in $spacing-map {
@@ -45,7 +49,7 @@ $spacing-map: map-get($matchbox-tokens, "spacing");
   }
 }
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $prefixKey, $prefix in $spacing-prefixes {
       @each $spacingKey, $space in $spacing-map {

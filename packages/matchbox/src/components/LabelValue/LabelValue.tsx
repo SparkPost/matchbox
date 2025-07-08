@@ -19,7 +19,7 @@ export type LabelValueProps = MarginProps & {
 
 export type LabelValueLabelProps = Pick<LabelValueProps, 'children' | 'orientation' | 'appearance'>;
 
-const Label = ({ children, orientation, appearance }: LabelValueLabelProps): JSX.Element => (
+const Label = ({ children, orientation, appearance }: LabelValueLabelProps): React.JSX.Element => (
   <Box
     fontSize="200"
     fontWeight="semibold"
@@ -34,7 +34,7 @@ Label.displayName = 'LabelValue.Label';
 
 export type LabelValueValueProps = Pick<LabelValueProps, 'children' | 'appearance'>;
 
-const Value = ({ children, appearance }: LabelValueValueProps): JSX.Element => (
+const Value = ({ children, appearance }: LabelValueValueProps): React.JSX.Element => (
   <Box color={appearance == 'inverted' ? 'white' : ''}>{children}</Box>
 );
 

@@ -23,7 +23,7 @@ export type CheckboxGroupProps = {
   optional?: boolean;
 } & MarginProps;
 
-function Group(props: CheckboxGroupProps): JSX.Element {
+function Group(props: CheckboxGroupProps): React.JSX.Element {
   const {
     'data-id': dataId,
     children,

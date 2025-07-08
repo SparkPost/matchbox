@@ -5,10 +5,10 @@ const MAP = 'matchbox-tokens';
  */
 const mapGet = (key) => `
   @function ${key}($variant) {
-    $parent-map: map-get($${MAP}, '${key}');
-      
-    @if map-has-key($parent-map, '#{$variant}') {
-      @return map-get($parent-map, '#{$variant}');
+    $parent-map: map.get($${MAP}, '${key}');
+
+    @if map.has-key($parent-map, '#{$variant}') {
+      @return map.get($parent-map, '#{$variant}');
     }
     
     @error '${key} '#{$variant}' not found.';
@@ -20,9 +20,9 @@ const utils = (rootFontSize) => {
   const unitless = rootFontSize.value.replace('px', '');
 
   return `
-    @import './maps';
+    @use './maps';
 
-    $DEFAULT_FONT_SIZE: ${root};
+    $DEFAULT_FONT_SIZE: maps.${root};
     $DEFAULT_FONT_SIZE_UNITLESS: ${unitless};
 
     @function rem($n) {
@@ -38,16 +38,16 @@ const utils = (rootFontSize) => {
 };
 
 const colorMapGet = () => `
-  @function color($palette, $variant: 400) {
-    $color-map: map-get($${MAP}, 'color');
+  @function color-get($palette, $variant: 400) {
+    $color-map: map.get($${MAP}, 'color');
 
     @if $palette == white {
-      @return map-get($color-map, 'white');
+      @return map.get($color-map, 'white');
     }
 
-    @if map-has-key($color-map, '#{$palette}') {
-      $palette-map: map-get($color-map, '#{$palette}');
-      @return map-get($palette-map, '#{$variant}');
+    @if map.has-key($color-map, '#{$palette}') {
+      $palette-map: map.get($color-map, '#{$palette}');
+      @return map.get($palette-map, '#{$variant}');
     }
     
     @error 'color' #{$palette} - #{$variant}' not found.';

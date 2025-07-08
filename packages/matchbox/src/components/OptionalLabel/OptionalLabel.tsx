@@ -14,7 +14,7 @@ export type OptionalLabelProps = {
   float?: boolean;
 };
 
-function OptionalLabel(props: OptionalLabelProps): JSX.Element {
+function OptionalLabel(props: OptionalLabelProps): React.JSX.Element {
   const { float } = props;
   return (
     <StyledBox

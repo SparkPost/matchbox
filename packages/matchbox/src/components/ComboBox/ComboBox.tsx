@@ -11,7 +11,7 @@ export type ComboBoxProps = {
   rootRef?: React.MutableRefObject<HTMLDivElement>;
 };
 
-function ComboBox(props: ComboBoxProps): JSX.Element {
+function ComboBox(props: ComboBoxProps): React.JSX.Element {
   const { children, style, rootRef, ...rest } = props;
 
   // Clones children in order to pass the menu into the textfield

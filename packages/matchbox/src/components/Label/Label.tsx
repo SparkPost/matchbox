@@ -15,7 +15,7 @@ export type LabelProps = Pick<React.ComponentProps<typeof Box>, 'fontWeight' | '
   as?: 'label' | 'span' | 'div' | 'legend';
 };
 
-function Label(props: LabelProps): JSX.Element {
+function Label(props: LabelProps): React.JSX.Element {
   const {
     label,
     id,

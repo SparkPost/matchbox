@@ -1,5 +1,4 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import { clamp } from './math';
 import { debounce } from './event';
 import { getWindow } from './window';
@@ -22,14 +21,14 @@ export function getWindowRect(): WindowRect {
 }
 
 export function getRectFor(node?: React.ReactInstance): ClientRect {
-  // Need to update this soon since findDomNode is deprecated
-  const rect = findDOMNode(node) as Element; //eslint-disable-line
+  const ref = React.useRef<HTMLDivElement>(null);
+  const rect = ref.current?.getBoundingClientRect(); //eslint-disable-line
 
   if (!rect) {
     return {} as ClientRect;
   }
 
-  return rect.getBoundingClientRect();
+  return rect;
 }
 
 /**

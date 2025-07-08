@@ -53,7 +53,7 @@ export type PaginationProps = MarginProps & {
  * Pagination component
  * @see https://design.sparkpost.com/components/pagination
  */
-function Pagination(props: PaginationProps): JSX.Element {
+function Pagination(props: PaginationProps): React.JSX.Element {
   const [index, setIndex] = React.useState(0);
   const [hasPrevious, setHasPrevious] = React.useState(false);
   const [hasNext, setHasNext] = React.useState(false);

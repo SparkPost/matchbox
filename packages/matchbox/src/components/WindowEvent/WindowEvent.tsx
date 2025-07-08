@@ -16,7 +16,7 @@ export type WindowEventProps<T extends keyof WindowEventMap> = {
  * Adds and removes events for you
  * @example <WindowEvent event='keydown' handler={handleKeyDown} />
  */
-function WindowEvent<T extends keyof WindowEventMap>(props: WindowEventProps<T>): JSX.Element {
+function WindowEvent<T extends keyof WindowEventMap>(props: WindowEventProps<T>): React.JSX.Element {
   const { event, handler } = props;
 
   if (!isBrowser()) {

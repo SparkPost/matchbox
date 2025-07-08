@@ -15,7 +15,7 @@ export type Merge<P1 = { [key: string]: any }, P2 = { [key: string]: any }> = Om
 export type OwnProps<E> = E extends ForwardRefComponent<any, infer P> ? P : { [key: string]: any };
 
 /**
- * Infers the JSX.IntrinsicElement if E is a ForwardRefExoticComponentWithAs
+ * Infers the React.JSX.IntrinsicElement if E is a ForwardRefExoticComponentWithAs
  */
 export type IntrinsicElement<E> = E extends ForwardRefComponent<infer I, any> ? I : never;
 
@@ -41,15 +41,15 @@ export interface ForwardRefComponent<
    * from `as` element with the own props taking precendence.
    *
    * We explicitly avoid `React.ElementType` and manually narrow the prop types
-   * so that events are typed when using JSX.IntrinsicElements.
+   * so that events are typed when using React.JSX.IntrinsicElements.
    */
   <As = IntrinsicElementString>(
     props: As extends ''
-      ? { as: keyof JSX.IntrinsicElements }
+      ? { as: keyof React.JSX.IntrinsicElements }
       : As extends React.ComponentType<infer P>
       ? Merge<P, OwnProps & { as: As }>
-      : As extends keyof JSX.IntrinsicElements
-      ? Merge<JSX.IntrinsicElements[As], OwnProps & { as: As }>
+      : As extends keyof React.JSX.IntrinsicElements
+      ? Merge<React.JSX.IntrinsicElements[As], OwnProps & { as: As }>
       : never,
   ): React.ReactElement | null;
 }

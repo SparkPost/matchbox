@@ -8,7 +8,7 @@ export type SelectOptionProps =
       label: string;
     } & React.ComponentPropsWithRef<'option'>);
 
-const Option = ({ option }: { option: SelectOptionProps }): JSX.Element => {
+const Option = ({ option }: { option: SelectOptionProps }): React.JSX.Element => {
   if (typeof option === 'object') {
     const { value, label = value, ...rest } = option;
     return (

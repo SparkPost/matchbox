@@ -5,7 +5,7 @@ import { WeekdayElementProps } from 'react-day-picker';
 
 const shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-function Weekday({ className, weekday, localeUtils }: WeekdayElementProps): JSX.Element {
+function Weekday({ className, weekday, localeUtils }: WeekdayElementProps): React.JSX.Element {
   return (
     <Box
       flex="1 0 0"

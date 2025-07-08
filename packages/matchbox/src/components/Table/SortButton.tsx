@@ -73,7 +73,7 @@ const UnsortedWrapper = styled.span`
   }
 `;
 
-function Unsorted(): JSX.Element {
+function Unsorted(): React.JSX.Element {
   return (
     <UnsortedWrapper>
       <ArrowUpward size={14} />

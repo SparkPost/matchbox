@@ -209,9 +209,9 @@ describe('Panel', () => {
 
   it('renders with with a ref', () => {
     function Test() {
-      const ref = React.useRef();
+      const ref = React.useRef<HTMLElement>(null);
       React.useEffect(() => {
-        ref.current.focus();
+        ref.current?.focus();
       }, []);
       return (
         <>

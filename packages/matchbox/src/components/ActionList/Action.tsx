@@ -45,7 +45,7 @@ type ButtonProps = {
 
 export type ActionListActionProps = LinkProps | ButtonProps;
 
-function Content(props: ActionListActionOwnProps): JSX.Element {
+function Content(props: ActionListActionOwnProps): React.JSX.Element {
   const { content, children, selected, helpText } = props;
 
   return (

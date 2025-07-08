@@ -70,7 +70,7 @@ export type TooltipProps = {
   TypographyProps &
   ShadowProps;
 
-function Tooltip(props: TooltipProps): JSX.Element {
+function Tooltip(props: TooltipProps): React.JSX.Element {
   const [show, setshow] = React.useState(false);
 
   function handleShow() {

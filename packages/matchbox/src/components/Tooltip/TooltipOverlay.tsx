@@ -34,7 +34,7 @@ type TooltipOverlayProps = {
   portalId?: PortalProps['containerId'];
 };
 
-function TooltipOverlay(props: TooltipOverlayProps): JSX.Element {
+function TooltipOverlay(props: TooltipOverlayProps): React.JSX.Element {
   const [position, setPosition] = React.useState(defaultPosition);
   const [preferredDirection, setPreferredDirection] = React.useState(defaultDirection);
   const activatorRef = React.useRef(null);

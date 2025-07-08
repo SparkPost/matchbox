@@ -1,9 +1,9 @@
-@import '~@sparkpost/design-tokens/tokens';
+@use '~@sparkpost/design-tokens/tokens';
 
 .green {
-  background: color(green, 400);
+  background: color-get(green, 400);
 }
 
 .white {
-  background: color(white);
+  background: color-get(white);
 }

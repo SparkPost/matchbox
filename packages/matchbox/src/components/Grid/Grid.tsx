@@ -29,7 +29,7 @@ export type GridProps = {
   children: React.ReactNode;
 };
 
-function Grid(props: GridProps): JSX.Element {
+function Grid(props: GridProps): React.JSX.Element {
   const { children, start, center, end, top, middle, bottom, around, between } = props;
   return (
     <StyledGrid

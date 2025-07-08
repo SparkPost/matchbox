@@ -1,0 +1,5 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+
+$interactions: 'hover', 'focus', 'focus-visible', 'active', 'visited', 'disabled';
+$media-query-map: map.get(maps.$matchbox-tokens, 'media-query');

@@ -32,7 +32,7 @@ export type ComboBoxTextFieldProps = {
 } & MarginProps &
   React.ComponentPropsWithRef<'input'>;
 
-function ComboBoxTextField(props: ComboBoxTextFieldProps): JSX.Element {
+function ComboBoxTextField(props: ComboBoxTextFieldProps): React.JSX.Element {
   const {
     autoFocus,
     disabled,

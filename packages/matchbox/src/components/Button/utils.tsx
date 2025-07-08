@@ -10,7 +10,7 @@ interface ButtonPropsWithContent extends ButtonProps {
 export function buttonsFrom(
   actions: ButtonPropsWithContent[],
   overrides?: ButtonProps,
-): JSX.Element {
+): React.JSX.Element {
   const filteredActions = filterByVisible(actions);
 
   if (filteredActions.length) {
@@ -28,6 +28,6 @@ export function buttonFrom(
   { content, ...action }: ButtonPropsWithContent,
   overrides?: ButtonProps,
   key?: React.Key,
-): JSX.Element {
+): React.JSX.Element {
   return <Button key={key} children={content} {...action} {...overrides} />; // eslint-disable-line
 }

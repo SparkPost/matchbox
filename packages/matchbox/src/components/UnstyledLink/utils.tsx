@@ -10,7 +10,7 @@ interface LinkFromTypes extends UnstyledLinkProps {
 export function linkFrom(
   { content, children, ...action }: LinkFromTypes,
   key?: React.Key,
-): JSX.Element {
+): React.JSX.Element {
   return (
     <UnstyledLink key={key} {...action}>
       {content}

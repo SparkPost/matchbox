@@ -13,7 +13,7 @@ export type ErrorProps = Pick<React.ComponentProps<typeof Box>, 'ml'> & {
   wrapper?: 'div' | 'span';
 };
 
-function ErrorLabel(props: ErrorProps): JSX.Element {
+function ErrorLabel(props: ErrorProps): React.JSX.Element {
   const { className, children, error, wrapper: WrapperComponent = 'div', id, ml = '0' } = props;
 
   return (

@@ -7,7 +7,7 @@ export type LayoutSectionTitleProps = {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-const SectionTitle = (props: LayoutSectionTitleProps): JSX.Element => {
+const SectionTitle = (props: LayoutSectionTitleProps): React.JSX.Element => {
   const { children, as = 'h2' } = props;
 
   return (

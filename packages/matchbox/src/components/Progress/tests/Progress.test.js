@@ -53,9 +53,9 @@ describe('Progress.Step', () => {
 
   it('handles refs', () => {
     const Test = () => {
-      let ref = React.useRef();
+      let ref = React.useRef<HTMLElement>(null);
       React.useEffect(() => {
-        ref.current.focus();
+        ref.current?.focus();
       }, []);
       return (
         <Progress>

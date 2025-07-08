@@ -30,7 +30,7 @@ type ManagerProps = {
  * When rendering ThemeProvider:
  * <ThemeProvider target={document.getElementById('styled-components-target')} />
  * */
-function Manager({ target, children }: ManagerProps): JSX.Element {
+function Manager({ target, children }: ManagerProps): React.JSX.Element {
   if (!target) {
     return <>{children}</>;
   }
@@ -56,7 +56,7 @@ export type ThemeProviderProps = {
  *
  * @prop theme Overrides matchbox's theme
  */
-function Theme(props: ThemeProviderProps): JSX.Element {
+function Theme(props: ThemeProviderProps): React.JSX.Element {
   return (
     <Manager target={props.target}>
       <ThemeProvider theme={{ ...theme, ...props.theme }}>

@@ -11,7 +11,7 @@ import { DayModifiers } from 'react-day-picker';
  * outside - provided by react-day-picker
  * */
 
-function renderDay(date: Date, modifiers: DayModifiers): JSX.Element | '' {
+function renderDay(date: Date, modifiers: DayModifiers): React.JSX.Element | '' {
   if (modifiers.outside) {
     return '';
   }

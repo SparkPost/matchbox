@@ -19,7 +19,7 @@ type ExpandableAccentProps = {
     | 'gray';
 };
 
-const Accent = ({ accentColor }: ExpandableAccentProps): JSX.Element => {
+const Accent = ({ accentColor }: ExpandableAccentProps): React.JSX.Element => {
   return <AccentOuter $accentColor={accentColor} />;
 };
 

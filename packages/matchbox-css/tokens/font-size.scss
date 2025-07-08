@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $font-size-prefix: "font-size";
-$font-size-map: map-get($matchbox-tokens, $font-size-prefix);
+$font-size-map: map.get(maps.$matchbox-tokens, $font-size-prefix);
 
 @each $fsKey, $fs in $font-size-map {
   .#{$font-size-prefix}-#{$fsKey} {
@@ -7,7 +11,7 @@ $font-size-map: map-get($matchbox-tokens, $font-size-prefix);
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $fsKey, $fs in $font-size-map {
     .#{$interaction}\:#{$font-size-prefix}-#{$fsKey}:#{$interaction} {
       font-size: #{$fs};
@@ -15,7 +19,7 @@ $font-size-map: map-get($matchbox-tokens, $font-size-prefix);
   }
 } 
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $fsKey, $fs in $font-size-map {
       .#{$mqKey}:#{$font-size-prefix}-#{$fsKey} {

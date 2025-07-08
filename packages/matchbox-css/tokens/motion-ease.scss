@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $motion-ease-prefix: "motion-ease";
-$motion-ease-map: map-get($matchbox-tokens, $motion-ease-prefix);
+$motion-ease-map: map.get(maps.$matchbox-tokens, $motion-ease-prefix);
 
 @each $meKey, $me in $motion-ease-map {
   .#{$motion-ease-prefix}-#{$meKey} {
@@ -7,7 +11,7 @@ $motion-ease-map: map-get($matchbox-tokens, $motion-ease-prefix);
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $meKey, $me in $motion-ease-map {
     .#{$interaction}\:#{$motion-ease-prefix}-#{$meKey}:#{$interaction} {
       transition-timing-function: #{$me};
@@ -15,7 +19,7 @@ $motion-ease-map: map-get($matchbox-tokens, $motion-ease-prefix);
   }
 } 
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $meKey, $me in $motion-ease-map {
       .#{$mqKey}:#{$motion-ease-prefix}-#{$meKey} {

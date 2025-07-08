@@ -19,7 +19,7 @@ type OverlayProps = Pick<React.ComponentProps<typeof Popover>, 'id' | 'open' | '
   as?: 'div' | 'span';
 };
 
-function PopoverOverlay(props: OverlayProps): JSX.Element {
+function PopoverOverlay(props: OverlayProps): React.JSX.Element {
   const [position, setPosition] = React.useState(defaultPosition);
   const activatorRef = React.useRef(null);
   const { as, id, open, renderPopover, renderActivator, portalId } = props;

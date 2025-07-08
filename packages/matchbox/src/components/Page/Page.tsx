@@ -25,7 +25,7 @@ type PageBreadcrumbProps = UnstyledLinkProps & {
   content?: React.ReactNode;
 };
 
-function Breadcrumb({ content, ...rest }: PageBreadcrumbProps): JSX.Element {
+function Breadcrumb({ content, ...rest }: PageBreadcrumbProps): React.JSX.Element {
   return (
     <StyledLink {...rest} fontSize="200" lineHeight="200" fontWeight="medium">
       <Box as="span" display="inline-flex" alignItems="center">
@@ -40,7 +40,7 @@ type PageSubtitleProps = {
   subtitle?: React.ReactNode;
 };
 
-function Subtitle({ subtitle }: PageSubtitleProps): JSX.Element {
+function Subtitle({ subtitle }: PageSubtitleProps): React.JSX.Element {
   if (!subtitle) {
     return null;
   }
@@ -66,7 +66,7 @@ type PageSecondaryActionsProps = {
   actions?: PageAction[];
 };
 
-function SecondaryActions({ actions, hasPrimaryAction }: PageSecondaryActionsProps): JSX.Element {
+function SecondaryActions({ actions, hasPrimaryAction }: PageSecondaryActionsProps): React.JSX.Element {
   const visibleActions = React.useMemo(() => filterByVisible(actions), [actions]);
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -131,7 +131,7 @@ type PagePrimaryActionProps = {
   action?: PageAction;
 };
 
-function PrimaryAction({ area, action }: PagePrimaryActionProps): JSX.Element {
+function PrimaryAction({ area, action }: PagePrimaryActionProps): React.JSX.Element {
   if (!action && !area) {
     return null;
   }
@@ -190,7 +190,7 @@ export type PageProps = {
   children?: React.ReactNode;
 };
 
-function Page(props: PageProps): JSX.Element {
+function Page(props: PageProps): React.JSX.Element {
   const {
     title,
     subtitle,

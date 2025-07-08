@@ -23,7 +23,7 @@ export type ToggleProps = React.ComponentPropsWithRef<'input'> &
     'data-id'?: string;
   };
 
-function Toggle(props: ToggleProps): JSX.Element {
+function Toggle(props: ToggleProps): React.JSX.Element {
   const {
     id,
     value,

@@ -109,7 +109,7 @@ export type SliderProps = {
    */
 } & MarginProps;
 
-function Slider(props: SliderProps): JSX.Element {
+function Slider(props: SliderProps): React.JSX.Element {
   const {
     defaultValue,
     disabled,

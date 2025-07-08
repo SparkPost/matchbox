@@ -55,7 +55,7 @@ export type InlineProps = {
   'data-id'?: string;
 };
 
-function Inline(props: InlineProps): JSX.Element {
+function Inline(props: InlineProps): React.JSX.Element {
   const { children, align, alignY = 'center', space = '400' } = props;
   const items = React.Children.toArray(children);
 

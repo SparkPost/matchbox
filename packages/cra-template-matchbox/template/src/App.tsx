@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, Box, Text, Stack, UnstyledLink, InlineCode } from '@sparkpost/matchbox';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   return (
     <ThemeProvider>
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">

@@ -23,7 +23,7 @@ export type ComboBoxMenuProps = {
   menuRef?: React.MutableRefObject<HTMLDivElement>;
 } & MaxHeightProps;
 
-function ComboBoxMenu(props: ComboBoxMenuProps): JSX.Element {
+function ComboBoxMenu(props: ComboBoxMenuProps): React.JSX.Element {
   const {
     items = [],
     menuRef,

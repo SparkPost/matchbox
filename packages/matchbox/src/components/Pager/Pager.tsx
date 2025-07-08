@@ -17,7 +17,7 @@ export type PagerProps = MarginProps & {
   id?: string;
 };
 
-function Pager(props: PagerProps): JSX.Element {
+function Pager(props: PagerProps): React.JSX.Element {
   const { children, id, 'data-id': dataId, ...rest } = props;
   const systemProps = pick(rest, margin.propNames);
 

@@ -12,7 +12,7 @@ const StyledGroup = styled(Box)`
   ${group}
 `;
 
-const Group = ({ children, className = '' }: ButtonGroupProps): JSX.Element => (
+const Group = ({ children, className = '' }: ButtonGroupProps): React.JSX.Element => (
   <StyledGroup display="inline-flex" alignItems="center" className={className}>
     {children}
   </StyledGroup>

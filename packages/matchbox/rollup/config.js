@@ -1,7 +1,7 @@
 'use strict';
 
 import jsPlugins from './plugins/js.js';
-import pkg from '../package.json' assert { type: 'json' };
+import pkg from '../package.json' with { type: 'json' };
 
 export const inputOptions = {
   input: 'src/index.tsx',
@@ -10,6 +10,7 @@ export const inputOptions = {
     'copy-to-clipboard',
     'react',
     'react-dom',
+    'react/jsx-runtime',
     'prop-types',
     'react-day-picker',
     'react-transition-group',

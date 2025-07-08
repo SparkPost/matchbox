@@ -5,7 +5,7 @@ export type InlineCodeProps = {
   children?: React.ReactNode;
 };
 
-function InlineCode({ children }: InlineCodeProps): JSX.Element {
+function InlineCode({ children }: InlineCodeProps): React.JSX.Element {
   return (
     <Box
       as="code"

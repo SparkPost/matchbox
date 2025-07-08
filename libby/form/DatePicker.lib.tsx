@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, add } from '@sparkpost/libby-react';
 import { DatePicker, useBreakpoint } from '@sparkpost/matchbox';
-import { DateUtils } from 'react-day-picker';
 
 // @example
 //   const breakpoint = useBreakpoint();
@@ -40,6 +39,10 @@ import { DateUtils } from 'react-day-picker';
 const to = new Date();
 const from = new Date(new Date().setDate(new Date().getDate() - 15));
 
+const isSameDay = (a: Date, b: Date): boolean => {
+  return a?.toDateString() === b?.toDateString();
+};
+
 const selectedDays = {
   to,
   from,
@@ -47,10 +50,10 @@ const selectedDays = {
 
 const modifiers = {
   firstSelected: (day) => {
-    return DateUtils.isSameDay(day, selectedDays.from);
+    return isSameDay(day, selectedDays.from);
   },
-  lastSelected: (day) => DateUtils.isSameDay(day, selectedDays.to),
-  inBetween: (day) => DateUtils.isDayBetween(day, selectedDays.from, selectedDays.to),
+  lastSelected: (day) => isSameDay(day, selectedDays.to),
+  inBetween: (day) => selectedDays.from && selectedDays.to && day > selectedDays.from && day < selectedDays.to,
 };
 
 describe('DatePicker', () => {

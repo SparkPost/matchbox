@@ -24,7 +24,7 @@ export type RadioGroupProps = {
   required?: boolean;
 } & MarginProps;
 
-function Group(props: RadioGroupProps): JSX.Element {
+function Group(props: RadioGroupProps): React.JSX.Element {
   const {
     'data-id': dataId,
     children,

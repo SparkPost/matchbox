@@ -11,7 +11,7 @@ type NavbarProps = NavbarElementProps & {
   showNextButton?: boolean;
   showPreviousButton?: boolean;
 };
-function Navbar(props: NavbarProps): JSX.Element {
+function Navbar(props: NavbarProps): React.JSX.Element {
   const { onPreviousClick, onNextClick, showNextButton, showPreviousButton } = props;
 
   return (

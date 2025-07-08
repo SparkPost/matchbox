@@ -132,7 +132,7 @@ describe('Popover', () => {
 
   it('renders with with a ref and focuses automatically', () => {
     function Test() {
-      const ref = React.useRef();
+      const ref = React.useRef<HTMLElement>(null);
       return (
         <>
           <Popover ref={ref} open>

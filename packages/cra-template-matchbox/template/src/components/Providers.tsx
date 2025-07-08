@@ -5,7 +5,7 @@ type ProvidersProps = {
   children?: React.ReactNode;
 };
 
-function Providers(props: ProvidersProps): JSX.Element {
+function Providers(props: ProvidersProps): React.JSX.Element {
   const { children } = props;
 
   return <ThemeProvider>{children}</ThemeProvider>;

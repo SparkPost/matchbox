@@ -7,7 +7,7 @@ export type LayoutSectionProps = {
   'data-id'?: string;
 };
 
-function Section({ annotated, children, 'data-id': dataId }: LayoutSectionProps): JSX.Element {
+function Section({ annotated, children, 'data-id': dataId }: LayoutSectionProps): React.JSX.Element {
   return (
     <Column width={annotated ? 1 / 3 : 1} data-id={dataId}>
       {children}

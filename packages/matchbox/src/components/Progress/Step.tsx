@@ -114,7 +114,7 @@ export type ProgressStepProps = Types.LinkActionProps & {
 
 export type PolymorphicProgressStep = Types.ForwardRefComponent<'a', ProgressStepProps>;
 
-function Indicator(props: StepIndicatorProps): JSX.Element {
+function Indicator(props: StepIndicatorProps): React.JSX.Element {
   const { disabled, selected, completed } = props;
 
   const connectorColor = React.useMemo(() => {
