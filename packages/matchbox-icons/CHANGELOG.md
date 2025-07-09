@@ -1,5 +1,11 @@
 # @sparkpost/matchbox-icons
 
+## 7.1.8
+
+### Patch Changes
+
+- Bump version
+
 ## 7.1.7
 
 ### Patch Changes

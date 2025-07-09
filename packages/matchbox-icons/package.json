@@ -1,6 +1,6 @@
 {
   "name": "@sparkpost/matchbox-icons",
-  "version": "7.1.7",
+  "version": "7.1.8",
   "description": "React icons for Matchbox",
   "main": "dist/matchbox-icons.js",
   "module": "dist/matchbox-icons.esm.js",
@@ -54,6 +54,5 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
-  },
-  "gitHead": "718165e127a547a64ad6c9c2e407a4393aa2e6e6"
+  }
 }
