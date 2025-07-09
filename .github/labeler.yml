@@ -1,2 +1,3 @@
 ':eyes: needs review':
-  - 'packages/**/*'
+  paths:
+    - 'packages/**/*'
