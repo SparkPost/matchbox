@@ -1,4 +1,13 @@
 
+## 7.2.7 (2025-07-09)
+
+#### Features
+* `design-tokens`, `matchbox`, `matchbox-css`, `matchbox-icons`, `matchbox-media`, `next-template-matchbox`, `cra-template-matchbox`
+  * [#1125](https://github.com/SparkPost/matchbox/pull/1125) TASK-10510 - Bump version of Node.js to 22.x ([@dkoerichbird](https://github.com/dkoerichbird))
+
+#### Committers: 1
+- Doug Koerich ([@dkoerichbird](https://github.com/dkoerichbird))
+
 ## 7.2.0 (2022-07-18)
 
 #### Features

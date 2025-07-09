@@ -1,5 +1,11 @@
 # @sparkpost/matchbox-css
 
+## 7.1.3
+
+### Patch Changes
+
+- Bump version
+
 ## 7.1.2
 
 ### Patch Changes
