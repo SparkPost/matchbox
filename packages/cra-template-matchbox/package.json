@@ -25,7 +25,7 @@
     "directory": "packages/matchbox-cra"
   },
   "engines": {
-    "node": ">=10"
+    "node": "^22"
   },
   "bugs": {
     "url": "https://github.com/SparkPost/matchbox/issues"

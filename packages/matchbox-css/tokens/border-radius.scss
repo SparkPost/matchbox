@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $border-radius-prefix: "border-radius";
-$border-radius-map: map-get($matchbox-tokens, $border-radius-prefix);
+$border-radius-map: map.get(maps.$matchbox-tokens, $border-radius-prefix);
 
 @each $brKey, $br in $border-radius-map {
   .#{$border-radius-prefix}-#{$brKey} {
@@ -7,7 +11,7 @@ $border-radius-map: map-get($matchbox-tokens, $border-radius-prefix);
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $brKey, $br in $border-radius-map {
     .#{$interaction}\:#{$border-radius-prefix}-#{$brKey}:#{$interaction} {
       border-radius: #{$br};
@@ -15,7 +19,7 @@ $border-radius-map: map-get($matchbox-tokens, $border-radius-prefix);
   }
 } 
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $brKey, $br in $border-radius-map {
       .#{$mqKey}:#{$border-radius-prefix}-#{$brKey} {

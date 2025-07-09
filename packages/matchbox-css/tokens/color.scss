@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $color-prefixes: (
   "color": "color",
   "bg": "background-color",
@@ -5,7 +9,7 @@ $color-prefixes: (
   "border-color": "border-color"
 );
 
-$color-map: map-get($matchbox-tokens, "color");
+$color-map: map.get(maps.$matchbox-tokens, "color");
 
 @each $catKey, $cat in $color-map {
   @each $prefixKey, $prefix in $color-prefixes {
@@ -24,7 +28,7 @@ $color-map: map-get($matchbox-tokens, "color");
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $catKey, $cat in $color-map {
     @each $prefixKey, $prefix in $color-prefixes {
       @each $colorKey, $color in $cat {
@@ -43,7 +47,7 @@ $color-map: map-get($matchbox-tokens, "color");
   }
 }
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $prefixKey, $prefix in $color-prefixes {
       @each $catKey, $cat in $color-map {

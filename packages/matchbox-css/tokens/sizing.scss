@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $sizing-prefixes: (
   "h": "height",
   "height": "height",
@@ -9,7 +13,7 @@ $sizing-prefixes: (
   "max-width": "max-width"
 );
 
-$sizing-map: map-get($matchbox-tokens, "sizing");
+$sizing-map: map.get(maps.$matchbox-tokens, "sizing");
 
 @each $prefixKey, $prefix in $sizing-prefixes {
   @each $sizingKey, $size in $sizing-map {
@@ -19,7 +23,7 @@ $sizing-map: map-get($matchbox-tokens, "sizing");
   }
 }
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $prefixKey, $prefix in $sizing-prefixes {
       @each $sizingKey, $size in $sizing-map {

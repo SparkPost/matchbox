@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use 'design-tokens/dist/scss/maps.scss' as maps;
+@use 'settings.scss' as settings;
+
 $motion-duration-prefix: "motion-duration";
-$motion-duration-map: map-get($matchbox-tokens, $motion-duration-prefix);
+$motion-duration-map: map.get(maps.$matchbox-tokens, $motion-duration-prefix);
 
 @each $mdKey, $md in $motion-duration-map {
   .#{$motion-duration-prefix}-#{$mdKey} {
@@ -7,7 +11,7 @@ $motion-duration-map: map-get($matchbox-tokens, $motion-duration-prefix);
   }
 }
 
-@each $interaction in $interactions {
+@each $interaction in settings.$interactions {
   @each $mdKey, $md in $motion-duration-map {
     .#{$interaction}\:#{$motion-duration-prefix}-#{$mdKey}:#{$interaction} {
       transition-duration: #{$md};
@@ -15,7 +19,7 @@ $motion-duration-map: map-get($matchbox-tokens, $motion-duration-prefix);
   }
 } 
 
-@each $mqKey, $mq in $media-query-map {
+@each $mqKey, $mq in settings.$media-query-map {
   @media (min-width: #{$mq}) {
     @each $mdKey, $md in $motion-duration-map {
       .#{$mqKey}:#{$motion-duration-prefix}-#{$mdKey} {
