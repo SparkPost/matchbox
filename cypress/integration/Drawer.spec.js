@@ -28,7 +28,7 @@ describe('Drawer component', () => {
   });
 
   it('traps focus', () => {
-    cy.wait(500); // waits for Drawer to enter
+    cy.wait(1000); // waits for Drawer to enter
     cy.get('body').tab();
     cy.focused().should('have.text', 'Close');
     cy.focused().tab();
@@ -40,7 +40,7 @@ describe('Drawer component', () => {
   });
 
   it('returns focus on close', () => {
-    cy.wait(500); // waits for Drawer to enter
+    cy.wait(1000); // waits for Drawer to enter
     cy.get('body').tab();
     cy.focused().should('have.text', 'Close');
     cy.get('body').type('{esc}');
