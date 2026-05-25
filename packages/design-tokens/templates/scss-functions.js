@@ -20,18 +20,19 @@ const utils = (rootFontSize) => {
   const unitless = rootFontSize.value.replace('px', '');
 
   return `
+    @use "sass:math";
     @import './maps';
 
     $DEFAULT_FONT_SIZE: ${root};
     $DEFAULT_FONT_SIZE_UNITLESS: ${unitless};
 
     @function rem($n) {
-      $result: 0rem + $n / $DEFAULT_FONT_SIZE_UNITLESS;
+      $result: 0rem + math.div($n, $DEFAULT_FONT_SIZE_UNITLESS);
       @return $result;
     }
 
     @function em($n) {
-      $result: 0em + $n / $DEFAULT_FONT_SIZE_UNITLESS;
+      $result: 0em + math.div($n, $DEFAULT_FONT_SIZE_UNITLESS);
       @return $result;
     }
   `;
