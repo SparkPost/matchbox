@@ -27,10 +27,6 @@ Object {
 }
 `;
 
-exports[`getRectFor should return empty object with no node 1`] = `Object {}`;
-
-exports[`getRectFor should return node dimensions 1`] = `"dimensions"`;
-
 exports[`getWindowRect should return window dimensions 1`] = `
 Object {
   "height": 600,

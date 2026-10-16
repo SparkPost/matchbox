@@ -1,5 +1,4 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import { clamp } from './math';
 import { debounce } from './event';
 import { getWindow } from './window';
@@ -21,15 +20,27 @@ export function getWindowRect(): WindowRect {
   };
 }
 
-export function getRectFor(node?: React.ReactInstance): ClientRect {
-  // Need to update this soon since findDomNode is deprecated
-  const rect = findDOMNode(node) as Element; //eslint-disable-line
+type ElementRect = Pick<DOMRect, 'top' | 'right' | 'bottom' | 'left' | 'width' | 'height'>;
 
-  if (!rect) {
-    return {} as ClientRect;
+const EMPTY_RECT: Readonly<ElementRect> = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  width: 0,
+  height: 0,
+};
+
+/**
+ * Measures an element's bounding box, or returns a zero rect when there is no element to measure,
+ * such as a ref that has not attached yet.
+ */
+export function getRectFor(node?: Element | null): ElementRect {
+  if (!node || typeof node.getBoundingClientRect !== 'function') {
+    return EMPTY_RECT;
   }
 
-  return rect.getBoundingClientRect();
+  return node.getBoundingClientRect();
 }
 
 /**
@@ -56,14 +67,14 @@ export function useWindowSize(wait = 100): WindowRect {
 }
 
 /**
- * Gets preferred direction for the provided react component
- * @param  {React Node} node - a react component
+ * Gets preferred direction for the provided element
+ * @param  {Element} node
  * @return {Shape}
  * Returns directional booleans for where the component should render. Eg:
  * top: true if component is in the bottom half of the screen
  * right: true if component in the left half of the screen
  */
-export function getPreferredDirectionFor(node?: React.ReactInstance): {
+export function getPreferredDirectionFor(node?: Element | null): {
   top: boolean;
   left: boolean;
   right: boolean;
@@ -84,11 +95,11 @@ export function getPreferredDirectionFor(node?: React.ReactInstance): {
 }
 
 /**
- * Gets coordinates and dimensions in pixels for the provided react component
- * @param  {React Node} node
+ * Gets coordinates and dimensions in pixels for the provided element
+ * @param  {Element} node
  * @return {Shape}
  */
-export function getPositionFor(node?: React.ReactInstance, { fixed = false } = {}): WindowRect {
+export function getPositionFor(node?: Element | null, { fixed = false } = {}): WindowRect {
   const windowRect = getWindowRect();
   const elementRect = getRectFor(node);
 

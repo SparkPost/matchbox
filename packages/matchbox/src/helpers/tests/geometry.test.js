@@ -9,8 +9,6 @@ import {
   useWindowSize,
   roundToBaseline,
 } from '../geometry';
-import * as reactDomMock from 'react-dom';
-jest.mock('react-dom');
 
 function MockComponent() {
   const size = useWindowSize();
@@ -28,25 +26,26 @@ describe('getWindowRect', () => {
   });
 });
 
-describe('getRectFor', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
+/**
+ * Builds a stand-in element whose bounding box is `rect`.
+ * @param {Partial<DOMRect>} rect
+ * @returns {Element}
+ * @private
+ */
+function elementWithRect(rect) {
+  const element = document.createElement('div');
+  element.getBoundingClientRect = () => rect;
+  return element;
+}
 
-  it('should return empty object with no node', () => {
-    reactDomMock.findDOMNode.mockImplementationOnce(() => undefined);
-    const result = getRectFor('test');
-    expect(reactDomMock.findDOMNode).toHaveBeenCalledWith('test');
-    expect(result).toMatchSnapshot();
+describe('getRectFor', () => {
+  it('should return a zero rect with no node', () => {
+    expect(getRectFor(null)).toEqual({ top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0 });
   });
 
   it('should return node dimensions', () => {
-    reactDomMock.findDOMNode.mockImplementationOnce(() => ({
-      getBoundingClientRect: jest.fn(() => 'dimensions'),
-    }));
-    const result = getRectFor('test');
-    expect(reactDomMock.findDOMNode).toHaveBeenCalledWith('test');
-    expect(result).toMatchSnapshot();
+    const rect = { top: 1, right: 2, bottom: 3, left: 4, width: 5, height: 6 };
+    expect(getRectFor(elementWithRect(rect))).toBe(rect);
   });
 });
 
@@ -58,30 +57,21 @@ describe('useWindowSize', () => {
 });
 
 describe('getPreferredDirectionFor', () => {
-  beforeEach(() => {
-    reactDomMock.findDOMNode.mockImplementation(() => ({
-      getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, right: 80, bottom: 700 })),
-    }));
-  });
-
   it('should return direction', () => {
-    expect(getPreferredDirectionFor('test')).toMatchSnapshot();
+    const node = elementWithRect({ top: 600, left: 50, right: 80, bottom: 700 });
+    expect(getPreferredDirectionFor(node)).toMatchSnapshot();
   });
 });
 
 describe('getPositionFor', () => {
-  beforeEach(() => {
-    reactDomMock.findDOMNode.mockImplementation(() => ({
-      getBoundingClientRect: jest.fn(() => ({ top: 600, left: 50, width: 20, height: 10 })),
-    }));
-  });
+  const node = elementWithRect({ top: 600, left: 50, width: 20, height: 10 });
 
   it('should return direction', () => {
-    expect(getPositionFor('test')).toMatchSnapshot();
+    expect(getPositionFor(node)).toMatchSnapshot();
   });
 
   it('should return direction if node is fixed', () => {
-    expect(getPositionFor('test', { fixed: true })).toMatchSnapshot();
+    expect(getPositionFor(node, { fixed: true })).toMatchSnapshot();
   });
 });
 
