@@ -1,26 +1,27 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Text from '../Text';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Text', () => {
   it('it should render correctly', () => {
-    const wrapper = global.renderStyled(<Text id="text-id">Text</Text>);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Text id="text-id">Text</Text>);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('it should truncate', () => {
-    const wrapper = global.renderStyled(<Text truncate>Text</Text>);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Text truncate>Text</Text>);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render data-id', () => {
-    const wrapper = global.mountStyled(<Text data-id="test-id">Text</Text>);
-    expect(wrapper.find('[data-id="test-id"]')).toExist();
+    const { getByTestId } = render(<Text data-id="test-id">Text</Text>);
+    expect(getByTestId('test-id')).toBeInTheDocument();
   });
 
   describe('lookslike renders correctly', () => {
     it('it should render visually as the lookslike prop while html should match the as prop ', () => {
-      const wrapper = global.mountStyled(
+      const { container } = render(
         <div>
           <Text as="h1" looksLike="h2">
             Text
@@ -45,13 +46,13 @@ describe('Text', () => {
           </Text>
         </div>,
       );
-      expect(wrapper.find('h1')).toHaveStyleRule('font-size', tokens.fontSize_600);
-      expect(wrapper.find('h2')).toHaveStyleRule('font-size', tokens.fontSize_300);
-      expect(wrapper.find('h3')).toHaveStyleRule('font-size', tokens.fontSize_700);
-      expect(wrapper.find('h4')).toHaveStyleRule('font-size', tokens.fontSize_200);
-      expect(wrapper.find('h5')).toHaveStyleRule('font-size', tokens.fontSize_500);
-      expect(wrapper.find('h6')).toHaveStyleRule('font-size', tokens.fontSize_400);
-      expect(wrapper.find('p')).toHaveStyleRule('font-size', tokens.fontSize_700);
+      expect(container.querySelector('h1')).toHaveStyleRule('font-size', tokens.fontSize_600);
+      expect(container.querySelector('h2')).toHaveStyleRule('font-size', tokens.fontSize_300);
+      expect(container.querySelector('h3')).toHaveStyleRule('font-size', tokens.fontSize_700);
+      expect(container.querySelector('h4')).toHaveStyleRule('font-size', tokens.fontSize_200);
+      expect(container.querySelector('h5')).toHaveStyleRule('font-size', tokens.fontSize_500);
+      expect(container.querySelector('h6')).toHaveStyleRule('font-size', tokens.fontSize_400);
+      expect(container.querySelector('p')).toHaveStyleRule('font-size', tokens.fontSize_700);
     });
   });
 });

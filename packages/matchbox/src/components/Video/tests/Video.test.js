@@ -1,9 +1,10 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Video from '../Video';
 
 describe('Video Component', () => {
-  const subject = props =>
-    global.mountStyled(
+  const subject = (props) =>
+    render(
       <Video
         {...props}
         // Muted videos throw a very cryptic React error in tests:
@@ -12,21 +13,21 @@ describe('Video Component', () => {
       >
         <Video.Source className="video" src="/video.webm" type="video/webm" />
       </Video>,
-    );
+    ).container;
 
   it('renders a video correctly', () => {
     let wrapper = subject({});
 
-    expect(wrapper.find('.video')).toExist();
-    expect(wrapper.find('source').props().src).toEqual('/video.webm');
+    expect(wrapper.querySelector('.video')).toBeInTheDocument();
+    expect(wrapper.querySelector('source').getAttribute('src')).toEqual('/video.webm');
   });
 
   it('renders with correct default props', () => {
     let wrapper = subject({});
 
-    expect(wrapper.find('video').props().autoPlay).toBe(true);
-    expect(wrapper.find('video').props().loop).toBe(false);
-    expect(wrapper.find('video').props().controls).toBe(false);
+    expect(wrapper.querySelector('video').autoplay).toBe(true);
+    expect(wrapper.querySelector('video').loop).toBe(false);
+    expect(wrapper.querySelector('video').controls).toBe(false);
   });
 
   it('accepts muted, autoPlay, loop and controls props', () => {
@@ -37,15 +38,15 @@ describe('Video Component', () => {
       controls: true,
     });
 
-    expect(wrapper.find('video').props().autoPlay).toBe(false);
-    expect(wrapper.find('video').props().loop).toBe(true);
-    expect(wrapper.find('video').props().muted).toBe(false);
-    expect(wrapper.find('video').props().controls).toBe(true);
+    expect(wrapper.querySelector('video').autoplay).toBe(false);
+    expect(wrapper.querySelector('video').loop).toBe(true);
+    expect(wrapper.querySelector('video').muted).toBe(false);
+    expect(wrapper.querySelector('video').controls).toBe(true);
   });
 
   it('renders a role correctly', () => {
     let wrapper = subject({ role: 'presentation' });
-    expect(wrapper.find('[role="presentation"]')).toExist();
+    expect(wrapper.querySelector('[role="presentation"]')).toBeInTheDocument();
   });
 
   it('renders system props', () => {
@@ -54,7 +55,7 @@ describe('Video Component', () => {
       width: '200px',
     });
 
-    expect(wrapper.find('figure')).toHaveStyleRule('margin', '200px');
-    expect(wrapper.find('figure')).toHaveStyleRule('width', '200px');
+    expect(wrapper.querySelector('figure')).toHaveStyleRule('margin', '200px');
+    expect(wrapper.querySelector('figure')).toHaveStyleRule('width', '200px');
   });
 });

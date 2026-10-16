@@ -1,45 +1,45 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'test-utils';
 import ScreenReaderOnly from '../ScreenReaderOnly';
 
 describe('ScreenReaderOnly', () => {
   it('renders with passed in children', () => {
-    const wrapper = mount(<ScreenReaderOnly>Children!</ScreenReaderOnly>);
+    const wrapper = render(<ScreenReaderOnly>Children!</ScreenReaderOnly>).container;
 
-    expect(wrapper).toHaveText('Children!');
+    expect(wrapper).toHaveTextContent('Children!');
   });
 
   it('renders with necessary style rules', () => {
-    const wrapper = global.mountStyled(<ScreenReaderOnly>Children!</ScreenReaderOnly>);
+    const wrapper = render(<ScreenReaderOnly>Children!</ScreenReaderOnly>).container;
 
-    expect(wrapper).toHaveStyleRule('border', '0 !important');
-    expect(wrapper).toHaveStyleRule('clip', 'rect(1px,1px,1px,1px) !important');
-    expect(wrapper).toHaveStyleRule('clip-path', 'inset(50%) !important');
-    expect(wrapper).toHaveStyleRule('height', '1px !important');
-    expect(wrapper).toHaveStyleRule('margin', '-1px !important');
-    expect(wrapper).toHaveStyleRule('overflow', 'hidden !important');
-    expect(wrapper).toHaveStyleRule('padding', '0 !important');
-    expect(wrapper).toHaveStyleRule('position', 'absolute !important');
-    expect(wrapper).toHaveStyleRule('width', '1px !important');
-    expect(wrapper).toHaveStyleRule('word-wrap', 'normal !important');
+    expect(wrapper.firstChild).toHaveStyleRule('border', '0 !important');
+    expect(wrapper.firstChild).toHaveStyleRule('clip', 'rect(1px,1px,1px,1px) !important');
+    expect(wrapper.firstChild).toHaveStyleRule('clip-path', 'inset(50%) !important');
+    expect(wrapper.firstChild).toHaveStyleRule('height', '1px !important');
+    expect(wrapper.firstChild).toHaveStyleRule('margin', '-1px !important');
+    expect(wrapper.firstChild).toHaveStyleRule('overflow', 'hidden !important');
+    expect(wrapper.firstChild).toHaveStyleRule('padding', '0 !important');
+    expect(wrapper.firstChild).toHaveStyleRule('position', 'absolute !important');
+    expect(wrapper.firstChild).toHaveStyleRule('width', '1px !important');
+    expect(wrapper.firstChild).toHaveStyleRule('word-wrap', 'normal !important');
   });
 
   it('renders as a "span" by default', () => {
-    const wrapper = mount(<ScreenReaderOnly>Children!</ScreenReaderOnly>);
+    const wrapper = render(<ScreenReaderOnly>Children!</ScreenReaderOnly>).container;
 
-    expect(wrapper.find('span')).toExist();
+    expect(wrapper.querySelector('span')).toBeInTheDocument();
   });
 
   it('renders as the passed in element to the "as" prop', () => {
-    const wrapper = mount(<ScreenReaderOnly as="div">Hello, world.</ScreenReaderOnly>);
+    const wrapper = render(<ScreenReaderOnly as="div">Hello, world.</ScreenReaderOnly>).container;
 
-    expect(wrapper.find('span')).not.toExist();
-    expect(wrapper.find('div')).toExist();
+    expect(wrapper.querySelector('span')).not.toBeInTheDocument();
+    expect(wrapper.querySelector('div')).toBeInTheDocument();
   });
 
   it('renders with a passed in "id"', () => {
-    const wrapper = mount(<ScreenReaderOnly id="example-id">Hello, world.</ScreenReaderOnly>);
+    const wrapper = render(<ScreenReaderOnly id="example-id">Hello, world.</ScreenReaderOnly>).container;
 
-    expect(wrapper.find('#example-id')).toExist();
+    expect(wrapper.querySelector('#example-id')).toBeInTheDocument();
   });
 });

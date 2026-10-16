@@ -1,43 +1,46 @@
 import React from 'react';
 import Toggle from '../Toggle';
-import { render, within } from 'test-utils';
+import { render, within, fireEvent } from 'test-utils';
 import { tokens } from '@sparkpost/design-tokens';
 import { StyledOutline } from '../styles';
 
 describe('Toggle', () => {
   let wrapper;
 
-  let subject = props => global.mountStyled(<Toggle id="id" {...props} />);
+  let subject = (props) => render(<Toggle id="id" {...props} />).container;
 
   it('renders base styles', () => {
     wrapper = subject();
-    expect(wrapper).toHaveStyleRule('height', '1.25rem');
-    expect(wrapper).toHaveStyleRule('width', '2.25rem');
-    expect(wrapper.find('span').at(0)).toHaveStyleRule('background', tokens.color_gray_700);
-    expect(wrapper.find('span').at(1)).toHaveStyleRule('transform', 'translate(0,0)');
+    expect(wrapper.firstChild).toHaveStyleRule('height', '1.25rem');
+    expect(wrapper.firstChild).toHaveStyleRule('width', '2.25rem');
+    expect(wrapper.querySelectorAll('span')[0]).toHaveStyleRule(
+      'background',
+      tokens.color_gray_700,
+    );
+    expect(wrapper.querySelectorAll('span')[1]).toHaveStyleRule('transform', 'translate(0,0)');
   });
 
   it('renders default checked styles', () => {
     wrapper = subject({ checked: true, onChange: jest.fn() });
-    expect(wrapper.find('input')).toHaveStyleRule('background', tokens.color_green_800, {
+    expect(wrapper.querySelector('input')).toHaveStyleRule('background', tokens.color_green_800, {
       modifier: `:checked ~ ${StyledOutline}`,
     });
-    expect(wrapper.find('span').at(1)).toHaveStyleRule('transform', 'translate(1rem,0)');
-    expect(wrapper.find('input')).toHaveAttributeValue('checked', '');
+    expect(wrapper.querySelectorAll('span')[1]).toHaveStyleRule('transform', 'translate(1rem,0)');
+    expect(wrapper.querySelector('input')).toHaveAttributeValue('checked', '');
   });
 
   it('renders default disabled styles', () => {
     wrapper = subject({ disabled: true });
-    expect(wrapper).toHaveStyleRule('opacity', '0.6');
-    expect(wrapper.find('input')).toHaveAttributeValue('disabled', '');
+    expect(wrapper.firstChild).toHaveStyleRule('opacity', '0.6');
+    expect(wrapper.querySelector('input')).toHaveAttributeValue('disabled', '');
   });
 
   it('invokes events', () => {
     const action = { onChange: jest.fn(), onFocus: jest.fn(), onBlur: jest.fn() };
     wrapper = subject(action);
-    wrapper.find('input').simulate('change', { target: { checked: true } });
-    wrapper.find('input').simulate('focus');
-    wrapper.find('input').simulate('blur');
+    fireEvent.click(wrapper.querySelector('input'));
+    fireEvent.focus(wrapper.querySelector('input'));
+    fireEvent.blur(wrapper.querySelector('input'));
     expect(action.onChange).toHaveBeenCalledTimes(1);
     expect(action.onFocus).toHaveBeenCalledTimes(1);
     expect(action.onBlur).toHaveBeenCalledTimes(1);
@@ -45,7 +48,7 @@ describe('Toggle', () => {
 
   it('renders label', () => {
     wrapper = subject({ label: 'test label' });
-    expect(wrapper.text()).toEqual('test label');
+    expect(wrapper.textContent).toEqual('test label');
   });
 
   it('renders attributes on the input correctly', () => {

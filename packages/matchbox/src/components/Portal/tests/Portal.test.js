@@ -1,24 +1,38 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Portal from '../Portal';
-import { shallow } from 'enzyme';
-import * as reactDOMMock from 'react-dom';
-
-jest.mock('react-dom');
 
 describe('Portal', () => {
-
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
   it('appends portal to body', () => {
-    shallow(<Portal>Foo</Portal>);
-    expect(reactDOMMock.createPortal).toHaveBeenCalledWith('Foo', document.body);
+    const { container } = render(
+      <Portal>
+        <span id="portal-content">Foo</span>
+      </Portal>,
+    );
+    expect(container).toBeEmptyDOMElement();
+    expect(document.getElementById('portal-content').parentElement).toBe(document.body);
   });
 
   it('appends portal to container id', () => {
-    document.getElementById = jest.fn(() => 'bar');
-    shallow(<Portal containerId='bar'>Foo</Portal>);
-    expect(reactDOMMock.createPortal).toHaveBeenCalledWith('Foo', 'bar');
+    const target = document.createElement('div');
+    target.id = 'bar';
+    document.body.appendChild(target);
+
+    render(
+      <Portal containerId="bar">
+        <span id="portal-content">Foo</span>
+      </Portal>,
+    );
+    expect(document.getElementById('portal-content').parentElement).toBe(target);
+    target.remove();
+  });
+
+  it('renders nothing when the container id does not exist', () => {
+    render(
+      <Portal containerId="missing">
+        <span id="portal-content">Foo</span>
+      </Portal>,
+    );
+    expect(document.getElementById('portal-content')).toBeNull();
   });
 });

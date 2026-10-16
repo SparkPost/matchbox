@@ -1,41 +1,37 @@
 import React from 'react';
+import { render } from 'test-utils';
 import LabelValue from '../LabelValue';
 
 describe('LabelValue', () => {
   it('renders correctly', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <LabelValue className="test-class">
         <LabelValue.Label>Label text</LabelValue.Label>
         <LabelValue.Value>children</LabelValue.Value>
       </LabelValue>,
-    );
-    expect(wrapper.text()).toEqual('Label textchildren');
-    expect(
-      wrapper
-        .find('div')
-        .at(0)
-        .prop('className'),
-    ).toContain('test-class');
+    ).container;
+    expect(wrapper.textContent).toEqual('Label textchildren');
+    expect(wrapper.querySelectorAll('div')[0].className).toContain('test-class');
   });
 
   it('renders horizontal orientation correctly', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <LabelValue orientation="horizontal">
         <LabelValue.Label>Label text</LabelValue.Label>
         <LabelValue.Value>children</LabelValue.Value>
       </LabelValue>,
-    );
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'grid');
+    ).container;
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('display', 'grid');
   });
 
   it('renders inverted appearance correctly', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <LabelValue appearance="inverted">
         <LabelValue.Label>Label text</LabelValue.Label>
         <LabelValue.Value>children</LabelValue.Value>
       </LabelValue>,
-    );
+    ).container;
 
-    expect(wrapper.find('div').at(2)).toHaveStyleRule('color', 'gray.500');
+    expect(wrapper.querySelectorAll('div')[2]).toHaveStyleRule('color', 'gray.500');
   });
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Button from '../Button';
 import cases from 'jest-in-case';
 import { Assessment } from '@sparkpost/matchbox-icons';
@@ -63,13 +64,13 @@ describe('Button', () => {
   cases(
     'renders button styles',
     ({ props, assert }) => {
-      const wrapper = global.mountStyled(<Button {...props}>Hola!</Button>);
+      const wrapper = render(<Button {...props}>Hola!</Button>).container;
 
       if (!Array.isArray(assert[0])) {
-        expect(wrapper).toHaveStyleRule(assert[0], assert[1]);
+        expect(wrapper.firstChild).toHaveStyleRule(assert[0], assert[1]);
       } else {
         for (const assertion of assert) {
-          expect(wrapper).toHaveStyleRule(assertion[0], assertion[1]);
+          expect(wrapper.firstChild).toHaveStyleRule(assertion[0], assertion[1]);
         }
       }
     },
@@ -104,13 +105,13 @@ describe('Button', () => {
   cases(
     'renders button attributes',
     ({ props, assert }) => {
-      const wrapper = global.mountStyled(<Button {...props}>Hola!</Button>);
+      const wrapper = render(<Button {...props}>Hola!</Button>).container;
 
       if (!Array.isArray(assert[0])) {
-        expect(wrapper).toHaveAttributeValue(assert[0], assert[1]);
+        expect(wrapper.firstChild).toHaveAttributeValue(assert[0], assert[1]);
       } else {
         for (const assertion of assert) {
-          expect(wrapper).toHaveAttributeValue(assertion[0], assertion[1]);
+          expect(wrapper.firstChild).toHaveAttributeValue(assertion[0], assertion[1]);
         }
       }
     },
@@ -131,44 +132,43 @@ it('renders with with a ref', () => {
       </>
     );
   }
-  global.mountStyled(<Test />);
+  render(<Test />).container;
   expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
   expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
 });
 
 describe('wrappers', () => {
   it('should render a custom wrapper', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <Button to="/test" as="span">
         Hola!
       </Button>,
-    );
-    expect(wrapper.find('span').first()).toExist();
-    expect(wrapper.find('span').first()).toHaveAttributeValue('to', '/test');
+    ).container;
+    expect(wrapper.querySelector('span')).toBeInTheDocument();
+    expect(wrapper.querySelector('span')).toHaveAttributeValue('to', '/test');
   });
 });
 
 describe('Button.Icon', () => {
   it('should render correctly', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <Button to="/test" as="span">
         Hola!
         <Button.Icon as={Assessment} />
       </Button>,
-    );
-    expect(wrapper.find('svg')).toExist();
-    expect(wrapper.find('Assessment')).toExist();
+    ).container;
+    expect(wrapper.querySelector('svg')).toBeInTheDocument();
   });
 
   it('should renders label and size correctly', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <Button to="/test" as="span">
         Hola!
         <Button.Icon as={Assessment} label="test-label" size={24} />
       </Button>,
-    );
-    expect(wrapper.find('[aria-label="test-label"]')).toExist();
-    expect(wrapper.find('[aria-label="test-label"]').props().width).toEqual(24);
-    expect(wrapper.find('[aria-label="test-label"]').props().height).toEqual(24);
+    ).container;
+    expect(wrapper.querySelector('[aria-label="test-label"]')).toBeInTheDocument();
+    expect(wrapper.querySelector('[aria-label="test-label"]').getAttribute('width')).toEqual('24');
+    expect(wrapper.querySelector('[aria-label="test-label"]').getAttribute('height')).toEqual('24');
   });
 });

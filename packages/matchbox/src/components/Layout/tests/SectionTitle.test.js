@@ -1,18 +1,18 @@
 import React from 'react';
+import { render } from 'test-utils';
 import SectionTitle from '../SectionTitle';
 
 describe('Layout', () => {
-  const subject = () =>
-    global.mountStyled(<SectionTitle data-id="test-id">The Title</SectionTitle>);
+  const subject = () => render(<SectionTitle data-id="test-id">The Title</SectionTitle>).container;
 
   it('renders section title', () => {
     const wrapper = subject();
 
-    expect(wrapper.text()).toEqual('The Title');
+    expect(wrapper.textContent).toEqual('The Title');
   });
 
   it('should render data-id', () => {
     const wrapper = subject();
-    expect(wrapper.find('[data-id="test-id"]')).toExist();
+    expect(wrapper.querySelector('[data-id="test-id"]')).toBeInTheDocument();
   });
 });

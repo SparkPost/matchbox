@@ -1,7 +1,7 @@
 import React from 'react';
+import { render, fireEvent, createEvent, act } from 'test-utils';
 import Slider from '../Slider';
 import { tokens } from '@sparkpost/design-tokens';
-import { act } from 'react-dom/test-utils';
 import * as geometry from '../../../helpers/geometry';
 
 const windowEvents = {};
@@ -13,12 +13,29 @@ global.removeEventListener = jest.fn(event => {
   delete windowEvents[event];
 });
 
+/**
+ * Fires a DOM event with read-only properties, such as pageX or touches, that jsdom does not
+ * populate from the event init.
+ * @param {Element} element
+ * @param {'mouseDown' | 'touchStart'} type
+ * @param {Record<string, unknown>} properties
+ * @returns {void}
+ * @private
+ */
+function fireWith(element, type, properties) {
+  const event = createEvent[type](element, { button: 0 });
+  Object.entries(properties).forEach(([key, value]) => {
+    Object.defineProperty(event, key, { value });
+  });
+  fireEvent(element, event);
+}
+
 function Track(wrapper) {
-  return wrapper.find('div').at(2);
+  return wrapper.querySelectorAll('div')[2];
 }
 
 function Handle(wrapper) {
-  return wrapper.find('div').at(3);
+  return wrapper.querySelectorAll('div')[3];
 }
 
 describe('Slider component', () => {
@@ -33,7 +50,7 @@ describe('Slider component', () => {
     }));
   });
 
-  const subject = (props = {}) => global.mountStyled(<Slider {...props} />);
+  const subject = (props = {}) => render(<Slider {...props} />).container;
 
   it('should render a default value and id', () => {
     const slider = subject({ defaultValue: 50, id: 'test-id' });
@@ -69,13 +86,7 @@ describe('Slider component', () => {
 
   it('should handle a mouse down', () => {
     const slider = subject({ value: 50, onChange });
-    slider
-      .find('div')
-      .at(0)
-      .simulate('mouseDown', {
-        pageX: 25,
-        button: 0,
-      });
+    fireWith(slider.querySelectorAll('div')[0], 'mouseDown', { pageX: 25 });
     expect(Track(slider)).toHaveAttributeValue('style', { width: '26px' });
     expect(Handle(slider)).toHaveAttributeValue('style', { left: '26px' });
     expect(onChange).toHaveBeenCalledWith(13);
@@ -84,16 +95,12 @@ describe('Slider component', () => {
   // Flakey test
   it.skip('should handle a mouse drag chain of events', () => {
     const slider = subject({ value: 50, onChange });
-    slider
-      .find('div')
-      .at(0)
-      .simulate('mouseDown', { pageX: 0, button: 0 });
+    fireWith(slider.querySelectorAll('div')[0], 'mouseDown', { pageX: 0 });
 
     act(() => {
       windowEvents.mousemove({ pageX: 150 });
     });
 
-    slider.update();
     expect(Track(slider)).toHaveAttributeValue('style', { width: '150px' });
     expect(Handle(slider)).toHaveAttributeValue('style', { left: '150px' });
     expect(onChange).toHaveBeenCalledWith(75);
@@ -102,19 +109,13 @@ describe('Slider component', () => {
       windowEvents.mouseup();
     });
 
-    slider.update();
     expect(windowEvents.mousemove).toBe(undefined);
     expect(windowEvents.mouseup).toBe(undefined);
   });
 
   it('should handle a touch start', () => {
     const slider = subject({ value: 50, onChange });
-    slider
-      .find('div')
-      .at(0)
-      .simulate('touchStart', {
-        touches: [{ pageX: 25 }],
-      });
+    fireWith(slider.querySelectorAll('div')[0], 'touchStart', { touches: [{ pageX: 25 }] });
     expect(Track(slider)).toHaveAttributeValue('style', { width: '26px' });
     expect(Handle(slider)).toHaveAttributeValue('style', { left: '26px' });
     expect(onChange).toHaveBeenCalledWith(13);
@@ -123,7 +124,7 @@ describe('Slider component', () => {
   describe('key events', () => {
     it('should handle a increment', () => {
       const slider = subject({ value: 50, onChange });
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'ArrowUp',
         shiftKey: false,
       });
@@ -131,7 +132,7 @@ describe('Slider component', () => {
       expect(Handle(slider)).toHaveAttributeValue('style', { left: '102px' });
       expect(onChange).toHaveBeenCalledWith(51);
 
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'ArrowRight',
         shiftKey: false,
       });
@@ -142,7 +143,7 @@ describe('Slider component', () => {
 
     it('should handle a decrement with a precision value to the tenth', () => {
       const slider = subject({ value: 50, onChange, precision: 1 });
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'ArrowDown',
         shiftKey: false,
       });
@@ -150,7 +151,7 @@ describe('Slider component', () => {
       expect(Handle(slider)).toHaveAttributeValue('style', { left: '99.8px' });
       expect(onChange).toHaveBeenCalledWith(49.9);
 
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'ArrowLeft',
         shiftKey: false,
       });
@@ -161,7 +162,7 @@ describe('Slider component', () => {
 
     it('should handle home and end key events', () => {
       const slider = subject({ value: 50, onChange });
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'Home',
         shiftKey: false,
       });
@@ -169,7 +170,7 @@ describe('Slider component', () => {
       expect(Handle(slider)).toHaveAttributeValue('style', { left: '0px' });
       expect(onChange).toHaveBeenCalledWith(0);
 
-      Handle(slider).simulate('keyDown', {
+      fireEvent.keyDown(Handle(slider), {
         key: 'End',
         shiftKey: false,
       });
@@ -182,21 +183,15 @@ describe('Slider component', () => {
   describe('disabled', () => {
     it('should render disabled', () => {
       const slider = subject({ value: 50, disabled: true });
-      expect(slider.find('div').at(0)).toHaveStyleRule('cursor', 'not-allowed');
+      expect(slider.querySelectorAll('div')[0]).toHaveStyleRule('cursor', 'not-allowed');
       expect(Handle(slider)).toHaveAttributeValue('aria-disabled', 'true');
     });
 
     it('should not move when disabled', () => {
       const slider = subject({ value: 50, onChange, disabled: true });
-      Handle(slider).simulate('keyDown', { key: 'Home', shiftKey: false });
-      slider
-        .find('div')
-        .at(0)
-        .simulate('touchStart', { touches: [{ pageX: 25 }] });
-      slider
-        .find('div')
-        .at(0)
-        .simulate('mouseDown', { pageX: 25, button: 0 });
+      fireEvent.keyDown(Handle(slider), { key: 'Home', shiftKey: false });
+      fireWith(slider.querySelectorAll('div')[0], 'touchStart', { touches: [{ pageX: 25 }] });
+      fireWith(slider.querySelectorAll('div')[0], 'mouseDown', { pageX: 25 });
       expect(onChange).toHaveBeenCalledTimes(1);
     });
   });
@@ -204,21 +199,19 @@ describe('Slider component', () => {
   describe('ticks', () => {
     it('should render ticks', () => {
       const slider = subject({ value: 50, ticks: { 25: 'test tick', 55: 'not included tick' } });
-      expect(slider.find('div').at(2)).toHaveAttributeValue('style', { left: '50px' });
+      expect(slider.querySelectorAll('div')[2]).toHaveAttributeValue('style', { left: '50px' });
       expect(
         slider
-          .find('div')
-          .at(3)
-          .text(),
+          .querySelectorAll('div')[3]
+          .textContent,
       ).toEqual('test tick');
-      expect(slider.find('div').at(2)).toHaveStyleRule('background', tokens.color_blue_700);
+      expect(slider.querySelectorAll('div')[2]).toHaveStyleRule('background', tokens.color_blue_700);
       expect(
         slider
-          .find('div')
-          .at(5)
-          .text(),
+          .querySelectorAll('div')[5]
+          .textContent,
       ).toEqual('not included tick');
-      expect(slider.find('div').at(4)).toHaveStyleRule('background', tokens.color_gray_300);
+      expect(slider.querySelectorAll('div')[4]).toHaveStyleRule('background', tokens.color_gray_300);
     });
   });
 });

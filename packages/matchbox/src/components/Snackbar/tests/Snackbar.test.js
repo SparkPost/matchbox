@@ -1,4 +1,5 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import Snackbar from '../Snackbar';
 
 describe('Snackbar', () => {
@@ -8,48 +9,48 @@ describe('Snackbar', () => {
   };
 
   const subject = (props) =>
-    global.mountStyled(
+    render(
       <Snackbar {...defaults} {...props}>
         Snacksssss
       </Snackbar>,
-    );
+    ).container;
 
   it('renders default status and text content correctly', () => {
     const wrapper = subject();
-    expect(wrapper.find('[aria-label="Info"]')).toExist();
-    expect(wrapper.find('[data-id="test-id"]')).toExist();
-    expect(wrapper.find('Box').at(1).text()).toEqual('Snacksssss');
-    expect(wrapper.find('button').text()).toEqual('Close');
+    expect(wrapper.querySelector('[aria-label="Info"]')).toBeInTheDocument();
+    expect(wrapper.querySelector('[data-id="test-id"]')).toBeInTheDocument();
+    expect(wrapper.firstChild.children[1].textContent).toEqual('Snacksssss');
+    expect(wrapper.querySelector('button').textContent).toEqual('Close');
   });
 
   it('renders Snackbar with a danger status and maxwidth', () => {
     const wrapper = subject({ status: 'danger', maxWidth: '1000px' });
-    expect(wrapper.find('Box').at(1)).toHaveStyleRule('max-width', '1000px');
-    expect(wrapper).toHaveStyleRule('background', '#D9363E');
-    expect(wrapper.find('[aria-label="Error"]')).toExist();
+    expect(wrapper.firstChild.children[1]).toHaveStyleRule('max-width', '1000px');
+    expect(wrapper.firstChild).toHaveStyleRule('background', '#D9363E');
+    expect(wrapper.querySelector('[aria-label="Error"]')).toBeInTheDocument();
   });
 
   it('renders Snackbar with a warning status', () => {
     const wrapper = subject({ status: 'warning' });
-    expect(wrapper).toHaveStyleRule('background', '#FFE75C');
-    expect(wrapper.find('[aria-label="Warning"]')).toExist();
+    expect(wrapper.firstChild).toHaveStyleRule('background', '#FFE75C');
+    expect(wrapper.querySelector('[aria-label="Warning"]')).toBeInTheDocument();
   });
 
   it('renders Snackbar with a success status', () => {
     const wrapper = subject({ status: 'success' });
-    expect(wrapper).toHaveStyleRule('background', '#067852');
-    expect(wrapper.find('[aria-label="Success"]')).toExist();
+    expect(wrapper.firstChild).toHaveStyleRule('background', '#067852');
+    expect(wrapper.querySelector('[aria-label="Success"]')).toBeInTheDocument();
   });
 
   it('renders Snackbar with an error status', () => {
     const wrapper = subject({ status: 'error' });
-    expect(wrapper).toHaveStyleRule('background', '#D9363E');
-    expect(wrapper.find('[aria-label="Error"]')).toExist();
+    expect(wrapper.firstChild).toHaveStyleRule('background', '#D9363E');
+    expect(wrapper.querySelector('[aria-label="Error"]')).toBeInTheDocument();
   });
 
   it('invokes onDismiss', () => {
     const wrapper = subject();
-    wrapper.find('button').simulate('click');
+    fireEvent.click(wrapper.querySelector('button'));
     expect(defaults.onDismiss).toHaveBeenCalledTimes(1);
   });
 
@@ -68,7 +69,7 @@ describe('Snackbar', () => {
         </>
       );
     }
-    global.mountStyled(<Test />);
+    render(<Test />).container;
     expect(document.activeElement.innerHTML.includes('test content')).toBe(true);
     expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
   });

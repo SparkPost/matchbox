@@ -1,19 +1,15 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Error from '../Error';
 
 describe('Error', () => {
   it('renders error message', () => {
-    const wrapper = global.mountStyled(
+    const wrapper = render(
       <Error error="Something terrible happened!" className="test-class" />,
-    );
-    expect(wrapper.text()).toEqual('Something terrible happened!');
-    expect(wrapper.find('svg')).toHaveAttributeValue('aria-label', 'Error');
-    expect(
-      wrapper
-        .find('Box')
-        .first()
-        .prop('className'),
-    ).toContain('test-class');
-    expect(wrapper).toHaveAttributeValue('data-id', 'error-message');
+    ).container;
+    expect(wrapper.textContent).toEqual('Something terrible happened!');
+    expect(wrapper.querySelector('svg')).toHaveAttributeValue('aria-label', 'Error');
+    expect(wrapper.firstChild).toHaveClass('test-class');
+    expect(wrapper.firstChild).toHaveAttributeValue('data-id', 'error-message');
   });
 });

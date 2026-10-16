@@ -1,14 +1,15 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import TextField from '../TextField';
 
 describe('TextField', () => {
-  const subject = (props) => global.mountStyled(<TextField id="test-id" {...props}></TextField>);
+  const subject = (props) => render(<TextField id="test-id" {...props}></TextField>).container;
 
-  const input = (wrapper) => wrapper.find('input');
-  const label = (wrapper) => wrapper.find('label');
-  const helptext = (wrapper) => wrapper.find('div').last();
-  const error = (wrapper) => wrapper.find('div').at(5); // last with no label or help text
-  const textarea = (wrapper) => wrapper.find('textarea');
+  const input = (wrapper) => wrapper.querySelector('input');
+  const label = (wrapper) => wrapper.querySelector('label');
+  const helptext = (wrapper) => Array.from(wrapper.querySelectorAll('div')).pop();
+  const error = (wrapper) => wrapper.querySelectorAll('div')[5]; // last with no label or help text
+  const textarea = (wrapper) => wrapper.querySelector('textarea');
 
   it('renders defaults correctly', () => {
     const wrapper = subject();
@@ -27,13 +28,13 @@ describe('TextField', () => {
 
   it('renders label with required correctly', () => {
     const wrapper = subject({ required: true, label: 'test label' });
-    expect(label(wrapper).text()).toEqual('test label');
+    expect(label(wrapper).textContent).toEqual('test label');
     expect(input(wrapper)).toHaveAttributeValue('required', '');
   });
 
   it('renders label without required correctly', () => {
     const wrapper = subject({ label: 'test label' });
-    expect(label(wrapper).text()).toEqual('test label');
+    expect(label(wrapper).textContent).toEqual('test label');
 
     // This is a work around to go along with the test below
     expect(label(wrapper)).toHaveStyleRule('font-weight', '500');
@@ -41,12 +42,12 @@ describe('TextField', () => {
 
   it('renders label without optional correctly', () => {
     const wrapper = subject({ label: 'test label', optional: true });
-    expect(label(wrapper).text()).toEqual('test labelOptional');
+    expect(label(wrapper).textContent).toEqual('test labelOptional');
   });
 
   it('renders hidden label correctly', () => {
     const wrapper = subject({ label: 'test label', labelHidden: true });
-    expect(label(wrapper).text()).toEqual('test label');
+    expect(label(wrapper).textContent).toEqual('test label');
 
     // TODO uncomment when screen reader only component is converted to styled components
     // expect(label(wrapper)).toHaveStyleRule('visibility', 'hidden');
@@ -57,14 +58,14 @@ describe('TextField', () => {
   it('renders help text with id correctly', () => {
     const wrapper = subject({ helpText: 'help me' });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-helptext');
-    expect(helptext(wrapper).text()).toEqual('help me');
+    expect(helptext(wrapper).textContent).toEqual('help me');
     expect(helptext(wrapper)).toHaveAttributeValue('id', 'test-id-helptext');
   });
 
   it('renders error with id correctly', () => {
     const wrapper = subject({ error: 'error oh no' });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(error(wrapper).text()).toEqual('error oh no');
+    expect(error(wrapper).textContent).toEqual('error oh no');
     expect(error(wrapper)).toHaveAttributeValue('id', 'test-id-error');
   });
 
@@ -75,8 +76,8 @@ describe('TextField', () => {
       label: 'label',
     });
     expect(input(wrapper)).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(label(wrapper).text()).toEqual('labelerror oh no');
-    expect(label(wrapper).find('#test-id-error')).toExist();
+    expect(label(wrapper).textContent).toEqual('labelerror oh no');
+    expect(label(wrapper).querySelector('#test-id-error')).toBeInTheDocument();
   });
 
   it('renders error and helptext with ids correctly', () => {
@@ -97,8 +98,8 @@ describe('TextField', () => {
 
   it('renders multiline', () => {
     const wrapper = subject({ multiline: true });
-    expect(textarea(wrapper)).toExist();
-    expect(textarea(wrapper).prop('style').resize).toEqual('both');
+    expect(textarea(wrapper)).toBeInTheDocument();
+    expect(textarea(wrapper).style.resize).toEqual('both');
   });
 
   it('renders alignment', () => {
@@ -111,8 +112,8 @@ describe('TextField', () => {
       prefix: <span id="prefix">Before Text</span>,
       prefixClassname: 'prefixclass',
     });
-    expect(wrapper.find('#prefix')).toExist();
-    expect(wrapper.find('span.prefixclass').text()).toEqual('Before Text');
+    expect(wrapper.querySelector('#prefix')).toBeInTheDocument();
+    expect(wrapper.querySelector('span.prefixclass').textContent).toEqual('Before Text');
   });
 
   it('renders suffix', () => {
@@ -120,8 +121,8 @@ describe('TextField', () => {
       suffix: <span id="suffix">After Text</span>,
       suffixClassname: 'suffixclass',
     });
-    expect(wrapper.find('#suffix')).toExist();
-    expect(wrapper.find('span.suffixclass').text()).toEqual('After Text');
+    expect(wrapper.querySelector('#suffix')).toBeInTheDocument();
+    expect(wrapper.querySelector('span.suffixclass').textContent).toEqual('After Text');
   });
 
   it('renders readOnly correctly', () => {
@@ -136,9 +137,9 @@ describe('TextField', () => {
       onFocus: jest.fn(),
     };
     const wrapper = subject(events);
-    input(wrapper).simulate('change');
-    input(wrapper).simulate('blur');
-    input(wrapper).simulate('focus');
+    fireEvent.change(input(wrapper), { target: { value: 'a' } });
+    fireEvent.blur(input(wrapper));
+    fireEvent.focus(input(wrapper));
     expect(events.onChange).toHaveBeenCalledTimes(1);
     expect(events.onBlur).toHaveBeenCalledTimes(1);
     expect(events.onFocus).toHaveBeenCalledTimes(1);
@@ -156,7 +157,7 @@ describe('TextField', () => {
         </>
       );
     }
-    global.mountStyled(<Test />);
+    render(<Test />).container;
     expect(document.activeElement.id).toEqual('test-field');
   });
 });

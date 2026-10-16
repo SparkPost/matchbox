@@ -1,18 +1,25 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import { ThemeContext } from 'styled-components';
 import ThemeProvider from '../ThemeProvider';
 
+/**
+ * Prints the theme key it receives from the nearest styled-components ThemeProvider.
+ * @returns {React.ReactElement}
+ * @private
+ */
+function ThemeKey() {
+  const theme = React.useContext(ThemeContext);
+  return <div id="test">{theme.testKey}</div>;
+}
+
 describe('ThemeProvider', () => {
-  const subject = props =>
-    mount(
-      <ThemeProvider {...props}>
-        <div id="test" />
+  it('should be able to modify the theme', () => {
+    const { container } = render(
+      <ThemeProvider theme={{ testKey: 'testValue' }}>
+        <ThemeKey />
       </ThemeProvider>,
     );
-
-  it('should be able to modify the theme', () => {
-    const wrapper = subject({ theme: { testKey: 'testValue' } });
-    expect(wrapper.find('#test')).toExist();
-    expect(wrapper.find(ThemeProvider).prop('theme').testKey).toEqual('testValue');
+    expect(container.querySelector('#test')).toHaveTextContent('testValue');
   });
 });

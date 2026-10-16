@@ -25,7 +25,7 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
 <Button.Group>
   <Button
     action={
-      Object {
+      {
         "content": <span>
           foo
         </span>,
@@ -37,7 +37,7 @@ exports[`Button Utils buttonsFrom renders correctly 1`] = `
     </span>
   </Button>
   <Button
-    action={Object {}}
+    action={{}}
   >
     <span>
       button 2 content

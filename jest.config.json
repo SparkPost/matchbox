@@ -19,11 +19,10 @@
     "/cypress/"
   ],
   "testEnvironment": "jsdom",
-  "testURL": "http://localhost",
   "transform": {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+    "^.+\\.(js|jsx|ts|tsx|mjs|cjs)$": "babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-    "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    "^(?!.*\\.(js|jsx|mjs|cjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
   },
   "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
   "moduleNameMapper": {
@@ -34,5 +33,8 @@
     "@sparkpost/design-tokens(.*)": "<rootDir>/packages/design-tokens",
     "^styled-components": "<rootDir>/node_modules/styled-components",
     "^test-utils$": "<rootDir>/config/test-utils.js"
+  },
+  "testEnvironmentOptions": {
+    "url": "http://localhost"
   }
 }

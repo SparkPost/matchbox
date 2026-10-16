@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`getPositionFor should return direction 1`] = `
-Object {
+{
   "height": 10,
   "left": 70,
   "top": 610,
@@ -10,7 +10,7 @@ Object {
 `;
 
 exports[`getPositionFor should return direction if node is fixed 1`] = `
-Object {
+{
   "height": 10,
   "left": 50,
   "top": 600,
@@ -19,7 +19,7 @@ Object {
 `;
 
 exports[`getPreferredDirectionFor should return direction 1`] = `
-Object {
+{
   "bottom": false,
   "left": false,
   "right": true,
@@ -28,7 +28,7 @@ Object {
 `;
 
 exports[`getWindowRect should return window dimensions 1`] = `
-Object {
+{
   "height": 600,
   "left": 20,
   "top": 10,
@@ -37,12 +37,10 @@ Object {
 `;
 
 exports[`useWindowSize should return window dimensions 1`] = `
-<MockComponent>
-  <div
-    height={600}
-    left={20}
-    top={10}
-    width={900}
-  />
-</MockComponent>
+<div
+  height="600"
+  left="20"
+  top="10"
+  width="900"
+/>
 `;

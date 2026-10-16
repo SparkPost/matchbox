@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from 'test-utils';
 import useCopyToClipboard from '../useCopyToClipboard';
 import copy from 'copy-to-clipboard';
 
@@ -15,11 +15,11 @@ describe('useCopyToClipboard', () => {
 
   it('handles copying correctly', () => {
     copy.default = jest.fn();
-    const wrapper = shallow(<Component />);
+    const wrapper = render(<Component />).container;
 
-    expect(wrapper.find('button').text()).toEqual('Click to Copy');
-    wrapper.find('button').simulate('click');
+    expect(wrapper.querySelector('button').textContent).toEqual('Click to Copy');
+    fireEvent.click(wrapper.querySelector('button'));
     expect(copy).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').text()).toEqual('Copied!');
+    expect(wrapper.querySelector('button').textContent).toEqual('Copied!');
   });
 });

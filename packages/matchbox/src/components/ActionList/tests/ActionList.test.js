@@ -1,9 +1,10 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import ActionList from '../ActionList';
 
 describe('ActionList', () => {
-  const subject = props =>
-    global.mountStyled(<ActionList id="test-id" role="listbox" {...props} />);
+  const subject = (props) =>
+    render(<ActionList id="test-id" role="listbox" {...props} />).container;
 
   it('renders actions correctly', () => {
     const wrapper = subject({
@@ -14,13 +15,8 @@ describe('ActionList', () => {
         </>
       ),
     });
-    expect(
-      wrapper
-        .find('a')
-        .at(0)
-        .text(),
-    ).toEqual('Action');
-    expect(wrapper.find('#test-id[role="listbox"]')).toExist();
+    expect(wrapper.querySelectorAll('a')[0].textContent).toEqual('Action');
+    expect(wrapper.querySelector('#test-id[role="listbox"]')).toBeInTheDocument();
   });
 
   it('renders disabled actions correctly', () => {
@@ -37,8 +33,8 @@ describe('ActionList', () => {
         </>
       ),
     });
-    expect(wrapper.find('button')).toBeDisabled();
-    wrapper.find('a').simulate('click');
+    expect(wrapper.querySelector('button')).toBeDisabled();
+    fireEvent.click(wrapper.querySelector('a'));
     expect(onClick).not.toHaveBeenCalled();
   });
 
@@ -51,12 +47,7 @@ describe('ActionList', () => {
         </>
       ),
     });
-    expect(
-      wrapper
-        .find('a')
-        .at(0)
-        .text(),
-    ).toEqual('Actionhelp1');
+    expect(wrapper.querySelectorAll('a')[0].textContent).toEqual('Actionhelp1');
   });
 
   it('renders sections correctly', () => {
@@ -74,34 +65,19 @@ describe('ActionList', () => {
         </>
       ),
     });
-    expect(
-      wrapper
-        .find('div')
-        .at(1)
-        .text(),
-    ).toEqual('Sectioned1Sectioned2');
-    expect(
-      wrapper
-        .find('div')
-        .at(2)
-        .text(),
-    ).toEqual('Sectioned3Sectioned4');
+    expect(wrapper.querySelectorAll('div')[1].textContent).toEqual('Sectioned1Sectioned2');
+    expect(wrapper.querySelectorAll('div')[2].textContent).toEqual('Sectioned3Sectioned4');
   });
 });
 
 describe('Legacy ActionList', () => {
-  const subject = props => global.mountStyled(<ActionList {...props} />);
+  const subject = (props) => render(<ActionList {...props} />).container;
 
   it('renders actions correctly', () => {
     const wrapper = subject({
       actions: [{ content: 'Action' }, { content: 'Action 2' }],
     });
-    expect(
-      wrapper
-        .find('a')
-        .at(0)
-        .text(),
-    ).toEqual('Action');
+    expect(wrapper.querySelectorAll('a')[0].textContent).toEqual('Action');
   });
 
   it('renders help text correctly', () => {
@@ -111,12 +87,7 @@ describe('Legacy ActionList', () => {
         { content: 'Action 2', helpText: 'help2' },
       ],
     });
-    expect(
-      wrapper
-        .find('a')
-        .at(0)
-        .text(),
-    ).toEqual('Actionhelp1');
+    expect(wrapper.querySelectorAll('a')[0].textContent).toEqual('Actionhelp1');
   });
 
   it('renders sections correctly', () => {
@@ -126,18 +97,8 @@ describe('Legacy ActionList', () => {
         [{ content: 'Sectioned3' }, { content: 'Sectioned4' }],
       ],
     });
-    expect(
-      wrapper
-        .find('div')
-        .at(1)
-        .text(),
-    ).toEqual('Sectioned1Sectioned2');
-    expect(
-      wrapper
-        .find('div')
-        .at(2)
-        .text(),
-    ).toEqual('Sectioned3Sectioned4');
+    expect(wrapper.querySelectorAll('div')[1].textContent).toEqual('Sectioned1Sectioned2');
+    expect(wrapper.querySelectorAll('div')[2].textContent).toEqual('Sectioned3Sectioned4');
   });
 
   it('renders sections correctly using a group by key', () => {
@@ -150,33 +111,28 @@ describe('Legacy ActionList', () => {
         { content: 'Sectioned4', groupBy: 4 },
       ],
     });
-    expect(
-      wrapper
-        .find('div')
-        .at(2)
-        .text(),
-    ).toEqual('Sectioned3');
+    expect(wrapper.querySelectorAll('div')[2].textContent).toEqual('Sectioned3');
   });
 
   it('renders a max height system prop as a number', () => {
     const wrapper = subject({
       maxHeight: 100,
     });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('max-height', '100px');
+    expect(wrapper.querySelectorAll('div')[0]).toHaveStyleRule('max-height', '100px');
   });
 
   it('renders a max height system prop as a string', () => {
     const wrapper = subject({
       maxHeight: '10rem',
     });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('max-height', '10rem');
+    expect(wrapper.querySelectorAll('div')[0]).toHaveStyleRule('max-height', '10rem');
   });
 
   it('renders an action button', () => {
     const wrapper = subject({
       actions: [{ content: 'Action', is: 'button' }],
     });
-    expect(wrapper.find('button').text()).toEqual('Action');
-    expect(wrapper.find('button')).toHaveAttributeValue('type', 'button');
+    expect(wrapper.querySelector('button').textContent).toEqual('Action');
+    expect(wrapper.querySelector('button')).toHaveAttributeValue('type', 'button');
   });
 });

@@ -1,14 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from 'test-utils';
 import { tokens } from '@sparkpost/design-tokens';
 import Pagination from '../Pagination';
 
-global.matchMedia = function() {
+global.matchMedia = function () {
   return {
     matches: true,
     media: '(max-width: 1080px)',
     onChange: jest.fn(),
     addListener: jest.fn(),
+    removeListener: jest.fn(),
   };
 };
 
@@ -21,79 +22,52 @@ describe('Pagination', () => {
     onChange: jest.fn(),
     mb: 400,
   };
-  const subject = () => global.mountStyled(<Pagination {...props} />);
-  const shallowSubject = () => shallow(<Pagination {...props} />);
+  const subject = () => render(<Pagination {...props} />).container;
 
   it('renders styles', () => {
-    expect(
-      subject()
-        .find('div')
-        .at(1),
-    ).toHaveStyleRule('display', 'inline-flex');
-    expect(
-      subject()
-        .find('div')
-        .at(1),
-    ).toHaveStyleRule('align-items', 'center');
+    expect(subject().querySelectorAll('div')[1]).toHaveStyleRule('display', 'inline-flex');
+    expect(subject().querySelectorAll('div')[1]).toHaveStyleRule('align-items', 'center');
   });
 
   it('renders system props (margin)', () => {
-    expect(
-      subject()
-        .find('div')
-        .at(0),
-    ).toHaveStyleRule('margin-bottom', tokens.spacing_400);
+    expect(subject().querySelectorAll('div')[0]).toHaveStyleRule(
+      'margin-bottom',
+      tokens.spacing_400,
+    );
   });
 
   it('renders active page styles correctly', () => {
-    expect(
-      subject()
-        .find('button')
-        .at(1),
-    ).toHaveStyleRule('background', 'blue');
-    expect(
-      subject()
-        .find('button')
-        .at(1),
-    ).toHaveStyleRule('color', 'white');
+    expect(subject().querySelectorAll('button')[1]).toHaveStyleRule('background', 'blue');
+    expect(subject().querySelectorAll('button')[1]).toHaveStyleRule('color', 'white');
   });
 
   it('invokes onChange on page', () => {
-    subject()
-      .find('button')
-      .at(3)
-      .simulate('click');
+    fireEvent.click(subject().querySelectorAll('button')[3]);
     expect(props.onChange).toHaveBeenCalledWith(2);
   });
 
   describe('invokes onChange when props change', () => {
     it('page', () => {
-      shallowSubject().setProps({ pages: 11 });
-      expect(props.onChange).toHaveBeenCalledWith(0);
+      const onChange = jest.fn();
+      const { rerender } = render(<Pagination {...props} onChange={onChange} />);
+      onChange.mockClear();
+      rerender(<Pagination {...props} onChange={onChange} pages={11} />);
+      expect(onChange).toHaveBeenCalledWith(0);
     });
 
     it('currentPage', () => {
-      shallowSubject().setProps({ currentPage: 4 });
-      expect(props.onChange).toHaveBeenCalledWith(2);
-    });
-
-    it('pageRange', () => {
-      shallowSubject().setProps({ pageRange: 6 });
-      expect(props.onChange).toHaveBeenCalledWith(2);
+      const onChange = jest.fn();
+      const { rerender } = render(<Pagination {...props} onChange={onChange} />);
+      onChange.mockClear();
+      rerender(<Pagination {...props} onChange={onChange} currentPage={4} />);
+      expect(onChange).toHaveBeenCalledWith(3);
     });
   });
 
-  it('renders pagination with marginsHidden true', () => {
-    expect(
-      subject()
-        .find('svg')
-        .at(0),
-    ).toExist();
-    expect(
-      global
-        .mountStyled(<Pagination {...props} marginsHidden={true} />)
-        .find('svg')
-        .at(0),
-    ).toEqual({});
+  it('renders the last page button unless marginsHidden is true', () => {
+    const { queryByRole, rerender } = render(<Pagination {...props} marginsHidden={false} />);
+    expect(queryByRole('button', { name: '10' })).toBeInTheDocument();
+    rerender(<Pagination {...props} marginsHidden />);
+    expect(queryByRole('button', { name: '10' })).not.toBeInTheDocument();
   });
 });

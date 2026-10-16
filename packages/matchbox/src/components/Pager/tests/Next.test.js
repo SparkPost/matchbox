@@ -1,28 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from 'test-utils';
 import Next from '../Next';
 
 describe('Pager.Next', () => {
-  let wrapper = global.mountStyled(<Next />);
-
   it('renders screen reader text', () => {
-    expect(
-      wrapper
-        .find('span')
-        .first()
-        .text(),
-    ).toEqual('Next');
+    const wrapper = render(<Next />).container;
+    expect(wrapper.querySelector('span').textContent).toEqual('Next');
   });
 
   it('renders disabled button', () => {
-    wrapper = global.mountStyled(<Next disabled />);
-    expect(wrapper.find(Next).is('[disabled]')).toBe(true);
+    const wrapper = render(<Next disabled />).container;
+    expect(wrapper.querySelector('button')).toBeDisabled();
   });
 
   it('calls click handler', () => {
     const handleClick = jest.fn();
-    const wrapper = shallow(<Next onClick={handleClick} />);
-    wrapper.simulate('click');
+    const wrapper = render(<Next onClick={handleClick} />).container;
+    fireEvent.click(wrapper.querySelector('button'));
     expect(handleClick).toHaveBeenCalled();
   });
 });

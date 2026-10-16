@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'test-utils';
 import {
   getWindowRect,
   getRectFor,
@@ -51,8 +51,8 @@ describe('getRectFor', () => {
 
 describe('useWindowSize', () => {
   it('should return window dimensions', () => {
-    const wrapper = mount(<MockComponent />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<MockComponent />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
 

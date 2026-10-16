@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should format a standard tokens correctly 1`] = `
-Object {
+{
   "category": "border-radius",
   "css": "--border-radius-200",
   "friendly": "Border Radius 200",
@@ -15,7 +15,7 @@ Object {
 `;
 
 exports[`should format consistently 1`] = `
-Object {
+{
   "border_radius_0": "0",
   "border_radius_100": "1px",
   "border_radius_200": "2px",
@@ -195,8 +195,8 @@ Object {
 `;
 
 exports[`should format consistently 2`] = `
-Array [
-  Object {
+[
+  {
     "category": "border-radius",
     "css": "--border-radius-0",
     "friendly": "Border Radius 0",
@@ -207,7 +207,7 @@ Array [
     "type": "border-radius",
     "value": "0",
   },
-  Object {
+  {
     "category": "border-radius",
     "css": "--border-radius-100",
     "friendly": "Border Radius 100",
@@ -218,7 +218,7 @@ Array [
     "type": "border-radius",
     "value": "1px",
   },
-  Object {
+  {
     "category": "border-radius",
     "css": "--border-radius-200",
     "friendly": "Border Radius 200",
@@ -229,7 +229,7 @@ Array [
     "type": "border-radius",
     "value": "2px",
   },
-  Object {
+  {
     "category": "border-radius",
     "css": "--border-radius-pill",
     "friendly": "Border Radius Pill",
@@ -240,7 +240,7 @@ Array [
     "type": "border-radius",
     "value": "9999em",
   },
-  Object {
+  {
     "category": "border-radius",
     "css": "--border-radius-circle",
     "friendly": "Border Radius Circle",
@@ -251,7 +251,7 @@ Array [
     "type": "border-radius",
     "value": "50%",
   },
-  Object {
+  {
     "category": "border-width",
     "css": "--border-width-0",
     "friendly": "Border Width 0",
@@ -262,7 +262,7 @@ Array [
     "type": "border-width",
     "value": "0",
   },
-  Object {
+  {
     "category": "border-width",
     "css": "--border-width-100",
     "friendly": "Border Width 100",
@@ -273,7 +273,7 @@ Array [
     "type": "border-width",
     "value": "1px",
   },
-  Object {
+  {
     "category": "border-width",
     "css": "--border-width-200",
     "friendly": "Border Width 200",
@@ -284,7 +284,7 @@ Array [
     "type": "border-width",
     "value": "2px",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-brand-orange",
     "friendly": "Color Brand Orange",
@@ -295,7 +295,7 @@ Array [
     "type": "color",
     "value": "#FA6423",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-brand-gray",
     "friendly": "Color Brand Gray",
@@ -306,7 +306,7 @@ Array [
     "type": "color",
     "value": "#55555A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-brand-blue",
     "friendly": "Color Brand Blue",
@@ -317,7 +317,7 @@ Array [
     "type": "color",
     "value": "#37AADC",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-100",
     "friendly": "Color Yellow 100",
@@ -328,7 +328,7 @@ Array [
     "type": "color",
     "value": "#FFFADB",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-200",
     "friendly": "Color Yellow 200",
@@ -339,7 +339,7 @@ Array [
     "type": "color",
     "value": "#FFF4B5",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-300",
     "friendly": "Color Yellow 300",
@@ -350,7 +350,7 @@ Array [
     "type": "color",
     "value": "#FFE75C",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-400",
     "friendly": "Color Yellow 400",
@@ -361,7 +361,7 @@ Array [
     "type": "color",
     "value": "#FFDA00",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-500",
     "friendly": "Color Yellow 500",
@@ -372,7 +372,7 @@ Array [
     "type": "color",
     "value": "#E3AD0B",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-600",
     "friendly": "Color Yellow 600",
@@ -383,7 +383,7 @@ Array [
     "type": "color",
     "value": "#B58C12",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-700",
     "friendly": "Color Yellow 700",
@@ -394,7 +394,7 @@ Array [
     "type": "color",
     "value": "#876A2F",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-800",
     "friendly": "Color Yellow 800",
@@ -405,7 +405,7 @@ Array [
     "type": "color",
     "value": "#614D27",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-900",
     "friendly": "Color Yellow 900",
@@ -416,7 +416,7 @@ Array [
     "type": "color",
     "value": "#523E21",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-yellow-1000",
     "friendly": "Color Yellow 1000",
@@ -427,7 +427,7 @@ Array [
     "type": "color",
     "value": "#3D3121",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-100",
     "friendly": "Color Green 100",
@@ -438,7 +438,7 @@ Array [
     "type": "color",
     "value": "#E8FFF7",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-200",
     "friendly": "Color Green 200",
@@ -449,7 +449,7 @@ Array [
     "type": "color",
     "value": "#D6FFF1",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-300",
     "friendly": "Color Green 300",
@@ -460,7 +460,7 @@ Array [
     "type": "color",
     "value": "#B5F5E0",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-400",
     "friendly": "Color Green 400",
@@ -471,7 +471,7 @@ Array [
     "type": "color",
     "value": "#8DEBCB",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-500",
     "friendly": "Color Green 500",
@@ -482,7 +482,7 @@ Array [
     "type": "color",
     "value": "#52D9AC",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-600",
     "friendly": "Color Green 600",
@@ -493,7 +493,7 @@ Array [
     "type": "color",
     "value": "#28BD8B",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-700",
     "friendly": "Color Green 700",
@@ -504,7 +504,7 @@ Array [
     "type": "color",
     "value": "#009F6A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-800",
     "friendly": "Color Green 800",
@@ -515,7 +515,7 @@ Array [
     "type": "color",
     "value": "#067852",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-900",
     "friendly": "Color Green 900",
@@ -526,7 +526,7 @@ Array [
     "type": "color",
     "value": "#1B5441",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-green-1000",
     "friendly": "Color Green 1000",
@@ -537,7 +537,7 @@ Array [
     "type": "color",
     "value": "#233B33",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-100",
     "friendly": "Color Teal 100",
@@ -548,7 +548,7 @@ Array [
     "type": "color",
     "value": "#E3FFFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-200",
     "friendly": "Color Teal 200",
@@ -559,7 +559,7 @@ Array [
     "type": "color",
     "value": "#CCFFFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-300",
     "friendly": "Color Teal 300",
@@ -570,7 +570,7 @@ Array [
     "type": "color",
     "value": "#96FEFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-400",
     "friendly": "Color Teal 400",
@@ -581,7 +581,7 @@ Array [
     "type": "color",
     "value": "#6EF4F5",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-500",
     "friendly": "Color Teal 500",
@@ -592,7 +592,7 @@ Array [
     "type": "color",
     "value": "#37E4E6",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-600",
     "friendly": "Color Teal 600",
@@ -603,7 +603,7 @@ Array [
     "type": "color",
     "value": "#13BEBF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-700",
     "friendly": "Color Teal 700",
@@ -614,7 +614,7 @@ Array [
     "type": "color",
     "value": "#199091",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-800",
     "friendly": "Color Teal 800",
@@ -625,7 +625,7 @@ Array [
     "type": "color",
     "value": "#226363",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-900",
     "friendly": "Color Teal 900",
@@ -636,7 +636,7 @@ Array [
     "type": "color",
     "value": "#274C4D",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-teal-1000",
     "friendly": "Color Teal 1000",
@@ -647,7 +647,7 @@ Array [
     "type": "color",
     "value": "#223A3B",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-100",
     "friendly": "Color Blue 100",
@@ -658,7 +658,7 @@ Array [
     "type": "color",
     "value": "#F2F8FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-200",
     "friendly": "Color Blue 200",
@@ -669,7 +669,7 @@ Array [
     "type": "color",
     "value": "#E8F3FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-300",
     "friendly": "Color Blue 300",
@@ -680,7 +680,7 @@ Array [
     "type": "color",
     "value": "#CCE3FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-400",
     "friendly": "Color Blue 400",
@@ -691,7 +691,7 @@ Array [
     "type": "color",
     "value": "#ABD2FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-500",
     "friendly": "Color Blue 500",
@@ -702,7 +702,7 @@ Array [
     "type": "color",
     "value": "#78B6FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-600",
     "friendly": "Color Blue 600",
@@ -713,7 +713,7 @@ Array [
     "type": "color",
     "value": "#429BFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-700",
     "friendly": "Color Blue 700",
@@ -724,7 +724,7 @@ Array [
     "type": "color",
     "value": "#1273E6",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-800",
     "friendly": "Color Blue 800",
@@ -735,7 +735,7 @@ Array [
     "type": "color",
     "value": "#0060CC",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-900",
     "friendly": "Color Blue 900",
@@ -746,7 +746,7 @@ Array [
     "type": "color",
     "value": "#1A497D",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-blue-1000",
     "friendly": "Color Blue 1000",
@@ -757,7 +757,7 @@ Array [
     "type": "color",
     "value": "#203752",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-100",
     "friendly": "Color Purple 100",
@@ -768,7 +768,7 @@ Array [
     "type": "color",
     "value": "#F9F5FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-200",
     "friendly": "Color Purple 200",
@@ -779,7 +779,7 @@ Array [
     "type": "color",
     "value": "#F3EBFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-300",
     "friendly": "Color Purple 300",
@@ -790,7 +790,7 @@ Array [
     "type": "color",
     "value": "#E5D4FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-400",
     "friendly": "Color Purple 400",
@@ -801,7 +801,7 @@ Array [
     "type": "color",
     "value": "#D7BDFF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-500",
     "friendly": "Color Purple 500",
@@ -812,7 +812,7 @@ Array [
     "type": "color",
     "value": "#BD91FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-600",
     "friendly": "Color Purple 600",
@@ -823,7 +823,7 @@ Array [
     "type": "color",
     "value": "#A469FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-700",
     "friendly": "Color Purple 700",
@@ -834,7 +834,7 @@ Array [
     "type": "color",
     "value": "#8C40FF",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-800",
     "friendly": "Color Purple 800",
@@ -845,7 +845,7 @@ Array [
     "type": "color",
     "value": "#7122E3",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-900",
     "friendly": "Color Purple 900",
@@ -856,7 +856,7 @@ Array [
     "type": "color",
     "value": "#4C2E87",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-purple-1000",
     "friendly": "Color Purple 1000",
@@ -867,7 +867,7 @@ Array [
     "type": "color",
     "value": "#352E4A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-100",
     "friendly": "Color Magenta 100",
@@ -878,7 +878,7 @@ Array [
     "type": "color",
     "value": "#FFF2F8",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-200",
     "friendly": "Color Magenta 200",
@@ -889,7 +889,7 @@ Array [
     "type": "color",
     "value": "#FFE8F2",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-300",
     "friendly": "Color Magenta 300",
@@ -900,7 +900,7 @@ Array [
     "type": "color",
     "value": "#FFCCE3",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-400",
     "friendly": "Color Magenta 400",
@@ -911,7 +911,7 @@ Array [
     "type": "color",
     "value": "#FFB0D3",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-500",
     "friendly": "Color Magenta 500",
@@ -922,7 +922,7 @@ Array [
     "type": "color",
     "value": "#FF7DB7",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-600",
     "friendly": "Color Magenta 600",
@@ -933,7 +933,7 @@ Array [
     "type": "color",
     "value": "#F0549A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-700",
     "friendly": "Color Magenta 700",
@@ -944,7 +944,7 @@ Array [
     "type": "color",
     "value": "#D1347A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-800",
     "friendly": "Color Magenta 800",
@@ -955,7 +955,7 @@ Array [
     "type": "color",
     "value": "#992659",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-900",
     "friendly": "Color Magenta 900",
@@ -966,7 +966,7 @@ Array [
     "type": "color",
     "value": "#782449",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-magenta-1000",
     "friendly": "Color Magenta 1000",
@@ -977,7 +977,7 @@ Array [
     "type": "color",
     "value": "#522338",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-100",
     "friendly": "Color Red 100",
@@ -988,7 +988,7 @@ Array [
     "type": "color",
     "value": "#FFF2F3",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-200",
     "friendly": "Color Red 200",
@@ -999,7 +999,7 @@ Array [
     "type": "color",
     "value": "#FFEBEC",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-300",
     "friendly": "Color Red 300",
@@ -1010,7 +1010,7 @@ Array [
     "type": "color",
     "value": "#FFCFD1",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-400",
     "friendly": "Color Red 400",
@@ -1021,7 +1021,7 @@ Array [
     "type": "color",
     "value": "#FFB5B9",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-500",
     "friendly": "Color Red 500",
@@ -1032,7 +1032,7 @@ Array [
     "type": "color",
     "value": "#FF858B",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-600",
     "friendly": "Color Red 600",
@@ -1043,7 +1043,7 @@ Array [
     "type": "color",
     "value": "#FF5760",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-700",
     "friendly": "Color Red 700",
@@ -1054,7 +1054,7 @@ Array [
     "type": "color",
     "value": "#D9363E",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-800",
     "friendly": "Color Red 800",
@@ -1065,7 +1065,7 @@ Array [
     "type": "color",
     "value": "#A12B2B",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-900",
     "friendly": "Color Red 900",
@@ -1076,7 +1076,7 @@ Array [
     "type": "color",
     "value": "#80252A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-red-1000",
     "friendly": "Color Red 1000",
@@ -1087,7 +1087,7 @@ Array [
     "type": "color",
     "value": "#5C2121",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-100",
     "friendly": "Color Gray 100",
@@ -1098,7 +1098,7 @@ Array [
     "type": "color",
     "value": "#F5F8FA",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-200",
     "friendly": "Color Gray 200",
@@ -1109,7 +1109,7 @@ Array [
     "type": "color",
     "value": "#EBF0F5",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-300",
     "friendly": "Color Gray 300",
@@ -1120,7 +1120,7 @@ Array [
     "type": "color",
     "value": "#D9E0E6",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-400",
     "friendly": "Color Gray 400",
@@ -1131,7 +1131,7 @@ Array [
     "type": "color",
     "value": "#C5CED6",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-500",
     "friendly": "Color Gray 500",
@@ -1142,7 +1142,7 @@ Array [
     "type": "color",
     "value": "#A2ADB8",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-600",
     "friendly": "Color Gray 600",
@@ -1153,7 +1153,7 @@ Array [
     "type": "color",
     "value": "#818E9A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-700",
     "friendly": "Color Gray 700",
@@ -1164,7 +1164,7 @@ Array [
     "type": "color",
     "value": "#626F7A",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-800",
     "friendly": "Color Gray 800",
@@ -1175,7 +1175,7 @@ Array [
     "type": "color",
     "value": "#46525C",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-900",
     "friendly": "Color Gray 900",
@@ -1186,7 +1186,7 @@ Array [
     "type": "color",
     "value": "#39444D",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-gray-1000",
     "friendly": "Color Gray 1000",
@@ -1197,7 +1197,7 @@ Array [
     "type": "color",
     "value": "#2C353D",
   },
-  Object {
+  {
     "category": "color",
     "css": "--color-white",
     "friendly": "Color White",
@@ -1208,7 +1208,7 @@ Array [
     "type": "color",
     "value": "#FFFFFF",
   },
-  Object {
+  {
     "category": "box-shadow",
     "css": "--box-shadow-0",
     "friendly": "Box Shadow 0",
@@ -1219,7 +1219,7 @@ Array [
     "type": "box-shadow",
     "value": "none",
   },
-  Object {
+  {
     "category": "box-shadow",
     "css": "--box-shadow-100",
     "friendly": "Box Shadow 100",
@@ -1230,7 +1230,7 @@ Array [
     "type": "box-shadow",
     "value": "0px 1px 2px rgba(44,53,61,.2)",
   },
-  Object {
+  {
     "category": "box-shadow",
     "css": "--box-shadow-200",
     "friendly": "Box Shadow 200",
@@ -1241,7 +1241,7 @@ Array [
     "type": "box-shadow",
     "value": "0px 2px 4px rgba(44,53,61,.2)",
   },
-  Object {
+  {
     "category": "box-shadow",
     "css": "--box-shadow-300",
     "friendly": "Box Shadow 300",
@@ -1252,7 +1252,7 @@ Array [
     "type": "box-shadow",
     "value": "0px 4px 8px rgba(44,53,61,.2)",
   },
-  Object {
+  {
     "category": "box-shadow",
     "css": "--box-shadow-400",
     "friendly": "Box Shadow 400",
@@ -1263,7 +1263,7 @@ Array [
     "type": "box-shadow",
     "value": "0px 8px 16px rgba(44,53,61,.2)",
   },
-  Object {
+  {
     "category": "z-index",
     "css": "--z-index-auto",
     "friendly": "Z Index Auto",
@@ -1274,7 +1274,7 @@ Array [
     "type": "z-index",
     "value": "auto",
   },
-  Object {
+  {
     "category": "z-index",
     "css": "--z-index-below",
     "friendly": "Z Index Below",
@@ -1285,7 +1285,7 @@ Array [
     "type": "z-index",
     "value": "-1",
   },
-  Object {
+  {
     "category": "z-index",
     "css": "--z-index-default",
     "friendly": "Z Index Default",
@@ -1296,7 +1296,7 @@ Array [
     "type": "z-index",
     "value": "1",
   },
-  Object {
+  {
     "category": "z-index",
     "css": "--z-index-above",
     "friendly": "Z Index Above",
@@ -1307,7 +1307,7 @@ Array [
     "type": "z-index",
     "value": "10",
   },
-  Object {
+  {
     "category": "z-index",
     "css": "--z-index-overlay",
     "friendly": "Z Index Overlay",
@@ -1318,7 +1318,7 @@ Array [
     "type": "z-index",
     "value": "1000",
   },
-  Object {
+  {
     "category": "font-family",
     "css": "--font-family-sans",
     "friendly": "Font Family Sans",
@@ -1329,7 +1329,7 @@ Array [
     "type": "font-family",
     "value": "'Calibre', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif",
   },
-  Object {
+  {
     "category": "font-family",
     "css": "--font-family-monospace",
     "friendly": "Font Family Monospace",
@@ -1340,7 +1340,7 @@ Array [
     "type": "font-family",
     "value": "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-100",
     "friendly": "Line Height 100",
@@ -1353,7 +1353,7 @@ Array [
     "type": "line-height",
     "value": "1rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-200",
     "friendly": "Line Height 200",
@@ -1366,7 +1366,7 @@ Array [
     "type": "line-height",
     "value": "1.25rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-300",
     "friendly": "Line Height 300",
@@ -1379,7 +1379,7 @@ Array [
     "type": "line-height",
     "value": "1.5rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-400",
     "friendly": "Line Height 400",
@@ -1392,7 +1392,7 @@ Array [
     "type": "line-height",
     "value": "1.750rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-500",
     "friendly": "Line Height 500",
@@ -1405,7 +1405,7 @@ Array [
     "type": "line-height",
     "value": "2rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-600",
     "friendly": "Line Height 600",
@@ -1418,7 +1418,7 @@ Array [
     "type": "line-height",
     "value": "2.5rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-700",
     "friendly": "Line Height 700",
@@ -1431,7 +1431,7 @@ Array [
     "type": "line-height",
     "value": "3.5rem",
   },
-  Object {
+  {
     "category": "line-height",
     "css": "--line-height-800",
     "friendly": "Line Height 800",
@@ -1444,7 +1444,7 @@ Array [
     "type": "line-height",
     "value": "4.25rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-50",
     "friendly": "Font Size 50",
@@ -1457,7 +1457,7 @@ Array [
     "type": "font-size",
     "value": "0.75rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-100",
     "friendly": "Font Size 100",
@@ -1470,7 +1470,7 @@ Array [
     "type": "font-size",
     "value": "0.875rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-200",
     "friendly": "Font Size 200",
@@ -1483,7 +1483,7 @@ Array [
     "type": "font-size",
     "value": "1rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-300",
     "friendly": "Font Size 300",
@@ -1496,7 +1496,7 @@ Array [
     "type": "font-size",
     "value": "1.125rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-400",
     "friendly": "Font Size 400",
@@ -1509,7 +1509,7 @@ Array [
     "type": "font-size",
     "value": "1.25rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-500",
     "friendly": "Font Size 500",
@@ -1522,7 +1522,7 @@ Array [
     "type": "font-size",
     "value": "1.5rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-600",
     "friendly": "Font Size 600",
@@ -1535,7 +1535,7 @@ Array [
     "type": "font-size",
     "value": "2rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-700",
     "friendly": "Font Size 700",
@@ -1548,7 +1548,7 @@ Array [
     "type": "font-size",
     "value": "2.75rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-800",
     "friendly": "Font Size 800",
@@ -1561,7 +1561,7 @@ Array [
     "type": "font-size",
     "value": "3.5rem",
   },
-  Object {
+  {
     "category": "font-size",
     "css": "--font-size-root",
     "friendly": "Font Size Root",
@@ -1572,7 +1572,7 @@ Array [
     "type": "font-size",
     "value": "16px",
   },
-  Object {
+  {
     "category": "font-weight",
     "css": "--font-weight-light",
     "friendly": "Font Weight Light",
@@ -1583,7 +1583,7 @@ Array [
     "type": "font-weight",
     "value": "300",
   },
-  Object {
+  {
     "category": "font-weight",
     "css": "--font-weight-normal",
     "friendly": "Font Weight Normal",
@@ -1594,7 +1594,7 @@ Array [
     "type": "font-weight",
     "value": "400",
   },
-  Object {
+  {
     "category": "font-weight",
     "css": "--font-weight-medium",
     "friendly": "Font Weight Medium",
@@ -1605,7 +1605,7 @@ Array [
     "type": "font-weight",
     "value": "500",
   },
-  Object {
+  {
     "category": "font-weight",
     "css": "--font-weight-semibold",
     "friendly": "Font Weight Semibold",
@@ -1616,7 +1616,7 @@ Array [
     "type": "font-weight",
     "value": "600",
   },
-  Object {
+  {
     "category": "media-query",
     "css": "--media-query-xs",
     "friendly": "Media Query Xs",
@@ -1627,7 +1627,7 @@ Array [
     "type": "media-query",
     "value": "448px",
   },
-  Object {
+  {
     "category": "media-query",
     "css": "--media-query-sm",
     "friendly": "Media Query Sm",
@@ -1638,7 +1638,7 @@ Array [
     "type": "media-query",
     "value": "720px",
   },
-  Object {
+  {
     "category": "media-query",
     "css": "--media-query-md",
     "friendly": "Media Query Md",
@@ -1649,7 +1649,7 @@ Array [
     "type": "media-query",
     "value": "960px",
   },
-  Object {
+  {
     "category": "media-query",
     "css": "--media-query-lg",
     "friendly": "Media Query Lg",
@@ -1660,7 +1660,7 @@ Array [
     "type": "media-query",
     "value": "1200px",
   },
-  Object {
+  {
     "category": "media-query",
     "css": "--media-query-xl",
     "friendly": "Media Query Xl",
@@ -1671,7 +1671,7 @@ Array [
     "type": "media-query",
     "value": "1440px",
   },
-  Object {
+  {
     "category": "motion-duration",
     "css": "--motion-duration-fast",
     "friendly": "Motion Duration Fast",
@@ -1682,7 +1682,7 @@ Array [
     "type": "motion-duration",
     "value": "0.15s",
   },
-  Object {
+  {
     "category": "motion-duration",
     "css": "--motion-duration-medium",
     "friendly": "Motion Duration Medium",
@@ -1693,7 +1693,7 @@ Array [
     "type": "motion-duration",
     "value": "0.3s",
   },
-  Object {
+  {
     "category": "motion-duration",
     "css": "--motion-duration-slow",
     "friendly": "Motion Duration Slow",
@@ -1704,7 +1704,7 @@ Array [
     "type": "motion-duration",
     "value": "0.7s",
   },
-  Object {
+  {
     "category": "motion-ease",
     "css": "--motion-ease-in",
     "friendly": "Motion Ease In",
@@ -1715,7 +1715,7 @@ Array [
     "type": "motion-ease",
     "value": "cubic-bezier(.35, 0, .7, .2)",
   },
-  Object {
+  {
     "category": "motion-ease",
     "css": "--motion-ease-out",
     "friendly": "Motion Ease Out",
@@ -1726,7 +1726,7 @@ Array [
     "type": "motion-ease",
     "value": "cubic-bezier(0, 0, .3, 1)",
   },
-  Object {
+  {
     "category": "motion-ease",
     "css": "--motion-ease-in-out",
     "friendly": "Motion Ease In-out",
@@ -1737,7 +1737,7 @@ Array [
     "type": "motion-ease",
     "value": "cubic-bezier(.4, 0, .3, 1)",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-0",
     "friendly": "Sizing 0",
@@ -1750,7 +1750,7 @@ Array [
     "type": "sizing",
     "value": "0rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-100",
     "friendly": "Sizing 100",
@@ -1763,7 +1763,7 @@ Array [
     "type": "sizing",
     "value": "0.25rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-200",
     "friendly": "Sizing 200",
@@ -1776,7 +1776,7 @@ Array [
     "type": "sizing",
     "value": "0.5rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-300",
     "friendly": "Sizing 300",
@@ -1789,7 +1789,7 @@ Array [
     "type": "sizing",
     "value": "0.75rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-400",
     "friendly": "Sizing 400",
@@ -1802,7 +1802,7 @@ Array [
     "type": "sizing",
     "value": "1rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-450",
     "friendly": "Sizing 450",
@@ -1815,7 +1815,7 @@ Array [
     "type": "sizing",
     "value": "1.25rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-500",
     "friendly": "Sizing 500",
@@ -1828,7 +1828,7 @@ Array [
     "type": "sizing",
     "value": "1.5rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-550",
     "friendly": "Sizing 550",
@@ -1841,7 +1841,7 @@ Array [
     "type": "sizing",
     "value": "1.75rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-600",
     "friendly": "Sizing 600",
@@ -1854,7 +1854,7 @@ Array [
     "type": "sizing",
     "value": "2rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-650",
     "friendly": "Sizing 650",
@@ -1867,7 +1867,7 @@ Array [
     "type": "sizing",
     "value": "2.5rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-700",
     "friendly": "Sizing 700",
@@ -1880,7 +1880,7 @@ Array [
     "type": "sizing",
     "value": "3rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-750",
     "friendly": "Sizing 750",
@@ -1893,7 +1893,7 @@ Array [
     "type": "sizing",
     "value": "3.5rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-800",
     "friendly": "Sizing 800",
@@ -1906,7 +1906,7 @@ Array [
     "type": "sizing",
     "value": "4rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-850",
     "friendly": "Sizing 850",
@@ -1919,7 +1919,7 @@ Array [
     "type": "sizing",
     "value": "6rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-900",
     "friendly": "Sizing 900",
@@ -1932,7 +1932,7 @@ Array [
     "type": "sizing",
     "value": "10rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1000",
     "friendly": "Sizing 1000",
@@ -1945,7 +1945,7 @@ Array [
     "type": "sizing",
     "value": "20rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1100",
     "friendly": "Sizing 1100",
@@ -1958,7 +1958,7 @@ Array [
     "type": "sizing",
     "value": "28rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1150",
     "friendly": "Sizing 1150",
@@ -1971,7 +1971,7 @@ Array [
     "type": "sizing",
     "value": "35rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1200",
     "friendly": "Sizing 1200",
@@ -1984,7 +1984,7 @@ Array [
     "type": "sizing",
     "value": "45rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1300",
     "friendly": "Sizing 1300",
@@ -1997,7 +1997,7 @@ Array [
     "type": "sizing",
     "value": "60rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1350",
     "friendly": "Sizing 1350",
@@ -2010,7 +2010,7 @@ Array [
     "type": "sizing",
     "value": "66rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1400",
     "friendly": "Sizing 1400",
@@ -2023,7 +2023,7 @@ Array [
     "type": "sizing",
     "value": "75rem",
   },
-  Object {
+  {
     "category": "sizing",
     "css": "--sizing-1500",
     "friendly": "Sizing 1500",
@@ -2036,7 +2036,7 @@ Array [
     "type": "sizing",
     "value": "90rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-0",
     "friendly": "Spacing 0",
@@ -2049,7 +2049,7 @@ Array [
     "type": "spacing",
     "value": "0rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-100",
     "friendly": "Spacing 100",
@@ -2062,7 +2062,7 @@ Array [
     "type": "spacing",
     "value": "0.25rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-200",
     "friendly": "Spacing 200",
@@ -2075,7 +2075,7 @@ Array [
     "type": "spacing",
     "value": "0.5rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-300",
     "friendly": "Spacing 300",
@@ -2088,7 +2088,7 @@ Array [
     "type": "spacing",
     "value": "0.75rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-400",
     "friendly": "Spacing 400",
@@ -2101,7 +2101,7 @@ Array [
     "type": "spacing",
     "value": "1rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-450",
     "friendly": "Spacing 450",
@@ -2114,7 +2114,7 @@ Array [
     "type": "spacing",
     "value": "1.25rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-500",
     "friendly": "Spacing 500",
@@ -2127,7 +2127,7 @@ Array [
     "type": "spacing",
     "value": "1.5rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-550",
     "friendly": "Spacing 550",
@@ -2140,7 +2140,7 @@ Array [
     "type": "spacing",
     "value": "1.75rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-600",
     "friendly": "Spacing 600",
@@ -2153,7 +2153,7 @@ Array [
     "type": "spacing",
     "value": "2rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-650",
     "friendly": "Spacing 650",
@@ -2166,7 +2166,7 @@ Array [
     "type": "spacing",
     "value": "2.5rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-700",
     "friendly": "Spacing 700",
@@ -2179,7 +2179,7 @@ Array [
     "type": "spacing",
     "value": "3rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-750",
     "friendly": "Spacing 750",
@@ -2192,7 +2192,7 @@ Array [
     "type": "spacing",
     "value": "3.5rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-800",
     "friendly": "Spacing 800",
@@ -2205,7 +2205,7 @@ Array [
     "type": "spacing",
     "value": "4rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-850",
     "friendly": "Spacing 850",
@@ -2218,7 +2218,7 @@ Array [
     "type": "spacing",
     "value": "6rem",
   },
-  Object {
+  {
     "category": "spacing",
     "css": "--spacing-900",
     "friendly": "Spacing 900",

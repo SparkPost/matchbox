@@ -1,4 +1,5 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import Expandable from '../Expandable';
 import { tokens } from '@sparkpost/design-tokens';
 
@@ -10,35 +11,37 @@ describe('Expandable component', () => {
   });
 
   const testOpen = (wrapper, open) => {
-    expect(wrapper.find(Expandable.Header)).toHaveAttributeValue(
+    expect(wrapper.querySelector(`${Expandable.Header}`)).toHaveAttributeValue(
       'aria-expanded',
       open ? 'true' : 'false',
     );
-    expect(wrapper.find(Expandable.Arrow)).toHaveStyleRule(
+    expect(wrapper.querySelector(`${Expandable.Arrow}`)).toHaveStyleRule(
       'transform',
       open ? 'rotate(90deg)' : 'rotate(-90deg)',
     );
-    expect(wrapper.find(Expandable.ContentWrapper)).toHaveStyleRule(
+    expect(wrapper.querySelector(`${Expandable.ContentWrapper}`)).toHaveStyleRule(
       'visibility',
       open ? 'visible' : 'hidden',
     );
-    expect(wrapper.find(Expandable.ContentWrapper)).toHaveStyleRule(
+    expect(wrapper.querySelector(`${Expandable.ContentWrapper}`)).toHaveStyleRule(
       'display',
       open ? 'flex' : 'none',
     );
-    expect(wrapper.find(Expandable.ContentWrapper)).toHaveAttributeValue(
+    expect(wrapper.querySelector(`${Expandable.ContentWrapper}`)).toHaveAttributeValue(
       'aria-hidden',
       open ? 'false' : 'true',
     );
   };
 
+  const accent = (wrapper) => wrapper.firstChild.firstChild;
+
   const subject = (props = {}) =>
-    global.mountStyled(<Expandable title="test-title" id="test-id" {...props} />);
+    render(<Expandable title="test-title" id="test-id" {...props} />).container;
 
   it('should render default state with title and id correctly', () => {
     const wrapper = subject();
-    expect(wrapper.find(Expandable.Title).text()).toEqual('test-title');
-    expect(wrapper.find(Expandable.ContentWrapper)).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.querySelector(`${Expandable.Title}`).textContent).toEqual('test-title');
+    expect(wrapper.querySelector(`${Expandable.ContentWrapper}`)).toHaveAttributeValue('id', 'test-id');
   });
 
   it('should render provided default state with an icon', () => {
@@ -46,7 +49,7 @@ describe('Expandable component', () => {
       icon: <svg>test</svg>,
       defaultOpen: true,
     });
-    expect(wrapper.find('svg').first().text()).toEqual('test');
+    expect(wrapper.querySelector('svg').textContent).toEqual('test');
   });
 
   describe('uncontrolled', () => {
@@ -62,16 +65,16 @@ describe('Expandable component', () => {
 
     it('should toggle open when clicking on header', () => {
       const wrapper = subject();
-      wrapper.find(Expandable.Header).simulate('click');
+      fireEvent.click(wrapper.querySelector(`${Expandable.Header}`));
       testOpen(wrapper, true);
     });
 
     it('should toggle when hitting enter or space', () => {
       const wrapper = subject({ onToggle });
-      wrapper.find(Expandable.Header).simulate('keyDown', { key: 'Enter', shiftKey: false });
+      fireEvent.keyDown(wrapper.querySelector(`${Expandable.Header}`), { key: 'Enter', shiftKey: false });
       testOpen(wrapper, true);
 
-      wrapper.find(Expandable.Header).simulate('keyDown', { key: ' ', shiftKey: false });
+      fireEvent.keyDown(wrapper.querySelector(`${Expandable.Header}`), { key: ' ', shiftKey: false });
       testOpen(wrapper, false);
     });
   });
@@ -84,14 +87,14 @@ describe('Expandable component', () => {
 
     it('should handle toggle when clicking on header', () => {
       const wrapper = subject({ open: true, onToggle });
-      wrapper.find(Expandable.Header).simulate('click');
+      fireEvent.click(wrapper.querySelector(`${Expandable.Header}`));
       expect(onToggle).toHaveBeenCalled();
     });
 
     it('should handle toggle when hitting enter or space', () => {
       const wrapper = subject({ open: true, onToggle });
-      wrapper.find(Expandable.Header).simulate('keyDown', { key: 'Enter', shiftKey: false });
-      wrapper.find(Expandable.Header).simulate('keyDown', { key: ' ', shiftKey: false });
+      fireEvent.keyDown(wrapper.querySelector(`${Expandable.Header}`), { key: 'Enter', shiftKey: false });
+      fireEvent.keyDown(wrapper.querySelector(`${Expandable.Header}`), { key: ' ', shiftKey: false });
       expect(onToggle).toHaveBeenCalledTimes(2);
     });
   });
@@ -107,35 +110,35 @@ describe('Expandable component', () => {
       let blueWrapper = subject({ accent: 'blue' });
       let purpleWrapper = subject({ accent: 'purple' });
 
-      expect(defaultWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(defaultWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_blue_700,
       );
-      expect(orangeWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(orangeWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_brand_orange,
       );
-      expect(greenWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(greenWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_green_700,
       );
-      expect(yellowWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(yellowWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_yellow_400,
       );
-      expect(redWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(redWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_red_700,
       );
-      expect(grayWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(grayWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_gray_600,
       );
-      expect(blueWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(blueWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_blue_700,
       );
-      expect(purpleWrapper.find(Expandable.Accent)).toHaveStyleRule(
+      expect(accent(purpleWrapper)).toHaveStyleRule(
         'background-color',
         tokens.color_blue_700,
       );

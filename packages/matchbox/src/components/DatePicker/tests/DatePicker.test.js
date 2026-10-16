@@ -1,10 +1,11 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import DatePicker from '../DatePicker';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('DatePicker', () => {
   const date = new Date('2017-01-05');
-  const subject = props => global.mountStyled(<DatePicker {...props} numberOfMonths={1} />);
+  const subject = (props) => render(<DatePicker {...props} numberOfMonths={1} />).container;
 
   // NPM test script prepended with `TZ=UTC` to set timezone
   // :)
@@ -14,41 +15,36 @@ describe('DatePicker', () => {
 
   it('should render initial month correctly', () => {
     const wrapper = subject({ initialMonth: date });
-    expect(
-      wrapper
-        .find('[data-id="datepicker-caption"]')
-        .at(0)
-        .text(),
-    ).toEqual('January 2017');
+    expect(wrapper.querySelectorAll('[data-id="datepicker-caption"]')[0].textContent).toEqual(
+      'January 2017',
+    );
   });
 
   it('should render navbar correctly', () => {
     const wrapper = subject({ initialMonth: date });
-    expect(wrapper.find('button[data-id="datepicker-previous"]').text()).toEqual('Previous Month');
-    expect(wrapper.find('button[data-id="datepicker-next"]').text()).toEqual('Next Month');
+    expect(wrapper.querySelector('button[data-id="datepicker-previous"]').textContent).toEqual(
+      'Previous Month',
+    );
+    expect(wrapper.querySelector('button[data-id="datepicker-next"]').textContent).toEqual(
+      'Next Month',
+    );
   });
 
   it('should render navbar correctly with disabled buttons', () => {
     const wrapper = subject({ initialMonth: date, toMonth: date });
-    expect(wrapper.find('button[data-id="datepicker-next"]')).toBeDisabled();
+    expect(wrapper.querySelector('button[data-id="datepicker-next"]')).toBeDisabled();
   });
 
   it('should be able to navigate to previous and next month with navbar', () => {
     const wrapper = subject({ initialMonth: date, toMonth: date });
-    wrapper.find('button[data-id="datepicker-previous"]').simulate('click');
-    expect(
-      wrapper
-        .find('[data-id="datepicker-caption"]')
-        .at(0)
-        .text(),
-    ).toEqual('December 2016');
-    wrapper.find('button[data-id="datepicker-next"]').simulate('click');
-    expect(
-      wrapper
-        .find('[data-id="datepicker-caption"]')
-        .at(0)
-        .text(),
-    ).toEqual('January 2017');
+    fireEvent.click(wrapper.querySelector('button[data-id="datepicker-previous"]'));
+    expect(wrapper.querySelectorAll('[data-id="datepicker-caption"]')[0].textContent).toEqual(
+      'December 2016',
+    );
+    fireEvent.click(wrapper.querySelector('button[data-id="datepicker-next"]'));
+    expect(wrapper.querySelectorAll('[data-id="datepicker-caption"]')[0].textContent).toEqual(
+      'January 2017',
+    );
   });
 
   describe('modifiers', () => {
@@ -57,12 +53,12 @@ describe('DatePicker', () => {
 
     it('should be able to show selected days', () => {
       const wrapper = subject({ initialMonth: date, selectedDays: date });
-      expect(wrapper.find('.DayPicker-Day--selected').text()).toEqual('5');
-      expect(wrapper.find('.DayPicker-Day--selected')).toHaveAttributeValue(
+      expect(wrapper.querySelector('.DayPicker-Day--selected').textContent).toEqual('5');
+      expect(wrapper.querySelector('.DayPicker-Day--selected')).toHaveAttributeValue(
         'aria-selected',
         'true',
       );
-      expect(wrapper.find('.DayPicker-Day--selected div')).toHaveStyleRule(
+      expect(wrapper.querySelector('.DayPicker-Day--selected div')).toHaveStyleRule(
         'background',
         tokens.color_blue_300,
       );
@@ -70,36 +66,31 @@ describe('DatePicker', () => {
 
     it('should be able to show disabled days', () => {
       const wrapper = subject({ initialMonth: date, disabledDays: { after: date } });
-      expect(wrapper.find('.DayPicker-Day--disabled').first()).toHaveAttributeValue(
+      expect(wrapper.querySelector('.DayPicker-Day--disabled')).toHaveAttributeValue(
         'aria-disabled',
         'true',
       );
-      expect(wrapper.find('.DayPicker-Day--disabled div').at(0)).toHaveStyleRule('opacity', '0.3');
+      expect(wrapper.querySelectorAll('.DayPicker-Day--disabled div')[0]).toHaveStyleRule(
+        'opacity',
+        '0.3',
+      );
     });
 
     it('should not render outside days', () => {
       const click = jest.fn();
       const wrapper = subject({ initialMonth: date, onDayClick: click });
-      expect(wrapper.find('.DayPicker-Day--outside').first()).toHaveAttributeValue(
+      expect(wrapper.querySelector('.DayPicker-Day--outside')).toHaveAttributeValue(
         'aria-disabled',
         'true',
       );
-      expect(
-        wrapper
-          .find('.DayPicker-Day--outside')
-          .first()
-          .text(),
-      ).toBe('');
+      expect(wrapper.querySelector('.DayPicker-Day--outside').textContent).toBe('');
     });
 
     it('should not click on outside days', () => {
       const click = jest.fn();
       const wrapper = subject({ initialMonth: date, onDayClick: click });
 
-      wrapper
-        .find('.DayPicker-Day--outside')
-        .first()
-        .simulate('click');
+      fireEvent.click(wrapper.querySelector('.DayPicker-Day--outside'));
       expect(click).not.toHaveBeenCalled();
     });
 
@@ -107,10 +98,7 @@ describe('DatePicker', () => {
       const click = jest.fn();
       const wrapper = subject({ initialMonth: date, onDayClick: click });
 
-      wrapper
-        .find('.DayPicker-Day')
-        .first()
-        .simulate('click');
+      fireEvent.click(wrapper.querySelector('.DayPicker-Day'));
       expect(click).toHaveBeenCalled();
     });
   });

@@ -1,6 +1,6 @@
 import React from 'react';
+import { render } from 'test-utils';
 import WindowEvent from '../WindowEvent';
-import { mount } from 'enzyme';
 
 global.addEventListener = jest.fn();
 global.removeEventListener = jest.fn();
@@ -9,7 +9,7 @@ describe('WindowEvent', () => {
   let wrapper;
   const handler = jest.fn();
 
-  const subject = () => mount(<WindowEvent event="scroll" handler={handler} />);
+  const subject = () => render(<WindowEvent event="scroll" handler={handler} />);
 
   afterEach(() => {
     jest.resetAllMocks();
@@ -17,7 +17,7 @@ describe('WindowEvent', () => {
 
   it('renders nothing', () => {
     wrapper = subject();
-    expect(wrapper.html()).toEqual(null);
+    expect(wrapper.container).toBeEmptyDOMElement();
   });
 
   it('adds event listener on mount', () => {
@@ -34,7 +34,7 @@ describe('WindowEvent', () => {
   it('adds and removes event listeners on update', () => {
     wrapper = subject();
     jest.resetAllMocks(); // clears count of events on mount
-    wrapper.setProps({ event: 'resize' });
+    wrapper.rerender(<WindowEvent event="resize" handler={handler} />);
     expect(global.addEventListener).toHaveBeenCalledWith('resize', handler);
   });
 });

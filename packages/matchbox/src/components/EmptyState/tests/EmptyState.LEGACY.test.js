@@ -1,32 +1,33 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import EmptyState from '../EmptyState';
 import { ChevronRight } from '@sparkpost/matchbox-icons';
 
 describe('EmptyState', () => {
   let wrapper;
 
-  const subject = props =>
-    global.mountStyled(
+  const subject = (props) =>
+    render(
       <EmptyState.LEGACY {...props}>
         <p>Nothing here yet!</p>
       </EmptyState.LEGACY>,
-    );
+    ).container;
 
   it('renders with title', () => {
     wrapper = subject({ title: 'The Title' });
-    const title = wrapper.find('h1');
-    expect(title.text()).toEqual('The Title');
+    const title = wrapper.querySelector('h1');
+    expect(title.textContent).toEqual('The Title');
     expect(title).toHaveStyleRule('font-size', '600');
     expect(title).toHaveStyleRule('line-height', '600');
   });
 
   it('renders with image', () => {
     wrapper = subject({ image: ChevronRight });
-    expect(wrapper.find(ChevronRight)).toExist();
+    expect(wrapper.querySelector('svg')).toBeInTheDocument();
   });
 
   it('renders without any actions', () => {
-    expect(wrapper.find('button')).not.toExist();
+    expect(wrapper.querySelector('button')).not.toBeInTheDocument();
   });
 
   it('renders primary action', () => {
@@ -34,9 +35,9 @@ describe('EmptyState', () => {
     wrapper = subject({
       primaryAction: { content: 'Primary Action', onClick: onClick },
     });
-    wrapper.find('button').simulate('click');
+    fireEvent.click(wrapper.querySelector('button'));
     expect(onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('button').text()).toEqual('Primary Action');
+    expect(wrapper.querySelector('button').textContent).toEqual('Primary Action');
   });
 
   it('renders secondary action', () => {
@@ -44,8 +45,8 @@ describe('EmptyState', () => {
     wrapper = subject({
       secondaryAction: { content: 'Secondary Action', onClick: onClick },
     });
-    wrapper.find('a').simulate('click');
+    fireEvent.click(wrapper.querySelector('a'));
     expect(onClick).toHaveBeenCalledTimes(1);
-    expect(wrapper.find('a').text()).toEqual('Secondary Action');
+    expect(wrapper.querySelector('a').textContent).toEqual('Secondary Action');
   });
 });

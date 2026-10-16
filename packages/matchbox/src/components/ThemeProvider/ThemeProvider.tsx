@@ -60,12 +60,6 @@ function Theme(props: ThemeProviderProps): JSX.Element {
   return (
     <Manager target={props.target}>
       <ThemeProvider theme={{ ...theme, ...props.theme }}>
-        {/*
-          FE-913:`skipGlobalStyles` is to exclude global styles from unit tests.
-          The custom assertion `toHaveAttributeValue` fails with this turned on.
-          We should either move away from using this assertion (or even enzyme),
-          or try to resolve the error
-        */}
         {!props.skipGlobalStyles && <GlobalStyle />}
 
         {props.children}

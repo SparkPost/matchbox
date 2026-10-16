@@ -1,53 +1,57 @@
 import React from 'react';
+import { render } from 'test-utils';
 import Columns from '../Columns';
 import { Column } from '../../Column';
 import { tokens } from '@sparkpost/design-tokens';
 
 describe('Columns', () => {
-  const subject = props =>
-    global.mountStyled(
+  const subject = (props) =>
+    render(
       <Columns {...props} data-id="test-id">
         <Column width={1 / 2}>Column 1</Column>
         <Column width={1 / 2}>Column 2</Column>
       </Columns>,
-    );
+    ).container;
 
   it('should render data-id', () => {
     const wrapper = subject();
-    expect(wrapper.find('[data-id="test-id"]')).toExist();
+    expect(wrapper.querySelector('[data-id="test-id"]')).toBeInTheDocument();
   });
 
   it('renders with default props', () => {
     const wrapper = subject();
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('display', 'flex');
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('flex-wrap', 'nowrap');
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('display', 'flex');
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('flex-wrap', 'nowrap');
   });
 
   it('renders system props', () => {
     const wrapper = subject({ margin: tokens.spacing_200 });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin', tokens.spacing_200);
+    expect(wrapper.querySelectorAll('div')[0]).toHaveStyleRule('margin', tokens.spacing_200);
   });
 
   it('renders column space', () => {
     const wrapper = subject({ space: 400 });
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('margin-left', `-${tokens.spacing_400}`);
-    expect(wrapper.find('div').at(2)).toHaveStyleRule('margin-left', tokens.spacing_400);
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule(
+      'margin-left',
+      `-${tokens.spacing_400}`,
+    );
+    expect(wrapper.querySelectorAll('div')[2]).toHaveStyleRule('margin-left', tokens.spacing_400);
   });
 
   it('renders with correct alignment', () => {
     const wrapper = subject({ align: 'right', alignY: 'center' });
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('align-items', 'center');
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('justify-content', 'flex-end');
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('align-items', 'center');
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('justify-content', 'flex-end');
   });
 
   it('reverses row', () => {
     const wrapper = subject({ reverse: true });
-    expect(wrapper.find('div').at(1)).toHaveStyleRule('flex-direction', 'row-reverse');
+    expect(wrapper.querySelectorAll('div')[1]).toHaveStyleRule('flex-direction', 'row-reverse');
   });
 
   it('collapses columns with collapseBelow', () => {
     const fullWidthWrapper = subject({ collapseBelow: 'sm' });
-    expect(fullWidthWrapper.find('div').at(2)).toHaveStyleRule('width', '100%');
-    expect(fullWidthWrapper.find('div').at(3)).toHaveStyleRule('width', '100%');
+    expect(fullWidthWrapper.querySelectorAll('div')[2]).toHaveStyleRule('width', '100%');
+    expect(fullWidthWrapper.querySelectorAll('div')[3]).toHaveStyleRule('width', '100%');
   });
 });

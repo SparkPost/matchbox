@@ -1,31 +1,32 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import EmptyState from '../EmptyState';
 import { Picture } from '../../Picture';
 
 describe('EmptyState Components', () => {
-  const subject = props => global.mountStyled(<EmptyState {...props} />);
+  const subject = (props) => render(<EmptyState {...props} />).container;
 
   it('renders header correctly', () => {
     const wrapper = subject({ children: <EmptyState.Header>The Header</EmptyState.Header> });
-    expect(wrapper.text()).toEqual('The Header');
-    expect(wrapper.find('h1')).toExist();
+    expect(wrapper.textContent).toEqual('The Header');
+    expect(wrapper.querySelector('h1')).toBeInTheDocument();
   });
 
   it('renders header with and as prop correctly', () => {
     const wrapper = subject({
       children: <EmptyState.Header as="h3">The Header</EmptyState.Header>,
     });
-    expect(wrapper.find('h3')).toExist();
+    expect(wrapper.querySelector('h3')).toBeInTheDocument();
   });
 
   it('renders content correctly', () => {
     const wrapper = subject({ children: <EmptyState.Content>The Content</EmptyState.Content> });
-    expect(wrapper.text()).toEqual('The Content');
+    expect(wrapper.textContent).toEqual('The Content');
   });
 
   it('renders with an image', () => {
     let wrapper = subject({ children: <EmptyState.Image src="/test.jpg" /> });
-    expect(wrapper.find('img').props().src).toEqual('/test.jpg');
+    expect(wrapper.querySelector('img').getAttribute('src')).toEqual('/test.jpg');
   });
 
   it('renders media correctly', () => {
@@ -38,7 +39,7 @@ describe('EmptyState Components', () => {
         </EmptyState.Media>
       ),
     });
-    expect(wrapper.find('img').props().src).toEqual('/mediatest.jpg');
+    expect(wrapper.querySelector('img').getAttribute('src')).toEqual('/mediatest.jpg');
   });
 
   it('renders with actions', () => {
@@ -46,13 +47,13 @@ describe('EmptyState Components', () => {
     let wrapper = subject({
       children: <EmptyState.Action onClick={handleClick}>EmptyState Action</EmptyState.Action>,
     });
-    expect(wrapper.find('button').text()).toEqual('EmptyState Action');
-    wrapper.find('button').simulate('click');
+    expect(wrapper.querySelector('button').textContent).toEqual('EmptyState Action');
+    fireEvent.click(wrapper.querySelector('button'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it('renders a margin system prop correctly', () => {
     let wrapper = subject({ margin: '100px' });
-    expect(wrapper.find('div').at(0)).toHaveStyleRule('margin', '100px');
+    expect(wrapper.querySelectorAll('div')[0]).toHaveStyleRule('margin', '100px');
   });
 });

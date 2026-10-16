@@ -1,4 +1,5 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import { tokens } from '@sparkpost/design-tokens';
 import Tabs from '../Tabs';
 
@@ -8,32 +9,32 @@ describe('Tabs', () => {
     selected: 0,
     onSelect: jest.fn(),
   };
-  const subject = (props) => global.mountStyled(<Tabs {...defaultprops} {...props} />);
+  const subject = (props) => render(<Tabs {...defaultprops} {...props} />).container;
 
   it('renders button type correctly', () => {
     const wrapper = subject();
-    expect(wrapper.find('button').first().props().type).toEqual('button');
+    expect(wrapper.querySelector('button').getAttribute('type')).toEqual('button');
   });
 
   it('renders non-fitted styles', () => {
     const wrapper = subject();
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '0');
+    expect(wrapper.querySelectorAll('button')[0]).toHaveStyleRule('flex', '0');
   });
 
   it('renders fitted styles', () => {
     const wrapper = subject({ fitted: true });
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('flex', '1');
+    expect(wrapper.querySelectorAll('button')[0]).toHaveStyleRule('flex', '1');
   });
 
   it('renders with first tab selected', () => {
     const wrapper = subject();
-    expect(wrapper.find('button').at(0)).toHaveStyleRule('color', tokens.color_blue_700);
-    expect(wrapper.find('button').at(1)).toHaveStyleRule('color', tokens.color_gray_700);
+    expect(wrapper.querySelectorAll('button')[0]).toHaveStyleRule('color', tokens.color_blue_700);
+    expect(wrapper.querySelectorAll('button')[1]).toHaveStyleRule('color', tokens.color_gray_700);
   });
 
   it('handles clicking a tab', () => {
     const wrapper = subject();
-    wrapper.find('button').at(2).simulate('click');
+    fireEvent.click(wrapper.querySelectorAll('button')[2]);
     expect(defaultprops.onSelect).toHaveBeenCalledWith(2);
     expect(defaultprops.tabs[2].onClick).toHaveBeenCalledTimes(1);
   });
@@ -41,8 +42,8 @@ describe('Tabs', () => {
   it('renders system props', () => {
     const wrapper = subject({ mx: ['400', null, '10px'] });
     const media = 'screen and (min-width:800px)';
-    expect(wrapper).toHaveStyleRule('margin-left', '10px', { media });
-    expect(wrapper).toHaveStyleRule('margin-right', tokens.spacing_400);
+    expect(wrapper.firstChild).toHaveStyleRule('margin-left', '10px', { media });
+    expect(wrapper.firstChild).toHaveStyleRule('margin-right', tokens.spacing_400);
   });
 
   it('renders a custom tab component', () => {
@@ -55,8 +56,8 @@ describe('Tabs', () => {
         },
       ],
     });
-    expect(wrapper.find('a').text()).toEqual('Tab 4');
-    expect(wrapper.find('a').props().type).toBeUndefined();
+    expect(wrapper.querySelector('a').textContent).toEqual('Tab 4');
+    expect(wrapper.querySelector('a').getAttribute('type')).toBeNull();
   });
 
   it('renders with with a ref', () => {
@@ -72,7 +73,7 @@ describe('Tabs', () => {
         </>
       );
     }
-    global.mountStyled(<Test />);
+    render(<Test />).container;
     expect(document.activeElement.innerHTML.includes('Tab 1')).toBe(true);
     expect(document.activeElement.innerHTML.includes('not this')).toBe(false);
   });

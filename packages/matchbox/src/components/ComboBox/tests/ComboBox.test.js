@@ -17,6 +17,6 @@ describe('ComboBox Wrapper', () => {
     const { getByRole, getByText } = subject();
     expect(getByRole('textbox')).toBeTruthy();
     expect(getByRole('menuitem', { name: 'foo' })).toBeTruthy();
-    expect(getByText(/test help/g)).toBeTruthy();
+    expect(getByText(/test help/)).toBeTruthy();
   });
 });

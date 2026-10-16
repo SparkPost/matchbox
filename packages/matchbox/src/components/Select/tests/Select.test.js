@@ -1,54 +1,53 @@
 import React from 'react';
+import { render, fireEvent } from 'test-utils';
 import { Select } from '../../Select';
 
 describe('Select', () => {
-  const subject = props => global.mountStyled(<Select options={['option 1']} {...props} />);
+  const subject = (props) => render(<Select options={['option 1']} {...props} />).container;
 
   it('should render with a value', () => {
-    const wrapper = subject({ value: 'test-value', onChange: jest.fn() });
-    expect(wrapper.find('select').prop('value')).toEqual('test-value');
-    expect(wrapper.find('select').prop('aria-describedby')).toBeUndefined();
+    const wrapper = subject({ options: ['option 1', 'test-value'], value: 'test-value', onChange: jest.fn() });
+    expect(wrapper.querySelector('select').value).toEqual('test-value');
+    expect(wrapper.querySelector('select').getAttribute('aria-describedby')).toBeNull();
   });
 
   it('should render with required label', () => {
     const wrapper = subject({ required: true, label: 'test-label' });
-    expect(wrapper.find('label').text()).toEqual('test-label');
-    expect(wrapper.find('select')).toHaveAttributeValue('required', '');
+    expect(wrapper.querySelector('label').textContent).toEqual('test-label');
+    expect(wrapper.querySelector('select')).toHaveAttributeValue('required', '');
   });
 
   it('should render with optional label', () => {
     const wrapper = subject({ optional: true, label: 'test-label' });
-    expect(wrapper.find('label').text()).toEqual('test-labelOptional');
+    expect(wrapper.querySelector('label').textContent).toEqual('test-labelOptional');
   });
 
   it('should render with id', () => {
     const wrapper = subject({ id: 'test-id', label: 'test-label' });
-    expect(wrapper.find('label')).toHaveAttributeValue('for', 'test-id');
-    expect(wrapper.find('select')).toHaveAttributeValue('id', 'test-id');
+    expect(wrapper.querySelector('label')).toHaveAttributeValue('for', 'test-id');
+    expect(wrapper.querySelector('select')).toHaveAttributeValue('id', 'test-id');
   });
 
   it('should render with help text', () => {
     const wrapper = subject({ id: 'test-id', helpText: 'test-help' });
-    expect(
-      wrapper
-        .find('div')
-        .last()
-        .text(),
-    ).toEqual('test-help');
-    expect(wrapper.find('select')).toHaveAttributeValue('aria-describedby', 'test-id-helptext');
-    expect(wrapper.find('div').last()).toHaveAttributeValue('id', 'test-id-helptext');
+    expect(Array.from(wrapper.querySelectorAll('div')).pop().textContent).toEqual('test-help');
+    expect(wrapper.querySelector('select')).toHaveAttributeValue(
+      'aria-describedby',
+      'test-id-helptext',
+    );
+    expect(Array.from(wrapper.querySelectorAll('div')).pop()).toHaveAttributeValue('id', 'test-id-helptext');
   });
 
   it('should render with error', () => {
     const wrapper = subject({ id: 'test-id', error: 'test-error' });
-    expect(
-      wrapper
-        .find('[data-id="error-message"]')
-        .last()
-        .text(),
-    ).toEqual('test-error');
-    expect(wrapper.find('select')).toHaveAttributeValue('aria-describedby', 'test-id-error');
-    expect(wrapper.find('[data-id="error-message"]').last()).toHaveAttributeValue(
+    expect(Array.from(wrapper.querySelectorAll('[data-id="error-message"]')).pop().textContent).toEqual(
+      'test-error',
+    );
+    expect(wrapper.querySelector('select')).toHaveAttributeValue(
+      'aria-describedby',
+      'test-id-error',
+    );
+    expect(Array.from(wrapper.querySelectorAll('[data-id="error-message"]')).pop()).toHaveAttributeValue(
       'id',
       'test-id-error',
     );
@@ -56,7 +55,7 @@ describe('Select', () => {
 
   it('should render with error and helptext describedby', () => {
     const wrapper = subject({ id: 'test-id', error: 'test-error', helpText: 'test-help' });
-    expect(wrapper.find('select')).toHaveAttributeValue(
+    expect(wrapper.querySelector('select')).toHaveAttributeValue(
       'aria-describedby',
       'test-id-helptext test-id-error',
     );
@@ -64,18 +63,13 @@ describe('Select', () => {
 
   it('should render with error in label', () => {
     const wrapper = subject({ error: 'test-error', errorInLabel: true, label: 'test-label' });
-    expect(wrapper.find('label').text()).toEqual('test-labeltest-error');
+    expect(wrapper.querySelector('label').textContent).toEqual('test-labeltest-error');
   });
 
   it('should render string options', () => {
     const wrapper = subject({ options: ['1', '2'] });
-    expect(wrapper.find('option')).toHaveLength(2);
-    expect(
-      wrapper
-        .find('option')
-        .first()
-        .text(),
-    ).toEqual('1');
+    expect(wrapper.querySelectorAll('option')).toHaveLength(2);
+    expect(wrapper.querySelector('option').textContent).toEqual('1');
   });
 
   it('should render object options', () => {
@@ -85,29 +79,19 @@ describe('Select', () => {
         { value: '2', label: 'two' },
       ],
     });
-    expect(wrapper.find('option')).toHaveLength(2);
-    expect(
-      wrapper
-        .find('option')
-        .first()
-        .text(),
-    ).toEqual('one');
+    expect(wrapper.querySelectorAll('option')).toHaveLength(2);
+    expect(wrapper.querySelector('option').textContent).toEqual('one');
   });
 
   it('should render placeholder option', () => {
     const wrapper = subject({ placeholder: 'placeholder', placeholderValue: '1' });
-    expect(wrapper.find('option')).toHaveLength(2);
-    expect(
-      wrapper
-        .find('option')
-        .first()
-        .text(),
-    ).toEqual('placeholder');
+    expect(wrapper.querySelectorAll('option')).toHaveLength(2);
+    expect(wrapper.querySelector('option').textContent).toEqual('placeholder');
   });
 
   it('should render no options', () => {
     const wrapper = subject({ options: [] });
-    expect(wrapper.find('option')).toHaveLength(0);
+    expect(wrapper.querySelectorAll('option')).toHaveLength(0);
   });
 
   it('should invoke events', () => {
@@ -117,9 +101,9 @@ describe('Select', () => {
       onFocus: jest.fn(),
     };
     const wrapper = subject({ ...events });
-    wrapper.find('select').simulate('change');
-    wrapper.find('select').simulate('focus');
-    wrapper.find('select').simulate('blur');
+    fireEvent.change(wrapper.querySelector('select'));
+    fireEvent.focus(wrapper.querySelector('select'));
+    fireEvent.blur(wrapper.querySelector('select'));
     expect(events.onChange).toHaveBeenCalled();
     expect(events.onBlur).toHaveBeenCalled();
     expect(events.onFocus).toHaveBeenCalled();
@@ -137,7 +121,7 @@ describe('Select', () => {
         </>
       );
     }
-    global.mountStyled(<Test />);
+    render(<Test />).container;
     expect(document.activeElement.id).toEqual('test-select');
   });
 });

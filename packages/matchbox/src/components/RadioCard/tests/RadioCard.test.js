@@ -1,6 +1,6 @@
 import React from 'react';
 import RadioCard from '../RadioCard';
-import { render } from 'test-utils';
+import { render, fireEvent } from 'test-utils';
 
 describe('RadioCard', () => {
   const events = {
@@ -8,7 +8,7 @@ describe('RadioCard', () => {
     onBlur: jest.fn(),
     onFocus: jest.fn(),
   };
-  const subject = (props) => global.mountStyled(<RadioCard id="test-id" {...events} {...props} />);
+  const subject = (props) => render(<RadioCard id="test-id" {...events} {...props} />).container;
 
   it('renders with id and default attributes', () => {
     render(<RadioCard id="test-id" data-track="true" />);
@@ -18,31 +18,31 @@ describe('RadioCard', () => {
 
   it('renders checked, value, and name', () => {
     const wrapper = subject({ checked: true, value: 'test-value', name: 'test-name' });
-    expect(wrapper.find('input')).toHaveAttributeValue('checked', '');
-    expect(wrapper.find('input')).toHaveAttributeValue('value', 'test-value');
-    expect(wrapper.find('input')).toHaveAttributeValue('name', 'test-name');
+    expect(wrapper.querySelector('input')).toHaveAttributeValue('checked', '');
+    expect(wrapper.querySelector('input')).toHaveAttributeValue('value', 'test-value');
+    expect(wrapper.querySelector('input')).toHaveAttributeValue('name', 'test-name');
   });
 
   it('renders a label', () => {
     const wrapper = subject({ label: 'test-label' });
-    expect(wrapper.text()).toEqual('test-label');
+    expect(wrapper.textContent).toEqual('test-label');
   });
 
   it('renders a label and children', () => {
     const wrapper = subject({ label: 'test-label', children: <>test children</> });
-    expect(wrapper.text()).toEqual('test-labeltest children');
+    expect(wrapper.textContent).toEqual('test-labeltest children');
   });
 
   it('renders disabled', () => {
     const wrapper = subject({ disabled: true });
-    expect(wrapper.find('input')).toBeDisabled();
+    expect(wrapper.querySelector('input')).toBeDisabled();
   });
 
   it('should invoke events', () => {
     const wrapper = subject();
-    wrapper.find('input').simulate('change');
-    wrapper.find('input').simulate('focus');
-    wrapper.find('input').simulate('blur');
+    fireEvent.click(wrapper.querySelector('input'));
+    fireEvent.focus(wrapper.querySelector('input'));
+    fireEvent.blur(wrapper.querySelector('input'));
     expect(events.onChange).toHaveBeenCalled();
     expect(events.onBlur).toHaveBeenCalled();
     expect(events.onFocus).toHaveBeenCalled();
@@ -60,58 +60,58 @@ describe('RadioCard', () => {
         </>
       );
     }
-    global.mountStyled(<Test />);
+    render(<Test />).container;
     expect(document.activeElement.id).toEqual('test-card');
   });
 
   describe('Group', () => {
     it('renders disabled in a group', () => {
-      const wrapper = global.mountStyled(
+      const wrapper = render(
         <RadioCard.Group label="label">
           <RadioCard id="test-id1" disabled />
           <RadioCard id="test-id2" />
         </RadioCard.Group>,
-      );
-      expect(wrapper.find('input').at(0)).toBeDisabled();
-      expect(wrapper.find('input').at(1)).not.toBeDisabled();
+      ).container;
+      expect(wrapper.querySelectorAll('input')[0]).toBeDisabled();
+      expect(wrapper.querySelectorAll('input')[1]).not.toBeDisabled();
     });
 
     it('renders an optional and label', () => {
-      const wrapper = global.mountStyled(
+      const wrapper = render(
         <RadioCard.Group label="label" optional>
           <RadioCard id="test-id" />
         </RadioCard.Group>,
-      );
-      expect(wrapper.text()).toEqual('labelOptional');
+      ).container;
+      expect(wrapper.textContent).toEqual('labelOptional');
     });
 
     it('renders an horizontal orientation', () => {
-      const wrapper = global.mountStyled(
+      const wrapper = render(
         <RadioCard.Group label="label" orientation="horizontal">
           <RadioCard id="test-id" />
         </RadioCard.Group>,
-      );
-      expect(wrapper.find('#test-id')).toExist();
+      ).container;
+      expect(wrapper.querySelector('#test-id')).toBeInTheDocument();
     });
 
     it('renders a grid orientation', () => {
-      const wrapper = global.mountStyled(
+      const wrapper = render(
         <RadioCard.Group label="label" orientation="grid">
           <RadioCard id="test-id" />
         </RadioCard.Group>,
-      );
-      expect(wrapper.find('#test-id')).toExist();
+      ).container;
+      expect(wrapper.querySelector('#test-id')).toBeInTheDocument();
     });
 
     it('renders a compact space when vertical', () => {
-      const wrapper = global.mountStyled(
+      const wrapper = render(
         <RadioCard.Group label="label" space="compact">
           <RadioCard id="test-id" />
           <RadioCard id="test-id-2" />
         </RadioCard.Group>,
-      );
-      expect(wrapper.find('#test-id')).toExist();
-      expect(wrapper.find('#test-id-2')).toExist();
+      ).container;
+      expect(wrapper.querySelector('#test-id')).toBeInTheDocument();
+      expect(wrapper.querySelector('#test-id-2')).toBeInTheDocument();
     });
 
     it('renders helpText', () => {

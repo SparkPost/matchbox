@@ -1,29 +1,23 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from 'test-utils';
 
 import Previous from '../Previous';
 
 describe('Pager.Previous', () => {
-  let wrapper = global.mountStyled(<Previous />);
-
   it('renders screen reader text', () => {
-    expect(
-      wrapper
-        .find('span')
-        .first()
-        .text(),
-    ).toEqual('Previous');
+    const wrapper = render(<Previous />).container;
+    expect(wrapper.querySelector('span').textContent).toEqual('Previous');
   });
 
   it('renders disabled button', () => {
-    wrapper = global.mountStyled(<Previous disabled />);
-    expect(wrapper.find(Previous).is('[disabled]')).toBe(true);
+    const wrapper = render(<Previous disabled />).container;
+    expect(wrapper.querySelector('button')).toBeDisabled();
   });
 
   it('calls click handler', () => {
     const handleClick = jest.fn();
-    const wrapper = shallow(<Previous onClick={handleClick} />);
-    wrapper.simulate('click');
+    const wrapper = render(<Previous onClick={handleClick} />).container;
+    fireEvent.click(wrapper.querySelector('button'));
     expect(handleClick).toHaveBeenCalled();
   });
 });

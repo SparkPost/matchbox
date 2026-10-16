@@ -1,28 +1,29 @@
+/**
+ * Asserts that an element's attribute equals `expected`. For `style`, `expected` is an object of
+ * declarations that must all appear in the inline style.
+ * @param {Element | null} received
+ * @param {string} attr
+ * @param {string | Record<string, string>} expected
+ * @returns {{ pass: boolean, message: () => string }}
+ * @public
+ */
 export function toHaveAttributeValue(received, attr, expected) {
-  let recievedValue;
-
-  if (received.getDOMNode) {
-    // For Enzyme's shallow and mount methods
-    recievedValue = received.getDOMNode().getAttribute(attr);
-  } else {
-    // For Cheerio wrappers from Enzyme's render method
-    recievedValue = received.attr(attr);
-  }
+  const receivedValue = received ? received.getAttribute(attr) : undefined;
 
   let pass;
 
   if (attr === 'style') {
     const styleSpec = Object.keys(expected).map((prop) => `${prop}:\\s${expected[prop]};`);
-    pass = new RegExp(styleSpec).test(recievedValue)
+    pass = new RegExp(styleSpec).test(receivedValue);
   } else {
-    pass = recievedValue === expected;
+    pass = receivedValue === expected;
   }
 
   return {
     pass,
     message: () =>
-      `expected ${this.utils.printReceived(
-        recievedValue
-      )} to have value ${this.utils.printExpected(expected)}`
+      `expected ${this.utils.printReceived(receivedValue)} to have value ${this.utils.printExpected(
+        expected,
+      )}`,
   };
 }
