@@ -42,8 +42,16 @@ const StyledContent = styled('div')`
 `;
 
 const Modal = React.forwardRef(function Modal(props, userRef) {
-  const { onClose, children, portalId, className, showCloseButton, maxWidth, open, ...rest } =
-    props;
+  const {
+    onClose,
+    children,
+    portalId,
+    className,
+    showCloseButton,
+    maxWidth = '1200',
+    open,
+    ...rest
+  } = props;
   const container = useRef();
   const content = useRef();
 
@@ -160,10 +168,6 @@ Modal.propTypes = {
   portalId: PropTypes.string,
   ...createPropTypes(padding.propNames),
   ...createPropTypes(maxWidth.propNames),
-};
-
-Modal.defaultProps = {
-  maxWidth: '1200',
 };
 
 export default Modal;
