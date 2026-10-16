@@ -1,19 +1,25 @@
 import React from 'react';
 import { buttonFrom, buttonsFrom } from '../utils';
-import { getLoaderColor } from '../Button';
+import Button, { getLoaderColor } from '../Button';
 
 describe('Button Utils', () => {
   describe('buttonFrom', () => {
     it('renders correctly', () => {
-      expect(
-        buttonFrom({ content: <span>button content</span>, disabled: false }),
-      ).toMatchSnapshot();
+      const button = buttonFrom({ content: <span>button content</span>, disabled: false });
+      expect(button.type).toBe(Button);
+      expect(button.props).toEqual({ children: <span>button content</span>, disabled: false });
     });
 
     it('passes any custom overrides', () => {
-      expect(
-        buttonFrom({ content: <span>button content</span> }, { foo: 'bar', type: 'submit' }),
-      ).toMatchSnapshot();
+      const button = buttonFrom(
+        { content: <span>button content</span> },
+        { foo: 'bar', type: 'submit' },
+      );
+      expect(button.props).toEqual({
+        children: <span>button content</span>,
+        foo: 'bar',
+        type: 'submit',
+      });
     });
   });
 
@@ -24,7 +30,16 @@ describe('Button Utils', () => {
         { content: <span>button 2 content</span>, action: {} },
       ];
 
-      expect(buttonsFrom(actions)).toMatchSnapshot();
+      const group = buttonsFrom(actions);
+      expect(group.type).toBe(Button.Group);
+      const [first, second] = group.props.children;
+      expect(first.key).toBe('0');
+      expect(first.props).toEqual({
+        children: <span>button 1 content</span>,
+        action: { content: <span>foo</span> },
+      });
+      expect(second.key).toBe('1');
+      expect(second.props).toEqual({ children: <span>button 2 content</span>, action: {} });
     });
 
     it('returns nothing without actions', () => {
