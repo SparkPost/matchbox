@@ -111,7 +111,7 @@ const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(function Drawer(pro
 
   return (
     <>
-      <ScrollLock isActive={open} />
+      <ScrollLock isActive={open} accountForScrollbars />
       <Portal containerId={portalId}>
         <Transition
           mountOnEnter

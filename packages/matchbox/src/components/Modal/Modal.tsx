@@ -99,7 +99,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
 
   return (
     <>
-      <ScrollLock isActive={open} />
+      <ScrollLock isActive={open} accountForScrollbars />
       <Portal containerId={portalId}>
         <TouchScrollable>
           <StyledBase $open={open} className={className} role="dialog" aria-modal="true">

@@ -75,7 +75,7 @@ const Modal = React.forwardRef(function Modal(props, userRef) {
 
   return (
     <>
-      <ScrollLock isActive={open} />
+      <ScrollLock isActive={open} accountForScrollbars />
       <Portal containerId={portalId}>
         <TouchScrollable>
           <StyledBase
