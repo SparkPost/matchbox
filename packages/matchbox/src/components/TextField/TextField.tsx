@@ -26,7 +26,7 @@ const StyledInputWrapper = styled(Box)`
   ${focusOutline({ modifier: '&:focus-within', offset: '2px' })}
 `;
 
-const StyledInput = styled(Box) <BoxProps>`
+const StyledInput = styled(Box)<BoxProps>`
   outline: none;
   &[type='number'],
   &[type='number']::-webkit-inner-spin-button,
@@ -42,7 +42,7 @@ const StyledButton = styled.button<
   cursor: pointer;
 `;
 
-const StyledNumberControls = styled(Box) <BoxProps & { $disabled?: boolean }>`
+const StyledNumberControls = styled(Box)<BoxProps & { $disabled?: boolean }>`
   padding: 0 6px;
   position: absolute;
   right: 0;
