@@ -40,7 +40,7 @@ const StyledContent = styled('div')`
 
 export type TooltipProps = {
   as?: 'span' | 'div';
-  id: string;
+  id?: string;
   content?: React.ReactNode;
   /**
    * Disables hover events

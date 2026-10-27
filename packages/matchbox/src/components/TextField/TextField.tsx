@@ -165,7 +165,7 @@ const PrefixOrSuffix = React.forwardRef<HTMLSpanElement, PrefixOrSuffixProps>(
 );
 
 type SharedTextFieldProps = {
-  id: string; // Required
+  id?: string;
   align?: 'left' | 'center' | 'right';
   connectLeft?: React.ReactNode;
   connectRight?: React.ReactNode;

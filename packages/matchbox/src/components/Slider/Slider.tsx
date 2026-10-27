@@ -93,8 +93,9 @@ export type SliderProps = {
   ticks?: { [k: number]: React.ReactNode };
   /**
    * A value to programatically control the slider
+   * Numeric strings are coerced, and an empty string is read as zero within the slider's bounds
    */
-  value?: number;
+  value?: number | string;
   /**
    * Describes a side-effect relationship with another DOM element
    */
@@ -153,8 +154,9 @@ function Slider(props: SliderProps): JSX.Element {
 
   // Sets internal value when value is controlled externally
   React.useEffect(() => {
-    if (!isNaN(value) && isFinite(value)) {
-      setValue(value);
+    const numericValue = Number(value);
+    if (!isNaN(numericValue) && isFinite(numericValue)) {
+      setValue(numericValue);
     }
   }, [value]);
 

@@ -113,7 +113,7 @@ export type ButtonProps = {
    */
   Component?: React.ElementType;
   primary?: boolean;
-  color?: 'red' | 'gray' | 'blue' | 'white';
+  color?: 'red' | 'gray' | 'blue' | 'white' | 'orange';
   disabled?: boolean;
   /**
    * @deprecated Use `color` instead

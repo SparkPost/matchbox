@@ -4,7 +4,7 @@ export type SelectOptionProps =
   | string
   | number
   | ({
-      value: string | number;
+      value?: string | number;
       label: string;
     } & React.ComponentPropsWithRef<'option'>);
 

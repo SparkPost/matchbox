@@ -23,7 +23,7 @@ export type ComboBoxTextFieldProps = {
   error?: string;
   errorInLabel?: boolean;
   helpText?: React.ReactNode;
-  id: string;
+  id?: string;
   itemToString?: (item: any) => string;
   label?: string;
   labelHidden?: boolean;

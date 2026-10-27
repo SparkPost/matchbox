@@ -20,7 +20,7 @@ export type DrawerProps = {
   children?: React.ReactNode;
   closeOnEscape?: boolean;
   closeOnOutsideClick?: boolean;
-  id: string;
+  id?: string;
   onChange?: (open?: boolean) => void;
   onClose?: () => void;
   open: boolean;

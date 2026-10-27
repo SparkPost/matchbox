@@ -12,7 +12,7 @@ export type LabelProps = Pick<React.ComponentProps<typeof Box>, 'fontWeight' | '
   htmlFor?: string;
   className?: string;
   labelHidden?: boolean;
-  as?: 'label' | 'span' | 'div' | 'legend';
+  as?: 'label' | 'span' | 'div' | 'legend' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
 function Label(props: LabelProps): JSX.Element {

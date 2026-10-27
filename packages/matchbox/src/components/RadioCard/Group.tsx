@@ -44,7 +44,7 @@ export type RadioCardGroupProps = {
   collapseBelow?: Breakpoints;
   'data-id'?: string;
   helpText?: React.ReactNode;
-  label: string;
+  label?: string;
   labelHidden?: boolean;
   optional?: boolean;
   id?: string;
